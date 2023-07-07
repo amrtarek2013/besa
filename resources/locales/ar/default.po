@@ -1,0 +1,863 @@
+msgid "Users"
+msgstr "المستخدمين"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+
+msgid "List Users"
+msgstr "قائمة المستخدمين"
+
+msgid "List"
+msgstr "قائمة "
+
+msgid "Calender"
+msgstr "تقويم "
+
+msgid "Manage"
+msgstr "إدارة"
+
+
+msgid "From"
+msgstr "من"
+
+msgid "To"
+msgstr "الى"
+
+msgid "Show/Hide Filters"
+msgstr "إظهار/إخفاء مصفيات البحث"
+
+
+msgid "Add"
+msgstr "اضافة"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Details"
+msgstr "تفاصيل"
+
+
+
+msgid "Add New"
+msgstr "اضافة جديد"
+
+msgid "Add new"
+msgstr "اضافة جديد"
+
+msgid "Log Out"
+msgstr "تسجيل الخروج"
+
+msgid "Login As"
+msgstr "تسجيل دخول كـ"
+
+msgid "View Live Site"
+msgstr "معاينة الصفحة"
+
+
+msgid "General Configurations"
+msgstr "الإعدادات العامة"
+
+msgid "Manage Basic"
+msgstr "إدارة الإعدادات العامة"
+
+
+msgid "Web Site"
+msgstr "رابط الموقع"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "New Password"
+msgstr "كلمة السر الجديدة"
+
+msgid "Link"
+msgstr "رابط"
+
+
+
+msgid "Icon"
+msgstr "رمز"
+
+msgid "Parent"
+msgstr "تابع لـ"
+
+
+msgid "Profile"
+msgstr "الملف الشخصى"
+
+
+msgid "Name"
+msgstr "الإسم "
+
+
+
+msgid "Phone"
+msgstr "رقم التليفون"
+
+msgid "Mobile"
+msgstr "رقم الجوال"
+
+msgid "Mobile Phone"
+msgstr "الهاتف الجوال"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Confirm Email"
+msgstr "تأكيد البريد الإلكتروني"
+
+
+msgid "Logo"
+msgstr "الشعار"
+
+msgid "Created"
+msgstr "وقت الاضافة"
+
+msgid "Modified"
+msgstr "وقت التعديل"
+
+msgid "Go"
+msgstr "نفذ"
+
+msgid "Update Display Order"
+msgstr "تحديث ترتيب العرض"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "Preview"
+msgstr "عرض"
+
+
+msgid "Image size"
+msgstr "حجم/ابعاد الصورة"
+
+msgid "Choose file"
+msgstr "اختر ملف"
+
+msgid "Video"
+msgstr "فيديو"
+
+msgid "Description"
+msgstr "الوصف بالانجليزية"
+
+
+msgid "Description Ar"
+msgstr "الوصف بالعربية"
+
+msgid "Code"
+msgstr "الكود"
+
+msgid "Display Order"
+msgstr "ترتيب العرض"
+
+
+
+msgid "Image"
+msgstr "الصورة"
+
+msgid "Active"
+msgstr "مفعل"
+
+
+msgid "Confirm"
+msgstr "تفعيل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Save As New"
+msgstr "حفظ كعنصر جديد"
+
+msgid "Browse"
+msgstr "إستعراض"
+
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Owner"
+msgstr "المالك"
+
+
+msgid "Actions"
+msgstr "العمليات"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Export"
+msgstr "تصدير/استخراج"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Export to csv"
+msgstr "تصدير/استخراج الى CSV"
+
+msgid "Delimited"
+msgstr "محدد "
+
+msgid "Dump CSV File"
+msgstr "تصدير الى  ملف CSV "
+
+
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "With Selected"
+msgstr "مع تحديد"
+
+
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "صفحة {{page}} من {{pages}}, عرض {{current}} صف(صفوف) من {{count}} اجمالى"
+
+
+
+msgid "Clear"
+msgstr "مسح"
+
+msgid "ar"
+msgstr "اللغة العربية"
+
+
+msgid "en"
+msgstr "English"
+
+
+msgid "Arabic"
+msgstr "عربي"
+
+msgid "Filter"
+msgstr "تصفية"
+
+msgid "Pages"
+msgstr "الصفحات"
+
+
+msgid "Emails"
+msgstr "البريد الالكترونى"
+
+
+
+
+msgid "Site Name"
+msgstr "اسم الموقع"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "No"
+msgstr "لا"
+
+msgid "avatar"
+msgstr "الصورة الرمزية"
+
+msgid "Start Time"
+msgstr "وقت البداية"
+
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+
+msgid "System Emails"
+msgstr "ادارة الايميلات"
+
+msgid "[Any Active]"
+msgstr "اختر الحالة"
+
+
+msgid "Not Active"
+msgstr "غير نشط"
+
+
+
+msgid "Send"
+msgstr "ارسال"
+
+
+
+msgid "[Select]"
+msgstr "اختر/حدد"
+
+msgid "Select"
+msgstr "اختر"
+
+
+msgid "Is Superadmin"
+msgstr "مشرف الموقع"
+
+
+
+msgid "Take the Exam Online"
+msgstr "اجراء الامتحان عبر الإنترنت"
+
+msgid "Take Exam in a Test Center"
+msgstr "اجراء الامتحان في مركز اختبار"
+
+msgid "or"
+msgstr "أو"
+
+msgid "Back"
+msgstr "رجوع"
+
+msgid "Versions"
+msgstr "اصدارات الشهادة"
+
+msgid "Version"
+msgstr "اصدارا"
+
+
+
+
+
+
+
+msgid "All rights reserved"
+msgstr "جميع الحقوق محفوظة"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Admin Dashboard"
+msgstr "لوحة التحكم"
+
+msgid "Admin Dashboard for BESA"
+msgstr "لوحة تحكم تطبيق BESA_Ar"
+
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+msgid "Dashboard1"
+msgstr "الرئيسية"
+
+msgid "Statistics"
+msgstr "الإحصائيات"
+
+msgid "statistics"
+msgstr "الإحصائيات"
+
+msgid "Copyright"
+msgstr "حقوق النشر"
+
+msgid "BESA"
+msgstr "BESA_Ar"
+
+
+msgid "Total registered users"
+msgstr "إجمالي المستخدمين المسجلين"
+
+msgid "Total uploaded files"
+msgstr "إجمالي الملفات المرفوعة"
+
+msgid "Max reached lesson"
+msgstr "أقصي درس تم الوصول إليه"
+
+msgid "Lesson"
+msgstr "درس"
+
+msgid "Users Per Country"
+msgstr "المستخدمون في البلاد"
+
+msgid "Users per country"
+msgstr "المستخدمون في البلاد"
+
+msgid "Users Per Lesson"
+msgstr "المستخدمون في كل درس"
+
+msgid "Users per lesson"
+msgstr "المستخدمون في كل درس"
+
+msgid "Users per lesson Report"
+msgstr "تقرير المستخدمين في كل درس"
+
+msgid "Total users per lesson"
+msgstr "إجمالي المستخدمون في كل درس"
+
+msgid "Users Per Lessons"
+msgstr "المستخدمون في كل درس"
+
+msgid "Users Per Day"
+msgstr "عدد المسجلين في اليوم"
+
+msgid "Total users per day"
+msgstr "إجمالي عدد المسجلين في اليوم"
+
+msgid "Users per day"
+msgstr "عدد المسجلين في اليوم"
+
+msgid "Users per day Report"
+msgstr "تقرير أعداد المسجلين في اليوم"
+
+msgid "Users Per Month"
+msgstr "عدد المسجلين في الشهر"
+
+msgid "Users per month"
+msgstr "عدد المسجلين في الشهر"
+
+msgid "Total users per month"
+msgstr "إجمالي عدد المسجلين في الشهر"
+
+msgid "Users per month Report"
+msgstr "تقرير أعداد المسجلين في الشهر"
+
+msgid "Month"
+msgstr "الشهر"
+
+msgid "Day"
+msgstr "اليوم"
+
+#----------------
+msgid "Su"
+msgstr "أحد"
+
+msgid "Mo"
+msgstr "إثنين"
+
+msgid "Tu"
+msgstr "ثلاثاء"
+
+msgid "We"
+msgstr "أربعاء"
+
+msgid "Th"
+msgstr "خميس"
+
+msgid "Fr"
+msgstr "جمعة"
+
+msgid "Sa"
+msgstr "سبت"
+#----------------
+msgid "Sun"
+msgstr "أحد"
+
+msgid "Mon"
+msgstr "إثنين"
+
+msgid "Tue"
+msgstr "ثلاثاء"
+
+msgid "Wed"
+msgstr "أربعاء"
+
+msgid "Thu"
+msgstr "خميس"
+
+msgid "Fri"
+msgstr "جمعة"
+
+msgid "Sat"
+msgstr "سبت"
+#----------------
+msgid "January"
+msgstr "يناير"
+
+msgid "February"
+msgstr "فبراير"
+
+msgid "March"
+msgstr "مارس"
+
+msgid "April"
+msgstr "أبريل"
+
+msgid "May"
+msgstr "مايو"
+
+msgid "June"
+msgstr "يونيو"
+
+msgid "July"
+msgstr "يوليو"
+
+msgid "August"
+msgstr "أغسطس"
+
+msgid "September"
+msgstr "سبتمبر"
+
+msgid "October"
+msgstr "أكتوبر"
+
+msgid "November"
+msgstr "نوفمبر"
+
+msgid "December"
+msgstr "ديسمبر"
+
+#----------------
+msgid "Jan"
+msgstr "يناير"
+
+msgid "Feb"
+msgstr "فبراير"
+
+msgid "Mar"
+msgstr "مارس"
+
+msgid "Apr"
+msgstr "أبريل"
+
+msgid "May"
+msgstr "مايو"
+
+msgid "Jun"
+msgstr "يونيو"
+
+msgid "Jul"
+msgstr "يوليو"
+
+msgid "Aug"
+msgstr "أغسطس"
+
+msgid "Sep"
+msgstr "سبتمبر"
+
+msgid "Oct"
+msgstr "أكتوبر"
+
+msgid "Nov"
+msgstr "نوفمبر"
+
+msgid "Dec"
+msgstr "ديسمبر"
+#-------------------
+
+msgid "From Date"
+msgstr "من تاريخ"
+
+msgid "To Date"
+msgstr "إلي تاريخ"
+
+msgid "Registered Users Per Country"
+msgstr "المستخدمون في كل دولة"
+
+msgid "Total users per country"
+msgstr "إجمالي المستخدمين لكل دولة"
+
+msgid "Number of users"
+msgstr "عدد المستخدمين"
+
+msgid "Total Number of users"
+msgstr "إجمالي عدد المستخدمين"
+
+msgid "Users per country Report"
+msgstr "تقرير المستخدمين لكل دولة"
+
+
+
+msgid "Country"
+msgstr "الدولة"
+
+
+msgid "Admins list"
+msgstr "قائمة المسؤولين"
+
+msgid "Admins List"
+msgstr "قائمة المسؤولين"
+
+msgid "Admins"
+msgstr "المسؤولين"
+
+msgid "admins"
+msgstr "المسؤولين"
+
+msgid "Roles"
+msgstr "الوظائف"
+
+msgid "Role"
+msgstr "وظيفة"
+
+msgid "Roles list"
+msgstr "قائمة الوظائف"
+
+msgid "Roles List"
+msgstr "قائمة الوظائف"
+
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#-------------------- List-----------------
+msgid "Actions"
+msgstr "العمليات"
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Print"
+msgstr "طباعة"
+
+msgid "Column visibility"
+msgstr "اختيار الأعمدة"
+
+
+
+
+
+msgid "Previous"
+msgstr "السابق"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "First"
+msgstr "الأول"
+
+msgid "Last"
+msgstr "الأخير"
+
+msgid "No data available in table"
+msgstr "لا توجد بيانات"
+
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "إظهار _START_ إلي _END_ من _TOTAL_ مدخلات"
+
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "إظهار 0 إلي 0 من 0 مدخلات"
+
+msgid "Loading..."
+msgstr "تحميل..."
+
+msgid "Processing..."
+msgstr "معالجة..."
+
+msgid "No matching records found"
+msgstr "لا توجد سجلات مطابقة"
+
+msgid "ID"
+msgstr "المعرف"
+
+msgid "Username"
+msgstr "الإسم"
+
+msgid "Created"
+msgstr "تاريخ الإنشاء"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Repeat Password"
+msgstr "إعادة كتابة كلمة المرور"
+
+
+msgid "Add admin"
+msgstr "إضافة مسئول"
+
+msgid "Edit admin"
+msgstr "تعديل بيانات مسئول"
+
+msgid "Add role"
+msgstr "إضافة وظيفة"
+
+msgid "Edit role"
+msgstr "تعديل وظيفة"
+
+msgid "Submit"
+msgstr "حفظ"
+
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+
+msgid "Role Permissions"
+msgstr "صلاحيات الوظيفة"
+
+
+
+#-------------------------------------
+msgid "Registered users"
+msgstr "المستخدمون المسجلون"
+
+msgid "Total Null Uploads"
+msgstr "إجمالي التسجيلات الخاطئة"
+
+msgid "countries"
+msgstr "دولة"
+
+msgid "Active Users in"
+msgstr "المستخدمون النشطون في"
+
+msgid "Items having uploads"
+msgstr "العناصر التي بها تسجيلات"
+
+msgid "Users Statistics"
+msgstr "إحصائيات المستخدمين"
+
+msgid "Users During The Day"
+msgstr "المسجلون خلال اليوم"
+
+msgid "Uploads Statistics"
+msgstr "إحصائيات التسجيلات"
+
+msgid "Uploads During The Day"
+msgstr "التسجيلات خلال اليوم"
+
+msgid "Uploads Per Day"
+msgstr "التسجيلات في اليوم"
+
+msgid "Uploads per day"
+msgstr "التسجيلات في اليوم"
+
+msgid "Uploads Per Month"
+msgstr "التسجيلات في الشهر"
+
+msgid "Uploads per month"
+msgstr "التسجيلات في الشهر"
+
+msgid "Uploads Per Lesson"
+msgstr "التسجيلات لكل درس"
+
+msgid "Uploads per lesson"
+msgstr "التسجيلات لكل درس"
+
+msgid "Uploads per lesson Report"
+msgstr "تقرير التسجيلات لكل درس"
+
+msgid "Uploads Per Item"
+msgstr "التسجيلات لكل عنصر"
+
+msgid "Uploads per item"
+msgstr "التسجيلات لكل عنصر"
+
+msgid "Uploads per item Report"
+msgstr "تقرير التسجيلات لكل عنصر"
+
+msgid "Total uploads per item"
+msgstr "إجمالي التسجيلات لكل عنصر"
+
+msgid "Configurations List"
+msgstr "قائمة الإعدادات"
+
+msgid "General Configurations List"
+msgstr "قائمة الإعدادات"
+
+msgid "Time Frame"
+msgstr "الإطار الزمني"
+
+msgid "Time Zone"
+msgstr "المنطقة الزمنية"
+
+msgid "15 Minutes"
+msgstr "15 دقيقة"
+
+msgid "30 Minutes"
+msgstr "30 دقيقة"
+
+msgid "45 Minutes"
+msgstr "45 دقيقة"
+
+msgid "An Hour"
+msgstr "ساعة"
+
+msgid "Two Hours"
+msgstr "ساعتان"
+
+msgid "Three Hours"
+msgstr "ثلاث ساعات "
+
+msgid "Four Hours"
+msgstr "أربع ساعات"
+
+msgid "Five Hours"
+msgstr "خمة ساعات"
+
+msgid "Six Hours"
+msgstr "ست ساعات"
+
+msgid "Seven Hours"
+msgstr "سبع ساعات"
+
+msgid "Eight Hours"
+msgstr "ثماني ساعات"
+
+msgid "Nine Hours"
+msgstr "تسع ساعات"
+
+msgid "Ten Hours"
+msgstr "عشر ساعات"
+
+msgid "Eleven Hours"
+msgstr "إحدي عشر ساعة"
+
+msgid "Twelve Hours"
+msgstr "إثني عشر ساعة"
+
+msgid "GMT"
+msgstr "توقيت غرينيتش"
+
+msgid "Makka"
+msgstr "مكة المكرمة"
+
+msgid "Egypt"
+msgstr "مصر"
+
+msgid "Day Hours"
+msgstr "ساعات اليوم"
+
+msgid "Total users"
+msgstr "إجمالي المستخدمون"
+
+msgid "Users During The Day Report"
+msgstr "تقريرالمسجلون خلال اليوم"
+
+msgid "Hour"
+msgstr "الساعة"
+
+msgid "Label"
+msgstr "اسم المدخل"
+
+msgid "Value"
+msgstr "القيمة"
+
+msgid "Edit configuration"
+msgstr "تعديل الإعدادات"
+
+msgid "Primary URL"
+msgstr "الرابط الأساسي"
+
+msgid "Secondary URL"
+msgstr "الرابط الثانوي"
+
+msgid "Number of uploads"
+msgstr "عدد التسجيلات"
+
+msgid "Total Uploads"
+msgstr "إجمالي التسجيلات"
+
+msgid "Uploads During The Day Report"
+msgstr "تقرير التسجيلات خلال اليوم"
+
+msgid "Total uploads per day"
+msgstr "إجمالي التسجيلات في اليوم"
+
+msgid "Total uploads per month"
+msgstr "إجمالي التسجيلات في الشهر"
+
+msgid "Total uploads per lesson"
+msgstr "إجمالي التسجيلات لكل درس"
+
+msgid "Uploads per month Report"
+msgstr "تقرير التسجيلات في الشهر"
+
+msgid "Uploads per day Report"
+msgstr "تقرير التسجيلات في اليوم"
+
+msgid "Total Number of uploads"
+msgstr "إجمالي عدد التسجيلات"
+
+msgid "Item"
+msgstr "العنصر"
+
+msgid ""
+msgstr ""
+msgid ""
+msgstr ""

@@ -1,0 +1,1 @@
+<?php echo $this->element('courses_list', ['courses' => $courses]); ?>

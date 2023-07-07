@@ -1,0 +1,1 @@
+<?=$g_configs['general']['txt.site_name']?> App

@@ -1,0 +1,131 @@
+<section class="result">
+    <div class=" row-result">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid-container-3col">
+                        <?php
+
+                        // print_r($courses);
+                        if (!empty($courses)) : ?>
+                            <?php foreach ($courses as $course) :
+
+                            ?>
+                                <div class="box-result" id="box-result-<?= $course['id'] ?>">
+                                    <h4 class="title-result"><?= $course['course']['course_name'] ?></h4>
+                                    <p class="education"><?= $course['university']['university_name'] ?></p>
+                                    <p class="address">
+                                        <span class="underline">
+                                            <a href="#">
+                                                <?= $course['university']['address'] ?>
+                                            </a>
+                                        </span>
+                                        <span class="normal">THE world university rank: <?= $course['university']['rank'] ?></span>
+                                    </p>
+                                    <div class="courses">
+                                        <div class="left">
+                                            <p>Course Qualification</p>
+                                            <p class="green"><?= $course['service']['title'] ?></p>
+                                        </div>
+                                        <div class="right">
+                                            <p>Total course fee</p>
+                                            <p class="green">USD <?= number_format($course['fees'], 2) ?></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="icons">
+                                        <div class="addingwish" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($wishLists[$course['id']]) ? 'delete' : 'add' ?>">
+                                            <div class="circle-icon">
+                                                <img id="wish-<?= $course['id'] ?>" src="/img/icon/<?= isset($wishLists[$course['id']]) ? 'wish-list-marked.svg' : 'wish-list.svg' ?>" alt="">
+                                            </div>
+                                            <span class="green">Wish List</span>
+                                        </div>
+
+                                        <div>
+
+
+                                            <a href="javascript:void(0)">
+                                                <div class="circle-icon wish-red">
+                                                    <img src="/img/icon/more-details.svg" alt="">
+                                                </div>
+                                                <span class="green">More Details</span>
+                                            </a>
+                                        </div>
+
+                                        <div>
+                                            <div class="circle-icon">
+                                                <img src="/img/icon/aplly-now-green.svg" alt="">
+                                            </div>
+                                            <span class="green">Apply Now</span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="button-next-prev">
+        <a href="#">
+            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+        </a>
+        <a href="#">
+            <img src="/img/icon/chevron-circle-next.svg" alt="">
+
+        </a>
+
+    </div> -->
+</section>
+
+<script>
+    var current_controller = '<?= strtolower($this->request->getParam('controller')) ?>';
+    var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
+    var busy = false;
+    $(document).on('click', '.addingwish', function(e) {
+
+        if (!busy) {
+            let el = this;
+            busy = true;
+            let courseid = $(el).data('courseid');
+            $.ajax({
+                url: "/wish-lists/add/" + courseid + "/" + $(el).data('action'),
+                method: "get",
+                data: {},
+                success: function(result) {
+                    // $$(el).html(data);
+                    // console.log(result);
+
+                    result = JSON.parse(result);
+                    // console.log(esult);
+                    if (result.status != 'deleted') {
+                        $(el).data('action', 'delete');
+
+                        $(el).attr('data-action', 'delete');
+                        $(el).prop('data-action', 'delete');
+                        $('img#wish-' + courseid).attr('src', '/img/icon/wish-list-marked.svg');
+                    } else {
+                        $(el).data('action', 'add');
+
+                        $(el).attr('data-action', 'add');
+                        $(el).prop('data-action', 'add');
+                        $('img#wish-' + courseid).attr('src', '/img/icon/wish-list.svg');
+
+                        if (current_controller == 'wishlists')
+                            $('#box-result-' + courseid).hide(3000);
+
+                    }
+                    alert(result.message);
+
+
+                    busy = false;
+
+                }
+            });
+        }
+    });
+</script>

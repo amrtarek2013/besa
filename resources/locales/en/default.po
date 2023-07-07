@@ -1,0 +1,137 @@
+msgid "ar1"
+msgstr "إملأ الاستمارة باللغة العربية"
+
+msgid "ar"
+msgstr "اللغة العربية"
+
+msgid "Arabic"
+msgstr "عربى"
+
+msgid "University Admin Id"
+msgstr "University Admin"
+
+msgid "University Admin"
+msgstr "University Admin"
+
+msgid "University Admins"
+msgstr "University Admins"
+
+msgid "University Id"
+msgstr "University"
+
+msgid "University"
+msgstr "University"
+
+msgid "Universities"
+msgstr "Universities"
+
+msgid "Branch Id"
+msgstr "Branch"
+
+msgid "Building Id"
+msgstr "Building"
+
+msgid "Lab Id"
+msgstr "Lab"
+
+msgid "Device Id"
+msgstr "Device"
+
+msgid "Certification Id"
+msgstr "Certification"
+
+msgid "Proctor Id"
+msgstr "Proctor"
+
+
+
+
+msgid "[Any University Admin Id]"
+msgstr "[Any University Admin]"
+
+msgid "[Any University Id]"
+msgstr "[Any University]"
+
+msgid "[Any Branch Id]"
+msgstr "[Any Branch]"
+
+msgid "[Any Building Id]"
+msgstr "[Any Building]"
+
+msgid "[Any Lab Id]"
+msgstr "[Any Lab]"
+
+msgid "[Any Device Id]"
+msgstr "[Any Device]"
+
+
+msgid "[Any Certification Id]"
+msgstr "[Any Certification]"
+
+msgid "[Any Proctor Id]"
+msgstr "[Any Proctor]"
+
+msgid "Dump CSV File"
+msgstr "Download CSV File"
+
+msgid "Booking Name"
+msgstr "Name"
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Booking City"
+msgstr "City"
+
+msgid "Booking Address"
+msgstr "Address"
+
+msgid "Booking Comments"
+msgstr "Comments"
+
+
+msgid "CallCenterAgents"
+msgstr "Call Center Agents"
+
+msgid "Student Details"
+msgstr "Contact Information"
+
+msgid "Previous Day"
+msgstr "Previous Day"
+
+msgid "Next Day"
+msgstr "Next Day"
+
+msgid "Mobile Phone"
+msgstr "Mobile Phone"
+
+msgid "Arabic Option"
+msgstr "Arabic"
+
+msgid "English Option"
+msgstr "English"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Welcome to Certivalue Booking System"
+msgstr "Welcome to Certivalue Booking System"
+
+msgid "How would you prefer to take the exam for your upcoming certification?"
+msgstr "How would you prefer to take the exam for your upcoming certification?"
+
+msgid "Take the Exam Online"
+msgstr "Take the Exam Online"
+
+msgid "Take Exam in a University"
+msgstr "Take Exam in a University"
+
+msgid "or"
+msgstr "or"
+
+msgid "All rights reserved"
+msgstr "All rights reserved"
+
+
+msgid "Dashboard1"
+msgstr "Dashboard"

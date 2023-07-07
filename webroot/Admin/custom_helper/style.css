@@ -1,0 +1,112 @@
+.listing-actions {
+    padding: 10px 10px 15px 1.25rem;
+}
+
+.listing-actions label {
+    padding-right: 9px;
+    font-size: 15px;
+    color: #707070;
+}
+
+.listing-actions select {
+    background-image: url(/img/multiselect-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 97.5% 50%;
+    background-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 278px !important;
+    height: 40px !important;
+    display: inline-block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.listing-actions input[type="button"] {
+    width: 80px !important;
+    height: 40px;
+    border: 1px solid #B1BEBE;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 15px;
+    color: #707070;
+    margin-left: 19px;
+    font-weight: bold;
+}
+
+
+.listing-actions input {
+    padding: 6.5px 11px;
+    margin-top: -4px;
+}
+.listing-actions {
+    background: #FFFFFF;
+}
+.table td, .table th{
+    border: 1px solid #dee2e6;
+}
+.table-header a{
+    color: #000;
+    font-weight: bold
+}
+.card-title{
+    padding: 10px 0;
+    font-size: 20px;
+}
+.add-new-btn{
+    margin: 5px 0;
+}
+.btn-sm{
+    margin-right: 5px;
+}
+#filter .btn-info {
+    background: #039DE6;
+    border: #039DE6;
+    background-color: #39a4ff;
+    border-color: #39a4ff;
+    width: 20%;
+}
+.FormExtended {
+    background-color: #fff !important;
+    padding: 25px 40px 25px 45px;
+}
+
+.container-fluid .FilterAction.filter-action input {
+    /*width: 134px;*/
+    width: 170px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0;
+    color: #fff;
+    font-size: 15px;
+    border: unset;
+}
+
+.container-fluid .FilterAction.filter-action input:active,
+.container-fluid .FilterAction.filter-action input:focus,
+.container-fluid .FilterAction.filter-action input:hover {
+    background: #0261b4;
+    opacity: .8;
+}
+.container-fluid .FilterAction.filter-action>.submit {
+    margin-right: 20px;
+}
+@media(min-width:767px) {
+    .container-fluid .FilterAction.filter-action {
+        display: flex
+    }
+    .listing-actions select,
+    .listing-actions input[type="button"] {
+        margin-left: 0;
+        width: 100%
+    }
+    .listing-actions label {
+        display: block;
+    }
+}

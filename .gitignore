@@ -1,0 +1,73 @@
+# CakePHP specific files #
+##########################
+/config/app_local.php
+/config/app.php
+/config/.env
+/logs/*
+/dontUpload/*
+/tmp/*
+/vendor/*
+/local/*
+/bin/*
+/webroot/image_uploads/*
+/webroot/glass_data/*
+/webroot/car_ads/*
+/webroot/cron_files/*
+/webroot/car_videos/*
+/webroot/files/*
+/webroot/phplive/*
+/webroot/img_uploads/*
+/webroot/img/uploads/*
+/webroot/uploads/*
+/webroot/config.php
+/webroot/cached_data/*
+/webroot/price_hot.txt
+/webroot/price_poa.txt
+/webroot/last_result_date.php
+/webroot/inst_images/*
+/webroot/js/ckeditor/*
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.directory
+
+# Tool specific files #
+#######################
+# PHPUnit
+.phpunit.result.cache
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+# Sass preprocessor
+.sass-cache/
+
+# AE
+.dontUpload
+
+# DK VS Code Local History Extension
+.history
+
+/webroot/img/news/*
+/webroot/img/uploads/podcasts/*
+/webroot/img/podcasts/*
+/webroot/imag/auction_cars/*

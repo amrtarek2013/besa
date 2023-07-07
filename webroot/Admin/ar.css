@@ -1,0 +1,149 @@
+
+@font-face {
+    font-family: 'CairoLight';
+    src: url('./fonts/Cairo-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('./fonts/Cairo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'CairoM';
+    src: url('./fonts/Cairo-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'CairoBold';
+    src: url('./fonts/Cairo-Bold.ttf');
+}
+
+html{direction:rtl}
+body{
+	font-family: 'Cairo';
+	direction:rtl;
+}
+
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, 
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, 
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header{
+	margin-right: 250px;
+	margin-left: unset;
+}
+
+body.sidebar-collapse .content-wrapper 
+{
+	margin-right: 70px !important;
+	margin-left: unset;
+}
+.sidebar-mini.sidebar-collapse .content-wrapper, 
+.sidebar-mini.sidebar-collapse .main-footer, 
+.sidebar-mini.sidebar-collapse .main-header{
+    margin-right: 4.6rem!important;
+    margin-left: unset !important;
+}
+
+.ml-auto, .mx-auto {
+    margin-right: auto!important;
+    margin-left: unset !important;
+}
+
+
+.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label, 
+.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
+.input-group:not(.has-validation)>.custom-select:not(:last-child), 
+.input-group:not(.has-validation)>.form-control:not(:last-child){
+	border-radius: 0px !important;
+}
+
+.input-group>.input-group-append>.btn, 
+.input-group>.input-group-append>.input-group-text, 
+.input-group>.input-group-prepend:first-child>.btn:not(:first-child), 
+.input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child), 
+.input-group>.input-group-prepend:not(:first-child)>.btn, 
+.input-group>.input-group-prepend:not(:first-child)>.input-group-text{
+	border-radius: 0px !important;
+}
+.nav{
+    padding-right: 0;
+    padding-left: unset;
+    text-align: right;
+}
+.nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right{
+	right: unset;
+	left: 1rem;
+}
+.navbar-nav{
+	padding-left: unset;
+	padding-right: 0;
+}
+.content-header h1{
+	float: right;
+}
+.breadcrumb{
+	display: none;
+}
+a.brand-link{
+	text-align: right;
+}
+.brand-link .brand-image{
+	float: right;
+    margin-left: .8rem;
+    margin-right: .5rem;
+}
+
+/*Dashboard*/
+.small-box>.inner{
+	text-align: right;
+}
+
+/*Statistics*/
+.form-group{
+	text-align: right;
+}
+.datepicker-dropdown{
+	/*left: 1106px !important;*/
+}
+
+.datepicker td, .datepicker th{
+	font-size: 13px;
+    padding: 4px;
+}
+.card-title{
+	float: right;
+}
+.card-body th,.card-body td{
+	text-align: center;
+}
+#example1_filter{
+	float: left;
+}
+#example1_wrapper{
+	text-align: right;
+}
+
+.btn-group>.btn-group:first-child>.btn, 
+.btn-group>.btn:first-child:not(.dropdown-toggle){
+	border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-group>.btn-group:last-child>.btn, 
+.btn-group>.btn:last-child:not(.dropdown-toggle){
+	border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.mg-right-40{
+	margin-right: 40px;
+}
+.small-box p{
+	font-size: 19px !important;
+}
+
+.form-control{
+	height: calc(2.25rem + 10px);
+}

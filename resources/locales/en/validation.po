@@ -1,0 +1,2 @@
+msgid "All rights reserved"
+msgstr "All rights reservedsasa1"

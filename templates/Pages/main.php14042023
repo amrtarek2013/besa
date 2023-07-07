@@ -1,0 +1,255 @@
+<section class="header animated">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="main-slider  owl-carousel owl-theme animateddiv">
+                    <?php
+
+                    use Cake\Routing\Router;
+
+                    if (!empty($sliders)) {
+                        foreach ($sliders as $key => $slider) {
+
+                    ?>
+                            <div class="item">
+                                <div class="text ">
+                                    <div class="fadeInUp">
+                                        <h1 class="title"><?= $slider['title'] ?></h1>
+                                        <p class=""><?= $slider['text'] ?></p>
+                                    </div>
+                                    <div class="buttons fadeInUp">
+                                        <?php if (isset($slider['url'])) { ?>
+                                            <a href="<?= $slider['url'] ?>" class="btn MainBtn apply-now">
+                                                <?= $slider['url_label'] ?>
+                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="/event-details/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
+                                                Apply Now
+                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+                                            </a>
+                                        <?php } ?>
+
+
+                                        <?php if (isset($slider['right_url'])) { ?>
+                                            <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
+
+                                        <?php } else { ?>
+                                            <a href="/contact-us" class="btn MainBtn contact-us">Contact Us</a>
+
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="image fadeInDown">
+                                    <?php
+                                    if (isset($slider['image_path'])) {
+                                    ?>
+                                        <img src="<?= $slider['image_path'] ?>" alt="">
+                                    <?php } else { ?>
+
+                                        <img src="/img/bg-popup-1.png" alt="" class="box-message bounceIn">
+                                        <img src="/img/bg-popup-2.png" alt="" class="icon-message bounceIn">
+                                        <img src="/img/background-header.png" alt="">
+                                    <?php } ?>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    } ?>
+                </div>
+                <div class="arrow-bottomGoSection">
+                    <a href="#scroll_about"><img src="/img/icon/chevron-circle-up.svg" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<?= $home_aboutus ?>
+
+<?= $home_why_besa ?>
+
+<?php //= $home_services_destination 
+?>
+<?= $home_our_partners ?>
+<section class="events have-animations">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="fadeInUp animated-slow">
+                    <!-- <h2 class="title">EVENTS</h2> -->
+                    <p class="description">We are connected with our beloved students, schools, as well as <br> our partners abroad.</p>
+                </div>
+                <div class="gridContainer-events">
+
+
+                    <?php
+
+                    if (!empty($events)) {
+                        foreach ($events as $key => $event) {
+
+                    ?>
+                            <div class="box fadeInUp">
+                                <div class="icon">
+                                    <img src="<?= $event['icon_path'] ?>" alt="">
+                                </div>
+                                <h3 class="titleBx"><?= $event['title'] ?></h3>
+                                <p class="descriptionBX">
+                                    <?= $event['sub_title'] ?>
+                                </p>
+                                <a href="/event-details/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
+                                    Learn More
+                                    <img src="/img/icon/arrow-right.svg" alt="">
+                                </a>
+                            </div>
+
+                    <?php
+                        }
+                    } ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="our-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title">Our Services</h2>
+                <div class="pana-accordion" id="accordion">
+                    <div class="pana-accordion-wrap">
+
+                        <?php
+
+                        if (!empty($services)) {
+                            foreach ($services as $key => $service) {
+
+                        ?>
+                                <div class="pana-accordion-item">
+                                    <img width="500" height="415" src="<?= $service['image_path'] ?>" />
+                                    <div class="text-acco">
+                                        <h3 class="title-acco"><?= $service['title'] ?></h3>
+                                        <a href="<?= Router::url('/service-details/' . $service['permalink']) ?>" class="btn discover-more">Discover More</a>
+                                    </div>
+                                </div>
+
+
+                        <?php
+                            }
+                        }
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="background-qoute">
+                    <img src="/img/icon/quote-left.svg" alt="" class="qoute-left">
+                    <img src="/img/icon/quote-right.svg" alt="" class="qoute-right">
+                </div>
+                <h2 class="title">Clients' Testimonials</h2>
+                <div class="slider-testimonials owl-carousel owl-theme" id="slider-testimonials">
+
+                    <?php
+
+                    if (!empty($testimonials)) {
+                        foreach ($testimonials as $key => $testimonial) {
+
+                    ?>
+                            <div class="item">
+                                <p class="description">
+                                    <?= $testimonial['text'] ?>
+                                </p>
+                                <div class="personal-data">
+                                    <div class="circle-img">
+                                        <img src="<?= $testimonial['image_path'] ?>" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <p><?= $testimonial['client_name'] ?></p>
+                                        <p><?= $testimonial['university'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <?php
+                        }
+                    } ?>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="contact-us">
+    <div class="top-dots-img">
+        <img src="/img/icon/dots-bakground.svg" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title">Reach Us</h2>
+
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+                <div class="form">
+                    <!-- <h3 class="title-form">Reach Us</h3> -->
+                    <h3 class="title-form">Leave us a message</h3>
+
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1 ">
+                <div class="form">
+                    <form action="">
+                        <div class="form-area">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="your name">
+                        </div>
+                        <div class="form-area">
+                            <input type="email" id="email" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-area">
+                            <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <input type="submit" value="Send" class="btn MainBtn submit">
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="text">
+                    <p>
+                        <?= $mainBranch['name'] ?>
+                        <?php //=$mainBranch['address'].', '.$mainBranch['city'].', '.$mainBranch['state'].', '.$mainBranch['postcode'].', '.$mainBranch['country']
+                        ?>
+                    </p>
+                    <p><?= $mainBranch['phone'] ?></p>
+                    <p><?= $mainBranch['email'] ?></p>
+                </div>
+                <div class="map">
+
+                    <!-- <img src="<?= $mainBranch['location_image_path'] ?>" alt=""> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom-dots-img">
+        <img src="/img/icon/dots-bakground.svg" alt="">
+
+    </div>
+</section>

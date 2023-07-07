@@ -1,0 +1,71 @@
+msgid "Please enter valid url"
+msgstr "الرجاء ادخال رابط موقع صحيح"
+
+msgid "No file selected. This field is required"
+msgstr "لم يتم تحديد/اختيار ملف. هذا الملف اجبارى"
+
+msgid "This field is required"
+msgstr "هذا الملف اجبارى/مطلوب"
+
+msgid "Invalid file type. Types required"
+msgstr "نوع الملف غبر صحيح. نوع الملف اجبارى"
+
+msgid "No file selected."
+msgstr "لم يتم تحديد/اختيار ملف"
+
+msgid "Error while saving uploaded file"
+msgstr "خطأ اثناء حفظ الملف المرفوع"
+
+msgid "File size is larger than"
+msgstr "حجم الملف اكبر من"
+
+msgid "File size is too large"
+msgstr "حجم الملف كبير جدا"
+
+msgid "Cannot write to temp directory"
+msgstr "لايمكن الكتابة على مجلد الملفات المؤقتة"
+
+msgid "File could not be uploaded"
+msgstr "لم يتم رفع الملف"
+
+msgid "Sorry, please check your data"
+msgstr "نأسف الرجاء التأكد من بياناتك والمحاولة مرة أخرى"
+
+msgid "Sorry, there is no available days for the selected Proctor"
+msgstr "نأسف لاتوجد ايام متاحة للمشرف الذى تم تحديده"
+
+msgid "Sorry, there is no available times on this day"
+msgstr "نأسف لاتوجد اوقات متاحة لليوم الذى تم تحديده"
+
+msgid "The confirmation email has been sent."
+msgstr "نأسف الرجاء التأكد من بياناتك والمحاولة مرة أخرى"
+
+msgid "Sorry, Booking time can not be empty. Please, try again."
+msgstr "وقت الحجز لايمكن ان يكون فارغ. الرجاء المحاولة مرة أخرى"
+
+msgid "Sorry, The selected time already booked! Please, try again."
+msgstr "نأسف وقت الحجز محجوز مسبقا. الرجاء المحاولة مرة أخرى"
+
+msgid "The Booking has been sent. Please check your email to validate your account."
+msgstr "الحجز تم بنجاح. الرجاء مراجعة بريدك الالكترونى للتأكد من حسابك"
+
+msgid "Please enter no more than 13 characters."
+msgstr "يجب ان لا يزيد عن 13 حرف"
+
+msgid "Sorry, there is no Available Times for selected Date"
+msgstr "نأسف لاتوجد اوقات متاحة لليوم الذى تم تحديده"
+
+msgid "Please correct the errors and try again"
+msgstr "الرجاء تصحيح الاخطاء والمحاولة مرة اخرى"
+
+msgid "Please correct the errors and try again."
+msgstr "الرجاء تصحيح الاخطاء والمحاولة مرة اخرى"
+
+msgid "Please select certification first"
+msgstr "الرجاء اختيار الشهادة أولا"
+
+msgid "Please enter at least 10 characters."
+msgstr "يجب ان لا يقل الطول عن 10"
+
+msgid "Please enter no more than 13 characters."
+msgstr "يجب ان لا يزيد الطول عن 13"
