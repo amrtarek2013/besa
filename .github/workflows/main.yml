@@ -15,4 +15,4 @@ jobs:
         with: 
           server: 92.205.4.49
           username: besadir1@intimedev.com
-          password: ${{ secrets.besadir1 }}
+          password: ${{ secrets.BESADIR1 }}
