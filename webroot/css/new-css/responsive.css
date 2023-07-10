@@ -1416,4 +1416,67 @@
     .tabes2 .gridTabes .btn {
         height: 80px;
     }
+
+    .contaienr-conditions {
+        grid-gap: 65px;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contaienr-conditions .box {
+        max-width: 80%;
+    }
+
+    .container-icons {
+        grid-template-columns: 1fr;
+        place-items: center;
+        grid-gap: 20px;
+
+    }
+
+    .container-icons .icon-box img {
+        margin: auto;
+    }
+
+    .container-icons .icon-box h4 {
+        text-align: center;
+
+    }
+
+    .container-icons .icon-box {
+        border: none !important;
+        justify-content: center;
+
+    }
+
+    .secondry-container-icons {
+        margin-top: 20px;
+    }
+
+    .choose-place .title-choose-place {
+        text-align: center;
+        width: auto;
+        font-size: 40px;
+        line-height: normal;
+    }
+
+    .choose-place .btn-aqua {
+        margin: 10px auto 0;
+    }
+
+    #wrapper {
+        min-height: max-content !important;
+    }
+
+    .container-videos {
+        flex-flow: column;
+        grid-gap: 20px;
+        margin-bottom: 0;
+    }
+
+    .testimonials2 .box-video {
+        width: 100%;
+        height: 260px;
+    }
 }
