@@ -4612,7 +4612,7 @@ input.search {
 }
 
 .study-broad-guidance .title {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .study-broad-guidance p {
@@ -4645,6 +4645,7 @@ input.search {
     line-height: 24px;
     letter-spacing: 0.02em;
     width: 180px;
+    height: 45px;
     color: #fff;
     margin: 18px auto;
 }
@@ -7403,18 +7404,25 @@ input[type="search"]:focus {
     line-height: normal;
     margin-bottom: 50px;
 }
-.countries-inner{
+
+.countries-inner {
     padding: 50px 0;
     background: #fff;
 }
 
-.header .main-slider .item .text .buttons a{
+.header .main-slider .item .text .buttons a {
     width: max-content !important;
 }
-.header .main-slider .item .text .buttons a i{
+
+.header .main-slider .item .text .buttons a i {
     display: none;
 }
+
 .header {
     padding-bottom: 80px;
+    background: #F3F3F3;
+}
 
+.header .main-slider .item .text .buttons .contact-us {
+    display: none;
 }
