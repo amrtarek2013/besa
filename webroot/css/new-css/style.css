@@ -7426,3 +7426,7 @@ input[type="search"]:focus {
 .header .main-slider .item .text .buttons .contact-us {
     display: none;
 }
+
+.arrow-bottomGoSection{
+    display: none;
+}
