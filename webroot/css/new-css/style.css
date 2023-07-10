@@ -7409,7 +7409,7 @@ input[type="search"]:focus {
 }
 
 .header .main-slider .item .text .buttons a{
-    width: max-content;
+    width: max-content !important;
 }
 .header .main-slider .item .text .buttons a i{
     display: none;
