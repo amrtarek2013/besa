@@ -14,5 +14,5 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with: 
           server: 92.205.4.49
-          username: besadir1@intimedev.com
-          password: ${{ secrets.BESADIR1 }}
+          username: besadir@intimedev.com
+          password: ${{ secrets.FTP_PASSWORD }}
