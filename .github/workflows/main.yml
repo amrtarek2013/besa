@@ -1,9 +1,8 @@
-name: Build and deploy
+name: Deploy
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 jobs:
   deploy:
     name: Deploy 🚀
@@ -15,5 +14,5 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with: 
           server: 92.205.4.49
-          username: besadir@intimedev.com
-          password: ${{ secrets.ftp_password }}
+          username: besadir1@intimedev.com
+          password: ${{ secrets.besadir1 }}
