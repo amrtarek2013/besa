@@ -93,7 +93,7 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
 
-define('WEBSITE_PATH', 'https://besa.2-dev.net');
+define('WEBSITE_PATH', 'http://besa.local');
 define('ADMIN_ASSETS', WEBSITE_PATH.'/Admin');//WEBSITE_PATH.'/Admin');
 define('FRONT_ASSETS', WEBSITE_PATH.'/webroot/Front');
 define('ADMIN_LINK', WEBSITE_PATH.'/admin');

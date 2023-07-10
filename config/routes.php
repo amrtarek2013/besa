@@ -52,10 +52,10 @@ return static function (RouteBuilder $routes) {
 
         $builder->connect('/contact-us', 'Enquiries::contactUs');
         $builder->connect('/about-us', 'Pages::aboutUs');
-        $builder->connect('/pathway-programs', 'Pages::pathwayPrograms');
-        $builder->connect('/pathway-placement', 'Pages::pathwayPlacement');
-        $builder->connect('/university-placement', 'Pages::universityPlacement');
-        $builder->connect('/young-learners', 'Pages::youngLearners');
+        // $builder->connect('/pathway-programs', 'Pages::pathwayPrograms');
+        // $builder->connect('/pathway-placement', 'Pages::pathwayPlacement');
+        // $builder->connect('/university-placement', 'Pages::universityPlacement');
+        // $builder->connect('/young-learners', 'Pages::youngLearners');
         $builder->connect('/partnership-with-besa', 'Pages::partnershipWithBesa');
         
         $builder->connect('/partner-institutions', 'Pages::partnerInstitutions');
