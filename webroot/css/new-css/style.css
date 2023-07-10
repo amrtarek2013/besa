@@ -7407,3 +7407,10 @@ input[type="search"]:focus {
     padding: 50px 0;
     background: #fff;
 }
+
+.header .main-slider .item .text .buttons a{
+    width: max-content;
+}
+.header .main-slider .item .text .buttons a i{
+    display: none;
+}
