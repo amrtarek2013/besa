@@ -1543,4 +1543,7 @@
     .footer .gridContainer-footer{
         padding: 0;
     }
+    .footer .gridContainer-footer .logo .icon{
+        justify-content: center;
+    }
 }
