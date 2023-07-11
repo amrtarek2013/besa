@@ -1924,6 +1924,7 @@ p.descrp {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/cat-img\(1\).png");
 }
 
+
 .categories .gridCategories .box:nth-child(2) {
     background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/cat-img\(2\).png");
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../img/cat-img\(2\).png");
@@ -7433,7 +7434,13 @@ input[type="search"]:focus {
     display: none;
 }
 
-.container-iconsPartners .boxPart img::after{
-    content: url("../img/new-images/Group 211.png");
+.container-iconsPartners .boxPart .image-container img:last-child {
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
