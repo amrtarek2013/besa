@@ -16,7 +16,7 @@ class UniversityPlacementsTable extends Table
     public $filters = [
         // 'country_name' => 'like',
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
-        
+
         // 'continent',
     ];
 
@@ -45,18 +45,18 @@ class UniversityPlacementsTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 230, 'height' => 190],
+                        'resize' => ['width' => 295, 'height' => 196],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/university_placements',
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '100']
+                            ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '60']
                         ],
                     ],
-                    
                 ]
+
             ]
         );
     }
