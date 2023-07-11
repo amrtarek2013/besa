@@ -11,7 +11,7 @@
 
 .clear-blue {
     background: #2575FC;
-} 
+}
 
 .light-red {
     background: #FF5151;
@@ -6202,6 +6202,10 @@ input[type="search"]:focus {
     padding: 0;
 }
 
+.free-meating .image {
+    display: flex;
+}
+
 .free-meating .image,
 .free-meating .text {
     width: 50%;
@@ -6580,7 +6584,7 @@ input[type="search"]:focus {
     grid-gap: 103px;
 }
 
-.unitedKingdom-banner .title-banner-blue{
+.unitedKingdom-banner .title-banner-blue {
     background-color: #33CA94 !important;
 }
 
@@ -7425,6 +7429,6 @@ input[type="search"]:focus {
     display: none;
 }
 
-.arrow-bottomGoSection{
+.arrow-bottomGoSection {
     display: none;
 }
