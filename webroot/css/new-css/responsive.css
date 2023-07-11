@@ -1316,9 +1316,7 @@
 
     }
 
-    .free-meating {
-        padding-bottom: 60px;
-    }
+
 
     .careers .grid3col {
         grid-template-columns: 1fr;
@@ -1381,7 +1379,15 @@
     }
 
     .free-meating {
-        padding: 60px 0;
+        padding: 0 0 30px;
+    }
+
+    .free-meating .image {
+        padding: 0;
+    }
+
+    .free-meating .text h2 {
+        margin-top: 20px;
     }
 
     .services-rendered .line-ellipse-en::after {
@@ -1478,5 +1484,66 @@
     .testimonials2 .box-video {
         width: 100%;
         height: 260px;
+    }
+
+    .blue-qoute {
+        width: 80%;
+        left: 50%;
+        padding: 15px;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .ukslider .owl-dots .owl-dot {
+        display: inline-block;
+    }
+
+    .ukslider .owl-dots .owl-dot span {
+        margin: 0 10px;
+    }
+
+    .ukslider .owl-dots {
+        top: 90%;
+        left: 50%;
+        transform: translatex(-50%);
+        -webkit-transform: translatex(-50%);
+        -moz-transform: translatex(-50%);
+        -ms-transform: translatex(-50%);
+        -o-transform: translatex(-50%);
+    }
+
+    .benefits .gridTabes {
+        grid-template-columns: 1fr;
+    }
+
+    .our-partner h2,
+    .our-uk h2,
+    .questions h2 {
+        font-size: 32px;
+        line-height: normal;
+    }
+
+    .questions .faq-item {
+        padding: 20px;
+    }
+
+    .our-uk .gridOuruk {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 35px;
+    }
+
+    .our-partner .d-flex {
+        grid-gap: 20px;
+        flex-flow: column;
+    }
+
+    .tabes2 .gridTabes {
+        padding: 0;
+    }
+    .footer .gridContainer-footer{
+        padding: 0;
+    }
+    .footer .gridContainer-footer .logo .icon{
+        justify-content: center;
     }
 }
