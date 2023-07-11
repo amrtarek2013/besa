@@ -6580,7 +6580,9 @@ input[type="search"]:focus {
     grid-gap: 103px;
 }
 
-
+.unitedKingdom-banner .title-banner-blue{
+    background-color: #33CA94 !important;
+}
 
 .title-banner-blue p {
     color: #FFF;
