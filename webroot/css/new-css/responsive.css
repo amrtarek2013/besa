@@ -1540,3 +1540,7 @@
     .tabes2 .gridTabes {
         padding: 0;
     }
+    .footer .gridContainer-footer{
+        padding: 0;
+    }
+}
