@@ -29,7 +29,7 @@
                         <?= $this->AdminForm->create($testimonial, ['type' => 'file']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($testimonial, ['type' => 'file']);
+                            
                             echo $this->AdminForm->control('client_name', ['type' => 'text']);
 
                             echo $this->AdminForm->control('university', ['label' => 'University', 'type' => 'text']);

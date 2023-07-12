@@ -29,10 +29,9 @@
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($youngLearner, ['type' => 'file']); ?>
+                        <?= $this->AdminForm->create($youngLearner, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($youngLearner, ['type' => 'file', 'id' => $action . 'Form']);
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             $class = 'editor basicEditor';
@@ -51,14 +50,8 @@
                                 ],
                             ])]);
 
-                            $editor_types = [
-                                0 => 'No Editor',
-                                1 => 'Basic Editor',
-                                2 => 'Full Editor',
-
-                            ];
+                           
                             echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
-                            echo $this->AdminForm->control('editor_type', ['empty' => 'Please select editor type', 'options' => $editor_types]);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
                             echo $this->AdminForm->control('display_order');

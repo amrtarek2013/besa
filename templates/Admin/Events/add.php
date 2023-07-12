@@ -30,10 +30,10 @@
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($event, ['type' => 'file']); ?>
+                        <?= $this->AdminForm->create($event, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($event, ['type' => 'file', 'id' => $action . 'Form']);
+
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('title', ['type' => 'text']);
@@ -109,7 +109,7 @@
 
                             <?php
                             echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);
-                            
+
                             echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('video_right_text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('left_text', ['type' => 'textarea', 'class' => 'editor']);
@@ -136,7 +136,7 @@
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
                             echo $this->AdminForm->enableAjaxUploads($id, 'event_' . $id, $mainAdminToken);
-                            
+
                             // echo $this->AdminForm->enableAjaxFileUpload(['video'], ['video'], true);
 
                             echo $this->AdminForm->enableEditors('.editor');

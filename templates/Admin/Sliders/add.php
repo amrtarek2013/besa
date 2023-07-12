@@ -29,10 +29,10 @@
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($slider, ['type' => 'file']); ?>
+                        <?= $this->AdminForm->create($slider, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($slider, ['type' => 'file', 'id' => $action . 'Form']);
+                            
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('title', ['type' => 'text']);

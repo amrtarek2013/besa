@@ -45,7 +45,7 @@
                             } else {
                                 $class = ' ';
                             }
-                            echo $this->AdminForm->create($snippet, ['type' => 'file']);
+                            
 
                             echo $this->AdminForm->control('title');
                             echo $this->AdminForm->control('category', ['empty' => 'Please select Category', 'options' => $categories]);

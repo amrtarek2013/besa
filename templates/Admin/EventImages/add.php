@@ -29,10 +29,10 @@
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($eventImage, ['type' => 'file']); ?>
+                        <?= $this->AdminForm->create($eventImage, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($eventImage, ['type' => 'file', 'id' => $action . 'Form']);
+                            
                             echo $this->AdminForm->control('event_id', ['type' => 'select', 'option' => $events, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('title', ['type' => 'text']);
 

@@ -29,10 +29,10 @@
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($wishList, ['type' => 'file']); ?>
+                        <?=  $this->AdminForm->create($wishList, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($wishList, ['type' => 'file', 'id' => $action . 'Form']);
+                        
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('country_name', ['type' => 'text', 'class' => 'INPUT required']);
