@@ -49,6 +49,7 @@
 
                                 ],
                             ])]);
+                            
                             $editor_types = [
                                 0 => 'No Editor',
                                 1 => 'Basic Editor',
