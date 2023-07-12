@@ -34,7 +34,7 @@
                             <?php
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
-                            $class = 'editor basicEditor';
+                            $class = 'editor';
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);

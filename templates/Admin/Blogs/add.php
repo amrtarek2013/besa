@@ -49,7 +49,7 @@
                                 ],
                             ])]);
                             
-                            $class = 'editor basicEditor';
+                            $class = 'editor';
                             echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
                             
                             // echo $this->AdminForm->control('single');

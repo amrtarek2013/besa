@@ -29,7 +29,7 @@
                         <?php
                         $action = $this->request->getParam('action');
                         
-                        $class = 'editor basicEditor';
+                        $class = 'editor';
                         ?>
                         <?= $this->AdminForm->create($pathwayProgram, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
@@ -52,7 +52,7 @@
                                 ],
                             ])]);
                           
-                            $class = 'editor basicEditor';
+                            $class = 'editor';
                             echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
