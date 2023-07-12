@@ -28,6 +28,8 @@
 
                         <?php
                         $action = $this->request->getParam('action');
+                        
+                        $class = 'editor basicEditor';
                         ?>
                         <?= $this->AdminForm->create($pathwayProgram, ['type' => 'file']); ?>
                         <div class="card-body">
