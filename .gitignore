@@ -26,6 +26,7 @@
 /webroot/last_result_date.php
 /webroot/inst_images/*
 /webroot/js/ckeditor/*
+/webroot/filebrowser/*
 # OS generated files #
 ######################
 .DS_Store
