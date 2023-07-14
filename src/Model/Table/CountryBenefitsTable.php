@@ -45,7 +45,7 @@ class CountryBenefitsTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 295, 'height' => 196],
+                        'resize' => ['width' => 370, 'height' => 217],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/country_benefits',
