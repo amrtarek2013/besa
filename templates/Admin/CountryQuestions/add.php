@@ -40,16 +40,16 @@
                             // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);
 
-                            echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                                'data' => $countryQuestion,
-                                'field' => 'image',
-                                'info' => [
-                                    'width' => $uploadSettings['image']['width'],
-                                    'height' => $uploadSettings['image']['height'],
-                                    'path' => $uploadSettings['image']['path']
+                            // echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            //     'data' => $countryQuestion,
+                            //     'field' => 'image',
+                            //     'info' => [
+                            //         'width' => $uploadSettings['image']['width'],
+                            //         'height' => $uploadSettings['image']['height'],
+                            //         'path' => $uploadSettings['image']['path']
 
-                                ],
-                            ])]);
+                            //     ],
+                            // ])]);
 
                            
                             // echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
