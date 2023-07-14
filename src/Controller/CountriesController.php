@@ -51,12 +51,12 @@ class CountriesController extends AppController
 
 
         $this->loadModel('CountryQuestions');
-        $countryQuestions = $this->CountryQuestions->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->all();
+        $countryQuestions = $this->CountryQuestions->find()->where(['active' => 1, 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->all();
         $this->set('countryQuestions', $countryQuestions);
 
 
         $this->loadModel('CountryPartners');
-        $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->all();
+        $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->all();
         $this->set('countryPartners', $countryPartners);
     }
 }
