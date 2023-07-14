@@ -20,12 +20,12 @@ class CountryPartnersController extends AppController
 
         $countryPartners = $this->paginate($this->CountryPartners, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
         $this->set(compact('countryPartners', 'parameters', 'countries'));
     }
     public function list()
@@ -33,14 +33,14 @@ class CountryPartnersController extends AppController
         $conditions = $this->_filter_params();
         $countryPartners = $this->paginate($this->CountryPartners, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
-        
+
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+
         $this->set(compact('countryPartners', 'parameters', 'countries'));
     }
 
@@ -52,7 +52,7 @@ class CountryPartnersController extends AppController
             if ($this->CountryPartners->save($countryPartner)) {
                 $this->Flash->success(__('The  Country Partner has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The  Country Partner could not be saved. Please, try again.'));
         }
@@ -74,7 +74,7 @@ class CountryPartnersController extends AppController
             if ($this->CountryPartners->save($countryPartner)) {
                 $this->Flash->success(__('The  Country Partner has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The  Country Partner could not be saved. Please, try again.'));
         }
@@ -97,7 +97,7 @@ class CountryPartnersController extends AppController
             $this->Flash->error(__('The  Country Partner could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -113,7 +113,7 @@ class CountryPartnersController extends AppController
             $this->Flash->error(__('The CountryPartners could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -123,15 +123,22 @@ class CountryPartnersController extends AppController
         $this->set('countryPartner', $countryPartner);
     }
 
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('country_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('country_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
+    }
     private function __common()
     {
         $uploadSettings = $this->CountryPartners->getUploadSettings();
-        
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','countries'));
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        $this->set(compact('uploadSettings', 'countries'));
     }
 }

@@ -20,15 +20,15 @@ class CountryQuestionsController extends AppController
 
         $countryQuestions = $this->paginate($this->CountryQuestions, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
-        
-        
-        
+
+
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+
         $this->set(compact('countryQuestions', 'parameters', 'countries'));
     }
     public function list()
@@ -36,13 +36,13 @@ class CountryQuestionsController extends AppController
         $conditions = $this->_filter_params();
         $countryQuestions = $this->paginate($this->CountryQuestions, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
-        
+
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
         $this->set(compact('countryQuestions', 'parameters', 'countries'));
     }
 
@@ -54,7 +54,7 @@ class CountryQuestionsController extends AppController
             if ($this->CountryQuestions->save($countryQuestion)) {
                 $this->Flash->success(__('The Country Questionhas been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Country Questioncould not be saved. Please, try again.'));
         }
@@ -76,7 +76,7 @@ class CountryQuestionsController extends AppController
             if ($this->CountryQuestions->save($countryQuestion)) {
                 $this->Flash->success(__('The Country Questionhas been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Country Questioncould not be saved. Please, try again.'));
         }
@@ -99,7 +99,7 @@ class CountryQuestionsController extends AppController
             $this->Flash->error(__('The Country Questioncould not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -115,9 +115,16 @@ class CountryQuestionsController extends AppController
             $this->Flash->error(__('The CountryQuestions could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('country_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('country_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
+    }
     public function view($id = null)
     {
         $countryQuestion = $this->CountryQuestions->get($id);
@@ -128,12 +135,12 @@ class CountryQuestionsController extends AppController
     private function __common()
     {
         $uploadSettings = $this->CountryQuestions->getUploadSettings();
-        
+
         $this->loadModel('Countries');
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','countries'));
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        $this->set(compact('uploadSettings', 'countries'));
     }
 }

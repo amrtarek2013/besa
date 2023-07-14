@@ -25,7 +25,7 @@ class SnippetsController extends AppController
         $snippets = $this->paginate($this->Snippets, ['conditions' => $conditions, 'limit' => 100]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('snippets', 'parameters'));
-        
+
         $this->set('categoryTitle', $this->Snippets->snippetCategories[$cat]);
         $this->__common();
     }
@@ -35,7 +35,7 @@ class SnippetsController extends AppController
 
         $conditions = $this->_filter_params();
         $conditions['active'] = true;
-        
+
         if (isset($cat))
             $conditions['category'] = $cat;
         $snippets = $this->paginate($this->Snippets, ['conditions' => $conditions]);
@@ -142,6 +142,15 @@ class SnippetsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('category'))
+            return $this->redirect(['action' => 'index', $this->Session->read('category')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 
     public function view($id = null)

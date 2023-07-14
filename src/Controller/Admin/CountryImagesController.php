@@ -14,19 +14,28 @@ use App\Controller\AppController;
 class CountryImagesController extends AppController
 {
 
-    public function index()
+    public function index($country_id = null)
     {
         $conditions = $this->_filter_params();
 
+
+        if (isset($country_id)) {
+            $conditions['country_id'] = $country_id;
+            $this->Session->write('country_id', $country_id);
+        }
         $countryImages = $this->paginate($this->CountryImages, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
 
         $this->set(compact('countryImages', 'parameters'));
         $this->__common();
     }
-    public function list()
+    public function list($country_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($country_id))
+            $conditions['country_id'] = $country_id;
         $countryImages = $this->paginate($this->CountryImages, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
         $this->__common();
@@ -41,7 +50,8 @@ class CountryImagesController extends AppController
             if ($this->CountryImages->save($countryImage)) {
                 $this->Flash->success(__('The CountryImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The CountryImage could not be saved. Please, try again.'));
         }
@@ -59,16 +69,14 @@ class CountryImagesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $countryImage = $this->CountryImages->patchEntity($countryImage, $this->request->getData());
             if ($this->CountryImages->save($countryImage)) {
-                $this->Flash->success(__('The CountryImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('The Country Image has been saved.'));
+
+                $this->__redirectToIndex();
             }
-            $this->Flash->error(__('The CountryImage could not be saved. Please, try again.'));
+            $this->Flash->error(__('The Country Image could not be saved. Please, try again.'));
         }
-
         $this->__common();
-
-
         $this->set(compact('countryImage', 'id'));
         $this->_ajaxImageUpload('countryImage_' . $id, 'countryImages', $id, ['id' => $id], ['image']);
         $this->render('add');
@@ -84,7 +92,7 @@ class CountryImagesController extends AppController
             $this->Flash->error(__('The CountryImage could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -100,7 +108,7 @@ class CountryImagesController extends AppController
             $this->Flash->error(__('The Country Images could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -110,6 +118,13 @@ class CountryImagesController extends AppController
         $this->set('countryImage', $countryImage);
     }
 
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('country_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('country_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
+    }
     private function __common()
     {
         $uploadSettings = $this->CountryImages->getUploadSettings();
@@ -118,7 +133,7 @@ class CountryImagesController extends AppController
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','countries'));
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        $this->set(compact('uploadSettings', 'countries'));
     }
 }
