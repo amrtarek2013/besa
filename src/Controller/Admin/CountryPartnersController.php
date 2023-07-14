@@ -26,7 +26,6 @@ class CountryPartnersController extends AppController
             'keyField' => 'id',
             'valueField' => 'country_name',
         ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','countries'));
         $this->set(compact('countryPartners', 'parameters', 'countries'));
     }
     public function list()
