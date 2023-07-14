@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Country Partners List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/young-learners/add">
+                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/country-partners/add">
                                 <?= __('Add new') ?>
                             </a>
                         </div>
