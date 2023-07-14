@@ -383,8 +383,8 @@ class ImageFileBehavior extends Behavior
             }
 
 
-            $width = ($settings['resize']['width']) ? $settings['resize']['width'] : 0;
-            $height = ($settings['resize']['height']) ? $settings['resize']['height'] : 0;
+            $width = isset($settings['resize']['width']) ? $settings['resize']['width'] : 0;
+            $height = isset($settings['resize']['height']) ? $settings['resize']['height'] : 0;
 
 
             $manager = new ImageManager($settings['manager']);
