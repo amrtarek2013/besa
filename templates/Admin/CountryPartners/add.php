@@ -37,7 +37,7 @@
                             $class = 'editor';
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('short_text', ['title'=>'Video Url','type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('video_url', ['title'=>'Video Url','type' => 'text', 'class' => 'INPUT']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $countryPartner,
