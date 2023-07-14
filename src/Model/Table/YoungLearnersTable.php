@@ -66,6 +66,8 @@ class YoungLearnersTable extends Table
     {
 
         $validator->notEmptyString('title', 'This field is required.');
+        
+        $validator->notEmptyString('short_text', 'This field is required.');
         // $validator->notEmptyString('text', 'This field is required.');
 
         return $validator;

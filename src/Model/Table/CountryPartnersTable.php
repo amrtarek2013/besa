@@ -67,6 +67,7 @@ class CountryPartnersTable extends Table
 
         $validator->notEmptyString('title', 'This field is required.');
         // $validator->notEmptyString('text', 'This field is required.');
+        $validator->notEmptyString('country_id', 'This field is required.');
 
         return $validator;
     }

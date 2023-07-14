@@ -68,6 +68,7 @@ class CountryQuestionsTable extends Table
 
         $validator->notEmptyString('question', 'This field is required.');
         $validator->notEmptyString('answer', 'This field is required.');
+        $validator->notEmptyString('country_id', 'This field is required.');
         // $validator->notEmptyString('text', 'This field is required.');
 
         return $validator;
