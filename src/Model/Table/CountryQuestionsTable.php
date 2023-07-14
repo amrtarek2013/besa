@@ -79,8 +79,8 @@ class CountryQuestionsTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if ($entity->isNew() && empty($entity->permalink)) {
-            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
-        }
+        // if ($entity->isNew() && empty($entity->permalink)) {
+        //     $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
+        // }
     }
 }
