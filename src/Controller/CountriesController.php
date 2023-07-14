@@ -58,5 +58,10 @@ class CountriesController extends AppController
         $this->loadModel('CountryPartners');
         $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->all();
         $this->set('countryPartners', $countryPartners);
+        
+        
+        $this->loadModel('CountryPartners');
+        $countryPartnersVideos = $this->CountryPartners->find()->where(['active' => 1, 'video_url is not null', 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->limit(2)->all();
+        $this->set('countryPartnersVideos', $countryPartnersVideos);
     }
 }

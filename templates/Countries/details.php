@@ -151,10 +151,15 @@
                 <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN UK</p>
 
                 <div class="d-flex images">
-                    <?php if (!empty($countryPartners)) : ?>
-                        <?php foreach ($countryPartners as $countryPartner) : ?>
+                    <?php if (!empty($countryPartnersVideos)) : ?>
+                        <?php foreach ($countryPartnersVideos as $countryPartnersVideo) : ?>
                             <div class="image">
-                                <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['image_path'] ?>" />
+                                <!-- <img alt="<?= $countryPartnersVideo['title'] ?>" src="<?= $countryPartnersVideo['video_url'] ?>" /> -->
+                                <div class="box-video">
+                                    <video controls>
+                                        <source src="<?= $countryPartnersVideo['video_url'] ?>" type="video/mp4">
+                                    </video>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
