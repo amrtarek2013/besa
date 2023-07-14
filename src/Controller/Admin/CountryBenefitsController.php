@@ -20,16 +20,28 @@ class CountryBenefitsController extends AppController
 
         $countryBenefits = $this->paginate($this->CountryBenefits, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
-        $continents = $this->CountryBenefits->continents;
-        $this->set(compact('countryBenefits', 'parameters', 'continents'));
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        
+        $this->set(compact('countryBenefits', 'parameters', 'countries'));
     }
     public function list()
     {
         $conditions = $this->_filter_params();
         $countryBenefits = $this->paginate($this->CountryBenefits, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        $continents = $this->CountryBenefits->continents;
-        $this->set(compact('countryBenefits', 'parameters', 'continents'));
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        
+        $this->set(compact('countryBenefits', 'parameters', 'countries'));
     }
 
     public function add()
@@ -115,5 +127,13 @@ class CountryBenefitsController extends AppController
     {
         $uploadSettings = $this->CountryBenefits->getUploadSettings();
         $this->set(compact('uploadSettings'));
+
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        $this->set(compact('uploadSettings','countries'));
     }
 }

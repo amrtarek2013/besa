@@ -34,6 +34,7 @@
                             <?php
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
+                            echo $this->AdminForm->control('country_id', ['type' => 'select', 'option' => $countries, 'class' => 'INPUT required']);
                             $class = 'editor';
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => 'INPUT required']);

@@ -39,7 +39,7 @@ class CountryPartnersTable extends Table
         $this->setTable('country_partners');
         $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
-
+        $this->belongsTo('Countries')->setForeignKey('country_id');
         $this->addBehavior(
             'ImageFile',
             [

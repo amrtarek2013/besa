@@ -40,6 +40,7 @@ class CountryImagesTable extends Table
         $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Countries')->setForeignKey('country_id');
         $this->addBehavior(
             'ImageFile',
             [

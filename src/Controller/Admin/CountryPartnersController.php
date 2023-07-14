@@ -20,16 +20,29 @@ class CountryPartnersController extends AppController
 
         $countryPartners = $this->paginate($this->CountryPartners, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
-        $continents = $this->CountryPartners->continents;
-        $this->set(compact('countryPartners', 'parameters', 'continents'));
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        $this->set(compact('uploadSettings','countries'));
+        $this->set(compact('countryPartners', 'parameters', 'countries'));
     }
     public function list()
     {
         $conditions = $this->_filter_params();
         $countryPartners = $this->paginate($this->CountryPartners, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        $continents = $this->CountryPartners->continents;
-        $this->set(compact('countryPartners', 'parameters', 'continents'));
+        
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        
+        $this->set(compact('countryPartners', 'parameters', 'countries'));
     }
 
     public function add()
@@ -114,6 +127,12 @@ class CountryPartnersController extends AppController
     private function __common()
     {
         $uploadSettings = $this->CountryPartners->getUploadSettings();
-        $this->set(compact('uploadSettings'));
+        
+        $this->loadModel('Countries');
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'country_name',
+        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
+        $this->set(compact('uploadSettings','countries'));
     }
 }
