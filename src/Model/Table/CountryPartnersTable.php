@@ -56,6 +56,18 @@ class CountryPartnersTable extends Table
                             // ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '60']
                         // ],
                     ],
+                    'video_thumb' => [
+                        'resize' => ['width' => 439, 'height' => 250],
+                        'datePath' => ['path' => ''],
+                        // 'datePath' => false,
+                        'width' => 440, 'height' => 250,
+                        'path' => 'uploads/testimonials',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        // 'thumbs' => [
+                        //     ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                        // ],
+                    ],
                 ]
             ]
         );

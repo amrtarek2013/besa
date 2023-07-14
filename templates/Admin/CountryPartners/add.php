@@ -39,6 +39,17 @@
                             // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('video_url', ['title'=>'Video Url','type' => 'text', 'class' => 'INPUT']);
 
+                            echo $this->AdminForm->control('video_thumb', ['label' => 'Video Thumb', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $countryPartner,
+                                'field' => 'video_thumb',
+                                'info' => [
+                                    'width' => $uploadSettings['video_thumb']['width'],
+                                    'height' => $uploadSettings['video_thumb']['height'],
+                                    'path' => $uploadSettings['video_thumb']['path']
+
+                                ],
+                            ])]);
+
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $countryPartner,
                                 'field' => 'image',
