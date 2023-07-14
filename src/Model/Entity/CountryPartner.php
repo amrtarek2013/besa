@@ -57,6 +57,8 @@ class CountryPartner extends Entity
             debug($this->video_thumb);
             $image_path = 'uploads' . DS . 'country_partners' . $this->video_thumb;
             debug($image_path);
+            debug(WWW_ROOT . $image_path);
+            debug(file_exists(WWW_ROOT . $image_path));
             if (file_exists(WWW_ROOT . $image_path)) {
                 debug(DS . $image_path);
                 return DS . $image_path;
