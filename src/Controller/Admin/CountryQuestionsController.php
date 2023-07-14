@@ -14,9 +14,14 @@ use App\Controller\AppController;
 class CountryQuestionsController extends AppController
 {
 
-    public function index()
+    public function index($country_id = null)
     {
         $conditions = $this->_filter_params();
+
+        if (isset($country_id)) {
+            $conditions['country_id'] = $country_id;
+            $this->Session->write('country_id', $country_id);
+        }
 
         $countryQuestions = $this->paginate($this->CountryQuestions, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
