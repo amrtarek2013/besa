@@ -61,7 +61,7 @@ class CountryPartnersTable extends Table
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'width' => 440, 'height' => 250,
-                        'path' => 'uploads/testimonials',
+                        'path' => 'uploads/country_partners',
                         'file_name' => '{$rand}_{$file_name}',
 
                         // 'thumbs' => [
