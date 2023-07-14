@@ -40,7 +40,7 @@
                         $fields = [
                             'basicModel' => 'countryQuestions',
                             'id' => [],
-                            'title' => [],
+                            'question' => [],
                             
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
                             'display_order' => [],

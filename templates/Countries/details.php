@@ -10,7 +10,7 @@
                                 <div class="blue-qoute">
                                     <h4><?= $countryImage['title'] ?></h4>
                                     <p>
-                                        <?= $countryImage['short_description'] ?>
+                                        <?= $countryImage['short_text'] ?>
                                     </p>
                                 </div>
                             </div>

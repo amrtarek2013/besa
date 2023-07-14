@@ -35,9 +35,10 @@
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             $class = 'editor';
-                            echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('question', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('answer', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);
+                            // echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $countryQuestion,
@@ -51,7 +52,7 @@
                             ])]);
 
                            
-                            echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
+                            // echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
                             echo $this->AdminForm->control('display_order');

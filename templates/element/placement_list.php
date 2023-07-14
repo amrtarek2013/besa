@@ -16,7 +16,7 @@ if (!empty($placementList)) : ?>
                                 <img src="<?= $placementItem['image_path'] ?>" alt="<?= $placementItem['title'] ?>" loading="lazy">
                                 <div class="content-blog">
                                     <p><?= $placementItem['title'] ?></p>
-                                    <?= $placementItem['short_description'] ?>
+                                    <?= $placementItem['short_text'] ?>
                                     <!-- <ul>
                                         <li>What is pre sessional English?</li>
                                         <li>What is the entry requirement for pre-sessional English?</li>

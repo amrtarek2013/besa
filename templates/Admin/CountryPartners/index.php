@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Young Learners List') ?></h1>
+                    <h1><?= __('Country Partners List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Young Learners') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Country Partners') ?></li>
                     </ol>
                 </div>
             </div>
@@ -26,11 +26,11 @@
                     <div class="card">
                         <?php
                         $session = $this->getRequest()->getSession();
-                        echo $this->List->filter_form($youngLearners, $filters, [], [], $parameters, $session) ?>
+                        echo $this->List->filter_form($countryPartners, $filters, [], [], $parameters, $session) ?>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Young Learners List') ?></h3>
+                            <h3 class="card-title"><?= __('Country Partners List') ?></h3>
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/young-learners/add">
                                 <?= __('Add new') ?>
                             </a>
@@ -38,7 +38,7 @@
                         <?php
 
                         $fields = [
-                            'basicModel' => 'youngLearners',
+                            'basicModel' => 'countryPartners',
                             'id' => [],
                             'title' => [],
                             
@@ -68,7 +68,7 @@
                         ];
 
 
-                        echo $this->List->adminIndex($fields, $youngLearners, $actions, true, $multi_select_actions, $parameters);
+                        echo $this->List->adminIndex($fields, $countryPartners, $actions, true, $multi_select_actions, $parameters);
                         ?>
 
                     </div>

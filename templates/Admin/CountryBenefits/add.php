@@ -23,24 +23,24 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Young Learner') ?></h3>
+                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Country Benefit') ?></h3>
                         </div>
 
                         <?php
                         $action = $this->request->getParam('action');
                         ?>
-                        <?= $this->AdminForm->create($youngLearner, ['type' => 'file', 'id' => $action . 'Form']); ?>
+                        <?= $this->AdminForm->create($countryBenefit, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
                             // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
 
                             $class = 'editor';
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
-                            // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);
+                            echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => $class .' addFrontCss']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                                'data' => $youngLearner,
+                                'data' => $countryBenefit,
                                 'field' => 'image',
                                 'info' => [
                                     'width' => $uploadSettings['image']['width'],
@@ -58,16 +58,16 @@
                             // echo $this->AdminForm->control('ads', ['label' => 'Ads as Json {key:value}']);
 
                             echo $this->AdminForm->enableEditors('.editor');
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'youngLearner_' . $id, $mainAdminToken);
+                            // echo $this->AdminForm->enableAjaxUploads($id, 'countryBenefit_' . $id, $mainAdminToken);
                             
                             ?>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><?= __('Save') ?></button>
                             <?php
-                            if (!$youngLearner->isNew()) {
+                            if (!$countryBenefit->isNew()) {
 
-                                echo $this->element('save_as_new', array($youngLearner));
+                                echo $this->element('save_as_new', array($countryBenefit));
                             }
                             ?>
                         </div>
