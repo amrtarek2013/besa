@@ -61,7 +61,7 @@ class CountryPartnersController extends AppController
             }
             $this->Flash->error(__('The  Country Partner could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('countryPartner_new', 'countryPartners', false, false, ['image']);
+        $this->_ajaxImageUpload('countryPartner_new', 'countryPartners', false, false, ['image', 'video_thumb']);
         $this->set('id', false);
 
         $this->__common();
@@ -88,7 +88,7 @@ class CountryPartnersController extends AppController
 
         $continents = $this->CountryPartners->continents;
         $this->set(compact('countryPartner', 'id', 'continents'));
-        $this->_ajaxImageUpload('countryPartner_' . $id, 'countryPartners', $id, ['id' => $id], ['image']);
+        $this->_ajaxImageUpload('countryPartner_' . $id, 'countryPartners', $id, ['id' => $id], ['image', 'video_thumb']);
         $this->render('add');
     }
 

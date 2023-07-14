@@ -60,7 +60,7 @@ class CountryBenefitsController extends AppController
             }
             $this->Flash->error(__('The Country Benefit could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('countryBenefit_new', 'countryBenefits', false, false, ['image', 'video_thumb']);
+        $this->_ajaxImageUpload('countryBenefit_new', 'countryBenefits', false, false, ['image']);
         $this->set('id', false);
 
         $this->__common();
@@ -87,7 +87,7 @@ class CountryBenefitsController extends AppController
 
         $continents = $this->CountryBenefits->continents;
         $this->set(compact('countryBenefit', 'id', 'continents'));
-        $this->_ajaxImageUpload('countryBenefit_' . $id, 'countryBenefits', $id, ['id' => $id], ['image', 'video_thumb']);
+        $this->_ajaxImageUpload('countryBenefit_' . $id, 'countryBenefits', $id, ['id' => $id], ['image']);
         $this->render('add');
     }
 
