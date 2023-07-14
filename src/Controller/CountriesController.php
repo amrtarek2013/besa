@@ -41,8 +41,22 @@ class CountriesController extends AppController
 
         $this->loadModel('CountryImages');
         $countryImages = $this->CountryImages->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->limit(3)->all();
-
-        // debug($countryImages);
         $this->set('countryImages', $countryImages);
+
+
+        
+        $this->loadModel('CountryBenefits');
+        $countryBenefits = $this->CountryBenefits->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->all();
+        $this->set('countryBenefits', $countryBenefits);
+
+        
+        $this->loadModel('CountryQuestions');
+        $countryQuestions = $this->CountryQuestions->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->all();
+        $this->set('countryQuestions', $countryQuestions);
+
+        
+        $this->loadModel('CountryPartners');
+        $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->all();
+        $this->set('countryPartners', $countryPartners);
     }
 }

@@ -3,11 +3,8 @@
 // print_r($placementList);
 if (!empty($placementList)) : ?>
     <?php foreach ($placementList as $placementItem) :
-
     ?>
-
         <div class="FoundationProgramFAQs">
-
             <div class="itemFAQs">
                 <div class="container">
                     <div class="row">
@@ -26,7 +23,6 @@ if (!empty($placementList)) : ?>
                                     </ul> -->
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

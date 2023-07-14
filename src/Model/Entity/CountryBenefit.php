@@ -36,7 +36,7 @@ protected $_virtual = ['image_path'];
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+        $no_image_path = DS . 'img' . DS . 'UK-Visa-United-Kingdom-Visa 1.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'country_benefits' . DS . $this->image;
             if (file_exists(WWW_ROOT . $image_path))
