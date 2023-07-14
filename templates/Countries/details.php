@@ -156,7 +156,7 @@
                             <div class="image">
                                 <!-- <img alt="<?= $countryPartnersVideo['title'] ?>" src="<?= $countryPartnersVideo['video_url'] ?>" /> -->
                                 <div class="box-video">
-                                    <video controls>
+                                    <video controls poster="<?= $countryPartnersVideo['video_thumb_path'] ?>">
                                         <source src="<?= $countryPartnersVideo['video_url'] ?>" type="video/mp4">
                                     </video>
                                 </div>
