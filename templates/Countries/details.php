@@ -77,19 +77,15 @@
                 <h2>BENEFITS OF STUDYING IN THE UK</h2>
 
                 <div class="gridTabes">
-                    <?php
-
-                    // print_r($placementList);
-                    if (!empty($countryBenefits)) : ?>
-                        <?php foreach ($countryBenefits as $countryBenefit) :
-                        ?>
+                    <?php if (!empty($countryBenefits)) : ?>
+                        <?php foreach ($countryBenefits as $countryBenefit) : ?>
                             <div class="card">
                                 <div class="card-head"><img alt="" src="<?= $countryBenefit['image_path'] ?>" /></div>
 
                                 <div class="card-body">
-                                    <h4>Cost of living</h4>
+                                    <h4><?= $countryBenefit['title'] ?></h4>
 
-                                    <p>Cost of living in UK is, on average, 13.1% lower than in US &amp; Australia. Rent in UK is, on average, 33.2% lower than in US &amp; Australia.</p>
+                                    <p><?= $countryBenefit['short_text'] ?></p>
                                 </div>
                             </div>
 
@@ -107,25 +103,17 @@
             <div class="col-md-12">
                 <h2>FREQUENTLY ASKED QUESTIONS</h2>
 
-                <div class="faq-item">
-                    <h3 class="faq-question">WHAT IS THE AVERAGE TUITION FEE FOR INTERNATIONAL STUDENTS IN THE UK?</h3>
+                <?php if (!empty($countryQuestions)) : ?>
+                    <?php foreach ($countryQuestions as $countryQuestion) : ?>
+                        <div class="faq-item">
+                            <h3 class="faq-question"><?= $countryQuestion['question'] ?></h3>
 
-                    <div class="faq-answer">
-                        <p>Undergraduate tuition prices in the United Kingdom range from &pound;11,400 to &pound;38,000. The average annual cost is anticipated to be roughly &pound;22,200. postgraduate tuition expenses range between &pound;9,000 and &pound;30,000. The average annual cost is anticipated to be roughly &pound;17,109. Because tuition rates vary by course and institution, we recommend that you speak with one of our advisors for more information.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-question">WHAT IS THE AVERAGE UK LIVING COST AS AN INTERNATIONAL STUDENT?</h3>
-
-                    <div class="faq-answer">&nbsp;</div>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-question">CAN I STAY IN THE UK AFTER I COMPLETE MY STUDY?</h3>
-
-                    <div class="faq-answer">&nbsp;</div>
-                </div>
+                            <div class="faq-answer">
+                                <p><?= $countryQuestion['answer'] ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <a class="detalis" href="#">CONTACT ADVISOR FOR MORE DETAILS</a>
             </div>
         </div>
@@ -138,7 +126,16 @@
             <div class="col-md-12">
                 <h2>OUR UK PARTNER UNIVERSITIES</h2>
 
-                <div class="gridOuruk"><img alt="" src="/img/part-logo (3).png" /> <img alt="" src="/img/part-logo (2).png" /> <img alt="" src="/img/part-logo (1).png" /> <img alt="" src="/img/part-logo (6).png" /> <img alt="" src="/img/part-logo (5).png" /> <img alt="" src="/img/part-logo (4).png" /></div>
+                <div class="gridOuruk">
+
+                    <?php if (!empty($countryPartners)) : ?>
+                        <?php foreach ($countryPartners as $countryPartner) : ?>
+                            <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['image_path'] ?>" />
+
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <!-- <img alt="" src="/img/part-logo (2).png" /> <img alt="" src="/img/part-logo (1).png" /> <img alt="" src="/img/part-logo (6).png" /> <img alt="" src="/img/part-logo (5).png" /> <img alt="" src="/img/part-logo (4).png" /> -->
+                </div>
                 <a class="link" href="#">EXPLORE UK UNIVERSITIES</a>
             </div>
         </div>
@@ -154,12 +151,20 @@
                 <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN UK</p>
 
                 <div class="d-flex images">
-                    <div class="image"><img alt="" src="/img/pers (1).png" /></div>
-
-                    <div class="image"><img alt="" src="/img/pers (1).png" /></div>
+                    <?php if (!empty($countryPartners)) : ?>
+                        <?php foreach ($countryPartners as $countryPartner) : ?>
+                            <div class="image">
+                                <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['image_path'] ?>" />
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <!-- <img alt="" src="/img/pers (1).png" /> -->
                 </div>
+
+                <!-- <div class="image"><img alt="" src="/img/pers (1).png" /></div> -->
             </div>
         </div>
+    </div>
     </div>
 </section>
 
