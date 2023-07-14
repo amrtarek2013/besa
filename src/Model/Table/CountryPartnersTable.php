@@ -45,7 +45,8 @@ class CountryPartnersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        // 'resize' => ['width' => 295, 'height' => 196],
+                        'resize' => [],
+                        'width' => '100%', 'height' => '100%',
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/country_partners',
