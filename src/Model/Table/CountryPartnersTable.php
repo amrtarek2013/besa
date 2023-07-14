@@ -45,15 +45,15 @@ class CountryPartnersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 295, 'height' => 196],
+                        // 'resize' => ['width' => 295, 'height' => 196],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/country_partners',
                         'file_name' => '{$rand}_{$file_name}',
 
-                        'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '60']
-                        ],
+                        // 'thumbs' => [
+                            // ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '60']
+                        // ],
                     ],
                 ]
             ]
