@@ -52,11 +52,15 @@ class CountryPartner extends Entity
     {
 
         $no_image_path = DS . 'img' . DS . 'men.png';
+        debug($this->video_thumb);
         if (!empty($this->video_thumb)) {
+            debug($this->video_thumb);
             $image_path = 'uploads' . DS . 'country_partners' . $this->video_thumb;
-            if (file_exists(WWW_ROOT . $image_path))
+            debug($image_path);
+            if (file_exists(WWW_ROOT . $image_path)) {
+                debug(DS . $image_path);
                 return DS . $image_path;
-            else
+            } else
                 return $no_image_path;
         }
         return $no_image_path;
