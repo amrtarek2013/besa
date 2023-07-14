@@ -59,9 +59,9 @@
 
                         $actions = [
                             'images' => $this->Html->link(__('Images'), ['controller' => 'CountryImages', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-flat', 'icon' => 'fas fa-images')),
-                            'Parters' => $this->Html->link(__('Parters'), ['controller' => 'CountryPartners', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-flat', 'icon' => 'fas fa-users')),
-                            'Benefits' => $this->Html->link(__('Benefits'), ['controller' => 'CountryBenefits', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-flat', 'icon' => 'fas fa-binoculars')),
-                            'Questions' => $this->Html->link(__('Questions'), ['controller' => 'CountryQuestions', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-flat', 'icon' => 'fas fa-question-circle')),
+                            'Parters' => $this->Html->link(__('Parters'), ['controller' => 'CountryPartners', 'action' => 'index', '%id%'], array('class' => 'btn btn-secondary btn-flat', 'icon' => 'fas fa-users')),
+                            'Benefits' => $this->Html->link(__('Benefits'), ['controller' => 'CountryBenefits', 'action' => 'index', '%id%'], array('class' => 'btn btn-success btn-flat', 'icon' => 'fas fa-binoculars')),
+                            'Questions' => $this->Html->link(__('Questions'), ['controller' => 'CountryQuestions', 'action' => 'index', '%id%'], array('class' => 'btn btn-warning btn-flat', 'icon' => 'fas fa-question-circle')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
                             'delete' => $this->Html->link(
