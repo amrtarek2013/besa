@@ -13,7 +13,7 @@ class CountryPartner extends Entity
 {
     // use LazyLoadEntityTrait;
 
-protected $_virtual = ['image_path', 'video_thumb_path'];
+    protected $_virtual = ['image_path', 'video_thumb_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -47,13 +47,13 @@ protected $_virtual = ['image_path', 'video_thumb_path'];
         return $no_image_path;
     }
 
-    
+
     protected function _getVideoThumbPath()
     {
 
         $no_image_path = DS . 'img' . DS . 'men.png';
         if (!empty($this->video_thumb)) {
-            $image_path = 'uploads' . DS . 'country_partners' .$this->video_thumb;
+            $image_path = 'uploads' . DS . 'country_partners' . str_replace('/', '', $this->video_thumb);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
