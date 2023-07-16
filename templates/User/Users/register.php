@@ -96,7 +96,9 @@
                 <label for="">Tick box to stay updated through BESA’s newsletter</label>
               </div>
             </div>
-            <a href="#" class="btn greenish-teal">SUBMIT</a>
+            <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
+
+            <button type="submit" class="btn greenish-teal">LOG IN</button>
           </div>
         </div>
         <?= $this->Form->end() ?>
