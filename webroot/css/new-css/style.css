@@ -6676,10 +6676,9 @@ input[type="search"]:focus {
     line-height: 79px;
 }
 
-.FoundationProgramFAQs {}
 
-.FoundationProgramFAQs .itemFAQs {
-    background: #EAF1F3;
+.FoundationProgramFAQs  {
+    background: #F6F9FB;
 
 }
 
@@ -6716,8 +6715,9 @@ input[type="search"]:focus {
     list-style: disc;
 }
 
-.FoundationProgramFAQs .itemFAQs:nth-child(odd) {
-    background: #F6F9FB;
+.FoundationProgramFAQs:nth-child(odd) {
+    background: #EAF1F3;
+
 }
 
 .university-Placement-banner {
