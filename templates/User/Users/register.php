@@ -23,12 +23,12 @@
           <h4 class="title">Create an account to apply</h4>
           <div class="grid-container">
 
-            <?= $this->Form->control('name', [
+            <?= $this->Form->control('first_name', [
               'placeholder' => 'Name',
               'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>'], 'label' => 'Name*', 'required' => true
             ]) ?>
             <!-- <?= $this->Form->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?> -->
-            <?= $this->Form->control('surname', [
+            <?= $this->Form->control('last_name', [
               'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
             ]) ?>
@@ -36,7 +36,7 @@
             <div class=" form-area">
               <label for="">Date of Birth*</label>
               <div class="grid-3col">
-                <select name="day" id="day" placeholder="Day">
+                <select name="day" id="day" placeholder="Day" required="required">
                   <option value="">Day</option>
 
                   <?php
@@ -47,7 +47,7 @@
                   ?>
 
                 </select>
-                <select name="month" id="month" placeholder="Month">
+                <select name="month" id="month" placeholder="Month" required="required">
                   <option value="">Month</option>
                   <?php
                   for ($i = 1; $i <= 12; $i++) {
@@ -56,11 +56,11 @@
                   }
                   ?>
                 </select>
-                <select name="year" id="year" placeholder="Year">
+                <select name="year" id="year" placeholder="Year" required="required">
                   <option value="">Year</option>
                   <?php
                   for ($i = 1980; $i <= 2015; $i++) {
-                    $year = $i;//date('Y', strtotime("last day of +$i year"));
+                    $year = $i; //date('Y', strtotime("last day of +$i year"));
                     echo "<option value='$year'>$year</option>";
                   }
                   ?>
@@ -107,11 +107,11 @@
 
             <div class="checkboxes">
               <div>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="terms" id="terms" required="required">
                 <label for="">I agree to <a href="#">terms & conditions</a> </label>
               </div>
               <div>
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="is_subscribed" id="is_subscribed" required="required">
                 <label for="">Tick box to stay updated through BESA’s newsletter</label>
               </div>
             </div>

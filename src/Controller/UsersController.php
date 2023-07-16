@@ -405,6 +405,7 @@ class UsersController extends AppController
                     $this->Flash->error(__('This user already exist!!'));
                 }
             } else {
+                $this->data['bd'] = implode('-', [$this->data['year'], $this->data['month'], $this->data['day']]);
                 $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
 
                 if ($this->Users->save($userEntity)) {
@@ -423,7 +424,7 @@ class UsersController extends AppController
                         '{%mobile%}'  => $user['mobile'],
                     );
                     $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
-                    $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View User</a>';
+                    $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View</a>';
                     $replace['{%view_link%}'] = $url;
                     $this->sendEmail($to, $from, 'admin.notify_user_registration', $replace);
 
