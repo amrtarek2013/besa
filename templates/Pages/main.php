@@ -387,7 +387,7 @@
 
                     <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
                     
-                    <input type="hidden" id="type" name="refUrl" value="home">
+                    <input type="hidden" id="type" name="type" value="home">
                     <div class="form-area">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="your name">
