@@ -268,6 +268,7 @@ $(".searchInput").on('click, focus, blur', function(){
   (".search-list").toggleClass('show');
 });
 
+/*
 const rangeContainer = document.querySelector(".range-container");
 rangeContainer.addEventListener("input", (ev) => {
   const rangeInput = ev.target;
@@ -309,3 +310,5 @@ rangeContainer.addEventListener("input", (ev) => {
 rangeContainer
   .querySelectorAll('input[type="range"]')
   .forEach((rangeInput) => (rangeInput.value = 0));
+
+*/
