@@ -59,7 +59,7 @@
                 <select name="year" id="year" placeholder="Year">
                   <option value="">Year</option>
                   <?php
-                  for ($i = 1980; $i <= 2000; $i++) {
+                  for ($i = 1980; $i <= 2015; $i++) {
                     $year = $i;//date('Y', strtotime("last day of +$i year"));
                     echo "<option value='$year'>$year</option>";
                   }
