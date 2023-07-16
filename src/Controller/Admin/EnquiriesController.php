@@ -28,7 +28,7 @@ class EnquiriesController extends AppController
         $types = $this->Enquiries->find('list', [
             'keyField' => 'type',
             'valueField' => 'type',
-        ]);
+        ])->distinct('type');
         $this->set(compact('enquiries', 'parameters', 'branches', 'types'));
     }
     public function list()
