@@ -439,7 +439,7 @@
 
                             <a href="/user" class="btn MainBtn">Profile</a>
                         <?php } else { ?>
-                            <a href="/user/login" class="btn MainBtn">Apply Now</a>
+                            <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                             <!-- <a href="/user/login" class="btn SecondaryBtn">Login
                                             <img src="/img/icon/login.png" alt="">
@@ -514,7 +514,7 @@
 
                                         <a href="/user" class="btn MainBtn">Profile</a>
                                     <?php } else { ?>
-                                        <a href="/user/login" class="btn MainBtn">Apply Now</a>
+                                        <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                                         <!-- <a href="/user/login" class="btn SecondaryBtn">Login
                                             <img src="/img/icon/login.png" alt="">
