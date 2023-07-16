@@ -96,12 +96,24 @@ class EnquiriesController extends AppController
                 // dd($enquiry->getErrors());
                 $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
             }
+            $this->__redirectToType($enquiry->type);
         }
 
         $this->set(compact('enquiry'));
 
         $book_free_meeting = $this->getSnippet('book_free_meeting');
-        
+
         $this->set('book_free_meeting', $book_free_meeting);
+    }
+
+    private function __redirectToType($type = 'contact-us')
+    {
+
+        switch ($type) {
+            case 'home':
+                return $this->redirect('/');
+                // default:
+                //     return $this->redirect(['action' => 'contactUs']);
+        }
     }
 }

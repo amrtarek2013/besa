@@ -40,6 +40,7 @@
                         $fields = [
                             'basicModel' => 'enquiries',
                             'id' => [],
+                            'type' => [],
                             'name' => [],
 
                             'phone' => [],
