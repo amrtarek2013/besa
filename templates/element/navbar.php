@@ -383,7 +383,7 @@
                         <!-- <a href="/contact-us" class="btn MainBtn">Apply Now</a> -->
 
                         <div class="search">
-                            <input type="search" name="" id="" placeholder="Search">
+                            <input type="search" name="search" class="searchInput" placeholder="Search">
                             <div class="search-list">
                                 <ul>
                                     <li>

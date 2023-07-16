@@ -235,7 +235,7 @@ $(document).ready(function () {
 });
 
 // Get the search input element
-const searchInput = document.querySelector(".search");
+const searchInput = document.querySelector(".searchInput");
 
 // Get the search list element
 const searchList = document.querySelector(".search-list");
