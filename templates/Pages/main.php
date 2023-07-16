@@ -385,7 +385,7 @@
             <div class="col-md-5 col-md-offset-1 ">
                 <div class="form">
 
-                    <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+                    <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
                     <div class="form-area">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="your name">
