@@ -201,7 +201,7 @@
 <?= $home_why_besa2 ?>
 
 
-<?= $this->element("choose-place-earth", ['colWidth'=>'9']) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9']) ?>
 
 <!-- Start testimonials 2-->
 
@@ -384,19 +384,22 @@
             </div>
             <div class="col-md-5 col-md-offset-1 ">
                 <div class="form">
-                    <form action="">
-                        <div class="form-area">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="your name">
-                        </div>
-                        <div class="form-area">
-                            <input type="email" id="email" name="email" placeholder="Email Address">
-                        </div>
-                        <div class="form-area">
-                            <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                        </div>
-                        <input type="submit" value="Send" class="btn MainBtn submit">
-                    </form>
+
+                    <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+                    <div class="form-area">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="your name">
+                    </div>
+                    <div class="form-area">
+                        <input type="email" id="email" name="email" placeholder="Email Address">
+                    </div>
+                    <div class="form-area">
+                        <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <input type="submit" value="Send" class="btn MainBtn submit">
+
+                    <?= $this->Form->end() ?>
+
                 </div>
 
             </div>

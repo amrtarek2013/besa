@@ -672,7 +672,8 @@ class UsersController extends AppController
             // var_dump($sheetData);
             $counter = 0;
             $university = $this->Universities->newEmptyEntity();
-            $university->title = trim($loadedSheetName);
+            $university->university_name = $university->title = trim($loadedSheetName);
+            $university->active = 1;
 
 
             $universityList[] = $university;
@@ -705,6 +706,7 @@ class UsersController extends AppController
 
                     $mainCourse = $this->Courses->newEmptyEntity();
                     $mainCourse->course_name = trim($row['B']);
+                    $mainCourse->active = 1;
                     $this->Courses->save($mainCourse);
                     $course->course_id = $mainCourse->id;
 
@@ -720,6 +722,7 @@ class UsersController extends AppController
                 $course->duration = trim($row['C']);
                 $course->intake = trim($row['D']);
                 $course->fees = floatval($row['E']);
+                $course->active = 1;
                 $cou_list[$counter] = $course;
 
                 if ($counter == 100) {
