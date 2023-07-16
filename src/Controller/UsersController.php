@@ -423,6 +423,8 @@ class UsersController extends AppController
                         '{%mobile%}'  => $user['mobile'],
                     );
                     $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
+                    $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View Enquiry</a>';
+                    $replace['{%view_link%}'] = $url;
                     $this->sendEmail($to, $from, 'admin.notify_user_registration', $replace);
 
                     $return['url']    = "/user";
