@@ -14,8 +14,6 @@ if (!empty($placementList)) : ?>
                                 <div class="content-blog">
                                     <p><?= $placementItem['title'] ?></p>
                                     <?= $placementItem['short_text'] ?>
-                                    <?= $placementItem['text'] ?>
-
                                     <!-- <ul>
                                         <li>What is pre sessional English?</li>
                                         <li>What is the entry requirement for pre-sessional English?</li>
