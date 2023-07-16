@@ -25,7 +25,7 @@ class EnquiriesController extends AppController
 
         $this->loadModel('Branches');
         $branches = $this->Branches->find('list');
-        $types = $this->Eqnuiries->find('list', [
+        $types = $this->Enquiries->find('list', [
             'keyField' => 'type',
             'valueField' => 'type',
         ]);
