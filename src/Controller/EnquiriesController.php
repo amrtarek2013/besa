@@ -62,8 +62,6 @@ class EnquiriesController extends AppController
                             '{%branch_phone%}'  => $branch['phone'],
                             '{%view_link%}'  => $url,
                         );
-
-                        $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
                     } else
                         $a_replace = array(
                             '{%name%}' => $enquiry['name'],
@@ -74,7 +72,20 @@ class EnquiriesController extends AppController
                             '{%view_link%}'  => $url,
                         );
 
-                    $this->sendEmail('khaledabdo2012@gmail.com', false, 'admin.contactus_enquiry', $a_replace);
+                    $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
+                    
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
+                } else {
+                    $a_replace = array(
+                        '{%name%}' => $enquiry['name'],
+                        '{%email%}' => $enquiry['email'],
+                        '{%phone%}' => $enquiry['phone'],
+                        '{%subject%}' => $enquiry['subject'],
+                        '{%message%}' => $enquiry['message'],
+                        '{%view_link%}'  => $url,
+                    );
+
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
                 }
                 $to = $enquiry['email'];
                 $from = '';
