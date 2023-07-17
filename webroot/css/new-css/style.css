@@ -7482,7 +7482,7 @@ input[type="search"]:focus {
 }
 
 .user-dashboard .sidebar .nav-link p {
-    float: unset;
+    float: unset !important;
     margin-left: 10px;
     font-family: 'Poppins';
     font-style: normal;
