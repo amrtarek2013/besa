@@ -282,6 +282,8 @@ class UsersController extends AppController
         $user->email_confirmed = true;
         $user->confirmed = true;
         if ($this->Users->save($user)) {
+            
+            $this->Auth->setUser($user->toArray());
             $this->Flash->success('Email Confirmed', 'Sucmessage');
             // $this->admin_loginas($this->Users->id);
             $this->redirect('/');
