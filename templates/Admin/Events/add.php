@@ -118,7 +118,7 @@
                             // echo $this->AdminForm->control('keywords',['type'=>'text']);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
-                            echo $this->AdminForm->control('show_on_home', ['type' => 'checkbox']);
+                            // echo $this->AdminForm->control('show_on_home', ['type' => 'checkbox']);
 
                             $colors = array(
                                 '#005BAA' => 'Blue',
@@ -132,7 +132,7 @@
                                 '#ffa500' => 'orange',
                             );
 
-                            echo $this->AdminForm->control('background_colour', array('options' => $colors, 'empty' => 'Choose Background Colour', 'id' => 'background_colour', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_colour . " !important; ", 'label' => 'Background Colour'));
+                            // echo $this->AdminForm->control('background_colour', array('options' => $colors, 'empty' => 'Choose Background Colour', 'id' => 'background_colour', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_colour . " !important; ", 'label' => 'Background Colour'));
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
                             echo $this->AdminForm->enableAjaxUploads($id, 'event_' . $id, $mainAdminToken);
