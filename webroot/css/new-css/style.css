@@ -3457,7 +3457,7 @@ input[type="checkbox"] {
 .main-banner .title-banner-blue {
     width: 100%;
     padding: 25px 0;
-    background: #2575FC;
+    background: #1565D8;
     border-radius: 0px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5350,7 +5350,11 @@ input.search {
 .aboutUs2-banner .background-banner-color {
     padding-bottom: 0;
 }
+.aboutUs2-banner.main-banner .title-banner-blue {
+    padding: 77px 0;
+    background: #1565D8;
 
+}
 /* Start leading-study*/
 .leading-study {
     background: #B4BEC8;
@@ -5744,8 +5748,12 @@ input.search {
 .leading-study .grid-contaienr .feature {
     border: 8px solid #8692A6;
     border-radius: 40px;
-    padding: 30px 20px;
+    padding: 20px;
     width: 310px;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -5755,7 +5763,7 @@ input.search {
     color: #FFFFFF;
     line-height: 35.2px;
     text-align: center;
-
+margin: 0;
 }
 
 .leading-study .grid-contaienr .feature-blue {
@@ -6645,6 +6653,8 @@ input[type="search"]:focus {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    width: 88%;
+    margin: 0px auto 45px;
 }
 
 .leading-study .grid-contaienr .feature-blue {

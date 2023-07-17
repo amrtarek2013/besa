@@ -1546,4 +1546,8 @@
     .footer .gridContainer-footer .logo .icon{
         justify-content: center;
     }
+    .title-dash{
+        margin: 25px 0;
+        text-align: center;
+    }
 }
