@@ -6068,7 +6068,8 @@ input[type="search"]:focus {
 .apply-now-btn-header .SecondaryBtn img {
     margin: 0;
 }
-.apply-now-btn-header .logout img{
+
+.apply-now-btn-header .logout img {
     margin-left: 10px;
 
 }
@@ -7489,7 +7490,15 @@ input[type="search"]:focus {
     -moz-border-radius: 30px !important;
     -ms-border-radius: 30px !important;
     -o-border-radius: 30px !important;
+    margin-top: 55px;
+
 }
+
+.user-dashboard .container-formBox {
+    padding: 25px;
+
+}
+
 
 .user-dashboard .sidebar .nav-link p {
     float: unset !important;
@@ -7506,6 +7515,13 @@ input[type="search"]:focus {
     white-space: pre-wrap;
 }
 
+
+.user-dashboard .container-formBox h4 {
+
+    font-size: 22px;
+    line-height: normal;
+}
+
 .user-dashboard .sidebar .nav-link .nav-icon {
     color: #696F79;
 
@@ -7514,5 +7530,9 @@ input[type="search"]:focus {
 .title-dash {
     margin-bottom: 20px;
     line-height: normal;
-    font-size: 16px;
+    font-size: 28px;
+}
+
+.user-dashboard .brand-text {
+    display: none;
 }
