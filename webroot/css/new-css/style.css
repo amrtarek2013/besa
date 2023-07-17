@@ -6458,11 +6458,12 @@ input[type="search"]:focus {
     background: #FFF;
     box-shadow: 4px 7px 4px 1px rgba(0, 0, 0, 0.25);
     margin-bottom: 16px;
+    cursor: pointer;
+
 }
 
 .questions .faq-item .faq-question {
     color: #4B4F58;
-    cursor: pointer;
 
     font-size: 24px;
     font-family: "Poppins";
