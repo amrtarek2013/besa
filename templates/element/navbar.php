@@ -309,7 +309,7 @@
                                 <?php if (isset($_SESSION['Auth']['User'])) { ?>
 
 
-                                    <a href="/user/logout" class="btn SecondaryBtn">Logout
+                                    <a href="/user/logout" class="btn SecondaryBtn logout">Logout
                                         <img src="/img/icon/login.png" alt="">
                                     </a>
 

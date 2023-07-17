@@ -334,6 +334,7 @@ button {
     margin-bottom: 24px;
     position: relative;
 }
+
 select,
 textarea,
 input:not([type="radio"],
@@ -352,6 +353,7 @@ input:not([type="radio"],
     height: 50px;
     padding: 13px 14px;
 }
+
 .input select,
 .input textarea,
 .input input:not([type="radio"],
@@ -6058,6 +6060,11 @@ input[type="search"]:focus {
     padding: 0;
 }
 
+.apply-now-btn-header .logout {
+    padding: 13px 14px;
+
+}
+
 .apply-now-btn-header .SecondaryBtn img {
     margin: 0;
 }
@@ -7496,7 +7503,13 @@ input[type="search"]:focus {
     white-space: pre-wrap;
 }
 
-.user-dashboard .sidebar  .nav-link .nav-icon{
+.user-dashboard .sidebar .nav-link .nav-icon {
     color: #696F79;
 
+}
+
+.title-dash {
+    margin-bottom: 20px;
+    line-height: normal;
+    font-size: 16px;
 }

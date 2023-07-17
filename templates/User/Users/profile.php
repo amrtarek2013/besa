@@ -2,25 +2,11 @@
 
     <div class="container"  style="width:100%">
         <div class="row">
-            <!-- <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="/img/hero-bg3.png" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
-                </div>
-            </div> -->
-
             <div class="col-md-12">
-                <!-- <div class="relative-box-about "> -->
-                    <h1 class="relative-text">Profile</h1>
-                    <h2 class="title text-left">Profile</h2>
-                <!-- </div> -->
+                <h2 class="title text-left title-dash">Profile</h2>
             </div>
         </div>
         <div class="row">
-            <!-- <div class="col-md-12">
-                <p class="descrpReg">For the purpose of applying regulation, your details are required.</p>
-            </div> -->
-
             <?= $this->Form->create($user, array('id' => 'FormProfile')); ?>
             <div class="col-md-12">
                 <div class="container-formBox">
