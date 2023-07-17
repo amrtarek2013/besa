@@ -6478,8 +6478,16 @@ input[type="search"]:focus {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
 
+.questions .faq-item .faq-answer.show {
+    max-height: 200px;
+    /* Adjust this value based on your content height */
+    opacity: 1;
 }
 
 .questions .detalis {
