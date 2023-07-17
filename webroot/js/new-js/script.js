@@ -13,16 +13,13 @@ $(document).ready(function () {
   //
   // Add click event listener to each question
   const faqItems = document.querySelectorAll(".faq-item");
-
   faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-  
-    question.addEventListener("click", () => {
-      answer.classList.toggle("show");
-    });
+    item.addEventListener("click", toggleAnswer);
   });
-  
+
+  function toggleAnswer() {
+    this.querySelector(".faq-answer").classList.toggle("show");
+  }
 
   // Function to toggle the display of the answer
   function toggleAnswer() {
@@ -52,7 +49,6 @@ $(document).ready(function () {
   var customeSlider = $(".custome-slider");
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
-
 
   mainSlider.owlCarousel({
     items: 1,
@@ -103,19 +99,18 @@ $(document).ready(function () {
     navText: [
       "<img src='./img/chevron-right.svg'>",
       "<img src='./img/chevron-left.svg'>",
-      
     ],
-    responsive:{
-      0:{
-          items:1
+    responsive: {
+      0: {
+        items: 1,
       },
-      600:{
-          items:2
+      600: {
+        items: 2,
       },
-      1000:{
-          items:3
-      }
-  }
+      1000: {
+        items: 3,
+      },
+    },
   });
 
   // jQuery animated number counter from zero to value
@@ -270,9 +265,8 @@ $(document).ready(function () {
 //   searchList.classList.add("show");
 // }
 
-$(".searchInput").on('click, focus, blur', function(){
-
-  (".search-list").toggleClass('show');
+$(".searchInput").on("click, focus, blur", function () {
+  ".search-list".toggleClass("show");
 });
 
 /*
