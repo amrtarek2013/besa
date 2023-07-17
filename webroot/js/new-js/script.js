@@ -12,10 +12,17 @@ $(document).ready(function () {
 
   //
   // Add click event listener to each question
-  const faqQuestions = document.querySelectorAll(".faq-item");
-  faqQuestions.forEach((question) => {
-    question.addEventListener("click", toggleAnswer);
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+  
+    question.addEventListener("click", () => {
+      answer.classList.toggle("show");
+    });
   });
+  
 
   // Function to toggle the display of the answer
   function toggleAnswer() {
