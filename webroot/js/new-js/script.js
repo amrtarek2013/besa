@@ -12,7 +12,7 @@ $(document).ready(function () {
 
   //
   // Add click event listener to each question
-  const faqQuestions = document.querySelectorAll(".faq-question");
+  const faqQuestions = document.querySelectorAll(".faq-item");
   faqQuestions.forEach((question) => {
     question.addEventListener("click", toggleAnswer);
   });
