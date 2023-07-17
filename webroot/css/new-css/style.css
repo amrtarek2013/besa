@@ -334,7 +334,7 @@ button {
     margin-bottom: 24px;
     position: relative;
 }
-
+select,
 textarea,
 input:not([type="radio"],
     [type="checkbox"],
@@ -352,7 +352,7 @@ input:not([type="radio"],
     height: 50px;
     padding: 13px 14px;
 }
-
+.input select,
 .input textarea,
 .input input:not([type="radio"],
     [type="checkbox"],
