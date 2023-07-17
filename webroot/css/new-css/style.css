@@ -346,10 +346,18 @@ input:not([type="radio"],
     line-height: 24px;
     letter-spacing: 0.02em;
     border: 1.2px solid #B4BEC8;
+
     border-radius: 4px;
     width: 100%;
     height: 50px;
     padding: 13px 14px;
+}
+
+.input textarea,
+.input input:not([type="radio"],
+    [type="checkbox"],
+    [type="range"]) {
+    border: 1px solid #33CA94;
 }
 
 textarea {
@@ -2212,7 +2220,7 @@ p.descrp {
     grid-column: 1/ 4;
 }
 
-.container-formBox .input label {
+.container-formBox .inp label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
