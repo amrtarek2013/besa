@@ -150,14 +150,11 @@ class UsersController extends AppController
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
                     $this->redirect('/user');
-
                 } else {
 
                     $this->Flash->error(__($return['message']));
                     $this->redirect('/user/register');
                 }
-                
-                
             }
         }
 
@@ -289,7 +286,6 @@ class UsersController extends AppController
 
         return $this->redirect('/');
     }
-
     public function confirmEmail($confirm_code = false)
     {
 
@@ -307,16 +303,19 @@ class UsersController extends AppController
         }
 
         if (!$user) {
-            $this->Flash->error('Invalid security code');
+            $this->Flash->error('Invalid security code', 'Errormessage');
             $this->redirect('/');
         }
         $user->email_confirmed = true;
         $user->confirmed = true;
-        $user->active = true;
         if ($this->Users->save($user)) {
-            $this->Flash->success('Email Confirmed');
+
+            // $this->Auth->setUser($user->toArray());
+
+            $this->Session->write('user', $user->toArray());
+            $this->Flash->success('Email Confirmed', 'Sucmessage');
             // $this->admin_loginas($this->Users->id);
-            $this->redirect('/');
+            $this->redirect('/user');
         }
         $this->redirect('/');
     }
