@@ -6068,7 +6068,10 @@ input[type="search"]:focus {
 .apply-now-btn-header .SecondaryBtn img {
     margin: 0;
 }
+.apply-now-btn-header .logout img{
+    margin-left: 10px;
 
+}
 
 .drop-down .toggle {
     padding: 8px 10px;
