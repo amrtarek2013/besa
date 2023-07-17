@@ -2222,7 +2222,7 @@ p.descrp {
     grid-column: 1/ 4;
 }
 
-.container-formBox .inp label {
+.container-formBox .input label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
