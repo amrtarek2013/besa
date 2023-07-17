@@ -7482,6 +7482,7 @@ input[type="search"]:focus {
 }
 
 .user-dashboard .sidebar .nav-link p {
+    float: unset;
     margin-left: 10px;
     font-family: 'Poppins';
     font-style: normal;
