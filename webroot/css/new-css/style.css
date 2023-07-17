@@ -335,6 +335,7 @@ button {
     position: relative;
 }
 
+select,
 textarea,
 input:not([type="radio"],
     [type="checkbox"],
@@ -346,10 +347,21 @@ input:not([type="radio"],
     line-height: 24px;
     letter-spacing: 0.02em;
     border: 1.2px solid #B4BEC8;
+
     border-radius: 4px;
     width: 100%;
     height: 50px;
     padding: 13px 14px;
+}
+
+.input select,
+.input textarea,
+.input input:not([type="radio"],
+    [type="checkbox"],
+    [type="range"]) {
+    border: 1px solid #33CA94;
+    border-radius: 6px;
+
 }
 
 textarea {
@@ -2212,7 +2224,7 @@ p.descrp {
     grid-column: 1/ 4;
 }
 
-.container-formBox .form-area label {
+.container-formBox .input label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -3445,7 +3457,7 @@ input[type="checkbox"] {
 .main-banner .title-banner-blue {
     width: 100%;
     padding: 25px 0;
-    background: #2575FC;
+    background: #1565D8;
     border-radius: 0px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5338,7 +5350,11 @@ input.search {
 .aboutUs2-banner .background-banner-color {
     padding-bottom: 0;
 }
+.aboutUs2-banner.main-banner .title-banner-blue {
+    padding: 77px 0;
+    background: #1565D8;
 
+}
 /* Start leading-study*/
 .leading-study {
     background: #B4BEC8;
@@ -5732,8 +5748,12 @@ input.search {
 .leading-study .grid-contaienr .feature {
     border: 8px solid #8692A6;
     border-radius: 40px;
-    padding: 30px 20px;
+    padding: 20px;
     width: 310px;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -5743,7 +5763,7 @@ input.search {
     color: #FFFFFF;
     line-height: 35.2px;
     text-align: center;
-
+margin: 0;
 }
 
 .leading-study .grid-contaienr .feature-blue {
@@ -6048,10 +6068,19 @@ input[type="search"]:focus {
     padding: 0;
 }
 
+.apply-now-btn-header .logout {
+    padding: 13px 14px;
+
+}
+
 .apply-now-btn-header .SecondaryBtn img {
     margin: 0;
 }
 
+.apply-now-btn-header .logout img {
+    margin-left: 10px;
+
+}
 
 .drop-down .toggle {
     padding: 8px 10px;
@@ -6458,11 +6487,12 @@ input[type="search"]:focus {
     background: #FFF;
     box-shadow: 4px 7px 4px 1px rgba(0, 0, 0, 0.25);
     margin-bottom: 16px;
+    cursor: pointer;
+
 }
 
 .questions .faq-item .faq-question {
     color: #4B4F58;
-    cursor: pointer;
 
     font-size: 24px;
     font-family: "Poppins";
@@ -6478,8 +6508,16 @@ input[type="search"]:focus {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
 
+.questions .faq-item .faq-answer.show {
+    max-height: 200px;
+    /* Adjust this value based on your content height */
+    opacity: 1;
 }
 
 .questions .detalis {
@@ -6615,6 +6653,8 @@ input[type="search"]:focus {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    width: 88%;
+    margin: 0px auto 45px;
 }
 
 .leading-study .grid-contaienr .feature-blue {
@@ -6677,7 +6717,7 @@ input[type="search"]:focus {
 }
 
 
-.FoundationProgramFAQs  {
+.FoundationProgramFAQs {
     background: #F6F9FB;
 
 }
@@ -7014,6 +7054,7 @@ input[type="search"]:focus {
 .form-area input {
     border-radius: 4px;
     border: 1.2px solid #B4BEC8;
+    border: 1.2px solid #33CA94;
     color: #878787;
     font-size: 16px;
     font-weight: 400;
@@ -7449,3 +7490,60 @@ input[type="search"]:focus {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
 }
+
+
+.user-dashboard .sidebar {
+    background: #FFFFFF;
+    border-top: 14px solid #2575FC !important;
+    border-radius: 30px !important;
+    -webkit-border-radius: 30px !important;
+    -moz-border-radius: 30px !important;
+    -ms-border-radius: 30px !important;
+    -o-border-radius: 30px !important;
+    margin-top: 55px;
+
+}
+
+.user-dashboard .container-formBox {
+    padding: 25px;
+
+}
+
+
+.user-dashboard .sidebar .nav-link p {
+    float: unset !important;
+    margin-left: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #696F79;
+    width: 100%;
+    padding-left: 15px;
+    white-space: pre-wrap;
+}
+
+
+.user-dashboard .container-formBox h4 {
+
+    font-size: 22px;
+    line-height: normal;
+}
+
+.user-dashboard .sidebar .nav-link .nav-icon {
+    color: #696F79;
+
+}
+
+.title-dash {
+    margin-bottom: 20px;
+    line-height: normal;
+    font-size: 28px;
+}
+
+.user-dashboard .brand-text {
+    display: none;
+}
+

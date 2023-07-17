@@ -1540,10 +1540,28 @@
     .tabes2 .gridTabes {
         padding: 0;
     }
-    .footer .gridContainer-footer{
+
+    .footer .gridContainer-footer {
         padding: 0;
     }
-    .footer .gridContainer-footer .logo .icon{
+
+    .footer .gridContainer-footer .logo .icon {
         justify-content: center;
+    }
+
+    .title-dash {
+        margin: 25px 0;
+        text-align: center;
+    }
+
+    .sectionTimeline .container-item-data {
+        grid-template-columns: 1fr;
+
+    }
+
+    .leading-study .title-background {
+        font-weight: 600;
+        font-size: 18px;
+        width: 100%;
     }
 }

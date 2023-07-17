@@ -12,16 +12,16 @@ $(document).ready(function () {
 
   //
   // Add click event listener to each question
-  const faqQuestions = document.querySelectorAll(".faq-question");
-  faqQuestions.forEach((question) => {
-    question.addEventListener("click", toggleAnswer);
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    item.addEventListener("click", toggleAnswer);
   });
-
-  // Function to toggle the display of the answer
+  
   function toggleAnswer() {
-    const answer = this.nextElementSibling;
-    answer.style.display = answer.style.display === "none" ? "block" : "none";
+    this.querySelector(".faq-answer").classList.toggle("show");
   }
+  
+
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
 
@@ -235,40 +235,33 @@ $(document).ready(function () {
 });
 
 // Get the search input element
-// const searchInput = $(".searchInput");
-//document.querySelector(".searchInput");
+const searchInput = document.querySelector(".search");
 
 // Get the search list element
-// const searchList = document.querySelector(".search-list");
+const searchList = document.querySelector(".search-list");
 
-// // Add event listeners to the search input for clicks, focus, and blur events
-// searchInput.addEventListener("click", toggleSearchList);
-// searchInput.addEventListener("focus", toggleSearchList);
-// searchInput.addEventListener("blur", toggleSearchList);
+// Add event listeners to the search input for clicks, focus, and blur events
+searchInput.addEventListener("click", toggleSearchList);
+searchInput.addEventListener("focus", toggleSearchList);
+searchInput.addEventListener("blur", toggleSearchList);
 
-// // Add a click event listener to the document object
-// document.addEventListener("click", function (event) {
-//   // Check if the click event did not originate from the search input or search list
-//   if (
-//     !searchInput.contains(event.target) &&
-//     !searchList.contains(event.target)
-//   ) {
-//     // Hide the search list by removing the 'show' class
-//     searchList.classList.remove("show");
-//   }
-// });
-
-// // Function to toggle the 'show' class on the search list
-// function toggleSearchList() {
-//   searchList.classList.add("show");
-// }
-
-$(".searchInput").on('click, focus, blur', function(){
-
-  (".search-list").toggleClass('show');
+// Add a click event listener to the document object
+document.addEventListener("click", function (event) {
+  // Check if the click event did not originate from the search input or search list
+  if (
+    !searchInput.contains(event.target) &&
+    !searchList.contains(event.target)
+  ) {
+    // Hide the search list by removing the 'show' class
+    searchList.classList.remove("show");
+  }
 });
 
-/*
+// Function to toggle the 'show' class on the search list
+function toggleSearchList() {
+  searchList.classList.add("show");
+}
+
 const rangeContainer = document.querySelector(".range-container");
 rangeContainer.addEventListener("input", (ev) => {
   const rangeInput = ev.target;
@@ -310,5 +303,3 @@ rangeContainer.addEventListener("input", (ev) => {
 rangeContainer
   .querySelectorAll('input[type="range"]')
   .forEach((rangeInput) => (rangeInput.value = 0));
-
-*/

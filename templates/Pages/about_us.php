@@ -1,3 +1,4 @@
+
 <section class="main-banner banner-about-us aboutUs2-banner">
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +33,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="/img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                                     <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="/img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="/img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -66,7 +67,7 @@
                                     <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="/img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
