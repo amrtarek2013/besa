@@ -286,7 +286,7 @@ class UsersController extends AppController
             $this->Auth->setUser($user->toArray());
             $this->Flash->success('Email Confirmed', 'Sucmessage');
             // $this->admin_loginas($this->Users->id);
-            $this->redirect('/');
+            $this->redirect('/user');
         }
         $this->redirect('/');
     }
