@@ -40,7 +40,7 @@ class UsersController extends AppController
         $conditions = $this->_filter_params();
         // $conditions['Users.is_office_admin !='] = 1;
 
-        $users = $this->paginate($this->Users, ['conditions' => $conditions]);//, 'contain' => ['Countries', 'Services']]);
+        $users = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries'/*, 'Services'*/]]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('users', 'parameters'));
