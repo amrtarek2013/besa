@@ -405,6 +405,7 @@ class UsersController extends AppController
                     $this->Flash->error(__('This user already exist!!'));
                 }
             } else {
+                $this->data['bd'] = implode('-', [$this->data['year'], $this->data['month'], $this->data['day']]);
                 $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
 
                 if ($this->Users->save($userEntity)) {
@@ -423,6 +424,8 @@ class UsersController extends AppController
                         '{%mobile%}'  => $user['mobile'],
                     );
                     $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
+                    $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View</a>';
+                    $replace['{%view_link%}'] = $url;
                     $this->sendEmail($to, $from, 'admin.notify_user_registration', $replace);
 
                     $return['url']    = "/user";
@@ -672,7 +675,8 @@ class UsersController extends AppController
             // var_dump($sheetData);
             $counter = 0;
             $university = $this->Universities->newEmptyEntity();
-            $university->title = trim($loadedSheetName);
+            $university->university_name = $university->title = trim($loadedSheetName);
+            $university->active = 1;
 
 
             $universityList[] = $university;
@@ -705,6 +709,7 @@ class UsersController extends AppController
 
                     $mainCourse = $this->Courses->newEmptyEntity();
                     $mainCourse->course_name = trim($row['B']);
+                    $mainCourse->active = 1;
                     $this->Courses->save($mainCourse);
                     $course->course_id = $mainCourse->id;
 
@@ -720,6 +725,7 @@ class UsersController extends AppController
                 $course->duration = trim($row['C']);
                 $course->intake = trim($row['D']);
                 $course->fees = floatval($row['E']);
+                $course->active = 1;
                 $cou_list[$counter] = $course;
 
                 if ($counter == 100) {

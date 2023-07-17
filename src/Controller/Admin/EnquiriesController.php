@@ -18,14 +18,18 @@ class EnquiriesController extends AppController
     public function index()
     {
         $conditions = $this->_filter_params();
-        
+
 
         $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
 
         $this->loadModel('Branches');
         $branches = $this->Branches->find('list');
-        $this->set(compact('enquiries', 'parameters', 'branches'));
+        $types = $this->Enquiries->find('list', [
+            'keyField' => 'type',
+            'valueField' => 'type',
+        ])->where(['type !=' => '', 'type is not null'])->distinct('type');
+        $this->set(compact('enquiries', 'parameters', 'branches', 'types'));
     }
     public function list()
     {
@@ -167,11 +171,11 @@ class EnquiriesController extends AppController
             ->limit($count)
             ->order(['Enquiries.id' => 'desc'])
             ->all();
-            // ->all();
+        // ->all();
 
-            // print_r($conditions);
-            // print_r($enquiries);
-            // die;
+        // print_r($conditions);
+        // print_r($enquiries);
+        // die;
 
         // $count = 200000; // for debuging
         $data = $enquiries->toArray();
@@ -193,7 +197,7 @@ class EnquiriesController extends AppController
             'Phone',
             'Email Address',
             'Created',
-            
+
             'Branch',
             // 'Allocated Time',
 

@@ -62,8 +62,6 @@ class EnquiriesController extends AppController
                             '{%branch_phone%}'  => $branch['phone'],
                             '{%view_link%}'  => $url,
                         );
-
-                        $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
                     } else
                         $a_replace = array(
                             '{%name%}' => $enquiry['name'],
@@ -74,7 +72,20 @@ class EnquiriesController extends AppController
                             '{%view_link%}'  => $url,
                         );
 
-                    $this->sendEmail('khaledabdo2012@gmail.com', false, 'admin.contactus_enquiry', $a_replace);
+                    $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
+                    
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
+                } else {
+                    $a_replace = array(
+                        '{%name%}' => $enquiry['name'],
+                        '{%email%}' => $enquiry['email'],
+                        '{%phone%}' => $enquiry['phone'],
+                        '{%subject%}' => $enquiry['subject'],
+                        '{%message%}' => $enquiry['message'],
+                        '{%view_link%}'  => $url,
+                    );
+
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
                 }
                 $to = $enquiry['email'];
                 $from = '';
@@ -96,12 +107,24 @@ class EnquiriesController extends AppController
                 // dd($enquiry->getErrors());
                 $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
             }
+            $this->__redirectToType($enquiry->type);
         }
 
         $this->set(compact('enquiry'));
 
         $book_free_meeting = $this->getSnippet('book_free_meeting');
-        
+
         $this->set('book_free_meeting', $book_free_meeting);
+    }
+
+    private function __redirectToType($type = 'contact-us')
+    {
+
+        switch ($type) {
+            case 'home':
+                return $this->redirect('/');
+                // default:
+                //     return $this->redirect(['action' => 'contactUs']);
+        }
     }
 }

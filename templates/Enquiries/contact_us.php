@@ -232,6 +232,7 @@
 
 <?= $this->Flash->render() ?>
 <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+<input type="hidden" id="type" name="type" value="contact-us">
 <section class="contact-us pageContact">
     <div class="top-dots-img">
         <img src="/img/icon/dots-bakground.svg" alt="">

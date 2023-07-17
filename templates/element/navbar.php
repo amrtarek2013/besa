@@ -383,7 +383,7 @@
                         <!-- <a href="/contact-us" class="btn MainBtn">Apply Now</a> -->
 
                         <div class="search">
-                            <input type="search" name="" id="" placeholder="Search">
+                            <input type="search" name="search" class="searchInput" placeholder="Search">
                             <div class="search-list">
                                 <ul>
                                     <li>
@@ -439,7 +439,7 @@
 
                             <a href="/user" class="btn MainBtn">Profile</a>
                         <?php } else { ?>
-                            <a href="/user/login" class="btn MainBtn">Apply Now</a>
+                            <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                             <!-- <a href="/user/login" class="btn SecondaryBtn">Login
                                             <img src="/img/icon/login.png" alt="">
@@ -514,7 +514,7 @@
 
                                         <a href="/user" class="btn MainBtn">Profile</a>
                                     <?php } else { ?>
-                                        <a href="/user/login" class="btn MainBtn">Apply Now</a>
+                                        <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                                         <!-- <a href="/user/login" class="btn SecondaryBtn">Login
                                             <img src="/img/icon/login.png" alt="">
