@@ -783,6 +783,7 @@
     .services-rendered .gridServices {
         grid-template-columns: 1fr;
         grid-gap: 30px;
+        padding: 0;
     }
 
     .services-rendered .gridServices h4 br {
@@ -1558,6 +1559,8 @@
     .sectionTimeline .container-item-data {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+        padding: 0 20px;
+
     }
 
     .nav-timeline {
