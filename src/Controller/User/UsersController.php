@@ -286,7 +286,7 @@ class UsersController extends AppController
 
         return $this->redirect('/');
     }
-    public function confirmEmail($confirm_code = false)
+    public function confirmEmail($confirm_code = null)
     {
 
         if ($confirm_code) {
@@ -303,7 +303,7 @@ class UsersController extends AppController
         }
 
         if (!$user) {
-            $this->Flash->error('Invalid security code', 'Errormessage');
+            $this->Flash->error('Invalid security code');
             $this->redirect('/');
         }
         $user->email_confirmed = true;
@@ -313,7 +313,8 @@ class UsersController extends AppController
             // $this->Auth->setUser($user->toArray());
 
             $this->Session->write('user', $user->toArray());
-            $this->Flash->success('Email Confirmed', 'Sucmessage');
+            $_SESSION['User'] = $user->toArray();
+            $this->Flash->success('Email Confirmed');
             // $this->admin_loginas($this->Users->id);
             $this->redirect('/user');
         }
