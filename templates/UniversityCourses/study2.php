@@ -40,8 +40,8 @@
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
                                 <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
-                                <div class="box">
-                                    <h4><?=$studyCourse_value?></h4>
+                                <div class="box" title='<?=$studyCourse_value?>'>
+                                    <h4><?=words_slice($studyCourse_value,25)?></h4>
                                 </div>
                                 <?php } ?>
                                 <?php } ?>

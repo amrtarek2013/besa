@@ -338,3 +338,11 @@ if (!function_exists('getCaptcha')) {
         return ($Response['success'] == true && $Response['score'] > 0.5);
     }
 }
+
+
+function words_slice($string,$chars_count){
+    $words = explode(' ', $string);
+    $first12Words = array_slice($words, 0, $chars_count);
+    $result = implode(' ', $first12Words);
+    return $result;
+}
