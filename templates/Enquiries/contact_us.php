@@ -54,19 +54,23 @@
                             <i class="fab fa-twitter fa-2x"></i>
                         </a> -->
                         <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                            <i class="fab fa-facebook fa-2x"></i>
+                            <img src="/img/icon/social-media/Facebook.svg" alt="facebook" >
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                            <i class="fab fa-instagram fa-2x"></i>
+                            <img src="/img/icon/social-media/Instagram.svg" alt="Instagram" >
+
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                            <i class="fab fa-youtube fa-2x"></i>
+                            <img src="/img/icon/social-media/YouTube.svg" alt="YouTube" >
+
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                            <i class="fab fa-linkedin fa-2x"></i>
+                            <img src="/img/icon/social-media/Linkedin.svg" alt="Linkedin" >
+
                         </a>
-                        <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                            <i class="fab fa-twitter fa-2x"></i>
+                        <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="Twitter" target="_blank">
+                            <img src="/img/icon/social-media/Twitter.svg" alt="twitter" >
+
                         </a>
 
                     </div>
