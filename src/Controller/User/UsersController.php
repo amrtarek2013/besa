@@ -302,7 +302,7 @@ class UsersController extends AppController
             die;
         }
 
-        if (!$user) {
+        if (!isset($user)) {
             $this->Flash->error('Invalid security code');
             $this->redirect('/');
         }
