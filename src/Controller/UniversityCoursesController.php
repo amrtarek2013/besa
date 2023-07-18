@@ -74,6 +74,7 @@ class UniversityCoursesController extends AppController
         $this->set('servicesSearchList', $servicesSearchList);
         $this->set('searchDegreeOptions', $this->Services->searchDegreeOptions);
         $this->set('studyLevels', $this->UniversityCourses->studyLevels);
+        print_r($_GET);die;
         if(!empty($_GET['steps'])){
            $this->render('study2'); 
         }
