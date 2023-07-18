@@ -1619,12 +1619,20 @@
         font-size: 20px;
     }
 
-    .timeline-list-wrap {
-        width: 200%; /* Double the timeline width for smaller screens */
-        transform: translate3d(0, 0, 0);
-      }
-    
-      .timeline-item {
-        width: 50%; /* Half the timeline items width for smaller screens */
-      }
+    .timeline-horizontal .timeline-dots-wrap {
+        height: auto;
+    }
+
+    .timeline-horizontal .timeline-dots button {
+        padding-bottom: 20px;
+    }
+
+    .timeline,
+    .timeline-list {
+        width: unset !important;
+    }
+
+    .timeline-item {
+        width: 390px !important;
+    }
 }
