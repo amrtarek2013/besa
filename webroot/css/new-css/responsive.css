@@ -1627,4 +1627,12 @@
         padding-bottom: 20px;
     }
 
+    .timeline,
+    .timeline-list {
+        width: unset !important;
+    }
+
+    .timeline-item {
+        width: 400px;
+    }
 }
