@@ -38,7 +38,6 @@ class UniversityCoursesController extends AppController
 
     public function study()
     {
-        die("---")
         $this->set('bodyClass', 'pageAbout pageServices');
         $universityCourses = $this->UniversityCourses->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
         $this->set('universityCourses', $universityCourses);
