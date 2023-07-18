@@ -2224,6 +2224,7 @@ p.descrp {
     -ms-grid-column-span: 3;
     grid-column: 1/ 4;
 }
+
 .container-formBox .form-area label,
 .container-formBox .input label {
     font-family: 'Poppins';
@@ -5238,9 +5239,11 @@ input.search {
     font-size: 48px;
     line-height: 63px;
 }
-.partiner-banner .line-stained{
+
+.partiner-banner .line-stained {
     background: #fff;
 }
+
 .container-iconsPartners {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5353,11 +5356,13 @@ input.search {
 .aboutUs2-banner .background-banner-color {
     padding-bottom: 0;
 }
+
 .aboutUs2-banner.main-banner .title-banner-blue {
     padding: 77px 0;
     background: #1565D8;
 
 }
+
 /* Start leading-study*/
 .leading-study {
     background: #B4BEC8;
@@ -5766,7 +5771,7 @@ input.search {
     color: #FFFFFF;
     line-height: 35.2px;
     text-align: center;
-margin: 0;
+    margin: 0;
 }
 
 .leading-study .grid-contaienr .feature-blue {
@@ -7140,7 +7145,7 @@ input[type="search"]:focus {
     margin-bottom: 0;
 }
 
-.servTrophy .container-icons .icon-box img {
+.servTrophy .container-icons .icon-box .img-icon {
     margin: unset;
     height: 70px;
 
@@ -7197,7 +7202,7 @@ input[type="search"]:focus {
 
 .title-header-blue .containerb2b {
     align-items: center;
-    grid-gap: 45px;
+    grid-gap: 55px;
 }
 
 .title-header-blue .containerb2b .image {
@@ -7552,3 +7557,13 @@ input[type="search"]:focus {
     display: none;
 }
 
+.B2B-banner .title-header-blue .containerb2b {
+    width: max-content;
+    margin: auto;
+
+}
+
+.B2B-banner .title-header-blue .containerb2b .content {
+    max-width: 655px;
+
+}
