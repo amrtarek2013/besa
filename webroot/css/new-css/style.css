@@ -5625,8 +5625,15 @@ input.search {
     border-radius: 10px;
     text-align: center;
     padding: 4px 20px;
+    cursor: pointer;
 }
+.steps-en .step .grid-contaienr .box.active{
+    background: #33CA94;
 
+}
+.steps-en .step .grid-contaienr .box.active h4{
+    color: #fff;
+}
 .steps-en .step .grid-contaienr .box h4 {
     font-family: 'Poppins';
     font-style: normal;
