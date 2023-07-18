@@ -75,6 +75,17 @@
             ]) ?>
 
 
+            <?= $this->Form->control('password', [
+              'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+            ]) ?>
+            <?= $this->Form->control('passwd', [
+              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+            ]) ?>
+
+
+
             <?= $this->Form->control('gender', [
               'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
               'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
