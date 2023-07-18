@@ -550,7 +550,7 @@
     .container-formBox .grid-container {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        grid-gap: 27px 24px;
+        padding: 0;
     }
 
     .container-formBox .grid-container .form-area:nth-child(10) {

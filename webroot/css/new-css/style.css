@@ -2196,7 +2196,7 @@ p.descrp {
 .container-formBox {
     background: #FFFFFF;
     border-radius: 30px;
-    padding: 46px;
+    padding: 40px 23px;
     border-top: 14px solid #33CA94;
 }
 
@@ -2215,7 +2215,8 @@ p.descrp {
     display: grid;
     -ms-grid-columns: 3fr 24px 3fr 24px 3fr;
     grid-template-columns: 3fr 3fr 3fr;
-    grid-gap: 27px 24px;
+    grid-gap: 18px 24px;
+    padding: 0 20px;
 }
 
 .container-formBox .grid-container .form-area:nth-child(10) {
@@ -5172,7 +5173,7 @@ input.search {
     border-radius: 30px;
     width: 100%;
     padding: 20px 25px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .gray-box p {
@@ -5237,7 +5238,9 @@ input.search {
     font-size: 48px;
     line-height: 63px;
 }
-
+.partiner-banner .line-stained{
+    background: #fff;
+}
 .container-iconsPartners {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5246,7 +5249,7 @@ input.search {
     -ms-flex-pack: center;
     justify-content: center;
     grid-gap: 115px;
-    padding: 35px 0;
+    padding: 65px 0 30px 0;
     background: #fff;
 }
 
@@ -5315,8 +5318,8 @@ input.search {
     -webkit-box-direction: normal;
     -ms-flex-flow: column;
     flex-flow: column;
-    grid-gap: 30px;
-    padding: 10px 0;
+    grid-gap: 28px;
+    padding: 4px 0;
 }
 
 .partiner-banner .gray-box p {
