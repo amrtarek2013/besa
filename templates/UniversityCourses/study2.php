@@ -1,6 +1,3 @@
-<?= $this->Html->script([
-    '/js/new-js/script-steps-en.js'
-]) ?>
 <section class="steps-en">
     <div class="container">
         <div class="col-md-12">
@@ -159,3 +156,6 @@
         </div>
     </div>
 </section>
+<?= $this->Html->script([
+    '/js/new-js/script-steps-en.js'
+]) ?>
