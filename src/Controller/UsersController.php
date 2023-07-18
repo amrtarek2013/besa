@@ -192,11 +192,12 @@ class UsersController extends AppController
                     $to = $user['email'];
                     $from = '';
 
-                    $url = Router::url('/user/reset-password/' . $hashed_value, true);
+                    $url = '<a href="' . Router::url('/user/reset-password/' . $hashed_value, true) . '" >Click Here</a>';//Router::url('/user/reset-password/' . $hashed_value, true);
+
                     $replace = array(
                         '{%first_name%}' => $user['first_name'],
                         '{%last_name%}' => $user['last_name'],
-                        '{%new_password%}' => '<a href="' . $url . '">Click Here</a>',
+                        '{%new_password%}' => $url,
                     );
 
                     $this->sendEmail($to, false, 'new_password', $replace);
@@ -242,10 +243,11 @@ class UsersController extends AppController
         $seller = $this->Auth->user();
         $hashed_value = $seller['hash'] ? $seller['hash'] : md5($seller['id'] . uniqid() . md5($seller['email'] . $_SERVER['HTTP_USER_AGENT']));
 
+        $url = '<a href="' . Router::url('/users/confirm_email/' . $hashed_value, true) . '" >Click Here</a>';
         $un_replace = array(
             '{%first_name%}' => $seller['first_name'],
             '{%last_name%}' => $seller['last_name'],
-            '{%confirmation_url%}' => Router::url(array('controller' => 'Users', 'action' => 'confirm_email', $hashed_value), true),
+            '{%confirmation_url%}' => $url
         );
         $seller['email'] = 'developerae@thesitefactory.com.au';
         $user = $this->Users->find()->where(["id" => $seller['id']])->first();
@@ -282,9 +284,13 @@ class UsersController extends AppController
         $user->email_confirmed = true;
         $user->confirmed = true;
         if ($this->Users->save($user)) {
+            
+            // $this->Auth->setUser($user->toArray());
+            
+            $this->Session->write('user', $user->toArray());
             $this->Flash->success('Email Confirmed', 'Sucmessage');
             // $this->admin_loginas($this->Users->id);
-            $this->redirect('/');
+            $this->redirect('/user');
         }
         $this->redirect('/');
     }

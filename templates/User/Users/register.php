@@ -75,6 +75,17 @@
             ]) ?>
 
 
+            <?= $this->Form->control('password', [
+              'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+            ]) ?>
+            <?= $this->Form->control('passwd', [
+              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+            ]) ?>
+
+
+
             <?= $this->Form->control('gender', [
               'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
               'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
@@ -111,7 +122,7 @@
                 <label for="">I agree to <a href="#">terms & conditions</a> </label>
               </div>
               <div>
-                <input type="checkbox" name="is_subscribed" id="is_subscribed" required="required">
+                <input type="checkbox" name="is_subscribed" id="is_subscribed">
                 <label for="">Tick box to stay updated through BESA’s newsletter</label>
               </div>
             </div>

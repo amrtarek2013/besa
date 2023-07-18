@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="grid-container-profile">
                     <div class="left-box">
-                        <<div class="circle-img">
+                        <div class="circle-img">
                             <img src="<?=$auth->user('image_path')?>" alt="">
                         </div>
                         <h2 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h2>

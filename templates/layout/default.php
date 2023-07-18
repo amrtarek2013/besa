@@ -36,6 +36,24 @@
 </head>
 <?php $bodyClass = isset($bodyClass) ? $bodyClass : '' ?>
 
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.message').hide();
+        toastr.options.closeButton = true;
+        toastr.options.closeMethod = 'fadeOut';
+        toastr.options.closeDuration = 500;
+        toastr.options.closeEasing = 'swing';
+        if ($(".message.success").length) {
+            toastr.success($(".message.success").text());
+        }
+        if ($(".message.error").length) {
+            toastr.error($(".message.error").text());
+        }
+    });
+</script>
+
 <body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
 
     <?= $this->element('UserPopUp'); ?>
