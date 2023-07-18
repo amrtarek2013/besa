@@ -5417,6 +5417,9 @@ input.search {
 .steps-en #buttons {
     margin-top: 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
 }
 
 .steps-en #prevBtn,
@@ -5437,6 +5440,22 @@ input.search {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-en #nextBtn {
+
+    position: relative;
+    justify-content: start;
+    padding: 0 25px;
+
+}
+
+.steps-en #nextBtn img {
+    position: absolute;
+    right: 10px;
 }
 
 .steps-en #prevBtn {
