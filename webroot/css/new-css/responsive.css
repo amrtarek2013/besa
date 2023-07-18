@@ -1356,8 +1356,9 @@
 
 
     .servTrophy .container-icons {
-        -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+        -ms-grid-columns: 1fr ;
+        grid-template-columns: 1fr ;
+        align-items: start;
     }
 
     .servTrophy .container-icons .icon-box {
