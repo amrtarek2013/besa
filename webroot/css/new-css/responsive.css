@@ -1554,11 +1554,20 @@
         text-align: center;
     }
 
-    .sectionTimeline .container-item-data {
+    
+    .container-item-data {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-
     }
 
+    .nav-timeline {
+        bottom: 15px;
+    }
+
+    .sectionTimeline .nav-timeline button {
+        width: 25px;
+        height: 25px;
+    }
     .leading-study .title-background {
         font-weight: 600;
         font-size: 18px;
