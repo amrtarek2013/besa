@@ -25,14 +25,13 @@
                         <!-- Step 1 content here -->
                         <h2 class="title">WHICH STUDY LEVEL?</h2>
                         <div class="form-area">
-                        <?php 
-                        if (!empty($servicesSearchList)){
-                            foreach ($servicesSearchList as $i => $service){?>
+                        <?php  if (!empty($servicesSearchList)){ ?>
                             <select name="service_id" id="">
+                            <?php foreach ($servicesSearchList as $i => $service){?>
                                 <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
+                            <?php } ?>
                             </select>                                
-                        <?php } 
-                        } ?>
+                        <?php } ?>
                         </div>
                     </div>
                 
