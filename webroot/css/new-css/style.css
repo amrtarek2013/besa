@@ -7148,7 +7148,9 @@ input[type="search"]:focus {
 .servTrophy .container-icons .icon-box .img-icon {
     margin: unset;
     height: 70px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .servTrophy .container-icons {
