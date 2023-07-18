@@ -304,7 +304,7 @@ class UsersController extends AppController
 
         if (!isset($user)) {
             $this->Flash->error('Invalid security code');
-            $this->redirect('/');
+            return $this->redirect('/');
         }
         $user->email_confirmed = true;
         $user->confirmed = true;
