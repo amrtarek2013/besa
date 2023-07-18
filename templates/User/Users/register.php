@@ -122,7 +122,7 @@
                 <label for="">I agree to <a href="#">terms & conditions</a> </label>
               </div>
               <div>
-                <input type="checkbox" name="is_subscribed" id="is_subscribed" required="required">
+                <input type="checkbox" name="is_subscribed" id="is_subscribed">
                 <label for="">Tick box to stay updated through BESA’s newsletter</label>
               </div>
             </div>
