@@ -79,7 +79,7 @@ function updateStep(stepIndex) {
   if (stepIndex === steps.length - 1) {
     nextBtn.innerHTML = "Explore"; // Change next button text on last step
   } else {
-    nextBtn.innerHTML = "Next" + ' <i class="fa-solid fa-chevron-right"></i>';
+    nextBtn.innerHTML = "Next" + ' <img src="/img/new-images/chevron-left.png" alt="">';
   }
 }
 
