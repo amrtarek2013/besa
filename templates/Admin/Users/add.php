@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="container-formBox blue-border">
                                     <h4 class="title">Education Information</h4>
                                     <div class="grid-container">
@@ -80,7 +80,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><?= __('Save') ?> </button>
