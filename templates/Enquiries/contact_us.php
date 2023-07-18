@@ -57,19 +57,19 @@
                             <img src="/img/icon/social-media/Facebook.svg" alt="facebook" >
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                            <img src="/img/icon/social-media/instagram.svg" alt="instagram" >
+                            <img src="/img/icon/social-media/Instagram.svg" alt="Instagram" >
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                            <img src="/img/icon/social-media/youtube.svg" alt="youtube" >
+                            <img src="/img/icon/social-media/YouTube.svg" alt="YouTube" >
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
                             <img src="/img/icon/social-media/Linkedin.svg" alt="Linkedin" >
 
                         </a>
-                        <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                            <img src="/img/icon/social-media/twitter.svg" alt="twitter" >
+                        <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="Twitter" target="_blank">
+                            <img src="/img/icon/social-media/Twitter.svg" alt="twitter" >
 
                         </a>
 
