@@ -79,10 +79,13 @@ class UsersController extends AppController
 
             $p_data = $this->request->getData();
             $uuu = $this->Users->find()->where(['email' => $p_data['email']])->first();
-            // debug($uuu);
-            // debug($p_data);
+            debug($uuu);
+            debug($p_data);
             $p_data['password'] = (new \Cake\Auth\DefaultPasswordHasher())->hash($p_data['password']);
 
+            // debug($p_data);
+            debug($p_data);
+            die;
 
             $red_url = "/user";
             if (!empty($p_data["from_url"])) {
