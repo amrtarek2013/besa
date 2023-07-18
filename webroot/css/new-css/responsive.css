@@ -1638,4 +1638,12 @@
     .timeline-item {
         width: 390px !important;
     }
+
+    .services-rendered .box-icon {
+        height: max-content;
+    }
+
+    .services-rendered .box-icon .descrip {
+        padding: 0px 0 25px 70px;
+    }
 }
