@@ -2223,7 +2223,7 @@ p.descrp {
     -ms-grid-column-span: 3;
     grid-column: 1/ 4;
 }
-
+.container-formBox .form-area label,
 .container-formBox .input label {
     font-family: 'Poppins';
     font-style: normal;

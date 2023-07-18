@@ -1646,4 +1646,8 @@
     .services-rendered .box-icon .descrip {
         padding: 0px 0 25px 70px;
     }
+    .footer .gridContainer-footer .logo .icons{
+        justify-content: center;
+        margin-left: 0;
+    }
 }
