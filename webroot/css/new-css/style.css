@@ -5445,6 +5445,19 @@ input.search {
     justify-content: center;
 }
 
+.steps-en #nextBtn {
+
+    position: relative;
+    justify-content: start;
+    padding: 0 25px;
+
+}
+
+.steps-en #nextBtn img {
+    position: absolute;
+    right: 10px;
+}
+
 .steps-en #prevBtn {
     background-color: #bbb;
 }
