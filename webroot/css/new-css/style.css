@@ -5583,7 +5583,6 @@ input.search {
     -webkit-appearance: none;
     /* Safari and Chrome */
     appearance: none;
-    background: transparent;
     background-image: url("../img/icon/arrow-select.svg");
     background-repeat: no-repeat;
     background-position-x: calc(100% - 15px);
