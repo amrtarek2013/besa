@@ -5417,6 +5417,9 @@ input.search {
 .steps-en #buttons {
     margin-top: 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
 }
 
 .steps-en #prevBtn,
@@ -5437,6 +5440,22 @@ input.search {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-en #nextBtn {
+
+    position: relative;
+    justify-content: start;
+    padding: 0 25px;
+
+}
+
+.steps-en #nextBtn img {
+    position: absolute;
+    right: 10px;
 }
 
 .steps-en #prevBtn {
@@ -5559,6 +5578,15 @@ input.search {
     background-color: #FFFFFF;
     border-radius: 6px;
     max-width: 350px;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    appearance: none;
+    background-image: url("../img/icon/arrow-select.svg");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 15px);
+    background-position-y: 50%;
 }
 
 .steps-en .step .grid-contaienr {
@@ -5597,8 +5625,15 @@ input.search {
     border-radius: 10px;
     text-align: center;
     padding: 4px 20px;
+    cursor: pointer;
 }
+.steps-en .step .grid-contaienr .box.active{
+    background: #33CA94;
 
+}
+.steps-en .step .grid-contaienr .box.active h4{
+    color: #fff;
+}
 .steps-en .step .grid-contaienr .box h4 {
     font-family: 'Poppins';
     font-style: normal;
