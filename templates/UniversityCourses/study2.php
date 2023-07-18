@@ -23,7 +23,7 @@
                         <h2 class="title">WHICH STUDY LEVEL?</h2>
                         <div class="form-area">
                         <?php  if (!empty($servicesSearchList)){ ?>
-                            <select name="service_id" id="">
+                            <select name="service_id" id="service_id">
                             <?php foreach ($servicesSearchList as $i => $service){?>
                                 <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
                             <?php } ?>
@@ -34,28 +34,18 @@
                 
                     <div id="step2" class="step">
                         <!-- Step 2 content here -->
-                        <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
-                        <div class="grid-contaienr">
-                            <div class="box">
-                                <h4>Business Management 01</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 02</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 03</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 04</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 05</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 06</h4>
-                            </div>
-                            <div class="box">
-                                <h4>Business Management 07</h4>
+                            
+                        <div class="services-2 services-4">
+                            <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
+                            <div class="grid-contaienr">
+                                <?php if(!empty($studyCourses)){ ?>
+                                <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
+                                <div class="box">
+                                    <h4><?=$studyCourse_value?></h4>
+                                </div>
+                                <?php } ?>
+                                <?php } ?>
+                                
                             </div>
                         </div>
 
