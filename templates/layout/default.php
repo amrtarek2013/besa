@@ -40,6 +40,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        $('.message').hide();
         toastr.options.closeButton = true;
         toastr.options.closeMethod = 'fadeOut';
         toastr.options.closeDuration = 500;
