@@ -92,6 +92,8 @@ function nextStep() {
       alert("Please select an option.");
       return false;
     }
+    document.getElementById('course_id').value='';
+    document.getElementById('study_level_id').value='';
   }else if(currentStep==1){
     if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
       alert("Please select an option.");
@@ -106,8 +108,8 @@ function nextStep() {
                 break;
             }
         }
-        if (!atLeastOneChecked) {
-            alert("Please select at least one country.");
+        if (!atLeastOneChecked && document.getElementById('curriculum').value=='') {
+            alert("Please select an option.");
             return false;
         }
   }
