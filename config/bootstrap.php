@@ -90,7 +90,7 @@ try {
  * Notice: For security reasons app_local.php **should not** be included in your git repo.
  */
 if (file_exists(CONFIG . 'app_local.php')) {
-    Configure::load('app_local', 'default');
+    Configure::load('app', 'default');
 }
 
 /*
