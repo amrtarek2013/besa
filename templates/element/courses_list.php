@@ -137,7 +137,7 @@
             busy = true;
             let courseid = $(el).data('courseid');
             $.ajax({
-                url: "/applications/add/" + courseid + "/" + $(el).data('action'),
+                url: "/applications/add-course-to-application/" + courseid + "/" + $(el).data('action'),
                 method: "get",
                 data: {},
                 success: function(result) {
