@@ -121,7 +121,7 @@ class ApplicationsController extends AppController
             // $application->user_id = $user['id'];
         }
 
-        $this-loadModel('ApplicationCourses');
+        $this->loadModel('ApplicationCourses');
         $applicationCourse = $this->ApplicationCourses->newEmptyEntity();
         if ($course) {
             if ($isNew == 'add') {
