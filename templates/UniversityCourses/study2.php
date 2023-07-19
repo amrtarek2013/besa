@@ -129,36 +129,20 @@
                             </script>                                  
                         </div>
                         <div class="common-services services-6 services-7 hide">
-                            <div class="range-wrapper">
-                                <div class="output-range">
-                                    <span>What is the student age? </span>
-                                    <span id="age-val">12 Year </span>
-                                </div>
-                                <div id="slider_age"></div>
-                                
-                                <input type="hidden" name="age" id="age_field" value="12">
-                                
-                                <script>
-                                    var slider = document.getElementById('slider_age');
-                                    var sliderValueElement = document.getElementById('age-val');
-                                    var ageElement = document.getElementById('age');
+                            <label for="age">What is the student age?</label>
+                            <span id="age-value">12 Year</span>
 
-                                    noUiSlider.create(slider, {
-                                        start: [500],
-                                        connect: true,
-                                        range: {
-                                        // min: 0,
-                                        // max: 10000
-                                        }
-                                    });
+                            <input type="range" id="age" value="12" min="12" max="100">
+                            <script>
+                                var slider = document.getElementById("age");
+                                var output = document.getElementById("age-value");
+                                output.innerHTML = slider.value; // Display the default slider value
 
-                                    slider.noUiSlider.on('update', function(values, handle) {
-                                        console.log(values)
-                                        sliderValueElement.innerHTML =  Math.round(values[0]).' Year';
-                                        ageElement.value = Math.round(values[0]);
-                                    });
-                                </script>                                  
-                            </div>
+                                // Update the current slider value (each time you drag the slider handle)
+                                slider.oninput = function() {
+                                    output.innerHTML = this.value + ' Year';
+                                }
+                            </script>
                         </div>
       
                 </div>
