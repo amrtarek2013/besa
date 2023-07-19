@@ -54,7 +54,7 @@
 
                                         <div class="addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>">
                                             <div class="circle-icon">
-                                                <img src="/img/icon/aplly-now-green.svg" alt="">
+                                                <!-- <img src="/img/icon/aplly-now-green.svg" alt=""> -->
                                                 <img id="app-<?= $course['id'] ?>" src="/img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
                                             </div>
                                             <span class="green">Apply Now</span>
