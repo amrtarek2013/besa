@@ -20,10 +20,11 @@
                 <div class="step-container">
                     <div id="step1" class="step active">
                         <!-- Step 1 content here -->
-                        <h2 class="title">WHICH STUDY LEVEL?</h2>
+                        <h2 class="title">WHAT TO STUDY?</h2>
                         <div class="form-area">
                         <?php  if (!empty($servicesSearchList)){ ?>
                             <select name="service_id" id="service_id">
+                                <option>Select an option</option>
                             <?php foreach ($servicesSearchList as $i => $service){?>
                                 <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
                             <?php } ?>
@@ -33,23 +34,24 @@
                     </div>
                 
                     <div id="step2" class="step">
-                        <!-- Step 2 content here -->
-                            
                         <div class="services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
                                 <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
-                                <div class="box" title='<?=$studyCourse_value?>'>
+                                <div class="box course-box" title='<?=$studyCourse_value?>'>
                                     <h4><?=words_slice($studyCourse_value,4)?></h4>
                                 </div>
                                 <?php } ?>
                                 <?php } ?>
-                                
                             </div>
                         </div>
-
+                        <div class="services-6 services-7 hide">
+                            <h2 class="title">What is the student study level?</h2>
+                            
+                        </div>
                     </div>
+
                 
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
@@ -154,6 +156,9 @@
         $("#service_id").change(function(){
             var selected_service = $(this).val();
             $('.services-'+selected_service).show();
+        });
+        $('.course-box').on('click', function() {
+            $(this).toggleClass('active');
         });
     });
 </script>
