@@ -89,7 +89,7 @@ try {
  * Load an environment local configuration file to provide overrides to your configuration.
  * Notice: For security reasons app_local.php **should not** be included in your git repo.
  */
-if (file_exists(CONFIG . 'app_local.php')) {
+if (file_exists(CONFIG . 'app.php')) {
     Configure::load('app', 'default');
 }
 
