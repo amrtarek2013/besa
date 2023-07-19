@@ -159,7 +159,7 @@
     </div>
 </section>
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js?v=1'
+    '/js/new-js/script-steps-en.js?v=2'
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
