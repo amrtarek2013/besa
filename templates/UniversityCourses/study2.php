@@ -66,18 +66,28 @@
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
                         <div class="common-services services-2 services-4 hide">
-                        <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
-                        <div class="grid-contaienr contaienr-checkbox">
-                            <?php foreach ($countriesList as $country_key => $country_value) {?>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="country_id" value="<?=$country_key?>" id="country-<?=$country_key?>">
-                                <label for="country-<?=$country_key?>"><?=$country_value?></label>
+                            <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
+                            <div class="grid-contaienr contaienr-checkbox">
+                                <?php foreach ($countriesList as $country_key => $country_value) {?>
+                                <div class="checkbox-green">
+                                    <input type="checkbox" name="country_id[]" value="<?=$country_key?>" id="country-<?=$country_key?>">
+                                    <label for="country-<?=$country_key?>"><?=$country_value?></label>
+                                </div>
+                                <?php } ?>
                             </div>
-                            <?php } ?>
                         </div>
+                        <div class="common-services services-6 services-7 hide">
+                            <div class="form-area">
+                                <h2 class="title">Curriculum</h2>
+                                <select name="curriculum" id="curriculum">
+                                    <option value="">Select Curriculum</option>
+                                    <option value="1">Curriculum 1</option>
+                                    <option value="2">Curriculum 2</option>
+                                </select>                                
+                            </div>
                         </div>
-
                     </div>
+
                     <div id="step4" class="step">
                         <!-- Step 4 content here -->
                         <h2 class="title">WHAT’S YOUR BUDGET?</h2>
