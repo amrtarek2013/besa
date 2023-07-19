@@ -184,8 +184,10 @@
             e.preventDefault();
             alert($("#service_id").val());
             if ($("#service_id").val() == '' || $("#service_id").val() == undefined) {
+                alert("1");
                 return false;
             }
+                alert("2");
         });
     });
 </script>
