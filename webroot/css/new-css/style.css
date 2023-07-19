@@ -7607,3 +7607,8 @@ input[type="search"]:focus {
     max-width: 655px;
 
 }
+
+.noUi-connects,
+.noUi-touch-area{
+    cursor: pointer;
+}
