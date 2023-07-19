@@ -6,7 +6,7 @@ namespace App\Model\Table;
 
 use App\Model\Entity\Event;
 use ArrayObject;
-use Cake\ORM\Entity;
+// use Cake\ORM\Entity;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use MobileValidator\MobileValidator;
@@ -142,9 +142,9 @@ class UsersTable extends Table
         'message' => 'Security Code is not valid',
       ]
     ]);
-    // $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
-    //   ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
-    //   ->notEmptyString('password', 'This field is required.');
+    $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
+      ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
+      ->notEmptyString('password', 'This field is required.');
 
     return $validator;
   }
@@ -194,8 +194,9 @@ class UsersTable extends Table
   }
 
 
-  public function beforeSave($event, $entity, $options)
+  public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, ArrayObject $options)
   {
+
     if (!empty($entity->password)) {
       $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
     } else {

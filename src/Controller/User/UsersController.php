@@ -83,6 +83,9 @@ class UsersController extends AppController
             // debug($p_data);
             $p_data['password'] = (new \Cake\Auth\DefaultPasswordHasher())->hash($p_data['password']);
 
+            // debug($p_data);
+            // debug($p_data);
+            // die;
 
             $red_url = "/user";
             if (!empty($p_data["from_url"])) {
@@ -302,12 +305,13 @@ class UsersController extends AppController
             die;
         }
 
-        if (!$user) {
+        if (!isset($user)) {
             $this->Flash->error('Invalid security code');
-            $this->redirect('/');
+            return $this->redirect('/');
         }
         $user->email_confirmed = true;
         $user->confirmed = true;
+        $user->active = true;
         if ($this->Users->save($user)) {
 
             // $this->Auth->setUser($user->toArray());
