@@ -127,8 +127,24 @@
                                     maxValElement.innerHTML = "£" + Math.round(values[1]);
                                 });
                             </script>                                  
-      
                         </div>
+                        <div class="common-services services-6 services-7 hide">
+                            <label for="age">What is the student age?</label>
+                            <span id="age-value">12 Year</span>
+
+                            <input type="range" id="age" value="12" min="12" max="100">
+                            <script>
+                                var slider = document.getElementById("age");
+                                var output = document.getElementById("age-value");
+                                output.innerHTML = slider.value; // Display the default slider value
+
+                                // Update the current slider value (each time you drag the slider handle)
+                                slider.oninput = function() {
+                                    output.innerHTML = this.value + ' Year';
+                                }
+                            </script>
+                        </div>
+      
                 </div>
                <!-- Buttons to navigate between steps -->
                 <div id="buttons">
