@@ -137,7 +137,7 @@ function nextStep() {
     currentStep++;
     updateStep(currentStep);
   } else {
-    if(currentStep){
+    if(currentStep!=0){
         var form = document.getElementById('search-courses-steps');
         form.submit();
     }
