@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">APPLAY NOW</h1>
+                    <h1 class="relative-text">APPLAY</h1>
                     <h2 class="title text-left">APPLAY NOW</h2>
                 </div>
             </div>
@@ -49,7 +49,11 @@
             </div>
         </div>
     </div>
+</section>
 
+<?= $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'appCourses' => $appCourses]); ?>
+
+<section class="main-banner register-banner  partiner-banner">
     <div class="container">
         <div class="row">
 

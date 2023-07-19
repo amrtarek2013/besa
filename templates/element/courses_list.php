@@ -52,9 +52,10 @@
                                             </a>
                                         </div>
 
-                                        <div>
+                                        <div class="addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>">
                                             <div class="circle-icon">
-                                                <img src="/img/icon/aplly-now-green.svg" alt="">
+                                                <!-- <img src="/img/icon/aplly-now-green.svg" alt=""> -->
+                                                <img id="app-<?= $course['id'] ?>" src="/img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
                                             </div>
                                             <span class="green">Apply Now</span>
 
@@ -116,6 +117,49 @@
                         $('img#wish-' + courseid).attr('src', '/img/icon/wish-list.svg');
 
                         if (current_controller == 'wishlists')
+                            $('#box-result-' + courseid).hide(3000);
+
+                    }
+                    alert(result.message);
+
+
+                    busy = false;
+
+                }
+            });
+        }
+    });
+
+    $(document).on('click', '.addingApp', function(e) {
+
+        if (!busy) {
+            let el = this;
+            busy = true;
+            let courseid = $(el).data('courseid');
+            $.ajax({
+                url: "/applications/add-course-to-application/" + courseid + "/" + $(el).data('action'),
+                method: "get",
+                data: {},
+                success: function(result) {
+                    // $$(el).html(data);
+                    // console.log(result);
+
+                    result = JSON.parse(result);
+                    // console.log(esult);
+                    if (result.status != 'deleted') {
+                        $(el).data('action', 'delete');
+
+                        $(el).attr('data-action', 'delete');
+                        $(el).prop('data-action', 'delete');
+                        $('img#app-' + courseid).attr('src', '/img/icon/aplly-now-marked.svg');
+                    } else {
+                        $(el).data('action', 'add');
+
+                        $(el).attr('data-action', 'add');
+                        $(el).prop('data-action', 'add');
+                        $('img#app-' + courseid).attr('src', '/img/icon/aplly-now-green.svg');
+
+                        if (current_controller == 'applications')
                             $('#box-result-' + courseid).hide(3000);
 
                     }
