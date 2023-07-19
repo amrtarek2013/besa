@@ -1,4 +1,4 @@
-<?= $this->Form->create(null, ['method' => 'get', 'action' => 'results']); ?>
+<?= $this->Form->create(null, ['method' => 'get', 'action' => 'results','id'=>'search-courses-steps']); ?>
 <section class="steps-en">
     <div class="container">
         <div class="col-md-12">

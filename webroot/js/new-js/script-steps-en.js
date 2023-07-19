@@ -137,9 +137,8 @@ function nextStep() {
     currentStep++;
     updateStep(currentStep);
   } else {
-    // Perform form submission or validation here
-    // Submit the form data
-    // ...
+        var form = document.getElementById('search-courses-steps');
+        form.submit();
   }
 }
 
