@@ -65,48 +65,16 @@
                 
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
+                        <div class="common-services services-2 services-4 hide">
                         <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
                         <div class="grid-contaienr contaienr-checkbox">
+                            <?php foreach ($countriesList as $country_key => $country_value) {?>
                             <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">UNITED KINGDOM</label>
+                                <input type="checkbox" name="country_id" value="<?=$country_key?>" id="country-<?=$country_key?>">
+                                <label for="country-<?=$country_key?>"><?=$country_value?></label>
                             </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">USA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">CANADA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">AUSTRALIA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">LITHUANIA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">SPAIN</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">GERMANY</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">RUSSIA</label>
-                            </div>
-                             <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">HUNGARY</label>
-                            </div>
-                             <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">MALAYSIA</label>
-                            </div>
+                            <?php } ?>
+                        </div>
                         </div>
 
                     </div>
