@@ -5597,8 +5597,7 @@ input.search {
     display: grid;
     -ms-grid-columns: 1fr 31px 1fr 31px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 31px;
-    max-width: 900px;
+    grid-gap: 30px;
     height: 169px;
     margin: auto;
     overflow-y: scroll;
