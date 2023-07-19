@@ -34,7 +34,7 @@
                     </div>
                 
                     <div id="step2" class="step">
-                        <div class="services-2 services-4 hide">
+                        <div class="common-services services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
@@ -47,7 +47,7 @@
                             </div>
                             <input type="hidden" name="course_id" id="course_id">
                         </div>
-                        <div class="services-6 services-7 hide">
+                        <div class="common-services services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyLevels)){ ?>
@@ -165,6 +165,7 @@
     $(document).ready(function() {
         $("#service_id").change(function(){
             var selected_service = $(this).val();
+            $('.common-services').hide();
             $('.services-'+selected_service).show();
         });
         $('.course-box').on('click', function() {
@@ -178,6 +179,12 @@
             $('.level-box').removeClass('active');
             $(this).addClass('active');
             $("#study_level_id").val(selected_level);
+        });
+        $('#nextBtn').on('click', function(e) {
+            e.preventDefault();
+            if ($("#service_id").val() == '' || $("#service_id").val() == undefined) {
+                return false;
+            }
         });
     });
 </script>
