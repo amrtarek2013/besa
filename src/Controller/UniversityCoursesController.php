@@ -144,7 +144,7 @@ class UniversityCoursesController extends AppController
             }
         }
 
-
+        print_r($conditions);
         return $conditions;
     }
 
