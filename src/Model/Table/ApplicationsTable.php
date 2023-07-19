@@ -16,7 +16,7 @@ class ApplicationsTable extends Table
 
 
   public $modelName = 'applications';
-  public $filters = ['application_id' => 'like', 'course_id' => 'like'];
+  public $filters = ['user_id' => 'like', 'course_id' => 'like'];
 
   public $app_files = [
 
