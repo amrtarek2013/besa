@@ -5581,7 +5581,7 @@ input.search {
     -moz-appearance: none;
     /* Firefox */
     -webkit-appearance: none;
-    /* Safari and Chrome */
+    /* Safari and Chrome *.steps-en .step .grid-contaienr .bov.steps-en .step .grid-contaienr .box
     appearance: none;
     background-image: url("../img/icon/arrow-select.svg");
     background-repeat: no-repeat;
@@ -5626,6 +5626,11 @@ input.search {
     text-align: center;
     padding: 4px 20px;
     cursor: pointer;
+}
+.steps-en .step .grid-contaienr .box.center-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .steps-en .step .grid-contaienr .box.active{
     background: #33CA94;
