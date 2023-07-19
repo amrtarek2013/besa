@@ -226,24 +226,27 @@ class ApplicationsController extends AppController
         $conds = ['save_later' => 1];
         $wish_conds = [];
         $user_id = null;
-        if (isset($_SESSION['Auth']['User'])) {
-            $user = $_SESSION['Auth']['User'];
-            $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
-        } else {
+        // if (isset($_SESSION['Auth']['User'])) {
+        //     $user = $_SESSION['Auth']['User'];
+        //     $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
+        // } else {
 
-            $token = $this->userToken();
-            $wish_cond['user_token'] = $conds['user_token'] = $token;
-        }
-        $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
+        //     $token = $this->userToken();
+        //     $wish_cond['user_token'] = $conds['user_token'] = $token;
+        // }
+        // $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
 
 
-        $this->loadModel('WishLists');
-        $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
-            ->where($wish_cond)->toArray();
+        // $this->loadModel('WishLists');
+        // $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
+        //     ->where($wish_cond)->toArray();
         // debug($wishLists);
-        $appCourses = [];
-        if (!empty($application['application_courses']))
-            $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
+
+        $wishLists = $this->getWishLists();
+
+        $appCourses = $this->getAppCourses();
+        // if (!empty($application['application_courses']))
+        //     $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
         // debug($appCourses);
         $this->loadModel('UniversityCourses');
 
@@ -264,7 +267,8 @@ class ApplicationsController extends AppController
         // debug($courses);
         $this->set('courses', $courses);
         $parameters = $this->request->getAttribute('params');
-        $this->set('wishLists', $this->getWishLists());
+        $this->set('wishLists', $wishLists);
+        $this->set('appCourses', $appCourses);
         // dd($application);
         $this->set(compact('application'));
         $this->formCommon();
