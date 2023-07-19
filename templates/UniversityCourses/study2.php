@@ -35,7 +35,7 @@
                     <div id="step2" class="step">
                         <!-- Step 2 content here -->
                             
-                        <div class="services-2 services-4">
+                        <div class="services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
@@ -149,3 +149,11 @@
 <?= $this->Html->script([
     '/js/new-js/script-steps-en.js'
 ]) ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#service_id").change(function(){
+            var selected_service = $(this).val();
+            $('.services-'+selected_service).show();
+        });
+    });
+</script>

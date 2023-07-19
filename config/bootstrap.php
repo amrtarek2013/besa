@@ -342,7 +342,7 @@ if (!function_exists('getCaptcha')) {
 
 function words_slice($string,$chars_count){
     $words = explode(' ', $string);
-    $first12Words = array_slice($words, 0, $chars_count);
-    $result = implode(' ', $first12Words);
+    $firstWords = array_slice($words, 0, $chars_count);
+    $result = implode(' ', $firstWords);
     return $result;
 }
