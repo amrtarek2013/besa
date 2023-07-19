@@ -94,11 +94,28 @@ function nextStep() {
     }
     document.getElementById('course_id').value='';
     document.getElementById('study_level_id').value='';
+
+    var elements = document.querySelectorAll('.level-box');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
+    var elements = document.querySelectorAll('.course-box');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
+
   }else if(currentStep==1){
     if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
       alert("Please select an option.");
       return false;
     }
+
+    var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+    }
+    document.getElementById('curriculum').value='';
+
   }else if(currentStep==2){
         var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
         var atLeastOneChecked = false;
