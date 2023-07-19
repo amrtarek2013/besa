@@ -239,7 +239,7 @@ class ApplicationsController extends AppController
 
         $this->loadModel('WishLists');
         $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
-            ->where($wish_cond);
+            ->where($wish_cond)->toArray();
         // debug($wishLists);
         $appCourses = [];
         if (!empty($application['application_courses']))
