@@ -270,7 +270,7 @@ class ApplicationsController extends AppController
         $this->set('wishLists', $wishLists);
         $this->set('appCourses', $appCourses);
         // dd($application);
-        $this->set(compact('application'));
+        // $this->set(compact('application'));
         $this->formCommon();
     }
 
