@@ -139,6 +139,7 @@ class ApplicationsController extends AppController
 
                     $this->Applications->save($application);
                 }
+                dd($application);
                 $applicationCourse->application_id = $application->id;
                 if ($this->ApplicationCourses->save($applicationCourse)) {
                     $message = __('The Course added to Application Successfully.');
