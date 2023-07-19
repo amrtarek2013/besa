@@ -49,7 +49,16 @@
                         </div>
                         <div class="services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
-                            
+                            <div class="grid-contaienr">
+                                <?php if(!empty($studyLevels)){ ?>
+                                <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) {?>
+                                <div class="box level-box" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
+                                    <h4><?=words_slice($studyLevel_value,4)?></h4>
+                                </div>
+                                <?php } ?>
+                                <?php } ?>
+                            </div>
+                            <input type="hidden" name="study_level_id" id="study_level_id">
                         </div>
                     </div>
 
@@ -163,6 +172,12 @@
             $('.course-box').removeClass('active');
             $(this).addClass('active');
             $("#course_id").val(selected_course);
+        });
+        $('.level-box').on('click', function() {
+            var selected_level = $(this).data("level");
+            $('.level-box').removeClass('active');
+            $(this).addClass('active');
+            $("#study_level_id").val(selected_level);
         });
     });
 </script>
