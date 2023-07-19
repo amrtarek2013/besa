@@ -7651,3 +7651,8 @@ input[type="search"]:focus {
     font-style: normal;
     font-weight: 400;
   }
+
+  .common-services >span{
+    float: right;
+
+  }
