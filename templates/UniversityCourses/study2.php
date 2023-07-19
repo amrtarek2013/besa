@@ -102,27 +102,30 @@
                                 <span class="min-name">Min </span>
                                 <span class="max-name">Max </span>
                             </div>
-
+                            <input type="hidden" name="min_budget" id="min-budget" value="1000">
+                            <input type="hidden" name="max_budget" id="max-budget" value="100000">
                             <script>
-                                     var slider = document.getElementById('slider_range_blue');
-                                    var sliderValueElement = document.getElementById('slider-value');
-                                    var maxValElement = document.getElementById('max-val');
+                                var slider = document.getElementById('slider_range_blue');
+                                var sliderValueElement = document.getElementById('slider-value');
+                                var maxValElement = document.getElementById('max-val');
+                                var minBudgetElement = document.getElementById('min-budget');
+                                var maxBudgetElement = document.getElementById('max-budget');
 
-                                    noUiSlider.create(slider, {
-                                        start: [500, 8500],
-                                        connect: true,
-                                        range: {
-                                        min: 0,
-                                        max: 10000
-                                        }
-                                    });
+                                noUiSlider.create(slider, {
+                                    start: [500, 8500],
+                                    connect: true,
+                                    range: {
+                                    min: 0,
+                                    max: 10000
+                                    }
+                                });
 
-                                    slider.noUiSlider.on('update', function(values, handle) {
-                                        sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
-                                        maxValElement.innerHTML = "£" + Math.round(values[1]);
-                                    });
-
-                                    
+                                slider.noUiSlider.on('update', function(values, handle) {
+                                    sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
+                                    minBudgetElement.value = Math.round(values[0]);
+                                    maxBudgetElement.value = Math.round(values[1]);
+                                    maxValElement.innerHTML = "£" + Math.round(values[1]);
+                                });
                             </script>                                  
       
                         </div>
