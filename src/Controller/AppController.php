@@ -1010,4 +1010,25 @@ class AppController extends Controller
         }
         return $wishLists;
     }
+
+
+    public function getAppCourses()
+    {
+
+        $appCourses = [];
+
+        $this->loadModel('ApplicationCourses');
+        $conds = ['save_later' => 1];
+        if (isset($_SESSION['Auth']['User'])) {
+            $user = $_SESSION['Auth']['User'];
+            $conds['user_id'] = $user['id'];
+        } else {
+
+            $token = $this->userToken();
+            $conds['user_token'] = $token;
+        }
+        $appCourses = $this->Applications->find()->where($conds)->contain(['ApplicationCourses'])->all()->toArray();
+        $appCourses = Hash::combine($appCourses['application_courses'], '{n}.course_id', '{n}.course_id');
+        return $appCourses;
+    }
 }

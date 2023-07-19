@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">APPLAY NOW</h1>
+                    <h1 class="relative-text">APPLAY</h1>
                     <h2 class="title text-left">APPLAY NOW</h2>
                 </div>
             </div>
@@ -49,7 +49,59 @@
             </div>
         </div>
     </div>
+</section>
 
+<section class="result">
+    <div class=" row-result">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid-container-3col">
+                        <?php if (!empty($courses)) : ?>
+                            <?php foreach ($courses as $course) : ?>
+                                <div class="box-result">
+                                    <h4 class="title-result"><?= $course['course_name'] ?></h4>
+
+                                    <div class="courses">
+                                        <div class="left">
+                                            <p>Course Qualification</p>
+                                            <p class="green"><?= $course['service']['title'] ?></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="icons">
+                                        <div>
+                                            <div class="circle-icon">
+                                                <img src="/img/icon/wish-list.svg" alt="">
+                                            </div>
+                                            <span class="green">Wish List</span>
+                                        </div>
+
+                                        <div>
+                                            <div class="circle-icon">
+                                                <img src="/img/icon/more-details.svg" alt="">
+                                            </div>
+                                            <span class="green">More Details</span>
+                                        </div>
+
+                                        <div>
+                                            <div class="circle-icon">
+                                                <img src="/img/icon/aplly-now-green.svg" alt="">
+                                            </div>
+                                            <span class="green">Apply Now</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-banner register-banner  partiner-banner">
     <div class="container">
         <div class="row">
 

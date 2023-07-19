@@ -108,7 +108,7 @@ class ApplicationsTable extends Table
     $this->belongsTo('Users')->setForeignKey('user_id');
     $this->belongsTo('Services')->setForeignKey('service_id');
     $this->belongsTo('Universities')->setForeignKey('university_id');
-    $this->hasMany('Courses')->setForeignKey('application_id');
+    $this->hasMany('ApplicationCourses')->setForeignKey('application_id');
   }
 
   /**

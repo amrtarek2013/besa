@@ -24,7 +24,11 @@ class UniversityCoursesController extends AppController
 
         $this->set('wishLists', $this->getWishLists());
 
+        $this->set('appCourses', $this->getAppCourses());
+
         // $this->loadModel('Majors');
+        $this->set('wishLists', $this->getWishLists());
+
         // $courseMajors = $this->Majors->find('list')->where(['active' => 1])->order(['display_order' => 'asc']);
 
         // $this->set('courseMajors', $courseMajors);
