@@ -119,7 +119,7 @@
                                     connect: true,
                                     range: {
                                     min: 0,
-                                    max: 10000
+                                    max: 100000
                                     }
                                 });
 
