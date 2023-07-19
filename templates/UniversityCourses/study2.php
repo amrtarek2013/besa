@@ -39,12 +39,13 @@
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
                                 <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
-                                <div class="box course-box" title='<?=$studyCourse_value?>'>
+                                <div class="box course-box" title='<?=$studyCourse_value?>' data-course='<?=$studyCourse_id?>'>
                                     <h4><?=words_slice($studyCourse_value,4)?></h4>
                                 </div>
                                 <?php } ?>
                                 <?php } ?>
                             </div>
+                            <input type="hidden" name="course_id" id="course_id">
                         </div>
                         <div class="services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
@@ -158,7 +159,10 @@
             $('.services-'+selected_service).show();
         });
         $('.course-box').on('click', function() {
-            $(this).toggleClass('active');
+            var selected_course = $(this).data("course");
+            $('.course-box').removeClass('active');
+            $(this).addClass('active');
+            $("#course_id").val(selected_course);
         });
     });
 </script>
