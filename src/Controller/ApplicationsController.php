@@ -235,6 +235,7 @@ class ApplicationsController extends AppController
         $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
 
 
+        $this->loadModel('WishLists');
         $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
             ->where(["user_id" => $user['id']]);
         debug($wishLists);
