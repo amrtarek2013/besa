@@ -18,15 +18,14 @@ class WishListsController extends AppController
     //     $this->set('wishLists', $wishLists);
     // }
 
-    
+
     public function index()
     {
         // $conditions = $this->_filter_params();
 
         // $user = $this->Auth->user();
         $conditions = [];
-        $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
-            ->where($conditions);
+        $wishLists = $this->getWishLists();
 
         $this->loadModel('UniversityCourses');
 
@@ -41,6 +40,8 @@ class WishListsController extends AppController
         )->where(['UniversityCourses.id IN' => $wishLists])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
 
         $this->set('courses', $courses->toArray());
+        $this->set('wishLists', $wishLists);
+        $this->set('appCourses', $this->getAppCourses());
         $parameters = $this->request->getAttribute('params');
         // dd($wishLists);
         $this->set(compact('parameters'));

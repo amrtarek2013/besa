@@ -988,37 +988,37 @@ class AppController extends Controller
     }
 
 
-    public function getWishLists()
+    public function getWishLists($wishConds = [])
     {
 
         $wishLists = [];
 
         $this->loadModel('WishLists');
+
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
 
-            // $wishLists = $this->WishLists->find()->where(['user_id' => $user['id']])->order(['display_order' => 'asc'])->all();
-            $wishLists = $this->WishLists->find('list', [
-                'keyField' => 'course_id', 'valueField' => 'course_id'
-            ])->where(['user_id' => $user['id']])->order(['display_order' => 'asc'])->toArray();
+            $wishConds['user_id'] = $user['id'];
         } else {
 
             $token = $this->userToken();
-            $wishLists = $this->WishLists->find('list', [
-                'keyField' => 'course_id', 'valueField' => 'course_id'
-            ])->where(['user_token' => $token])->order(['display_order' => 'asc'])->toArray();
+            $wishConds['user_token'] = $token;
         }
+
+        $wishLists = $this->WishLists->find('list', [
+            'keyField' => 'course_id', 'valueField' => 'course_id'
+        ])->where($wishConds)->order(['display_order' => 'asc'])->toArray();
         return $wishLists;
     }
 
 
-    public function getAppCourses()
+    public function getAppCourses($conds = [])
     {
 
         $appCourses = [];
 
         $this->loadModel('Applications');
-        $conds = ['save_later' => 1];
+        $conds['save_later'] = 1;
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
             $conds['user_id'] = $user['id'];

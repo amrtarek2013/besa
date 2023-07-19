@@ -32,9 +32,8 @@ class WishListsController extends AppController
 
         $user = $this->Auth->user();
         $conditions['user_id'] = $user['id'];
-        $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
-            ->where($conditions);
-
+        
+        $wishLists = $this->getWishLists();
         $this->loadModel('UniversityCourses');
 
         $courses = $this->UniversityCourses->find()->contain(
@@ -49,7 +48,8 @@ class WishListsController extends AppController
 
         $this->set('courses', $courses->toArray());
         $parameters = $this->request->getAttribute('params');
-        $this->set('wishLists', $this->getWishLists());
+        $this->set('wishLists', $wishLists);
+        $this->set('appCourses', $this->getAppCourses());
 
         $this->set(compact('parameters'));
     }
