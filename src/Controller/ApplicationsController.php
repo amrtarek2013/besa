@@ -249,15 +249,17 @@ class ApplicationsController extends AppController
 
         $cIds = array_merge($appCourses, $wishLists);
         debug($cIds);
-        $courses = $this->UniversityCourses->find()->contain(
-            [
-                'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name']],
-                'Universities' => ['fields' => ['university_name', 'rank']],
-                'Services' => ['fields' => ['title']],
-                'SubjectAreas' => ['fields' => ['title']]
-            ]
-        )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+        $courses = [];
+        if (!empty($cIds))
+            $courses = $this->UniversityCourses->find()->contain(
+                [
+                    'Courses' => ['fields' => ['course_name']],
+                    'Countries' => ['fields' => ['country_name']],
+                    'Universities' => ['fields' => ['university_name', 'rank']],
+                    'Services' => ['fields' => ['title']],
+                    'SubjectAreas' => ['fields' => ['title']]
+                ]
+            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
 
         debug($courses);
         $this->set('courses', $courses->toArray());
