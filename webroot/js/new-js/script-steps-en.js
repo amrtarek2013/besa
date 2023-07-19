@@ -5,6 +5,12 @@ const nextBtn = document.getElementById("nextBtn");
 
 let currentStep = 0; // Current step index
 
+
+document.getElementById('search-courses-steps').addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+
+
 // Function to show the current step
 function showStep(stepIndex) {
   // Hide all steps
@@ -132,15 +138,13 @@ function nextStep() {
   }
 
 
-  console.log('^^^^'+currentStep+'^^^^'+steps.length - 1);
-  if (currentStep && currentStep < steps.length - 1) {
+
+  if (currentStep < steps.length - 1) {
     currentStep++;
     updateStep(currentStep);
   } else {
-    if(currentStep!=0){
         var form = document.getElementById('search-courses-steps');
         form.submit();
-    }
   }
 }
 
