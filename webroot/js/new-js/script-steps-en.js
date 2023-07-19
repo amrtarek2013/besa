@@ -5,6 +5,12 @@ const nextBtn = document.getElementById("nextBtn");
 
 let currentStep = 0; // Current step index
 
+
+document.getElementById('search-courses-steps').addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+
+
 // Function to show the current step
 function showStep(stepIndex) {
   // Hide all steps
@@ -85,13 +91,60 @@ function updateStep(stepIndex) {
 
 // Function to go to the next step
 function nextStep() {
+  console.log(currentStep);
+  console.log("-------");
+  if(currentStep==0){
+    if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
+      alert("Please select an option.");
+      return false;
+    }
+    document.getElementById('course_id').value='';
+    document.getElementById('study_level_id').value='';
+
+    var elements = document.querySelectorAll('.level-box');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
+    var elements = document.querySelectorAll('.course-box');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
+
+  }else if(currentStep==1){
+    if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
+      alert("Please select an option.");
+      return false;
+    }
+
+    var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+    }
+    document.getElementById('curriculum').value='';
+
+  }else if(currentStep==2){
+        var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
+        var atLeastOneChecked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                atLeastOneChecked = true;
+                break;
+            }
+        }
+        if (!atLeastOneChecked && document.getElementById('curriculum').value=='') {
+            alert("Please select an option.");
+            return false;
+        }
+  }
+
+
+
   if (currentStep < steps.length - 1) {
     currentStep++;
     updateStep(currentStep);
   } else {
-    // Perform form submission or validation here
-    // Submit the form data
-    // ...
+        var form = document.getElementById('search-courses-steps');
+        form.submit();
   }
 }
 

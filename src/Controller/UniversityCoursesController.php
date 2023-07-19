@@ -114,7 +114,7 @@ class UniversityCoursesController extends AppController
 
         $conditions = [];
         $url_params = $this->request->getQuery();
-
+        // print_r($url_params);
         // debug($url_params);
         unset($url_params['url'], $url_params['page'], $url_params['sort'], $url_params['direction']);
 
@@ -143,12 +143,17 @@ class UniversityCoursesController extends AppController
             } else {
                 if (isset($url_params['major_id']))
                     $conditions['UniversityCourses.major_id'] = $url_params['major_id'];
-                if (isset($url_params['country_id']))
-                    $conditions['UniversityCourses.country_id'] = $url_params['country_id'];
+                if (isset($url_params['country_id'])){
+                    if(is_array($url_params['country_id'])){
+                        $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];
+                    }else{
+                        $conditions['UniversityCourses.country_id'] = $url_params['country_id'];
+                    }
+                }
             }
         }
 
-
+        // print_r($conditions);
         return $conditions;
     }
 
