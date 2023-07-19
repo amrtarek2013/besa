@@ -5598,10 +5598,11 @@ input.search {
     -ms-grid-columns: 1fr 31px 1fr 31px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 31px;
-    max-width: 844px;
+    max-width: 870px;
     height: 169px;
     margin: auto;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .steps-en .step .grid-contaienr::-webkit-scrollbar {
