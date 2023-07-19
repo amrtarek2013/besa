@@ -52,7 +52,7 @@
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyLevels)){ ?>
                                 <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) {?>
-                                <div class="box level-box" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
+                                <div class="box level-box center-text" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
                                     <h4><?=words_slice($studyLevel_value,4)?></h4>
                                 </div>
                                 <?php } ?>

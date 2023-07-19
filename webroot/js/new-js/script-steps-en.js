@@ -87,7 +87,7 @@ function updateStep(stepIndex) {
 function nextStep() {
   if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
     alert("Please select an option.");
-    return flase;
+    return false;
   }
   if (currentStep < steps.length - 1) {
     currentStep++;
