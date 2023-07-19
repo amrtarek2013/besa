@@ -27,13 +27,15 @@
                             <select name="service_id" id="service_id">
                                 <option value="">Select an option</option>
                             <?php foreach ($servicesSearchList as $i => $service){?>
-                                <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
+                                <option value="<?=$service['id']?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
                             <?php } ?>
                             </select>                                
                         <?php } ?>
                         </div>
                     </div>
-                
+                    
+                    <input type="hidden" name="degree" id="degree" value="1">
+
                     <div id="step2" class="step">
                         <div class="common-services services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
@@ -178,6 +180,9 @@
             var selected_service = $(this).val();
             $('.common-services').hide();
             $('.services-'+selected_service).show();
+
+            var degree = $(this).data('degree');
+            $('#degree').val(degree);
         });
         $('.course-box').on('click', function() {
             var selected_course = $(this).data("course");
