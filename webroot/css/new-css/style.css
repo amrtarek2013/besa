@@ -5679,7 +5679,9 @@ input.search {
 
 }
 
-
+.contaienr-checkbox .checkbox-green label{
+    cursor: pointer;
+}
 
 
 .checkbox-green input[type="checkbox"] {
