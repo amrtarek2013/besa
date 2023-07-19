@@ -240,11 +240,11 @@ class ApplicationsController extends AppController
         $this->loadModel('WishLists');
         $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
             ->where($wish_cond);
-        debug($wishLists);
+        // debug($wishLists);
         $appCourses = [];
         if (!empty($application['application_courses']))
             $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
-        debug($appCourses);
+        // debug($appCourses);
         $this->loadModel('UniversityCourses');
 
         $cIds = array_merge($appCourses, $wishLists);
@@ -261,11 +261,11 @@ class ApplicationsController extends AppController
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
 
-        debug($courses);
+        // debug($courses);
         $this->set('courses', $courses);
         $parameters = $this->request->getAttribute('params');
         $this->set('wishLists', $this->getWishLists());
-        dd($application);
+        // dd($application);
         $this->set(compact('application'));
         $this->formCommon();
     }
