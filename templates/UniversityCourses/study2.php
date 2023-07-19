@@ -182,6 +182,7 @@
         });
         $('#nextBtn').on('click', function(e) {
             e.preventDefault();
+            alert($("#service_id").val());
             if ($("#service_id").val() == '' || $("#service_id").val() == undefined) {
                 return false;
             }
