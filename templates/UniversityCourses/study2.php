@@ -52,7 +52,7 @@
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyLevels)){ ?>
                                 <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) {?>
-                                <div class="box level-box" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
+                                <div class="box level-box center-text" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
                                     <h4><?=words_slice($studyLevel_value,4)?></h4>
                                 </div>
                                 <?php } ?>
@@ -65,51 +65,29 @@
                 
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
-                        <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
-                        <div class="grid-contaienr contaienr-checkbox">
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">UNITED KINGDOM</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">USA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">CANADA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">AUSTRALIA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">LITHUANIA</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">SPAIN</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">GERMANY</label>
-                            </div>
-                            <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">RUSSIA</label>
-                            </div>
-                             <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">HUNGARY</label>
-                            </div>
-                             <div class="checkbox-green">
-                                <input type="checkbox" name="" id="">
-                                <label for="">MALAYSIA</label>
+                        <div class="common-services services-2 services-4 hide">
+                            <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
+                            <div class="grid-contaienr contaienr-checkbox">
+                                <?php foreach ($countriesList as $country_key => $country_value) {?>
+                                <div class="checkbox-green">
+                                    <input type="checkbox" name="country_id[]" value="<?=$country_key?>" id="country-<?=$country_key?>">
+                                    <label for="country-<?=$country_key?>"><?=$country_value?></label>
+                                </div>
+                                <?php } ?>
                             </div>
                         </div>
-
+                        <div class="common-services services-6 services-7 hide">
+                            <div class="form-area">
+                                <h2 class="title">Curriculum</h2>
+                                <select name="curriculum" id="curriculum">
+                                    <option value="">Select Curriculum</option>
+                                    <option value="1">Curriculum 1</option>
+                                    <option value="2">Curriculum 2</option>
+                                </select>                                
+                            </div>
+                        </div>
                     </div>
+
                     <div id="step4" class="step">
                         <!-- Step 4 content here -->
                         <h2 class="title">WHAT’S YOUR BUDGET?</h2>
@@ -159,7 +137,7 @@
     </div>
 </section>
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js?v=1'
+    '/js/new-js/script-steps-en.js?v=2'
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
