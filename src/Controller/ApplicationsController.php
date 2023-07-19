@@ -224,20 +224,22 @@ class ApplicationsController extends AppController
     public function index()
     {
         $conds = ['save_later' => 1];
+        $wish_conds = [];
+        $user_id = null;
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
-            $conds['user_id'] = $user['id'];
+            $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
         } else {
 
             $token = $this->userToken();
-            $conds['user_token'] = $token;
+            $wish_cond['user_token'] = $conds['user_token'] = $token;
         }
         $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
 
 
         $this->loadModel('WishLists');
         $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
-            ->where(["user_id" => $user['id']]);
+            ->where($wish_cond);
         debug($wishLists);
         $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
         debug($appCourses);
