@@ -105,13 +105,19 @@ class ApplicationsController extends AppController
         $course = $this->UniversityCourses->find()->where(['id' => $course_id])->first();
 
         $this->loadModel('Applications');
+        $conds = ['save_later' => 1];
+        if (isset($_SESSION['Auth']['User'])) {
+            $user = $_SESSION['Auth']['User'];
+            $conds['user_id'] = $user['id'];
+        } else {
 
-        $user = $this->Auth->user();
-        $application = $this->Applications->find()->where(["user_id" => $user['id'], 'save_later' => 1])->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
+            $token = $this->userToken();
+            $conds['user_token'] = $token;
+        }
+        $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
 
         if (empty($application)) {
             $application = $this->Applications->newEmptyEntity();
-            // $application->user_id = $user['id'];
         }
 
         $applicationCourse = $this->ApplicationCourses->newEmptyEntity();
