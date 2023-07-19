@@ -141,8 +141,9 @@
                                     output.innerHTML = this.value + ' Year';
                                 }
                             </script>
-
-                            <label for="age">How long will the student stay?</label>
+                            
+                            <br><br><br>
+                            <label for="stay">How long will the student stay?</label>
                             <span id="stay-value">1 Year</span>
                             <input type="range" id="stay" value="1" min="1" max="10" name="stay">
                             <script>
