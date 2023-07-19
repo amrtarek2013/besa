@@ -24,7 +24,7 @@
                         <div class="form-area">
                         <?php  if (!empty($servicesSearchList)){ ?>
                             <select name="service_id" id="service_id">
-                                <option>Select an option</option>
+                                <option value="">Select an option</option>
                             <?php foreach ($servicesSearchList as $i => $service){?>
                                 <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
                             <?php } ?>
@@ -34,21 +34,31 @@
                     </div>
                 
                     <div id="step2" class="step">
-                        <div class="services-2 services-4 hide">
+                        <div class="common-services services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
                                 <?php if(!empty($studyCourses)){ ?>
                                 <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
-                                <div class="box course-box" title='<?=$studyCourse_value?>'>
+                                <div class="box course-box" title='<?=$studyCourse_value?>' data-course='<?=$studyCourse_id?>'>
                                     <h4><?=words_slice($studyCourse_value,4)?></h4>
                                 </div>
                                 <?php } ?>
                                 <?php } ?>
                             </div>
+                            <input type="hidden" name="course_id" id="course_id">
                         </div>
-                        <div class="services-6 services-7 hide">
+                        <div class="common-services services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
-                            
+                            <div class="grid-contaienr">
+                                <?php if(!empty($studyLevels)){ ?>
+                                <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) {?>
+                                <div class="box level-box" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
+                                    <h4><?=words_slice($studyLevel_value,4)?></h4>
+                                </div>
+                                <?php } ?>
+                                <?php } ?>
+                            </div>
+                            <input type="hidden" name="study_level_id" id="study_level_id">
                         </div>
                     </div>
 
@@ -149,16 +159,26 @@
     </div>
 </section>
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js'
+    '/js/new-js/script-steps-en.js?v=1'
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#service_id").change(function(){
             var selected_service = $(this).val();
+            $('.common-services').hide();
             $('.services-'+selected_service).show();
         });
         $('.course-box').on('click', function() {
-            $(this).toggleClass('active');
+            var selected_course = $(this).data("course");
+            $('.course-box').removeClass('active');
+            $(this).addClass('active');
+            $("#course_id").val(selected_course);
+        });
+        $('.level-box').on('click', function() {
+            var selected_level = $(this).data("level");
+            $('.level-box').removeClass('active');
+            $(this).addClass('active');
+            $("#study_level_id").val(selected_level);
         });
     });
 </script>
