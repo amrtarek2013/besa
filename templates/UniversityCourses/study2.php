@@ -131,38 +131,31 @@
                         <div class="common-services services-6 services-7 hide">
                             <div class="range-wrapper">
                                 <div class="output-range">
-                                    <span id="slider-value">$1000 </span>
-                                    <span id="max-val">$100,000 </span>
-
+                                    <span>What is the student age? </span>
+                                    <span id="age-val">12 Year </span>
                                 </div>
-                                <div id="slider_range_blue"></div>
-                                <div class="minAndMax">
-                                    <span class="min-name">Min </span>
-                                    <span class="max-name">Max </span>
-                                </div>
-                                <input type="hidden" name="min_budget" id="min-budget" value="1000">
-                                <input type="hidden" name="max_budget" id="max-budget" value="100000">
+                                <div id="slider_age"></div>
+                                
+                                <input type="hidden" name="age" id="age_field" value="12">
+                                
                                 <script>
-                                    var slider = document.getElementById('slider_range_blue');
-                                    var sliderValueElement = document.getElementById('slider-value');
-                                    var maxValElement = document.getElementById('max-val');
-                                    var minBudgetElement = document.getElementById('min-budget');
-                                    var maxBudgetElement = document.getElementById('max-budget');
+                                    var slider = document.getElementById('slider_age');
+                                    var sliderValueElement = document.getElementById('age-val');
+                                    var ageElement = document.getElementById('age');
 
                                     noUiSlider.create(slider, {
-                                        start: [500, 8500],
+                                        start: [500],
                                         connect: true,
                                         range: {
-                                        min: 0,
-                                        max: 10000
+                                        // min: 0,
+                                        // max: 10000
                                         }
                                     });
 
                                     slider.noUiSlider.on('update', function(values, handle) {
-                                        sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
-                                        minBudgetElement.value = Math.round(values[0]);
-                                        maxBudgetElement.value = Math.round(values[1]);
-                                        maxValElement.innerHTML = "£" + Math.round(values[1]);
+                                        console.log(values)
+                                        sliderValueElement.innerHTML =  Math.round(values[0]).' Year';
+                                        ageElement.value = Math.round(values[0]);
                                     });
                                 </script>                                  
                             </div>
