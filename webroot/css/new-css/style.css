@@ -5603,7 +5603,11 @@ input.search {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.steps-en .step .grid-contaienr .box.center-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .steps-en .step .grid-contaienr::-webkit-scrollbar {
     width: 10px;
     /* Set the width of the scrollbar */
