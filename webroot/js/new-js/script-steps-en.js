@@ -132,7 +132,7 @@ function nextStep() {
   }
 
 
-
+  console.log('^^^^'+currentStep+'^^^^'+steps.length - 1);
   if (currentStep < steps.length - 1) {
     currentStep++;
     updateStep(currentStep);
