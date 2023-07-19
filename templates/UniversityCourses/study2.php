@@ -159,7 +159,7 @@
     </div>
 </section>
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js'
+    '/js/new-js/script-steps-en.js?v=1'
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -179,15 +179,6 @@
             $('.level-box').removeClass('active');
             $(this).addClass('active');
             $("#study_level_id").val(selected_level);
-        });
-        $('#nextBtn').on('click', function(e) {
-            e.preventDefault();
-            alert($("#service_id").val());
-            if ($("#service_id").val() == '' || $("#service_id").val() == undefined) {
-                alert("1");
-                return false;
-            }
-                alert("2");
         });
     });
 </script>
