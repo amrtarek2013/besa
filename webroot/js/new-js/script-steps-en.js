@@ -133,12 +133,14 @@ function nextStep() {
 
 
   console.log('^^^^'+currentStep+'^^^^'+steps.length - 1);
-  if (currentStep < steps.length - 1) {
+  if (currentStep && currentStep < steps.length - 1) {
     currentStep++;
     updateStep(currentStep);
   } else {
+    if(currentStep){
         var form = document.getElementById('search-courses-steps');
         form.submit();
+    }
   }
 }
 
