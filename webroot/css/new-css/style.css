@@ -7612,3 +7612,42 @@ input[type="search"]:focus {
 .noUi-touch-area{
     cursor: pointer;
 }
+
+/* This styles the track of the range input */
+.steps-en input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: none;
+    height: 4px;
+    background: #8692A6;
+  }
+  
+  /* This styles the thumb (the draggable handle) */
+  .steps-en input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #2575FC;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .steps-en input[type="range"]::-moz-range-thumb {
+    background: #2575FC;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .common-services {
+    margin-top: 20px;
+  }
+  .common-services label, .common-services >span{
+    color: #fff;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+  }
