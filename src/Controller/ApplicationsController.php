@@ -248,7 +248,7 @@ class ApplicationsController extends AppController
         $this->loadModel('UniversityCourses');
 
         $cIds = array_merge($appCourses, $wishLists);
-        debug($cIds);
+        // debug($cIds);
         $courses = [];
         if (!empty($cIds))
             $courses = $this->UniversityCourses->find()->contain(
