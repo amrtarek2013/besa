@@ -92,12 +92,12 @@ function nextStep() {
       alert("Please select an option.");
       return false;
     }
-  }elseif(currentStep==1){
+  }else if(currentStep==1){
     if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
       alert("Please select an option.");
       return false;
     }
-  }elseif(currentStep==2){
+  }else if(currentStep==2){
         var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
         var atLeastOneChecked = false;
         for (var i = 0; i < checkboxes.length; i++) {
