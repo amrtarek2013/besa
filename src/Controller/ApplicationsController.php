@@ -259,10 +259,10 @@ class ApplicationsController extends AppController
                     'Services' => ['fields' => ['title']],
                     'SubjectAreas' => ['fields' => ['title']]
                 ]
-            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
 
         debug($courses);
-        $this->set('courses', $courses->toArray());
+        $this->set('courses', $courses);
         $parameters = $this->request->getAttribute('params');
         $this->set('wishLists', $this->getWishLists());
         dd($application);
