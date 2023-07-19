@@ -85,6 +85,8 @@ function updateStep(stepIndex) {
 
 // Function to go to the next step
 function nextStep() {
+  console.log(currentStep);
+  console.log("-------");
   if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
     alert("Please select an option.");
     return false;
