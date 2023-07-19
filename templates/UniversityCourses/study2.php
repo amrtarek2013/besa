@@ -1,3 +1,4 @@
+<?= $this->Form->create(null, ['method' => 'get', 'action' => 'results']); ?>
 <section class="steps-en">
     <div class="container">
         <div class="col-md-12">
@@ -141,7 +142,7 @@
                                     output.innerHTML = this.value + ' Year';
                                 }
                             </script>
-                            
+
                             <br><br><br>
                             <label for="stay">How long will the student stay?</label>
                             <span id="stay-value">1 Year</span>
@@ -166,6 +167,8 @@
         </div>
     </div>
 </section>
+<?= $this->Form->end() ?>
+
 <?= $this->Html->script([
     '/js/new-js/script-steps-en.js?v='.time()
 ]) ?>
