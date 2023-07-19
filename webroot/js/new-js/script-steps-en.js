@@ -87,10 +87,33 @@ function updateStep(stepIndex) {
 function nextStep() {
   console.log(currentStep);
   console.log("-------");
-  if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
-    alert("Please select an option.");
-    return false;
+  if(currentStep==0){
+    if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
+      alert("Please select an option.");
+      return false;
+    }
+  }elseif(currentStep==1){
+    if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
+      alert("Please select an option.");
+      return false;
+    }
+  }elseif(currentStep==2){
+        var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
+        var atLeastOneChecked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                atLeastOneChecked = true;
+                break;
+            }
+        }
+        if (!atLeastOneChecked) {
+            alert("Please select at least one country.");
+            return false;
+        }
   }
+
+
+
   if (currentStep < steps.length - 1) {
     currentStep++;
     updateStep(currentStep);

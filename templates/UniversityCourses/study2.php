@@ -45,7 +45,7 @@
                                 <?php } ?>
                                 <?php } ?>
                             </div>
-                            <input type="hidden" name="course_id" id="course_id">
+                            <input type="hidden" name="course_id" id="course_id" value=''>
                         </div>
                         <div class="common-services services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
@@ -58,7 +58,7 @@
                                 <?php } ?>
                                 <?php } ?>
                             </div>
-                            <input type="hidden" name="study_level_id" id="study_level_id">
+                            <input type="hidden" name="study_level_id" id="study_level_id" value=''>
                         </div>
                     </div>
 
