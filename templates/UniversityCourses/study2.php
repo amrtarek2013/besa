@@ -132,15 +132,25 @@
                             <label for="age">What is the student age?</label>
                             <span id="age-value">12 Year</span>
 
-                            <input type="range" id="age" value="12" min="12" max="100">
+                            <input type="range" id="age" value="12" min="12" max="100" name="age">
                             <script>
                                 var slider = document.getElementById("age");
                                 var output = document.getElementById("age-value");
-                                output.innerHTML = slider.value; // Display the default slider value
-
-                                // Update the current slider value (each time you drag the slider handle)
+                                output.innerHTML = slider.value;
                                 slider.oninput = function() {
                                     output.innerHTML = this.value + ' Year';
+                                }
+                            </script>
+
+                            <label for="age">How long will the student stay?</label>
+                            <span id="stay-value">1 Year</span>
+                            <input type="range" id="stay" value="1" min="1" max="10" name="stay">
+                            <script>
+                                var sliderStay = document.getElementById("stay");
+                                var outputStay = document.getElementById("stay-value");
+                                outputStay.innerHTML = sliderStay.value;
+                                sliderStay.oninput = function() {
+                                    outputStay.innerHTML = this.value + ' Year';
                                 }
                             </script>
                         </div>
