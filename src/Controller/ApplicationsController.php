@@ -105,7 +105,7 @@ class ApplicationsController extends AppController
         $course = $this->UniversityCourses->find()->where(['id' => $course_id])->first();
 
         $this->loadModel('Applications');
-        $conds = ['save_later' => 1];
+        $conds = []; //['save_later' => 1];
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
             $conds['user_id'] = $user['id'];
@@ -114,7 +114,9 @@ class ApplicationsController extends AppController
             $token = $this->userToken();
             $conds['user_token'] = $token;
         }
-        $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
+        $application = $this->Applications->find()->where($conds)
+            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])
+            ->order(['Applications.created' => 'DESC'])->first();
 
         if (empty($application)) {
             $application = $this->Applications->newEmptyEntity();
@@ -124,6 +126,7 @@ class ApplicationsController extends AppController
         $this->loadModel('ApplicationCourses');
         $applicationCourse = $this->ApplicationCourses->newEmptyEntity();
         if ($course) {
+
             if ($isNew == 'add') {
                 $applicationCourse = $this->ApplicationCourses->patchEntity($applicationCourse, $this->request->getData());
                 $applicationCourse->university_course_id = $course_id;
@@ -140,7 +143,6 @@ class ApplicationsController extends AppController
                     // dd($application);
                     $this->Applications->save($application);
                 }
-                // dd($application);
                 $applicationCourse->application_id = $application->id;
                 if ($this->ApplicationCourses->save($applicationCourse)) {
                     $message = __('The Course added to Application Successfully.');
@@ -150,11 +152,12 @@ class ApplicationsController extends AppController
                 }
             } else {
                 $conditions = ['university_course_id' => $course_id];
-                if (isset($_SESSION['Auth']['User'])) {
-                    $user = $_SESSION['Auth']['User'];
-                    $conditions['user_id'] = $user['id'];
-                } else
-                    $conditions['user_token'] = $this->userToken();
+                $conditions['application_id'] = $application->id;
+                // if (isset($_SESSION['Auth']['User'])) {
+                //     $user = $_SESSION['Auth']['User'];
+                //     $conditions['user_id'] = $user['id'];
+                // } else
+                //     $conditions['user_token'] = $this->userToken();
 
                 $applicationCourse = $this->ApplicationCourses->find()->where($conditions)->first();
                 if ($applicationCourse) {
