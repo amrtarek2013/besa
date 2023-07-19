@@ -1017,7 +1017,7 @@ class AppController extends Controller
 
         $appCourses = [];
 
-        $this->loadModel('ApplicationCourses');
+        $this->loadModel('Applications');
         $conds = ['save_later' => 1];
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
