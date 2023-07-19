@@ -14,7 +14,7 @@
                         <span>WHERE</span>
                     </div>
                     <div class="timeline-item">
-                        <span>WHERE</span>
+                        <span>BUDGET</span>
                     </div>
                 </div>
                 <div class="step-container">
@@ -156,7 +156,7 @@
     </div>
 </section>
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js?v=2'
+    '/js/new-js/script-steps-en.js?v='.time()
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
