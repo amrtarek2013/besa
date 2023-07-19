@@ -5665,7 +5665,7 @@ input.search {
     align-items: center;
 }
 
-.contaienr-checkbox label {
+.contaienr-checkbox .checkbox-green  label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
