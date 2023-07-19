@@ -10,7 +10,7 @@
             <div class="col-md-6">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">APPLAY NOW</h1>
-                    <h2 class="title text-left">APPLAY NOW <br> WITH BESA</h2>
+                    <h2 class="title text-left">APPLAY NOW</h2>
                 </div>
             </div>
 
