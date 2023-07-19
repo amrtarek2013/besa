@@ -241,7 +241,9 @@ class ApplicationsController extends AppController
         $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
             ->where($wish_cond);
         debug($wishLists);
-        $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
+        $appCourses = [];
+        if (!empty($application['application_courses']))
+            $appCourses = Hash::combine($application['application_courses'], '{n}.course_id', '{n}.course_id');
         debug($appCourses);
         $this->loadModel('UniversityCourses');
 

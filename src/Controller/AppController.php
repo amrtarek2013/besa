@@ -1028,7 +1028,10 @@ class AppController extends Controller
             $conds['user_token'] = $token;
         }
         $appCourses = $this->Applications->find()->where($conds)->contain(['ApplicationCourses'])->all()->toArray();
-        $appCourses = Hash::combine($appCourses['application_courses'], '{n}.course_id', '{n}.course_id');
+        if (!empty($appCourses['application_courses']))
+            $appCourses = Hash::combine($appCourses['application_courses'], '{n}.course_id', '{n}.course_id');
+        else
+            $appCourses = [];
         return $appCourses;
     }
 }
