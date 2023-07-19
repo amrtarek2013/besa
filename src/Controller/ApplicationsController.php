@@ -137,10 +137,10 @@ class ApplicationsController extends AppController
                     $application->university_id = $course['university_id'];
                     $application->service_id = $course['service_id'];
 
-                    dd($application);
+                    // dd($application);
                     $this->Applications->save($application);
                 }
-                dd($application);
+                // dd($application);
                 $applicationCourse->application_id = $application->id;
                 if ($this->ApplicationCourses->save($applicationCourse)) {
                     $message = __('The Course added to Application Successfully.');
