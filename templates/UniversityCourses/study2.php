@@ -24,7 +24,7 @@
                         <div class="form-area">
                         <?php  if (!empty($servicesSearchList)){ ?>
                             <select name="service_id" id="service_id">
-                                <option>Select an option</option>
+                                <option value="">Select an option</option>
                             <?php foreach ($servicesSearchList as $i => $service){?>
                                 <option value="<?=$service['id']?>"><?= $service['title'] ?></option>
                             <?php } ?>
@@ -182,7 +182,6 @@
         });
         $('#nextBtn').on('click', function(e) {
             e.preventDefault();
-            alert($("#service_id").val());
             if ($("#service_id").val() == '' || $("#service_id").val() == undefined) {
                 return false;
             }
