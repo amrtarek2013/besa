@@ -142,17 +142,28 @@ class ApplicationsController extends AppController
 
                     // dd($application);
                     $this->Applications->save($application);
-                }
-                $applicationCourse->application_id = $application->id;
-                if ($this->ApplicationCourses->save($applicationCourse)) {
-                    $message = __('The Course added to Application Successfully.');
-                    $status = 'success';
                 } else {
-                    $message = __('The Application could not be saved. Please, try again.');
+
+                    $conditions = ['university_course_id' => $course_id, 'application_id' => $application->id];
+
+                    $appCourse = $this->ApplicationCourses->find()->where($conditions)->first();
+                    if ($appCourse) {
+                        // $this->ApplicationCourses->delete($applicationCourse);
+                        // $status = 'success';
+
+                        $message = __('The Course already exist in the Application.');
+                    } else {
+                        $applicationCourse->application_id = $application->id;
+                        if ($this->ApplicationCourses->save($applicationCourse)) {
+                            $message = __('The Course added to Application Successfully.');
+                            $status = 'success';
+                        } else {
+                            $message = __('The Application could not be saved. Please, try again.');
+                        }
+                    }
                 }
             } else {
-                $conditions = ['university_course_id' => $course_id];
-                $conditions['application_id'] = $application->id;
+                $conditions = ['university_course_id' => $course_id, 'application_id' => $application->id];
                 // if (isset($_SESSION['Auth']['User'])) {
                 //     $user = $_SESSION['Auth']['User'];
                 //     $conditions['user_id'] = $user['id'];
