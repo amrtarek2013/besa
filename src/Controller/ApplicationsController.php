@@ -127,7 +127,7 @@ class ApplicationsController extends AppController
             if ($isNew == 'add') {
                 $applicationCourse = $this->ApplicationCourses->patchEntity($applicationCourse, $this->request->getData());
                 $applicationCourse->university_course_id = $course_id;
-                if (empty($application)) {
+                if (!is_array($application) && empty($application->toArray())) {
                     if (isset($_SESSION['Auth']['User'])) {
                         $user = $_SESSION['Auth']['User'];
                         $application->user_id = $user['id'];
@@ -137,6 +137,7 @@ class ApplicationsController extends AppController
                     $application->university_id = $course['university_id'];
                     $application->service_id = $course['service_id'];
 
+                    dd($application);
                     $this->Applications->save($application);
                 }
                 dd($application);
