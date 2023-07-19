@@ -129,20 +129,43 @@
                             </script>                                  
                         </div>
                         <div class="common-services services-6 services-7 hide">
-                            <label for="age">What is the student age?</label>
-                            <span id="age-value">12 Year</span>
+                            <div class="range-wrapper">
+                                <div class="output-range">
+                                    <span id="slider-value">$1000 </span>
+                                    <span id="max-val">$100,000 </span>
 
-                            <input type="range" id="age" value="12" min="12" max="100">
-                            <script>
-                                var slider = document.getElementById("age");
-                                var output = document.getElementById("age-value");
-                                output.innerHTML = slider.value; // Display the default slider value
+                                </div>
+                                <div id="slider_range_blue"></div>
+                                <div class="minAndMax">
+                                    <span class="min-name">Min </span>
+                                    <span class="max-name">Max </span>
+                                </div>
+                                <input type="hidden" name="min_budget" id="min-budget" value="1000">
+                                <input type="hidden" name="max_budget" id="max-budget" value="100000">
+                                <script>
+                                    var slider = document.getElementById('slider_range_blue');
+                                    var sliderValueElement = document.getElementById('slider-value');
+                                    var maxValElement = document.getElementById('max-val');
+                                    var minBudgetElement = document.getElementById('min-budget');
+                                    var maxBudgetElement = document.getElementById('max-budget');
 
-                                // Update the current slider value (each time you drag the slider handle)
-                                slider.oninput = function() {
-                                    output.innerHTML = this.value + ' Year';
-                                }
-                            </script>
+                                    noUiSlider.create(slider, {
+                                        start: [500, 8500],
+                                        connect: true,
+                                        range: {
+                                        min: 0,
+                                        max: 10000
+                                        }
+                                    });
+
+                                    slider.noUiSlider.on('update', function(values, handle) {
+                                        sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
+                                        minBudgetElement.value = Math.round(values[0]);
+                                        maxBudgetElement.value = Math.round(values[1]);
+                                        maxValElement.innerHTML = "£" + Math.round(values[1]);
+                                    });
+                                </script>                                  
+                            </div>
                         </div>
       
                 </div>
