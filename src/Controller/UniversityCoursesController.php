@@ -110,7 +110,7 @@ class UniversityCoursesController extends AppController
 
         $conditions = [];
         $url_params = $this->request->getQuery();
-        print_r($url_params);
+        // print_r($url_params);
         // debug($url_params);
         unset($url_params['url'], $url_params['page'], $url_params['sort'], $url_params['direction']);
 
@@ -149,7 +149,7 @@ class UniversityCoursesController extends AppController
             }
         }
 
-        print_r($conditions);
+        // print_r($conditions);
         return $conditions;
     }
 

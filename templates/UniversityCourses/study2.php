@@ -115,7 +115,7 @@
                                 var maxBudgetElement = document.getElementById('max-budget');
 
                                 noUiSlider.create(slider, {
-                                    start: [500, 8500],
+                                    start: [500, 85000],
                                     connect: true,
                                     range: {
                                     min: 0,
