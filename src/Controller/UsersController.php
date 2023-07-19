@@ -283,6 +283,7 @@ class UsersController extends AppController
         }
         $user->email_confirmed = true;
         $user->confirmed = true;
+        $user->active = true;
         if ($this->Users->save($user)) {
             
             // $this->Auth->setUser($user->toArray());
