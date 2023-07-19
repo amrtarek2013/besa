@@ -14,8 +14,9 @@
                 </div>
             </div>
 
-            <?= $partnership_with_besa ?>
-            <!-- <div class="col-md-12" style="padding: 0">
+            <?php //= $partnership_with_besa 
+            ?>
+            <div class="col-md-12" style="padding: 0">
                 <div class="title-banner-blue">
                     <h3>BESA: CONNECTING PEOPLE WORLDWIDE</h3>
                 </div>
@@ -39,14 +40,13 @@
                     </div>
                 </div>
             </div>
-           -->
             <div class="col-md-12" style="padding: 0;">
                 <div class="line-stained">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
