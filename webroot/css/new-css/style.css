@@ -7730,3 +7730,13 @@ input[type="search"]:focus {
     line-height: 18px;
     letter-spacing: 0.2px;
 }
+.user-dashboard  table td, .user-dashboard  table td  .btn-primary {
+    background: #0B5ED7;
+    color: #fff;
+    padding: 5px 10px;
+    height: 40px;
+}
+
+.main-sidebar{
+    margin-bottom: 60px;
+}
