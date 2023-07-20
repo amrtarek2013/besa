@@ -7631,7 +7631,6 @@ input[type="search"]:focus {
     letter-spacing: 0.2px;
     color: #696F79;
     padding:  15px 0;
-
 }
 
 
@@ -7716,4 +7715,18 @@ input[type="search"]:focus {
 .common-services>span {
     float: right;
 
+}
+
+.user-dashboard .register-banner{
+    padding-top: 0;
+}
+
+.user-dashboard  table td, .user-dashboard  table td a{
+    color: #696F79;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
 }
