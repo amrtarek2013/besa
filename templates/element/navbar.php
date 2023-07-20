@@ -465,6 +465,9 @@
                                     <a href="/">Home</a>
                                 </li>
                                 <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
+                                    <a href="/study?steps=1">Search Steps</a>
+                                </li>
+                                <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
                                     <a href="/study">Search</a>
                                 </li>
                                 <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
