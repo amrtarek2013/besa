@@ -52,8 +52,9 @@ class User extends Entity
     {
 
         $no_image_path = DS . 'img' . DS . 'new-images' . DS . 'profile-test01.png';
+        // dd($this->image);
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'users' . DS . $this->image;
+            $image_path = 'uploads' . DS . 'users' . $this->image;
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

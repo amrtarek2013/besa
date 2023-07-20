@@ -18,7 +18,7 @@
                 <div class="grid-container-profile">
                     <div class="left-box">
                         <div class="circle-img">
-                            <img src="<?=$auth->user('image_path')?>" alt="">
+                            <img src="<?=$data['image_path']?>" alt="">
                         </div>
                         <h2 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h2>
                         <span class="status">PENDING</span>
