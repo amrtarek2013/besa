@@ -209,7 +209,7 @@ class ApplicationsController extends AppController
             $application = $this->Applications->patchEntity($application, $data);
 
             $uploadPath = WWW_ROOT.'uploads/files/applications';
-            debug($uploadPath);
+            // debug($uploadPath);
             $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
 
             if (empty($upResult['errors'])) {
@@ -218,12 +218,12 @@ class ApplicationsController extends AppController
                 }
 
 
-                if (isset($data['save_later'])) {
-                    $application->save_later = 1;
-                } else if (isset($data['save'])) {
+                // if (isset($data['save_later'])) {
+                //     $application->save_later = 1;
+                // } else if (isset($data['save'])) {
 
-                    $application->save_later = 2;
-                }
+                //     $application->save_later = 2;
+                // }
 
                 if ($this->Applications->save($application)) {
 
