@@ -124,9 +124,27 @@ class ApplicationsController extends AppController
 
     public function view($id = null)
     {
-        $application = $this->Applications->get($id);
+        $application = $this->Applications->find()->where(['Applications.id' => $id])->contain(['Universities', 'Services', 'Users', 'ApplicationCourses'])->first();
 
         $this->set('application', $application);
+        $this->set('appFields', $this->Applications->app_files_fields);
+
+        $this->loadModel('UniversityCourses');
+        $cIds = Hash::combine($application->application_courses, '{n}.university_course_id', '{n}.university_course_id');
+        
+        $courses = [];
+        if (!empty($cIds))
+            $courses = $this->UniversityCourses->find()->contain(
+                [
+                    'Countries' => ['fields' => ['country_name']],
+                    'Universities' => ['fields' => ['title', 'rank']],
+                    'Services' => ['fields' => ['title']],
+                    'SubjectAreas' => ['fields' => ['title']]
+                ]
+            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->all()->toArray();
+
+            // dd($courses);
+        $this->set('courses', $courses);
     }
 
     public function export()

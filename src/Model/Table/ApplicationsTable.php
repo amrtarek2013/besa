@@ -80,6 +80,25 @@ class ApplicationsTable extends Table
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
   ];
+
+
+  public $app_files_fields = [
+
+    'passport' => 'Passport',
+    'high_school_certificate' => 'High School Ccertificate',
+    'personal_statement' => 'Personal Statement',
+    'academic_recommendation_letter' => 'Academic Recommendation Letter',
+
+    'university_transcript' => 'University Transcript',
+    'recommendation_letter' => 'Recommendation Letter',
+
+    'updated_cv' => 'Updated CV',
+    'professional_recommendation_letter' => 'Professional Recommendation Letter',
+
+    'research_proposal' => 'Research Proposal',
+    'ilets_elt' => 'ILETS /ELT',
+
+  ];
   /**
    * Initialize method
    *
