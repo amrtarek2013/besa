@@ -1,17 +1,32 @@
 <style>
-    .btn {
-        color: blueviolet;
+    .Pendeing {
+        background: #d3d3d3;
     }
 
-    td,th {
-        padding: 10px;
-        border: 1px solid #33ca9424;
+    .Under-Review {
+        background: #0d6efd;
+        color: #fff;
     }
-    th{
-        text-align: right;
+
+
+    .Replayed {
+        background: #ffc107;
+        color: #000;
+
+    }
+
+    .Rejected {
+        background: #bb2d3b;
+        color: #fff;
+
+    }
+
+    .Approved {
+        background: #198754;
+        color: #fff;
+
     }
 </style>
-
 <section class="register-banner">
 
     <div class="container" style="width:100%">
@@ -36,27 +51,31 @@
 
                                 <tr class="table-header">
                                     <th class=""><a>Name</a></th>
-                                    <td><?php echo (!empty($application->user->first_name) ? $application->user->first_name : '') ?></td>
+                                    <td><?php echo (!empty($application->user->first_name) ? $application->user->first_name : '') ?>
+                                    </td>
                                 </tr>
 
                                 <tr class="table-header">
                                     <th class=""><a>Email</a></th>
-                                    <td><?php echo (!empty($application->user->email) ? $application->user->email : '') ?></td>
+                                    <td><?php echo (!empty($application->user->email) ? $application->user->email : '') ?>
+                                    </td>
                                 </tr>
 
                                 <tr class="table-header">
                                     <th class="" width=""><a>mobile</a></th>
-                                    <td><?php echo (!empty($application->user->mobile) ? $application->user->mobile : '') ?></td>
+                                    <td><?php echo (!empty($application->user->mobile) ? $application->user->mobile : '') ?>
+                                    </td>
                                 </tr>
 
                                 <tr class="table-header">
                                     <th class="" width=""><a>Date</a></th>
-                                    <td><?php echo (!empty($application->created->format('H:m:i d-m-Y')) ? $application->created->format('H:m:i d-m-y') : '') ?></td>
+                                    <td><?php echo (!empty($application->created->format('H:m:i d-m-Y')) ? $application->created->format('H:m:i d-m-y') : '') ?>
+                                    </td>
                                 </tr>
                                 <tr class="table-header">
                                     <th class="" width=""><a>Status</a></th>
                                     <td>
-                                        <span class="btn-status">
+                                        <span class="btn-status <?=$statuses[$application->status] ?>">
                                             <?php echo $statuses[$application->status] ?>
                                         </span>
                                     </td>
@@ -76,7 +95,9 @@
                                             <th class="" width=""><a><?= $field_label ?></a></th>
 
 
-                                            <td><a target="_blank" href="/uploads/files/applications/<?php echo $application[$field_name] ?>">Downlaod</a></td>
+                                            <td>
+                                                <a target="_blank" href="/uploads/files/applications/<?php echo $application[$field_name] ?>">Downlaod</a>
+                                            </td>
                                         </tr>
 
                                     <?php endif; ?>
@@ -85,33 +106,33 @@
                         </table>
                     </div>
                     <div class="container-table">
-                    <?php if (!empty($courses)) { ?>
-                        <h5 class="title-table">Application Courses</h5>
-                        <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
-                            <tbody>
-                                <tr class="table-header">
-                                    <th class=""><a>Course Name</a></th>
-                                    <th class=""><a>University</a></th>
-                                    <th class=""><a>Fees</a></th>
-                                    <th class=""><a>Duration</a></th>
-                                    <th class=""><a>Intake</a></th>
-                                    <th class=""><a>Degree</a></th>
-                                </tr>
-                                <?php foreach ($courses as $key => $applicationCourse) : ?>
-                                    <tr>
-                                        <td><?php echo $applicationCourse->course_name ?></td>
-                                        <td><?php echo $applicationCourse->university->title ?></td>
-                                        <td>$<?php echo number_format($applicationCourse->fees) ?></td>
-                                        <td><?php echo $applicationCourse->duration ?></td>
-                                        <td><?php echo $applicationCourse->intake ?></td>
-                                        <td><?php echo $applicationCourse->degree ?></td>
+                        <?php if (!empty($courses)) { ?>
+                            <h5 class="title-table">Application Courses</h5>
+                            <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
+                                <tbody>
+                                    <tr class="table-header">
+                                        <th class=""><a>Course Name</a></th>
+                                        <th class=""><a>University</a></th>
+                                        <th class=""><a>Fees</a></th>
+                                        <th class=""><a>Duration</a></th>
+                                        <th class=""><a>Intake</a></th>
+                                        <th class=""><a>Degree</a></th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    <?php } ?>
+                                    <?php foreach ($courses as $key => $applicationCourse) : ?>
+                                        <tr>
+                                            <td><?php echo $applicationCourse->course_name ?></td>
+                                            <td><?php echo $applicationCourse->university->title ?></td>
+                                            <td>$<?php echo number_format($applicationCourse->fees) ?></td>
+                                            <td><?php echo $applicationCourse->duration ?></td>
+                                            <td><?php echo $applicationCourse->intake ?></td>
+                                            <td><?php echo $applicationCourse->degree ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php } ?>
                     </div>
-                    
+
 
 
 
