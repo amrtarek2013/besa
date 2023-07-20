@@ -194,13 +194,24 @@ class UsersTable extends Table
   }
 
 
+  // public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, ArrayObject $options)
+  // {
+
+  //   if (!empty($entity->password)) {
+  //     $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
+  //   } else {
+  //     $entity->setDirty('password', false);
+  //   }
+  // }
+
   public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, ArrayObject $options)
   {
 
-    if (!empty($entity->password)) {
-      $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
-    } else {
-      $entity->setDirty('password', false);
-    }
+      if ($entity->isDirty('password')) {
+           $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
+      }
   }
+
+
+
 }

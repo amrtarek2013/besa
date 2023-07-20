@@ -136,9 +136,9 @@
       </div>
       <div class="col-md-4 ml">
         <div class="container-formBox blue-border ">
-          <form action="/user/login" class="login" method="post">
+        <?= $this->Form->create($user, array('url' => '/user/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
 
-            <?= $this->Form->create($user, array('url' => '/user/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
+ 
             <h4 class="title">Log in</h4>
             <div class="grid-container">
               <div class="form-area">
