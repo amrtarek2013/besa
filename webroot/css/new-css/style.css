@@ -2234,7 +2234,9 @@ p.descrp {
     display: block;
     margin-bottom: 15px;
 }
-.remodal .container-formBox .form-area label, .container-formBox .input label {
+
+.remodal .container-formBox .form-area label,
+.container-formBox .input label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2245,14 +2247,16 @@ p.descrp {
     display: block;
     margin-bottom: 15px;
     text-align: left;
-  }
+}
 
-  .remodal .Create-account-banner {
+.remodal .Create-account-banner {
     padding-bottom: 5px !important;
-  }
-  .remodal section {
+}
+
+.remodal section {
     padding-top: 5px !important;
-  }
+}
+
 .form-area textarea,
 .form-area select,
 .form-area input {
@@ -5621,11 +5625,13 @@ input.search {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.steps-en .step .grid-contaienr .box.center-text{
+
+.steps-en .step .grid-contaienr .box.center-text {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .steps-en .step .grid-contaienr::-webkit-scrollbar {
     width: 10px;
     /* Set the width of the scrollbar */
@@ -5649,13 +5655,16 @@ input.search {
     padding: 4px 20px;
     cursor: pointer;
 }
-.steps-en .step .grid-contaienr .box.active{
+
+.steps-en .step .grid-contaienr .box.active {
     background: #33CA94;
 
 }
-.steps-en .step .grid-contaienr .box.active h4{
+
+.steps-en .step .grid-contaienr .box.active h4 {
     color: #fff;
 }
+
 .steps-en .step .grid-contaienr .box h4 {
     font-family: 'Poppins';
     font-style: normal;
@@ -5683,7 +5692,7 @@ input.search {
     align-items: center;
 }
 
-.contaienr-checkbox .checkbox-green  label {
+.contaienr-checkbox .checkbox-green label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -5697,7 +5706,7 @@ input.search {
 
 }
 
-.contaienr-checkbox .checkbox-green label{
+.contaienr-checkbox .checkbox-green label {
     cursor: pointer;
 }
 
@@ -7579,6 +7588,21 @@ input[type="search"]:focus {
 
 
 .user-dashboard .sidebar .nav-link a {
+    float: unset !important;
+    margin-left: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #696F79;
+    width: 100%;
+    padding-left: 15px;
+    white-space: pre-wrap;
+}
+
+.nav-sidebar li a {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -7622,7 +7646,7 @@ input[type="search"]:focus {
 }
 
 .noUi-connects,
-.noUi-touch-area{
+.noUi-touch-area {
     cursor: pointer;
 }
 
@@ -7634,10 +7658,10 @@ input[type="search"]:focus {
     border: none;
     height: 4px;
     background: #8692A6;
-  }
-  
-  /* This styles the thumb (the draggable handle) */
-  .steps-en input[type="range"]::-webkit-slider-thumb {
+}
+
+/* This styles the thumb (the draggable handle) */
+.steps-en input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     background: #2575FC;
@@ -7645,27 +7669,29 @@ input[type="search"]:focus {
     height: 15px;
     border-radius: 50%;
     cursor: pointer;
-  }
-  
-  .steps-en input[type="range"]::-moz-range-thumb {
+}
+
+.steps-en input[type="range"]::-moz-range-thumb {
     background: #2575FC;
     width: 15px;
     height: 15px;
     border-radius: 50%;
     cursor: pointer;
-  }
-  
-  .common-services {
+}
+
+.common-services {
     margin-top: 20px;
-  }
-  .common-services label, .common-services >span{
+}
+
+.common-services label,
+.common-services>span {
     color: #fff;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-  }
+}
 
-  .common-services >span{
+.common-services>span {
     float: right;
 
-  }
+}
