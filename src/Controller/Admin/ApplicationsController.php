@@ -44,6 +44,7 @@ class ApplicationsController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('applications', 'parameters'));
+        $this->set('statuses', $this->Applications->statuses);
         $this->formCommon();
     }
 
@@ -145,6 +146,7 @@ class ApplicationsController extends AppController
 
             // dd($courses);
         $this->set('courses', $courses);
+        $this->set('statuses', $this->Applications->statuses);
     }
 
     public function export()
