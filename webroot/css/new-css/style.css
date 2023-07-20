@@ -7739,9 +7739,7 @@ input[type="search"]:focus {
     height: 40px;
 }
 
-.main-sidebar {
-    margin-bottom: 60px;
-}
+
 .container-formBox table th,
 .container-formBox table th a,
 .container-formBox table td,
@@ -7753,4 +7751,31 @@ input[type="search"]:focus {
     font-size: 16px;
     line-height: 18px;
     letter-spacing: 0.2px;
+}
+
+.container-formBox table{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.container-formBox table th,.container-formBox table td{
+    padding: 10px;
+    text-align: left !important;
+    border: 1px solid #DEDEDE;
+}
+
+.container-formBox .title-table{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #696F79;
+    margin-bottom: 15px;
+}
+
+.user-dashboard{
+    margin-bottom: 60px;
 }

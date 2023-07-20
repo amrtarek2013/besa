@@ -24,8 +24,7 @@
             <div class="col-md-12">
                 <div class="container-formBox">
                     <h4 class="title">Applications Details</h4>
-                    <br/><br/><br/>
-                    <h5>Student Details</h5>
+                    <h5 class="title-table">Student Details</h5>
                     <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                         <tbody>
                             <tr class="table-header">
@@ -59,8 +58,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <br/><br/>
-                    <h5>Student Files</h5>
+                    <h5 class="title-table">Student Files</h5>
                     <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                         <tbody>
                             <?php foreach ($appFields as $field_name => $field_label) : ?>
@@ -80,8 +78,7 @@
                     </table>
 
                     <?php if (!empty($courses)) { ?>
-                        <br/><br/>
-                        <h5>Application Courses</h5>
+                        <h5 class="title-table">Application Courses</h5>
                         <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                             <tbody>
                                 <tr class="table-header">
