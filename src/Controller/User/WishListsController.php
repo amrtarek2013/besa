@@ -32,21 +32,23 @@ class WishListsController extends AppController
 
         $user = $this->Auth->user();
         $conditions['user_id'] = $user['id'];
-        
+
         $wishLists = $this->getWishLists();
         $this->loadModel('UniversityCourses');
 
-        $courses = $this->UniversityCourses->find()->contain(
-            [
-                'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name']],
-                'Universities' => ['fields' => ['university_name', 'rank']],
-                'Services' => ['fields' => ['title']],
-                'SubjectAreas' => ['fields' => ['title']]
-            ]
-        )->where(['UniversityCourses.id IN' => $wishLists])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+        $courses = [];
+        if (!empty($courses))
+            $courses = $this->UniversityCourses->find()->contain(
+                [
+                    'Courses' => ['fields' => ['course_name']],
+                    'Countries' => ['fields' => ['country_name']],
+                    'Universities' => ['fields' => ['university_name', 'rank']],
+                    'Services' => ['fields' => ['title']],
+                    'SubjectAreas' => ['fields' => ['title']]
+                ]
+            )->where(['UniversityCourses.id IN' => $wishLists])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
 
-        $this->set('courses', $courses->toArray());
+        $this->set('courses', $courses);
         $parameters = $this->request->getAttribute('params');
         $this->set('wishLists', $wishLists);
         $this->set('appCourses', $this->getAppCourses());
