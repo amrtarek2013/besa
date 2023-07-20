@@ -35,10 +35,10 @@ class SystemEmail extends Entity
             '{%branch_address%}'  => 'Branch Address',
             '{%branch_email%}'  => 'Branch Email',
             '{%branch_phone%}'  => 'Branch Phone',
-            
+
             '{%view_link%}' => 'View Link',
         ),
-        
+
         'branch.contactus_enquiry' => array(
             '{%name%}' => 'Username',
             '{%email%}'  => 'Email',
@@ -63,7 +63,7 @@ class SystemEmail extends Entity
             '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
         ),
-        
+
 
         'user.re-confirm-email-address' => array(
             // '{%username%}' => 'Username',
@@ -73,7 +73,7 @@ class SystemEmail extends Entity
             '{%mobile%}'  => 'Mobile',
             '{%confirmation_url%}' => 'Confirmation URL',
         ),
-        
+
 
         'user.notify_user_reset_password' => array(
             // '{%username%}' => 'Username',
@@ -82,7 +82,27 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%new_password%}' => 'Reset Password URL',
-        ),        
+        ),
+
+
+        'user.notify_user_new_apply' => array(
+            // '{%username%}' => 'Username',
+            '{%name%}' => 'Name',
+            '{%surname%}'  => 'Surname',
+            '{%email%}'  => 'Email',
+            '{%mobile%}'  => 'Mobile',
+            '{%view_link%}' => 'View Link',
+        ),
+        'admin.notify_user_new_apply' => array(
+            // '{%username%}' => 'Username',
+            '{%name%}' => 'Name',
+            '{%surname%}'  => 'Surname',
+            '{%email%}'  => 'Email',
+            '{%mobile%}'  => 'Mobile',
+            '{%view_link%}' => 'View Link',
+        ),
+
+
 
         'presenter.notify_presenter_registration' => array(
             '{%username%}' => 'Username',
@@ -104,9 +124,9 @@ class SystemEmail extends Entity
 
 
 
-        
+
         'subscription.user_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             '{%plan_name%}' => 'Plan Title',
             '{%user_email%}'  => 'Email',
@@ -116,7 +136,7 @@ class SystemEmail extends Entity
             '{%invoice_link%}' => 'Invoice Link',
         ),
         'subscription.admin_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             '{%plan_name%}' => 'Plan Title',
             '{%user_email%}'  => 'Email',
@@ -128,7 +148,7 @@ class SystemEmail extends Entity
 
 
         'buy_ticket.user_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             '{%session_name%}' => 'Session Name',
             '{%user_email%}'  => 'Email',
@@ -138,7 +158,7 @@ class SystemEmail extends Entity
             '{%invoice_link%}' => 'Invoice Link',
         ),
         'buy_ticket.admin_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             '{%session_name%}' => 'Session Name',
             '{%user_email%}'  => 'Email',
@@ -148,7 +168,7 @@ class SystemEmail extends Entity
             '{%invoice_link%}' => 'Invoice Link',
         ),
         'buy_ticket.presenter_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             '{%session_name%}' => 'Session Name',
             '{%user_email%}'  => 'Email',
@@ -160,9 +180,9 @@ class SystemEmail extends Entity
 
 
 
-        
+
         'shop_products.user_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             // '{%product_name%}' => 'Product Name',
             '{%user_email%}'  => 'Email',
@@ -172,7 +192,7 @@ class SystemEmail extends Entity
             '{%invoice_link%}' => 'Invoice Link',
         ),
         'shop_products.admin_order_notify' => array(
-            
+
             '{%username%}' => 'Username',
             // '{%product_name%}' => 'Product Name',
             '{%user_email%}'  => 'Email',
@@ -181,6 +201,6 @@ class SystemEmail extends Entity
             '{%view_link%}' => 'View Link',
             '{%invoice_link%}' => 'Invoice Link',
         ),
-        
+
     );
 }

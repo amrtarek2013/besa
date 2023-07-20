@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">APPLAY</h1>
-                    <h2 class="title text-left">APPLAY NOW</h2>
+                    <h1 class="relative-text">APPLY</h1>
+                    <h2 class="title text-left">APPLY NOW</h2>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
                         echo "{$fieldName}: " . $msg . '</br>';
                     }
                 ?>
-                <?= $this->Form->create($application, array('url' => '/applications/index', 'id' => 'FormApp', 'class' => 'applay', 'type' => 'file')); ?>
+                <?= $this->Form->create($application, array('url' => '/applications/index', 'id' => 'FormApp', 'class' => 'apply', 'type' => 'file')); ?>
 
                 <div class="container-formBox">
                     <div class="gray-box">
@@ -91,7 +91,7 @@
                         <ul class="custome-list">
                             <li>For the purpose of applying regulation, your details are required.</li>
                         </ul>
-                        <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">Applay</button>
+                        <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">apply</button>
                         <button type="submit" class="btn greenish-teal" name="save_later" style="width: 240px;">Save Later</button>
                     </div>
                 </div>

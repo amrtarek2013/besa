@@ -90,9 +90,22 @@
     var current_controller = '<?= strtolower($this->request->getParam('controller')) ?>';
     var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
     var busy = false;
+    var isLoggedIn = '<?= isset($_SESSION['Auth']['User']) ? 1 : 0 ?>';
+    console.log(isLoggedIn);
+
     $(document).on('click', '.addingwish', function(e) {
 
-        if (!busy) {
+        if (isLoggedIn == 0) {
+            $('.modalMsg .remodal-cancel').show();
+            $('.modalMsg #msgText').html('Please register first!');
+            var inst = $('[data-remodal-id=modalMsg]').remodal();
+            inst.open();
+
+            $(document).on('confirmation', '.modalMsg', function(e) {
+
+                window.location.assign('<?= Router::url('/') ?>user/register');
+            });
+        } else if (!busy) {
             let el = this;
             busy = true;
             let courseid = $(el).data('courseid');
@@ -138,7 +151,17 @@
 
     $(document).on('click', '.addingApp', function(e) {
 
-        if (!busy) {
+        if (isLoggedIn == 0) {
+            $('.modalMsg .remodal-cancel').show();
+            $('.modalMsg #msgText').html('Ready to start your application? Need some more help? please register first');
+            var inst = $('[data-remodal-id=modalMsg]').remodal();
+            inst.open();
+
+            $(document).on('confirmation', '.modalMsg', function(e) {
+
+                window.location.assign('<?= Router::url('/') ?>user/register');
+            });
+        } else if (!busy) {
             let el = this;
             busy = true;
             let courseid = $(el).data('courseid');

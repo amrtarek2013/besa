@@ -34,66 +34,6 @@ class ApplicationsController extends AppController
         $this->data = $this->request->getData();
     }
 
-    public function sendConfirmationEmail()
-    {
-        $seller = $this->Auth->user();
-        $hashed_value = $seller['hash'] ? $seller['hash'] : md5($seller['id'] . uniqid() . md5($seller['email'] . $_SERVER['HTTP_USER_AGENT']));
-
-        $url = '<a href="' . Router::url('/applications/confirm_email/' . $hashed_value, true) . '" >Click Here</a>';
-        $un_replace = array(
-            '{%first_name%}' => $seller['first_name'],
-            '{%last_name%}' => $seller['last_name'],
-            '{%confirmation_url%}' => $url
-        );
-        $seller['email'] = 'developerae@thesitefactory.com.au';
-        $application = $this->Applications->find()->where(["id" => $seller['id']])->first();
-        $application->hash = $hashed_value;
-        $this->Applications->save($application);
-
-        $this->sendEmail($seller['email'], false, 'seller.re-confirm-email-address', $un_replace, []);
-
-        $this->Flash->success(__('The confirmation email has been sent.'));
-
-        return $this->redirect(['action' => 'profile']);
-    }
-
-    public function confirmEmail($confirm_code = false)
-    {
-
-        if ($confirm_code) {
-
-            $confirm_code = preg_replace('/\s+/', ' ', $confirm_code);
-            $confirm_code = str_ireplace(' ', '', $confirm_code);
-        }
-        $application = $this->Applications->find()->where(["hash" => $confirm_code])->first();
-
-        if (isset($_GET['test'])) {
-            echo $confirm_code . '</br >';
-            debug($application);
-            die;
-        }
-
-        if (!$application) {
-            $this->Flash->error('Invalid security code', 'Errormessage');
-            $this->redirect('/');
-        }
-        $application->email_confirmed = true;
-        $application->confirmed = true;
-        $application->active = true;
-        if ($this->Applications->save($application)) {
-
-            // $this->Auth->setApplication($application->toArray());
-
-            $this->Session->write('application', $application->toArray());
-            $this->Flash->success('Email Confirmed', 'Sucmessage');
-            // $this->admin_loginas($this->Applications->id);
-            $this->redirect('/application');
-        }
-        $this->redirect('/');
-    }
-
-
-
     public function addCourseToApplication($course_id, $isNew = 'add')
     {
 
@@ -275,8 +215,32 @@ class ApplicationsController extends AppController
                 foreach ($upResult['names'] as $fieldName => $value) {
                     $application[$fieldName] = $value;
                 }
-                
+
+                if ($data['save_later'])
+                    $application->save_later = 1;
+
                 if ($this->Applications->save($application)) {
+
+                    if ($data['save']) {
+
+                        $user = $this->Users->get($id);
+
+                        $to = $user['email'];
+
+                        $from    = $this->g_configs['general']['txt.send_mail_from'];
+                        $replace = array(
+                            '{%name%}' => $user['first_name'],
+                            '{%surname%}'  => $user['last_name'],
+                            // // '{%username%}'  => $user['username'],
+                            '{%email%}'  => $user['email'],
+                            '{%mobile%}'  => $user['mobile'],
+                        );
+                        $this->sendEmail($to, $from, 'user.notify_user_new_apply', $replace);
+
+                        $url = '<a href="' . Router::url('/admin/applications/view/' . $application['id'], true) . '" >View</a>';
+                        $replace['{%view_link%}'] = $url;
+                        $this->sendEmail(false, $from, 'admin.notify_user_new_apply', $replace);
+                    }
                     $this->Flash->success(__('The Application files are saved successfuly.'));
                     return $this->redirect(['action' => 'index']);
                 }
@@ -474,59 +438,5 @@ class ApplicationsController extends AppController
         $this->set('services', $services);
 
         // $this->redirect('/');
-    }
-
-    public function profile()
-    {
-
-
-        $application = $this->Auth->user();
-        $application = $this->Applications->get($application['id']);
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $sent_data = $this->request->getData();
-            $application = $this->Applications->patchEntity($application, $this->request->getData(), ['validate' => 'profile']);
-
-            if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
-                $application->password = $sent_data['password'];
-            } else {
-                $application->password = "";
-                unset($application->password);
-            }
-            if (empty($application->applicationname))
-                $application->applicationname = $application->email;
-
-            if ($this->Applications->save($application)) {
-                $this->Flash->success(__('The profile date has been saved.'));
-
-                return $this->redirect(['action' => 'accountInfo']);
-            }
-
-            // dd($application->getErrors());
-            $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
-        }
-        $this->set(compact('application'));
-        // $this->set('application', $applicationEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
-
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
     }
 }
