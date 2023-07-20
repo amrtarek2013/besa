@@ -1437,34 +1437,26 @@
     }
 
     .container-icons {
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
         place-items: center;
         grid-gap: 20px;
 
     }
-
+    .why_besa2 h2 {
+        font-size: 32px;
+    }
     .container-icons .icon-box img {
         margin: auto;
-        max-height: 80px;
     }
-    .container-icons .icon-box h4 br{
-        display: none;
-    }
+
     .container-icons .icon-box h4 {
         text-align: center;
-        font-size: 15px;
-
 
     }
-    .why_besa2 h2{
-        font-size: 32px;
-        margin-bottom: 25px;
 
-    }
     .container-icons .icon-box {
         border: none !important;
         justify-content: center;
-        padding: 0;
 
     }
 
