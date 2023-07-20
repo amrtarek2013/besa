@@ -1,13 +1,13 @@
 <section class="main-banner register-banner">
 
-    <div class="container"  style="width:100%">
+    <div class="container" style="width:100%">
         <div class="row">
             <div class="col-md-12">
                 <h2 class="title text-left title-dash">Profile</h2>
             </div>
         </div>
         <div class="row">
-            <?= $this->Form->create($user, array('id' => 'FormProfile')); ?>
+            <?= $this->Form->create($user, array('type' => 'file', 'id' => 'FormProfile')); ?>
             <div class="col-md-12">
                 <div class="container-formBox">
                     <h4 class="title">Basic Information</h4>
@@ -30,6 +30,18 @@
                         <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?>
 
                         <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
+                        <?php
+                        echo $this->AdminForm->control('image', ['label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            'data' => $user,
+                            'field' => 'image',
+                            'info' => [
+                                'width' => $uploadSettings['image']['width'],
+                                'height' => $uploadSettings['image']['height'],
+                                'path' => $uploadSettings['image']['path']
+
+                            ],
+                        ])]);
+                        ?>
 
                     </div>
                 </div>

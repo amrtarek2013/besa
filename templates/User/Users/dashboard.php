@@ -18,11 +18,11 @@
                 <div class="grid-container-profile">
                     <div class="left-box">
                         <div class="circle-img">
-                            <img src="<?=$auth->user('image_path')?>" alt="">
+                            <img src="<?= $data['image_path'] ?>" alt="">
                         </div>
                         <h2 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h2>
-                        <span class="status">PENDING</span>
-                        <a href="#" class="btn clear-blue">START A NEW APPLICATION</a>
+                        <span class="status"><?= $data['email_confirmed'] ? 'APPROVED' : 'PENDING' ?></span>
+                        <a href="/study?steps=1" class="btn clear-blue">START A NEW APPLICATION</a>
 
                     </div>
                     <div class="right-box">

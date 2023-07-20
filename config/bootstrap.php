@@ -479,6 +479,7 @@ function UploadFiles($files, $filesOptions = [], $folder = "", $types = "", $max
 
         $result = '';
         //Move the file from the stored location to the new location
+        // debug($files[$file_id]['tmp_name']);
         if (!move_uploaded_file($files[$file_id]['tmp_name'], $uploadfile)) {
             $result = "Cannot upload the file '" . $files[$file_id]['name'] . "'"; //Show error if any.
             if (!file_exists($folder)) {

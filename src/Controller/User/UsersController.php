@@ -458,7 +458,7 @@ class UsersController extends AppController
                         '{%email%}'  => $user['email'],
                         '{%mobile%}'  => $user['mobile'],
                     );
-                    
+
                     $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
                     $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View</a>';
                     $replace['{%view_link%}'] = $url;
@@ -598,6 +598,11 @@ class UsersController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('services', $services);
+        $id = $user['id'];
+        $this->set(compact('id'));
+        $this->_ajaxImageUpload('user_' . $user['id'], 'users', $user['id'], ['id' => $id], ['image']);
+        $uploadSettings = $this->Users->getUploadSettings();
+        $this->set(compact('uploadSettings'));
     }
 
 
@@ -623,12 +628,12 @@ class UsersController extends AppController
         //     try {
         //code...
 
-        $userEntity = $this->Users->newEmptyEntity();
+        // $userEntity = $this->Users->newEmptyEntity();
 
-        $data = $this->Users->patchEntity($userEntity, $user);
+        // $data = $this->Users->patchEntity($userEntity, $user);
+        // dd($data);
+        $user            = $this->Users->get($user['id']);
         // dd($user);
-        // $data            = $this->Users->get($user);
-
         // dd($data);
         //     } catch (\Throwable $th) {
         //         //throw $th;
@@ -639,7 +644,7 @@ class UsersController extends AppController
         // } else {
         //     $this->redirect('/');
         // }
-        $this->set('data', $data);
+        $this->set('data', $user);
         // $this->set('edit', 1);
         // $this->loadModel('Ads');
         // $this->set('presenter_dashboard_ad', $this->Ads->get_ads('user-dashboard'));

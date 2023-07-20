@@ -16,8 +16,14 @@ class ApplicationsTable extends Table
 
 
   public $modelName = 'applications';
-  public $filters = ['user_id' => 'like', 'course_id' => 'like'];
+  public $filters = [
+    /*'user_id' => 'like', 'course_id' => 'like'*/
+    'status' => ['options' => ['options' => [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Approved', 3 => 'Rejected']]],
+    'save_later' => ['options' => ['options' => [0 => 'InProgress', 2 => 'Completed', 1 => 'Save Later']]]
+  ];
 
+  public $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Approved', 3 => 'Rejected'];
+  public $saveLater = [0 => 'InProgress', 2 => 'Completed', 1 => 'Save Later'];
   public $app_files = [
 
     'foundation-programs' => [
