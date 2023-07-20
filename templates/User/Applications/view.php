@@ -55,7 +55,11 @@
                                 </tr>
                                 <tr class="table-header">
                                     <th class="" width=""><a>Status</a></th>
-                                    <td><?php echo $statuses[$application->status] ?></td>
+                                    <td>
+                                        <span class="btn-status">
+                                            <?php echo $statuses[$application->status] ?>
+                                        </span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

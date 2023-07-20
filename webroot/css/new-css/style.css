@@ -7782,3 +7782,36 @@ input[type="search"]:focus {
 .container-table{
     margin-bottom: 25px;
 }
+.btn-status{
+    padding: 5px 10px;
+    height: 40px;
+    display: block;
+    text-align: center;
+}
+.background-primary{
+    background: #0d6efd;
+}
+.background-secondary{
+    background: #6c75;
+    color: #fff;
+}
+.background-success{
+    background: #198754;
+    color: #fff;
+
+}
+.background-danger{
+    background: #bb2d3b;
+    color: #fff;
+
+}
+.background-warning{
+    background: #ffc107;
+    color: #000;
+
+}
+.background-info{
+    background: #31d2f2;
+    color: #000;
+
+}
