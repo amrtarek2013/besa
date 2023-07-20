@@ -2234,7 +2234,25 @@ p.descrp {
     display: block;
     margin-bottom: 15px;
 }
+.remodal .container-formBox .form-area label, .container-formBox .input label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #696F79;
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+  }
 
+  .remodal .Create-account-banner {
+    padding-bottom: 5px !important;
+  }
+  .remodal section {
+    padding-top: 5px !important;
+  }
 .form-area textarea,
 .form-area select,
 .form-area input {

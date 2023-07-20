@@ -123,8 +123,11 @@
                             $('#box-result-' + courseid).hide(3000);
 
                     }
-                    alert(result.message);
+                    // alert(result.message);
 
+                    $('.modalMsg #msgText').html(result.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
 
                     busy = false;
 
@@ -166,11 +169,20 @@
                             $('#box-result-' + courseid).hide(3000);
 
                     }
-                    alert(result.message);
+                    // alert(result.message);
+                    $('.modalMsg #msgText').html(result.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
 
 
                     busy = false;
-                    window.location.assign('<?= Router::url('/') ?>applications');
+
+
+
+                    $(document).on('confirmation', '.modalMsg', function(e) {
+
+                        window.location.assign('<?= Router::url('/') ?>applications');
+                    });
 
                 }
             });

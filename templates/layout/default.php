@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" />
     <?= $this->Html->css([
 
+
+        '/css/new-css/remodal.css',
+        '/css/new-css/remodal-default-theme.css',
         '/css/new-css/all.min.css',
         '/css/new-css/normalize.min.css',
         '/css/new-css/owl.carousel.min.css',
@@ -24,6 +27,7 @@
     <?= $this->Html->script([
         '/js/new-js/jquery-3.6.3.min.js',
         '/js/new-js/fontawesome.min.js',
+        '/js/new-js/remodal.js',
         '/js/new-js/owl.carousel.min.js',
         '/js/new-js/pana-accordion.js',
         '/js/new-js/timeline.js',
