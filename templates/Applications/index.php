@@ -21,6 +21,7 @@
                     <h3>BESA: CONNECTING PEOPLE WORLDWIDE</h3>
                 </div>
             </div>
+            <!--             
             <div class="col-md-12" style="padding: 0;">
                 <div class="container-iconsPartners">
                     <div class="boxPart">
@@ -40,6 +41,8 @@
                     </div>
                 </div>
             </div>
+             -->
+
             <div class="col-md-12" style="padding: 0;">
                 <div class="line-stained">
                     <span></span>
@@ -58,49 +61,41 @@
         <div class="row">
 
             <div class="col-md-12">
-                <form action="" class="">
-                    <div class="container-formBox">
-                        <div class="gray-box">
-                            <p>Submit this form with your business details and one of our representatives will be in contact with you.</p>
-                        </div>
-                        <div class="grid-container">
-                            <div class="form-area">
-                                <label for="name">Company/institution name*</label>
-                                <input type="text" id="name" name="name" placeholder="Name">
-                            </div>
 
-                            <div class="form-area">
-                                <label for="email">Email address*</label>
-                                <input type="email" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-area">
-                                <label for="phone">Phone number*</label>
-                                <input type="number" id="phone" name="phone" placeholder="Phone number">
-                            </div>
-                            <div class="form-area">
-                                <label for="">Business address*</label>
-                                <input type="text" id="" name="" placeholder="Address">
-                            </div>
+                <?php
+                if (!empty($appErrors))
+                    foreach ($appErrors as $fieldName => $msg) {
+                        echo "{$fieldName}: " . $msg . '</br>';
+                    }
+                ?>
+                <?= $this->Form->create($application, array('url' => '/applications/index', 'id' => 'FormApp', 'class' => 'applay', 'type' => 'file')); ?>
 
-                            <div class="form-area">
-                                <label for="">Upload business certificate</label>
-                                <input type="file" id="" name="" placeholder="Certificate">
-                            </div>
-                            <div class="form-area">
-                                <label for="">How did you hear about us?</label>
-                                <input type="text" id="" name="" placeholder="Facebook">
-                            </div>
-                        </div>
-
-
-                        <div class="container-submit">
-                            <ul class="custome-list">
-                                <li>For the purpose of applying regulation, your details are required.</li>
-                            </ul>
-                            <a href="#" class="btn greenish-teal" style="width: 240px;">SUBMIT</a>
-                        </div>
+                <div class="container-formBox">
+                    <div class="gray-box">
+                        <p>Submit this form with your business details and one of our representatives will be in contact with you.</p>
                     </div>
-                </form>
+                    <div class="grid-container">
+
+
+                        <?php foreach ($appFiles as $fieldName => $option) : ?>
+                            <div class="form-area">
+                                <label for="<?= $fieldName ?>"><?= $option['label'] ?></label>
+                                <input type="file" id="<?= $fieldName ?>" name="<?= $fieldName ?>" placeholder="<?= $option['label'] ?>" <?= $option['required'] ? 'required="required"' : '' ?>>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+
+
+                    <div class="container-submit">
+                        <ul class="custome-list">
+                            <li>For the purpose of applying regulation, your details are required.</li>
+                        </ul>
+                        <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">Applay</button>
+                        <button type="submit" class="btn greenish-teal" name="save_later" style="width: 240px;">Save Later</button>
+                    </div>
+                </div>
+                <?= $this->Form->end() ?>
             </div>
         </div>
     </div>

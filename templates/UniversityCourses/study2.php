@@ -1,4 +1,4 @@
-<?= $this->Form->create(null, ['method' => 'get', 'action' => 'results','id'=>'search-courses-steps']); ?>
+<?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
 <section class="steps-en">
     <div class="container">
         <div class="col-md-12">
@@ -23,29 +23,29 @@
                         <!-- Step 1 content here -->
                         <h2 class="title">WHAT TO STUDY?</h2>
                         <div class="form-area">
-                        <?php  if (!empty($servicesSearchList)){ ?>
-                            <select name="service_id" id="service_id">
-                                <option value="">Select an option</option>
-                            <?php foreach ($servicesSearchList as $i => $service){?>
-                                <option value="<?=$service['id']?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
+                            <?php if (!empty($servicesSearchList)) { ?>
+                                <select name="service_id" id="service_id">
+                                    <option value="">Select an option</option>
+                                    <?php foreach ($servicesSearchList as $i => $service) { ?>
+                                        <option value="<?= $service['id'] ?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
+                                    <?php } ?>
+                                </select>
                             <?php } ?>
-                            </select>                                
-                        <?php } ?>
                         </div>
                     </div>
-                    
+
                     <input type="hidden" name="degree" id="degree" value="1">
 
                     <div id="step2" class="step">
                         <div class="common-services services-2 services-4 hide">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
-                                <?php if(!empty($studyCourses)){ ?>
-                                <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) {?>
-                                <div class="box course-box" title='<?=$studyCourse_value?>' data-course='<?=$studyCourse_id?>'>
-                                    <h4><?=words_slice($studyCourse_value,4)?></h4>
-                                </div>
-                                <?php } ?>
+                                <?php if (!empty($studyCourses)) { ?>
+                                    <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) { ?>
+                                        <div class="box course-box" title='<?= $studyCourse_value ?>' data-course='<?= $studyCourse_id ?>'>
+                                            <h4><?= words_slice($studyCourse_value, 4) ?></h4>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
                             </div>
                             <input type="hidden" name="course_id" id="course_id" value=''>
@@ -53,29 +53,29 @@
                         <div class="common-services services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
                             <div class="grid-contaienr">
-                                <?php if(!empty($studyLevels)){ ?>
-                                <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) {?>
-                                <div class="box level-box center-text" title='<?=$studyLevel_value?>' data-level='<?=$studyLevel_id?>'>
-                                    <h4><?=words_slice($studyLevel_value,4)?></h4>
-                                </div>
-                                <?php } ?>
+                                <?php if (!empty($studyLevels)) { ?>
+                                    <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) { ?>
+                                        <div class="box level-box center-text" title='<?= $studyLevel_value ?>' data-level='<?= $studyLevel_id ?>'>
+                                            <h4><?= words_slice($studyLevel_value, 4) ?></h4>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
                             </div>
                             <input type="hidden" name="study_level_id" id="study_level_id" value=''>
                         </div>
                     </div>
 
-                
+
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
                         <div class="common-services services-2 services-4 hide">
                             <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr contaienr-checkbox">
-                                <?php foreach ($countriesList as $country_key => $country_value) {?>
-                                <div class="checkbox-green">
-                                    <input type="checkbox" name="country_id[]" value="<?=$country_key?>" id="country-<?=$country_key?>">
-                                    <label for="country-<?=$country_key?>"><?=$country_value?></label>
-                                </div>
+                                <?php foreach ($countriesList as $country_key => $country_value) { ?>
+                                    <div class="checkbox-green">
+                                        <input type="checkbox" name="country_id[]" value="<?= $country_key ?>" id="country-<?= $country_key ?>">
+                                        <label for="country-<?= $country_key ?>"><?= $country_value ?></label>
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                     <option value="">Select Curriculum</option>
                                     <option value="1">Curriculum 1</option>
                                     <option value="2">Curriculum 2</option>
-                                </select>                                
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -118,8 +118,8 @@
                                     start: [500, 85000],
                                     connect: true,
                                     range: {
-                                    min: 0,
-                                    max: 100000
+                                        min: 0,
+                                        max: 100000
                                     }
                                 });
 
@@ -129,7 +129,7 @@
                                     maxBudgetElement.value = Math.round(values[1]);
                                     maxValElement.innerHTML = "£" + Math.round(values[1]);
                                 });
-                            </script>                                  
+                            </script>
                         </div>
                         <div class="common-services services-6 services-7 hide">
                             <label for="age">What is the student age?</label>
@@ -158,28 +158,28 @@
                                 }
                             </script>
                         </div>
-      
-                </div>
-               <!-- Buttons to navigate between steps -->
-                <div id="buttons">
-                    <button id="prevBtn">Previous</button>
-                    <button id="nextBtn">Next <img src="/img/new-images/chevron-left.png" alt=""> </button>
+
+                    </div>
+                    <!-- Buttons to navigate between steps -->
+                    <div id="buttons">
+                        <button id="prevBtn">Previous</button>
+                        <button id="nextBtn">Next <img src="/img/new-images/chevron-left.png" alt=""> </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 <?= $this->Form->end() ?>
 
 <?= $this->Html->script([
-    '/js/new-js/script-steps-en.js?v='.time()
+    '/js/new-js/script-steps-en.js?v=' . time()
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#service_id").change(function(){
+        $("#service_id").change(function() {
             var selected_service = $(this).val();
             $('.common-services').hide();
-            $('.services-'+selected_service).show();
+            $('.services-' + selected_service).show();
 
             var degree = $(this).data('degree');
             $('#degree').val(degree);

@@ -240,19 +240,51 @@ class ApplicationsController extends AppController
 
     public function index()
     {
-        $conds = ['save_later' => 1];
-        $wish_conds = [];
-        $user_id = null;
-        // if (isset($_SESSION['Auth']['User'])) {
-        //     $user = $_SESSION['Auth']['User'];
-        //     $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
-        // } else {
+        $conds = [];
 
-        //     $token = $this->userToken();
-        //     $wish_cond['user_token'] = $conds['user_token'] = $token;
-        // }
-        // $application = $this->Applications->find()->where($conds)->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])->first();
+        if (isset($_SESSION['Auth']['User'])) {
+            $user = $_SESSION['Auth']['User'];
+            $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
+        } else {
 
+            $token = $this->userToken();
+            $wish_cond['user_token'] = $conds['user_token'] = $token;
+        }
+        $application = $this->Applications->find()->where($conds)
+            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])
+            ->order(['Applications.created' => 'DESC'])->first();
+
+        $appService = $application['service']['permalink'];
+
+        // debug($application);
+        $this->set('appService', $appService);
+        $appFiles = $this->Applications->app_files[$appService];
+        // dd($appFiles);
+        $this->set('appFiles', $appFiles);
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $data = $this->request->getData();
+            // debug($application);
+            // dd($_FILES);
+            $application = $this->Applications->patchEntity($application, $data);
+
+            $uploadPath = 'uploads/files/applications/';
+            $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
+
+            if (empty($upResult['errors'])) {
+                foreach ($upResult['names'] as $fieldName => $value) {
+                    $application[$fieldName] = $value;
+                }
+                
+                if ($this->Applications->save($application)) {
+                    $this->Flash->success(__('The Application files are saved successfuly.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+            }
+            // dd($upResult['errors']);s
+            $this->set('appErrors', $upResult['errors']);
+            $this->Flash->error(__('The Application could not be saved. Please, try again.'));
+        }
 
         // $this->loadModel('WishLists');
         // $wishLists = $this->WishLists->find('list', ['keyField' => 'course_id', 'valueField' => 'course_id'])
@@ -281,13 +313,14 @@ class ApplicationsController extends AppController
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
 
-        // debug($courses);
+        if (empty($courses)) {
+            $this->Flash->error(__('There is no courses selected!'));
+            return $this->redirect('/study');
+        }
         $this->set('courses', $courses);
-        $parameters = $this->request->getAttribute('params');
         $this->set('wishLists', $wishLists);
         $this->set('appCourses', $appCourses);
-        // dd($application);
-        // $this->set(compact('application'));
+        $this->set('application', $application);
         $this->formCommon();
     }
 

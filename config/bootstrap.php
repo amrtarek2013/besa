@@ -343,9 +343,162 @@ if (!function_exists('getCaptcha')) {
 }
 
 
-function words_slice($string,$chars_count){
+function words_slice($string, $chars_count)
+{
     $words = explode(' ', $string);
     $firstWords = array_slice($words, 0, $chars_count);
     $result = implode(' ', $firstWords);
     return $result;
+}
+
+
+function Upload($file_id, $folder = "", $types = "", $maxsize = 5000000, $file_name = '')
+{
+    if (!$_FILES[$file_id]['name'])
+        return array('', 'No file specified');
+
+    $file_title = $_FILES[$file_id]['name'];
+    $file_size = $_FILES[$file_id]['size'];
+
+    if ($file_size > $maxsize) {
+        $result = "'" . $_FILES[$file_id]['name'] . "' File Size Is larger than Max Size:" . round($maxsize / 1024) . " Kb"; //Show error if any.
+        return array('', $result);
+    }
+
+    //Get file extension
+    $ext_arr = explode(".", basename($file_title));
+    $ext = strtolower($ext_arr[count($ext_arr) - 1]); //Get the last extension
+    //Not really uniqe - but for all practical reasons, it is
+    $uniqer = substr(md5(uniqid(rand() . '', true)), 0, 5);
+    if ($file_name == '')
+        $file_name = $uniqer . '_' . $file_title; //Get Unique Name
+    else
+        $file_name .= "." . $ext;
+
+    $all_types = explode(",", strtolower($types));
+    if ($types) {
+        if (in_array($ext, $all_types));
+        else {
+            $result = "'" . $_FILES[$file_id]['name'] . "' is not a valid file, only " . strtoupper($types) . " fromats are allowed"; //Show error if any.
+            return array('', $result);
+        }
+    }
+
+    //Where the file must be uploaded to
+    if ($folder)
+        $folder .= '/'; //Add a '/' at the end of the folder
+    $uploadfile = $folder . $file_name;
+
+
+    $result = '';
+    //Move the file from the stored location to the new location
+    if (!move_uploaded_file($_FILES[$file_id]['tmp_name'], $uploadfile)) {
+        $result = "Cannot upload the file '" . $_FILES[$file_id]['name'] . "'"; //Show error if any.
+        if (!file_exists($folder)) {
+            $result .= " : Folder don't exist.";
+        } elseif (!is_writable($folder)) {
+            $result .= " : Folder not writable.";
+        } elseif (!is_writable($uploadfile)) {
+            $result .= " : File not writable.";
+        }
+        $file_name = '';
+    } else {
+        if (!$_FILES[$file_id]['size']) { //Check if the file is made
+            @unlink($uploadfile); //Delete the Empty file
+            $file_name = '';
+            $result = "Empty file found - please use a valid file."; //Show the error message
+        } else {
+            chmod($uploadfile, 0777); //Make it universally writable.
+        }
+    }
+
+    return array($file_name, $result);
+}
+
+
+
+
+function UploadFiles($files, $filesOptions = [], $folder = "", $types = "", $maxsize = 5000000)
+{
+    $upload_result = [];
+    $errors = 0;
+
+    $upload_result['status'] = 1;
+    foreach ($files as $file_id => $fd) {
+
+        if (!$files[$file_id]['name'] && !$filesOptions[$file_id]['required'])
+            continue;
+
+        if (!$files[$file_id]['name']) {
+            $upload_result['errors'][$file_id] = 'No file specified';
+            $errors = 1;
+            continue;
+        }
+
+        $file_title = $files[$file_id]['name'];
+        $file_size = $files[$file_id]['size'];
+
+        if ($file_size > $maxsize) {
+            $result = "'" . $files[$file_id]['name'] . "' File Size Is larger than Max Size:" . round($maxsize / 1024) . " Kb"; //Show error if any.
+            $upload_result['errors'][$file_id] = $result;
+            $errors = 1;
+            continue;
+        }
+
+        //Get file extension
+        $ext_arr = explode(".", basename($file_title));
+        $ext = strtolower($ext_arr[count($ext_arr) - 1]); //Get the last extension
+        //Not really uniqe - but for all practical reasons, it is
+        $uniqer = substr(md5(uniqid(rand() . '', true)), 0, 5);
+        // if ($file_name == '')
+        $file_name = $uniqer . '_' . $file_title; //Get Unique Name
+        // else
+        //     $file_name .= "." . $ext;
+
+        $upload_result['names'][$file_id] = $file_name;
+        $all_types = explode(",", strtolower($types));
+        if ($types) {
+            if (in_array($ext, $all_types));
+            else {
+                $result = "'" . $files[$file_id]['name'] . "' is not a valid file, only " . strtoupper($types) . " fromats are allowed"; //Show error if any.
+                $upload_result['errors'][$file_id] = $result;
+                $errors = 1;
+                continue;
+            }
+        }
+
+        if ($errors == 1) {
+            $upload_result['status'] = 0;
+            continue;
+        }
+        //Where the file must be uploaded to
+        if ($folder)
+            $folder .= '/'; //Add a '/' at the end of the folder
+        $uploadfile = $folder . $file_name;
+
+
+        $result = '';
+        //Move the file from the stored location to the new location
+        if (!move_uploaded_file($files[$file_id]['tmp_name'], $uploadfile)) {
+            $result = "Cannot upload the file '" . $files[$file_id]['name'] . "'"; //Show error if any.
+            if (!file_exists($folder)) {
+                $result .= " : Folder don't exist.";
+            } elseif (!is_writable($folder)) {
+                $result .= " : Folder not writable.";
+            } elseif (!is_writable($uploadfile)) {
+                $result .= " : File not writable.";
+            }
+            $file_name = '';
+        } else {
+            if (!$files[$file_id]['size']) { //Check if the file is made
+                @unlink($uploadfile); //Delete the Empty file
+                $file_name = '';
+                $result = "Empty file found - please use a valid file."; //Show the error message
+            } else {
+                chmod($uploadfile, 0777); //Make it universally writable.
+            }
+        }
+    }
+    // dd($upload_result);
+    return $upload_result;
 }

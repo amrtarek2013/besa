@@ -1030,8 +1030,9 @@ class AppController extends Controller
         $appCourses = $this->Applications->find()
             ->where($conds)->contain(['ApplicationCourses'])
             ->order(['Applications.created' => 'DESC'])->first();
+
         if (!empty($appCourses['application_courses']))
-            $appCourses = Hash::combine($appCourses['application_courses'], '{n}.course_id', '{n}.course_id');
+            $appCourses = Hash::combine($appCourses['application_courses'], '{n}.university_course_id', '{n}.university_course_id');
         else
             $appCourses = [];
         return $appCourses;

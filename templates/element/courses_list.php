@@ -7,6 +7,9 @@
                         <?php
 
                         // print_r($courses);
+
+                        use Cake\Routing\Router;
+
                         if (!empty($courses)) : ?>
                             <?php foreach ($courses as $course) :
 
@@ -167,6 +170,7 @@
 
 
                     busy = false;
+                    window.location.assign('<?= Router::url('/') ?>applications');
 
                 }
             });

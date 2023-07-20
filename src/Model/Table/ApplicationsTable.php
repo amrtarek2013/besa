@@ -20,26 +20,27 @@ class ApplicationsTable extends Table
 
   public $app_files = [
 
-    'foundation' => [
+    'foundation-programs' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'high_school_certificate' => ['label' => 'High School Certificate', 'required' => false],
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
+
     'international-year-one' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'high_school_certificate' => ['label' => 'High School Certificate', 'required' => false],
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
-    'bachelor-degree' => [
 
+    'bachelor-degree' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'high_school_certificate' => ['label' => 'High School Ccertificate*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter*', 'required' => true],
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
-    'pre-masters' => [
 
+    'pre-masters' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement', 'required' => false],
@@ -47,19 +48,28 @@ class ApplicationsTable extends Table
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
 
-    'master-degree' => [
-
+    'master-degrees' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
-
       'updated_cv' => ['label' => 'Updated CV*', 'required' => true],
       'professional_recommendation_letter' => ['label' => 'Professional Recommendation Letter', 'required' => false],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter', 'required' => false],
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
-    'phd-degree' => [
 
+    'phd-degree' => [
+      'passport' => ['label' => 'Passport*', 'required' => true],
+      'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
+      'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
+      'updated_cv' => ['label' => 'Updated CV*', 'required' => true],
+      'research_proposal' => ['label' => 'Research Proposal*', 'required' => true],
+      'professional_recommendation_letter' => ['label' => 'Professional Recommendation Letter', 'required' => false],
+      'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter', 'required' => false],
+      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+    ],
+
+    'postgraduate-degrees' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
@@ -87,23 +97,23 @@ class ApplicationsTable extends Table
 
     // $this->addBehavior('ImageFile', ['ImageUpload' => ['image' => []]]);
 
-    $this->addBehavior('ImageFile', [
+    // $this->addBehavior('ImageFile', [
 
-      'FileUpload' => [
-        'passport' => [
-          'file_name' => '{$rand}_{$file_name}',
-          'extensions' => array('pdf'/*, 'doc', 'docx'*/),
-          'path' => 'files/applications/',
-          'required' => true,
-        ],
-        'ilets_elt' => [
-          'file_name' => '{$rand}_{$file_name}',
-          'extensions' => array('pdf'/*, 'doc', 'docx'*/),
-          'path' => 'files/applications/',
-          'required' => true,
-        ],
-      ],
-    ]);
+    //   'FileUpload' => [
+    //     'passport' => [
+    //       'file_name' => '{$rand}_{$file_name}',
+    //       'extensions' => array('pdf'/*, 'doc', 'docx'*/),
+    //       'path' => 'files/applications/',
+    //       'required' => true,
+    //     ],
+    //     'ilets_elt' => [
+    //       'file_name' => '{$rand}_{$file_name}',
+    //       'extensions' => array('pdf'/*, 'doc', 'docx'*/),
+    //       'path' => 'files/applications/',
+    //       'required' => true,
+    //     ],
+    //   ],
+    // ]);
 
     $this->belongsTo('Users')->setForeignKey('user_id');
     $this->belongsTo('Services')->setForeignKey('service_id');
@@ -120,8 +130,8 @@ class ApplicationsTable extends Table
   public function validationDefault(Validator $validator): Validator
   {
 
-    $validator->notEmptyString('passport', 'This field is required.');
-    $validator->notEmptyString('ilets_elt', 'This field is required.');
+    // $validator->notEmptyString('passport', 'This field is required.');
+    // $validator->notEmptyString('ilets_elt', 'This field is required.');
     return $validator;
   }
 
