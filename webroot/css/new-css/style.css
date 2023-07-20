@@ -7578,9 +7578,7 @@ input[type="search"]:focus {
 }
 
 
-.user-dashboard .sidebar .nav-link p {
-    float: unset !important;
-    margin-left: 10px;
+.user-dashboard .sidebar .nav-link a {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -7588,9 +7586,6 @@ input[type="search"]:focus {
     line-height: 18px;
     letter-spacing: 0.2px;
     color: #696F79;
-    width: 100%;
-    padding-left: 15px;
-    white-space: pre-wrap;
 }
 
 
