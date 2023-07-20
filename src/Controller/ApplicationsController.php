@@ -181,10 +181,10 @@ class ApplicationsController extends AppController
     public function index()
     {
         $conds = [];
-
+        $user_id = null;
         if (isset($_SESSION['Auth']['User'])) {
             $user = $_SESSION['Auth']['User'];
-            $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
+            $user_id = $wish_cond['user_id'] = $conds['user_id'] = $user['id'];
         } else {
 
             $token = $this->userToken();
@@ -216,30 +216,35 @@ class ApplicationsController extends AppController
                     $application[$fieldName] = $value;
                 }
 
-                if ($data['save_later'])
+                if (isset($data['save_later'])){
                     $application->save_later = 1;
+                } else if(isset($data['save'])) {
+
+                        $application->save_later = 2;
+                }
 
                 if ($this->Applications->save($application)) {
 
-                    if ($data['save']) {
+                    if (isset($data['save']) && $user_id) {
+                            $this->loadModel('Users');
+                            $user = $this->Users->get($user_id);
 
-                        $user = $this->Users->get($id);
+                            $to = $user['email'];
 
-                        $to = $user['email'];
+                            $from    = $this->g_configs['general']['txt.send_mail_from'];
+                            $replace = array(
+                                '{%name%}' => $user['first_name'],
+                                '{%surname%}'  => $user['last_name'],
+                                // // '{%username%}'  => $user['username'],
+                                '{%email%}'  => $user['email'],
+                                '{%mobile%}'  => $user['mobile'],
+                            );
+                            $this->sendEmail($to, $from, 'user.notify_user_new_apply', $replace);
 
-                        $from    = $this->g_configs['general']['txt.send_mail_from'];
-                        $replace = array(
-                            '{%name%}' => $user['first_name'],
-                            '{%surname%}'  => $user['last_name'],
-                            // // '{%username%}'  => $user['username'],
-                            '{%email%}'  => $user['email'],
-                            '{%mobile%}'  => $user['mobile'],
-                        );
-                        $this->sendEmail($to, $from, 'user.notify_user_new_apply', $replace);
-
-                        $url = '<a href="' . Router::url('/admin/applications/view/' . $application['id'], true) . '" >View</a>';
-                        $replace['{%view_link%}'] = $url;
-                        $this->sendEmail(false, $from, 'admin.notify_user_new_apply', $replace);
+                            $url = '<a href="' . Router::url('/admin/applications/view/' . $application['id'], true) . '" >View</a>';
+                            $replace['{%view_link%}'] = $url;
+                            $this->sendEmail(false, $from, 'admin.notify_user_new_apply', $replace);
+                        }
                     }
                     $this->Flash->success(__('The Application files are saved successfuly.'));
                     return $this->redirect(['action' => 'index']);
