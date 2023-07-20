@@ -7742,3 +7742,14 @@ input[type="search"]:focus {
 .main-sidebar {
     margin-bottom: 60px;
 }
+
+.container-formBox table td,
+.container-formBox table td a {
+    color: #696F79;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+}
