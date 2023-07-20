@@ -7779,3 +7779,6 @@ input[type="search"]:focus {
 .user-dashboard{
     margin-bottom: 60px;
 }
+.container-table{
+    margin-bottom: 25px;
+}
