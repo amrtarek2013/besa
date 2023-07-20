@@ -1442,7 +1442,9 @@
         grid-gap: 20px;
 
     }
-
+    .why_besa2 h2 {
+        font-size: 32px;
+    }
     .container-icons .icon-box img {
         margin: auto;
     }
