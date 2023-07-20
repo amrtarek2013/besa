@@ -208,7 +208,7 @@ class ApplicationsController extends AppController
             // dd($_FILES);
             $application = $this->Applications->patchEntity($application, $data);
 
-            $uploadPath = 'uploads/files/applications';
+            $uploadPath = '/uploads/files/applications';
             $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
 
             if (empty($upResult['errors'])) {
