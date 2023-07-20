@@ -559,7 +559,7 @@ CODEBLOCK;
 		if (empty($params['no_paging']) || !$params['no_paging']) {
 			$out .= '<div class="card-footer clearfix">';
 			$out .= $this->paging();
-			$out .= '<p>'.$this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) .'</p>';
+			// $out .= '<p>'.$this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) .'</p>';
 			$out .= "</div>";
 		}
 
