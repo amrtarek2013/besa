@@ -67,7 +67,7 @@
 
                                                 echo $this->AdminForm->control('id', ['type' => 'hidden', 'value' => $application->id]) ?>
                                                 <div class="col-md-12">
-                                                    <?= $this->AdminForm->control('status', ['label' => false, 'type' => 'select', 'empty' => 'Status', 'options' => [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Approved', 3 => 'Rejected']]) ?>
+                                                    <?= $this->AdminForm->control('status', ['label' => false, 'type' => 'select', 'empty' => 'Status', 'options' => $statuses]) ?>
                                                 
                                                     <button type="submit" class="btn btn-primary"><?= __('Update') ?> </button>
                                                 </div>

@@ -11,7 +11,7 @@
 
     .Replayed {
         background: #ffc107;
-        color: #000;
+        color: #fff;
 
     }
 
