@@ -7630,7 +7630,7 @@ input[type="search"]:focus {
     line-height: 18px;
     letter-spacing: 0.2px;
     color: #696F79;
-    padding:  15px 0;
+    padding: 15px 0;
 }
 
 
@@ -7717,11 +7717,12 @@ input[type="search"]:focus {
 
 }
 
-.user-dashboard .register-banner{
+.user-dashboard .register-banner {
     padding-top: 0;
 }
 
-.user-dashboard  table td, .user-dashboard  table td a{
+.user-dashboard table td,
+.user-dashboard table td a {
     color: #696F79;
     font-family: 'Poppins';
     font-style: normal;
@@ -7730,13 +7731,14 @@ input[type="search"]:focus {
     line-height: 18px;
     letter-spacing: 0.2px;
 }
-.user-dashboard  table td, .user-dashboard  table td  .btn-primary {
+
+.user-dashboard table td .btn-primary {
     background: #0B5ED7;
     color: #fff;
     padding: 5px 10px;
     height: 40px;
 }
 
-.main-sidebar{
+.main-sidebar {
     margin-bottom: 60px;
 }
