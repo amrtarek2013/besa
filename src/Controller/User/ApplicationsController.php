@@ -70,6 +70,15 @@ class ApplicationsController extends AppController
         $this->formCommon();
 
         $this->set(compact('application'));
+
+        
+        $statuses = $this->Applications->statuses;
+        $statusesBtns = [];
+        foreach ($statuses as $key => $status) {
+            $statusesBtns[$key] = '<span class="btn-status '.$status.'">'.$status.'</span>';
+        }
+        $this->set('statusesBtns', $statusesBtns);
+        $this->set('statuses', $statuses);
     }
 
     public function edit($id = null)
