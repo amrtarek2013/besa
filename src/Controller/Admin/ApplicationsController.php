@@ -44,7 +44,15 @@ class ApplicationsController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('applications', 'parameters'));
-        $this->set('statuses', $this->Applications->statuses);
+
+
+        $statuses = $this->Applications->statuses;
+        $statusesBtns = [];
+        foreach ($statuses as $key => $status) {
+            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+        }
+        $this->set('statusesBtns', $statusesBtns);
+        $this->set('statuses', $statuses);
         $this->formCommon();
     }
 
@@ -132,7 +140,7 @@ class ApplicationsController extends AppController
 
         $this->loadModel('UniversityCourses');
         $cIds = Hash::combine($application->application_courses, '{n}.university_course_id', '{n}.university_course_id');
-        
+
         $courses = [];
         if (!empty($cIds))
             $courses = $this->UniversityCourses->find()->contain(
@@ -144,9 +152,16 @@ class ApplicationsController extends AppController
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->all()->toArray();
 
-            // dd($courses);
+        // dd($courses);
         $this->set('courses', $courses);
-        $this->set('statuses', $this->Applications->statuses);
+
+        $statuses = $this->Applications->statuses;
+        $statusesBtns = [];
+        foreach ($statuses as $key => $status) {
+            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+        }
+        $this->set('statusesBtns', $statusesBtns);
+        $this->set('statuses', $statuses);
     }
 
     public function export()

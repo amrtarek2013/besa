@@ -60,6 +60,14 @@
                                     <tr class="table-header">
                                         <th class="" width=""><a>Status</a></th>
                                         <td>
+                                            <span class="btn-status <?= $statuses[$application->status] ?>">
+                                                <?php echo $statuses[$application->status] ?>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-header">
+                                        <th class="" width=""><a>Status</a></th>
+                                        <td>
                                             <div class="row">
 
                                                 <?php
@@ -68,7 +76,7 @@
                                                 echo $this->AdminForm->control('id', ['type' => 'hidden', 'value' => $application->id]) ?>
                                                 <div class="col-md-12">
                                                     <?= $this->AdminForm->control('status', ['label' => false, 'type' => 'select', 'empty' => 'Status', 'options' => $statuses]) ?>
-                                                
+
                                                     <button type="submit" class="btn btn-primary"><?= __('Update') ?> </button>
                                                 </div>
                                                 <?= $this->AdminForm->end() ?>

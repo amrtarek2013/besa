@@ -43,7 +43,7 @@
                             'user.email' => ['title' => 'User'],
                             'university.title' => ['title' => 'University'],
                             'service.title' => ['title' => 'Service'],
-
+                            'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statusesBtns]],
                             // 'confirmed' => ['format' => 'bool'],
                         ];
 
