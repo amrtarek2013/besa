@@ -33,6 +33,20 @@ use Cake\I18n\I18n;
         }
 
 
+
+        .btn-status {
+            padding: 5px 10px;
+            height: 35px;
+            display: flex;
+            text-align: center;
+            width: max-content;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 14px;
+
+        }
+
         .Pendeing {
             background: #d3d3d3;
         }
