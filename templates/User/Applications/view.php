@@ -1,32 +1,3 @@
-<style>
-    .Pendeing {
-        background: #d3d3d3;
-    }
-
-    .Under-Review {
-        background: #0d6efd;
-        color: #fff;
-    }
-
-
-    .Replayed {
-        background: #ffc107;
-        color: #fff;
-
-    }
-
-    .Rejected {
-        background: #bb2d3b;
-        color: #fff;
-
-    }
-
-    .Approved {
-        background: #198754;
-        color: #fff;
-
-    }
-</style>
 <section class="register-banner">
 
     <div class="container" style="width:100%">
