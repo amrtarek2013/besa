@@ -31,7 +31,7 @@
                             'university.title' => ['title' => 'University'],
                             'service.title' => ['title' => 'Service'],
 
-                            'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statuses]],
+                            'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statusesBtns]],
                         ];
 
                         $multi_select_actions = array(
