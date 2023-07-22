@@ -110,7 +110,7 @@ class ApplicationsController extends AppController
                                 '{%email%}'  => $user['email'],
                                 '{%mobile%}'  => $user['mobile'],
 
-                                '{%status%}'  => $this->Application->statuses[$application['status']],
+                                '{%status%}'  => $this->Applications->statuses[$application['status']],
                                 '{%status_message%}'  => $application['status_message'],
                                 // '{%status_time%}'  => $application->status_time->format('H:m:i d-m-Y'),
                                 '{%view_link%}'  => '<a href="' . Router::url('/user/applications/view/' . $application['id'], true) . '" >View</a>'
