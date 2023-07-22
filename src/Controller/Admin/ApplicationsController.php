@@ -147,7 +147,7 @@ class ApplicationsController extends AppController
         $applicitionLog = $this->ApplicationLogs->newEmptyEntity();
         $applicitionLog->application_id = $app->id;
         $applicitionLog->study_level_id = $app->study_level_id;
-        $applicitionLog->status = $app->status;
+        $applicitionLog->status = $this->Application->statuses[$app->status];
         $applicitionLog->status_text = $app->status_text;
         $applicitionLog->created = $app->status_time;
         $this->ApplicationLogs->save($applicitionLog);
