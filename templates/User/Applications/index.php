@@ -29,7 +29,7 @@
                             'id' => [],
                             // 'user.email' => ['title' => 'User'],
                             'university.title' => ['title' => 'University'],
-                            'service.title' => ['title' => 'Service'],
+                            'study_level.title' => ['title' => 'Study Level'],
 
                             'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statusesBtns]],
                         ];
