@@ -120,7 +120,7 @@
             var selectedLabel = $(this).find('option:selected').text();
 
             // Update the paragraph element with the selected label
-            $('#course-name').text(selectedLabel);
+            $('#course-name').val(selectedLabel);
         });
     });
     $('.related-text').each(function(i, obj) {
