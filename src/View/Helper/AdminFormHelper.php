@@ -179,7 +179,7 @@ class AdminFormHelper extends CakeFormHelper {
 			$options['templates']['label'] = '{{text}}';
 			break;
 		case 'file':
-			$options['templates']['inputContainer'] = '<div class="form-group {{type}}{{required}}">{{content}}' . $after . '</div>';
+			$options['templates']['inputContainer'] = !isset($options['templates']['inputContainer']) ?'<div class="form-group {{type}}{{required}}">{{content}}' . $after . '</div>':$options['templates']['inputContainer'];
 			$options['templates']['label'] = isset($options['templates']['label']) ? $options['templates']['label'] : $before . '<label>{{input}}{{text}}</label>' . $between;
 			break;
 		case 'password':

@@ -89,9 +89,9 @@ class PagesController extends AppController
         $testimonials = $this->Testimonials->find()->where(['active' => 1, 'video_url is not null'])->order(['rand()'])->limit(2);
         $this->set('testimonials', $testimonials);
 
-        $this->loadModel('Services');
-        $services = $this->Services->find()->where(['active' => 1, 'show_on_home' => 1])->order(['display_order ' => 'asc'])->limit(10);
-        $this->set('services', $services);
+        // $this->loadModel('Services');
+        // $services = $this->Services->find()->where(['active' => 1, 'show_on_home' => 1])->order(['display_order ' => 'asc'])->limit(10);
+        // $this->set('services', $services);
 
         $this->loadModel('Branches');
         $mainBranch = $this->Branches->find()->where(['active' => 1, 'is_main_branch' => 1])->first();

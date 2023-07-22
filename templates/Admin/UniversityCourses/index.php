@@ -44,10 +44,10 @@
                             'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university_id' => ['title' => 'University', 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
-                            'service_id' => ['title' => 'Service/Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
+                            // 'service_id' => ['title' => 'Service/Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
                             'study_level_id' => ['title' => 'Study Level', 'format' => 'get_from_array', 'options' => ['items_list' => $studyLevels]],
-                            'subject_area_id' => ['title' => 'Subject Area', 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],
-                            'major_id' => ['title' => 'Major', 'format' => 'get_from_array', 'options' => ['items_list' => $majors]],
+                            // 'subject_area_id' => ['title' => 'Subject Area', 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],
+                            // 'major_id' => ['title' => 'Major', 'format' => 'get_from_array', 'options' => ['items_list' => $majors]],
 
                             // 'permalink' => [],
                             // 'dealerships'=>[],

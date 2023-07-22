@@ -25,6 +25,17 @@
     <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 </div>
 
+<div class="remodal lastSearchUrl" data-remodal-id="lastSearchUrl">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1 id="msgTitle"></h1>
+    <p id="msgText">
+
+    </p>
+    <br>
+    <button data-remodal-action="cancel" style="display: none;" class="remodal-cancel">Cancel</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
 <div class="remodal" data-remodal-id="login">
     <button data-remodal-action="close" class="remodal-close"></button>
     <!-- <h1>Login</h1> -->
@@ -196,10 +207,35 @@
     <!-- <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
     <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
 </div>
+<?php
 
-<script>
-    // $(document).ready(function() {
-    //     var inst = $('[data-remodal-id=register]').remodal();
-    //     inst.open();
-    // });
-</script>
+$session = $this->getRequest()->getSession();
+
+// debug($session->check('search_url'));
+if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
+    $search_url = $session->read('search_url');
+
+    $session->write('search_url', null);
+    $session->delete('search_url');
+    // $session->destroy('search_url');
+
+?>
+
+    <script>
+        var inst = $('[data-remodal-id=lastSearchUrl]').remodal();
+        $(document).ready(function() {
+
+            $('.lastSearchUrl .remodal-cancel').show();
+            $('.lastSearchUrl #msgText').html('Welcome again<br/> Do you want to open last saerch result page?');
+
+            inst.open();
+
+
+            $(document).on('confirmation', '.lastSearchUrl', function(e) {
+                inst.close();
+
+                window.location.assign('<?= Cake\Routing\Router::url($search_url, true) ?>');
+            });
+        });
+    </script>
+<?php } ?>

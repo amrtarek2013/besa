@@ -7732,12 +7732,42 @@ input[type="search"]:focus {
     letter-spacing: 0.2px;
 }
 
-.user-dashboard table td .btn-primary {
+.btn-primary {
     background: #0B5ED7;
     color: #fff;
     padding: 5px 10px;
-    height: 40px;
 }
+
+.btn-sm {
+    margin-right: 5px;
+    color: #fff !important;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.btn-group-sm>.btn,
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    box-shadow: none;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    box-shadow: none;
+}
+
 
 
 .container-formBox table th,

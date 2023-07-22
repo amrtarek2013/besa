@@ -35,6 +35,7 @@ class WishListsController extends AppController
                 'Countries' => ['fields' => ['country_name']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
+                'StudyLevels' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']]
             ]
         )->where(['UniversityCourses.id IN' => $wishLists])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();

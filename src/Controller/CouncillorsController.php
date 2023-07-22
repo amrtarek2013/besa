@@ -470,28 +470,11 @@ class CouncillorsController extends AppController
 
 
         $this->set('councillor', $councillorEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
-
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
-
+        // $this->loadModel('Countries');
+        // $countriesList = $this->Countries->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'country_name'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        // $this->set('countriesList', $countriesList);
         // $this->redirect('/');
     }
 
@@ -525,28 +508,7 @@ class CouncillorsController extends AppController
             $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
         $this->set(compact('councillor'));
-        // $this->set('councillor', $councillorEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
-
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
+        
     }
 
 

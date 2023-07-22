@@ -235,71 +235,71 @@ $(document).ready(function () {
 });
 
 // Get the search input element
-const searchInput = document.querySelector(".search");
+// const searchInput = document.querySelector(".search");
 
-// Get the search list element
-const searchList = document.querySelector(".search-list");
+// // Get the search list element
+// const searchList = document.querySelector(".search-list");
 
-// Add event listeners to the search input for clicks, focus, and blur events
-searchInput.addEventListener("click", toggleSearchList);
-searchInput.addEventListener("focus", toggleSearchList);
-searchInput.addEventListener("blur", toggleSearchList);
+// // Add event listeners to the search input for clicks, focus, and blur events
+// searchInput.addEventListener("click", toggleSearchList);
+// searchInput.addEventListener("focus", toggleSearchList);
+// searchInput.addEventListener("blur", toggleSearchList);
 
-// Add a click event listener to the document object
-document.addEventListener("click", function (event) {
-  // Check if the click event did not originate from the search input or search list
-  if (
-    !searchInput.contains(event.target) &&
-    !searchList.contains(event.target)
-  ) {
-    // Hide the search list by removing the 'show' class
-    searchList.classList.remove("show");
-  }
-});
+// // Add a click event listener to the document object
+// document.addEventListener("click", function (event) {
+//   // Check if the click event did not originate from the search input or search list
+//   if (
+//     !searchInput.contains(event.target) &&
+//     !searchList.contains(event.target)
+//   ) {
+//     // Hide the search list by removing the 'show' class
+//     searchList.classList.remove("show");
+//   }
+// });
 
-// Function to toggle the 'show' class on the search list
-function toggleSearchList() {
-  searchList.classList.add("show");
-}
+// // Function to toggle the 'show' class on the search list
+// function toggleSearchList() {
+//   searchList.classList.add("show");
+// }
 
-const rangeContainer = document.querySelector(".range-container");
-rangeContainer.addEventListener("input", (ev) => {
-  const rangeInput = ev.target;
-  const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
-  const sliderWidth = rangeInput.clientWidth;
-  const sliderPosition = rangeInput.value;
-  const sliderMaxValue = rangeInput.max;
-  const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
-  rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
-    (sliderPositionPercentage * sliderWidth) / 100
-  }px, #B4BEC8 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
-  rangeInput.id === "age"
-    ? (valueSpan.textContent = sliderPosition + " year")
-    : (valueSpan.textContent = "$" + sliderPosition);
-});
-rangeContainer
-  .querySelectorAll('input[type="range"]')
-  .forEach((rangeInput) => (rangeInput.value = 0));
+// const rangeContainer = document.querySelector(".range-container");
+// rangeContainer.addEventListener("input", (ev) => {
+//   const rangeInput = ev.target;
+//   const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
+//   const sliderWidth = rangeInput.clientWidth;
+//   const sliderPosition = rangeInput.value;
+//   const sliderMaxValue = rangeInput.max;
+//   const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
+//   rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
+//     (sliderPositionPercentage * sliderWidth) / 100
+//   }px, #B4BEC8 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
+//   rangeInput.id === "age"
+//     ? (valueSpan.textContent = sliderPosition + " year")
+//     : (valueSpan.textContent = "$" + sliderPosition);
+// });
+// rangeContainer
+//   .querySelectorAll('input[type="range"]')
+//   .forEach((rangeInput) => (rangeInput.value = 0));
 
-// Set event listener on rangeContainer element
-rangeContainer.addEventListener("input", (ev) => {
-  // Declare variables
-  const rangeInput = ev.target;
-  const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
-  const sliderWidth = rangeInput.clientWidth;
-  const sliderPosition = rangeInput.value;
-  const sliderMaxValue = rangeInput.max;
-  const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
-  // Set rangeInput style
-  rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
-    (sliderPositionPercentage * sliderWidth) / 100
-  }px, #f5f5f5 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
-  // Set textContent depending on rangeInput.id
-  rangeInput.id === "age"
-    ? (valueSpan.textContent = sliderPosition + " year")
-    : (valueSpan.textContent = "$" + sliderPosition);
-});
-// Set all rangeInput values to 0
-rangeContainer
-  .querySelectorAll('input[type="range"]')
-  .forEach((rangeInput) => (rangeInput.value = 0));
+// // Set event listener on rangeContainer element
+// rangeContainer.addEventListener("input", (ev) => {
+//   // Declare variables
+//   const rangeInput = ev.target;
+//   const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
+//   const sliderWidth = rangeInput.clientWidth;
+//   const sliderPosition = rangeInput.value;
+//   const sliderMaxValue = rangeInput.max;
+//   const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
+//   // Set rangeInput style
+//   rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
+//     (sliderPositionPercentage * sliderWidth) / 100
+//   }px, #f5f5f5 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
+//   // Set textContent depending on rangeInput.id
+//   rangeInput.id === "age"
+//     ? (valueSpan.textContent = sliderPosition + " year")
+//     : (valueSpan.textContent = "$" + sliderPosition);
+// });
+// // Set all rangeInput values to 0
+// rangeContainer
+//   .querySelectorAll('input[type="range"]')
+//   .forEach((rangeInput) => (rangeInput.value = 0));

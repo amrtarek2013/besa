@@ -33,11 +33,11 @@ class CountriesController extends AppController
 
 
 
-        $this->loadModel('Services');
-        $this->set('serviceTypes', $this->Services->types);
-        $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
+        // $this->loadModel('Services');
+        // $this->set('serviceTypes', $this->Services->types);
+        // $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
 
-        $this->set('countryServices', $services);
+        // $this->set('countryServices', $services);
 
         $this->loadModel('CountryImages');
         $countryImages = $this->CountryImages->find()->where(['active' => 1, 'country_id' => $country['id']])->order('rand()')->limit(3)->all();

@@ -94,12 +94,12 @@ function nextStep() {
   console.log(currentStep);
   console.log("-------");
   if(currentStep==0){
-    if(document.getElementById('service_id').value==''||document.getElementById('service_id').value==undefined){
+    if(document.getElementById('study_level_id').value==''||document.getElementById('study_level_id').value==undefined){
       alert("Please select an option.");
       return false;
     }
-    document.getElementById('course_id').value='';
-    document.getElementById('study_level_id').value='';
+    // document.getElementById('course_id').value='';
+    // document.getElementById('study_level_id').value='';
 
     var elements = document.querySelectorAll('.level-box');
     for (var i = 0; i < elements.length; i++) {

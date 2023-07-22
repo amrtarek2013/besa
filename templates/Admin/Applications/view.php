@@ -71,11 +71,12 @@
                                             <div class="row">
 
                                                 <?php
-                                                echo $this->AdminForm->create($application, ['url' => '/admin/applications/edit/' . $application->id, 'id' => 'UpdateAdminForm']);
+                                                echo $this->AdminForm->create($application, ['url' => '/admin/applications/edit/' . $application->id.'/view', 'id' => 'UpdateAdminForm']);
 
                                                 echo $this->AdminForm->control('id', ['type' => 'hidden', 'value' => $application->id]) ?>
                                                 <div class="col-md-12">
                                                     <?= $this->AdminForm->control('status', ['label' => false, 'type' => 'select', 'empty' => 'Status', 'options' => $statuses]) ?>
+                                                    <?= $this->AdminForm->control('status_text', ['type' => 'textarea']) ?>
 
                                                     <button type="submit" class="btn btn-primary"><?= __('Update') ?> </button>
                                                 </div>

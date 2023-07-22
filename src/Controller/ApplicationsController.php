@@ -55,7 +55,7 @@ class ApplicationsController extends AppController
             $conds['user_token'] = $token;
         }
         $application = $this->Applications->find()->where($conds)
-            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])
+            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services', 'StudyLevels'])
             ->order(['Applications.created' => 'DESC'])->first();
 
         if (empty($application)) {
@@ -79,9 +79,18 @@ class ApplicationsController extends AppController
 
                     $application->university_id = $course['university_id'];
                     $application->service_id = $course['service_id'];
+                    $application->study_level_id = $course['study_level_id'];
 
                     // dd($application);
                     $this->Applications->save($application);
+                    $applicationCourse->application_id = $application->id;
+
+                    if ($this->ApplicationCourses->save($applicationCourse)) {
+                        $message = __('The Course added to Application Successfully.');
+                        $status = 'success';
+                    } else {
+                        $message = __('The Application could not be saved. Please, try again.');
+                    }
                 } else {
 
                     $conditions = ['university_course_id' => $course_id, 'application_id' => $application->id];
@@ -178,7 +187,7 @@ class ApplicationsController extends AppController
         }
     }
 
-    public function index()
+    public function index($studylevel_id = null)
     {
         $conds = [];
         $user_id = null;
@@ -191,14 +200,29 @@ class ApplicationsController extends AppController
             $wish_cond['user_token'] = $conds['user_token'] = $token;
         }
         $application = $this->Applications->find()->where($conds)
-            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services'])
+            ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services', 'StudyLevels'])
             ->order(['Applications.created' => 'DESC'])->first();
 
-        $appService = $application['service']['permalink'];
+
+
+        $appService = $application['study_level']['permalink'];
 
         // debug($application);
         $this->set('appService', $appService);
+        // dd($this->Applications->app_files);
+
+
+
         $appFiles = $this->Applications->app_files[$appService];
+        $this->loadModel('StudyLevels');
+        if (isset($studylevel_id)) {
+            $studyLevel = $this->StudyLevels->find()->where(['active' => 1, 'id' => $studylevel_id])->first();
+            $this->set('studyLevel', $studyLevel);
+
+            $appService = $studyLevel['permalink'];
+            $appFiles = $this->Applications->app_files[$appService];
+        }
+
         // dd($appFiles);
         $this->set('appFiles', $appFiles);
 
@@ -208,7 +232,7 @@ class ApplicationsController extends AppController
             // dd($_FILES);
             $application = $this->Applications->patchEntity($application, $data);
 
-            $uploadPath = WWW_ROOT.'uploads/files/applications';
+            $uploadPath = WWW_ROOT . 'uploads/files/applications';
             // debug($uploadPath);
             $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
 
@@ -240,6 +264,7 @@ class ApplicationsController extends AppController
                             // // '{%username%}'  => $user['username'],
                             '{%email%}'  => $user['email'],
                             '{%mobile%}'  => $user['mobile'],
+
                         );
                         $this->sendEmail($to, $from, 'user.notify_user_new_apply', $replace);
 
@@ -279,6 +304,7 @@ class ApplicationsController extends AppController
                     'Countries' => ['fields' => ['country_name']],
                     'Universities' => ['fields' => ['university_name', 'rank']],
                     'Services' => ['fields' => ['title']],
+                    'StudyLevels' => ['fields' => ['title']],
                     'SubjectAreas' => ['fields' => ['title']]
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
@@ -291,6 +317,18 @@ class ApplicationsController extends AppController
         $this->set('wishLists', $wishLists);
         $this->set('appCourses', $appCourses);
         $this->set('application', $application);
+
+
+        // $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
+        //     ->order(['display_order' => 'asc'])->all()->toArray();
+        // $this->set('studyLevels', $studyLevels);
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
         $this->formCommon();
     }
 
@@ -435,13 +473,19 @@ class ApplicationsController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('courses', $courses->toArray());
 
-        $this->set('studyLevels', $this->Courses->studyLevels);
+        // $this->set('studyLevels', $this->Courses->studyLevels);
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('services', $services);
+
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
+            ->order(['display_order' => 'asc'])->all()->toArray();
+        $this->set('studyLevels', $studyLevels);
 
         // $this->redirect('/');
     }

@@ -97,7 +97,11 @@ class UsersController extends AppController
             // dd($user);
             if ($user) {
 
-
+                if (!empty($user['last_url'])){
+                    $this->Session->write('search_url', $user['last_url']);
+                    
+                    $this->set('last_search_url', $user['last_url']);
+                }
                 $return['url']    = $red_url;
                 $return['url_text'] = 'Continue';
                 $return['status']  = 1;
@@ -398,9 +402,6 @@ class UsersController extends AppController
         }
         $this->set('bodyClass', '');
 
-
-
-
         $userData = $this->Auth->user();
 
         $return                          = [];
@@ -443,6 +444,8 @@ class UsersController extends AppController
             } else {
                 $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
 
+                if ($this->Session->check('search_url'))
+                    $userEntity->last_url = $this->Session->read('search_url');
                 if ($this->Users->save($userEntity)) {
                     $id = $userEntity->id;
 
@@ -510,27 +513,11 @@ class UsersController extends AppController
 
 
         $this->set('user', $userEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
-
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
+        // $this->loadModel('Countries');
+        // $countriesList = $this->Countries->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'country_name'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        // $this->set('countriesList', $countriesList);
 
         // $this->redirect('/');
     }
@@ -583,21 +570,6 @@ class UsersController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('countriesList', $countriesList);
 
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
         $id = $user['id'];
         $this->set(compact('id'));
         $this->_ajaxImageUpload('user_' . $user['id'], 'users', $user['id'], ['id' => $id], ['image']);

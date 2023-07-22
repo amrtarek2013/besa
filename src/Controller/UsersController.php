@@ -192,7 +192,7 @@ class UsersController extends AppController
                     $to = $user['email'];
                     $from = '';
 
-                    $url = '<a href="' . Router::url('/user/reset-password/' . $hashed_value, true) . '" >Click Here</a>';//Router::url('/user/reset-password/' . $hashed_value, true);
+                    $url = '<a href="' . Router::url('/user/reset-password/' . $hashed_value, true) . '" >Click Here</a>'; //Router::url('/user/reset-password/' . $hashed_value, true);
 
                     $replace = array(
                         '{%first_name%}' => $user['first_name'],
@@ -285,9 +285,9 @@ class UsersController extends AppController
         $user->confirmed = true;
         $user->active = true;
         if ($this->Users->save($user)) {
-            
+
             // $this->Auth->setUser($user->toArray());
-            
+
             // $this->Session->write('user', $user->toArray());
             $this->Flash->success('Email Confirmed');
             // $this->admin_loginas($this->Users->id);
@@ -480,27 +480,11 @@ class UsersController extends AppController
 
 
         $this->set('user', $userEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
-
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
+        // $this->loadModel('Countries');
+        // $countriesList = $this->Countries->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'country_name'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        // $this->set('countriesList', $countriesList);
 
         // $this->redirect('/');
     }
@@ -536,27 +520,12 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
         // $this->set('user', $userEntity);
-        $this->loadModel('Countries');
-        $countriesList = $this->Countries->find('list', [
-            'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('countriesList', $countriesList);
+        // $this->loadModel('Countries');
+        // $countriesList = $this->Countries->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'country_name'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        // $this->set('countriesList', $countriesList);
 
-
-
-        $this->loadModel('Courses');
-        $courses = $this->Courses->find('list', [
-            'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        $this->set('courses', $courses->toArray());
-
-        $this->set('studyLevels', $this->Courses->studyLevels);
-
-        $this->loadModel("Services");
-        $services = $this->Services->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1, 'show_in_search' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('services', $services);
     }
 
 
@@ -673,8 +642,12 @@ class UsersController extends AppController
         $savedCoursesUni = [];
 
         $this->loadModel('UniversityCourses');
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', ['keyField' => 'permalink', 'valueField' => 'id'])->where(['active' => 1])->toArray();
+        // dd($studyLevels);
         $universityList = [];
         $degree = null;
+        $studyLevel = null;
         foreach ($loadedSheetNames as $sheetIndex => $loadedSheetName) {
             // debug('<b>Worksheet #' . $sheetIndex . ' -> ' . $loadedSheetName . ' (Formatted)</b>');
             $spreadsheet->setActiveSheetIndexByName($loadedSheetName);
@@ -684,8 +657,9 @@ class UsersController extends AppController
             $university = $this->Universities->newEmptyEntity();
             $university->university_name = $university->title = trim($loadedSheetName);
             $university->active = 1;
+            $university->country_id = 238;
 
-
+            $studyLevelID = null;
             $universityList[] = $university;
 
             $this->Universities->save($university);
@@ -701,22 +675,85 @@ class UsersController extends AppController
                 )
                     continue;
 
-                if ($row['A']) {
-                    $degree = trim($row['A']);
-                }
 
-                $mainCourseName = str_replace(' ', '', str_replace(',', ' ', strtolower(trim($row['B']))));
+                $mainCourseName = str_replace([' ', ','], ' ', strtolower(trim($row['B'])));
+
+                // debug(trim($row['A']));
+                if ($row['A']) {
+                    $studyLevel = $degree = trim($row['A']);
+                    $stLevel = str_replace(['.', "'", ","], ' ', strtolower($studyLevel));
+                    // debug($stLevel);
+                    // var_dump(strpos($stLevel,'master'));
+                    // var_dump(strpos($stLevel,'phd'));
+                    // var_dump(strpos($stLevel,'bachelor'));
+                    if (
+                        strpos($stLevel, 'master') !== false
+                        || strpos($mainCourseName, 'msc') !== false || strpos($mainCourseName, 'mres') !== false
+                        || strpos($mainCourseName, 'llm') !== false || strpos($mainCourseName, 'mph') !== false
+                        || strpos($mainCourseName, 'march') !== false || strpos($mainCourseName, 'pgd') !== false
+                        || strpos($mainCourseName, 'pgc') !== false
+                    ) {
+
+                        $studyLevelID = $studyLevels['master-degrees'];
+                    } else if (strpos($stLevel, 'phd') !== false || strpos($mainCourseName, 'phd') !== false) {
+                        $studyLevelID = $studyLevels['phd-degrees'];
+                    } else if (
+                        strpos($stLevel, 'bachelor') !== false || strpos($mainCourseName, 'bsc') !== false
+                        || strpos($mainCourseName, 'ba') !== false
+                    ) {
+                        $studyLevelID = $studyLevels['bachelor-degree'];
+                    } else if (
+                        strpos($mainCourseName, 'pgce') !== false || strpos($mainCourseName, 'pgdip') !== false
+                        || strpos($mainCourseName, 'mba') !== false || strpos($mainCourseName, 'gdip') !== false
+                    ) {
+                        $studyLevelID = $studyLevels['postgraduate-degrees'];
+                    }
+                    // dd($studyLevelID);
+                    // if (!$studyLevelID) {
+                    //     debug($stLevel);
+                    //     dd($mainCourseName);
+                    // }
+                } else {
+                    if (
+                        strpos($mainCourseName, 'msc') !== false || strpos($mainCourseName, 'ma') !== false
+                        || strpos($mainCourseName, 'msc') !== false || strpos($mainCourseName, 'mres') !== false
+                        || strpos($mainCourseName, 'llm') !== false || strpos($mainCourseName, 'mph') !== false
+                        || strpos($mainCourseName, 'march') !== false || strpos($mainCourseName, 'pgd') !== false
+                        || strpos($mainCourseName, 'pgc') !== false
+                    ) {
+
+                        $studyLevelID = $studyLevels['master-degrees'];
+                    } else if (strpos($mainCourseName, 'phd') !== false) {
+                        $studyLevelID = $studyLevels['phd-degrees'];
+                    } else if (
+                        strpos($mainCourseName, 'bsc') !== false || strpos($mainCourseName, 'ba') !== false
+                    ) {
+                        $studyLevelID = $studyLevels['bachelor-degree'];
+                    } else if (
+                        strpos($mainCourseName, 'pgce') !== false || strpos($mainCourseName, 'pgdip') !== false
+                        || strpos($mainCourseName, 'mba') !== false || strpos($mainCourseName, 'gdip') !== false
+                    ) {
+                        $studyLevelID = $studyLevels['postgraduate-degrees'];
+                    }
+                }
+                // dd($row['A']);
+
 
 
                 $course = $this->UniversityCourses->newEmptyEntity();
                 if (isset($savedCourses[$mainCourseName])) {
 
                     $course->course_id = $savedCourses[$mainCourseName];
+                    $course->active = 1;
+
+                    $course->study_level_id = $studyLevelID;
                 } else {
 
                     $mainCourse = $this->Courses->newEmptyEntity();
                     $mainCourse->course_name = trim($row['B']);
                     $mainCourse->active = 1;
+
+                    $mainCourse->study_level_id = $studyLevelID;
                     $this->Courses->save($mainCourse);
                     $course->course_id = $mainCourse->id;
 
@@ -727,6 +764,7 @@ class UsersController extends AppController
                 $course->university_id = $university_id;
                 $course->country_id = 238;
                 $course->degree = $degree;
+                $course->study_level_id = $studyLevelID;
                 $course->course_name = trim($row['B']);
 
                 $course->duration = trim($row['C']);
@@ -763,6 +801,7 @@ class UsersController extends AppController
 
             $mCourse = $course['course'];
             $mCourse['service_id'] = $course['service_id'];
+            $mCourse['study_level_id'] = $course['study_level_id'];
             $updatedCourses[$counter] = $mCourse;
 
             $counter++;

@@ -23,11 +23,19 @@
                         <!-- Step 1 content here -->
                         <h2 class="title">WHAT TO STUDY?</h2>
                         <div class="form-area">
-                            <?php if (!empty($servicesSearchList)) { ?>
-                                <select name="service_id" id="service_id">
+                            <?php  /*if (!empty($servicesSearchList)){ ?>
+                            <select name="service_id" id="service_id">
+                                <option value="">Select an option</option>
+                            <?php foreach ($servicesSearchList as $i => $service){?>
+                                <option value="<?=$service['id']?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
+                            <?php } ?>
+                            </select>                                
+                        <?php }*/ ?>
+                            <?php if (!empty($studyLevels)) { ?>
+                                <select name="study_level_id" id="study_level_id">
                                     <option value="">Select an option</option>
-                                    <?php foreach ($servicesSearchList as $i => $service) { ?>
-                                        <option value="<?= $service['id'] ?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
+                                    <?php foreach ($studyLevels as $studyLevel) { ?>
+                                        <option value="<?= $studyLevel['id'] ?>" data-degree="1"><?= $studyLevel['title'] ?></option>
                                     <?php } ?>
                                 </select>
                             <?php } ?>
@@ -37,38 +45,38 @@
                     <input type="hidden" name="degree" id="degree" value="1">
 
                     <div id="step2" class="step">
-                        <div class="common-services services-2 services-4 hide">
+                        <div class="common-services services-2 services-4">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr">
                                 <?php if (!empty($studyCourses)) { ?>
-                                    <?php foreach ($studyCourses as $studyCourse_id => $studyCourse_value) { ?>
-                                        <div class="box course-box" title='<?= $studyCourse_value ?>' data-course='<?= $studyCourse_id ?>'>
-                                            <h4><?= words_slice($studyCourse_value, 4) ?></h4>
+                                    <?php foreach ($studyCourses as $studyCourse) { ?>
+                                        <div class="box course-box studyLevel-<?= $studyCourse['study_level_id'] ?>" title='<?= $studyCourse['course_name'] ?>' data-course='<?= $studyCourse['id'] ?>'>
+                                            <h4><?= words_slice($studyCourse['course_name'], 4) ?></h4>
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
                             </div>
                             <input type="hidden" name="course_id" id="course_id" value=''>
                         </div>
-                        <div class="common-services services-6 services-7 hide">
+                        <!-- <div class="common-services services-6 services-7 hide">
                             <h2 class="title">What is the student study level?</h2>
                             <div class="grid-contaienr">
                                 <?php if (!empty($studyLevels)) { ?>
-                                    <?php foreach ($studyLevels as $studyLevel_id => $studyLevel_value) { ?>
-                                        <div class="box level-box center-text" title='<?= $studyLevel_value ?>' data-level='<?= $studyLevel_id ?>'>
-                                            <h4><?= words_slice($studyLevel_value, 4) ?></h4>
+                                    <?php foreach ($studyLevels as $studyLevel) { ?>
+                                        <div class="box level-box center-text" title='<?= $studyLevel['title'] ?>' data-level='<?= $studyLevel['id'] ?>'>
+                                            <h4><?= words_slice($studyLevel['title'], 4) ?></h4>
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
                             </div>
                             <input type="hidden" name="study_level_id" id="study_level_id" value=''>
-                        </div>
+                        </div> -->
                     </div>
 
 
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
-                        <div class="common-services services-2 services-4 hide">
+                        <div class="common-services services-2 services-4">
                             <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
                             <div class="grid-contaienr contaienr-checkbox">
                                 <?php foreach ($countriesList as $country_key => $country_value) { ?>
@@ -194,7 +202,13 @@
             var selected_level = $(this).data("level");
             $('.level-box').removeClass('active');
             $(this).addClass('active');
-            $("#study_level_id").val(selected_level);
+            // $("#study_level_idstudy_level_id").val(selected_level);
+        });
+        $('#study_level_id').on('change', function() {
+            var selected_level = $(this).val();
+            
+            $(".course-box").hide();
+            $(".studyLevel-" + selected_level).show();
         });
     });
 </script>

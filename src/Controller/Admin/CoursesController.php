@@ -21,7 +21,7 @@ class CoursesController extends AppController
         $courses = $this->paginate($this->Courses, ['conditions' => $conditions]);
         // debug($courses);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('courses', 'parameters'));
 
         $this->__common();
@@ -31,7 +31,7 @@ class CoursesController extends AppController
         $conditions = $this->_filter_params();
         $courses = $this->paginate($this->Courses, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('courses', 'parameters'));
     }
 
@@ -51,7 +51,7 @@ class CoursesController extends AppController
         $this->set('id', false);
 
         $this->__common();
-        
+
         $this->set(compact('course'));
     }
 
@@ -72,7 +72,7 @@ class CoursesController extends AppController
 
         $this->__common();
 
-        
+
         $this->set(compact('course', 'id'));
         // $this->_ajaxImageUpload('course_' . $id, 'courses', $id, ['id' => $id], ['image', 'banner_image']);
         $this->render('add');
@@ -145,6 +145,10 @@ class CoursesController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
 
-        $this->set('studyLevels', $this->Courses->studyLevels);
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
     }
 }

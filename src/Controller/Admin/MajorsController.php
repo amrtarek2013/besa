@@ -127,6 +127,7 @@ class MajorsController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->all();
         $this->set('services', $services);
+        
 
         // $this->loadModel("Universities");
         // $universities = $this->Universities->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();

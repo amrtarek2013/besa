@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Routing\Router;
 use Cake\Utility\Hash;
 
 /**
@@ -40,7 +41,7 @@ class ApplicationsController extends AppController
         $conditions = $this->_filter_params();
         // $conditions['Applications.is_office_admin !='] = 1;
 
-        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'Services', 'Users']]);
+        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'Services', 'StudyLevels', 'Users']]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('applications', 'parameters'));
@@ -78,7 +79,7 @@ class ApplicationsController extends AppController
         $this->set(compact('application'));
     }
 
-    public function edit($id = null)
+    public function edit($id = null, $action = 'index')
     {
         $application = $this->Applications->get($id);
 
@@ -87,21 +88,70 @@ class ApplicationsController extends AppController
 
             $application = $this->Applications->patchEntity($application, $data);
 
-
+            $application->status_time = date('Y-m-d h:m:s');
             if ($this->Applications->save($application)) {
-                $this->Flash->success(__('The Application has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+
+                if ($action == 'view') {
+                    $this->__saveAppLogs($application);
+
+                    if ($application->user_id) {
+                        $this->loadModel('Users');
+                        $user = $this->Users->get($application->user_id);
+                        if ($user) {
+
+                            $to = $user['email'];
+
+                            $from    = $this->g_configs['general']['txt.send_mail_from'];
+                            $replace = array(
+                                '{%name%}' => $user['first_name'],
+                                '{%surname%}'  => $user['last_name'],
+                                // // '{%username%}'  => $user['username'],
+                                '{%email%}'  => $user['email'],
+                                '{%mobile%}'  => $user['mobile'],
+
+                                '{%status%}'  => $application['status'],
+                                '{%status_message%}'  => $application['status_message'],
+                                '{%status_time%}'  => $application['status_time']->format('d-m-Y h:m:s'),
+                                '{%view_link%}'  => '<a href="' . Router::url('/user/applications/view/' . $application['id'], true) . '" >View</a>'
+
+                            );
+
+                            $this->sendEmail($to, $from, 'user.notify_user_app_status', $replace);
+                        }
+                    }
+                    $this->Flash->success(__('The Application status has been updated.'));
+                    return $this->redirect(['action' => $action, $id]);
+                }
+
+                $this->Flash->success(__('The Application has been saved.'));
+                return $this->redirect(['action' => $action]);
             }
             $this->Flash->error(__('The Application could not be saved. Please, try again.'));
         }
+
+        if ($action == 'view')
+            return $this->redirect(['action' => $action, $id]);
         $this->formCommon();
         $this->set(compact('id'));
         // $this->_ajaxImageUpload('Applications_' . $id, 'applications', $id, ['id' => $id], ['image']);
         $this->set(compact('application'));
+
         $this->render('add');
     }
 
+    private function __saveAppLogs($app)
+    {
+
+        $this->loadModel('ApplicationLogs');
+        $applicitionLog = $this->ApplicationLogs->newEmptyEntity();
+        $applicitionLog->application_id = $app->id;
+        $applicitionLog->study_level_id = $app->study_level_id;
+        $applicitionLog->status = $app->status;
+        $applicitionLog->status_text = $app->status_text;
+        $applicitionLog->created = $app->status_time;
+        $this->ApplicationLogs->save($applicitionLog);
+    }
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete', 'get']);
@@ -133,7 +183,7 @@ class ApplicationsController extends AppController
 
     public function view($id = null)
     {
-        $application = $this->Applications->find()->where(['Applications.id' => $id])->contain(['Universities', 'Services', 'Users', 'ApplicationCourses'])->first();
+        $application = $this->Applications->find()->where(['Applications.id' => $id])->contain(['Universities', 'Services', 'StudyLevels', 'Users', 'ApplicationCourses'])->first();
 
         $this->set('application', $application);
         $this->set('appFields', $this->Applications->app_files_fields);
@@ -148,6 +198,7 @@ class ApplicationsController extends AppController
                     'Countries' => ['fields' => ['country_name']],
                     'Universities' => ['fields' => ['title', 'rank']],
                     'Services' => ['fields' => ['title']],
+                    'StudyLevels' => ['fields' => ['title']],
                     'SubjectAreas' => ['fields' => ['title']]
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->all()->toArray();
@@ -269,6 +320,12 @@ class ApplicationsController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('universities', $universities);
+
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
+            ->order(['display_order' => 'asc'])->all()->toArray();
+        $this->set('studyLevels', $studyLevels);
     }
 
     public function workTimes($id = null)

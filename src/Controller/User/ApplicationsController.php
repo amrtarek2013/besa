@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Controller\AppController;
+use Cake\Routing\Router;
 use Cake\Utility\Hash;
 
 /**
@@ -41,7 +42,7 @@ class ApplicationsController extends AppController
         $user = $this->Auth->user();
         $conditions['Applications.user_id'] = $user['id'];
 
-        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'Services', 'Users']]);
+        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'StudyLevels', 'Services', 'Users']]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('applications', 'parameters'));
@@ -49,15 +50,48 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status '.$status.'">'.$status.'</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
         $this->formCommon();
     }
 
-    public function add()
+    public function add($service_id = null)
     {
+
+        $user = $this->Auth->user();
+
+        $user_id = $conditions['Applications.user_id'] = $user['id'];
+
+        /*
+
+        $this->loadModel('Services');
+        $service = [];
+        if ($service_id) {
+            $service = $this->Services->get($service_id);
+        } else {
+            $service = $this->Services->find()->first();
+        }
+        $appService = $service['permalink'];
+
+        */
+        $this->loadModel('StudyLevels');
+        $service = [];
+        if ($service_id) {
+            $service = $this->StudyLevels->get($service_id);
+        } else {
+            $service = $this->StudyLevels->find()->first();
+        }
+        $appStudyLevel = $service['permalink'];
+
+        // debug($application);
+        $this->set('appStudyLevel', $appStudyLevel);
+        $appFiles = $this->Applications->app_files[$appStudyLevel];
+        // dd($appFiles);
+        $this->set('appFiles', $appFiles);
+
+
         $application = $this->Applications->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
@@ -77,30 +111,154 @@ class ApplicationsController extends AppController
 
         $this->set(compact('application'));
 
-        
+        $wishLists = $this->getWishLists();
+
+        $appCourses = $this->getAppCourses();
+
+        $this->loadModel('UniversityCourses');
+
+        $cIds = array_merge($appCourses, $wishLists);
+        // debug($cIds);
+        $courses = [];
+        if (!empty($cIds))
+            $courses = $this->UniversityCourses->find()->contain(
+                [
+                    'Courses' => ['fields' => ['course_name']],
+                    'Countries' => ['fields' => ['country_name']],
+                    'Universities' => ['fields' => ['university_name', 'rank']],
+                    'Services' => ['fields' => ['title']],
+                    'StudyLevels' => ['fields' => ['title']],
+                    'SubjectAreas' => ['fields' => ['title']]
+                ]
+            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
+
+        if (empty($courses)) {
+            $this->Flash->error(__('There is no courses selected!'));
+            return $this->redirect('/study');
+        }
+        $this->set('courses', $courses);
+        $this->set('wishLists', $wishLists);
+        $this->set('appCourses', $appCourses);
+        $this->set('application', $application);
     }
 
     public function edit($id = null)
     {
-        $application = $this->Applications->get($id);
+        $user = $this->Auth->user();
+
+        $user_id = $conditions['Applications.user_id'] = $user['id'];
+
+        $application = $this->Applications->find()->where($conditions)
+            ->contain(['Users', 'ApplicationCourses', 'Universities', 'StudyLevels', 'Services'])
+            ->order(['Applications.created' => 'DESC'])->first();
+
+        if (empty($application)) {
+            $this->Flash->error(__('Sorry, Application not found!'));
+            $this->redirect('/applications');
+        }
+        if ($application['status'] != 2) {
+            $this->Flash->error(__('Sorry, you are not allowed to edit this Application!'));
+            $this->redirect(['action' => 'index']);
+        }
+
+        $appService = $application['service']['permalink'];
+
+        // debug($application);
+        $this->set('appService', $appService);
+        $appFiles = $this->Applications->app_files[$appService];
+        // dd($appFiles);
+        $this->set('appFiles', $appFiles);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
 
             $application = $this->Applications->patchEntity($application, $data);
 
+            $uploadPath = WWW_ROOT . 'uploads/files/applications';
+            // debug($uploadPath);
+            $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
 
-            if ($this->Applications->save($application)) {
-                $this->Flash->success(__('The Application has been saved.'));
+            if (empty($upResult['errors'])) {
+                foreach ($upResult['names'] as $fieldName => $value) {
+                    $application[$fieldName] = $value;
+                }
 
+                // if (isset($data['save_later'])) {
+                //     $application->save_later = 1;
+                // } else if (isset($data['save'])) {
+
+                //     $application->save_later = 2;
+                // }
+
+                if ($this->Applications->save($application)) {
+
+                    if (isset($data['save']) && $user_id) {
+                        $this->loadModel('Users');
+
+
+                        $from    = $this->g_configs['general']['txt.send_mail_from'];
+                        $replace = array(
+                            '{%name%}' => $user['first_name'],
+                            '{%surname%}'  => $user['last_name'],
+                            // // '{%username%}'  => $user['username'],
+                            '{%email%}'  => $user['email'],
+                            '{%mobile%}'  => $user['mobile'],
+                        );
+
+                        $url = '<a href="' . Router::url('/admin/applications/view/' . $application['id'], true) . '" >View</a>';
+                        $replace['{%view_link%}'] = $url;
+                        $this->sendEmail(false, $from, 'admin.notify_user_app_updated', $replace);
+                    }
+                }
+                $this->Flash->success(__('The Application files are saved successfuly.'));
                 return $this->redirect(['action' => 'index']);
             }
+            // dd($upResult['errors']);s
+            $this->set('appErrors', $upResult['errors']);
             $this->Flash->error(__('The Application could not be saved. Please, try again.'));
+
+            // if ($this->Applications->save($application)) {
+            //     $this->Flash->success(__('The Application has been saved.'));
+
+            //     return $this->redirect(['action' => 'index']);
+            // }
         }
         $this->formCommon();
         $this->set(compact('id'));
         // $this->_ajaxImageUpload('Applications_' . $id, 'applications', $id, ['id' => $id], ['image']);
         $this->set(compact('application'));
+
+
+
+        $wishLists = $this->getWishLists();
+
+        $appCourses = $this->getAppCourses();
+
+        $this->loadModel('UniversityCourses');
+
+        $cIds = array_merge($appCourses, $wishLists);
+        // debug($cIds);
+        $courses = [];
+        if (!empty($cIds))
+            $courses = $this->UniversityCourses->find()->contain(
+                [
+                    'Courses' => ['fields' => ['course_name']],
+                    'Countries' => ['fields' => ['country_name']],
+                    'Universities' => ['fields' => ['university_name', 'rank']],
+                    'Services' => ['fields' => ['title']],
+                    'StudyLevels' => ['fields' => ['title']],
+                    'SubjectAreas' => ['fields' => ['title']]
+                ]
+            )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->toArray();
+
+        if (empty($courses)) {
+            $this->Flash->error(__('There is no courses selected!'));
+            return $this->redirect('/study');
+        }
+        $this->set('courses', $courses);
+        $this->set('wishLists', $wishLists);
+        $this->set('appCourses', $appCourses);
+        $this->set('application', $application);
         $this->render('add');
     }
 
@@ -139,7 +297,7 @@ class ApplicationsController extends AppController
         $user = $this->Auth->user();
         $condtions = ['Applications.id' => $id];
         $conditions['Applications.user_id'] = $user['id'];
-        $application = $this->Applications->find()->where($conditions)->contain(['Universities', 'Services', 'Users', 'ApplicationCourses'])->first();
+        $application = $this->Applications->find()->where($conditions)->contain(['Universities', 'StudyLevels','StudyLevels','Services', 'Users', 'ApplicationCourses'])->first();
 
         $this->set('application', $application);
         $this->set('appFields', $this->Applications->app_files_fields);
@@ -154,6 +312,7 @@ class ApplicationsController extends AppController
                     'Countries' => ['fields' => ['country_name']],
                     'Universities' => ['fields' => ['title', 'rank']],
                     'Services' => ['fields' => ['title']],
+                    'StudyLevels' => ['fields' => ['title']],
                     'SubjectAreas' => ['fields' => ['title']]
                 ]
             )->where(['UniversityCourses.id IN' => $cIds])->order(['UniversityCourses.display_order' => 'asc'])->all()->toArray();
@@ -163,7 +322,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status '.$status.'">'.$status.'</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -262,18 +421,27 @@ class ApplicationsController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('courses', $courses->toArray());
 
-        $this->set('studyLevels', $this->Courses->studyLevels);
+        
+        $this->loadModel("StudyLevels");
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
+        
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('services', $services);
+
         $this->loadModel("Universities");
         $universities = $this->Universities->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('universities', $universities);
+
+        
     }
 
     public function workTimes($id = null)

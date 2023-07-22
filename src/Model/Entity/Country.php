@@ -13,7 +13,7 @@ class Country extends Entity
 {
     // use LazyLoadEntityTrait;
 
-protected $_virtual = ['flag_path', 'image_why_study', 'image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
+    protected $_virtual = ['flag_path', 'image_why_study', 'image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
 
     protected $_accessible = [
         '*' => true,

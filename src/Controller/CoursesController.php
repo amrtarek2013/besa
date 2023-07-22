@@ -18,6 +18,7 @@ class CoursesController extends AppController
                 'Countries' => ['fields' => ['country_name']],
                 // 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
+                'StudyLevels' => ['fields' => ['title']],
                 // 'SubjectAreas' => ['fields' => ['title']]
             ])
             ->where(['Courses.active' => 1])->order(['Courses.display_order' => 'asc'])
@@ -62,7 +63,11 @@ class CoursesController extends AppController
         // debug($servicesSearchList);
         $this->set('servicesSearchList', $servicesSearchList);
         $this->set('searchDegreeOptions', $this->Services->searchDegreeOptions);
-        $this->set('studyLevels', $this->Courses->studyLevels);
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
+            ->order(['display_order' => 'asc'])->all()->toArray();
+        $this->set('studyLevels', $studyLevels);
     }
 
 
@@ -77,7 +82,8 @@ class CoursesController extends AppController
         $courses = $this->Courses->find()->contain([
             'Countries' => ['fields' => ['country_name']],
             // 'Universities' => ['fields' => ['university_name', 'rank']], 
-            'Services' => ['fields' => ['title']], 
+            'Services' => ['fields' => ['title']],
+            'StudyLevels' => ['fields' => ['title']],
             // 'SubjectAreas' => ['fields' => ['title']]
         ])->where($conditions)->order(['Courses.display_order' => 'asc'])->limit(10)->all();
 
@@ -109,6 +115,9 @@ class CoursesController extends AppController
 
         if (isset($url_params['service_id']))
             $conditions['Courses.service_id'] = $url_params['service_id'];
+
+        if (isset($url_params['study_level_id']))
+            $conditions['Courses.study_level_id'] = $url_params['study_level_id'];
 
         if (isset($url_params['min_budget']))
             $conditions['Courses.fees >='] = $url_params['min_budget'];

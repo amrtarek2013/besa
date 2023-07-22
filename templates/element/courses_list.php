@@ -91,7 +91,7 @@
     var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
     var busy = false;
     var isLoggedIn = '<?= isset($_SESSION['Auth']['User']) ? 1 : 0 ?>';
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
 
     $(document).on('click', '.addingwish', function(e) {
 

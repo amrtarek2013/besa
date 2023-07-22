@@ -36,7 +36,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Countries List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/countries/add">
+                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
                                 <?= __('Add new') ?>
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                             'code' => [],
                             'permalink' => [],
                             'continent' => ['format' => 'get_from_array', 'options' => ['items_list' => $continents]],
-                            'flag_path' => ['title' => 'Flag', 'format' => 'link'],
+                            'flag_path' => ['title' => 'Flag', 'format' => 'img'],
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
                             // 'dealerships'=>[],

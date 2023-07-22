@@ -77,6 +77,15 @@
                     <div class="grid-container">
 
 
+                        <?= $this->Form->control('study_level_id', [
+                            'placeholder' => 'Study Level*', 'type' => 'select', 'empty' => 'Select Study Level', 'options' => $studyLevels,
+
+                            'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>'], 'label' => 'Study Level*', 'required' => true
+                        ]) ?>
+                    </div>
+                    <div class="grid-container">
+
+
                         <?php foreach ($appFiles as $fieldName => $option) : ?>
                             <div class="form-area">
                                 <label for="<?= $fieldName ?>"><?= $option['label'] ?></label>
@@ -100,3 +109,30 @@
         </div>
     </div>
 </section>
+
+
+
+<script>
+    var lastSelectedLevel = '';
+    $(document).ready(function() {
+
+
+        if ($('#study-level-id').val() != '')
+            lastSelectedLevel = $('#study-level-id').val();
+
+        $(document).on('change', '#study-level-id', function(e) {
+            if ($(this).val() != '')
+                window.location.assign('<?= Cake\Routing\Router::url('/applications/index', true) ?>/' + $(this).val());
+            else {
+                $('.modalMsg .remodal-cancel').show();
+                $('.modalMsg #msgText').html('Please choose your study level first!');
+                var inst = $('[data-remodal-id=modalMsg]').remodal();
+                inst.open();
+            }
+        });
+        $(document).on('confirmation', '.modalMsg', function(e) {
+            if ($('#study-level-id').val() == '' && lastSelectedLevel != '')
+                $('#study-level-id').val(lastSelectedLevel);
+        });
+    });
+</script>

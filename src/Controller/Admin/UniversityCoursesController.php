@@ -17,7 +17,7 @@ class UniversityCoursesController extends AppController
     public function index()
     {
         $conditions = $this->_filter_params();
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain'=>['Courses', 'Universities', 'Services', 'Countries']]);
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain'=>['Courses', 'Universities', 'StudyLevels','Services', 'Countries']]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 
@@ -137,6 +137,12 @@ class UniversityCoursesController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('services', $services);
 
+        $this->loadModel("StudyLevels");
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
+
         $this->loadModel("Universities");
         $universities = $this->Universities->find('list', [
             'keyField' => 'id', 'valueField' => 'university_name'
@@ -148,8 +154,6 @@ class UniversityCoursesController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
-
-        $this->set('studyLevels', $this->UniversityCourses->studyLevels);
         
         $this->loadModel("Majors");
         $majors = $this->Majors->find('list', [

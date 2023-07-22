@@ -277,6 +277,25 @@ class ListHelper extends Helper {
 							
 							// $cell = "<img src='$image_src' $options />";
 						
+						}elseif ($spec['format'] == 'img') {
+							// dd($cell);
+							$cellLinkSrc= '#';
+							$iconSrc = $this->Url->build('/img/eye.png');				
+							
+
+							if(!empty($cell)){
+								$cellLinkSrc = $this->Url->build($cell);
+								$cell = '<img width="60", hight="60" src="'.$cellLinkSrc.'">';
+								// $cell =  "<a href='$cellLinkSrc' target='_blank'/>$iconImage</a>";
+							}else{
+								
+								$cell =  "-";
+							}
+							
+							
+							
+							// $cell = "<img src='$image_src' $options />";
+						
 						} elseif ($spec['format'] == 'get_from_array') {
 							$selected = $cell;
 							$items_list = !empty($spec['options']['items_list']) ? $spec['options']['items_list'] : array();

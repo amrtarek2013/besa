@@ -36,19 +36,19 @@
 
 
                             echo $this->AdminForm->control('course_id', ['label' => 'Course', 'type' => 'select', 'empty' => 'Select Course', 'options' => $courses, 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('duration', ['class' => 'INPUT required']);
                             echo $this->AdminForm->control('intake', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('fees', ['type' => 'number', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('description', ['type' => 'textarea']);
 
-                            echo $this->AdminForm->control('service_id', ['label' => 'Service', 'type' => 'select', 'empty' => 'Select Category/Service', 'options' => $services, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('service_id', ['label' => 'Service', 'type' => 'select', 'empty' => 'Select Category/Service', 'options' => $services, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('university_id', ['label' => 'University', 'type' => 'select', 'empty' => 'Select Univesity', 'options' => $universities, 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('subject_area_id', ['label' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area', 'options' => $subjectAreas, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('subject_area_id', ['label' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area', 'options' => $subjectAreas, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('study_level_id', ['label' => 'Study Level', 'type' => 'select', 'empty' => 'Select Study Level', 'options' => $studyLevels, 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('major_id', ['label' => 'Major', 'type' => 'select', 'empty' => 'Select Major', 'options' => $majors, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('major_id', ['label' => 'Major', 'type' => 'select', 'empty' => 'Select Major', 'options' => $majors, 'class' => 'INPUT required']);
 
                             // echo $this->AdminForm->control('top_text', ['type' => 'textarea', 'class' => 'editor']);
 

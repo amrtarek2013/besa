@@ -76,7 +76,7 @@ class CouncillorsTable extends Table
   );
 
     $this->belongsTo('Countries')->setForeignKey('country_id');
-    $this->belongsTo('Services')->setForeignKey('study_level_id');
+    $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     // $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
   }
 

@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Applications List') ?></h3>
-                            <!-- <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/applications/add">
+                            <!-- <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
                                 <?= __('Add new') ?>
                             </a> -->
                         </div>
@@ -42,7 +42,7 @@
                             'id' => [],
                             'user.email' => ['title' => 'User'],
                             'university.title' => ['title' => 'University'],
-                            'service.title' => ['title' => 'Service'],
+                            'study_level.title' => ['title' => 'Study Level'],
                             'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statusesBtns]],
                             // 'confirmed' => ['format' => 'bool'],
                         ];
@@ -54,7 +54,7 @@
 
                         $actions = [
                             'view' => $this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-binoculars')),
-                            'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
+                            // 'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
                             'delete' => $this->Html->link(
 

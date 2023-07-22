@@ -14,10 +14,10 @@ class CountriesTable extends Table
 
 
     public $filters = [
-        'country_name' => 'like',
-        'code' => array('type' => 'like', 'options' => array('type' => 'text')),
+        // 'country_name' => 'like',
+        // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
         
-        'continent',
+        // 'continent',
     ];
 
     public $continents = [

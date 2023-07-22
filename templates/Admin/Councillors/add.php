@@ -64,23 +64,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="container-formBox blue-border">
-                                    <h4 class="title">Education Information</h4>
-                                    <div class="grid-container">
-                                        <?= $this->AdminForm->control('study_level_id', ['placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*', 'options' => $services, 'class' => 'form-area', 'label' => 'Level of study*', 'required' => true]) ?>
-
-                                        <?= $this->AdminForm->control('course_interest_id', ['placeholder' => 'Course of Interest', 'type' => 'select', 'empty' => 'Select Course of Interest*', 'options' => $services, 'class' => 'form-area', 'label' => 'Course of Interest*', 'required' => true]) ?>
-
-                                        <?= $this->AdminForm->control('current_status', ['type' => 'text', 'placeholder' => 'Current status', 'class' => 'form-area', 'label' => 'Current status*', 'required' => true]) ?>
-
-                                        <?= $this->AdminForm->control('high_school_grade', ['type' => 'text', 'placeholder' => 'High school grade', 'class' => 'form-area', 'label' => 'High school grade*', 'required' => true]) ?>
-
-                                        <?= $this->AdminForm->control('how_hear_about_us', ['type' => 'text', 'placeholder' => 'How did you hear about us?', 'class' => 'form-area', 'label' => 'How did you hear about us?', 'required' => true]) ?>
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><?= __('Save') ?> </button>

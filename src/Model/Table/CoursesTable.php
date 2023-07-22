@@ -18,12 +18,9 @@ class CoursesTable extends Table
 
 
     public $filters = [
-        'course_name' => array('type' => 'like', 'options' => array('type' => 'text')),
+        // 'course_name' => array('type' => 'like', 'options' => array('type' => 'text')),
     ];
-
-    public $types = [0 => 'Full Service'];
-
-    public $studyLevels = [1 => 'Level 1', 2 => 'Level 2', 3 => 'Level 3', 4 => 'Level 4', 5 => 'Level 5',];
+    public $studyLevels = [];
     /**
      * Initialize method
      *
@@ -89,6 +86,8 @@ class CoursesTable extends Table
         // $this->belongsTo('Universities')->setForeignKey('university_id');
         $this->belongsTo('Services')->setForeignKey('service_id');
         // $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
+        
+        $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     }
 
 
@@ -97,15 +96,15 @@ class CoursesTable extends Table
     {
 
         $validator->notEmptyString('course_name', 'This field is required.');
-        $validator->notEmptyString('code', 'This field is required.');
-        $validator->notEmptyString('description', 'This field is required.');
+        // $validator->notEmptyString('code', 'This field is required.');
+        // $validator->notEmptyString('description', 'This field is required.');
         $validator->notEmptyString('duration', 'This field is required.');
         $validator->notEmptyString('intake', 'This field is required.');
         $validator->notEmptyString('fees', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
         $validator->notEmptyString('university_id', 'This field is required.');
-        $validator->notEmptyString('subject_area_id', 'This field is required.');
-        $validator->notEmptyString('university_id', 'This field is required.');
+        // $validator->notEmptyString('subject_area_id', 'This field is required.');
+        // $validator->notEmptyString('university_id', 'This field is required.');
 
         return $validator;
     }
@@ -132,14 +131,14 @@ class CoursesTable extends Table
     {
 
         $validator->notEmptyString('course_name', 'This field is required.');
-        $validator->notEmptyString('code', 'This field is required.');
-        $validator->notEmptyString('description', 'This field is required.');
+        // $validator->notEmptyString('code', 'This field is required.');
+        // $validator->notEmptyString('description', 'This field is required.');
         $validator->notEmptyString('duration', 'This field is required.');
         $validator->notEmptyString('intake', 'This field is required.');
         $validator->notEmptyString('fees', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
         $validator->notEmptyString('university_id', 'This field is required.');
-        $validator->notEmptyString('subject_area_id', 'This field is required.');
+        // $validator->notEmptyString('subject_area_id', 'This field is required.');
         $validator->notEmptyString('study_level_id', 'This field is required.');
         return $validator;
     }
