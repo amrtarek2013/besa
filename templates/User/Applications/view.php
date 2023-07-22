@@ -20,7 +20,7 @@
                                     <td><?php echo $application->id ?></td>
                                 </tr>
 
-                                <tr class="table-header">
+                                <!-- <tr class="table-header">
                                     <th class=""><a>Name</a></th>
                                     <td><?php echo (!empty($application->user->first_name) ? $application->user->first_name : '') ?>
                                     </td>
@@ -36,7 +36,7 @@
                                     <th class="" width=""><a>mobile</a></th>
                                     <td><?php echo (!empty($application->user->mobile) ? $application->user->mobile : '') ?>
                                     </td>
-                                </tr>
+                                </tr> -->
 
                                 <tr class="table-header">
                                     <th class="" width=""><a>Date</a></th>
