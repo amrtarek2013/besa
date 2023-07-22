@@ -217,7 +217,7 @@ class ApplicationsController extends AppController
         $this->loadModel('StudyLevels');
         if (isset($studylevel_id)) {
             $studyLevel = $this->StudyLevels->find()->where(['active' => 1, 'id' => $studylevel_id])->first();
-            
+
             $this->set('studyLevel', $studyLevel);
 
             $appService = $studyLevel['permalink'];
@@ -225,6 +225,7 @@ class ApplicationsController extends AppController
 
             $application['study_level']['title'] = $studyLevel['title'];
             $application['study_level']['id'] = $studyLevel['id'];
+            $this->set('studyLevel', $studyLevel);
         }
 
         // dd($appFiles);

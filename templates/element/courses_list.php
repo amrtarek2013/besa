@@ -200,8 +200,6 @@
 
                     busy = false;
 
-
-
                     $(document).on('confirmation', '.modalMsg', function(e) {
 
                         window.location.assign('<?= Router::url('/') ?>applications');

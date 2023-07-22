@@ -68,7 +68,7 @@ class ApplicationsTable extends Table
       'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
     ],
 
-    'phd-degree' => [
+    'phd-degrees' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
