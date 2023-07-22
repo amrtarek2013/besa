@@ -78,7 +78,7 @@
 
 
                         <?= $this->Form->control('study_level_id', [
-                            'placeholder' => 'Study Level*', 'type' => 'select', 'empty' => 'Select Study Level', 'options' => $studyLevels, 'value' => $studyLevel ? $studyLevel['id'] : $application['study_level_id'],
+                            'placeholder' => 'Study Level*', 'type' => 'select', 'empty' => 'Select Study Level', 'options' => $studyLevels, 'value' => isset($studyLevel) ? $studyLevel['id'] : $application['study_level_id'],
 
                             'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>'], 'label' => 'Study Level*', 'required' => true
                         ]) ?>
