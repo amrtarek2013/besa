@@ -226,7 +226,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
         $(document).ready(function() {
 
             $('.lastSearchUrl .remodal-cancel').show();
-            $('.lastSearchUrl #msgText').html('Welcome again<br/> Do you want to open last saerch result page?');
+            $('.lastSearchUrl #msgText').html('Welcome again<br/> Do you want to open last search result page?');
 
             inst.open();
 

@@ -154,12 +154,14 @@ class ApplicationsController extends AppController
 
         if (empty($application)) {
             $this->Flash->error(__('Sorry, Application not found!'));
-            $this->redirect('/applications');
+            return $this->redirect('/applications');
         }
-        if ($application['status'] != 2) {
+
+        if ($application['status'] != 2 ) {
             $this->Flash->error(__('Sorry, you are not allowed to edit this Application!'));
-            $this->redirect(['action' => 'index']);
+            return $this->redirect(['action' => 'index']);
         }
+        
 
         $appService = $application['service']['permalink'];
 
