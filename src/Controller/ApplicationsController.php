@@ -279,7 +279,7 @@ class ApplicationsController extends AppController
                     }
                 }
                 $this->Flash->success(__('The Application files are saved successfuly.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect('/study');
             }
             // dd($upResult['errors']);s
             $this->set('appErrors', $upResult['errors']);
