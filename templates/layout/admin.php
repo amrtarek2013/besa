@@ -57,7 +57,7 @@ use Cake\I18n\I18n;
         }
 
 
-        .Replayed {
+        .Replied {
             background: #ffc107;
             color: #fff;
 
