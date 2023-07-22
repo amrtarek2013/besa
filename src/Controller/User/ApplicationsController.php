@@ -157,17 +157,35 @@ class ApplicationsController extends AppController
             return $this->redirect('/applications');
         }
 
-        if ($application['status'] != 2 ) {
+        if ($application['status'] != 2) {
             $this->Flash->error(__('Sorry, you are not allowed to edit this Application!'));
             return $this->redirect(['action' => 'index']);
         }
-        
 
-        $appService = $application['service']['permalink'];
+
+        $appService = $application['study_level']['permalink'];
 
         // debug($application);
         $this->set('appService', $appService);
+        // dd($this->Applications->app_files);
+
+
+
         $appFiles = $this->Applications->app_files[$appService];
+        $this->loadModel('StudyLevels');
+        // if (isset($studylevel_id)) {
+        //     $studyLevel = $this->StudyLevels->find()->where(['active' => 1, 'id' => $studylevel_id])->first();
+
+        //     $this->set('studyLevel', $studyLevel);
+
+        //     $appService = $studyLevel['permalink'];
+        //     $appFiles = $this->Applications->app_files[$appService];
+
+        //     $application['study_level']['title'] = $studyLevel['title'];
+        //     $application['study_level']['id'] = $studyLevel['id'];
+        //     $this->set('studyLevel', $studyLevel);
+        // }
+
         // dd($appFiles);
         $this->set('appFiles', $appFiles);
 
@@ -299,7 +317,7 @@ class ApplicationsController extends AppController
         $user = $this->Auth->user();
         $condtions = ['Applications.id' => $id];
         $conditions['Applications.user_id'] = $user['id'];
-        $application = $this->Applications->find()->where($conditions)->contain(['Universities', 'StudyLevels','StudyLevels','Services', 'Users', 'ApplicationCourses'])->first();
+        $application = $this->Applications->find()->where($conditions)->contain(['Universities', 'StudyLevels', 'StudyLevels', 'Services', 'Users', 'ApplicationCourses'])->first();
 
         $this->set('application', $application);
         $this->set('appFields', $this->Applications->app_files_fields);
@@ -423,13 +441,13 @@ class ApplicationsController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('courses', $courses->toArray());
 
-        
+
         $this->loadModel("StudyLevels");
         $studyLevels = $this->StudyLevels->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('studyLevels', $studyLevels);
-        
+
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
@@ -442,8 +460,6 @@ class ApplicationsController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('universities', $universities);
-
-        
     }
 
     public function workTimes($id = null)
