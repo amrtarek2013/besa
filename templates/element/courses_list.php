@@ -28,7 +28,7 @@
                                     <div class="courses">
                                         <div class="left">
                                             <p>Course Qualification</p>
-                                            <p class="green"><?= $course['service']['title'] ?></p>
+                                            <p class="green"><?= $course['study_level']['title'] ?></p>
                                         </div>
                                         <div class="right">
                                             <p>Total course fee</p>
