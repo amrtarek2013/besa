@@ -17,7 +17,7 @@ class UniversityCoursesController extends AppController
     public function index()
     {
         $conditions = $this->_filter_params();
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain'=>['Courses', 'Universities', 'StudyLevels','Services', 'Countries']]);
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'Services', 'Countries'], 'order' => ['course_name' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 
@@ -27,9 +27,9 @@ class UniversityCoursesController extends AppController
     public function list()
     {
         $conditions = $this->_filter_params();
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions]);
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'order' => ['course_name' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('universityCourses', 'parameters'));
     }
 
@@ -49,7 +49,7 @@ class UniversityCoursesController extends AppController
         $this->set('id', false);
 
         $this->__common();
-        
+
         $this->set(compact('universityCourse'));
     }
 
@@ -70,7 +70,7 @@ class UniversityCoursesController extends AppController
 
         $this->__common();
 
-        
+
         $this->set(compact('universityCourse', 'id'));
         // $this->_ajaxImageUpload('course_' . $id, 'universityCourses', $id, ['id' => $id], ['image', 'banner_image']);
         $this->render('add');
@@ -121,44 +121,44 @@ class UniversityCoursesController extends AppController
         $this->loadModel("Courses");
         $courses = $this->Courses->find('list', [
             'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        ])->where(["active" => 1])->order(['course_name' => 'ASC'])->toArray();
         $this->set("courses", $courses);
 
         $this->loadModel("Countries");
         $countries = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        ])->where(["active" => 1])->order(['country_name' => 'ASC'])->toArray();
         $this->set("countries", $countries);
 
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('services', $services);
 
         $this->loadModel("StudyLevels");
         $studyLevels = $this->StudyLevels->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('studyLevels', $studyLevels);
 
         $this->loadModel("Universities");
         $universities = $this->Universities->find('list', [
             'keyField' => 'id', 'valueField' => 'university_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['university_name' => 'asc'])->toArray();
         $this->set('universities', $universities);
 
         $this->loadModel("SubjectAreas");
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
-        
+
         $this->loadModel("Majors");
         $majors = $this->Majors->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('majors', $majors);
     }
 }

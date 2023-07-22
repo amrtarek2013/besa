@@ -18,13 +18,13 @@ class UniversityCoursesTable extends Table
 
 
     public $filters = [
-        'course_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'university_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'service_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'subject_area_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'study_level_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'duration' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'fees' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'course_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'university_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'service_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'subject_area_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'study_level_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'duration' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'fees' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
     ];
 
     public $types = [0 => 'Full Service'];

@@ -18,11 +18,11 @@ class UniversitiesController extends AppController
     {
         $conditions = $this->_filter_params();
 
-        $universities = $this->paginate($this->Universities, ['conditions' => $conditions]);
+        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $types = $this->Universities->types;
         $this->set(compact('universities', 'parameters', 'types'));
-        
+
         $this->__common();
     }
     public function list()

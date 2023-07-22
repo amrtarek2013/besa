@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Utility\Inflector;
 use Cake\Utility\Text;
-use Cake\Validation\Validation;
 use Cake\Validation\Validator;
-use Psr\Http\Message\UploadedFileInterface;
-
 class CoursesTable extends Table
 {
 
