@@ -42,7 +42,7 @@ class ApplicationsController extends AppController
         $user = $this->Auth->user();
         $conditions['Applications.user_id'] = $user['id'];
 
-        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'StudyLevels', 'Services', 'Users']]);
+        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Courses','Universities', 'StudyLevels', 'Services', 'Users']]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('applications', 'parameters'));
@@ -311,6 +311,7 @@ class ApplicationsController extends AppController
         if (!empty($cIds))
             $courses = $this->UniversityCourses->find()->contain(
                 [
+                    'Courses' => ['fields' => ['course_name']],
                     'Countries' => ['fields' => ['country_name']],
                     'Universities' => ['fields' => ['title', 'rank']],
                     'Services' => ['fields' => ['title']],

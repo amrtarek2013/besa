@@ -38,6 +38,7 @@
                             echo $this->AdminForm->control('course_id', ['label' => 'Course', 'type' => 'select', 'empty' => 'Select Course', 'options' => $courses, 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
 
+                            echo $this->AdminForm->control('course_name', ['label' => 'University Course Name', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('duration', ['class' => 'INPUT required']);
                             echo $this->AdminForm->control('intake', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('fees', ['type' => 'number', 'class' => 'INPUT required']);
@@ -112,6 +113,16 @@
     }
 </style>
 <script type="text/javascript">
+    $(document).ready(function() {
+        // Attach the change event handler to the select element
+        $('#course-id').change(function() {
+            // Get the selected option's label
+            var selectedLabel = $(this).find('option:selected').text();
+
+            // Update the paragraph element with the selected label
+            $('#course-name').text(selectedLabel);
+        });
+    });
     $('.related-text').each(function(i, obj) {
         var current_text = $(obj).text();
         $(obj).prev().find("label").after("<br><label>" + current_text + "</label");
