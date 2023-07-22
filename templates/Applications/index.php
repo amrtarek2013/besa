@@ -100,7 +100,7 @@
                         <ul class="custome-list">
                             <li>For the purpose of applying regulation, your details are required.</li>
                         </ul>
-                        <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">apply</button>
+                        <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">Apply</button>
                         <button type="submit" class="btn greenish-teal" name="save_later" style="width: 240px;">Save Later</button>
                     </div>
                 </div>
@@ -124,13 +124,12 @@
             if ($(this).val() != '')
                 window.location.assign('<?= Cake\Routing\Router::url('/applications/index', true) ?>/' + $(this).val());
             else {
-                $('.modalMsg .remodal-cancel').show();
                 $('.modalMsg #msgText').html('Please choose your study level first!');
                 var inst = $('[data-remodal-id=modalMsg]').remodal();
                 inst.open();
             }
         });
-        $(document).on('confirmation,cancellation', '.modalMsg', function(e) {
+        $(document).on('confirmation', '.modalMsg', function(e) {
             if ($('#study-level-id').val() == '' && lastSelectedLevel != '')
                 $('#study-level-id').val(lastSelectedLevel);
         });
