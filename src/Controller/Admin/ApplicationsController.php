@@ -110,7 +110,7 @@ class ApplicationsController extends AppController
                                 '{%email%}'  => $user['email'],
                                 '{%mobile%}'  => $user['mobile'],
 
-                                '{%status%}'  => $application['status'],
+                                '{%status%}'  => $this->Application->statuses[$application['status']],
                                 '{%status_message%}'  => $application['status_message'],
                                 // '{%status_time%}'  => $application->status_time->format('H:m:i d-m-Y'),
                                 '{%view_link%}'  => '<a href="' . Router::url('/user/applications/view/' . $application['id'], true) . '" >View</a>'
@@ -147,7 +147,7 @@ class ApplicationsController extends AppController
         $applicitionLog = $this->ApplicationLogs->newEmptyEntity();
         $applicitionLog->application_id = $app->id;
         $applicitionLog->study_level_id = $app->study_level_id;
-        $applicitionLog->status = $this->Application->statuses[$app->status];
+        $applicitionLog->status = $app->status;
         $applicitionLog->status_text = $app->status_text;
         $applicitionLog->created = $app->status_time;
         $this->ApplicationLogs->save($applicitionLog);
