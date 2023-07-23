@@ -86,8 +86,14 @@ class UniversityCoursesController extends AppController
         // dd($studyLevels);
 
 
+        $this->loadModel("SubjectAreas");
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
+
         // if (!empty($_GET['steps'])) {
-            $this->render('study2');
+        $this->render('study2');
         // }
     }
 
@@ -154,6 +160,8 @@ class UniversityCoursesController extends AppController
 
         if (isset($url_params['study_level_id']))
             $conditions['Courses.study_level_id'] = $url_params['study_level_id'];
+        if (isset($url_params['subject_area_id']))
+            $conditions['Courses.subject_areas_id'] = $url_params['subject_area_id'];
 
         if (is_array($url_params['country_id'])) {
             $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];

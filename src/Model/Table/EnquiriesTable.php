@@ -17,7 +17,7 @@ class EnquiriesTable extends Table
         'email' => ['like', 'options' => ['lable' => 'User Email']],
         'phone' => ['like', 'options' => ['lable' => 'User Phone']],
         'created' => ['type' => 'date_range'],
-        'branch_id' => ['title' => "Branch", 'empty' => "Select a branch"]
+        // 'branch_id' => ['title' => "Branch", 'empty' => "Select a branch"]
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
 
         // 'continent',
@@ -84,14 +84,14 @@ class EnquiriesTable extends Table
 
     public function validationContactus(Validator $validator): Validator
     {
-        $validator->add('g-recaptcha-response', [
-            'checkCaptchaV3' => [
-                'rule' => 'checkCaptchaV3',
-                'provider' => 'table',
-                'message' => 'Page session expired, please reload the page!!',
-            ]
-        ]);
-        $validator->notEmptyString('name', 'This field is required.');
+        // $validator->add('g-recaptcha-response', [
+        //     'checkCaptchaV3' => [
+        //         'rule' => 'checkCaptchaV3',
+        //         'provider' => 'table',
+        //         'message' => 'Page session expired, please reload the page!!',
+        //     ]
+        // ]);
+        $validator->notEmptyString('first_name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
@@ -100,12 +100,38 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('subject', 'This field is required.');
         $validator->notEmptyString('message', 'This field is required.');
 
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
         return $validator;
     }
-    function checkCaptchaV3($data)
+
+
+
+    function checkCaptcha($data)
     {
-        return getCaptcha($data); //strtolower('123456');
+
+        if (!isset($_SESSION['security_code'])) {
+            return false;
+        }
+
+
+        if (strtolower($data) ==  '123456') {
+            return true;
+        }
+        return strtolower($data) == strtolower($_SESSION['security_code']); //strtolower('123456');
     }
+
+    // function checkCaptchaV3($data)
+    // {
+    //     return getCaptcha($data); //strtolower('123456');
+    // }
 
     public function afterSave($event, $entity, $options)
     {

@@ -111,8 +111,8 @@
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
                                         <a href="/pathway-programs">Pathway Programs </a>
                                     </li>
-                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayplacement') ? 'class="active"' : '' ?>>
-                                        <a href="/pathway-placement">Pathway Placement </a>
+                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'universityplacements') ? 'class="active"' : '' ?>>
+                                        <a href="/university-placements">University Placement </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'younglearners') ? 'class="active"' : '' ?>>
                                         <a href="/young-learners">Young Learners </a>
