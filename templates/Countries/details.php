@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="ukslider owl-carousel owl-theme">
                     <?php 
-                                                    debug($country);
+                                                    // debug($country);
 
                     if (sizeof($countryImages) > 0) : ?>
                         <?php foreach ($countryImages as $countryImage) : ?>
