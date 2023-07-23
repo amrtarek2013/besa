@@ -275,7 +275,7 @@
                                 <label for="name">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Email Address">
                             </div>
-                            <div class="form-area security_code">
+                            <!-- <div class="form-area security_code">
                                 <div class="input captcha" style="position: relative;">
                                     <?php
                                     echo $this->Html->image('/image.jpg?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
@@ -290,7 +290,7 @@
                                         <div class='error-message'><?= $error_captcha ?></div>
                                     <?php endif; ?>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-right form">
                             <div class="form-area">
