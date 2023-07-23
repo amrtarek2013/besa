@@ -38,7 +38,7 @@
 
             <div class="col-md-12">
                 <a class="title-banner-blue greenish-teal" href="#">
-                    <h3>APPLY TO STUDY IN <?= $country['country_code'] ?></h3>
+                    <h3><?= $country['green_section'] ?></h3>
                 </a>
             </div>
         </div>
@@ -58,7 +58,7 @@
                         <img src="<?= $country['image_path'] ?>" alt="" class="circle-img">
                     </div>
                     <div class="text">
-                        <h4 class="title">Why Study In The <?= $country['country_code'] ?>?</h4>
+                        <h4 class="title"><?= $country['text_header'] ?>?</h4>
                         <?= $country['why_text'] ?>
                         <a href="#" class="btn MainBtn clear-blue ">
                             Apply Now
