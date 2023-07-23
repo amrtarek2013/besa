@@ -3,7 +3,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="ukslider owl-carousel owl-theme">
-                    <?php if (sizeof($countryImages) > 0) : ?>
+                    <?php 
+                                                    debug($country);
+
+                    if (sizeof($countryImages) > 0) : ?>
                         <?php foreach ($countryImages as $countryImage) : ?>
                             <div class="item">
                                 <img src="<?= $countryImage['image_path'] ?>" alt="">
