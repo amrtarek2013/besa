@@ -464,9 +464,9 @@
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'main' ? 'class="active"' : '' ?>>
                                     <a href="/">Home</a>
                                 </li>
-                                <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
+                                <!-- <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
                                     <a href="/study?steps=1">Search Steps</a>
-                                </li>
+                                </li> -->
                                 <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
                                     <a href="/study">Search</a>
                                 </li>
@@ -484,7 +484,7 @@
                                         <a href="/services">Services</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'countries' ? 'class="active"' : '' ?>>
-                                        <a href="/universities">Destinations</a>
+                                        <a href="/destinations">Destinations</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
                                         <a href="/events">Events</a>

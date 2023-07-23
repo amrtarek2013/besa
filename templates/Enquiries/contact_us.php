@@ -54,22 +54,22 @@
                             <i class="fab fa-twitter fa-2x"></i>
                         </a> -->
                         <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                            <img src="/img/icon/social-media/Facebook.svg" alt="facebook" >
+                            <img src="/img/icon/social-media/Facebook.svg" alt="facebook">
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                            <img src="/img/icon/social-media/Instagram.svg" alt="Instagram" >
+                            <img src="/img/icon/social-media/Instagram.svg" alt="Instagram">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                            <img src="/img/icon/social-media/YouTube.svg" alt="YouTube" >
+                            <img src="/img/icon/social-media/YouTube.svg" alt="YouTube">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                            <img src="/img/icon/social-media/Linkedin.svg" alt="Linkedin" >
+                            <img src="/img/icon/social-media/Linkedin.svg" alt="Linkedin">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="Twitter" target="_blank">
-                            <img src="/img/icon/social-media/Twitter.svg" alt="twitter" >
+                            <img src="/img/icon/social-media/Twitter.svg" alt="twitter">
 
                         </a>
 
@@ -274,6 +274,22 @@
                             <div class="form-area">
                                 <label for="name">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Email Address">
+                            </div>
+                            <div class="form-area security_code">
+                                <div class="input captcha" style="position: relative;">
+                                    <?php
+                                    echo $this->Html->image('/image.jpg?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
+                        z-index: 1;", 'id' => rand()));
+                                    echo $this->Form->control('security_code', array(
+                                        'placeholder' => 'Security Code', 'type' => 'text',
+                                        'class' => 'required', 'style' => "padding-left: 137px;", 'label' => false, 'div' => false,
+                                        'inputContainer' => '<div class="form-area {{type}}{{required}}">{{content}}</div>'
+                                    ));
+                                    if (!empty($error_captcha)) :
+                                    ?>
+                                        <div class='error-message'><?= $error_captcha ?></div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                         <div class="form-right form">
