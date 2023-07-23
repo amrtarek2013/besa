@@ -58,7 +58,7 @@
                         <img src="<?= $country['image_path'] ?>" alt="" class="circle-img">
                     </div>
                     <div class="text">
-                        <h4 class="title"><?= $country['text_header'] ?>?</h4>
+                        <h4 class="title"><?= $country['text_header'] ?></h4>
                         <?= $country['why_text'] ?>
                         <a href="#" class="btn MainBtn clear-blue ">
                             Apply Now
