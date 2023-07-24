@@ -13,6 +13,8 @@
                         if (!empty($courses)) : ?>
                             <?php foreach ($courses as $course) :
 
+                                if (isset($_GET['dk']))
+                                    debug($course);
                             ?>
                                 <div class="box-result" id="box-result-<?= $course['id'] ?>">
                                     <h4 class="title-result"><?= $course['course']['course_name'] ?></h4>
