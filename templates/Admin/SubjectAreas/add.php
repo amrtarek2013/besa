@@ -36,7 +36,7 @@
 
 
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT']);
                             
                             echo $this->AdminForm->control('description', ['type' => 'text']);
 
@@ -44,7 +44,7 @@
                             // echo $this->AdminForm->control('university_id', ['label' => 'University', 'type' => 'select', 'empty' => 'Select Univesity', 'options' => $univesitis, 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('subject_area_id', ['label' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area', 'options' => $subjectAreas, 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('study_level_id', ['label' => 'Study Level', 'type' => 'select', 'empty' => 'Select Study Level', 'options' => $studyLevels, 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('service_id', ['label' => 'Service', 'type' => 'select', 'empty' => 'Select Category/Service', 'options' => $services, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('service_id', ['label' => 'Service', 'type' => 'select', 'empty' => 'Select Category/Service', 'options' => $services, 'class' => 'INPUT required']);
                            
                             // echo $this->AdminForm->control('top_text', ['type' => 'textarea', 'class' => 'editor']);
 

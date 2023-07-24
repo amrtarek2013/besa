@@ -71,7 +71,7 @@ class SubjectAreasTable extends Table
     {
 
         $validator->notEmptyString('title', 'This field is required.');
-        $validator->notEmptyString('code', 'This field is required.');
+        // $validator->notEmptyString('code', 'This field is required.');
         // $validator->notEmptyString('description', 'This field is required.');
         // $validator->notEmptyString('university_id', 'This field is required.');
         
@@ -101,7 +101,7 @@ class SubjectAreasTable extends Table
     {
 
         $validator->notEmptyString('title', 'This field is required.');
-        $validator->notEmptyString('code', 'This field is required.');
+        // $validator->notEmptyString('code', 'This field is required.');
         // $validator->notEmptyString('description', 'This field is required.');
         // $validator->notEmptyString('university_id', 'This field is required.');
         return $validator;

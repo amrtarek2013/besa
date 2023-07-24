@@ -41,12 +41,12 @@
                             'basicModel' => 'subjectAreas',
                             'id' => [],
                             'title' => [],
-                            'code' => [],
+                            // 'code' => [],
                             // 'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             // 'university_id' => ['title' => 'University', 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
                             // 'service_id' => ['title' => 'Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
                            
-                            'permalink' => [],
+                            // 'permalink' => [],
                             // 'dealerships'=>[],
                             'active' => ['format' => 'bool'],
                         ];
