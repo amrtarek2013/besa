@@ -46,6 +46,7 @@
                             // 'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
 
+                            'main_study_level_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $mainStudyLevels]],
                             'display_order' => [],
                             // 'dealerships'=>[],
                             'active' => ['format' => 'bool'],
