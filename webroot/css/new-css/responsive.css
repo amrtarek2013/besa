@@ -1276,9 +1276,8 @@
 }
 
 @media (max-width: 767px) {
-    p{
-        
-    }
+    p {}
+
     .navbar .sidenav {
         width: 100%;
         transform: translateX(100%);
@@ -1359,8 +1358,8 @@
 
 
     .servTrophy .container-icons {
-        -ms-grid-columns: 1fr ;
-        grid-template-columns: 1fr ;
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
         align-items: start;
     }
 
@@ -1445,9 +1444,11 @@
         grid-gap: 20px;
 
     }
+
     .why_besa2 h2 {
         font-size: 32px;
     }
+
     .container-icons .icon-box img {
         margin: auto;
     }
@@ -1526,7 +1527,7 @@
     .our-partner h2,
     .our-uk h2,
     .questions h2 {
-        font-size: 32px;
+        font-size: 22px;
         line-height: normal;
     }
 
@@ -1652,39 +1653,107 @@
     .services-rendered .box-icon .descrip {
         padding: 0px 0 25px 70px;
     }
-    .footer .gridContainer-footer .logo .icons{
+
+    .footer .gridContainer-footer .logo .icons {
         justify-content: center;
         margin-left: 0;
     }
+
     .grid-container-3col {
         grid-template-columns: 1fr;
         grid-gap: 30px;
     }
-    .row-result{
+
+    .row-result {
         padding: 25px 0;
 
     }
-    .box-result .icons .circle-icon{
-        width: 40px ;
+
+    .box-result .icons .circle-icon {
+        width: 40px;
         height: 40px;
     }
-    .box-result .icons .circle-icon img{
+
+    .box-result .icons .circle-icon img {
         width: 20px;
 
     }
+
     .box-result .icons {
         display: flex;
         grid-gap: 25px;
         text-align: -webkit-center;
         justify-content: center;
     }
-    .box-result .title-result{
+
+    .box-result .title-result {
         font-weight: 600;
 
     }
-    .box-result .education{
+
+    .box-result .education {
         font-size: 16px !important;
 
-    }.box-result {
-        padding: 0 10px;}
+    }
+
+    .box-result {
+        padding: 0 10px;
+    }
+
+    .whyStudy .gridWhyStudy .image {
+        text-align: center;
+    }
+
+    .whyStudy .gridWhyStudy .image img {
+        width: 70%;
+
+    }
+
+    .ukslider .owl-dots {
+        bottom: -35px;
+        top: unset;
+    }
+
+    .whyStudy .gridWhyStudy ul li {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .work-opportunities .col-md-7,
+    .work-opportunities .col-md-5 {
+        padding: 0 20px;
+    }
+
+    .work-opportunities .background-white {
+
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+
+    .work-opportunities .background-white h2 {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .benefits h2 {
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .benefits {
+        padding: 30px 0px;
+    }
+
+    .benefits .gridTabes .card .card-body {
+        padding: 20px;
+    }
+
+    .questions .faq-item .faq-question {
+        font-size: 16px;
+    }
+    .our-partner .image{
+        width: 100%;
+
+    }
 }
