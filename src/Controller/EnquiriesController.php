@@ -25,7 +25,7 @@ class EnquiriesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
 
             // debug($this->request->getData());
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData(),['validate' => 'contactUs']);
+            $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData(), ['validate' => 'contactUs']);
 
             // debug($enquiry);
             // die;
@@ -73,7 +73,7 @@ class EnquiriesController extends AppController
                         );
 
                     $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
-                    
+
                     $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
                 } else {
                     $a_replace = array(
