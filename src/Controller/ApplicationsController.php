@@ -305,7 +305,7 @@ class ApplicationsController extends AppController
         if (!empty($cIds))
             $courses = $this->UniversityCourses->find()->contain(
                 [
-                    'UniversityCourses.Courses' => ['fields' => ['course_name']],
+                    // 'Courses' => ['fields' => ['course_name']],
                     'Countries' => ['fields' => ['country_name']],
                     'Universities' => ['fields' => ['university_name', 'rank']],
                     'Services' => ['fields' => ['title']],

@@ -17,7 +17,7 @@
                                     debug($course);
                             ?>
                                 <div class="box-result" id="box-result-<?= $course['id'] ?>">
-                                    <h4 class="title-result"><?= $course['course']['course_name'] ?></h4>
+                                    <h4 class="title-result"><?= $course['course_name'] ?></h4>
                                     <p class="education"><?= $course['university']['university_name'] ?></p>
                                     <p class="address">
                                         <span class="underline">
