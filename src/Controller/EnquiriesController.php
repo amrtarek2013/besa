@@ -25,7 +25,7 @@ class EnquiriesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
 
             // debug($this->request->getData());
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData());
+            $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData(),['validate' => 'contactUs']);
 
             // debug($enquiry);
             // die;
