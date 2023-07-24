@@ -97,7 +97,9 @@ class PagesController extends AppController
         $mainBranch = $this->Branches->find()->where(['active' => 1, 'is_main_branch' => 1])->first();
         $this->set('mainBranch', $mainBranch);
 
-
+        $this->loadModel('Enquiries');
+        $enquiry = $this->Enquiries->newEmptyEntity();
+        $this->set('enquiry', $enquiry);
 
         $home_why_besa2 = $this->getSnippet('home_why_besa2');
         $home_our_partners = $this->getSnippet('home_our_partners');

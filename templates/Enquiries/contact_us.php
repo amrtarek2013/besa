@@ -260,28 +260,41 @@
                     <?php //= $this->Form->create($enquiry, ['url'=>'/enquiries/contactUs','id' => 'contactusForm']) 
                     ?>
                     <div class="gridFormContact ">
-
+                        <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
                         <div class="form-left form">
-                            <div class="form-area">
+                            <!-- <div class="form-area">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" placeholder="your name">
                                 <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
-                            </div>
-                            <div class="form-area">
-                                <label for="name">Phone</label>
-                                <input type="text" id="phone" name="phone" placeholder="Your Phone">
-                            </div>
-                            <div class="form-area">
-                                <label for="name">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Email Address">
-                            </div>
+                            </div> -->
+                            <?php
+
+                            echo $this->Form->control('name', [
+                                'placeholder' => 'Your name', 'type' => 'text',
+                                'class' => 'required','required'=>true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+
+
+                            echo $this->Form->control('phone', [
+                                'placeholder' => 'Your Phone', 'type' => 'text',
+                                'class' => 'required','required'=>true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+
+                            echo $this->Form->control('email', [
+                                'placeholder' => 'Email Address', 'type' => 'email',
+                                'class' => 'required','required'=>true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+                            ?>
                             <div class="form-area security_code">
                                 <div class="input captcha" style="position: relative;">
                                     <?php
                                     echo $this->Html->image('/image.jpg?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
                         z-index: 1;", 'id' => rand()));
                                     echo $this->AdminForm->control('security_code', [
-                                        'placeholder' => 'Security Code', 'type' => 'text',
+                                        'placeholder' => 'Security Code', 'type' => 'text','required'=>true,
                                         'class' => 'required', 'style' => "padding-left: 140px;", 'label' => false,
                                         'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                                     ]);
@@ -293,16 +306,32 @@
                             </div>
                         </div>
                         <div class="form-right form">
-                            <div class="form-area">
+                            <!-- <div class="form-area">
                                 <label for="name">Subject</label>
                                 <input type="text" id="Subject" name="subject" placeholder="Email Subject">
                             </div>
                             <div class="form-area">
                                 <label for="name">Message</label>
                                 <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                            </div>
-                            <input type="submit" value="Send" class="btn MainBtn submit">
+                            </div> -->
 
+                            <?php
+
+                            echo $this->Form->control('subject', [
+                                'placeholder' => 'Email subject', 'type' => 'text',
+                                'class' => 'required','required'=>true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+                            echo $this->Form->control('message', [
+                                'placeholder' => 'Your Message', 'type' => 'textarea',
+                                'class' => 'required','required'=>true,
+                                'class' => 'required','required'=>true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+                            ?>
+                            <div class="form-area">
+                                <input type="submit" value="Send" class="btn MainBtn submit">
+                            </div>
                             <!-- <button type="submit" class="g-recaptcha btn MainBtn submit" data-sitekey="6Lemf1EkAAAAAMnwcS1hUX3mEjXNKfFfIVTMrDGl" data-callback='onSubmit' data-action='submit'>Send</button> -->
 
                         </div>

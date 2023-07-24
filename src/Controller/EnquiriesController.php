@@ -101,15 +101,17 @@ class EnquiriesController extends AppController
 
                 $this->sendEmail($to, false, 'user.contactus_thankyou_enquiry', $u_replace);
                 $this->Flash->success(__('The Enquiry has been saved.'));
-
-                // return $this->redirect(['action' => 'contactUs']);
+                return $this->redirect(['action' => 'contact-us']);
             } else {
                 // dd($enquiry->getErrors());
                 $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
             }
-            $this->__redirectToType($enquiry->type);
-        }
 
+            $this->__redirectToType($enquiry->type);
+
+
+            // dd($enquiry);
+        }
         $this->set(compact('enquiry'));
 
         $book_free_meeting = $this->getSnippet('book_free_meeting');
