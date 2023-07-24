@@ -10,7 +10,7 @@
                     <h2 class="title-banner">Services</h2>
                     <div class="grid-container">
                         <div class="image">
-                            <img src="/img/mainbanner-serv.png" alt="">
+                            <img src="<?=WEBSITE_URL?>img/mainbanner-serv.png" alt="">
                         </div>
                         <div class="text">
                             <h4 class="title">Pathway Programs</h4>

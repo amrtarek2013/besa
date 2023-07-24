@@ -185,7 +185,7 @@
                     <!-- Buttons to navigate between steps -->
                     <div id="buttons">
                         <button id="prevBtn">Previous</button>
-                        <button id="nextBtn">Next <img src="/img/new-images/chevron-left.png" alt=""> </button>
+                        <button id="nextBtn">Next <img src="<?=WEBSITE_URL?>img/new-images/chevron-left.png" alt=""> </button>
                     </div>
                 </div>
             </div>

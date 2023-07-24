@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg44.png" alt="">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg44.png" alt="">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-item display-flex">
-                            <img src="/img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
+                            <img src="<?=WEBSITE_URL?>img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
                             <div class="content-blog">
                                 <p>PRE-SESSIONAL ENGLISH</p>
                                 <ul>
@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-item display-flex">
-                            <img src="/img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
+                            <img src="<?=WEBSITE_URL?>img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
                             <div class="content-blog">
                                 <p>INTERNATIONAL YEAR 1 </p>
                                 <ul>
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-item display-flex">
-                            <img src="/img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
+                            <img src="<?=WEBSITE_URL?>img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
                             <div class="content-blog">
                                 <p>PRE-MASTERS</p>
                                 <ul>
@@ -94,7 +94,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-item display-flex">
-                            <img src="/img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
+                            <img src="<?=WEBSITE_URL?>img/faq-image (4).png" alt="This Is Blog Img 1" loading="lazy">
                             <div class="content-blog">
                                 <p>FOUNDATION PROGRAMS</p>
                                 <ul>

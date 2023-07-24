@@ -25,8 +25,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg10.png" alt="">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg10.png" alt="">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -75,19 +75,19 @@
                             <li>uk.info@besaeg.com</li> -->
                             <div class="icons">
                                 <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                    <img src="/img/icon/facebook.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/facebook.svg" alt="">
                                 </a>
                                 <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                    <img src="/img/icon/instagram.svg" alt="" target="_blank">
+                                    <img src="<?=WEBSITE_URL?>img/icon/instagram.svg" alt="" target="_blank">
                                 </a>
                                 <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                    <img src="/img/icon/youtube.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/youtube.svg" alt="">
                                 </a>
                                 <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                    <img src="/img/icon/linkedin.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/linkedin.svg" alt="">
                                 </a>
                                 <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                    <img src="/img/icon/twitter.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/twitter.svg" alt="">
                                 </a>
                             </div>
                         </ul>
@@ -102,7 +102,7 @@
 <?= $this->Flash->render() ?>
 <section class="contact-us pageContact">
     <div class="top-dots-img">
-        <img src="/img/icon/dots-bakground.svg" alt="">
+        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
     </div>
     <div class="container">
         <div class="row">
@@ -160,7 +160,7 @@
         </div>
     </div>
     <div class="bottom-dots-img">
-        <img src="/img/icon/dots-bakground.svg" alt="">
+        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
 
     </div>
 </section>

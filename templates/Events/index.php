@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg7.png" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg7.png" alt="" style="z-index: 2;">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -56,10 +56,10 @@ if (!empty($events)) {
                         } else {
                         ?>
                             <div class="circle-img ">
-                                <img src="/img/football-tr (2).png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/football-tr (2).png" alt="">
                             </div>
                             <div class="circle-img relative-img-border">
-                                <img src="/img/football-tr (1).png" alt="" class="">
+                                <img src="<?=WEBSITE_URL?>img/football-tr (1).png" alt="" class="">
                             </div>
 
                         <?php
@@ -100,14 +100,14 @@ if (!empty($events)) {
                                     } else {
                                     ?>
 
-                                        <img src="/img/International_Education_Fair.png" alt="" style="width: 382px;height: 323px;">
-                                        <img src="/img/International_Education_Fair_border.png" alt="" class="img-rel" style="width: 238px;height: 210px;">
+                                        <img src="<?=WEBSITE_URL?>img/International_Education_Fair.png" alt="" style="width: 382px;height: 323px;">
+                                        <img src="<?=WEBSITE_URL?>img/International_Education_Fair_border.png" alt="" class="img-rel" style="width: 238px;height: 210px;">
                                     <?php
 
 
                                     }
                                     ?>
-                                    <img src="/img/dots-153.png" alt="" class="dots-rel">
+                                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="dots-rel">
                                 </div>
                                 <div class="text">
                                     <h3><?= $events[1]['title'] ?></h3>
@@ -137,12 +137,12 @@ if (!empty($events)) {
                                     <?php
                                     } else {
                                     ?>
-                                        <img src="/img/Studying_Abroad.png" alt="">
-                                        <img src="/img/Studying_Abroad_border.png" alt="" class="img-rel">
+                                        <img src="<?=WEBSITE_URL?>img/Studying_Abroad.png" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/Studying_Abroad_border.png" alt="" class="img-rel">
                                     <?php
                                     }
                                     ?>
-                                    <img src="/img/small-dots.png" alt="" class="dots-rel">
+                                    <img src="<?=WEBSITE_URL?>img/small-dots.png" alt="" class="dots-rel">
                                 </div>
                                 <div class="text">
                                     <h3><?= $events[2]['title'] ?></h3>

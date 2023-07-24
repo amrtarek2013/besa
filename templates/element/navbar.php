@@ -74,7 +74,7 @@
 
 
                                             <a href="/user/logout" class="btn SecondaryBtn">Logout
-                                                <img src="/img/icon/login.png" alt="">
+                                                <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                             </a>
 
                                             <a href="/user" class="btn MainBtn">Profile</a>
@@ -310,7 +310,7 @@
 
 
                                     <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                        <img src="/img/icon/login.png" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                     </a>
 
                                     <a href="/user" class="btn MainBtn">Profile</a>
@@ -318,7 +318,7 @@
                                     <a href="/user/login" class="btn MainBtn">Apply Now</a>
 
                                     <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                                 <?php } ?>
                             </li>
@@ -326,7 +326,7 @@
                         <?php } ?>
                         <!--<li class="buttons">
                                 <a href="#" class="btn SecondaryBtn">Login
-                                    <img src="/img/icon/login.png" alt="" >
+                                    <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="" >
                                 </a>
                             </li> -->
 
@@ -387,43 +387,43 @@
                             <div class="search-list">
                                 <ul>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">search list</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 02 Search Result 02Search Result ......</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 03</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 04</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 05</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 06</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 07</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 08</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 09</a>
                                     </li>
                                     <li>
-                                        <img src="/img/icon/search-blue.svg" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 10</a>
                                     </li>
                                 </ul>
@@ -434,7 +434,7 @@
 
 
                             <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="/img/icon/login.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                             </a>
 
                             <a href="/user" class="btn MainBtn">Profile</a>
@@ -442,11 +442,11 @@
                             <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                             <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                         <?php } ?>
                         <a href="#" class="btn SecondaryBtn">
-                            <img src="/img/apple.png" alt="">
+                            <img src="<?=WEBSITE_URL?>img/apple.png" alt="">
                         </a>
 
 
@@ -512,7 +512,7 @@
 
 
                                         <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a>
 
                                         <a href="/user" class="btn MainBtn">Profile</a>
@@ -520,7 +520,7 @@
                                         <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                                         <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                                     <?php } ?>
                                 </li>

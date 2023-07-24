@@ -45,7 +45,7 @@
                         <?= $university['why_text'] ?>
                         <a href="#" class="btn MainBtn clear-blue ">
                             Apply Now
-                            <img src="/img/icon/arrow-right.svg" alt="">
+                            <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
                         </a>
                     </div>
                 </div>

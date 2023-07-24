@@ -20,7 +20,7 @@
                         <?php endforeach; ?>
                     <?php else : ?>
                         <div class="item">
-                            <img src="/img/banner-45.png" alt="">
+                            <img src="<?=WEBSITE_URL?>img/banner-45.png" alt="">
                             <div class="blue-qoute">
                                 <h4>The <?= $country['country_name'] ?></h4>
                                 <p>
@@ -134,7 +134,7 @@
 
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <!-- <img alt="" src="/img/part-logo (2).png" /> <img alt="" src="/img/part-logo (1).png" /> <img alt="" src="/img/part-logo (6).png" /> <img alt="" src="/img/part-logo (5).png" /> <img alt="" src="/img/part-logo (4).png" /> -->
+                    <!-- <img alt="" src="<?=WEBSITE_URL?>img/part-logo (2).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (1).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (6).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (5).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (4).png" /> -->
                 </div>
                 <a class="link" href="#">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
             </div>
@@ -163,10 +163,10 @@
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <!-- <img alt="" src="/img/pers (1).png" /> -->
+                    <!-- <img alt="" src="<?=WEBSITE_URL?>img/pers (1).png" /> -->
                 </div>
 
-                <!-- <div class="image"><img alt="" src="/img/pers (1).png" /></div> -->
+                <!-- <div class="image"><img alt="" src="<?=WEBSITE_URL?>img/pers (1).png" /></div> -->
             </div>
         </div>
     </div>

@@ -22,7 +22,7 @@
                     <div class="container-radius">
                         <div class="grid-2col">
                             <div class="image">
-                                <img src="/img/39.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/39.png" alt="">
                             </div>
                             <div class="text">
                                 <p class="descrp">
@@ -44,12 +44,12 @@
                                 </p>
                             </div>
                             <div class="image">
-                                <img src="/img/40.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/40.png" alt="">
                             </div>
                         </div>
                         <div class="grid-2col">
                             <div class="image">
-                                <img src="/img/41.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/41.png" alt="">
                             </div>
                             <div class="text">
                                 <p class="descrp">

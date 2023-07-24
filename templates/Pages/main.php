@@ -48,9 +48,9 @@
                                         <img src="<?= $slider['image_path'] ?>" alt="">
                                     <?php } else { ?>
 
-                                        <img src="/img/bg-popup-1.png" alt="" class="box-message bounceIn">
-                                        <img src="/img/bg-popup-2.png" alt="" class="icon-message bounceIn">
-                                        <img src="/img/background-header.png" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/bg-popup-1.png" alt="" class="box-message bounceIn">
+                                        <img src="<?=WEBSITE_URL?>img/bg-popup-2.png" alt="" class="icon-message bounceIn">
+                                        <img src="<?=WEBSITE_URL?>img/background-header.png" alt="">
                                     <?php } ?>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                     } ?>
                 </div>
                 <div class="arrow-bottomGoSection">
-                    <a href="#scroll_about"><img src="/img/icon/chevron-circle-up.svg" alt=""></a>
+                    <a href="#scroll_about"><img src="<?=WEBSITE_URL?>img/icon/chevron-circle-up.svg" alt=""></a>
                 </div>
             </div>
 
@@ -94,7 +94,7 @@
                 <div class="contaienr-conditions">
                     <div class="box">
                         <div class="icon">
-                            <img src="/img/new-images/eye-icon.svg" alt="icon eye">
+                            <img src="<?=WEBSITE_URL?>img/new-images/eye-icon.svg" alt="icon eye">
                         </div>
                         <h2>Explore</h2>
                         <p class="descrip">Explore studying abroad & check you meet the entry requirements.</p>
@@ -102,7 +102,7 @@
                     <div class="box">
                         <span class="arrow-green"></span>
                         <div class="icon">
-                            <img src="/img/new-images/write-icon.svg" alt="icon eye">
+                            <img src="<?=WEBSITE_URL?>img/new-images/write-icon.svg" alt="icon eye">
                         </div>
                         <h2>Create</h2>
                         <p class="descrip">Create an Account and Apply for Your Chosen Program and University Destination</p>
@@ -110,7 +110,7 @@
                     <div class="box">
                         <span class="arrow-green"></span>
                         <div class="icon">
-                            <img src="/img/new-images/home-icon.svg" alt="icon eye">
+                            <img src="<?=WEBSITE_URL?>img/new-images/home-icon.svg" alt="icon eye">
                         </div>
                         <h2>Receive</h2>
                         <p class="descrip">Receive Offers & Select Chosen University</p>
@@ -118,14 +118,14 @@
                     <div class="box">
                         <span class="arrow-green"></span>
                         <div class="icon">
-                            <img src="/img/new-images/calc-icon.svg" alt="icon eye">
+                            <img src="<?=WEBSITE_URL?>img/new-images/calc-icon.svg" alt="icon eye">
                         </div>
                         <h2>Pay</h2>
                         <p class="descrip">Pay Deposit & Apply for Your Student Visa with Our Dedicated Experts</p>
                     </div>
                     <div class="box">
                         <div class="icon">
-                            <img src="/img/new-images/like-icon.svg" alt="icon eye">
+                            <img src="<?=WEBSITE_URL?>img/new-images/like-icon.svg" alt="icon eye">
                         </div>
                         <h2>Ready</h2>
                         <p class="descrip">Congratulations! You are ready to go!</p>
@@ -149,46 +149,46 @@
                 <div class="container-icons">
                     <div class="icon-box">
                         <h4>10+ Years <br />Industry Leader</h4>
-                        <img src="/img/new-images/aniversary-1.svg" alt="10+ Years Industry Leader">
+                        <img src="<?=WEBSITE_URL?>img/new-images/aniversary-1.svg" alt="10+ Years Industry Leader">
                     </div>
                     <div class="icon-box">
                         <h4>400+ Partners</h4>
-                        <img src="/img/new-images/group-icon.svg" alt="400+ Partners">
+                        <img src="<?=WEBSITE_URL?>img/new-images/group-icon.svg" alt="400+ Partners">
                     </div>
                     <div class="icon-box">
                         <h4>Partial Scholarships <br /> Access</h4>
-                        <img src="/img/new-images/grad-icon.svg" alt="Partial Scholarships Access">
+                        <img src="<?=WEBSITE_URL?>img/new-images/grad-icon.svg" alt="Partial Scholarships Access">
                     </div>
                     <div class="icon-box">
                         <h4>Worldwide Study <br /> Destinations</h4>
-                        <img src="/img/new-images/map-icon.svg" alt="Worldwide Study Destinations">
+                        <img src="<?=WEBSITE_URL?>img/new-images/map-icon.svg" alt="Worldwide Study Destinations">
                     </div>
                     <div class="icon-box">
                         <h4>Application <br /> Assistance & Fast <br /> Admission Process</h4>
-                        <img src="/img/new-images/file-cut-icon.svg" alt="Application Assistance">
+                        <img src="<?=WEBSITE_URL?>img/new-images/file-cut-icon.svg" alt="Application Assistance">
                     </div>
                 </div>
 
                 <div class="container-icons secondry-container-icons">
                     <div class="icon-box">
                         <h4>Dedicated <br> Expert <br> Councilors</h4>
-                        <img src="/img/new-images/chat-icon.svg" alt="Dedicated">
+                        <img src="<?=WEBSITE_URL?>img/new-images/chat-icon.svg" alt="Dedicated">
                     </div>
                     <div class="icon-box">
                         <h4>Live Application <br> Tracking Through <br> Our Mobile App</h4>
-                        <img src="/img/new-images/screen-icon.svg" alt="Live Application">
+                        <img src="<?=WEBSITE_URL?>img/new-images/screen-icon.svg" alt="Live Application">
                     </div>
                     <div class="icon-box">
                         <h4>Expert Visa <br> Application <br> Assistance </h4>
-                        <img src="/img/new-images/plane-icon.svg" alt="Expert Visa">
+                        <img src="<?=WEBSITE_URL?>img/new-images/plane-icon.svg" alt="Expert Visa">
                     </div>
                     <div class="icon-box">
                         <h4>international <br /> Offices</h4>
-                        <img src="/img/new-images/earth-icon.svg" alt="international Offices ">
+                        <img src="<?=WEBSITE_URL?>img/new-images/earth-icon.svg" alt="international Offices ">
                     </div>
                     <div class="icon-box">
                         <h4>BESA International <br /> Education Fairs & <br /> School Tours </h4>
-                        <img src="/img/new-images/calander.svg" alt="BESA International">
+                        <img src="<?=WEBSITE_URL?>img/new-images/calander.svg" alt="BESA International">
                     </div>
                 </div>
 
@@ -268,7 +268,7 @@
                                 </p>
                                 <a href="/event-details/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
                                     Learn More
-                                    <img src="/img/icon/arrow-right.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
                                 </a>
                             </div>
 
@@ -325,8 +325,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="background-qoute">
-                    <img src="/img/icon/quote-left.svg" alt="" class="qoute-left">
-                    <img src="/img/icon/quote-right.svg" alt="" class="qoute-right">
+                    <img src="<?=WEBSITE_URL?>img/icon/quote-left.svg" alt="" class="qoute-left">
+                    <img src="<?=WEBSITE_URL?>img/icon/quote-right.svg" alt="" class="qoute-right">
                 </div>
                 <h2 class="title">Clients' Testimonials</h2>
                 <div class="slider-testimonials owl-carousel owl-theme" id="slider-testimonials">
@@ -367,7 +367,7 @@
 
 <section class="contact-us">
     <div class="top-dots-img">
-        <img src="/img/icon/dots-bakground.svg" alt="">
+        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
     </div>
     <div class="container">
         <div class="row">
@@ -437,7 +437,7 @@
                     <div class="form-area security_code">
                         <div class="input captcha" style="position: relative;">
                             <?php
-                            echo $this->Html->image('/image.jpg?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
+                            echo $this->Html->image('/image.jpg/index.php?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
                         z-index: 1;", 'id' => rand()));
                             echo $this->AdminForm->control('security_code', [
                                 'placeholder' => 'Security Code', 'type' => 'text',
@@ -476,7 +476,7 @@
         </div>
     </div>
     <div class="bottom-dots-img">
-        <img src="/img/icon/dots-bakground.svg" alt="">
+        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
 
     </div>
 </section>

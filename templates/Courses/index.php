@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg-study-01.png" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg-study-01.png" alt="" style="z-index: 2;">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -59,21 +59,21 @@
                                     <div class="icons">
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="/img/icon/wish-list.svg" alt="">
+                                                <img src="<?=WEBSITE_URL?>img/icon/wish-list.svg" alt="">
                                             </div>
                                             <span class="green">Wish List</span>
                                         </div>
 
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="/img/icon/more-details.svg" alt="">
+                                                <img src="<?=WEBSITE_URL?>img/icon/more-details.svg" alt="">
                                             </div>
                                             <span class="green">More Details</span>
                                         </div>
 
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="/img/icon/aplly-now-green.svg" alt="">
+                                                <img src="<?=WEBSITE_URL?>img/icon/aplly-now-green.svg" alt="">
                                             </div>
                                             <span class="green">Apply Now</span>
                                         </div>
@@ -90,10 +90,10 @@
 
     <!-- <div class="button-next-prev">
         <a href="#">
-            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
         </a>
         <a href="#">
-            <img src="/img/icon/chevron-circle-next.svg" alt="">
+            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
 
         </a>
 

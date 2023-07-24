@@ -74,7 +74,7 @@
 
 
                                             <a href="/user/logout" class="btn SecondaryBtn">Logout
-                                                <img src="/img/icon/login.png" alt="">
+                                                <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                             </a>
 
                                             <a href="/user" class="btn MainBtn">Profile</a>
@@ -314,7 +314,7 @@
 
 
                                     <a href="/user/logout" class="btn SecondaryBtn">Logout
-                                        <img src="/img/icon/login.png" alt="">
+                                        <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                     </a>
 
                                     <a href="/user" class="btn MainBtn">Profile</a>
@@ -322,7 +322,7 @@
                                     <a href="/user/login" class="btn MainBtn">Apply Now</a>
 
                                     <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                                 <?php } ?>
                             </li>
@@ -330,7 +330,7 @@
                         <?php } ?>
                         <!--<li class="buttons">
                                 <a href="#" class="btn SecondaryBtn">Login
-                                    <img src="/img/icon/login.png" alt="" >
+                                    <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="" >
                                 </a>
                             </li> -->
                     </ul>
@@ -345,7 +345,7 @@
 
 
                             <a href="/user/logout" class="btn SecondaryBtn">Logout
-                                <img src="/img/icon/login.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                             </a>
 
                             <a href="/user" class="btn MainBtn">Profile</a>
@@ -353,11 +353,11 @@
                             <a href="/user/login" class="btn MainBtn">Apply Now</a>
 
                             <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                         <?php } ?>
                         <a href="#" class="btn SecondaryBtn">
-                            <img src="/img/apple.png" alt="">
+                            <img src="<?=WEBSITE_URL?>img/apple.png" alt="">
                         </a>
 
 
@@ -420,7 +420,7 @@
 
 
                                         <a href="/user/logout" class="btn SecondaryBtn">Logout
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a>
 
                                         <a href="/user" class="btn MainBtn">Profile</a>
@@ -428,7 +428,7 @@
                                         <a href="/user/login" class="btn MainBtn">Apply Now</a>
 
                                         <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="/img/icon/login.png" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
                                         </a> -->
                                     <?php } ?>
                                 </li>

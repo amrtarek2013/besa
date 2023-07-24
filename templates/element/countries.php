@@ -86,7 +86,7 @@
                 </div>
                 <?php if (isset($showImageCountries)) { ?>
                     <div class="image-contry">
-                        <img src="/img/1603.m00.i125.n038.S.c12 1.png" alt="">
+                        <img src="<?=WEBSITE_URL?>img/1603.m00.i125.n038.S.c12 1.png" alt="">
                     </div>
                 <?php } ?>
 

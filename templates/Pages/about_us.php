@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg1.png" alt="">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg1.png" alt="">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-5">
@@ -33,7 +33,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_22.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                     <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_22.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_22.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                     <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_22.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="/img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
                                 </div>
                             </div>
                         </div>

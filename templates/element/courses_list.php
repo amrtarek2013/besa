@@ -41,7 +41,7 @@
                                     <div class="icons">
                                         <div class="addingwish" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($wishLists[$course['id']]) ? 'delete' : 'add' ?>">
                                             <div class="circle-icon">
-                                                <img id="wish-<?= $course['id'] ?>" src="/img/icon/<?= isset($wishLists[$course['id']]) ? 'wish-list-marked.svg' : 'wish-list.svg' ?>" alt="">
+                                                <img id="wish-<?= $course['id'] ?>" src="<?=WEBSITE_URL?>img/icon/<?= isset($wishLists[$course['id']]) ? 'wish-list-marked.svg' : 'wish-list.svg' ?>" alt="">
                                             </div>
                                             <span class="green">Wish List</span>
                                         </div>
@@ -51,7 +51,7 @@
 
                                             <a href="javascript:void(0)">
                                                 <div class="circle-icon wish-red">
-                                                    <img src="/img/icon/more-details.svg" alt="">
+                                                    <img src="<?=WEBSITE_URL?>img/icon/more-details.svg" alt="">
                                                 </div>
                                                 <span class="green">More Details</span>
                                             </a>
@@ -59,8 +59,8 @@
 
                                         <div class="addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>">
                                             <div class="circle-icon">
-                                                <!-- <img src="/img/icon/aplly-now-green.svg" alt=""> -->
-                                                <img id="app-<?= $course['id'] ?>" src="/img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
+                                                <!-- <img src="<?=WEBSITE_URL?>img/icon/aplly-now-green.svg" alt=""> -->
+                                                <img id="app-<?= $course['id'] ?>" src="<?=WEBSITE_URL?>img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
                                             </div>
                                             <span class="green apply-text-<?= $course['id'] ?>"><?= isset($appCourses[$course['id']]) ? 'Remove' : 'Apply Now' ?></span>
 
@@ -78,10 +78,10 @@
 
     <!-- <div class="button-next-prev">
         <a href="#">
-            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
         </a>
         <a href="#">
-            <img src="/img/icon/chevron-circle-next.svg" alt="">
+            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
 
         </a>
 

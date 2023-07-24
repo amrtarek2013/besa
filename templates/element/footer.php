@@ -7,19 +7,19 @@
                         <img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="" width="165">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                <img src="/img/icon/facebook.svg" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/facebook.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                <img src="/img/icon/instagram.svg" alt="" target="_blank">
+                                <img src="<?=WEBSITE_URL?>img/icon/instagram.svg" alt="" target="_blank">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                <img src="/img/icon/youtube.svg" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/youtube.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                <img src="/img/icon/linkedin.svg" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/linkedin.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                <img src="/img/icon/twitter.svg" alt="">
+                                <img src="<?=WEBSITE_URL?>img/icon/twitter.svg" alt="">
                             </a>
                         </div>
                     </div>
@@ -233,6 +233,6 @@
 </section>
 <div class="go-up">
     <span class="up " id="scrollToTop" style="display: none;">
-        <img src="/img/red-arrow-top.svg" alt="">
+        <img src="<?=WEBSITE_URL?>img/red-arrow-top.svg" alt="">
     </span>
 </div>

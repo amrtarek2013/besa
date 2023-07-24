@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg49.png" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg49.png" alt="" style="z-index: 2;">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -29,7 +29,7 @@
             <div class="col-md-12">
                 <div class="d-flex containerb2b">
                     <div class="image">
-                        <img src="/img/Primaria 1.png" alt="">
+                        <img src="<?=WEBSITE_URL?>img/Primaria 1.png" alt="">
                     </div>
                     <div class="content">
                         <h4>School Development</h4>
@@ -51,20 +51,20 @@
             <div class="col-md-12">
                 <div class="container-icons">
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (1).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (1).svg" alt="">
                         <h4>Registration is done <br> through schools</h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (8).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (8).svg" alt="">
                         <h4>Schools are required to send <br> interested students’ details</h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (7).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (7).svg" alt="">
 
                         <h4>A registration fee is <br /> required for each student</h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (6).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (6).svg" alt="">
                         <h4>Students transportation is <br /> provided by the schools </h4>
                     </div>
 
@@ -72,21 +72,21 @@
 
                 <div class="container-icons secondry-container-icons">
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (5).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (5).svg" alt="">
 
                         <h4>Players have to wear their <br> school uniform throughout <br> the competition </h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (4).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (4).svg" alt="">
                         <h4>The tournament is <br> run over 4 days</h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (3).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (3).svg" alt="">
 
                         <h4>Each school team <br> consists of 7-9 players</h4>
                     </div>
                     <div class="icon-box">
-                        <img src="/img/servTrophy/servT (2).svg" alt="">
+                        <img src="<?=WEBSITE_URL?>img/servTrophy/servT (2).svg" alt="">
                         <h4>The winning team will visit <br> universities and campuses <br> in the UK </h4>
                     </div>
 

@@ -21,7 +21,7 @@
                                     <?= $university['left_text'] ?>
                                 </p>
                                 <div class="right-dots-img">
-                                    <img src="/img/icon/dots-bakground.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
 
                                 </div>
                             </div>

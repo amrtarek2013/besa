@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="background-banner-color">
                     <img src="<?= $event['image_path'] ?>" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">

@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="background-banner-color">
-                    <img src="/img/new-images/Resume-bg2.png" alt="" style="z-index: 2;">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/new-images/Resume-bg2.png" alt="" style="z-index: 2;">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-7">

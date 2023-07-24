@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="/img/hero-bg1.png" alt="">
-                    <img src="/img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?=WEBSITE_URL?>img/hero-bg1.png" alt="">
+                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-5">
@@ -40,7 +40,7 @@
                         <div class="box">
                             <div class="number green">
                                 <div class="icon">
-                                    <img src="/img/icon/users.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/users.svg" alt="">
                                 </div>
                                 <span class="number-count" data-value="300">300</span>
                                 +
@@ -50,7 +50,7 @@
                         <div class="box">
                             <div class="number yellow">
                                 <div class="icon">
-                                    <img src="/img/icon/smiley-o.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/smiley-o.svg" alt="">
                                 </div>
                                 <span class="number-count" data-value="1200">1200</span>
                                 +
@@ -60,7 +60,7 @@
                         <div class="box">
                             <div class="number blue">
                                 <div class="icon">
-                                    <img src="/img/icon/map-marker.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/map-marker.svg" alt="">
                                 </div>
                                 <span class="number-count" data-value="9">9</span>
 
@@ -70,7 +70,7 @@
                         <div class="box">
                             <div class="number red">
                                 <div class="icon">
-                                    <img src="/img/icon/academy-cap.svg" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/icon/academy-cap.svg" alt="">
                                 </div>
                                 <span class="number-count" data-value="180">180</span>
                                 <h3 class="funfact-title">Partners</h3>
@@ -89,7 +89,7 @@
                             </p>
                         </div>
                         <div class="image">
-                            <img src="/img/woman-circile.png" class="circle-img" alt="">
+                            <img src="<?=WEBSITE_URL?>img/woman-circile.png" class="circle-img" alt="">
                         </div>
                     </div>
 
@@ -113,17 +113,17 @@
                                     <p class="descrp">Opened Sudan branch and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
                                     <div class="nav">
                                         <button class="prev">
-                                            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
                                         </button>
                                         <button class="next">
-                                            <img src="/img/icon/chevron-circle-next.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
 
                                         </button>
 
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_(1956–2011) 1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -135,15 +135,15 @@
                                     <p class="descrp">Opened Sudan branch and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
                                     <div class="nav">
                                         <button class="prev">
-                                            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
                                         </button>
                                         <button class="next">
-                                            <img src="/img/icon/chevron-circle-next.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
                                         </button>
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_(1956–2011) 1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -155,15 +155,15 @@
                                     <p class="descrp">Opened Sudan branch and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
                                     <div class="nav">
                                         <button class="prev">
-                                            <img src="/img/icon/chevron-circle-prev.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
                                         </button>
                                         <button class="next">
-                                            <img src="/img/icon/chevron-circle-next.svg" alt="">
+                                            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
                                         </button>
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_(1956–2011) 1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                                     <p class="descrp">Opened Sudan branch and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_(1956–2011) 1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                                     <p class="descrp">Opened Sudan branch and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
                                 </div>
                                 <div class="image">
-                                    <img src="/img/LocationSudan_(1956–2011) 1.png" alt="">
+                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_(1956–2011) 1.png" alt="">
                                 </div>
                             </div>
                         </div>
