@@ -25,12 +25,12 @@
 
             <?= $this->Form->control('first_name', [
               'placeholder' => 'Name',
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
             ]) ?>
-            <!-- <?= $this->Form->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?> -->
+
             <?= $this->Form->control('last_name', [
               'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
             <div class=" form-area">
@@ -69,19 +69,21 @@
                 </select>
               </div>
             </div>
+
             <?= $this->Form->control('email', [
               'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
 
             <?= $this->Form->control('password', [
               'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('passwd', [
-              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
 
@@ -89,27 +91,43 @@
             <?= $this->Form->control('gender', [
               'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
               'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
             <?= $this->Form->control('student_type', [
               'label' => 'I am a*', 'required' => true,
               'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
-              'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
 
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'label' => 'Password*']) ?>
-            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
+            <?= $this->Form->control('study_level_id', [
+              'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
+              'options' => $studyLevels, 'label' => 'Level of study*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+            <?= $this->Form->control('country_id', [
+              'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
+              'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+            <?= $this->Form->control('city', [
+              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
 
-            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+            <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>
 
-            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?>
+            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*']) ?>
+            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*']) ?>
 
-            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?>
+            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'label' => 'Gender*', 'required' => true]) ?>
 
-            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?> -->
+            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'label' => 'Nationality*', 'required' => true]) ?>
+
+            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true]) ?>
+
+            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'label' => 'Address*', 'required' => true]) ?> -->
 
           </div>
           <p class="light-para">For the purpose of applying regulation, your details are required.</p>
@@ -136,24 +154,24 @@
       </div>
       <div class="col-md-4 ml">
         <div class="container-formBox blue-border ">
-        <?= $this->Form->create($user, array('url' => '/user/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
+          <?= $this->Form->create($user, array('url' => '/user/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
 
- 
-            <h4 class="title">Log in</h4>
-            <div class="grid-container">
-              <div class="form-area">
-                <label for="email">Email*</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-              </div>
-              <div class="form-area">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="password">
-              </div>
-              <div class="form-area">
-                <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
-                <button type="submit" class="btn clear-blue">LOG IN</button>
-              </div>
+
+          <h4 class="title">Log in</h4>
+          <div class="grid-container">
+            <div class="form-area">
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" placeholder="Email">
             </div>
+            <div class="form-area">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="password">
+            </div>
+            <div class="form-area">
+              <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
+              <button type="submit" class="btn clear-blue">LOG IN</button>
+            </div>
+          </div>
           </form>
         </div>
       </div>

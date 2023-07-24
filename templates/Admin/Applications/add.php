@@ -68,7 +68,7 @@
                                 <div class="container-formBox blue-border">
                                     <h4 class="title">Education Information</h4>
                                     <div class="grid-container">
-                                        <?= $this->AdminForm->control('study_level_id', ['placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*', 'options' => $services, 'class' => 'form-area', 'label' => 'Level of study*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('study_level_id', ['placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*', 'options' => $studyLevels, 'class' => 'form-area', 'label' => 'Level of study*', 'required' => true]) ?>
 
                                         <?= $this->AdminForm->control('course_interest_id', ['placeholder' => 'Course of Interest', 'type' => 'select', 'empty' => 'Select Course of Interest*', 'options' => $services, 'class' => 'form-area', 'label' => 'Course of Interest*', 'required' => true]) ?>
 

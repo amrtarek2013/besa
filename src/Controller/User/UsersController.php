@@ -97,9 +97,9 @@ class UsersController extends AppController
             // dd($user);
             if ($user) {
 
-                if (!empty($user['last_url'])){
+                if (!empty($user['last_url'])) {
                     $this->Session->write('search_url', $user['last_url']);
-                    
+
                     $this->set('last_search_url', $user['last_url']);
                 }
                 $return['url']    = $red_url;
@@ -513,11 +513,18 @@ class UsersController extends AppController
 
 
         $this->set('user', $userEntity);
-        // $this->loadModel('Countries');
-        // $countriesList = $this->Countries->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1])->order(['display_order' => 'asc']);
-        // $this->set('countriesList', $countriesList);
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        $this->set('countriesList', $countriesList);
+
+        
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
 
         // $this->redirect('/');
     }
@@ -563,12 +570,19 @@ class UsersController extends AppController
                 $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
         $this->set(compact('user'));
-        // $this->set('user', $userEntity);
+        
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('countriesList', $countriesList);
+
+        
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
 
         $id = $user['id'];
         $this->set(compact('id'));
