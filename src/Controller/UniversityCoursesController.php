@@ -48,8 +48,8 @@ class UniversityCoursesController extends AppController
     public function study()
     {
         $this->set('bodyClass', 'pageAbout pageServices');
-        $universityCourses = $this->UniversityCourses->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
-        $this->set('universityCourses', $universityCourses);
+        // $universityCourses = $this->UniversityCourses->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
+        // $this->set('universityCourses', $universityCourses);
 
 
         $this->loadModel('Courses');
@@ -61,8 +61,8 @@ class UniversityCoursesController extends AppController
             ->order(['display_order' => 'asc']);
 
 
-        $studyCourses = $this->Courses->find()->where(['active' => 1])->all()->toArray();
-        $this->set('studyCourses', $studyCourses);
+        // $studyCourses = $this->Courses->find()->where(['active' => 1])->all()->toArray();
+        // $this->set('studyCourses', $studyCourses);
         // dd($studyCourses);
 
         $this->loadModel('Countries');
@@ -161,7 +161,7 @@ class UniversityCoursesController extends AppController
         if (isset($url_params['study_level_id']))
             $conditions['Courses.study_level_id'] = $url_params['study_level_id'];
         if (isset($url_params['subject_area_id']))
-            $conditions['Courses.subject_areas_id'] = $url_params['subject_area_id'];
+            $conditions['Courses.subject_area_id'] = $url_params['subject_area_id'];
 
         if (is_array($url_params['country_id'])) {
             $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];

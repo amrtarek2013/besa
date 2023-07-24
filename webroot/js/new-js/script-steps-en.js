@@ -98,7 +98,7 @@ function nextStep() {
       alert("Please select an option.");
       return false;
     }
-    // document.getElementById('course_id').value='';
+    // document.getElementById('subject_area_id').value='';
     // document.getElementById('study_level_id').value='';
 
     var elements = document.querySelectorAll('.level-box');
@@ -111,7 +111,7 @@ function nextStep() {
     }
 
   }else if(currentStep==1){
-    if(document.getElementById('course_id').value==''&&document.getElementById('study_level_id').value==''){
+    if(document.getElementById('subject_area_id').value==''&&document.getElementById('study_level_id').value==''){
       alert("Please select an option.");
       return false;
     }

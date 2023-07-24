@@ -47,27 +47,16 @@
                     <div id="step2" class="step">
                         <div class="common-services services-2 services-4">
                             <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
-                            <div class="form-area">
-
-                                <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
-                                <div class="search">
-                                    <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject Area" style="width: 40%;height: 64px; background-image: url(../img/icon-search.png);
-background-repeat: no-repeat;
-background-position-x: 7px;
-background-position-y: 50%;;" />
-                                </div>
-                            </div>
-                            <div class="grid-contaienr SubjectAreas">
-                                <?php if (!empty($subjectAreas)) { ?>
-                                    <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
-                                        <div class="box course-box studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
-                                            <h4><?= $subjectArea ?></h4>
+                            <div class="grid-contaienr">
+                                <?php if (!empty($studyCourses)) { ?>
+                                    <?php foreach ($studyCourses as $studyCourse) { ?>
+                                        <div class="box course-box studyLevel-<?= $studyCourse['study_level_id'] ?>" title='<?= $studyCourse['course_name'] ?>' data-course='<?= $studyCourse['id'] ?>'>
+                                            <h4><?= words_slice($studyCourse['course_name'], 4) ?></h4>
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
                             </div>
-                            <!-- <input type="hidden" name="course_id" id="course_id" value=''> -->
-                            <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
+                            <input type="hidden" name="course_id" id="course_id" value=''>
                         </div>
 
                         <!-- <div class="common-services services-2 services-4">
@@ -221,7 +210,7 @@ background-position-y: 50%;;" />
             var selected_course = $(this).data("course");
             $('.course-box').removeClass('active');
             $(this).addClass('active');
-            $("#subject_area_id").val(selected_course);
+            $("#course_id").val(selected_course);
         });
         $('.level-box').on('click', function() {
             var selected_level = $(this).data("level");
@@ -229,22 +218,11 @@ background-position-y: 50%;;" />
             $(this).addClass('active');
             // $("#study_level_idstudy_level_id").val(selected_level);
         });
-        // $('#study_level_id').on('change', function() {
-        //     var selected_level = $(this).val();
-
-        //     $(".course-box").hide();
-        //     $(".studyLevel-" + selected_level).show();
-        // });
-
-        $("#subject_area").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $(".SubjectAreas h4").each(function() {
-                if ($(this).text().toLowerCase().search(value) > -1) {
-                    $(this).parent('div.course-box').show();
-                } else {
-                    $(this).parent('div.course-box').hide();
-                }
-            });
+        $('#study_level_id').on('change', function() {
+            var selected_level = $(this).val();
+            
+            $(".course-box").hide();
+            $(".studyLevel-" + selected_level).show();
         });
     });
 </script>
