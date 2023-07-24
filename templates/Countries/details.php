@@ -10,12 +10,12 @@
                         <?php foreach ($countryImages as $countryImage) : ?>
                             <div class="item">
                                 <img src="<?= $countryImage['image_path'] ?>" alt="">
-                                <div class="blue-qoute">
+                                <!-- <div class="blue-qoute">
                                     <h4><?= $countryImage['title'] ?></h4>
                                     <p>
                                         <?= $countryImage['short_text'] ?>
                                     </p>
-                                </div>
+                                </div> -->
                             </div>
                         <?php endforeach; ?>
                     <?php else : ?>
