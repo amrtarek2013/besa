@@ -46,6 +46,8 @@
                             'basicModel' => 'countries',
                             'id' => [],
                             'country_name' => [],
+                            
+                            'is_destination' => ['format' => 'bool'],
                             'code' => [],
                             'permalink' => [],
                             'continent' => ['format' => 'get_from_array', 'options' => ['items_list' => $continents]],

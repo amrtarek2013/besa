@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="ukslider owl-carousel owl-theme">
-                    <?php 
-                                                    // debug($country);
+                    <?php
+                    // debug($country);
 
                     if (sizeof($countryImages) > 0) : ?>
                         <?php foreach ($countryImages as $countryImage) : ?>
@@ -38,7 +38,7 @@
 
             <div class="col-md-12">
                 <a class="title-banner-blue greenish-teal" href="#">
-                    <h3><?= $country['green_section'] ?></h3>
+                    <h3><?= isset($country['green_section']) ? $country['green_section'] : '' ?></h3>
                 </a>
             </div>
         </div>
@@ -60,10 +60,7 @@
                     <div class="text">
                         <h4 class="title"><?= $country['text_header'] ?></h4>
                         <?= $country['why_text'] ?>
-                        <a href="#" class="btn MainBtn clear-blue ">
-                            Apply Now
-                            <img src="/img/icon/arrow-right.svg" alt="">
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -77,7 +74,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>BENEFITS OF STUDYING IN THE <?=$country['country_code']?></h2>
+                <h2>BENEFITS OF STUDYING IN THE <?= $country['country_code'] ?></h2>
 
                 <div class="gridTabes">
                     <?php if (!empty($countryBenefits)) : ?>
@@ -127,7 +124,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>OUR <?=$country['country_code']?> PARTNER UNIVERSITIES</h2>
+                <h2>OUR <?= $country['country_code'] ?> PARTNER UNIVERSITIES</h2>
 
                 <div class="gridOuruk">
 
@@ -139,7 +136,7 @@
                     <?php endif; ?>
                     <!-- <img alt="" src="/img/part-logo (2).png" /> <img alt="" src="/img/part-logo (1).png" /> <img alt="" src="/img/part-logo (6).png" /> <img alt="" src="/img/part-logo (5).png" /> <img alt="" src="/img/part-logo (4).png" /> -->
                 </div>
-                <a class="link" href="#">EXPLORE <?=$country['country_code']?> UNIVERSITIES</a>
+                <a class="link" href="#">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
             </div>
         </div>
     </div>
@@ -149,9 +146,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>OUR <?=$country['country_code']?> PARTNER UNIVERSITIES</h2>
+                <h2>OUR <?= $country['country_code'] ?> PARTNER UNIVERSITIES</h2>
 
-                <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN <?=$country['country_code']?></p>
+                <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN <?= $country['country_code'] ?></p>
 
                 <div class="d-flex images">
                     <?php if (!empty($countryPartnersVideos)) : ?>
@@ -180,7 +177,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="gridTabes"><a class="btn clear-blue foundation" href="#">REGISTER NOW TO APPLY</a> <a class="btn greenish-teal master" href="#">EXPLORE STUDYING IN <?=$country['country_code']?></a></div>
+                <div class="gridTabes"><a class="btn clear-blue foundation" href="#">REGISTER NOW TO APPLY</a> <a class="btn greenish-teal master" href="#">EXPLORE STUDYING IN <?= $country['country_code'] ?></a></div>
             </div>
         </div>
     </div>
