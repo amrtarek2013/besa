@@ -62,7 +62,7 @@
                                                 <!-- <img src="/img/icon/aplly-now-green.svg" alt=""> -->
                                                 <img id="app-<?= $course['id'] ?>" src="/img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
                                             </div>
-                                            <span class="green apply-text-<?= $course['id'] ?>">Apply Now</span>
+                                            <span class="green apply-text-<?= $course['id'] ?>"><?= isset($appCourses[$course['id']]) ? 'Remove' : 'Apply Now' ?></span>
 
                                         </div>
 
@@ -190,7 +190,7 @@
                         $(el).attr('data-action', 'add');
                         $(el).prop('data-action', 'add');
                         $('img#app-' + courseid).attr('src', '/img/icon/aplly-now-green.svg');
-                        
+
                         $('sapn#apply-text-' + courseid).text('Apply Now');
 
                         if (current_controller == 'applications')
