@@ -519,12 +519,17 @@ class UsersController extends AppController
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('countriesList', $countriesList);
 
-        
         $this->loadModel('StudyLevels');
-        $studyLevels = $this->StudyLevels->find('list', [
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('studyLevels', $studyLevels);
+        $this->set('subjectAreas', $subjectAreas);
 
         // $this->redirect('/');
     }
@@ -570,19 +575,25 @@ class UsersController extends AppController
                 $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
         $this->set(compact('user'));
-        
+
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('countriesList', $countriesList);
 
-        
+
         $this->loadModel('StudyLevels');
-        $studyLevels = $this->StudyLevels->find('list', [
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
-        $this->set('studyLevels', $studyLevels);
+        $this->set('subjectAreas', $subjectAreas);
 
         $id = $user['id'];
         $this->set(compact('id'));

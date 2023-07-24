@@ -103,7 +103,13 @@
 
             <?= $this->Form->control('study_level_id', [
               'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-              'options' => $studyLevels, 'label' => 'Level of study*', 'required' => true,
+              'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+            <?= $this->Form->control('subject_area_id', [
+              'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
+              'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('country_id', [

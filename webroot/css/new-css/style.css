@@ -2216,11 +2216,11 @@ p.descrp {
     padding: 0 20px;
 }
 
-.container-formBox .grid-container .form-area:nth-child(10) {
+/* .container-formBox .grid-container .form-area:nth-child(10) {
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-column: 1/ 4;
-}
+} */
 
 .container-formBox .form-area label,
 .container-formBox .input label {

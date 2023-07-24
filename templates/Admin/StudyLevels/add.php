@@ -36,6 +36,10 @@
 
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
 
+                            echo $this->AdminForm->control('main_study_level_id', [
+                                'placeholder' => 'Main Level of study', 'type' => 'select', 'empty' => 'Select Main Level of study*',
+                                'options' => $mainStudyLevels, 'label' => 'Main Level of study*', 'required' => true,
+                            ]);
                             // echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => 'editor']);
 
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);

@@ -37,6 +37,7 @@ class UsersTable extends Table
     'active'
   );
 
+  
   /**
    * Initialize method
    *

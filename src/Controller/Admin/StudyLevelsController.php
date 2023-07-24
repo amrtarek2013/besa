@@ -24,6 +24,8 @@ class StudyLevelsController extends AppController
         $this->set(compact('studyLevels', 'parameters', 'types'));
 
         $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
+        
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
     public function list()
     {
@@ -33,6 +35,7 @@ class StudyLevelsController extends AppController
         $types = $this->StudyLevels->types;
 
         $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set(compact('studyLevels', 'parameters', 'types'));
     }
 
@@ -54,8 +57,6 @@ class StudyLevelsController extends AppController
         $this->__common();
         $types = $this->StudyLevels->types;
         $this->set(compact('studyLevel', 'types'));
-
-        $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
     }
 
     public function edit($id = null)
@@ -114,6 +115,7 @@ class StudyLevelsController extends AppController
     {
         $studyLevel = $this->StudyLevels->get($id);
 
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('studyLevel', $studyLevel);
     }
 
@@ -122,6 +124,7 @@ class StudyLevelsController extends AppController
         $uploadSettings = $this->StudyLevels->getUploadSettings();
         $this->set(compact('uploadSettings'));
 
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
     }
 }
