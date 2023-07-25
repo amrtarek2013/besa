@@ -21,7 +21,7 @@
                     <?php else : ?>
                         <div class="item">
                             <img src="<?=WEBSITE_URL?>img/banner-45.png" alt="">
-                            <div class="blue-qoute">
+                            <!-- <div class="blue-qoute">
                                 <h4>The <?= $country['country_name'] ?></h4>
                                 <p>
                                     The <?= $country['country_name'] ?> of Great Britain and Northern Ireland,
@@ -29,7 +29,7 @@
                                     off the north-western coast of the continental mainland. It comprises England, Scotland,
                                     Wales and Northern Ireland.
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
                     <?php endif; ?>
 

@@ -122,7 +122,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Partners</a>
+                            <a href="/partner-institutions">Partners</a>
 
                         </li>
 
