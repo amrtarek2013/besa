@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -17,6 +18,7 @@ use Cake\Routing\Router;
 /*
  * Use the DS to separate the directories in other defines
  */
+
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
@@ -95,13 +97,15 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
 
-define('WEBSITE_PATH', Router::url(null, true));//'https://besa.intimedev.com');
-define('WEBSITE_URL', Router::url('/', true));
-define('ADMIN_ASSETS', WEBSITE_PATH.'/Admin');//WEBSITE_PATH.'/Admin');
-define('FRONT_ASSETS', WEBSITE_PATH.'/webroot/Front');
-define('ADMIN_LINK', WEBSITE_PATH.'/admin');
-define('UPLOAD_PATH', '/home/rdidtcom/public_html/annotation/webroot/uploads');
-define('UPLOAD_LINK', WEBSITE_PATH.'/webroot/uploads');
 
-define('USER_ASSETS', WEBSITE_PATH);//WEBSITE_PATH.'/Admin');
-define('USER_LINK', WEBSITE_PATH.'/user');
+
+define('WEBSITE_PATH', Router::url(null)); //'https://besa.intimedev.com');
+define('WEBSITE_URL', Router::url(null, true));
+define('ADMIN_ASSETS', Router::url('/Admin')); //WEBSITE_PATH.'/Admin');
+define('FRONT_ASSETS', Router::url('/webroot/Front'));
+define('ADMIN_LINK', Router::url('/admin'));
+define('UPLOAD_PATH', '/home/rdidtcom/public_html/annotation/webroot/uploads');
+define('UPLOAD_LINK', Router::url('/webroot/uploads'));
+
+define('USER_ASSETS', WEBSITE_PATH);
+define('USER_LINK', Router::url('/user'));
