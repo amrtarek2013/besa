@@ -40,7 +40,7 @@ class UniversityCoursesController extends AppController
         // $this->loadModel('Countries');
         // $countriesList = $this->Countries->find('list', [
         //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        // ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
 
         // $this->set('countriesList', $countriesList);
     }
@@ -58,7 +58,7 @@ class UniversityCoursesController extends AppController
             ['keyField' => 'id', 'valueField' => 'course_name']
         )
             // ->where(['active' => 1])
-            ->order(['display_order' => 'asc']);
+            ->order(['course_name' => 'asc']);
 
 
         // $studyCourses = $this->Courses->find()->where(['active' => 1])->all()->toArray();
@@ -68,7 +68,7 @@ class UniversityCoursesController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 
@@ -81,7 +81,7 @@ class UniversityCoursesController extends AppController
 
         $this->loadModel('StudyLevels');
         $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
-            ->order(['display_order' => 'asc'])->all()->toArray();
+            ->order(['title' => 'asc'])->all()->toArray();
         $this->set('studyLevels', $studyLevels);
         // dd($studyLevels);
 
@@ -89,7 +89,7 @@ class UniversityCoursesController extends AppController
         $this->loadModel("SubjectAreas");
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
 
         // if (!empty($_GET['steps'])) {
@@ -127,7 +127,7 @@ class UniversityCoursesController extends AppController
         // $this->loadModel('Countries');
         // $countriesList = $this->Countries->find('list', [
         //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        // ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
 
         // $this->set('countriesList', $countriesList);
     }

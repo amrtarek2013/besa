@@ -133,7 +133,7 @@ class CountryImagesController extends AppController
         $countries = $this->Countries->find('list', [
             'keyField' => 'id',
             'valueField' => 'country_name',
-        ])->where(["active" => 1, 'is_destination'=>1])->order(['display_order' => 'ASC'])->toArray();
+        ])->where(["active" => 1, 'is_destination'=>1])->order(['country_name' => 'ASC'])->toArray();
         $this->set(compact('uploadSettings', 'countries'));
     }
 }

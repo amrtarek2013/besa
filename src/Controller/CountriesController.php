@@ -13,7 +13,7 @@ class CountriesController extends AppController
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
-        $countries = $this->Countries->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
+        $countries = $this->Countries->find()->where(['active' => 1])->order(['country_name' => 'asc'])->limit(10)->all();
 
         $this->set('countriesData', $countries);
     }

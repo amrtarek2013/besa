@@ -118,19 +118,19 @@ class MajorsController extends AppController
         // $this->loadModel("Countries");
         // $countries = $this->Countries->find('list', [
         //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        // ])->where(["active" => 1])->order(['country_name' => 'ASC'])->toArray();
         // $this->set("countries", $countries);
 
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->all();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->all();
         $this->set('services', $services);
         
 
         // $this->loadModel("Universities");
-        // $universities = $this->Universities->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
+        // $universities = $this->Universities->find()->where(['active' => 1])->order(['university_name' => 'asc'])->all();
         // $this->set('universities', $universities);
 
 

@@ -205,7 +205,7 @@ class AppController extends Controller
         $this->set('footer', $footer);
 
         $this->loadModel('Countries');
-        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""'])->order(['display_order' => 'asc'])->all();
+        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""'])->order(['country_name' => 'asc'])->all();
         $countriesData = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
 
         // $countryEarth = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
@@ -217,7 +217,7 @@ class AppController extends Controller
 
         $this->loadModel('Services');
         $this->set('serviceTypes', $this->Services->types);
-        $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
+        $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'title' => 'asc'])->all();
         $footerServices = $this->Services->find()->where(['active' => 1, 'show_on_footer' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
 
         $this->set('servicesList', $services);
@@ -1007,7 +1007,7 @@ class AppController extends Controller
 
         $wishLists = $this->WishLists->find('list', [
             'keyField' => 'course_id', 'valueField' => 'course_id'
-        ])->where($wishConds)->order(['display_order' => 'asc'])->toArray();
+        ])->where($wishConds)->order(['course_id' => 'asc'])->toArray();
         return $wishLists;
     }
 

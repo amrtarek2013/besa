@@ -33,7 +33,7 @@ class CoursesController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
 
         $this->set('countriesList', $countriesList);
     }
@@ -41,7 +41,7 @@ class CoursesController extends AppController
     public function study()
     {
         $this->set('bodyClass', 'pageAbout pageServices');
-        $courses = $this->Courses->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
+        $courses = $this->Courses->find()->where(['active' => 1])->order(['course_name' => 'asc'])->limit(10)->all();
         $this->set('courses', $courses);
 
 
@@ -53,7 +53,7 @@ class CoursesController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 
@@ -66,7 +66,7 @@ class CoursesController extends AppController
 
         $this->loadModel('StudyLevels');
         $studyLevels = $this->StudyLevels->find('all')->where(['active' => 1])
-            ->order(['display_order' => 'asc'])->all()->toArray();
+            ->order(['title' => 'asc'])->all()->toArray();
         $this->set('studyLevels', $studyLevels);
     }
 
@@ -97,7 +97,7 @@ class CoursesController extends AppController
         // $this->loadModel('Countries');
         // $countriesList = $this->Countries->find('list', [
         //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        // ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
 
         // $this->set('countriesList', $countriesList);
     }

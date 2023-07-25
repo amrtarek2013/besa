@@ -14,7 +14,7 @@ class EnquiriesController extends AppController
     {
         $this->set('bodyClass', '');
         $this->loadModel('Branches');
-        $branches = $this->Branches->find()->where(['active' => 1])->order(['display_order' => 'ASC'])->all()->toArray();
+        $branches = $this->Branches->find()->where(['active' => 1])->order(['name' => 'ASC'])->all()->toArray();
         $countries = Hash::combine($branches, '{n}.country', '{n}.country');
         $branchesList = Hash::combine($branches, '{n}.name', '{n}.name', '{n}.country');
         $branches = Hash::combine($branches, '{n}.name', '{n}');

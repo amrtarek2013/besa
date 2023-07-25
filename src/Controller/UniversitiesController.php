@@ -13,7 +13,7 @@ class UniversitiesController extends AppController
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
-        $universities = $this->Universities->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
+        $universities = $this->Universities->find()->where(['active' => 1])->order(['university_name' => 'asc'])->limit(10)->all();
         
         $this->set('universities', $universities);
     }

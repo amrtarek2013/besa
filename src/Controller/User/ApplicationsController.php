@@ -430,7 +430,7 @@ class ApplicationsController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['display_order' => 'asc']);
+        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 
@@ -438,27 +438,27 @@ class ApplicationsController extends AppController
         $this->loadModel('Courses');
         $courses = $this->Courses->find('list', [
             'keyField' => 'id', 'valueField' => 'course_name'
-        ])->where(['active' => 1])->order(['display_order' => 'asc']);
+        ])->where(['active' => 1])->order(['course_name' => 'asc']);
         $this->set('courses', $courses->toArray());
 
 
         $this->loadModel("StudyLevels");
         $studyLevels = $this->StudyLevels->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('studyLevels', $studyLevels);
 
 
         $this->loadModel("Services");
         $services = $this->Services->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('services', $services);
 
         $this->loadModel("Universities");
         $universities = $this->Universities->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['university_name' => 'asc'])->toArray();
         $this->set('universities', $universities);
     }
 
