@@ -1699,6 +1699,7 @@
 
     .box-result {
         padding: 0 10px;
+        width: 96%;
     }
 
     .whyStudy .gridWhyStudy .image {
@@ -1765,4 +1766,5 @@
     .why_besa2 .container-icons{
         grid-template-columns: 1fr 1fr;
     }
+    
 }
