@@ -40,19 +40,25 @@ function CaptchaSecurityImages($width = '120', $height = '30', $characters = '6'
 	/* set the colours */
 	$background_color = imagecolorallocate($image, 255, 255, 255);
 	$text_color = imagecolorallocate($image, 50, 104, 154);
-	//$line_color = imagecolorallocate($image, 20, 40, 100);
-	//$noise_color = imagecolorallocate($image, 100, 180, 255);
-	$noise_color = null;
+	$line_color = imagecolorallocate($image, 20, 40, 100);
+	$noise_color = imagecolorallocate($image, 100, 180, 255);
+	// $noise_color = null;
 	/* generate random dots in background */
+
+	$transparent = imagecolorallocatealpha( $image, 0, 0, 0, 127 ); 
+    // imagefill( $image, 0, 0, $transparent );
+	// $noise_color = $transparent;
+
 	for ($i = 0; $i < (0.3 * $width * $height) / 3; $i++) {
 		imagefilledellipse($image, mt_rand(0, $width), mt_rand(0, $height), 1, 1, $noise_color);
 	}
 	//generate random lines in background 
-	// for ($i = 0; $i < (0.3 * $width * $height) / 150; $i++) {
-	// 	imageline($image, mt_rand(0, $width), mt_rand(0, $height), mt_rand(0, $width), mt_rand(0, $height), $line_color);
-	// }
+	for ($i = 0; $i < (0.3 * $width * $height) / 200; $i++) {
+		imageline($image, mt_rand(0, $width), mt_rand(0, $height), mt_rand(0, $width), mt_rand(0, $height), $line_color);
+	}
 	/* create textbox and add text */
-	imagefill($image,0,0,0x7fff0000);
+	// imagefill($image,0,0,0x7fff0000);
+	
 	$angel = rand(-8, 8);
 	$textbox = imagettfbbox($font_size, $angel, $font, $code) or die('Error in imagettfbbox function');
 	$x = ($width - $textbox[4]) / 2;

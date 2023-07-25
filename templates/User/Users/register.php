@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="background-banner-color">
-          <img src="<?=WEBSITE_URL?>img/hero-bg3.png" alt="" style="z-index: 2;">
-          <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+          <img src="<?= WEBSITE_URL ?>img/hero-bg3.png" alt="" style="z-index: 2;">
+          <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
         </div>
       </div>
       <div class="col-md-6">
@@ -94,20 +94,20 @@
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <?= $this->Form->control('student_type', [
-              'label' => 'I am a*', 'required' => true,
-              'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
+            <!-- <?= $this->Form->control('student_type', [
+                    'label' => 'I am a*', 'required' => true,
+                    'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?> -->
+
+            <?= $this->Form->control('city', [
+              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-
 
             <?= $this->Form->control('country_id', [
               'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
               'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
-            <?= $this->Form->control('city', [
-              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
