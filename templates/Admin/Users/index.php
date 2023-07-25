@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Users List') ?></h1>
+                    <h1><?= __('Students List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Users') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Students') ?></li>
                     </ol>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Users List') ?></h3>
+                            <h3 class="card-title"><?= __('Students List') ?></h3>
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/users/add">
                                 <?= __('Add new') ?>
                             </a>
