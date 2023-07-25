@@ -1,5 +1,6 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
@@ -14,6 +15,7 @@ declare (strict_types = 1);
  * @since         3.0.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace Cake\View\Helper;
 
 use Cake\Routing\Router;
@@ -23,10 +25,12 @@ use \Cake\Utility\Inflector;
 /**
  * UrlHelper class for generating URLs.
  */
-class ListHelper extends Helper {
+class ListHelper extends Helper
+{
 	public $helpers = array('Html', 'Url', 'Paginator', 'Javascript', 'AdminForm', 'Session', 'Time', 'Mixed');
 
-	function adminIndex($fields, $data = array(), $actions = array(), $multi_select = false, $multi_select_actions = array(), $params = array(), $show_referred = false) {
+	function adminIndex($fields, $data = array(), $actions = array(), $multi_select = false, $multi_select_actions = array(), $params = array(), $show_referred = false)
+	{
 
 		$out = '';
 		$urls = array();
@@ -38,7 +42,6 @@ class ListHelper extends Helper {
 
 			if (isset($url)) {
 				unset($url['?']['page'], $url['?']['sort'], $url['?']['direction'], $url['ext']);
-
 			}
 			if (!empty($params['prefix'])) {
 				$url[$params['prefix']] = true;
@@ -46,7 +49,6 @@ class ListHelper extends Helper {
 			if (isset($url['?'])) {
 				$this->Paginator->options(array('url' => ['?' => $url['?']]));
 			}
-
 		}
 
 		if ($multi_select) {
@@ -76,7 +78,7 @@ class ListHelper extends Helper {
 		// debug($title );die;
 		// $out .= '<div class="card-header">
 
-              // $out .= '</div>';
+		// $out .= '</div>';
 		$out .= '<div class="card-body"><div class="responsive-container"><table id="Table" class="table table-striped projects" cellpadding="0" cellspacing="0" width="100%">';
 		//generate header
 		$out .= '<thead><tr class="table-header">';
@@ -106,8 +108,8 @@ class ListHelper extends Helper {
 
 			if (empty($params['no_paging']) || !$params['no_paging']) {
 				// now sorting for now >> :(
-				if($t =="sales_agent_name"){
-					$t="sales_agent_id";
+				if ($t == "sales_agent_name") {
+					$t = "sales_agent_id";
 				}
 				$title = $this->Paginator->sort($t, $title);
 			}
@@ -173,22 +175,22 @@ class ListHelper extends Helper {
 					$cell = '';
 					if ($t == "amount") {
 						if (!empty($cell)) {
-							$cell .= '$' . number_format((integer) $cell, 2);
+							$cell .= '$' . number_format((int) $cell, 2);
 						}
-
 					}
 					if (!isset($spec['format']) || $spec['format'] != 'expression') {
 
 						//Added by DK 30/06/2020 to print field in another table/relation
 						if (strpos($name, '.')) {
 							$dd = explode('.', $name);
-							$cell .= (string) $row[$dd[0]][$dd[1]];
+							if (isset($row[$dd[0]][$dd[1]]))
+								$cell .= (string) $row[$dd[0]][$dd[1]];
 						} else {
-							$cell .= (isset($row[$name]))?(string) $row[$name]:'';
+							$cell .= (isset($row[$name])) ? (string) $row[$name] : '';
 						}
 					}
 
-					if (in_array($t, array('created',"date"))) {
+					if (in_array($t, array('created', "date"))) {
 						if (is_object($cell)) {
 							$cell = $cell->format('d-m-Y h:i:s');
 						} else {
@@ -198,7 +200,6 @@ class ListHelper extends Helper {
 
 							// debug($cell);die;
 						}
-
 					}
 
 					if (strtolower($t) == 'display_order') {
@@ -231,7 +232,6 @@ class ListHelper extends Helper {
 							} else {
 								$cell = "No";
 							}
-
 						} elseif ($spec['format'] == 'substr') {
 							$string = $cell;
 							$start = !empty($spec['options']['start']) ? $spec['options']['start'] : 0;
@@ -255,47 +255,46 @@ class ListHelper extends Helper {
 							}
 							$src = $this->Url->build($image_src);
 							$cell = "<img src='$image_src' $options />";
-
 						} elseif ($spec['format'] == 'link') {
 							// dd($cell);
-							$cellLinkSrc= '#';
+							$cellLinkSrc = '#';
 							$iconSrc = $this->Url->build('/img/eye.png');
-							
-							
-							
 
-							if(!empty($cell)){
+
+
+
+							if (!empty($cell)) {
 								$cellLinkSrc = $this->Url->build($cell);
-								$iconImage = '<img src="'.$iconSrc.'">';
+								$iconImage = '<img src="' . $iconSrc . '">';
 								$cell =  "<a href='$cellLinkSrc' target='_blank'/>$iconImage</a>";
-							}else{
-								
-								$cell =  "-";
-							}
-							
-							
-							
-							// $cell = "<img src='$image_src' $options />";
-						
-						}elseif ($spec['format'] == 'img') {
-							// dd($cell);
-							$cellLinkSrc= '#';
-							$iconSrc = $this->Url->build('/img/eye.png');				
-							
+							} else {
 
-							if(!empty($cell)){
-								$cellLinkSrc = $this->Url->build($cell);
-								$cell = '<img width="60", hight="60" src="'.$cellLinkSrc.'">';
-								// $cell =  "<a href='$cellLinkSrc' target='_blank'/>$iconImage</a>";
-							}else{
-								
 								$cell =  "-";
 							}
-							
-							
-							
+
+
+
 							// $cell = "<img src='$image_src' $options />";
-						
+
+						} elseif ($spec['format'] == 'img') {
+							// dd($cell);
+							$cellLinkSrc = '#';
+							$iconSrc = $this->Url->build('/img/eye.png');
+
+
+							if (!empty($cell)) {
+								$cellLinkSrc = $this->Url->build($cell);
+								$cell = '<img width="60", hight="60" src="' . $cellLinkSrc . '">';
+								// $cell =  "<a href='$cellLinkSrc' target='_blank'/>$iconImage</a>";
+							} else {
+
+								$cell =  "-";
+							}
+
+
+
+							// $cell = "<img src='$image_src' $options />";
+
 						} elseif ($spec['format'] == 'get_from_array') {
 							$selected = $cell;
 							$items_list = !empty($spec['options']['items_list']) ? $spec['options']['items_list'] : array();
@@ -308,14 +307,13 @@ class ListHelper extends Helper {
 							$cell = sprintf($spec['format'], $cell);
 						}
 					} elseif (isset($spec['date_format'])) {
-						if (is_string($cell) && $cell!=null ) {
+						if (is_string($cell) && $cell != null) {
 							$cell = date($spec['date_format'], strtotime($cell));
-						} elseif ($cell==null) {
+						} elseif ($cell == null) {
 							$cell = '';
-						}else {
+						} else {
 							$cell = $cell->format($spec['date_format']);
 						}
-
 					}
 				} elseif (isset($spec['format'])) {
 
@@ -386,7 +384,6 @@ class ListHelper extends Helper {
 						$cell = $this->Html->link($cell, $spec['edit_link'], $spec["options"]);
 					} else {
 						$cell = $this->Html->link($cell, $spec['edit_link']);
-
 					}
 				}
 				$cells[] = $cell;
@@ -413,7 +410,7 @@ class ListHelper extends Helper {
 
 			$cell = '';
 			if (is_array($actions) && !empty($actions)) {
-				$cell.="<div class='project-actions'>";
+				$cell .= "<div class='project-actions'>";
 				foreach ($actions as $k => $action) {
 					$actionIcon = '';
 
@@ -445,14 +442,12 @@ class ListHelper extends Helper {
 						} else {
 							$cell .= $actionIcon . str_replace("%25{$matches[1]}%25", $row[$matches[1]], $action);
 						}
-
 					}
 					// $aa =$this->AdminForm->postLink(__('Delete'), ['action' => 'delete', 1], ['confirm' => __('Are you sure you want to delete this?')]);
 
 				}
-				$cell.="</div>";
+				$cell .= "</div>";
 				$cells[] = [0 => $cell, 1 => ['class' => '']];
-
 			}
 			// debug($aa);
 
@@ -585,7 +580,8 @@ CODEBLOCK;
 		return $out;
 	}
 
-	function paging($prev = -1, $next = -1) {
+	function paging($prev = -1, $next = -1)
+	{
 		// return;
 		$this->Paginator->setTemplates([
 			'current' => '<li class="active page-item"><a class="page-link" href="">{{text}}</a></li>',
@@ -601,13 +597,14 @@ CODEBLOCK;
 		return $this->Html->div('paging', $paging) . $this->Html->div('clear', '');
 	}
 
-	public function filter_form($model, $filters, $form_options = array(), $extra = array(), $url_params, $sessiondata, $other = []) {
+	public function filter_form($model, $filters, $form_options = array(), $extra = array(), $url_params, $sessiondata, $other = [])
+	{
 		if (empty($filters)) {
 			return false;
 		}
 
 		unset($url_params['url'], $url_params['page'], $url_params['sort'], $url_params['direction']);
-		$allParams =$this->_View->getRequest()->getAttribute('params');
+		$allParams = $this->_View->getRequest()->getAttribute('params');
 		$session_key = $allParams['controller'] . '_' . $allParams['action'] . "_Filter";
 		$lastFilter = $sessiondata->read($session_key);
 		$sessionParams = false;
@@ -615,7 +612,7 @@ CODEBLOCK;
 			$url_params = $lastFilter;
 			$sessionParams  = true;
 		}
-		
+
 		$display = 'none';
 		if (!empty($url_params['?'])) {
 			foreach ($url_params as $variable) {
@@ -624,26 +621,25 @@ CODEBLOCK;
 						$display = 'block';
 					}
 				}
-
 			}
 		}
 		// echo "--".$display."<br>";
 		$sp_class = '';
-		if($allParams['controller']=="Enquiries" && $allParams['action']=="index"){
+		if ($allParams['controller'] == "Enquiries" && $allParams['action'] == "index") {
 			$display = 'block';
 			$sp_class = 'show_filter_block';
 		}
 		// echo "--".$display."<br>";
-		
+
 		$hasDate = false;
 		// print_r($allParams);die;
-		if(empty($allParams['pass'])){
-			$defaults = array('url' => ['controller' => $allParams['controller'], 'action' => $allParams['action']], 'type' => 'get', 'id' => 'filterform','class'=>"$sp_class", 'style' => "display:$display");
-		}else{
-			$defaults = array('url' => ['controller' => $allParams['controller'], 'action' => $allParams['action'],$allParams['pass'][0]], 'type' => 'get', 'id' => 'filterform','class'=>"$sp_class", 'style' => "display:$display");
+		if (empty($allParams['pass'])) {
+			$defaults = array('url' => ['controller' => $allParams['controller'], 'action' => $allParams['action']], 'type' => 'get', 'id' => 'filterform', 'class' => "$sp_class", 'style' => "display:$display");
+		} else {
+			$defaults = array('url' => ['controller' => $allParams['controller'], 'action' => $allParams['action'], $allParams['pass'][0]], 'type' => 'get', 'id' => 'filterform', 'class' => "$sp_class", 'style' => "display:$display");
 		}
 		// echo "--".$display."<br>";
-		
+
 
 		// dd($defaults);
 
@@ -661,23 +657,22 @@ CODEBLOCK;
 		$output .= $this->AdminForm->create($model, $form_options);
 		$in = 0;
 		$allValues = [];
-		if(isset($url_params['?']) && !empty($url_params['?'])){
+		if (isset($url_params['?']) && !empty($url_params['?'])) {
 			$allValues = $url_params['?'];
 		}
 
-		if($sessionParams){
+		if ($sessionParams) {
 			$allValues = $lastFilter;
 			$url_params['?'] = $lastFilter;
 		}
 
-		$openFIlter= (empty($allValues))?'':"javascript:$('#{$form_options['id']}').slideToggle('fast');void(0);";
+		$openFIlter = (empty($allValues)) ? '' : "javascript:$('#{$form_options['id']}').slideToggle('fast');void(0);";
 
-		
+
 		foreach ($filters as $field => $filter) {
 			if (($in % count($filters)) == 0) {
 
 				$output .= '<div class="row">';
-
 			}
 
 			if (is_numeric($field)) {
@@ -690,12 +685,11 @@ CODEBLOCK;
 				}
 				if ($filter == "id") {
 					$output .= '<div class="col-md-2">';
-				}else{
+				} else {
 					$output .= '<div class="col-md-3">';
 				}
 				$output .= $this->AdminForm->control($filter, $input_prams);
 				$output .= '</div>';
-
 			} elseif (is_string($filter)) {
 				$div_id = 'Div' . $allParams['controller'] . $this->createSlug($field);
 				$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
@@ -705,15 +699,15 @@ CODEBLOCK;
 				$output .= '</div>';
 			} else {
 				if (!empty($filter['type']) && $filter['type'] == 'text_field') {
-			
+
 					$div_id = 'Div' . $allParams['controller'] . $this->createSlug($field);
-				$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
-				// debug($value);die;
-				$output .= '<div class="col-md-3">';
-				$output .= $this->AdminForm->control($field, array('class' => $extra['input_class'], 'label' => Inflector::humanize($field), 'value' => $value, 'selected' => $value, 'empty' => __('[Any ' . Inflector::humanize($field) . ']', true), 'div' => array('id' => $div_id)));
-				$output .= '</div>';
+					$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
+					// debug($value);die;
+					$output .= '<div class="col-md-3">';
+					$output .= $this->AdminForm->control($field, array('class' => $extra['input_class'], 'label' => Inflector::humanize($field), 'value' => $value, 'selected' => $value, 'empty' => __('[Any ' . Inflector::humanize($field) . ']', true), 'div' => array('id' => $div_id)));
+					$output .= '</div>';
 					// dd($output);
-				} elseif (!empty($filter['type']) && $filter['type'] == 'number_range'){
+				} elseif (!empty($filter['type']) && $filter['type'] == 'number_range') {
 
 					$from_div_id = "Div{$allParams['controller']}{$field}From";
 					$to_div_id = "Div$model{$field}To";
@@ -733,10 +727,10 @@ CODEBLOCK;
 					$to_value = empty($allValues[$field . '_to']) ? '' : $allValues[$field . '_to'];
 
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_from', array('label' => __('From'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value, 'div' => array('id' => $from_div_id),"autocomplete"=>"off"));
+					$output .= $this->AdminForm->control($field . '_from', array('label' => __('From'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value, 'div' => array('id' => $from_div_id), "autocomplete" => "off"));
 					$output .= '</div>';
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_to', array('label' => __('To'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value, 'div' => array('id' => $to_div_id),"autocomplete"=>"off"));
+					$output .= $this->AdminForm->control($field . '_to', array('label' => __('To'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value, 'div' => array('id' => $to_div_id), "autocomplete" => "off"));
 					$output .= '</div>';
 					$hasDate = true;
 				} elseif (!empty($filter['type']) && strtolower($filter['type']) == 'date_time_range') {
@@ -755,26 +749,26 @@ CODEBLOCK;
 
 
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_from', array('class' => $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value,'label'=>'From Date'));
+					$output .= $this->AdminForm->control($field . '_from', array('class' => $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value, 'label' => 'From Date'));
 					$output .= '</div>';
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_from' . "Time", array('class' => "".$extra['input_class'], "autocomplete" => "off", 'id' => "{$field}FromTime", 'value' => $fromTime_value, 'selected' => $fromTime_value,'label'=>'From Time'));
+					$output .= $this->AdminForm->control($field . '_from' . "Time", array('class' => "" . $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}FromTime", 'value' => $fromTime_value, 'selected' => $fromTime_value, 'label' => 'From Time'));
 					$output .= '</div>';
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_to', array('class' => $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value,'label'=>'To Date', 'div' => array('id' => $to_div_id)));
+					$output .= $this->AdminForm->control($field . '_to', array('class' => $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value, 'label' => 'To Date', 'div' => array('id' => $to_div_id)));
 					$output .= '</div>';
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_to' . "Time", array('class' =>"". $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}ToTime", 'value' => $toTime_value, 'selected' => $toTime_value,'label'=>'To Time', 'div' => array('id' => $to_div_id)));
+					$output .= $this->AdminForm->control($field . '_to' . "Time", array('class' => "" . $extra['input_class'], "autocomplete" => "off", 'id' => "{$field}ToTime", 'value' => $toTime_value, 'selected' => $toTime_value, 'label' => 'To Time', 'div' => array('id' => $to_div_id)));
 
-					
-                    $output .= $this->Html->script('jquery.datepick');
+
+					$output .= $this->Html->script('jquery.datepick');
 					$output .= $this->Html->css('jquery.datepick');
 					$output .= $this->Html->script('jquery.datetimepicker.min');
 					$output .= $this->Html->css('jquery.datetimepicker.min');
 					$output .= $this->Html->script('jquery.timepicker.min');
 					$output .= $this->Html->css('jquery.timepicker.min');
 
-					
+
 					$output .= $this->Html->script('moment.js');
 					$parser = "\n\$.datetimepicker.setDateFormatter({\n
 						parseDate: function (date, format) {\n
@@ -812,50 +806,47 @@ CODEBLOCK;
 					$selectOptions = (isset($other[Inflector::pluralize($field)])) ? $other[Inflector::pluralize($field)] : [];
 					$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field][0]);
 					$label = empty($filter['title']) ? Inflector::humanize($field) : $filter['title'];
-					
-					
+
+
 					$multiple = empty($filter['multiple']) ? false : 'multiple';
 
-					if(isset($filter['empty']) && empty($filter['empty'])){
+					if (isset($filter['empty']) && empty($filter['empty'])) {
 						$empty1 = false;
-					}else{
+					} else {
 						$empty1 = empty($filter['empty']) ? __('[Any ' . Inflector::humanize($field) . ']') : __($filter['empty']);
 					}
 					$required1 = empty($filter['required']) ? false : $filter['required'];
 
 					// dd($url_params);
-					if($field=="active"){
+					if ($field == "active") {
 						$output .= '<div class="col-md-2">';
-					}else{
+					} else {
 						$output .= '<div class="col-md-3">';
 					}
 					if (isset($filter['options']['options'])) {
 						$selectOptions = $filter['options']['options'];
 					}
-					$fieldType = (isset($filter['options']['type']))?$filter['options']['type']:false;
+					$fieldType = (isset($filter['options']['type'])) ? $filter['options']['type'] : false;
 					if (!empty($selectOptions)) {
-						
+
 						$output .= $this->AdminForm->control($field, array('type' => 'select', 'options' => $selectOptions, 'label' => $label, 'class' => 'selectTwoInput ' . $extra['input_class'], 'value' => $value, 'selected' => $value, 'empty' => __('[Any ' . $label . ']', true)));
-					} else if($fieldType){
+					} else if ($fieldType) {
 
 						$div_id = 'Div' . $allParams['controller'] . $this->createSlug($field);
 						$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
-						$output .= $this->AdminForm->control($field, array('type'=>$fieldType,'class' =>  $extra['input_class'], 'label' => isset($label)?$label:Inflector::humanize($field), 'value' => $value, 'div' => array('id' => $div_id)));
-
+						$output .= $this->AdminForm->control($field, array('type' => $fieldType, 'class' =>  $extra['input_class'], 'label' => isset($label) ? $label : Inflector::humanize($field), 'value' => $value, 'div' => array('id' => $div_id)));
 					} else {
 						// debug($field);
-						$output .= $this->AdminForm->control($field, array('label' => $label, 'class' => 'selectTwoInput ' . $extra['input_class'], 'value' => $value, 'selected' => $value, 'empty' => $empty1, 'required' => $required1,'multiple'=>$multiple));
+						$output .= $this->AdminForm->control($field, array('label' => $label, 'class' => 'selectTwoInput ' . $extra['input_class'], 'value' => $value, 'selected' => $value, 'empty' => $empty1, 'required' => $required1, 'multiple' => $multiple));
 					}
 					$output .= '</div>';
 					$selectOptions = [];
-
 				}
 			}
 			$in++;
 			if (($in % count($filters)) == 0) {
 				$output .= '</div>';
 			}
-
 		}
 		if ($in < count($filters)) {
 			$output .= '</div>';
@@ -864,17 +855,17 @@ CODEBLOCK;
 
 		$output .= '<div class="row">';
 		$output .= '<div class="FilterAction filter-action col-sm-6">';
-		if( !empty($extra['filter_title']) ){
+		if (!empty($extra['filter_title'])) {
 			$output .= $this->AdminForm->submit(__($extra['filter_title']), array('class' => 'btn btn-block btn-primary', 'div' => false));
-		}else{
-			$output .= $this->AdminForm->submit(__('Filter', true), array('class' => 'btn btn-block btn-primary', 'div' => false));	
+		} else {
+			$output .= $this->AdminForm->submit(__('Filter', true), array('class' => 'btn btn-block btn-primary', 'div' => false));
 		}
 
 		//submit2
-		if( !empty($extra['submit2']) ){
-			$output .= $this->AdminForm->submit(__($extra['submit2']), array('name'=>'submit2','value'=>'2','class' => 'btn btn-block btn-dark', 'div' => false));
+		if (!empty($extra['submit2'])) {
+			$output .= $this->AdminForm->submit(__($extra['submit2']), array('name' => 'submit2', 'value' => '2', 'class' => 'btn btn-block btn-dark', 'div' => false));
 		}
-		
+
 
 		$output .= $this->AdminForm->control(__('Clear', true), array('label' => false, 'div' => false, 'value' => 'Clear', 'class' => 'btn btn-primary btn-sm', 'id' => 'FilterClear', 'type' => 'reset'));
 
@@ -893,11 +884,10 @@ CODEBLOCK;
 		// if(!empty($_GET['test3'])){
 		// 	print_r($prefix);die;
 		// }
-		if(!empty($prefix)){
-			$clearUrl = Router::url(array('action' => 'reset_filter',$allParams['action'], strtolower($prefix) => true, 'prefix' => $prefix));
-		}else{
-			$clearUrl = Router::url(array('action' => 'reset_filter',$allParams['action']));
-
+		if (!empty($prefix)) {
+			$clearUrl = Router::url(array('action' => 'reset_filter', $allParams['action'], strtolower($prefix) => true, 'prefix' => $prefix));
+		} else {
+			$clearUrl = Router::url(array('action' => 'reset_filter', $allParams['action']));
 		}
 
 		$here = $this->Url->build(array('?' => false));
@@ -907,14 +897,15 @@ $('#filterform input').removeAttr('required');
 $openFIlter
 CODEBLOCK;
 		if ($hasDate) {
-		    $script .= '$(".hasDate").datepicker({format: "dd-mm-yy"});';
+			$script .= '$(".hasDate").datepicker({format: "dd-mm-yy"});';
 		}
 		$output .= $this->Html->scriptBlock('$(function(){' . $script . '});');
 		$output .= '</div>';
 		return $this->Html->div($extra['div_class'], $output, array('id' => $extra['div_id']));
 	}
 
-	function export_csv($ModelName, $items, $schema, $filename = '') {
+	function export_csv($ModelName, $items, $schema, $filename = '')
+	{
 		Configure::write('debug', 0);
 		$ini_config = parse_ini_file(APP . DS . 'app_config.ini');
 		$name = $filename;
@@ -939,10 +930,10 @@ CODEBLOCK;
 		return $output;
 	}
 
-	public static function createSlug($str, $delimiter = '-') {
+	public static function createSlug($str, $delimiter = '-')
+	{
 
 		$slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
 		return $slug;
-
 	}
 }
