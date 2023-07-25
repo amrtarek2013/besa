@@ -214,6 +214,17 @@ class UsersController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['display_order' => 'asc']);
         $this->set('countriesList', $countriesList);
+        $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
 
     }
 
