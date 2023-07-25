@@ -146,9 +146,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>OUR <?= $country['country_code'] ?> PARTNER UNIVERSITIES</h2>
+                <h2>Hear about the experiences of some of our international students studying in <?= $country['country_code'] ?></h2>
 
-                <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN <?= $country['country_code'] ?></p>
+                <!-- <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN <?= $country['country_code'] ?></p> -->
 
                 <div class="d-flex images">
                     <?php if (!empty($countryPartnersVideos)) : ?>

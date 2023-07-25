@@ -100,16 +100,25 @@
                     'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                   ]) ?> -->
 
-            <?= $this->Form->control('city', [
-              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
 
             <?= $this->Form->control('country_id', [
               'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
               'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+
+
+            <?= $this->Form->control('city', [
+              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+
+            <?= $this->Form->control('current_status', [
+              'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
 
             <?= $this->Form->control('study_level_id', [
               'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
@@ -124,10 +133,12 @@
             ]) ?>
 
 
-            <?= $this->Form->control('current_status', [
-              'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+            <?= $this->Form->control('destination_id', [
+              'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
+              'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+
             <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>
 
             <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*']) ?>

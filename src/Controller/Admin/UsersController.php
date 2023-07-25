@@ -215,6 +215,13 @@ class UsersController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
+
+
+        $destinationsList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+        $this->set('destinationsList', $destinationsList);
+
         $this->loadModel('StudyLevels');
         // $studyLevels = $this->StudyLevels->find('list', [
         //     'keyField' => 'id', 'valueField' => 'title'
