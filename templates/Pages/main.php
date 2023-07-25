@@ -205,7 +205,7 @@
 
 <!-- Start testimonials 2-->
 
-<section class="testimonials2">
+<!-- <section class="testimonials2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -224,16 +224,12 @@
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <!-- <div class="box-video">
-                        <video controls poster="/img/new-images/testi-2.png">
-                            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" type="video/mp4">
-                        </video>
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
 <!-- End testimonials 2-->
 <?php //= $this->element("choose-place-earth") 
 ?>
@@ -319,14 +315,14 @@
 </section> -->
 
 
-<?php /* ?>
+
 <section class="testimonials">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="background-qoute">
-                    <img src="<?=WEBSITE_URL?>img/icon/quote-left.svg" alt="" class="qoute-left">
-                    <img src="<?=WEBSITE_URL?>img/icon/quote-right.svg" alt="" class="qoute-right">
+                    <img src="<?= WEBSITE_URL ?>img/icon/quote-left.svg" alt="" class="qoute-left">
+                    <img src="<?= WEBSITE_URL ?>img/icon/quote-right.svg" alt="" class="qoute-right">
                 </div>
                 <h2 class="title">Clients' Testimonials</h2>
                 <div class="slider-testimonials owl-carousel owl-theme" id="slider-testimonials">
@@ -363,7 +359,6 @@
     </div>
 </section>
 
-<?php */ ?>
 
 <section class="contact-us">
     <div class="top-dots-img">
