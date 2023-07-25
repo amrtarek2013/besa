@@ -57,31 +57,27 @@
                                         <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
                                         <?= $this->AdminForm->control('city', [
                                             'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
-                                            ]
+                                           
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('country_id', [
                                             'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
                                             'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
-                                            ]
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('study_level_id', [
                                             'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
                                             'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
-                                            ]
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('subject_area_id', [
                                             'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
                                             'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
-                                            ]
                                         ]) ?>
 
 
                                         <?= $this->AdminForm->control('current_status', [
                                             'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
-                                            ]
                                         ]) ?>
                                         <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'user_' . $id, $mainAdminToken) ?> -->
                                         <?= $this->AdminForm->control('active', ['type' => 'checkbox']) ?>
