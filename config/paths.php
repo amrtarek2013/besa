@@ -99,13 +99,13 @@ define('CAKE', CORE_PATH . 'src' . DS);
 
 
 
-define('WEBSITE_PATH', Router::url(null)); //'https://besa.intimedev.com');
+define('WEBSITE_PATH', 'https://besa.intimedev.com');
 define('WEBSITE_URL', Router::url(null, true));
-define('ADMIN_ASSETS', Router::url('/Admin')); //WEBSITE_PATH.'/Admin');
-define('FRONT_ASSETS', Router::url('/webroot/Front'));
-define('ADMIN_LINK', Router::url('/admin'));
+define('ADMIN_ASSETS', WEBSITE_PATH.'/Admin'); //WEBSITE_PATH.'/Admin');
+define('FRONT_ASSETS', WEBSITE_PATH.'/webroot/Front');
+define('ADMIN_LINK', WEBSITE_PATH.'/admin');
 define('UPLOAD_PATH', '/home/rdidtcom/public_html/annotation/webroot/uploads');
-define('UPLOAD_LINK', Router::url('/webroot/uploads'));
+define('UPLOAD_LINK', WEBSITE_PATH.'/webroot/uploads');
 
 define('USER_ASSETS', WEBSITE_PATH);
 define('USER_LINK', Router::url('/user'));
