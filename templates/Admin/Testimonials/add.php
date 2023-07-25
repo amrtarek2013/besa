@@ -53,17 +53,17 @@
                                 ],
                             ])]);
 
-                            echo $this->AdminForm->control('video_url', ['type' => 'text']);
-                            echo $this->AdminForm->control('video_thumb', ['type' => 'file', 'between' => $this->element('image_input_between', [
-                                'data' => $testimonial,
-                                'field' => 'video_thumb',
-                                'info' => [
-                                    'width' => $uploadSettings['video_thumb']['width'],
-                                    'height' => $uploadSettings['video_thumb']['height'],
-                                    'path' => $uploadSettings['video_thumb']['path']
+                            // echo $this->AdminForm->control('video_url', ['type' => 'text']);
+                            // echo $this->AdminForm->control('video_thumb', ['type' => 'file', 'between' => $this->element('image_input_between', [
+                            //     'data' => $testimonial,
+                            //     'field' => 'video_thumb',
+                            //     'info' => [
+                            //         'width' => $uploadSettings['video_thumb']['width'],
+                            //         'height' => $uploadSettings['video_thumb']['height'],
+                            //         'path' => $uploadSettings['video_thumb']['path']
 
-                                ],
-                            ])]);
+                            //     ],
+                            // ])]);
 
                             // echo $this->AdminForm->control('keywords', ['type' => 'text', 'class' => 'keywords']);\
 

@@ -42,6 +42,7 @@
                             'id' => [],
                             'client_name' => [],
                             'university' => [],
+                            'image_path' => ['title'=>'Client Image','format' => 'img'],
                             'display_order' => [],
                             'active' => ['format' => 'bool'],
                         ];
