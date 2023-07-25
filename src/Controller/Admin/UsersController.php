@@ -37,10 +37,11 @@ class UsersController extends AppController
     public function index()
     {
 
-        $conditions = $this->_filter_params();
+        // $conditions = $this->_filter_params();
+        $conditions = [];
         // $conditions['Users.is_office_admin !='] = 1;
 
-        $users = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries'/*, 'Services'*/]]);
+        $users = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']]/*, 'Services'*/]]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('users', 'parameters'));
@@ -225,7 +226,6 @@ class UsersController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
-
     }
 
     public function workTimes($id = null)
