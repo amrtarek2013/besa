@@ -48,9 +48,10 @@
                             'country_name' => [],
                             
                             'is_destination' => ['format' => 'bool'],
-                            'code' => [],
+                            'country_code' => [],
                             'permalink' => [],
-                            'continent' => ['format' => 'get_from_array', 'options' => ['items_list' => $continents]],
+                            'continent' => [],
+                            // 'continent' => ['format' => 'get_from_array', 'options' => ['items_list' => $continents]],
                             'flag_path' => ['title' => 'Flag', 'format' => 'img'],
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
