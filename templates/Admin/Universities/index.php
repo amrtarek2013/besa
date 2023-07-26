@@ -47,6 +47,7 @@
                             // 'email' => [],
                             // 'telephone' => [],
                             // 'permalink' => [],
+                            'logo_path' => ['format' => 'img'],
                             'show_on_destination' => ['format' => 'bool'],
                             'active' => ['format' => 'bool'],
                         ];
