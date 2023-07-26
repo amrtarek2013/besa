@@ -44,7 +44,7 @@
                             // 'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
 
-                            'email' => [],
+                            // 'email' => [],
                             // 'telephone' => [],
                             // 'permalink' => [],
                             'show_on_destination' => ['format' => 'bool'],

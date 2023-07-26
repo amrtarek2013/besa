@@ -35,36 +35,47 @@
                             echo $this->AdminForm->create($university, ['type' => 'file', 'id' => $action . 'Form']);
 
 
-                            echo $this->AdminForm->control('university_name', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('title', ['type' => 'text']);
+                            echo $this->AdminForm->control('university_name', ['type' => 'text', 'class' => 'INPUT required', 'required' => true]);
+                            // echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('title', ['type' => 'text']);
 
-                            echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('state', ['type' => 'text']);
-                            echo $this->AdminForm->control('city', ['type' => 'text']);
-                            echo $this->AdminForm->control('street', ['type' => 'text']);
-                            echo $this->AdminForm->control('postcode', ['type' => 'text']);
-                            echo $this->AdminForm->control('address', ['type' => 'text']);
-                            echo $this->AdminForm->control('telephone', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('email', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('website', ['type' => 'text']);
+                            echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'required' => true, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('state', ['type' => 'text']);
+                            // echo $this->AdminForm->control('city', ['type' => 'text']);
+                            // echo $this->AdminForm->control('street', ['type' => 'text']);
+                            // echo $this->AdminForm->control('postcode', ['type' => 'text']);
+                            // echo $this->AdminForm->control('address', ['type' => 'text']);
+                            // echo $this->AdminForm->control('telephone', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('email', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('website', ['type' => 'text']);
 
-                            echo $this->AdminForm->control('top_text', ['type' => 'textarea', 'class' => 'editor']);
+                            echo $this->AdminForm->control('short_description', ['label' => 'Description', 'type' => 'textarea', 'required' => true, 'class' => 'required']);
 
-                            echo $this->AdminForm->control('why_text', ['type' => 'textarea', 'class' => 'editor']);
-                            echo $this->AdminForm->control('active', ['type' => 'checkbox', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('display_order', ['class' => 'INPUT required']);
-                            echo $this->AdminForm->control('show_on_destination', ['type' => 'checkbox', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('flag', ['label' => 'flag', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            // echo $this->AdminForm->control('why_text', ['type' => 'textarea', 'class' => 'editor']);
+                            echo $this->AdminForm->control('active', ['type' => 'checkbox', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('display_order', ['class' => 'INPUT']);
+                            echo $this->AdminForm->control('show_on_destination', ['type' => 'checkbox', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('logo', ['label' => 'logo', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $university,
-                                'field' => 'flag',
+                                'field' => 'logo',
                                 'info' => [
-                                    'width' => $uploadSettings['flag']['width'],
-                                    'height' => $uploadSettings['flag']['height'],
-                                    'path' => $uploadSettings['flag']['path']
+                                    'width' => $uploadSettings['logo']['width'],
+                                    'height' => $uploadSettings['logo']['height'],
+                                    'path' => $uploadSettings['logo']['path']
 
                                 ],
                             ])]);
+
+                            // echo $this->AdminForm->control('flag', ['label' => 'flag', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            //     'data' => $university,
+                            //     'field' => 'flag',
+                            //     'info' => [
+                            //         'width' => $uploadSettings['flag']['width'],
+                            //         'height' => $uploadSettings['flag']['height'],
+                            //         'path' => $uploadSettings['flag']['path']
+
+                            //     ],
+                            // ])]);
 
 
 
@@ -80,16 +91,16 @@
                             ])]);
 
 
-                            echo $this->AdminForm->control('banner_image', ['label' => 'Banner Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                                'data' => $university,
-                                'field' => 'banner_image',
-                                'info' => [
-                                    'width' => $uploadSettings['banner_image']['width'],
-                                    'height' => $uploadSettings['banner_image']['height'],
-                                    'path' => $uploadSettings['banner_image']['path']
+                            // echo $this->AdminForm->control('banner_image', ['label' => 'Banner Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            //     'data' => $university,
+                            //     'field' => 'banner_image',
+                            //     'info' => [
+                            //         'width' => $uploadSettings['banner_image']['width'],
+                            //         'height' => $uploadSettings['banner_image']['height'],
+                            //         'path' => $uploadSettings['banner_image']['path']
 
-                                ],
-                            ])]);
+                            //     ],
+                            // ])]);
                             ?>
 
                             <?php
