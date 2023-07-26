@@ -15,12 +15,16 @@ use Cake\Core\Configure;
 class TestimonialsController extends AppController
 {
 
-    public function index()
+    public function index($country_id = null)
     {
-
         $conditions = $this->_filter_params();
 
-        $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions, 'contain'=>['Countries'=>['fields'=>['country_name']]]]);
+        if (isset($country_id)) {
+            $conditions['country_id'] = $country_id;
+            $this->Session->write('country_id', $country_id);
+        }
+
+        $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']]]]);
         // debug($testimonials);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('testimonials', 'parameters'));
@@ -34,7 +38,7 @@ class TestimonialsController extends AppController
             if ($this->Testimonials->save($testimonial)) {
                 $this->Flash->success(__('The Testimonial has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Testimonial could not be saved. Please, try again.'));
         }
@@ -54,8 +58,7 @@ class TestimonialsController extends AppController
             $testimonial = $this->Testimonials->patchEntity($testimonial, $this->request->getData());
             if ($this->Testimonials->save($testimonial)) {
                 $this->Flash->success(__('The Testimonial has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Testimonial could not be saved. Please, try again.'));
         }
@@ -92,8 +95,7 @@ class TestimonialsController extends AppController
         } else {
             $this->Flash->error(__('The Testimonial could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -108,8 +110,7 @@ class TestimonialsController extends AppController
         } else {
             $this->Flash->error(__('The Testimonials could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -117,5 +118,14 @@ class TestimonialsController extends AppController
         $testimonial = $this->Testimonials->get($id);
 
         $this->set('testimonial', $testimonial);
+    }
+
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('country_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('country_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 }

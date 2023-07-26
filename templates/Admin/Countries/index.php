@@ -46,7 +46,7 @@
                             'basicModel' => 'countries',
                             'id' => [],
                             'country_name' => [],
-                            
+
                             'is_destination' => ['format' => 'bool'],
                             'country_code' => [],
                             'permalink' => [],
@@ -68,8 +68,10 @@
                         $actions = [
                             'images' => $this->Html->link(__('Images'), ['controller' => 'CountryImages', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-images')),
                             'Partners' => $this->Html->link(__('Partners'), ['controller' => 'Universities', 'action' => 'index', '%id%'], array('class' => 'btn btn-secondary btn-sm', 'icon' => 'fas fa-users')),
+
                             'Benefits' => $this->Html->link(__('Benefits'), ['controller' => 'CountryBenefits', 'action' => 'index', '%id%'], array('class' => 'btn btn-success btn-sm', 'icon' => 'fas fa-binoculars')),
                             'Questions' => $this->Html->link(__('Questions'), ['controller' => 'CountryQuestions', 'action' => 'index', '%id%'], array('class' => 'btn btn-warning btn-sm', 'icon' => 'fas fa-question-circle')),
+                            'Partners' => $this->Html->link(__('Testimonials'), ['controller' => 'testimonials', 'action' => 'index', '%id%'], array('class' => 'btn btn-secondary btn-sm', 'icon' => 'fas fa-users')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
                             'delete' => $this->Html->link(
