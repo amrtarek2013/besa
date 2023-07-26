@@ -102,8 +102,8 @@ class UniversitiesTable extends Table
 
         $validator->notEmptyString('university_name', 'This field is required.');
         // $validator->notEmptyString('code', 'This field is required.');
-        $validator->email('email', false, 'Please enter a valid email address.')->notEmptyString('email', 'This field is required.');
-        $validator->notEmptyString('telephone', 'This field is required.');
+        // $validator->email('email', false, 'Please enter a valid email address.')->notEmptyString('email', 'This field is required.');
+        // $validator->notEmptyString('telephone', 'This field is required.');
         // $validator->notEmptyString('address', 'This field is required.');
         // $validator->notEmptyString('postcode', 'This field is required.');
         // $validator->notEmptyString('state', 'This field is required.');
@@ -136,8 +136,8 @@ class UniversitiesTable extends Table
 
         $validator->notEmptyString('university_name', 'This field is required.');
         // $validator->notEmptyString('code', 'This field is required.');
-        $validator->email('email', false, 'Please enter a valid email address.')->notEmptyString('email', 'This field is required.');
-        $validator->notEmptyString('telephone', 'This field is required.');
+        // $validator->email('email', false, 'Please enter a valid email address.')->notEmptyString('email', 'This field is required.');
+        // $validator->notEmptyString('telephone', 'This field is required.');
         // $validator->notEmptyString('address', 'This field is required.');
         // $validator->notEmptyString('postcode', 'This field is required.');
         // $validator->notEmptyString('state', 'This field is required.');
