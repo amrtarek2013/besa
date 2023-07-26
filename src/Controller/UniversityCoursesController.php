@@ -9,7 +9,7 @@ use Cake\Http\Exception\NotFoundException;
 class UniversityCoursesController extends AppController
 {
 
-    public function index($university = null)
+    public function index($country = null)
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -18,11 +18,11 @@ class UniversityCoursesController extends AppController
 
         $conditions = $this->_filter_params();
         $conditions = ['UniversityCourses.active' => 1];
-        if (isset($university)) {
+        if (isset($country)) {
 
-            $c_id = explode('-', $university);
+            $c_id = explode('-', $country);
             if (isset($c_id[0]) && is_numeric($c_id[0]))
-                $conditions['UniversityCourses.university_id'] = $c_id[0];
+                $conditions['UniversityCourses.country_id'] = $c_id[0];
         }
 
 
