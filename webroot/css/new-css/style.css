@@ -2393,6 +2393,8 @@ input[type="checkbox"] {
     -ms-flex-pack: start;
     justify-content: start;
     margin-left: 20px;
+    grid-gap: 8px;
+
 }
 
 .footer .gridContainer-footer .logo .icons a:first-child img {
