@@ -74,7 +74,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>BENEFITS OF STUDYING IN THE <?= $country['country_code'] ?></h2>
+                <h2>BENEFITS OF STUDYING IN <?= $country['country_code'] ?></h2>
 
                 <div class="gridTabes">
                     <?php if (!empty($countryBenefits)) : ?>
