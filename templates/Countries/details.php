@@ -6,6 +6,8 @@
                     <?php
                     // debug($country);
 
+                    use Cake\Routing\Router;
+
                     if (sizeof($countryImages) > 0) : ?>
                         <?php foreach ($countryImages as $countryImage) : ?>
                             <div class="item">
@@ -136,7 +138,7 @@
                     <?php endif; ?>
                     <!-- <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (2).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (1).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (6).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (5).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (4).png" /> -->
                 </div>
-                <a class="link" href="#">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
+                <a class="link" href="<?= Router::url('/universities/') . $country['id'] . "-" . $country['permalink'] ?>">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
             </div>
         </div>
     </div>
@@ -175,7 +177,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="gridTabes"><a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a> <a class="btn greenish-teal master" href="#">EXPLORE STUDYING IN <?= $country['country_code'] ?></a></div>
+                <div class="gridTabes">
+                    <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
+                    <a class="btn greenish-teal master" href="<?= Router::url('/courses/') . $country['id'] . "-" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= $country['country_code'] ?></a>
+                </div>
             </div>
         </div>
     </div>
