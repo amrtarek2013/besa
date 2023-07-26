@@ -60,7 +60,7 @@ class CountriesController extends AppController
         // $this->set('countryPartners', $countryPartners);
 
         $this->loadModel('Universities');
-        $countryPartners = $this->Universities->find()->select(['id', 'university_name', 'image', 'permalink'])->where(['active' => 1, 'country_id' => $country['id'], 'show_on_destination' => 1])->order(['rand()'])->all()->toArray();
+        $countryPartners = $this->Universities->find()->select(['id', 'university_name', 'logo', 'permalink'])->where(['active' => 1, 'country_id' => $country['id'], 'show_on_destination' => 1])->order(['rand()'])->all()->toArray();
         $this->set('countryPartners', $countryPartners);
         // dd($countryPartners);
 

@@ -36,7 +36,7 @@ class University extends Entity
     protected function _getLogoPath()
     {
 
-        $no_logo_path = DS . 'img' . DS . '200x120.png.png';
+        $no_logo_path = DS . 'img' . DS . '200x120.png';
         if (!empty($this->logo)) {
             $logo_path = 'uploads' . DS . 'countries' . DS . 'logo' . DS . $this->logo;
             if (file_exists(WWW_ROOT . $logo_path))
@@ -52,7 +52,7 @@ class University extends Entity
 
         $no_image_path = DS . 'img' . DS . '230x190.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'universities' . DS . str_replace(DS,"",$this->image);
+            $image_path = 'uploads' . DS . 'universities' . DS . str_replace(DS, "", $this->image);
             $image_path = str_replace(DS . "" . DS, DS, $image_path);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
@@ -66,10 +66,10 @@ class University extends Entity
     {
 
         $no_image_path = DS . 'img' . DS . '230x190.png';
-        
+
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'universities' . DS . 'thumb_' . str_replace(DS,"",$this->image);
-            
+            $image_path = 'uploads' . DS . 'universities' . DS . 'thumb_' . str_replace(DS, "", $this->image);
+
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -83,7 +83,7 @@ class University extends Entity
 
         $no_image_path = DS . 'images' . DS . 'no-image.png';
         if (!empty($this->flag)) {
-            $image_path = 'uploads' . DS . 'universities'  . DS . str_replace(DS,"",$this->flag);
+            $image_path = 'uploads' . DS . 'universities'  . DS . str_replace(DS, "", $this->flag);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -97,7 +97,7 @@ class University extends Entity
 
         $no_image_path = DS . 'img' . DS . 'banner-45.png';
         if (!empty($this->banner_image)) {
-            $image_path = 'uploads' . DS . 'universities' . DS . str_replace(DS,"",$this->banner_image);
+            $image_path = 'uploads' . DS . 'universities' . DS . str_replace(DS, "", $this->banner_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
