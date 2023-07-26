@@ -49,6 +49,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/destinations/*', 'Countries::index');
         $builder->connect('/country-details/*', 'Countries::details');
         $builder->connect('/university-details/*', 'Universities::details');
+        $builder->connect('/universities/*', 'Universities::index');
 
         $builder->connect('/contact-us', 'Enquiries::contactUs');
         $builder->connect('/about-us', 'Pages::aboutUs');
@@ -74,6 +75,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/results', 'UniversityCourses::results');
         $builder->connect('/course-details/*', 'UniversityCourses::details');
         $builder->connect('/courses', 'UniversityCourses::index');
+        $builder->connect('/courses/*', 'UniversityCourses::index');
 
 
         // $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
