@@ -18,7 +18,7 @@ class CountriesTable extends Table
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
 
         'continent',
-        'is_destination'
+        'is_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
     ];
 
     // public $continents = [
