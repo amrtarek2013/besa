@@ -55,7 +55,8 @@ class UniversitiesTable extends Table
                         ],
                     ],
                     'image' => [
-                        'resize' => ['width' => 414, 'height' => 414],
+                        // 'resize' => ['width' => 414, 'height' => 414],
+                        'resize' => ['width' => 230, 'height' => 190],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'width' => 414, 'height' => 414,
@@ -63,7 +64,8 @@ class UniversitiesTable extends Table
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+
+                            ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '100']
                         ],
                     ],
                     // 'mobile_image' => [
