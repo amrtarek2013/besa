@@ -55,14 +55,18 @@ class CountriesController extends AppController
         $this->set('countryQuestions', $countryQuestions);
 
 
-        $this->loadModel('CountryPartners');
-        $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->all();
+        // $this->loadModel('CountryPartners');
+        // $countryPartners = $this->CountryPartners->find()->where(['active' => 1, 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->all();
+        // $this->set('countryPartners', $countryPartners);
+
+        $this->loadModel('Universities');
+        $countryPartners = $this->Universities->find()->select(['id', 'university_name', 'image', 'permalink'])->where(['active' => 1, 'country_id' => $country['id'], 'show_on_destination' => 1])->order(['rand()'])->all()->toArray();
         $this->set('countryPartners', $countryPartners);
+        // dd($countryPartners);
 
-
-        $this->loadModel('CountryPartners');
-        $countryPartnersVideos = $this->CountryPartners->find()->where(['active' => 1, 'video_url is not null', 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->limit(2)->all();
-        $this->set('countryPartnersVideos', $countryPartnersVideos);
+        // $this->loadModel('CountryPartners');
+        // $countryPartnersVideos = $this->CountryPartners->find()->where(['active' => 1, 'video_url is not null', 'country_id' => $country['id']])->order(['display_order' => 'ASC'])->limit(2)->all();
+        // $this->set('countryPartnersVideos', $countryPartnersVideos);
 
 
         $this->loadModel('Testimonials');

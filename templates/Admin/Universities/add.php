@@ -54,7 +54,7 @@
                             echo $this->AdminForm->control('why_text', ['type' => 'textarea', 'class' => 'editor']);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('display_order', ['class' => 'INPUT required']);
-
+                            echo $this->AdminForm->control('show_on_destination', ['type' => 'checkbox', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('flag', ['label' => 'flag', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $university,
                                 'field' => 'flag',

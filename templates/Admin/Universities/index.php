@@ -41,13 +41,13 @@
                             'basicModel' => 'universities',
                             'id' => [],
                             'university_name' => [],
-                            'code' => [],
+                            // 'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
 
                             'email' => [],
-                            'telephone' => [],
-                            'permalink' => [],
-                            // 'dealerships'=>[],
+                            // 'telephone' => [],
+                            // 'permalink' => [],
+                            'show_on_destination' => ['format' => 'bool'],
                             'active' => ['format' => 'bool'],
                         ];
 

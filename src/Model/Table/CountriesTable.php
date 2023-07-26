@@ -16,7 +16,7 @@ class CountriesTable extends Table
     public $filters = [
         'country_name' => 'like',
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
-        
+
         'continent',
         'is_destination'
     ];
@@ -50,6 +50,18 @@ class CountriesTable extends Table
             'ImageFile',
             [
                 'ImageUpload' => [
+                    'logo' => [
+                        'resize' => [],
+                        // 'width' => 0, 'height' => 0,
+                        'datePath' => ['path' => ''],
+                        // 'datePath' => false,
+                        'path' => 'uploads/countries/logo',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
+                        ],
+                    ],
                     'image' => [
                         'resize' => ['width' => 414, 'height' => 414],
                         'datePath' => ['path' => ''],
@@ -98,6 +110,10 @@ class CountriesTable extends Table
                 ]
             ]
         );
+
+        $this->hasMany('Universities')->setForeignKey('country_id');
+        $this->hasMany('Testimonials')->setForeignKey('country_id');
+        $this->hasMany('UniveristyCourses')->setForeignKey('country_id');
     }
 
 
@@ -106,7 +122,7 @@ class CountriesTable extends Table
     {
 
         $validator->notEmptyString('country_name', 'This field is required.');
-        $validator->notEmptyString('code', 'This field is required.');
+        // $validator->notEmptyString('code', 'This field is required.');
 
         return $validator;
     }

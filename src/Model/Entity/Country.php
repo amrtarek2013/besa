@@ -13,7 +13,7 @@ class Country extends Entity
 {
     // use LazyLoadEntityTrait;
 
-    protected $_virtual = ['flag_path', 'image_why_study', 'image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
+    protected $_virtual = ['logo_path', 'flag_path', 'image_why_study', 'image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
 
     protected $_accessible = [
         '*' => true,
@@ -32,6 +32,21 @@ class Country extends Entity
     public function initialize(array $config): void
     {
     }
+
+    protected function _getLogoPath()
+    {
+
+        $no_logo_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+        if (!empty($this->logo)) {
+            $logo_path = 'uploads' . DS . 'countries' . DS . 'logo' . DS . $this->logo;
+            if (file_exists(WWW_ROOT . $logo_path))
+                return DS . $logo_path;
+            else
+                return $no_logo_path;
+        }
+        return $no_logo_path;
+    }
+
 
     protected function _getImagePath()
     {

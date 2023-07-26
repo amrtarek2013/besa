@@ -18,7 +18,8 @@ class UniversitiesTable extends Table
 
 
     public $filters = [
-        // 'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'show_on_destination'
     ];
 
     public $types = [0 => 'Full Service'];
@@ -90,6 +91,8 @@ class UniversitiesTable extends Table
                 ]
             ]
         );
+
+        $this->belongsTo('Countries')->setForeignKey('country_id');
     }
 
 
@@ -106,7 +109,7 @@ class UniversitiesTable extends Table
         // $validator->notEmptyString('state', 'This field is required.');
         // $validator->notEmptyString('city', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
-        
+
         return $validator;
     }
     public function afterSave($event, $entity, $options)
