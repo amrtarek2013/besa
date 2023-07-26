@@ -59,7 +59,7 @@ class UniversitiesTable extends Table
                         'resize' => ['width' => 230, 'height' => 190],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
-                        'width' => 414, 'height' => 414,
+                        'width' => 230, 'height' => 190,
                         'path' => 'uploads/universities',
                         'file_name' => '{$rand}_{$file_name}',
 

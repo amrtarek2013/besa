@@ -38,7 +38,7 @@ protected $_virtual = [];
 
     //     $no_image_path = DS . 'img' . DS . 'hero-bg6.png';
     //     if (!empty($this->image)) {
-    //         $image_path = 'uploads' . DS . 'countries' . DS . $this->image;
+    //         $image_path = 'uploads' . DS . 'countries' . DS . str_replace(DS,"",$this->image);
     //         if (file_exists(WWW_ROOT . $image_path))
     //             return DS . $image_path;
     //         else

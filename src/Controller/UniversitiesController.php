@@ -9,13 +9,28 @@ use Cake\Http\Exception\NotFoundException;
 class UniversitiesController extends AppController
 {
 
-    public function index()
+    public function index($country = null)
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
-        $universities = $this->Universities->find()->where(['active' => 1])->order(['university_name' => 'asc'])->limit(10)->all();
-        
-        $this->set('universities', $universities);
+
+        // $universities = $this->Universities->find()->where($conditions)->order(['university_name' => 'asc'])->limit(10)->all();
+
+        $conditions = $this->_filter_params();
+        $conditions = ['active' => 1];
+        if (isset($country)) {
+
+            $c_id = explode('-', $country);
+            if (isset($c_id[0]) && is_numeric($c_id[0]))
+                $conditions['country_id'] = $c_id[0];
+        }
+
+        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC'], 'limit'=>20]);
+        $parameters = $this->request->getAttribute('params');
+        $this->set(compact('universities', 'parameters'));
+
+        // dd($universities);
+        // $this->set('universities', $universities);
     }
     public function details($id = null)
     {
@@ -32,5 +47,4 @@ class UniversitiesController extends AppController
         $this->set('university', $university);
         $this->set('permalink', $id);
     }
-
 }

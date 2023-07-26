@@ -17,12 +17,23 @@ class UniversityCoursesController extends AppController
         // $conditions['UniversityCourses.active'] = 1;
         $conditions = [];
 
-        $courses = $this->UniversityCourses->find()->contain([
-            'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
-            'Countries' => ['fields' => ['country_name']],
-            'Universities' => ['fields' => ['university_name', 'rank']],
-            'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
-        ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+        // $courses = $this->UniversityCourses->find()->contain([
+        //     'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
+        //     'Countries' => ['fields' => ['country_name']],
+        //     'Universities' => ['fields' => ['university_name', 'rank']],
+        //     'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+        // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+
+
+        $courses = $this->paginate($this->UniversityCourses, [
+            'contain' => [
+                'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
+                'Countries' => ['fields' => ['country_name']],
+                'Universities' => ['fields' => ['university_name', 'rank']],
+                'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+            ],
+            'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
+        ]);
 
         $this->set('courses', $courses->toArray());
 
@@ -68,7 +79,7 @@ class UniversityCoursesController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 

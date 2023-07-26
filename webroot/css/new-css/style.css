@@ -7886,3 +7886,45 @@ input[type="search"]:focus {
     color: #fff;
 
 }
+
+
+/*************************Start Front End Pagination**************************************/
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination li {
+    color: black;
+    float: left;
+    padding: 8px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination li.active a {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination li:hover:not(.active),
+.pagination li:hover:not(.active) a {
+    background-color: #ddd;
+}
+
+/*************************End Front End Pagination**************************************/

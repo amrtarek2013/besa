@@ -38,7 +38,7 @@ protected $_virtual = ['image_path'];
 
         $no_image_path = DS . 'img' . DS . '999 (1).png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'career_images' . DS . $this->image;
+            $image_path = 'uploads' . DS . 'career_images' . DS . str_replace(DS,"",$this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

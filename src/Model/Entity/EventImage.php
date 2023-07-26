@@ -38,7 +38,7 @@ class EventImage extends Entity
 
         $no_image_path = DS . 'img' . DS . 'photoGalley (1).png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'event_images' . DS . $this->image;
+            $image_path = 'uploads' . DS . 'event_images' . DS . str_replace(DS,"",$this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -53,7 +53,7 @@ class EventImage extends Entity
 
     //     $no_image_path = DS . 'images' . DS . 'no-image.png';
     //     if (!empty($this->mobile_image)) {
-    //         $image_path = 'uploads' . DS . 'event_images' . DS . $this->mobile_image;
+    //         $image_path = 'uploads' . DS . 'event_images' . DS . str_replace(DS,"",$this->mobile_image);
     //         if (file_exists(WWW_ROOT . $image_path))
     //             return DS . $image_path;
     //         else

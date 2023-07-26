@@ -38,7 +38,7 @@ class Slider extends Entity
 
         $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'sliders' . DS . $this->image;
+            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS,"",$this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -54,7 +54,7 @@ class Slider extends Entity
 
         $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->mobile_image)) {
-            $image_path = 'uploads' . DS . 'sliders' . DS . $this->mobile_image;
+            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS,"",$this->mobile_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

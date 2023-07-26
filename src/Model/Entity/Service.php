@@ -37,7 +37,7 @@ class Service extends Entity
 
         $no_image_path = DS . 'img' . DS . 'icon' . DS . 'Vectorpostgraduate.svg';
         if (!empty($this->icon)) {
-            $image_path = 'uploads' . DS . 'services' . DS . 'icon' . DS . $this->icon;
+            $image_path = 'uploads' . DS . 'services' . DS . 'icon' . DS . str_replace(DS,"",$this->icon);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -51,7 +51,7 @@ class Service extends Entity
 
         $no_image_path = DS . 'images' . DS . '500x418.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'services' . DS . $this->image;
+            $image_path = 'uploads' . DS . 'services' . DS . str_replace(DS,"",$this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -66,7 +66,7 @@ class Service extends Entity
 
         $no_image_path = DS . 'images' . DS . 'no-image.png';
         if (!empty($this->banner_image)) {
-            $image_path = 'uploads' . DS . 'services' . DS . $this->banner_image;
+            $image_path = 'uploads' . DS . 'services' . DS . str_replace(DS,"",$this->banner_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -80,7 +80,7 @@ class Service extends Entity
 
         $no_image_path = DS . 'images' . DS . 'no-image.png';
         if (!empty($this->mobile_image)) {
-            $image_path = 'uploads' . DS . 'services' . DS . $this->mobile_image;
+            $image_path = 'uploads' . DS . 'services' . DS . str_replace(DS,"",$this->mobile_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

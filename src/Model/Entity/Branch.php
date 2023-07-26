@@ -38,7 +38,7 @@ class Branch extends Entity
 
         $no_image_path = DS . 'img' . DS . 'map.png';
         if (!empty($this->location_image)) {
-            $image_path = 'uploads' . DS . 'branches' . DS . $this->location_image;
+            $image_path = 'uploads' . DS . 'branches' . DS . str_replace(DS,"",$this->location_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -51,7 +51,7 @@ class Branch extends Entity
 
         $no_image_path = DS . 'img' . DS . 'flag-egypt.png';
         if (!empty($this->flag)) {
-            $image_path = 'uploads' . DS . 'branches' . DS . $this->flag;
+            $image_path = 'uploads' . DS . 'branches' . DS . str_replace(DS,"",$this->flag);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

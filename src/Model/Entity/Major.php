@@ -38,7 +38,7 @@ class Major extends Entity
 
     //     $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
     //     if (!empty($this->image)) {
-    //         $image_path = 'uploads' . DS . 'majors' . DS . $this->image;
+    //         $image_path = 'uploads' . DS . 'majors' . DS . str_replace(DS,"",$this->image);
     //         if (file_exists(WWW_ROOT . $image_path))
     //             return DS . $image_path;
     //         else
@@ -52,7 +52,7 @@ class Major extends Entity
 
     //     $no_image_path = DS . 'img' . DS . 'banner-45.png';
     //     if (!empty($this->banner_image)) {
-    //         $image_path = 'uploads' . DS . 'majors' . DS . $this->banner_image;
+    //         $image_path = 'uploads' . DS . 'majors' . DS . str_replace(DS,"",$this->banner_image);
     //         if (file_exists(WWW_ROOT . $image_path))
     //             return DS . $image_path;
     //         else
@@ -66,7 +66,7 @@ class Major extends Entity
 
     //     $no_image_path = DS . 'images' . DS . 'no-image.png';
     //     if (!empty($this->mobile_image)) {
-    //         $image_path = 'uploads' . DS . 'majors' . DS . $this->mobile_image;
+    //         $image_path = 'uploads' . DS . 'majors' . DS . str_replace(DS,"",$this->mobile_image);
     //         if (file_exists(WWW_ROOT . $image_path))
     //             return DS . $image_path;
     //         else
