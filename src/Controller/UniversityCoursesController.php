@@ -34,7 +34,7 @@ class UniversityCoursesController extends AppController
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
 
 
-        $courses = $this->paginate($this->Universities, [
+        $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name']],
