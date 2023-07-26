@@ -103,7 +103,7 @@
 
                     // custom properties
                     // title: markers[i].title,
-                    link: '/country-details/' + airports[i]['permalink'],
+                    link: '/courses/' + airports[i]['id'] + '/' + airports[i]['permalink'],
 
                     // custom property
                     photo_info: "/img/flags/" + airports[i]['flag']
@@ -384,16 +384,16 @@
                 echo $left_html;  ?>
                 <div class="col-md-4">
                     <div class="green-box-earth">
-                    <p>BESA is proud to work with over 400 institutions worldwide</p>
+                        <p>BESA is proud to work with over 400 institutions worldwide</p>
                     </div>
 
                     <div class="blue-box-earth">
-                    <p>Our global presence allows you to access international universities, schools and programs.</p>
+                        <p>Our global presence allows you to access international universities, schools and programs.</p>
                     </div>
                 </div>
 
-                   
-                <?php } else {
+
+            <?php } else {
             ?>
                 <div class="col-md-3">
                     <h2 class="title-choose-place">CHOOSE <span>WHERE</span> <br>TO STUDY</h2>
