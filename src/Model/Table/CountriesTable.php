@@ -50,18 +50,6 @@ class CountriesTable extends Table
             'ImageFile',
             [
                 'ImageUpload' => [
-                    'logo' => [
-                        'resize' => [],
-                        // 'width' => 0, 'height' => 0,
-                        'datePath' => ['path' => ''],
-                        // 'datePath' => false,
-                        'path' => 'uploads/countries/logo',
-                        'file_name' => '{$rand}_{$file_name}',
-
-                        'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
-                        ],
-                    ],
                     'image' => [
                         'resize' => ['width' => 414, 'height' => 414],
                         'datePath' => ['path' => ''],

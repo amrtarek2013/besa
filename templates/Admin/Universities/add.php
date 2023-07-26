@@ -55,7 +55,7 @@
                             echo $this->AdminForm->control('active', ['type' => 'checkbox', 'class' => 'INPUT']);
                             echo $this->AdminForm->control('display_order', ['class' => 'INPUT']);
                             echo $this->AdminForm->control('show_on_destination', ['type' => 'checkbox', 'class' => 'INPUT']);
-                            echo $this->AdminForm->control('logo', ['label' => 'logo', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            echo $this->AdminForm->control('logo', ['label' => 'Logo', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $university,
                                 'field' => 'logo',
                                 'info' => [
