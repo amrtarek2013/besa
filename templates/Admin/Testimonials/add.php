@@ -29,7 +29,7 @@
                         <?= $this->AdminForm->create($testimonial, ['type' => 'file']); ?>
                         <div class="card-body">
                             <?php
-                            
+                            echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('client_name', ['type' => 'text']);
 
                             echo $this->AdminForm->control('university', ['label' => 'University', 'type' => 'text']);

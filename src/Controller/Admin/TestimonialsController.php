@@ -20,7 +20,7 @@ class TestimonialsController extends AppController
 
         $conditions = $this->_filter_params();
 
-        $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions]);
+        $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions, 'contain'=>['Countries'=>['fields'=>['country_name']]]]);
         // debug($testimonials);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('testimonials', 'parameters'));
@@ -74,6 +74,13 @@ class TestimonialsController extends AppController
 
         $uploadSettings = $this->Testimonials->getUploadSettings();
         $this->set(compact('uploadSettings'));
+
+
+        $this->loadModel("Countries");
+        $countries = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(["active" => 1, 'is_destination' => 1])->order(['country_name' => 'ASC'])->toArray();
+        $this->set("countries", $countries);
     }
 
     public function delete($id = null)

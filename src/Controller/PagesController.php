@@ -86,8 +86,9 @@ class PagesController extends AppController
 
 
         $this->loadModel('Testimonials');
-        $testimonials = $this->Testimonials->find()->where(['active' => 1, 'video_url is not null'])->order(['rand()'])->limit(2);
+        $testimonials = $this->Testimonials->find()->where(['active' => 1, 'country_id is null or country_id < 1'])->order(['rand()'])->toArray();
         $this->set('testimonials', $testimonials);
+        // dd($testimonials);
 
         // $this->loadModel('Services');
         // $services = $this->Services->find()->where(['active' => 1, 'show_on_home' => 1])->order(['display_order ' => 'asc'])->limit(10);

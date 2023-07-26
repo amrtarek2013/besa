@@ -61,6 +61,8 @@ class TestimonialsTable extends Table
                 ]
             ]
         );
+
+        $this->belongsTo('Countries')->setForeignKey('country_id');
     }
 
 

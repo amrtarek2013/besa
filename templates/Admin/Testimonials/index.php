@@ -41,6 +41,7 @@
                             'basicModel' => 'testimonials',
                             'id' => [],
                             'client_name' => [],
+                            'country.country_name' => ['Country'],
                             'university' => [],
                             'image_path' => ['title'=>'Client Image','format' => 'img'],
                             'display_order' => [],

@@ -20,7 +20,7 @@
                         <?php endforeach; ?>
                     <?php else : ?>
                         <div class="item">
-                            <img src="<?=WEBSITE_URL?>img/banner-45.png" alt="">
+                            <img src="<?= WEBSITE_URL ?>img/banner-45.png" alt="">
                             <!-- <div class="blue-qoute">
                                 <h4>The <?= $country['country_name'] ?></h4>
                                 <p>
@@ -60,7 +60,7 @@
                     <div class="text">
                         <h4 class="title"><?= $country['text_header'] ?></h4>
                         <?= $country['why_text'] ?>
-                        
+
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
 
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <!-- <img alt="" src="<?=WEBSITE_URL?>img/part-logo (2).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (1).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (6).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (5).png" /> <img alt="" src="<?=WEBSITE_URL?>img/part-logo (4).png" /> -->
+                    <!-- <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (2).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (1).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (6).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (5).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (4).png" /> -->
                 </div>
                 <a class="link" href="#">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
             </div>
@@ -142,19 +142,17 @@
     </div>
 </section>
 
-<section class="our-partner">
+<!-- <section class="our-partner">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>Hear about the experiences of some of our international students studying in <?= $country['country_code'] ?></h2>
 
-                <!-- <p>HEAR FROM SOME OF OUR INTERNATIONAL STUDENT&rsquo;S EXPERIENCE ON STUDYING IN <?= $country['country_code'] ?></p> -->
 
                 <div class="d-flex images">
                     <?php if (!empty($countryPartnersVideos)) : ?>
                         <?php foreach ($countryPartnersVideos as $countryPartnersVideo) : ?>
                             <div class="image">
-                                <!-- <img alt="<?= $countryPartnersVideo['title'] ?>" src="<?= $countryPartnersVideo['video_url'] ?>" /> -->
                                 <div class="box-video">
                                     <video controls poster="<?= $countryPartnersVideo['video_thumb_path'] ?>">
                                         <source src="<?= $countryPartnersVideo['video_url'] ?>" type="video/mp4">
@@ -163,15 +161,15 @@
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <!-- <img alt="" src="<?=WEBSITE_URL?>img/pers (1).png" /> -->
                 </div>
 
-                <!-- <div class="image"><img alt="" src="<?=WEBSITE_URL?>img/pers (1).png" /></div> -->
             </div>
         </div>
     </div>
     </div>
-</section>
+</section> -->
+
+<?= $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in" . $country['country_code']]) ?>
 
 <section class="tabes tabes2">
     <div class="container">
