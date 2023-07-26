@@ -1659,6 +1659,8 @@
         justify-content: center;
         margin-left: 0;
         grid-gap: 5px;
+        margin-left: 20px;
+
     }
 
     .grid-container-3col {
