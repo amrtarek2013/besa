@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="background-qoute">
+                <!-- <div class="background-qoute">
                     <img src="<?= WEBSITE_URL ?>img/icon/quote-left.svg" alt="" class="qoute-left">
                     <img src="<?= WEBSITE_URL ?>img/icon/quote-right.svg" alt="" class="qoute-right">
-                </div>
+                </div> -->
                 <h2 class="title"><?= isset($testiTitle) ? $testiTitle : "Students' Testimonials" ?></h2>
                 <div class="slider-testimonials owl-carousel owl-theme" id="slider-testimonials">
 
