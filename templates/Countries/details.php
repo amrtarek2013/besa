@@ -132,7 +132,7 @@
 
                     <?php if (!empty($countryPartners)) : ?>
                         <?php foreach ($countryPartners as $countryPartner) : ?>
-                            <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['image_path'] ?>" />
+                            <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['logo_path'] ?>" />
 
                         <?php endforeach; ?>
                     <?php endif; ?>
