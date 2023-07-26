@@ -9,13 +9,22 @@ use Cake\Http\Exception\NotFoundException;
 class UniversityCoursesController extends AppController
 {
 
-    public function index()
+    public function index($university = null)
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
 
-        // $conditions['UniversityCourses.active'] = 1;
-        $conditions = [];
+        // $universities = $this->Universities->find()->where($conditions)->order(['university_name' => 'asc'])->limit(10)->all();
+
+        $conditions = $this->_filter_params();
+        $conditions = ['UniversityCourses.active' => 1];
+        if (isset($university)) {
+
+            $c_id = explode('-', $university);
+            if (isset($c_id[0]) && is_numeric($c_id[0]))
+                $conditions['UniversityCourses.university_id'] = $c_id[0];
+        }
+
 
         // $courses = $this->UniversityCourses->find()->contain([
         //     'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
@@ -25,7 +34,7 @@ class UniversityCoursesController extends AppController
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
 
 
-        $courses = $this->paginate($this->UniversityCourses, [
+        $courses = $this->paginate($this->Universities, [
             'contain' => [
                 'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name']],
