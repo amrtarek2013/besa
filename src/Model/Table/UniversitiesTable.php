@@ -19,7 +19,7 @@ class UniversitiesTable extends Table
 
     public $filters = [
         'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
-        'show_on_destination'
+        'show_on_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
     ];
 
     public $types = [0 => 'Full Service'];
