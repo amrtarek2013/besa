@@ -17,7 +17,7 @@
                     <?php
                     foreach ($continents as $key => $typeValue) {
 
-                        if ($key == 'UK' || $key == 'North America') {
+                        if ($key == 'uk' || $key == 'na') {
 
                             $countryList = isset($countries[$key]) ? $countries[$key] : [];
                             if (!empty($countryList)) {
@@ -42,7 +42,7 @@
                     foreach ($continents as $key => $typeValue) {
                     ?>
                         <?php
-                        if ($key == 'Europe') {
+                        if ($key == 'eur') {
                             $countryList = isset($countries[$key]) ? $countries[$key] : [];
                             if (!empty($countryList)) {
                                 foreach ($countryList as $countryValue) {
@@ -65,7 +65,7 @@
                 <div class="containerCountry grid2country">
                     <?php
                     foreach ($continents as $key => $typeValue) {
-                        if ($key == 'ASIA') {
+                        if ($key == 'other') {
 
                             $countryList = isset($countries[$key]) ? $countries[$key] : [];
                             if (!empty($countryList)) {

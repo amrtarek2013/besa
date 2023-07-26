@@ -27,8 +27,8 @@ class CountriesTable extends Table
     // ];
     public $continents = [
 
-        'uk' => 'UK', 'Europe' => 'Europe', 'North America' => 'North America',
-        'Asia' => 'Other Countries',
+        'uk' => 'UK', 'eur' => 'Europe', 'na' => 'North America',
+        'other' => 'Other Countries',
     ];
     public $types = [0 => 'Full Service'];
     /**
