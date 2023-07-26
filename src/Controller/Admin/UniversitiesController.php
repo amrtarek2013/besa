@@ -46,7 +46,7 @@ class UniversitiesController extends AppController
             }
             $this->Flash->error(__('The University could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('university_new', 'universities', false, false, ['image', 'flag', 'banner_image']);
+        $this->_ajaxImageUpload('university_new', 'universities', false, false, ['logo','image', 'flag', 'banner_image']);
         $this->set('id', false);
 
         $this->__common();
@@ -73,7 +73,7 @@ class UniversitiesController extends AppController
 
         $types = $this->Universities->types;
         $this->set(compact('university', 'id', 'types'));
-        $this->_ajaxImageUpload('university_' . $id, 'universities', $id, ['id' => $id], ['image', 'flag', 'banner_image']);
+        $this->_ajaxImageUpload('university_' . $id, 'universities', $id, ['id' => $id], ['logo','image', 'flag', 'banner_image']);
         $this->render('add');
     }
 
