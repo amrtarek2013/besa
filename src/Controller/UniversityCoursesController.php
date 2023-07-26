@@ -20,9 +20,9 @@ class UniversityCoursesController extends AppController
         $conditions = ['UniversityCourses.active' => 1];
         if (isset($country)) {
 
-            $c_id = explode('-', $country);
-            if (isset($c_id[0]) && is_numeric($c_id[0]))
-                $conditions['UniversityCourses.country_id'] = $c_id[0];
+            // $c_id = explode('-', $country);
+            // if (isset($c_id[0]) && is_numeric($c_id[0]))
+            $conditions['UniversityCourses.country_id'] = $country;
         }
 
 

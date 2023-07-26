@@ -20,12 +20,12 @@ class UniversitiesController extends AppController
         $conditions = ['active' => 1];
         if (isset($country)) {
 
-            $c_id = explode('-', $country);
-            if (isset($c_id[0]) && is_numeric($c_id[0]))
-                $conditions['country_id'] = $c_id[0];
+            // $c_id = explode('-', $country);
+            // if (isset($c_id[0]) && is_numeric($c_id[0]))
+            $conditions['country_id'] = $country;
         }
 
-        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC'], 'limit'=>20]);
+        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC'], 'limit' => 20]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universities', 'parameters'));
 
