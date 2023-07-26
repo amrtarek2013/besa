@@ -14,9 +14,15 @@ use App\Controller\AppController;
 class UniversitiesController extends AppController
 {
 
-    public function index()
+    public function index($country_id = null)
     {
         $conditions = $this->_filter_params();
+
+        if (isset($country_id)) {
+            $conditions['country_id'] = $country_id;
+            $this->Session->write('country_id', $country_id);
+        }
+
 
         $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
@@ -42,11 +48,11 @@ class UniversitiesController extends AppController
             if ($this->Universities->save($university)) {
                 $this->Flash->success(__('The University has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The University could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('university_new', 'universities', false, false, ['logo','image', 'flag', 'banner_image']);
+        $this->_ajaxImageUpload('university_new', 'universities', false, false, ['logo', 'image', 'flag', 'banner_image']);
         $this->set('id', false);
 
         $this->__common();
@@ -64,7 +70,7 @@ class UniversitiesController extends AppController
             if ($this->Universities->save($university)) {
                 $this->Flash->success(__('The University has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The University could not be saved. Please, try again.'));
         }
@@ -73,7 +79,7 @@ class UniversitiesController extends AppController
 
         $types = $this->Universities->types;
         $this->set(compact('university', 'id', 'types'));
-        $this->_ajaxImageUpload('university_' . $id, 'universities', $id, ['id' => $id], ['logo','image', 'flag', 'banner_image']);
+        $this->_ajaxImageUpload('university_' . $id, 'universities', $id, ['id' => $id], ['logo', 'image', 'flag', 'banner_image']);
         $this->render('add');
     }
 
@@ -87,7 +93,7 @@ class UniversitiesController extends AppController
             $this->Flash->error(__('The University could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -103,7 +109,7 @@ class UniversitiesController extends AppController
             $this->Flash->error(__('The Universities could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -124,5 +130,14 @@ class UniversitiesController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(["active" => 1, 'is_destination' => 1])->order(['country_name' => 'ASC'])->toArray();
         $this->set("countries", $countries);
+    }
+
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('country_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('country_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 }
