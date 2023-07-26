@@ -20,10 +20,15 @@ class CountriesTable extends Table
         // 'continent',
     ];
 
+    // public $continents = [
+
+    //     'uk' => 'UK', 'eur' => 'Europe', 'na' => 'North America',
+    //     'other' => 'Other Countries',
+    // ];
     public $continents = [
 
-        'uk' => 'UK', 'eur' => 'Europe', 'na' => 'North America',
-        'other' => 'Other Countries',
+        'uk' => 'UK', 'Europe' => 'Europe', 'North America' => 'North America',
+        'Asia' => 'Other Countries',
     ];
     public $types = [0 => 'Full Service'];
     /**
