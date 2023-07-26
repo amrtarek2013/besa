@@ -114,7 +114,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <a class="detalis" href="#">CONTACT ADVISOR FOR MORE DETAILS</a>
+                <a class="detalis" href="/contact-us">CONTACT ADVISOR FOR MORE DETAILS</a>
             </div>
         </div>
     </div>
@@ -177,7 +177,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="gridTabes"><a class="btn clear-blue foundation" href="#">REGISTER NOW TO APPLY</a> <a class="btn greenish-teal master" href="#">EXPLORE STUDYING IN <?= $country['country_code'] ?></a></div>
+                <div class="gridTabes"><a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a> <a class="btn greenish-teal master" href="#">EXPLORE STUDYING IN <?= $country['country_code'] ?></a></div>
             </div>
         </div>
     </div>

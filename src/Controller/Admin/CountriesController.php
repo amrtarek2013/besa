@@ -18,7 +18,7 @@ class CountriesController extends AppController
     {
         $conditions = $this->_filter_params();
 
-        $countries = $this->paginate($this->Countries, ['conditions' => $conditions, 'order'=>['continent'=>'ASC']]);
+        $countries = $this->paginate($this->Countries, ['conditions' => $conditions, 'order'=>['country_name'=>'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $continents = $this->Countries->continents;
         $this->set(compact('countries', 'parameters', 'continents'));
