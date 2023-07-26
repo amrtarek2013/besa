@@ -205,7 +205,7 @@ class AppController extends Controller
         $this->set('footer', $footer);
 
         $this->loadModel('Countries');
-        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""'])->order(['country_name' => 'asc'])->all();
+        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""', 'is_destination' => 1])->order(['country_name' => 'asc'])->all();
         $countriesData = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
 
         // $countryEarth = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
