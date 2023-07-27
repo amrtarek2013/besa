@@ -27,7 +27,7 @@
                                 <h4>The <?= $country['country_name'] ?></h4>
                                 <p>
                                     The <?= $country['country_name'] ?> of Great Britain and Northern Ireland,
-                                    commonly known as the <?= $country['country_name'] ?> (<?= $country['country_code'] ?>) or Britain is a country in Western Europe,
+                                    commonly known as the <?= $country['country_name'] ?> (<?= strtoupper($country['country_code']) ?>) or Britain is a country in Western Europe,
                                     off the north-western coast of the continental mainland. It comprises England, Scotland,
                                     Wales and Northern Ireland.
                                 </p>
@@ -76,7 +76,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>BENEFITS OF STUDYING IN <?= $country['country_code'] ?></h2>
+                <h2>BENEFITS OF STUDYING IN <?= strtoupper($country['country_code']) ?></h2>
 
                 <div class="gridTabes">
                     <?php if (!empty($countryBenefits)) : ?>
@@ -126,7 +126,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>OUR <?= $country['country_code'] ?> PARTNER UNIVERSITIES</h2>
+                <h2>OUR PARTNER UNIVERSITIES IN <?= strtoupper($country['country_code']) ?></h2>
 
                 <div class="gridOuruk">
 
@@ -138,7 +138,7 @@
                     <?php endif; ?>
                     <!-- <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (2).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (1).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (6).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (5).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (4).png" /> -->
                 </div>
-                <a class="link" href="<?= Router::url('/universities/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE <?= $country['country_code'] ?> UNIVERSITIES</a>
+                <a class="link" href="<?= Router::url('/universities/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE UNIVERSITIES IN <?= strtoupper($country['country_code']) ?></a>
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Hear about the experiences of some of our international students studying in <?= $country['country_code'] ?></h2>
+                <h2>Hear about the experiences of some of our international students studying in <?= strtoupper($country['country_code']) ?></h2>
 
 
                 <div class="d-flex images">
@@ -171,15 +171,18 @@
     </div>
 </section> -->
 
-<?= $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in" . $country['country_code']]) ?>
+<?= $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) ?>
 
 <section class="tabes tabes2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="gridTabes">
-                    <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
-                    <a class="btn greenish-teal master" href="<?= Router::url('/courses/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= $country['country_code'] ?></a>
+
+                    <?php if (!$this->Session->check('Auth.User')) : ?>
+                        <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
+                    <?php endif; ?>
+                    <a class="btn greenish-teal master" href="<?= Router::url('/courses/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= strtoupper($country['country_code']) ?></a>
                 </div>
             </div>
         </div>
