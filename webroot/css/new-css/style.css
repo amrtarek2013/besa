@@ -7912,13 +7912,13 @@ input[type="search"]:focus {
 }
 
 .pagination li.active {
-    background-color: #4CAF50;
+    background-color: #33ca94;
     color: white;
-    border: 1px solid #4CAF50;
+    border: 1px solid #33ca94;
 }
 
 .pagination li.active a {
-    background-color: #4CAF50;
+    background-color: #33ca94;
     color: white;
 }
 
@@ -7926,5 +7926,16 @@ input[type="search"]:focus {
 .pagination li:hover:not(.active) a {
     background-color: #ddd;
 }
-
+.paginator{
+    text-align: center;
+}
+.paginator p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: #767B92;
+    margin-top: 10px ;
+}
 /*************************End Front End Pagination**************************************/
