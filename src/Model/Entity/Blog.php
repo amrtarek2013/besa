@@ -36,7 +36,7 @@ protected $_virtual = ['image_path'];
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+        $no_image_path = DS . 'img' . DS . '230x190.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'blogs' . DS . str_replace(DS,"",$this->image);
             if (file_exists(WWW_ROOT . $image_path))
