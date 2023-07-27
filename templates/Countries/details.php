@@ -179,7 +179,7 @@
             <div class="col-md-12">
                 <div class="gridTabes">
 
-                    <?php if (!$this->Session->check('Auth.User')) : ?>
+                    <?php if (!isset($_SESSION['Auth.User'])) : ?>
                         <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
                     <?php endif; ?>
                     <a class="btn greenish-teal master" href="<?= Router::url('/courses/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= strtoupper($country['country_code']) ?></a>
