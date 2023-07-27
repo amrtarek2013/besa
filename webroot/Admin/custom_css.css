@@ -203,3 +203,13 @@ th a.datatable_sorting{
     transform: rotate(360deg);
   }
 }
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+input[type=checkbox], input[type=radio] {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
