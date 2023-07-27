@@ -7938,4 +7938,15 @@ input[type="search"]:focus {
     color: #767B92;
     margin-top: 10px ;
 }
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+input[type=checkbox], input[type=radio] {
+  
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
 /*************************End Front End Pagination**************************************/
