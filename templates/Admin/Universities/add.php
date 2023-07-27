@@ -40,7 +40,7 @@
                             // echo $this->AdminForm->control('title', ['type' => 'text']);
 
                             echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'required' => true, 'class' => 'INPUT required']);
-                            // echo $this->AdminForm->control('state', ['type' => 'text']);
+                            echo $this->AdminForm->control('rank', []);
                             // echo $this->AdminForm->control('city', ['type' => 'text']);
                             // echo $this->AdminForm->control('street', ['type' => 'text']);
                             // echo $this->AdminForm->control('postcode', ['type' => 'text']);
