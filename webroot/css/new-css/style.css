@@ -2050,6 +2050,14 @@ p.descrp {
     grid-gap: 50px;
 }
 
+.grid-2col-mobile {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 8px 4fr;
+    grid-template-columns: 2fr 4fr;
+    grid-gap: 8px;
+}
+
 .countries .gridSecondCol {
     display: -ms-grid;
     display: grid;
@@ -7926,17 +7934,19 @@ input[type="search"]:focus {
 .pagination li:hover:not(.active) a {
     background-color: #ddd;
 }
-.paginator{
+
+.paginator {
     text-align: center;
 }
-.paginator p{
+
+.paginator p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
     color: #767B92;
-    margin-top: 10px ;
+    margin-top: 10px;
 }
 
 /*************************End Front End Pagination**************************************/

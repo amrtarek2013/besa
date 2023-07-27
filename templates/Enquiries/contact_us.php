@@ -25,8 +25,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg10.png" alt="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -54,22 +54,22 @@
                             <i class="fab fa-twitter fa-2x"></i>
                         </a> -->
                         <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                            <img src="<?=WEBSITE_URL?>img/icon/social-media/Facebook.svg" alt="facebook">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Facebook.svg" alt="facebook">
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                            <img src="<?=WEBSITE_URL?>img/icon/social-media/Instagram.svg" alt="Instagram">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Instagram.svg" alt="Instagram">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                            <img src="<?=WEBSITE_URL?>img/icon/social-media/YouTube.svg" alt="YouTube">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/YouTube.svg" alt="YouTube">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                            <img src="<?=WEBSITE_URL?>img/icon/social-media/Linkedin.svg" alt="Linkedin">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Linkedin.svg" alt="Linkedin">
 
                         </a>
                         <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="Twitter" target="_blank">
-                            <img src="<?=WEBSITE_URL?>img/icon/social-media/Twitter.svg" alt="twitter">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Twitter.svg" alt="twitter">
 
                         </a>
 
@@ -108,19 +108,19 @@
         
         <div class="icons">
             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                <img src="<?=WEBSITE_URL?>img/icon/facebook.svg" alt="">
+                <img src="<?= WEBSITE_URL ?>img/icon/facebook.svg" alt="">
             </a>
             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                <img src="<?=WEBSITE_URL?>img/icon/instagram.svg" alt="" target="_blank">
+                <img src="<?= WEBSITE_URL ?>img/icon/instagram.svg" alt="" target="_blank">
             </a>
             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                <img src="<?=WEBSITE_URL?>img/icon/youtube.svg" alt="">
+                <img src="<?= WEBSITE_URL ?>img/icon/youtube.svg" alt="">
             </a>
             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                <img src="<?=WEBSITE_URL?>img/icon/linkedin.svg" alt="">
+                <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
             </a>
             <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                <img src="<?=WEBSITE_URL?>img/icon/twitter.svg" alt="">
+                <img src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
             </a>
         </div>
     </ul>
@@ -139,7 +139,7 @@
         <div class="row">
             <div class="grid-meating">
                 <div class="image">
-                    <img src="<?=WEBSITE_URL?>img/smiling-handsome-business-leader-making-notes 1.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/smiling-handsome-business-leader-making-notes 1.png" alt="">
                 </div>
 
                 <div class="text">
@@ -189,45 +189,7 @@
                             </div> -->
                         </div>
                     <?php } ?>
-                    <!-- <div class="item">
-                        <img src="img/flag-uk.png" alt="">
-                        <div class="content">
-                            <h4>UK OFFICE</h4>
-                            <p class="address">
-                                Parkway Two, Parkway Business<br>
-                                Centre, Princess Road,<br>
-                                Manchester, M14 7HR
-                            </p>
-                            <p class="phone">(+44) 77668 91380</p>
 
-                            <p class="email">uk.info@besaeg.com</p>
-                            <p class="time-red">
-                                MONDAY TO <br>
-                                FRIDAY 9AM - 5PM <br>
-                                UK TIME
-                            </p>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <img src="img/flag-sudan.png" alt="">
-                        <div class="content">
-                            <h4>SUDAN OFFICE</h4>
-                            <p class="address">
-                                71 Mecaa st, block no.15,<br>
-                                Al-Ryad, Beside Barista café,<br>
-                                Khartoum, Sudan
-                            </p>
-                            <p class="phone">+249 123 122 195</p>
-                            <p class="phone">+249 123 122 196</p>
-                            <p class="email">sudan@besaeg.com</p>
-                            <p class="time-red">
-                                SUNDAY TO <br>
-                                THURSDAY 9AM - 5PM<br>
-                                UK TIME
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -239,7 +201,7 @@
 <input type="hidden" id="type" name="type" value="contact-us">
 <section class="contact-us pageContact">
     <div class="top-dots-img">
-        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
+        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
     </div>
     <div class="container">
         <div class="row">
@@ -262,40 +224,35 @@
                     <div class="gridFormContact ">
                         <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
                         <div class="form-left form">
-                            <!-- <div class="form-area">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="your name">
-                                <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
-                            </div> -->
                             <?php
 
                             echo $this->Form->control('name', [
                                 'placeholder' => 'Your name', 'type' => 'text',
-                                'class' => 'required','required'=>true,
+                                'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
 
 
                             echo $this->Form->control('phone', [
                                 'placeholder' => 'Your Phone', 'type' => 'text',
-                                'class' => 'required','required'=>true,
+                                'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
 
                             echo $this->Form->control('email', [
                                 'placeholder' => 'Email Address', 'type' => 'email',
-                                'class' => 'required','required'=>true,
+                                'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
                             ?>
-                            <?=$this->element('security_code')?>
+                            <?= $this->element('security_code') ?>
                             <!-- <div class="form-area security_code">
                                 <div class="input captcha" style="position: relative;">
                                     <?php
                                     echo $this->Html->image('/image.jpg/index.php?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
                         z-index: 1; height:40px", 'id' => rand()));
                                     echo $this->AdminForm->control('security_code', [
-                                        'placeholder' => 'Security Code', 'type' => 'text','required'=>true,
+                                        'placeholder' => 'Security Code', 'type' => 'text', 'required' => true,
                                         'class' => 'required', 'style' => "padding-left: 190px;", 'label' => false,
                                         'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                                     ]);
@@ -320,13 +277,13 @@
 
                             echo $this->Form->control('subject', [
                                 'placeholder' => 'Email subject', 'type' => 'text',
-                                'class' => 'required','required'=>true,
+                                'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
                             echo $this->Form->control('message', [
                                 'placeholder' => 'Your Message', 'type' => 'textarea',
-                                'class' => 'required','required'=>true,
-                                'class' => 'required','required'=>true,
+                                'class' => 'required', 'required' => true,
+                                'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
                             ?>
@@ -344,7 +301,7 @@
         </div>
     </div>
     <div class="bottom-dots-img">
-        <img src="<?=WEBSITE_URL?>img/icon/dots-bakground.svg" alt="">
+        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
 
     </div>
 </section>
