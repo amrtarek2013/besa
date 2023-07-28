@@ -58,7 +58,7 @@
     });
 </script>
 
-<body cz-shortcut-listen="true" class="<?= $bodyClass ?>" style="max-width: 100%; overflow-x: hidden;">
+<body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
 
     <?= $this->element('UserPopUp'); ?>
     <?php //= $header 
