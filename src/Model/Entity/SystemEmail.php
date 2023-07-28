@@ -31,11 +31,12 @@ class SystemEmail extends Entity
             '{%phone%}'  => 'Phone',
             '{%subject%}'  => 'Subject',
             '{%message%}'  => 'Message',
-            '{%branch_name%}'  => 'Branch Name',
-            '{%branch_address%}'  => 'Branch Address',
-            '{%branch_email%}'  => 'Branch Email',
-            '{%branch_phone%}'  => 'Branch Phone',
+            // '{%branch_name%}'  => 'Branch Name',
+            // '{%branch_address%}'  => 'Branch Address',
+            // '{%branch_email%}'  => 'Branch Email',
+            // '{%branch_phone%}'  => 'Branch Phone',
 
+            '{%enquiry_type%}' => 'Enquiry Type',
             '{%view_link%}' => 'View Link',
         ),
 
@@ -45,6 +46,7 @@ class SystemEmail extends Entity
             '{%phone%}'  => 'Phone',
             '{%subject%}'  => 'Subject',
             '{%message%}'  => 'Message',
+            '{%enquiry_type%}' => 'Enquiry Type',
             '{%view_link%}' => 'View Link',
         ),
         'user.notify_user_registration' => array(

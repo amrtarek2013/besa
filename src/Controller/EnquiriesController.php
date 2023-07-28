@@ -14,11 +14,6 @@ class EnquiriesController extends AppController
     {
         $this->set('bodyClass', '');
         $this->loadModel('Branches');
-        $branches = $this->Branches->find()->where(['active' => 1])->order(['name' => 'ASC'])->all()->toArray();
-        $countries = Hash::combine($branches, '{n}.country', '{n}.country');
-        $branchesList = Hash::combine($branches, '{n}.name', '{n}.name', '{n}.country');
-        $branches = Hash::combine($branches, '{n}.name', '{n}');
-        $this->set(compact('countries', 'branchesList', 'branches'));
 
 
         $enquiry = $this->Enquiries->newEmptyEntity();
@@ -45,7 +40,8 @@ class EnquiriesController extends AppController
                         '{%email%}' => $enquiry['email'],
                         '{%phone%}' => $enquiry['phone'],
                         '{%subject%}' => $enquiry['subject'],
-                        '{%message%}' => $enquiry['message']
+                        '{%message%}' => $enquiry['message'],
+                        '{%enquiry_type%}' => $enquiry['type'],
                     );
 
                     if (!empty($branch)) {
@@ -69,6 +65,7 @@ class EnquiriesController extends AppController
                             '{%phone%}' => $enquiry['phone'],
                             '{%subject%}' => $enquiry['subject'],
                             '{%message%}' => $enquiry['message'],
+                            '{%enquiry_type%}' => $enquiry['type'],
                             '{%view_link%}'  => $url,
                         );
 
@@ -82,6 +79,7 @@ class EnquiriesController extends AppController
                         '{%phone%}' => $enquiry['phone'],
                         '{%subject%}' => $enquiry['subject'],
                         '{%message%}' => $enquiry['message'],
+                        '{%enquiry_type%}' => $enquiry['type'],
                         '{%view_link%}'  => $url,
                     );
 
@@ -117,7 +115,16 @@ class EnquiriesController extends AppController
         $book_free_meeting = $this->getSnippet('book_free_meeting');
 
         $this->set('book_free_meeting', $book_free_meeting);
+
+
+        $branches = $this->Branches->find()->where(['active' => 1])->order(['name' => 'ASC'])->all()->toArray();
+        $countries = Hash::combine($branches, '{n}.country', '{n}.country');
+        $branchesList = Hash::combine($branches, '{n}.name', '{n}.name', '{n}.country');
+        $branches = Hash::combine($branches, '{n}.name', '{n}');
+        $this->set(compact('countries', 'branchesList', 'branches'));
     }
+
+
 
     private function __redirectToType($type = 'contact-us')
     {
