@@ -134,16 +134,15 @@ class EnquiriesController extends AppController
     private function __redirectToType($type = 'contact-us')
     {
 
-        return $this->redirect('/' . $type);
-        // switch ($type) {
-        //     case 'home':
-        //         return $this->redirect('/');
-        //     case 'app-support':
-        //         return $this->redirect('/');
-        //     case 'partnership-with-besa':
-        //         return $this->redirect('/');
-        // default:
-        //     return $this->redirect(['action' => 'contactUs']);
-        // }
+        switch ($type) {
+            case 'home':
+                return $this->redirect('/');
+                // case 'app-support':
+                //         return $this->redirect('/');
+                //     case 'partnership-with-besa':
+                //         return $this->redirect('/');
+            default:
+                return $this->redirect('/' . $type);
+        }
     }
 }

@@ -55,7 +55,7 @@
 
             <div class="col-md-12">
 
-                <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+                <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
                 <input type="hidden" id="type" name="type" value="partnership-with-besa">
                 <div class="container-formBox">
                     <div class="gray-box">

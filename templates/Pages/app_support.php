@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <!-- <form action="" class="register"> -->
 
-                <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'class' => 'regsiter', 'id' => 'contactusForm']) ?>
+                <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'class' => 'regsiter', 'id' => 'contactusForm']) ?>
                 <input type="hidden" id="type" name="type" value="app-support">
                 <div class="container-formBox">
                     <div class="gray-box">
