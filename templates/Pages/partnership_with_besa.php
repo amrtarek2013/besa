@@ -136,7 +136,8 @@
                         <ul class="custome-list">
                             <li>For the purpose of applying regulation, your details are required.</li>
                         </ul>
-                        <a href="#" class="btn greenish-teal" style="width: 240px;">SUBMIT</a>
+                        <!-- <a href="#" class="btn greenish-teal" style="width: 240px;">SUBMIT</a> -->
+                        <input type="submit" value="Submit" class="btn greenish-teal" style="width: 240px;">
                     </div>
                 </div>
 
