@@ -23,7 +23,8 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%phone%}'  => 'Phone',
             '{%subject%}'  => 'Subject',
-            '{%message%}'  => 'Message'
+            '{%message%}'  => 'Message',
+            '{%enquiry_type%}' => 'Enquiry Type',
         ),
         'admin.contactus_enquiry' => array(
             '{%name%}' => 'Username',

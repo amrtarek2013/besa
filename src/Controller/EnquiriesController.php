@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 use Cake\Utility\Hash;
+use Cake\Utility\Inflector;
 
 class EnquiriesController extends AppController
 {
@@ -26,6 +27,7 @@ class EnquiriesController extends AppController
             // die;
             if ($this->Enquiries->save($enquiry)) {
 
+                $enquiryTitle = Inflector::humanize($enquiry['type']);
                 $a_replace = [];
                 $b_replace = [];
                 $u_replace = [];
@@ -41,7 +43,7 @@ class EnquiriesController extends AppController
                         '{%phone%}' => $enquiry['phone'],
                         '{%subject%}' => $enquiry['subject'],
                         '{%message%}' => $enquiry['message'],
-                        '{%enquiry_type%}' => $enquiry['type'],
+                        '{%enquiry_type%}' => $enquiryTitle,
                     );
 
                     if (!empty($branch)) {
@@ -52,10 +54,11 @@ class EnquiriesController extends AppController
                             '{%subject%}' => $enquiry['subject'],
                             '{%message%}' => $enquiry['message'],
 
-                            '{%branch_name%}'  => $branch['name'],
-                            '{%branch_address%}'  => $branch['address'] . ', ' . $branch['city'] . ', ' . $branch['state'] . ', ' . $branch['postcode'] . ', ' . $branch['country'],
-                            '{%branch_email%}'  => $branch['email'],
-                            '{%branch_phone%}'  => $branch['phone'],
+                            '{%enquiry_type%}' => $enquiryTitle,
+                            // '{%branch_name%}'  => $branch['name'],
+                            // '{%branch_address%}'  => $branch['address'] . ', ' . $branch['city'] . ', ' . $branch['state'] . ', ' . $branch['postcode'] . ', ' . $branch['country'],
+                            // '{%branch_email%}'  => $branch['email'],
+                            // '{%branch_phone%}'  => $branch['phone'],
                             '{%view_link%}'  => $url,
                         );
                     } else
@@ -65,7 +68,7 @@ class EnquiriesController extends AppController
                             '{%phone%}' => $enquiry['phone'],
                             '{%subject%}' => $enquiry['subject'],
                             '{%message%}' => $enquiry['message'],
-                            '{%enquiry_type%}' => $enquiry['type'],
+                            '{%enquiry_type%}' => $enquiryTitle,
                             '{%view_link%}'  => $url,
                         );
 
@@ -79,7 +82,7 @@ class EnquiriesController extends AppController
                         '{%phone%}' => $enquiry['phone'],
                         '{%subject%}' => $enquiry['subject'],
                         '{%message%}' => $enquiry['message'],
-                        '{%enquiry_type%}' => $enquiry['type'],
+                        '{%enquiry_type%}' => $enquiryTitle,
                         '{%view_link%}'  => $url,
                     );
 
@@ -94,7 +97,8 @@ class EnquiriesController extends AppController
                     '{%email%}' => $enquiry['email'],
                     '{%phone%}' => $enquiry['phone'],
                     '{%subject%}' => $enquiry['subject'],
-                    '{%message%}' => $enquiry['message']
+                    '{%message%}' => $enquiry['message'],
+                    '{%enquiry_type%}' => $enquiryTitle
                 );
 
                 $this->sendEmail($to, false, 'user.contactus_thankyou_enquiry', $u_replace);
