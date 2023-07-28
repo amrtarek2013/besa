@@ -91,7 +91,7 @@ class EnquiriesTable extends Table
         //         'message' => 'Page session expired, please reload the page!!',
         //     ]
         // ]);
-        $validator->notEmptyString('first_name', 'This field is required.');
+        $validator->notEmptyString('name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
@@ -112,6 +112,56 @@ class EnquiriesTable extends Table
         return $validator;
     }
 
+
+    public function validationAppSupport(Validator $validator): Validator
+    {
+        // $validator->add('g-recaptcha-response', [
+        //     'checkCaptchaV3' => [
+        //         'rule' => 'checkCaptchaV3',
+        //         'provider' => 'table',
+        //         'message' => 'Page session expired, please reload the page!!',
+        //     ]
+        // ]);
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('surname', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('message', 'This field is required.');
+
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+    public function validationPartnershipWithBesa(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('message', 'This field is required.');
+
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
 
 
     function checkCaptcha($data)

@@ -100,7 +100,7 @@ define('CAKE', CORE_PATH . 'src' . DS);
 
 
 define('WEBSITE_PATH', 'https://besa.intimedev.com');
-define('WEBSITE_URL', Router::url(null, true));
+define('WEBSITE_URL', WEBSITE_PATH);
 define('ADMIN_ASSETS', WEBSITE_PATH.'/Admin'); //WEBSITE_PATH.'/Admin');
 define('FRONT_ASSETS', WEBSITE_PATH.'/webroot/Front');
 define('ADMIN_LINK', WEBSITE_PATH.'/admin');
