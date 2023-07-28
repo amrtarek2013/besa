@@ -5910,6 +5910,8 @@ input.search {
 
 .blogs .box-blog {
     align-items: center;
+    width: 50%;
+
 }
 
 .blogs .box-blog img {
@@ -7950,3 +7952,7 @@ input[type="search"]:focus {
 }
 
 /*************************End Front End Pagination**************************************/
+
+.blogs .box-blog .content-blog {
+    width: 50%;
+}
