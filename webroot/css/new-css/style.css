@@ -5910,6 +5910,8 @@ input.search {
 
 .blogs .box-blog {
     align-items: center;
+    width: 50%;
+
 }
 
 .blogs .box-blog img {
