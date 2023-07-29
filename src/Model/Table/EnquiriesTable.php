@@ -65,7 +65,13 @@ class EnquiriesTable extends Table
                 //         ],
                 //     ],
                 // ]
-                'FileUpload' => ['certificate' => ['file_name' => '{$rand}_{$file_name}']],
+                'FileUpload' => [
+                    'certificate' => [
+                        'file_name' => '{$rand}_{$file_name}',
+                        'path' => 'uploads/enquiries',
+
+                    ]
+                ],
             ]
 
         );

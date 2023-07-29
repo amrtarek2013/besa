@@ -61,6 +61,8 @@ return static function (RouteBuilder $routes) {
         
         $builder->connect('/partner-institutions', 'Pages::partnerInstitutions');
         $builder->connect('/app-support', 'Pages::appSupport');
+        $builder->connect('/career-apply', 'Pages::careerApply');
+        $builder->connect('/career-apply/*', 'Pages::careerApply');
         $builder->connect('/pages/*', 'Pages::display');
         // $builder->connect('/register', 'Users::register');
         // $builder->connect('/login', 'Users::login');

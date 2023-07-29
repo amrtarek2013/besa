@@ -318,6 +318,15 @@ class PagesController extends AppController
         // $this->set('book_free_meeting', $book_free_meeting);
         $this->set('partnership_with_besa', $partnershipWithBesa);
     }
+    public function careerApply()
+    {
+
+        // $book_free_meeting = $this->getSnippet('book_free_meeting');
+        $partnershipWithBesa = '';//$this->getSnippet('partnership_with_besa');
+        $this->set('bodyClass', '');
+        // $this->set('book_free_meeting', $book_free_meeting);
+        $this->set('partnership_with_besa', $partnershipWithBesa);
+    }
     public function partnerInstitutions()
     {
 

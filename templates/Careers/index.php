@@ -31,7 +31,7 @@
                                 <div class="item">
                                     <h5><?= $career['title'] ?></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
-                                    <a href="#" class="btn">Apply Now</a>
+                                    <a href="/career-apply/<?= $career['id'] ?>/<?= $career['title'] ?>" class="btn">Apply Now</a>
                                 </div>
                             <?php endforeach; ?>
 
