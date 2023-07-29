@@ -203,7 +203,7 @@ class AppController extends Controller
         } else {
 
             // SEO functions
-            $this->_set_seo();
+            // $this->_set_seo();
         }
 
         $header = $this->getSnippet("header");
@@ -238,6 +238,9 @@ class AppController extends Controller
         $events = $this->Events->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
         $this->set('eventsMenuList', $events);
         $this->_loadConfig();
+
+        // SEO functions
+        $this->_set_seo();
     }
     protected function _loadConfig()
     {
@@ -248,6 +251,7 @@ class AppController extends Controller
             $configs[$config_row->config_group][$config_row->field] = $config_row->value;
         }
         $this->g_configs = $configs;
+
         $this->set("g_configs", $configs);
     }
 
@@ -1052,6 +1056,7 @@ class AppController extends Controller
 
         $this->loadModel('Seo');
 
+
         $current_url = Router::url(null);
         $record = $this->Seo->find()->where(array("'" . $current_url . "' LIKE criteria"))->first();
         // dd($record);
@@ -1064,7 +1069,6 @@ class AppController extends Controller
             $this->metaDescription = $record['description'];
             $this->metaKeywords = $record['keywords'];
         } else {
-
 
             if (empty($this->metaDescription)) {
 
