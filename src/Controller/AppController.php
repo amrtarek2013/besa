@@ -15,6 +15,7 @@ use Cake\I18n\I18n;
 
 use Cake\ORM\TableRegistry;
 use App\Model\Table\MenusTable;
+use Cake\Routing\Router;
 use Cake\Utility\Hash;
 use \Zend\Diactoros\UploadedFile;
 
@@ -25,6 +26,10 @@ class AppController extends Controller
     public $g_configs = array();
     public $locale_pr = "";
     public $permissions_ids = array();
+
+    public $pageTitle = null;
+    public $metaDescription = null;
+    public $metaKeywords = null;
     public function initialize(): void
     {
         parent::initialize();
@@ -196,6 +201,9 @@ class AppController extends Controller
 
             $this->_loadMenuItems();
         } else {
+
+            // SEO functions
+            $this->_set_seo();
         }
 
         $header = $this->getSnippet("header");
@@ -1036,5 +1044,38 @@ class AppController extends Controller
         else
             $appCourses = [];
         return $appCourses;
+    }
+
+
+    public function _set_seo()
+    {
+
+        $this->loadModel('Seo');
+
+        $current_url = Router::url(null);
+        $record = $this->Seo->find()->where(array("'" . $current_url . "' LIKE criteria"))->first();
+        // dd($record);
+        if ($record) {
+            $record->toArray();
+        }
+        if (!empty($record)) {
+            $this->titleAlias = $record['title'];
+            $this->set('title', $record['title']);
+            $this->metaDescription = $record['description'];
+            $this->metaKeywords = $record['keywords'];
+        } else {
+
+
+            if (empty($this->metaDescription)) {
+
+                $this->metaDescription = $this->g_configs['general_config']['txt.description'];
+            }
+            if (empty($this->metaKeywords)) {
+                $this->metaKeywords = $this->g_configs['general_config']['txt.keywords'];
+            }
+        }
+
+        $this->set('metaDescription', h(substr(preg_replace('/\\s+/', ' ', $this->metaDescription), 0, 500)));
+        $this->set('metaKeywords', $this->metaKeywords);
     }
 }
