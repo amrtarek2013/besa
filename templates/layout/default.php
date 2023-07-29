@@ -40,6 +40,21 @@
 </head>
 <?php $bodyClass = isset($bodyClass) ? $bodyClass : '' ?>
 
+<?php
+
+echo $config['general']['txt.facebook_pixels'];
+echo $config['general']['txt.google_analytics'];
+
+if (!empty($metaRobots)) {
+    echo $this->Html->meta('robots', $metaRobots);
+}
+if (!empty($metaKeywords)) {
+    echo $this->Html->meta('keywords', $metaKeywords);
+}
+if (!empty($metaDescription)) {
+    echo $this->Html->meta('description', $metaDescription);
+}
+?>
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">

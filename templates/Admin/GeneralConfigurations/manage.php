@@ -244,7 +244,7 @@ $hasDate = false;
                                                             'label' => $_lable,
                                                             'type' => 'file',
                                                             'value' => $value,
-                                                            'after' => (empty($value)) ? '' : '<a target="_blank" href="' . $value . '"><img src="<?=WEBSITE_URL?>img/preview.gif"> Preview</a>'
+                                                            'after' => (empty($value)) ? '' : '<a target="_blank" href="' . $value . '"><img src="'.WEBSITE_URL.'/img/preview.gif"> Preview</a>'
                                                         )
                                                     );
                                                 } else {
