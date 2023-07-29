@@ -33,12 +33,13 @@
                                 <tbody>
                                     <?php
 
+                                    use Cake\Routing\Router;
                                     use Cake\Utility\Inflector;
 
                                     foreach ($enquiryType['fields'] as $field) : ?>
                                         <tr class="table-header">
                                             <th class=""><a><?= Inflector::humanize($field) ?></a></th>
-                                            <td><?php echo (!empty($enquiry[$field]) ? $enquiry[$field] : '') ?></td>
+                                            <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? '<a target="_blank" href="' . Router::url("/uploads/enquiries/" . $enquiry[$field]) . '">Download</a>' : $enquiry[$field]) : '') ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     <!-- 
