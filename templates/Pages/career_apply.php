@@ -31,7 +31,7 @@
 
             <div class="col-md-12">
 
-                <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+                <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'type' => 'file', 'id' => 'contactusForm']) ?>
                 <input type="hidden" id="type" name="type" value="career-apply">
                 <div class="container-formBox">
                     <div class="gray-box">
