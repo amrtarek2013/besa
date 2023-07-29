@@ -42,8 +42,8 @@
 
 <?php
 
-echo $config['general']['txt.facebook_pixels'];
-echo $config['general']['txt.google_analytics'];
+echo $g_configs['general']['txt.facebook_pixels'];
+echo $g_configs['general']['txt.google_analytics'];
 
 if (!empty($metaRobots)) {
     echo $this->Html->meta('robots', $metaRobots);
