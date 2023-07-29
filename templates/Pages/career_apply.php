@@ -77,7 +77,7 @@
 
                         echo $this->Form->control('address', [
                             'placeholder' => 'Address', 'type' => 'text',
-                            'class' => 'required', 'required' => true, 'label' => 'address*',
+                            'class' => 'required', 'required' => true, 'label' => 'Address*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]);
 

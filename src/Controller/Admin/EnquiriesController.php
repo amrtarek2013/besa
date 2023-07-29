@@ -117,6 +117,7 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->find()->contain(['Branches'])->where(['Enquiries.id' => $id])->first();
 
         $this->set('enquiry', $enquiry);
+        $this->set('enquiryType', $this->Enquiries->enquiryTypes[$enquiry['type']]);
     }
 
 

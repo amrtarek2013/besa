@@ -25,17 +25,27 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('View Enquiry') ?></h3>
+                            <h3 class="card-title"><?= __('View ' . $enquiryType['title'] . ' Enquiry') ?></h3>
                         </div>
                         <div class='FormExtended'>
                             <h3>User Details</h3>
                             <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                                 <tbody>
-                                    <tr class="table-header">
+                                    <?php
+
+                                    use Cake\Utility\Inflector;
+
+                                    foreach ($enquiryType['fields'] as $field) : ?>
+                                        <tr class="table-header">
+                                            <th class=""><a><?= Inflector::humanize($field) ?></a></th>
+                                            <td><?php echo (!empty($enquiry[$field]) ? $enquiry[$field] : '') ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    <!-- 
+<tr class="table-header">
                                         <th class=""><a>Name</a></th>
                                         <td><?php echo (!empty($enquiry->name) ? $enquiry->name : '') ?></td>
                                     </tr>
-
                                     <tr class="table-header">
                                         <th class="" width=""><a>Phone</a></th>
                                         <td><?php echo (!empty($enquiry->phone) ? $enquiry->phone : '') ?></td>
@@ -59,11 +69,20 @@
                                     <tr class="table-header">
                                         <th class="" width=""><a>Message</a></th>
                                         <td><?php echo (!empty($enquiry->message) ? $enquiry->message : '') ?></td>
+                                    </tr> -->
+
+
+
+                                    <tr class="table-header">
+                                        <th class="" width=""><a>Date</a></th>
+                                        <td><?php echo (!empty($enquiry->created->format('H:m:i d-m-Y')) ? $enquiry->created->format('H:m:i d-m-y') : '') ?></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <?php if (!empty($enquiry->branch)) { ?>
+                            <?php
+                            /*
+                            if (!empty($enquiry->branch)) { ?>
                                 <h3>Branch Details</h3>
                                 <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                                     <tbody>
@@ -90,7 +109,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            <?php } ?>
+                            <?php }
+                            */
+                            ?>
                         </div>
 
                         <div class="card-footer">

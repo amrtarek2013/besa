@@ -34,11 +34,11 @@ class EnquiriesTable extends Table
 
     );
     public $enquiryTypes = [
-        'home' => ['validation' => 'home', 'redirect'=>'/', 'title' => 'Home', 'fields' => []],
-        'contact-us' => ['validation' => 'contactUs', 'redirect'=>'/contact-us', 'title' => 'Contact Us', 'fields' => []],
-        'app-support' => ['validation' => 'appSupport', 'redirect'=>'/app-support', 'title' => 'App Support', 'fields' => []],
-        'career-apply' => ['validation' => 'careerApply', 'redirect'=>'/career-apply', 'title' => 'Career Apply', 'fields' => []],
-        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect'=>'/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => []],
+        'home' => ['validation' => 'home', 'redirect' => '/', 'title' => 'Home', 'fields' => ['name', 'email', 'message']],
+        'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'phone', 'email', 'subject', 'message']],
+        'app-support' => ['validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support', 'fields' => ['name', 'surname', 'email', 'message']],
+        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name','surname', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
+        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'phone', 'email', 'address', 'certificate', 'how_here_about_us']],
         // 'home' => ['validation' => 'home', 'redirect'=>'/', 'title' => 'Home', 'fields' => []],
 
     ];
@@ -131,7 +131,7 @@ class EnquiriesTable extends Table
 
     public function validationAppSupport(Validator $validator): Validator
     {
-        
+
         $validator->notEmptyString('name', 'This field is required.');
         $validator->notEmptyString('surname', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
@@ -177,11 +177,11 @@ class EnquiriesTable extends Table
 
     public function validationCareerApply(Validator $validator): Validator
     {
-        
+
         $validator->notEmptyString('career_id', 'This field is required.');
         $validator->notEmptyString('name', 'This field is required.');
         $validator->notEmptyString('surname', 'This field is required.');
-        
+
         $validator->notEmptyString('certificate', 'This field is required.');
         $validator->notEmptyString('phone', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
