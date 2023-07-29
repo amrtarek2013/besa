@@ -39,7 +39,7 @@
                                     foreach ($enquiryType['fields'] as $field) : ?>
                                         <tr class="table-header">
                                             <th class=""><a><?= Inflector::humanize($field) ?></a></th>
-                                            <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' && $enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : $enquiry[$field]) : '') ?></td>
+                                            <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '') : $enquiry[$field]) : '') ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     <!-- 
