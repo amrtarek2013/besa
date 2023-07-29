@@ -25,6 +25,7 @@ class EnquiriesController extends AppController
 
             // debug($enquiry);
             // die;
+            $enquiry_redirect_url = $enquiry['type'];
             if ($this->Enquiries->save($enquiry)) {
 
                 $enquiryTitle = Inflector::humanize($enquiry['type']);
@@ -109,8 +110,11 @@ class EnquiriesController extends AppController
                 $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
             }
 
+            if ($enquiry->type == 'career_apply' && $enquiry->career_id)
+                $enquiry_redirect_url = $enquiry_redirect_url . '/' . $enquiry->career_id;
 
-            $this->__redirectToType($enquiry->type);
+
+            $this->__redirectToType($enquiry_redirect_url);
 
 
             // dd($enquiry);

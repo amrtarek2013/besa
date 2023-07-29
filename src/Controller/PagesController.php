@@ -318,14 +318,38 @@ class PagesController extends AppController
         // $this->set('book_free_meeting', $book_free_meeting);
         $this->set('partnership_with_besa', $partnershipWithBesa);
     }
-    public function careerApply()
+    public function careerApply($id = null, $title = null)
     {
+        if (isset($title))
+            $this->set('careerTitle', $title);
+
+        if (isset($id))
+            $this->set('id', $id);
+        else {
+            $this->Flash->error(__('Sorry, selected career not found!'));
+            $this->redirect('/careers');
+        }
 
         // $book_free_meeting = $this->getSnippet('book_free_meeting');
-        $partnershipWithBesa = '';//$this->getSnippet('partnership_with_besa');
+        $partnershipWithBesa = ''; //$this->getSnippet('partnership_with_besa');
         $this->set('bodyClass', '');
         // $this->set('book_free_meeting', $book_free_meeting);
         $this->set('partnership_with_besa', $partnershipWithBesa);
+
+
+        // $this->loadModel('Careers');
+        // $careersList = $this->Careers->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc']);
+        // $this->set('careersList', $careersList);
+
+        $this->loadModel('Careers');
+        $careersList = $this->Careers->find()->select([
+            'id', 'title' => 'CONCAT(title, " (",country,"-", state,")")'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->all();
+        // dd($careersList);
+        $careersList = Hash::combine($careersList->toArray(), '{n}.id', '{n}.title');
+        $this->set('careersList', $careersList);
     }
     public function partnerInstitutions()
     {

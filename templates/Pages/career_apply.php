@@ -36,8 +36,19 @@
                 <div class="container-formBox">
                     <div class="gray-box">
                         <p>Submit this form with your details and one of our representatives will be in contact with you.</p>
+
+                    </div>
+                    <div class="col-md-12" style="padding: 0 20px">
+
+                        <?= $this->Form->control('career_id', [
+                            'placeholder' => 'Career', 'type' => 'select', 'empty' => 'Select Career',
+                            'options' => $careersList, 'label' => 'Career*', 'required' => true, 'value' => $id,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
                     </div>
                     <div class="grid-container">
+
+
 
                         <?php
 

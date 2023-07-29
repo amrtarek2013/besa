@@ -33,6 +33,15 @@ class EnquiriesTable extends Table
         0 => 'NO ACTION',
 
     );
+    public $enquiryTypes = [
+        'home' => ['validation' => 'home', 'redirect'=>'/', 'title' => 'Home', 'fields' => []],
+        'contact-us' => ['validation' => 'contactUs', 'redirect'=>'/contact-us', 'title' => 'Contact Us', 'fields' => []],
+        'app-support' => ['validation' => 'appSupport', 'redirect'=>'/app-support', 'title' => 'App Support', 'fields' => []],
+        'career-apply' => ['validation' => 'careerApply', 'redirect'=>'/career-apply', 'title' => 'Career Apply', 'fields' => []],
+        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect'=>'/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => []],
+        // 'home' => ['validation' => 'home', 'redirect'=>'/', 'title' => 'Home', 'fields' => []],
+
+    ];
     public $types = [0 => 'Full Service'];
     /**
      * Initialize method
@@ -122,13 +131,7 @@ class EnquiriesTable extends Table
 
     public function validationAppSupport(Validator $validator): Validator
     {
-        // $validator->add('g-recaptcha-response', [
-        //     'checkCaptchaV3' => [
-        //         'rule' => 'checkCaptchaV3',
-        //         'provider' => 'table',
-        //         'message' => 'Page session expired, please reload the page!!',
-        //     ]
-        // ]);
+        
         $validator->notEmptyString('name', 'This field is required.');
         $validator->notEmptyString('surname', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
@@ -153,10 +156,38 @@ class EnquiriesTable extends Table
 
         $validator->notEmptyString('name', 'This field is required.');
         $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('certificate', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        $validator->notEmptyString('message', 'This field is required.');
+        // $validator->notEmptyString('message', 'This field is required.');
+
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+
+    public function validationCareerApply(Validator $validator): Validator
+    {
+        
+        $validator->notEmptyString('career_id', 'This field is required.');
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('surname', 'This field is required.');
+        
+        $validator->notEmptyString('certificate', 'This field is required.');
+        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        // $validator->notEmptyString('message', 'This field is required.');
 
 
         $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
