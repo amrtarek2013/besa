@@ -239,8 +239,11 @@ class AppController extends Controller
         $this->set('eventsMenuList', $events);
         $this->_loadConfig();
 
-        // SEO functions
-        $this->_set_seo();
+        if (!in_array($current_prefix, $this->prefixesNeedMenues)) {
+
+            // SEO functions
+            $this->_set_seo();
+        }
     }
     protected function _loadConfig()
     {
