@@ -13,7 +13,7 @@ class Enquiry extends Entity
 {
     // use LazyLoadEntityTrait;
 
-protected $_virtual = [];
+    protected $_virtual = ['file_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -33,17 +33,16 @@ protected $_virtual = [];
     {
     }
 
-    // protected function _getImagePath()
-    // {
+    protected function _getFIlePath()
+    {
 
-    //     $no_image_path = DS . 'img' . DS . 'hero-bg6.png';
-    //     if (!empty($this->image)) {
-    //         $image_path = 'uploads' . DS . 'countries' . DS . str_replace(DS,"",$this->image);
-    //         if (file_exists(WWW_ROOT . $image_path))
-    //             return DS . $image_path;
-    //         else
-    //             return $no_image_path;
-    //     }
-    //     return $no_image_path;
-    // }
+        if (!empty($this->certificate)) {
+            $file_path = 'uploads' . DS . 'enquiries' . DS . str_replace(DS, "", $this->certificate);
+            if (file_exists(WWW_ROOT . $file_path))
+                return DS . $file_path;
+            else
+                return '#';
+        }
+        return '#';
+    }
 }
