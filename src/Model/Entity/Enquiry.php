@@ -33,7 +33,7 @@ class Enquiry extends Entity
     {
     }
 
-    protected function _getFIlePath()
+    protected function _getFilePath()
     {
 
         if (!empty($this->certificate)) {
