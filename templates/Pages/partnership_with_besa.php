@@ -103,32 +103,6 @@
                         ]);
 
                         ?>
-                        <!-- <div class="form-area">
-                                <label for="name">Company/institution name*</label>
-                                <input type="text" id="name" name="name" placeholder="Name">
-                            </div>
-
-                            <div class="form-area">
-                                <label for="email">Email address*</label>
-                                <input type="email" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-area">
-                                <label for="phone">Phone number*</label>
-                                <input type="number" id="phone" name="phone" placeholder="Phone number">
-                            </div>
-                            <div class="form-area">
-                                <label for="">Business address*</label>
-                                <input type="text" id="" name="" placeholder="Address">
-                            </div> -->
-
-                        <!-- <div class="form-area">
-                            <label for="">Upload business certificate</label>
-                            <input type="file" id="" name="" placeholder="Certificate">
-                        </div>
-                        <div class="form-area">
-                            <label for="">How did you hear about us?</label>
-                            <input type="text" id="" name="" placeholder="Facebook">
-                        </div> -->
                     </div>
 
 

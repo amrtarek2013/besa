@@ -73,7 +73,7 @@ if (!empty($metaDescription)) {
     });
 </script>
 
-<body cz-shortcut-listen="true" class="<?= $bodyClass ?>" style="overflow-x: hidden;">
+<body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
 
     <?= $this->element('UserPopUp'); ?>
     <?php //= $header 

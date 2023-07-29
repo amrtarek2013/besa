@@ -1068,10 +1068,10 @@ class AppController extends Controller
 
             if (empty($this->metaDescription)) {
 
-                $this->metaDescription = $this->g_configs['general_config']['txt.description'];
+                $this->metaDescription = $this->g_configs['general']['txt.description'];
             }
             if (empty($this->metaKeywords)) {
-                $this->metaKeywords = $this->g_configs['general_config']['txt.keywords'];
+                $this->metaKeywords = $this->g_configs['general']['txt.keywords'];
             }
         }
 
