@@ -28,6 +28,6 @@
 <?php
 
 
-if (isset($_GET['dk']))
-    dd($wishLists);
-echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'pagging' => 1, 'gridContainerCols'=>3]); ?>
+// if (isset($_GET['dk']))
+//     dd($wishLists);
+echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'pagging' => 1, 'gridContainerCols' => 3]); ?>

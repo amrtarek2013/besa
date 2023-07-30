@@ -48,8 +48,11 @@ class UniversityCoursesController extends AppController
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
         ]);
 
+        $coursesDetails = Hash::combine($courses->toArray(), '{n}.id', '{n}');
         $this->set('courses', $courses->toArray());
 
+
+        $this->set('coursesDetails', $coursesDetails);
 
         $this->set('wishLists', $this->getWishLists());
 

@@ -63,6 +63,7 @@
 
     <div class="container-formBox">
         <h4 class="title">Filters</h4>
+        <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
         <div class="">
             <?= $this->Form->control('country_id', [
                 'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
@@ -82,6 +83,12 @@
             <!-- </nav> -->
             <!-- /.sidebar-menu -->
         </div>
+        <div class="container-submit">
+
+            <button type="submit" class="btn greenish-teal">FILTER</button>
+        </div>
+
+        <?= $this->Form->end() ?>
     </div>
     <!-- /.sidebar -->
 </aside>

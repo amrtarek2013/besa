@@ -6,8 +6,6 @@
                     <div class="grid-container-<?= $gridContainerCols ?>col">
                         <?php
 
-                        // print_r($courses);
-
                         use Cake\Routing\Router;
 
                         if (!empty($courses)) : ?>
@@ -92,17 +90,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="button-next-prev">
-        <a href="#">
-            <img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-prev.svg" alt="">
-        </a>
-        <a href="#">
-            <img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-next.svg" alt="">
-
-        </a>
-
-    </div> -->
 </section>
 
 <div class="remodal courseDetailsModal" data-remodal-id="courseDetails">
@@ -137,20 +124,22 @@
     <!-- <button data-remodal-action="cancel" style="display: none;" class="remodal-cancel">Cancel</button>
     <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
 </div>
+<?php if (isset($coursesDetails)) { ?>
+    <script>
+        var coursesDetails = <?= json_encode($coursesDetails) ?>;
+        var inst = $('[data-remodal-id=courseDetails]').remodal();
+        $('.course-details').on('click', function() {
 
-<script>
-    var coursesDetails = <?= json_encode($coursesDetails) ?>;
-    var inst = $('[data-remodal-id=courseDetails]').remodal();
-    $('.course-details').on('click', function() {
+            // $('.courseDetails .remodal-cancel').show();
+            courseID = $(this).data('courseid');
+            $('.courseDetailsModal #title-result').html(coursesDetails[courseID].course_name);
 
-        // $('.courseDetails .remodal-cancel').show();
-        courseID = $(this).data('courseid');
-        $('.courseDetailsModal #title-result').html(coursesDetails[courseID].course_name);
+            inst.open();
 
-        inst.open();
+        });
+    </script>
+<?php } ?>
 
-    });
-</script>
 <script>
     var current_controller = '<?= strtolower($this->request->getParam('controller')) ?>';
     var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
