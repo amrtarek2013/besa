@@ -103,7 +103,8 @@
 
                     // custom properties
                     // title: markers[i].title,
-                    link: '/country-details/' + airports[i]['permalink'],
+                    // link: '/country-details/' + airports[i]['permalink'],
+                    link: '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink'],
 
                     // custom property
                     photo_info: "/img/flags/" + airports[i]['flag']
