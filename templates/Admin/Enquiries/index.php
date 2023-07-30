@@ -40,7 +40,7 @@
                         $fields = [
                             'basicModel' => 'enquiries',
                             'id' => [],
-                            'type' => [],
+                            'type' => ['format' => 'get_from_array', 'options' => ['items_list' => $types]],
                             'name' => [],
 
                             'phone' => [],
