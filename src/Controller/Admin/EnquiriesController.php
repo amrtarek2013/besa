@@ -31,8 +31,8 @@ class EnquiriesController extends AppController
         //     'valueField' => 'type',
         // ])->where(['type !=' => '', 'type is not null'])->distinct('type');
         $types = $this->Enquiries->enquiryTypesList;
-     
-        $this->set(compact('enquiries', 'parameters', 'branches', 'types'));
+
+        $this->set(compact('enquiries', 'parameters', 'types'));
     }
     public function list()
     {
