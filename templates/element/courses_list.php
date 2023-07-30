@@ -1,9 +1,9 @@
 <section class="result">
     <div class=" row-result">
-        <div class="container">
+        <div class="<?= $gridContainerCols == 3 ? 'container' : '' ?>">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="grid-container-<?=$gridContainerCols?>col">
+                    <div class="grid-container-<?= $gridContainerCols ?>col">
                         <?php
 
                         // print_r($courses);
