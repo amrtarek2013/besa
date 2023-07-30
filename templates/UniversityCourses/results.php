@@ -33,7 +33,7 @@
     <div class="row user-dashboard">
 
         <div class="col-md-3">
-            <?php echo $this->element('filters-side', []); ?>
+            <?php echo $this->element('filters-side', ['filterParams' => $filterParams]); ?>
         </div>
         <div class="col-md-9">
 

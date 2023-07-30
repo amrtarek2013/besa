@@ -214,6 +214,7 @@ class UniversityCoursesController extends AppController
         // debug($url_params);
         unset($url_params['url'], $url_params['page'], $url_params['sort'], $url_params['direction']);
 
+        $this->set('filterParams', $url_params);
 
         if (isset($url_params['service_id']))
             $conditions['UniversityCourses.service_id'] = $url_params['service_id'];

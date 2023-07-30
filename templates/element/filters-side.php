@@ -68,16 +68,19 @@
             <?= $this->Form->control('country_id', [
                 'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
                 'options' => $countriesList, 'label' => 'Destination*', 'required' => true,
+                'value' => (isset($filterParams) && isset($filterParams['country_id']) ? $filterParams['country_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('study_level_id', [
                 'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
                 'options' => $studyLevels, 'label' => 'Level of study*', 'required' => true,
+                'value' => (isset($filterParams) && isset($filterParams['study_level_id']) ? $filterParams['study_level_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('subject_area_id', [
                 'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
                 'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+                'value' => (isset($filterParams) && isset($filterParams['subject_area_id']) ? $filterParams['subject_area_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <!-- </nav> -->
