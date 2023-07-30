@@ -52,6 +52,32 @@
         clear: both;
         padding-bottom: 15px;
     }
+
+    #slider_range_blue {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        height: 4px;
+        background: #8692A6;
+    }
+
+    .noUi-connect {
+        background: #2575FC;
+    }
+
+    .range-wrapper .min-name,
+    .range-wrapper .max-name,
+    .output-range span {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+        color: #696F79;
+        display: block;
+        margin-bottom: 15px;
+    }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?= USER_LINK ?>" class="brand-link">
@@ -85,6 +111,44 @@
             ]) ?>
             <!-- </nav> -->
             <!-- /.sidebar-menu -->
+            <div class="range-wrapper">
+                <div class="output-range">
+                    <span id="slider-value">$<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?> </span>
+                    <span id="max-val">$<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?> </span>
+
+                </div>
+                <div id="slider_range_blue"></div>
+                <div class="minAndMax">
+                    <span class="min-name">Min </span>
+                    <span class="max-name">Max </span>
+                </div>
+                <input type="hidden" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>">
+                <input type="hidden" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>">
+                <script>
+                    var slider = document.getElementById('slider_range_blue');
+                    var sliderValueElement = document.getElementById('slider-value');
+                    var maxValElement = document.getElementById('max-val');
+                    var minBudgetElement = document.getElementById('min-budget');
+                    var maxBudgetElement = document.getElementById('max-budget');
+
+                    noUiSlider.create(slider, {
+                        start: ['<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '500') ?>', '<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '85000') ?>'],
+                        connect: true,
+                        range: {
+                            min: 0,
+                            max: 100000
+                        }
+                    });
+
+                    slider.noUiSlider.on('update', function(values, handle) {
+                        sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
+                        minBudgetElement.value = Math.round(values[0]);
+                        maxBudgetElement.value = Math.round(values[1]);
+                        maxValElement.innerHTML = "£" + Math.round(values[1]);
+                    });
+                </script>
+            </div>
+
         </div>
         <div class="container-submit">
 
@@ -97,7 +161,7 @@
     <!-- /.sidebar -->
 </aside>
 <script>
-    var currentUrl = '<?=$_SERVER['REQUEST_URI']?>';
+    var currentUrl = '<?= $_SERVER['REQUEST_URI'] ?>';
     $(function() {
         $('#FilterClear').click(function() {
             $.ajax({
