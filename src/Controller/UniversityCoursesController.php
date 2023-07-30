@@ -19,13 +19,13 @@ class UniversityCoursesController extends AppController
 
         $conditions = $this->_filter_params();
         $conditions = ['UniversityCourses.active' => 1];
-        if (isset($country) && $type==1) {
+        if (isset($country) && $type == 1) {
 
             // $c_id = explode('-', $country);
             // if (isset($c_id[0]) && is_numeric($c_id[0]))
             $conditions['UniversityCourses.country_id'] = $country;
-        } else if ($type == 2){
-            
+        } else if ($type == 2) {
+
             $conditions['UniversityCourses.university_id'] = $country;
         }
 
@@ -143,7 +143,7 @@ class UniversityCoursesController extends AppController
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->->toArray();
 
         // $conditions = $this->_filter_params();
-        $conditions = ['UniversityCourses.active' => 1];
+        $conditions['UniversityCourses.active'] = 1;
         // if (isset($country)) {
 
         //     // $c_id = explode('-', $country);
