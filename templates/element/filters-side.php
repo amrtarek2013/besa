@@ -67,19 +67,19 @@
         <div class="">
             <?= $this->Form->control('country_id', [
                 'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
-                'options' => $countriesList, 'label' => 'Destination*', 'required' => true,
+                'options' => $countriesList, 'label' => 'Destination',
                 'value' => (isset($filterParams) && isset($filterParams['country_id']) ? $filterParams['country_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('study_level_id', [
-                'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-                'options' => $studyLevels, 'label' => 'Level of study*', 'required' => true,
+                'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study',
+                'options' => $studyLevels, 'label' => 'Level of study',
                 'value' => (isset($filterParams) && isset($filterParams['study_level_id']) ? $filterParams['study_level_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
             <?= $this->Form->control('subject_area_id', [
-                'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
-                'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+                'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area',
+                'options' => $subjectAreas, 'label' => 'Subject Area',
                 'value' => (isset($filterParams) && isset($filterParams['subject_area_id']) ? $filterParams['subject_area_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
@@ -88,6 +88,7 @@
         </div>
         <div class="container-submit">
 
+            <a class="btn greenish-teal" id="FilterClear">CLEAR</a>
             <button type="submit" class="btn greenish-teal">FILTER</button>
         </div>
 
@@ -95,3 +96,22 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+<script>
+    var currentUrl = '<?=$_SERVER['REQUEST_URI']?>';
+    $(function() {
+        $('#FilterClear').click(function() {
+            $.ajax({
+                url: '/university-courses/reset-filter/results',
+                success: function(data, status) {
+                    window.location = 'results';
+                }
+            });
+        });
+        // $('#filterform input').removeAttr('required');
+        // javascript: $('#filterform').slideToggle('fast');
+        // void(0);
+        // $(".hasDate").datepicker({
+        //     format: "dd-mm-yy"
+        // });
+    });
+</script>

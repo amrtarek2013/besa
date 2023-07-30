@@ -216,32 +216,33 @@ class UniversityCoursesController extends AppController
 
         $this->set('filterParams', $url_params);
 
-        if (isset($url_params['service_id']))
+        if (isset($url_params['service_id']) && !empty($url_params['service_id']))
             $conditions['UniversityCourses.service_id'] = $url_params['service_id'];
         else
             unset($url_params['service_id']);
 
-        if (isset($url_params['course_id']))
+        if (isset($url_params['course_id']) && !empty($url_params['course_id']))
             $conditions['UniversityCourses.course_id'] = $url_params['course_id'];
         else
             unset($url_params['course_id']);
 
-        if (isset($url_params['min_budget']))
+        if (isset($url_params['min_budget']) && !empty($url_params['min_budget']))
             $conditions['UniversityCourses.fees >='] = $url_params['min_budget'];
-        if (isset($url_params['max_budget']))
+        if (isset($url_params['max_budget']) && !empty($url_params['max_budget']))
             $conditions['UniversityCourses.fees <='] = $url_params['max_budget'];
 
 
-        if (isset($url_params['study_level_id']))
+        if (isset($url_params['study_level_id']) && !empty($url_params['study_level_id']))
             $conditions['Courses.study_level_id'] = $url_params['study_level_id'];
-        if (isset($url_params['subject_area_id']))
+        if (isset($url_params['subject_area_id']) && !empty($url_params['subject_area_id']))
             $conditions['Courses.subject_area_id'] = $url_params['subject_area_id'];
 
-        if (is_array($url_params['country_id'])) {
-            $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];
-        } else {
-            $conditions['UniversityCourses.country_id'] = $url_params['country_id'];
-        }
+        if (isset($url_params['country_id']) && !empty($url_params['country_id']))
+            if (is_array($url_params['country_id'])) {
+                $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];
+            } else{
+                $conditions['UniversityCourses.country_id'] = $url_params['country_id'];
+            }
         // if (isset($url_params['degree'])) {
 
         //     if ($url_params['degree'] == 2) {
