@@ -12,4 +12,4 @@
 <?php 
 if(isset($_GET['dk']))
     dd($wishLists);
-echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists]);
+echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'gridContainerCols'=>2]);

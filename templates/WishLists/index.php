@@ -1,1 +1,1 @@
-<?php echo $this->element('courses_list', ['courses' => $courses]); ?>
+<?php echo $this->element('courses_list', ['courses' => $courses, 'gridContainerCols'=>3]); ?>

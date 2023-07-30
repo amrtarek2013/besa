@@ -54,7 +54,7 @@
     </div>
 </section>
 
-<?= $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'appCourses' => $appCourses]); ?>
+<?= $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'appCourses' => $appCourses, 'gridContainerCols'=>3]); ?>
 
 <section class="main-banner register-banner  partiner-banner">
     <div class="container">

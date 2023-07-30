@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-5">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">Universities</h1>
+                    <h1 class="relative-text">Univers</h1>
                     <h2 class="title text-left">Universities</h2>
                 </div>
             </div>

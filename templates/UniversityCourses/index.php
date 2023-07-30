@@ -30,4 +30,4 @@
 
 if (isset($_GET['dk']))
     dd($wishLists);
-echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'pagging' => 1]); ?>
+echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'pagging' => 1, 'gridContainerCols'=>3]); ?>

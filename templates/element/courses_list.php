@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="grid-container-3col">
+                    <div class="grid-container-<?=$gridContainerCols?>col">
                         <?php
 
                         // print_r($courses);

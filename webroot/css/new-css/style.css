@@ -4435,6 +4435,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 50px;
 }
+.grid-container-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
 
 .box-result {
     padding: 0 20px;

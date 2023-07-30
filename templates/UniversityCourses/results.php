@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-9">
 
-            <?php echo $this->element('courses_list', ['courses' => $courses]); ?>
+            <?php echo $this->element('courses_list', ['courses' => $courses, 'gridContainerCols'=>2]); ?>
 
         </div>
 
