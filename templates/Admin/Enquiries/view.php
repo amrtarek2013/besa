@@ -28,7 +28,7 @@
                             <h3 class="card-title"><?= __('View ' . $enquiryType['title'] . ' Enquiry') ?></h3>
                         </div>
                         <div class='FormExtended'>
-                            <h3>User Details</h3>
+                            <!-- <h3>User Details</h3> -->
                             <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                                 <tbody>
                                     <?php

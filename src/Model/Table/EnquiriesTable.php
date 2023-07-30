@@ -37,9 +37,16 @@ class EnquiriesTable extends Table
         'home' => ['validation' => 'home', 'redirect' => '/', 'title' => 'Home', 'fields' => ['name', 'email', 'message']],
         'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'phone', 'email', 'subject', 'message']],
         'app-support' => ['validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support', 'fields' => ['name', 'surname', 'email', 'message']],
-        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name','surname', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
-        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'phone', 'email', 'address', 'certificate', 'how_here_about_us']],
-        // 'home' => ['validation' => 'home', 'redirect'=>'/', 'title' => 'Home', 'fields' => []],
+        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name', 'surname', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
+        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
+
+    ];
+    public $enquiryTypesList = [
+        'home' => 'Home',
+        'contact-us' => 'Contact Us',
+        'app-support' => 'App Support',
+        'career-apply' => 'Career Apply',
+        'partnership-with-besa' => 'Partnership with besa',
 
     ];
     public $types = [0 => 'Full Service'];

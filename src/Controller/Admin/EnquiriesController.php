@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\Core\Configure;
+use Cake\Utility\Hash;
 
 /**
  * Enquiries Controller
@@ -23,12 +24,14 @@ class EnquiriesController extends AppController
         $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
 
-        $this->loadModel('Branches');
-        $branches = $this->Branches->find('list');
-        $types = $this->Enquiries->find('list', [
-            'keyField' => 'type',
-            'valueField' => 'type',
-        ])->where(['type !=' => '', 'type is not null'])->distinct('type');
+        // $this->loadModel('Branches');
+        // $branches = $this->Branches->find('list');
+        // $types = $this->Enquiries->find('list', [
+        //     'keyField' => 'type',
+        //     'valueField' => 'type',
+        // ])->where(['type !=' => '', 'type is not null'])->distinct('type');
+        $types = $this->Enquiries->enquiryTypesList;
+     
         $this->set(compact('enquiries', 'parameters', 'branches', 'types'));
     }
     public function list()

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Core\Configure;
 use Cake\Routing\Router;
 use Cake\Utility\Hash;
 use Cake\Utility\Inflector;
+use PSpell\Config;
 
 class EnquiriesController extends AppController
 {
@@ -20,6 +22,8 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
 
+            Configure::write('debug', 0);
+            Configure::write('debug', false);
             // debug($this->request->getData());
             $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData(), ['validate' => 'contactUs']);
 
