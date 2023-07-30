@@ -34,7 +34,7 @@
                                     <div class="content-blog">
                                         <p><?= $university['title'] ?></p>
                                         <p><?= $university['short_description'] ?></p>
-                                        <a href="/blog-details/<?= $university['permalink'] ?>" class="read-anchor">READ MORE</a>
+                                        <a href="/courses/<?= $university['id'] ?>/<?= $university['permalink'] ?>/2" class="read-anchor">READ MORE</a>
                                     </div>
                                 </div>
 

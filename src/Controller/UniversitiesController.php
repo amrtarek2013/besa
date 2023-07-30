@@ -25,7 +25,11 @@ class UniversitiesController extends AppController
             $conditions['country_id'] = $country;
         }
 
-        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC'], 'limit' => 20]);
+        $universities = $this->paginate($this->Universities, [
+            'conditions' => $conditions,
+            'distinct' => ['university_name'],
+            'order' => ['title' => 'ASC'], 'limit' => 20
+        ]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universities', 'parameters'));
 

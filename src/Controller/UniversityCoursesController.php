@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Http\Exception\NotFoundException;
+use Cake\Utility\Hash;
 
 class UniversityCoursesController extends AppController
 {
 
-    public function index($country = null)
+    public function index($country = null, $perm = null, $type = 1)
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -18,11 +19,14 @@ class UniversityCoursesController extends AppController
 
         $conditions = $this->_filter_params();
         $conditions = ['UniversityCourses.active' => 1];
-        if (isset($country)) {
+        if (isset($country) && $type==1) {
 
             // $c_id = explode('-', $country);
             // if (isset($c_id[0]) && is_numeric($c_id[0]))
             $conditions['UniversityCourses.country_id'] = $country;
+        } else if ($type == 2){
+            
+            $conditions['UniversityCourses.university_id'] = $country;
         }
 
 
@@ -131,25 +135,71 @@ class UniversityCoursesController extends AppController
         // debug($url);
         if (!$this->Session->check('Auth.User'))
             $this->Session->write('search_url', $_SERVER["REQUEST_URI"]);
-        $courses = $this->UniversityCourses->find()->contain([
-            'Courses' => ['fields' => ['course_name']], 'Countries' => ['fields' => ['country_name']], 'Universities' => ['fields' => ['university_name', 'rank']], 'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
-        ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
+        // $courses = $this->UniversityCourses->find()->contain([
+        //     'Courses' => ['fields' => ['course_name']], 'Countries' => ['fields' => ['country_name']], 'Universities' => ['fields' => ['university_name', 'rank']], 'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+        // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->->toArray();
 
+        // $conditions = $this->_filter_params();
+        $conditions = ['UniversityCourses.active' => 1];
+        // if (isset($country)) {
+
+        //     // $c_id = explode('-', $country);
+        //     // if (isset($c_id[0]) && is_numeric($c_id[0]))
+        //     $conditions['UniversityCourses.country_id'] = $country;
+        // }
+
+
+        $courses = $this->paginate($this->UniversityCourses, [
+            'contain' => [
+                'Courses' => ['fields' => ['course_name']],
+                'Countries' => ['fields' => ['country_name']],
+                'Universities' => ['fields' => ['university_name', 'rank']],
+                'Services' => ['fields' => ['title']],
+                'StudyLevels' => ['fields' => ['title']],
+                'SubjectAreas' => ['fields' => ['title']]
+            ],
+            'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
+        ]);
+
+        $coursesDetails = Hash::combine($courses->toArray(), '{n}.id', '{n}');
         $this->set('courses', $courses->toArray());
 
 
+        // debug($coursesDetails);
+        // debug($courses);
+        $this->set('coursesDetails', $coursesDetails);
         $this->set('wishLists', $this->getWishLists());
         $this->set('appCourses', $this->getAppCourses());
-        // $this->loadModel('Majors');
-        // $courseMajors = $this->Majors->find('list')->where(['active' => 1])->order(['display_order' => 'asc']);
 
-        // $this->set('courseMajors', $courseMajors);
-        // $this->loadModel('Countries');
-        // $countriesList = $this->Countries->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
 
-        // $this->set('countriesList', $countriesList);
+
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+        $this->set('countriesList', $countriesList);
+
+
+        // $this->loadModel('Services');
+        // $servicesSearchList = $this->Services->find('all')->where(['active' => 1, 'show_in_search' => 1])
+        //     ->order([/*'display_order' => 'asc',*/'search_degree_options' => 'ASC'])->all()->toArray();
+        // // debug($servicesSearchList);
+        // $this->set('servicesSearchList', $servicesSearchList);
+        // $this->set('searchDegreeOptions', $this->Services->searchDegreeOptions);
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
+        // dd($studyLevels);
+
+
+        $this->loadModel("SubjectAreas");
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
     }
 
     private function __prepConditions()
@@ -215,7 +265,13 @@ class UniversityCoursesController extends AppController
     public function details($id = null)
     {
         $course = $this->UniversityCourses->find()
-            ->contain(['Courses' => ['fields' => ['course_name']], 'Countries' => ['fields' => ['country_name']], 'Universities' => ['fields' => ['university_name', 'rank']], 'Services' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]])
+            ->contain([
+                'Courses' => ['fields' => ['course_name']],
+                'Countries' => ['fields' => ['country_name']],
+                'Universities' => ['fields' => ['university_name', 'rank']],
+                'Services' => ['fields' => ['title']],
+                'SubjectAreas' => ['fields' => ['title']]
+            ])
             // ->where(['UniversityCourses.active' => 1])
             ->order(['UniversityCourses.display_order' => 'asc'])->first();
 

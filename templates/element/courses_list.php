@@ -49,7 +49,7 @@
                                         <div>
 
 
-                                            <a href="javascript:void(0)">
+                                            <a href="javascript:void(0)" class="course-details" data-courseid="<?= $course['id'] ?>">
                                                 <div class="circle-icon wish-red">
                                                     <img src="<?= WEBSITE_URL ?>img/icon/more-details.svg" alt="">
                                                 </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-12">
                     <?php if (isset($pagging)) : ?>
-                        <br/><br/><br/>
+                        <br /><br /><br />
                         <div class="paginator">
                             <ul class="pagination">
                                 <?= $this->Paginator->first(' << ') ?>
@@ -105,6 +105,52 @@
     </div> -->
 </section>
 
+<div class="remodal courseDetailsModal" data-remodal-id="courseDetails">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <!-- <h1 id="msgTitle"></h1> -->
+    <div class="box-result" id="box-result-3922">
+        <h4 class="title-result" id="title-result">Course Name</h4>
+        <p class="education">Lincoln</p>
+        <p class="address">
+            <span class="underline">
+                <a href="#">
+                </a>
+            </span>
+            <span class="normal" id="rank">THE world university rank: </span>
+        </p>
+        <div class="courses">
+            <div class="left">
+                <p>Course Qualification</p>
+                <p class="green" id="degree"> Bachelor Degree</p>
+            </div>
+            <div class="right">
+                <p>Total course fee</p>
+                <p class="green" id="fees">USD 14,400.00</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- <p id="msgText">
+
+    </p> -->
+    <br>
+    <!-- <button data-remodal-action="cancel" style="display: none;" class="remodal-cancel">Cancel</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
+</div>
+
+<script>
+    var coursesDetails = <?= json_encode($coursesDetails) ?>;
+    var inst = $('[data-remodal-id=courseDetails]').remodal();
+    $('.course-details').on('click', function() {
+
+        // $('.courseDetails .remodal-cancel').show();
+        courseID = $(this).data('courseid');
+        $('.courseDetailsModal #title-result').html(coursesDetails[courseID].course_name);
+
+        inst.open();
+
+    });
+</script>
 <script>
     var current_controller = '<?= strtolower($this->request->getParam('controller')) ?>';
     var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
