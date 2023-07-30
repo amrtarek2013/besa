@@ -88,7 +88,7 @@
         </div>
         <div class="container-submit">
 
-            <a class="btn greenish-teal" id="FilterClear">CLEAR</a>
+            <a class="btn clear-blue" id="FilterClear">CLEAR</a>
             <button type="submit" class="btn greenish-teal">FILTER</button>
         </div>
 
@@ -107,11 +107,5 @@
                 }
             });
         });
-        // $('#filterform input').removeAttr('required');
-        // javascript: $('#filterform').slideToggle('fast');
-        // void(0);
-        // $(".hasDate").datepicker({
-        //     format: "dd-mm-yy"
-        // });
     });
 </script>
