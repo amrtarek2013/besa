@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
 class EnquiriesTable extends Table
 {
     public $filters = [
-        'type' => ['like', 'options' => ['lable' => 'Type']],
+        'type' => ['like', 'options' => ['lable' => 'Type', 'type' => 'select']],
         'name' => ['like', 'options' => ['lable' => 'User Name']],
         'email' => ['like', 'options' => ['lable' => 'User Email']],
         'phone' => ['like', 'options' => ['lable' => 'User Phone']],

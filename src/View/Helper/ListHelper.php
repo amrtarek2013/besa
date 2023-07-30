@@ -804,7 +804,9 @@ CODEBLOCK;
 					$output .= '</div>';
 				} else {
 					$selectOptions = (isset($other[Inflector::pluralize($field)])) ? $other[Inflector::pluralize($field)] : [];
-					$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field][0]);
+					// $value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field][0]);
+					$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
+					
 					$label = empty($filter['title']) ? Inflector::humanize($field) : $filter['title'];
 
 
@@ -826,6 +828,7 @@ CODEBLOCK;
 					if (isset($filter['options']['options'])) {
 						$selectOptions = $filter['options']['options'];
 					}
+					
 					$fieldType = (isset($filter['options']['type'])) ? $filter['options']['type'] : false;
 					if (!empty($selectOptions)) {
 
@@ -836,7 +839,6 @@ CODEBLOCK;
 						$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
 						$output .= $this->AdminForm->control($field, array('type' => $fieldType, 'class' =>  $extra['input_class'], 'label' => isset($label) ? $label : Inflector::humanize($field), 'value' => $value, 'div' => array('id' => $div_id)));
 					} else {
-						// debug($field);
 						$output .= $this->AdminForm->control($field, array('label' => $label, 'class' => 'selectTwoInput ' . $extra['input_class'], 'value' => $value, 'selected' => $value, 'empty' => $empty1, 'required' => $required1, 'multiple' => $multiple));
 					}
 					$output .= '</div>';
