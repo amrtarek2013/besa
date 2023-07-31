@@ -488,6 +488,8 @@
         obVal = obVal.toLowerCase();
 
         let searchResult = '';
+        
+        $('.search-list-result').html('');
         if (obVal.length >= 2) {
             $.each(studyCoursesList, function(key, val) {
                 val1 = val.toLowerCase();
