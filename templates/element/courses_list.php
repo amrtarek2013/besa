@@ -97,14 +97,8 @@
     <!-- <h1 id="msgTitle"></h1> -->
     <div class="box-result" id="box-result-3922">
         <h4 class="title-result" id="title-result">Course Name</h4>
-        <p class="education">Lincoln</p>
-        <p class="address">
-            <span class="underline">
-                <a href="#">
-                </a>
-            </span>
-            <span class="normal" id="rank">THE world university rank: </span>
-        </p>
+        <p class="education" id="university">Lincoln</p>
+        
         <div class="courses">
             <div class="left">
                 <p>Course Qualification</p>
@@ -133,6 +127,9 @@
             // $('.courseDetails .remodal-cancel').show();
             courseID = $(this).data('courseid');
             $('.courseDetailsModal #title-result').html(coursesDetails[courseID].course_name);
+            $('.courseDetailsModal #university').html(coursesDetails[courseID]['university']['university_title']);
+            $('.courseDetailsModal #degree').html(coursesDetails[courseID]['study_level']['title']);
+            $('.courseDetailsModal #fees').html(coursesDetails[courseID].fees);
 
             inst.open();
 
