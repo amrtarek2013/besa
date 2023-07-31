@@ -7961,3 +7961,8 @@ input[type="search"]:focus {
 .blogs .box-blog .content-blog {
     width: 50%;
 }
+
+.header .main-slider .item .text h1{
+    line-height: 55px;
+    font-size: 42px;
+}
