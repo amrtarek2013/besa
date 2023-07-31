@@ -1767,5 +1767,23 @@
     .why_besa2 .container-icons{
         grid-template-columns: 1fr 1fr;
     }
+    .servFair .grid-3col {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .bannar-green .btn-green,
+    .bannar-blue .btn-blue {
+        font-size: 22px;
+     
+        height: unset;
+        padding: 15px 30px;
+        margin: auto;
+        width: 90%;
+        text-align: center;
+    }
+    .fair-banner .text-radius {
+        padding: 25px;
+        margin-right: 0;
+    }
     
 }
