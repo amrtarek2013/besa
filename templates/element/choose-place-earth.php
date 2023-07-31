@@ -43,6 +43,7 @@
     var custom_regions_image;
 
     var selected_countries = [];
+    var redirectUrl = '<?= $redirectUrl ?>';
 
     window.addEventListener("earthjsload", function() {
 
@@ -103,7 +104,7 @@
 
                     // custom properties
                     // title: markers[i].title,
-                    link: '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink'],
+                    link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
 
                     // custom property
                     photo_info: "/img/flags/" + airports[i]['flag']

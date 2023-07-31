@@ -17,7 +17,7 @@
     </div>
 
 
-    <?= $this->element("choose-place-earth", ['left_html' => $partner_institutions_left_boxs, 'colWidth' => '8']) ?>
+    <?= $this->element("choose-place-earth", ['left_html' => $partner_institutions_left_boxs, 'colWidth' => '8', 'redirectUrl' => 'unvertsities']) ?>
 
     <?= $partner_institutions_bottom_section ?>
 </section>

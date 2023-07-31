@@ -201,7 +201,7 @@
 <?= $home_why_besa2 ?>
 
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9']) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
 
 <!-- Start testimonials 2-->
 
@@ -314,7 +314,7 @@
     </div>
 </section> -->
 
-<?=$this->element('testimonials', ['testimonials'=>$testimonials])?>
+<?= $this->element('testimonials', ['testimonials' => $testimonials]) ?>
 
 <section class="contact-us">
     <div class="top-dots-img">
