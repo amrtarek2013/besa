@@ -1,3 +1,13 @@
+<style>
+    .search-list {
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.20000000298023224px;
+        padding: 20px 10px;
+    }
+</style>
 <section class="navbar">
     <div class="container">
         <div class="row">
@@ -315,59 +325,7 @@
                             </li>
 
                         <?php } ?>
-                        <!--<li class="buttons">
-                                <a href="#" class="btn SecondaryBtn">Login
-                                    <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="" >
-                                </a>
-                            </li> -->
 
-                        <!-- <li class="button li-search">
-                            <input type="search" class="search" placeholder="Search">
-                            <div class="search-list">
-                                <ul>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">search list</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 02 Search Result 02Search Result ......</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 03</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 04</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 05</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 06</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 07</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 08</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 09</a>
-                                    </li>
-                                    <li>
-                                        <img src="./img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 10</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> -->
                         <li class="drop-down">
                             <div class="toggle">
                                 <i class="fa-solid fa-bars fa-2x"></i>
@@ -383,7 +341,7 @@
                                     <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
                                         <a href="/careers">Careers</a>
                                     </li>
-                                    
+
                                     <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
                                         <a href="/b2b-services">B2B Services</a>
                                     </li>
@@ -397,53 +355,20 @@
                     </ul>
 
                     <div class="buttons apply-now-btn-header">
-                        <!-- <a href="/contact-us" class="btn MainBtn">Apply Now</a> -->
 
-                        <div class="search">
-                            <input type="search" name="search" class="searchInput" placeholder="Search">
-                            <div class="search-list">
-                                <ul>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">search list</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 02 Search Result 02Search Result ......</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 03</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 04</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 05</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 06</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 07</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 08</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 09</a>
-                                    </li>
-                                    <li>
-                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                        <a href="#">Search Result 10</a>
-                                    </li>
-                                </ul>
+                        <div class="button li-search">
+                            <!-- <a href="/contact-us" class="btn MainBtn">Apply Now</a> -->
+
+                            <div class="search">
+                                <input type="search" name="search" class="searchInput" id="searchInput" placeholder="Search">
+                                <div class="search-list">
+                                    <ul class="search-list-result">
+                                        <li>
+                                            <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
+                                            <a href="#">search list</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -551,3 +476,40 @@
         </div>
     </div>
 </section>
+<script>
+    var studyCoursesList = <?= json_encode($studyCoursesList) ?>;
+
+    $('#searchInput').on('keyup, keydown', function() {
+
+        let obj = $(this);
+
+        $('.search-list').removeClass('show');
+        let obVal = obj.val();
+        obVal = obVal.toLowerCase();
+
+        let searchResult = '';
+        if (obVal.length >= 2) {
+            $.each(studyCoursesList, function(key, val) {
+                val1 = val.toLowerCase();
+
+                var regex = new RegExp(obVal, 'i');
+                if (val1.search(regex) != -1)
+                    searchResult += `<li> <img src = "img/icon/search-blue.svg" alt = "" >
+                <a target="_blank" href="/results?course_id=` + key + `">` + val + `</a></li>`;
+            });
+            if (searchResult.length > 0) {
+                $('.search-list-result').html(searchResult);
+
+            } else
+                searchResult = `<li> <img src = "img/icon/search-blue.svg" alt = "" >
+            No Courses Found! </li>`;
+
+            $('.search-list').addClass('show');
+        } else {
+            $('.search-list').removeClass('show');
+        }
+    });
+    $(document).on('click', function() {
+        $('.search-list').removeClass('show');
+    });
+</script>
