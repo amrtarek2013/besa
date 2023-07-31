@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-md-12">
-                <a class="title-banner-blue greenish-teal" href="#">
+                <a class="title-banner-blue greenish-teal" href="<?= Router::url('/user/register') ?>">
                     <h3><?= isset($country['green_section']) ? $country['green_section'] : '' ?></h3>
                 </a>
             </div>

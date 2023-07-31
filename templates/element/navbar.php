@@ -7,7 +7,7 @@
                         <a href="/"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo"></a>
                     </div>
                     <ul class="links">
-                        <li class="drop-down">
+                        <?php /*<li class="drop-down">
                             <div class="toggle">
                                 <i class="fa-solid fa-bars fa-2x"></i>
                             </div>
@@ -44,17 +44,7 @@
                                     <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
                                         <a href="/careers">Careers</a>
                                     </li>
-                                    <?php /* if ($this->request->is('mobile')) : ?>
-                                        <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices' ? 'class="active"' : '' ?>>
-                                            <a href="/services">Services</a>
-                                        </li>
-                                        <li <?= strtolower($current_controller) == 'countries' ? 'class="active"' : '' ?>>
-                                            <a href="/universities">Destinations</a>
-                                        </li>
-                                        <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                                            <a href="/events">Events</a>
-                                        </li>
-                                    <?php endif; */ ?>
+                                    
                                     <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
                                         <a href="/b2b-services">B2B Services</a>
                                     </li>
@@ -62,12 +52,12 @@
                                         <a href=" /contact-us">Contact Us</a>
                                     </li>
 
-                                    <?php /* if (isset($_SESSION['Auth']['User'])) { ?>
+                                    <!-- <?php if (isset($_SESSION['Auth']['User'])) { ?>
 
                                         <li <?= strtolower($current_controller) == 'users' && strtolower($current_action) == 'profile' ? 'class="active"' : '' ?>>
                                             <a href="/user">Dashboard</a>
                                         </li>
-                                    <?php }*/ ?>
+                                    <?php } ?> -->
 
                                     <!-- <li class="buttons">
                                         <?php if (isset($_SESSION['Auth']['User'])) { ?>
@@ -86,6 +76,7 @@
                                 </ul>
                             </div>
                         </li>
+                        <?php */ ?>
                         <!-- <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'main' ? 'class="active"' : '' ?>>
                             <a href="/">Home</a>
                         </li> -->
@@ -310,7 +301,7 @@
 
 
                                     <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                        <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                                     </a>
 
                                     <a href="/user" class="btn MainBtn">Profile</a>
@@ -318,7 +309,7 @@
                                     <a href="/user/login" class="btn MainBtn">Apply Now</a>
 
                                     <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                            <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                                         </a> -->
                                 <?php } ?>
                             </li>
@@ -326,7 +317,7 @@
                         <?php } ?>
                         <!--<li class="buttons">
                                 <a href="#" class="btn SecondaryBtn">Login
-                                    <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="" >
+                                    <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="" >
                                 </a>
                             </li> -->
 
@@ -377,6 +368,32 @@
                                 </ul>
                             </div>
                         </li> -->
+                        <li class="drop-down">
+                            <div class="toggle">
+                                <i class="fa-solid fa-bars fa-2x"></i>
+                            </div>
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
+                                        <a href="/about-us">About us</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'blogs' ? 'class="active"' : '' ?>>
+                                        <a href="/blogs">Blog</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
+                                        <a href="/careers">Careers</a>
+                                    </li>
+                                    
+                                    <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
+                                        <a href="/b2b-services">B2B Services</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
+                                        <a href=" /contact-us">Contact Us</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
 
                     <div class="buttons apply-now-btn-header">
@@ -387,54 +404,54 @@
                             <div class="search-list">
                                 <ul>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">search list</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 02 Search Result 02Search Result ......</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 03</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 04</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 05</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 06</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 07</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 08</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 09</a>
                                     </li>
                                     <li>
-                                        <img src="<?=WEBSITE_URL?>img/icon/search-blue.svg" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
                                         <a href="#">Search Result 10</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <?php if (isset($_SESSION['Auth']['User'])) { ?>
 
 
                             <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                             </a>
 
                             <a href="/user" class="btn MainBtn">Profile</a>
@@ -442,12 +459,12 @@
                             <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                             <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                            <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                                         </a> -->
                         <?php } ?>
-                        <a href="#" class="btn SecondaryBtn">
-                            <img src="<?=WEBSITE_URL?>img/apple.png" alt="">
-                        </a>
+                        <!-- <a href="#" class="btn SecondaryBtn">
+                            <img src="<?= WEBSITE_URL ?>img/apple.png" alt="">
+                        </a> -->
 
 
                     </div>
@@ -512,7 +529,7 @@
 
 
                                         <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                            <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                                         </a>
 
                                         <a href="/user" class="btn MainBtn">Profile</a>
@@ -520,7 +537,7 @@
                                         <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                                         <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                                            <img src="<?=WEBSITE_URL?>img/icon/login.png" alt="">
+                                            <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
                                         </a> -->
                                     <?php } ?>
                                 </li>
