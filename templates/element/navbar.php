@@ -488,9 +488,12 @@
         obVal = obVal.toLowerCase();
 
         let searchResult = '';
-        
-        $('.search-list-result').html('');
+        searchResult = `<li> <img src = "img/icon/search-blue.svg" alt = "" >
+            No Courses Found! </li>`;
+        $('.search-list-result').html(searchResult);
         if (obVal.length >= 2) {
+
+            let searchResult = '';
             $.each(studyCoursesList, function(key, val) {
                 val1 = val.toLowerCase();
 
