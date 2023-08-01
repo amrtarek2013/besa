@@ -476,6 +476,7 @@
         </div>
     </div>
 </section>
+
 <script>
     var studyCoursesList = <?= json_encode($studyCoursesList) ?>;
 

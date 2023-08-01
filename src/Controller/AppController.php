@@ -239,12 +239,13 @@ class AppController extends Controller
         $this->set('eventsMenuList', $events);
         $this->_loadConfig();
 
-        if (!in_array($current_prefix, $this->prefixesNeedMenues)) {
+        if (!in_array($current_prefix, $this->prefixesNeedMenues) || $current_action != 'admin') {
 
             // SEO functions
             $this->_set_seo();
             $this->allCoursesList();
         }
+        
     }
     protected function _loadConfig()
     {
