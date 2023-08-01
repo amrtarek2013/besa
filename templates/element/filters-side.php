@@ -78,6 +78,10 @@
         display: block;
         margin-bottom: 15px;
     }
+
+    aside {
+        margin-bottom: 20px;
+    }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?= USER_LINK ?>" class="brand-link">
