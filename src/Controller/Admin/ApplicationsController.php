@@ -54,6 +54,7 @@ class ApplicationsController extends AppController
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
+        $this->set('saveLater', $this->Applications->saveLater);
         $this->formCommon();
     }
 

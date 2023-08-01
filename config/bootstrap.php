@@ -418,7 +418,7 @@ function Upload($file_id, $folder = "", $types = "", $maxsize = 5000000, $file_n
 
 
 
-function UploadFiles($files, $filesOptions = [], $folder = "", $types = "", $maxsize = 5000000)
+function UploadFiles($files, $filesOptions = [], $folder = "", $types = "", $escRequired = false, $maxsize = 5000000)
 {
     $upload_result = [];
     $errors = 0;
@@ -426,7 +426,7 @@ function UploadFiles($files, $filesOptions = [], $folder = "", $types = "", $max
     $upload_result['status'] = 1;
     foreach ($files as $file_id => $fd) {
 
-        if (!$files[$file_id]['name'] && !$filesOptions[$file_id]['required'])
+        if (!$files[$file_id]['name'] && (!$filesOptions[$file_id]['required'] || $escRequired))
             continue;
 
         if (!$files[$file_id]['name']) {

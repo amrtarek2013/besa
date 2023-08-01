@@ -44,7 +44,7 @@
                             'university.title' => ['title' => 'University'],
                             'study_level.title' => ['title' => 'Study Level'],
                             'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statusesBtns]],
-                            // 'confirmed' => ['format' => 'bool'],
+                            'save_later' => ['format' => 'get_from_array', 'options' => ['items_list' => $saveLater]],
                         ];
 
                         $multi_select_actions = array(

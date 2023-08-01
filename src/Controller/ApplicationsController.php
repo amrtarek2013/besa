@@ -49,6 +49,8 @@ class ApplicationsController extends AppController
             $token = $this->userToken();
             $conds['user_token'] = $token;
         }
+
+        $conds['save_later !='] = 2;
         $application = $this->Applications->find()->where($conds)
             ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services', 'StudyLevels'])
             ->order(['Applications.created' => 'DESC'])->first();
@@ -194,10 +196,15 @@ class ApplicationsController extends AppController
             $token = $this->userToken();
             $wish_cond['user_token'] = $conds['user_token'] = $token;
         }
+
+        $conds['save_later !='] = 2;
+        // dd($conds);
         $application = $this->Applications->find()->where($conds)
             ->contain(['Users', 'ApplicationCourses', 'Universities', 'Services', 'StudyLevels'])
             ->order(['Applications.created' => 'DESC'])->first();
 
+
+        // dd($application);
 
 
         $appService = $application['study_level']['permalink'];
@@ -208,7 +215,7 @@ class ApplicationsController extends AppController
 
 
 
-        $appFiles = $this->Applications->app_files[$appService];
+        $appFiles = !empty($appService) ? $this->Applications->app_files[$appService] : $this->Applications->app_files['foundation-programs'];
         $this->loadModel('StudyLevels');
         if (isset($studylevel_id)) {
             $studyLevel = $this->StudyLevels->find()->where(['active' => 1, 'id' => $studylevel_id])->first();
@@ -226,7 +233,9 @@ class ApplicationsController extends AppController
         // dd($appFiles);
         $this->set('appFiles', $appFiles);
 
+        // 
         if ($this->request->is(['patch', 'post', 'put'])) {
+            Configure::write('debug', false);
             $data = $this->request->getData();
             // debug($application);
             // dd($_FILES);
@@ -234,7 +243,12 @@ class ApplicationsController extends AppController
 
             $uploadPath = WWW_ROOT . 'uploads/files/applications';
             // debug($uploadPath);
-            $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf');
+            $escRequired = false;
+
+            if (isset($data['save_later']))
+                $escRequired = true;
+
+            $upResult = UploadFiles($_FILES, $appFiles, $uploadPath, 'pdf',  $escRequired);
 
             if (empty($upResult['errors'])) {
                 foreach ($upResult['names'] as $fieldName => $value) {
@@ -242,12 +256,12 @@ class ApplicationsController extends AppController
                 }
 
 
-                // if (isset($data['save_later'])) {
-                //     $application->save_later = 1;
-                // } else if (isset($data['save'])) {
+                if (isset($data['save_later'])) {
+                    $application->save_later = 1;
+                } else if (isset($data['save'])) {
 
-                //     $application->save_later = 2;
-                // }
+                    $application->save_later = 2;
+                }
 
                 if ($this->Applications->save($application)) {
 

@@ -1043,6 +1043,8 @@ class AppController extends Controller
             $token = $this->userToken();
             $conds['user_token'] = $token;
         }
+        
+        $conds['save_later !='] = 2;
         $appCourses = $this->Applications->find()
             ->where($conds)->contain(['ApplicationCourses'])
             ->order(['Applications.created' => 'DESC'])->first();
