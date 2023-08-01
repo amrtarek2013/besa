@@ -1665,6 +1665,10 @@
         grid-template-columns: 1fr;
         grid-gap: 30px;
     }
+    .grid-container-2col {
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
 
     .row-result {
         padding: 25px 0;
