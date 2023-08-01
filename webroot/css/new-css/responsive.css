@@ -1661,7 +1661,7 @@
 
     }
 
-    .grid-container-3col {
+    .grid-container-3col, .grid-container-2col {
         grid-template-columns: 1fr;
         grid-gap: 30px;
     }

@@ -243,6 +243,7 @@ class AppController extends Controller
 
             // SEO functions
             $this->_set_seo();
+            $this->allCoursesList();
         }
     }
     protected function _loadConfig()
@@ -1042,6 +1043,8 @@ class AppController extends Controller
             $token = $this->userToken();
             $conds['user_token'] = $token;
         }
+        
+        $conds['save_later !='] = 2;
         $appCourses = $this->Applications->find()
             ->where($conds)->contain(['ApplicationCourses'])
             ->order(['Applications.created' => 'DESC'])->first();
@@ -1084,5 +1087,18 @@ class AppController extends Controller
 
         $this->set('metaDescription', h(substr(preg_replace('/\\s+/', ' ', $this->metaDescription), 0, 500)));
         $this->set('metaKeywords', $this->metaKeywords);
+    }
+
+    public function allCoursesList()
+    {
+        $this->loadModel('Courses');
+        $studyCoursesList = $this->Courses->find(
+            'list',
+            ['keyField' => 'id', 'valueField' => 'course_name']
+        )
+            // ->where(['active' => 1])
+            ->order(['course_name' => 'asc']);
+
+        $this->set('studyCoursesList', $studyCoursesList);
     }
 }

@@ -101,7 +101,7 @@
                             <li>For the purpose of applying regulation, your details are required.</li>
                         </ul>
                         <button type="submit" class="btn greenish-teal" name="save" style="width: 240px;">Apply</button>
-                        <button type="submit" class="btn greenish-teal" name="save_later" style="width: 240px;">Save Later</button>
+                        <button type="submit" class="btn greenish-teal save_later" name="save_later" style="width: 240px;">Save Later</button>
                     </div>
                 </div>
                 <?= $this->Form->end() ?>
@@ -132,6 +132,12 @@
         $(document).on('confirmation', '.modalMsg', function(e) {
             if ($('#study-level-id').val() == '' && lastSelectedLevel != '')
                 $('#study-level-id').val(lastSelectedLevel);
+        });
+
+        $('.save_later').on('click', function(e){
+
+            $('.form-area input').removeAttr('required');
+            
         });
     });
 </script>

@@ -27,7 +27,7 @@ class ApplicationsTable extends Table
 
   // public $statusClasses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
   public $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
-  public $saveLater = [0 => 'InProgress', 2 => 'Completed', 1 => 'Save Later'];
+  public $saveLater = [0 => 'InProgress', 2 => 'Created', 1 => 'Save Later'];
   public $app_files = [
 
     'foundation-programs' => [
