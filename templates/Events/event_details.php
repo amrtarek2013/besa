@@ -36,7 +36,7 @@
         </div>
 
         <?php
-        if (isset($event['style'])) {
+        if (isset($event['style']) && $event['style'] == 1) {
         ?>
 
                 <div class="row">
