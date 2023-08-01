@@ -7990,7 +7990,6 @@ input[type="search"]:focus {
     height: 40px;
 }
 
-.user-dashboard .box-result:nth-child(2)::after,
-.user-dashboard .box-result:nth-child(4)::after {
+.user-dashboard .box-result:nth-child(odd)::after {
     display: none;
 }
