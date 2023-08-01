@@ -1785,5 +1785,17 @@
         padding: 25px;
         margin-right: 0;
     }
-    
+    .pagination li {
+        padding: 5px 5px;
+    }
+    .pagination a {
+        padding: 3px;
+    }
+    .paginator p {
+        font-size: 14px !important;
+    }
+    .title .blue-para{
+        margin-top: 10px;
+    }
+
 }
