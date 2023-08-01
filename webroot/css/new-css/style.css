@@ -7993,3 +7993,7 @@ input[type="search"]:focus {
 .user-dashboard .box-result:nth-child(even)::after {
     display: none;
 }
+
+.user-dashboard{
+    margin-bottom: 30px;
+}
