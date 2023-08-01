@@ -1,3 +1,7 @@
+<?php
+
+use Cake\Routing\Router;
+?>
 <section class="main-banner partner-banner university-Placement-banner">
     <div class="container-fluid">
         <div class="row">
@@ -27,9 +31,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="gridTabes">
-                    <a href="#" class="btn clear-blue foundation">EXPLORE STUDYING ABROAD</a>
+                    <a href="<?= Router::url('/destinations') ?>" class="btn clear-blue foundation">EXPLORE STUDYING ABROAD</a>
 
-                    <a href="#" class="btn greenish-teal master">REGISTER NOW</a>
+                    <a href="<?= Router::url('/user/register') ?>" class="btn greenish-teal master">REGISTER NOW</a>
 
 
                 </div>
