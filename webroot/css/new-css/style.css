@@ -4609,10 +4609,10 @@ input.search {
 
 .search-list {
     position: absolute;
-    top: 90px;
+    top: 70px;
     left: 0;
     width: 467px;
-    padding: 0 15px;
+    padding: 0 15px !important;
     background: #FFFFFF;
     border-radius: 10px;
     z-index: 99;
@@ -7825,9 +7825,7 @@ input[type="search"]:focus {
     margin-bottom: 15px;
 }
 
-.user-dashboard {
-    margin-bottom: 60px;
-}
+
 
 .container-table {
     margin-bottom: 25px;

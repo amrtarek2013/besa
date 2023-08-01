@@ -1792,7 +1792,10 @@
         padding: 3px;
     }
     .paginator p {
-        font-size: 14px;
+        font-size: 14px !important;
+    }
+    .title .blue-para{
+        margin-top: 10px;
     }
 
 }
