@@ -4435,6 +4435,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 50px;
 }
+
 .grid-container-2col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -7960,7 +7961,36 @@ input[type="search"]:focus {
     width: 50%;
 }
 
-.header .main-slider .item .text h1{
+.header .main-slider .item .text h1 {
     line-height: 55px;
     font-size: 42px;
+}
+
+.main-sidebar select {
+
+    background-image: url(../img/icon/arrow-select.svg);
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 15px);
+    background-position-y: 50%;
+    padding: 10px;
+    height: 50px;
+
+
+
+}
+
+.main-sidebar .container-submit {
+    padding: 10px 0 0;
+
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.main-sidebar .container-submit .btn {
+    height: 40px;
+}
+
+.user-dashboard .box-result:nth-child(2)::after,
+.user-dashboard .box-result:nth-child(4)::after {
+    display: none;
 }
