@@ -1,132 +1,193 @@
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<style>
-    button.submit {
+<section class="main-banner register-banner Create-account-banner">
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.02em;
-        border: 1.2px solid #B4BEC8;
-        border-radius: 4px;
-        width: 100%;
-        height: 50px;
-        padding: 13px 14px;
-        background: #FF5151;
-        border-radius: 10px;
-        height: 76px;
-    }
-</style>
-
-
-<?= $this->Form->create(null, ['id' => 'contactusForm']) ?>
-<input type="hidden" id="type" name="type" value="contact-us">
-<section class="contact-us pageContact">
-    <div class="top-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
-    </div>
     <div class="container">
         <div class="row">
-            <!--<div class="col-md-12">
-                    <h2 class="title">Contact</h2>
-                    
-                </div>-->
-            <div class="col-md-11 col-md-offset-1">
-                <div class="form">
-
+            <div class="col-md-6">
+                <div class="background-banner-color">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg3.png" alt="" style="z-index: 2;">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="container-form">
-                    <h3 class="title-form">Send an Email</h3>
-                    <!-- <form action=""> -->
-
-                    <?php //= $this->Form->create($enquiry, ['url'=>'/enquiries/contactUs','id' => 'contactusForm']) 
-                    ?>
-                    <div class="gridFormContact ">
-                        <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
-                        <div class="form-left form">
-                            <?php
-
-                            echo $this->Form->control('name', [
-                                'placeholder' => 'Your name', 'type' => 'text',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
+            <div class="col-md-6">
+                <div class="relative-box-about ">
+                    <h1 class="relative-text">Create</h1>
+                    <h2 class="title text-left">Create an account</h2>
+                </div>
+            </div>
 
 
-                            echo $this->Form->control('phone', [
-                                'placeholder' => 'Your Phone', 'type' => 'text',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
+            <div class="col-md-12 mr">
+                <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
 
-                            echo $this->Form->control('email', [
-                                'placeholder' => 'Email Address', 'type' => 'email',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
-                            ?>
-                            <?= $this->element('security_code') ?>
-                            <!-- <div class="form-area security_code">
-                                <div class="input captcha" style="position: relative;">
+                <div class="container-formBox">
+                    <h4 class="title">Create an account to apply</h4>
+                    <div class="grid-container">
+
+                        <?= $this->Form->control('first_name', [
+                            'placeholder' => 'Name',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                        ]) ?>
+
+                        <?= $this->Form->control('last_name', [
+                            'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <div class=" form-area">
+                            <label for="">Date of Birth*</label>
+                            <div class="grid-3col">
+                                <select name="day" id="day" placeholder="Day" required="required">
+                                    <option value="">Day</option>
+
                                     <?php
-                                    echo $this->Html->image('/image.jpg/index.php?code=' . mt_rand(9999, 999999), array('class' => 'SecurImage', 'style' => "left: 13px;position: absolute;top: 10px;
-                        z-index: 1; height:40px", 'id' => rand()));
-                                    echo $this->AdminForm->control('security_code', [
-                                        'placeholder' => 'Security Code', 'type' => 'text', 'required' => true,
-                                        'class' => 'required', 'style' => "padding-left: 190px;", 'label' => false,
-                                        'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                                    ]);
-                                    if (!empty($error_captcha)) :
+                                    for ($i = 1; $i <= 31; $i++) {
+                                        $d = $i; //date('M', strtotime("last day of +$i month"));
+                                        echo "<option value='$d'>$d</option>";
+                                    }
                                     ?>
-                                        <div class='error-message'><?= $error_captcha ?></div>
-                                    <?php endif; ?>
-                                </div>
-                            </div> -->
-                        </div>
-                        <div class="form-right form">
-                            <!-- <div class="form-area">
-                                <label for="name">Subject</label>
-                                <input type="text" id="Subject" name="subject" placeholder="Email Subject">
+
+                                </select>
+                                <select name="month" id="month" placeholder="Month" required="required">
+                                    <option value="">Month</option>
+                                    <?php
+                                    for ($i = 1; $i <= 12; $i++) {
+                                        $month = $i; // date('M', strtotime("last day of +$i month"));
+                                        echo "<option value='$month'>$month</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select name="year" id="year" placeholder="Year" required="required">
+                                    <option value="">Year</option>
+                                    <?php
+                                    for ($i = 1980; $i <= 2015; $i++) {
+                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
+                                        echo "<option value='$year'>$year</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <div class="form-area">
-                                <label for="name">Message</label>
-                                <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                            </div> -->
-
-                            <?php
-
-                            echo $this->Form->control('subject', [
-                                'placeholder' => 'Email subject', 'type' => 'text',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
-                            echo $this->Form->control('message', [
-                                'placeholder' => 'Your Message', 'type' => 'textarea',
-                                'class' => 'required', 'required' => true,
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
-                            ?>
-                            <div class="form-area">
-                                <input type="submit" value="Send" class="btn MainBtn submit">
-                            </div>
-                            <!-- <button type="submit" class="g-recaptcha btn MainBtn submit" data-sitekey="6Lemf1EkAAAAAMnwcS1hUX3mEjXNKfFfIVTMrDGl" data-callback='onSubmit' data-action='submit'>Send</button> -->
-
                         </div>
+                        <div class=" form-area">
+                            <label for="">Mobile*</label>
+                            <div class="grid-2col-mobile">
+                                <?= $this->Form->control('mobile_code', [
+                                    'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ]) ?>
+
+                                <?= $this->Form->control('mobile', [
+                                    'placeholder' => 'Mobile', 'class' => 'form-control', 'label' => false, 'required' => true,
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ]) ?>
+                            </div>
+                        </div>
+
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('password', [
+                            'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+                        <?= $this->Form->control('passwd', [
+                            'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*',
+                            'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+
+                        <?= $this->Form->control('gender', [
+                            'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
+                            'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <!-- <?= $this->Form->control('student_type', [
+                                    'label' => 'I am a*', 'required' => true,
+                                    'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ]) ?> -->
+
+
+                        <?= $this->Form->control('country_id', [
+                            'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
+                            'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('city', [
+                            'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('current_status', [
+                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('study_level_id', [
+                            'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
+                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <?= $this->Form->control('subject_area_id', [
+                            'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
+                            'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('destination_id', [
+                            'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
+                            'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>
+
+            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*']) ?>
+            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*']) ?>
+
+            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'label' => 'Gender*', 'required' => true]) ?>
+
+            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'label' => 'Nationality*', 'required' => true]) ?>
+
+            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true]) ?>
+
+            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'label' => 'Address*', 'required' => true]) ?> -->
+
                     </div>
+                    <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
+                    <div class="container-submit">
+
+                        <div class="checkboxes">
+                            <div>
+                                <input type="checkbox" name="terms" id="terms" required="required">
+                                <label for="">I agree to <a href="#">terms & conditions</a> </label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="is_subscribed" id="is_subscribed">
+                                <label for="">Tick box to stay updated through BESA’s newsletter</label>
+                            </div>
+                        </div>
+                        <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
+
+                        <button type="submit" class="btn greenish-teal">LOG IN</button>
+                    </div>
                 </div>
-            </div>
+                <?= $this->Form->end() ?>
 
+            </div>
+            
         </div>
     </div>
-    <div class="bottom-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
-
-    </div>
 </section>
-
-<?= $this->Form->end() ?>
