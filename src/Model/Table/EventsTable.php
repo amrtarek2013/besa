@@ -21,6 +21,8 @@ class EventsTable extends Table
         'show_on_home'
     ];
 
+    public $centerBoxStyle = [0 => 'Full Width', 1 => 'Rouded Box'];
+
     protected $tempPath = WWW_ROOT . 'files' . DS . 'temp_files' . DS;
     protected $finalPath = WWW_ROOT . 'files' . DS . 'event_videos' . DS;
 
@@ -65,38 +67,38 @@ class EventsTable extends Table
                         'thumbs' => [
                             ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
                         ],
-                    ], 
-                    'video_thumb' => [
-                        'resize' => ['width' => 767, 'height' => 400],
-                        'datePath' => ['path' => ''],
-                        'width' => 767, 'height' => 400,
-                        // 'datePath' => false,
-                        'path' => 'files/event_videos',
-                        'file_name' => '{$rand}_{$file_name}',
                     ],
-                    'mobile_image' => [
-                        'resize' => ['width' => 360, 'height' => 0],
-                        'datePath' => ['path' => ''],
-                        'width' => 360, 'height' => 0,
-                        // 'datePath' => false,
-                        // 'path' => WWW_ROOT . 'Eventsevents',
-                        'path' => 'uploads/events',
-                        'file_name' => '{$rand}_{$file_name}',
-                        'thumbs' => [['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']],
-                    ],
+                    // 'video_thumb' => [
+                    //     'resize' => ['width' => 767, 'height' => 400],
+                    //     'datePath' => ['path' => ''],
+                    //     'width' => 767, 'height' => 400,
+                    //     // 'datePath' => false,
+                    //     'path' => 'files/event_videos',
+                    //     'file_name' => '{$rand}_{$file_name}',
+                    // ],
+                    // 'mobile_image' => [
+                    //     'resize' => ['width' => 360, 'height' => 0],
+                    //     'datePath' => ['path' => ''],
+                    //     'width' => 360, 'height' => 0,
+                    //     // 'datePath' => false,
+                    //     // 'path' => WWW_ROOT . 'Eventsevents',
+                    //     'path' => 'uploads/events',
+                    //     'file_name' => '{$rand}_{$file_name}',
+                    //     'thumbs' => [['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']],
+                    // ],
 
-                    'banner_image' => [
-                        'resize' => ['width' => 1440, 'height' => 439],
-                        'width' => 1440, 'height' => 439,
-                        'datePath' => ['path' => ''],
-                        // 'datePath' => false,
-                        'path' => 'uploads/events',
-                        'file_name' => '{$rand}_{$file_name}',
+                    // 'banner_image' => [
+                    //     'resize' => ['width' => 1440, 'height' => 439],
+                    //     'width' => 1440, 'height' => 439,
+                    //     'datePath' => ['path' => ''],
+                    //     // 'datePath' => false,
+                    //     'path' => 'uploads/events',
+                    //     'file_name' => '{$rand}_{$file_name}',
 
-                        'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
-                        ],
-                    ],
+                    //     'thumbs' => [
+                    //         ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                    //     ],
+                    // ],
 
                 ]
             ]

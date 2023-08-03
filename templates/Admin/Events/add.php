@@ -110,6 +110,7 @@
                             <?php
                             echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);
 
+                            echo $this->AdminForm->control('style', array('options' => $centerBoxStyle, 'empty' => 'Choose Center Box Style', 'id' => 'font_color', 'class' => 'INPUT', 'label' => 'Center Box Style'));
                             echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('video_right_text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('left_text', ['type' => 'textarea', 'class' => 'editor']);
@@ -132,7 +133,9 @@
                                 '#ffa500' => 'orange',
                             );
 
-                            // echo $this->AdminForm->control('background_colour', array('options' => $colors, 'empty' => 'Choose Background Colour', 'id' => 'background_colour', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_colour . " !important; ", 'label' => 'Background Colour'));
+                            echo $this->AdminForm->control('font_color', array('options' => $colors, 'empty' => 'Choose Font Color', 'id' => 'font_color', 'class' => 'INPUT', "style" => "background-color:black;color:" . $event->font_color . " !important; ", 'label' => 'Font Color'));
+                          
+                            echo $this->AdminForm->control('background_color', array('options' => $colors, 'empty' => 'Choose Background Color', 'id' => 'background_color', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_color . " !important; ", 'label' => 'Background Color'));
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
                             echo $this->AdminForm->enableAjaxUploads($id, 'event_' . $id, $mainAdminToken);
@@ -173,12 +176,22 @@
     });
 
 
-    $('#background_colour').change(function() {
-        $('#background_colour').css('background-color', $(this).val());
+    $('#background_color').change(function() {
+        $('#background_color').css('background-color', $(this).val());
+        // if ($('#font_color').val() == "#ffffff") {
+        $('#background_color').css('color', $('#font_color').val());
+        // } else {
+        //     $('#background_color').css('color', "white");
+        // }
+    });
+    $('#font_color').change(function() {
+        $('#background_color').css('color', $(this).val());
+
+        $('#font_color').css('background-color', $('#font_color').val());
         if ($(this).val() == "#ffffff") {
-            $('#background_colour').css('color', "black");
+            $('#font_color').css('color', "black");
         } else {
-            $('#background_colour').css('color', "white");
+            $('#font_color').css('color', "white");
         }
     });
 </script>

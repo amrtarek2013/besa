@@ -31,6 +31,11 @@
         border: 10px solid;
         border-color: blueviolet;
     }
+
+    #tip-layer {
+        border-radius: 10%;
+        padding: 5px;
+    }
 </style>
 
 <script>
@@ -68,7 +73,11 @@
                 lng: 10
             },
             mapBorderColor: '#66d8ff',
-            mapBorderWidth: 0.4
+            mapBorderWidth: 0.4,
+
+            mapLandColor: '#FFF',
+            mapSeaColor: '#66D8FF',
+
 
         });
 
@@ -84,26 +93,30 @@
                 // hotspot
                 marker = this.addSprite({
 
+
+                    // mesh: "Marker",
                     location: {
                         lat: airports[i]['latitude'],
                         lng: airports[i]['longitude']
                     },
-                    // color: 'red',
-                    // hotspot: true,
-                    // hotspotRadius: 0.75
 
                     visible: false,
                     hotspot: true,
                     hotspotRadius: 0.5,
-                    hotspotHeight: 1.5,
+                    hotspotHeight: 1,
                     image: "/img/flags/" + airports[i]['flag'],
-                    // color: 'red',
 
-                    airportCode: airports[i]['country_code'],
+                    // mesh: ["Pin", "Needle"],
+                    // color: 0x30b81f,
+
+                    // transparent: true,
+
+                    airportCode: airports[i]['code'],
                     airportName: airports[i]['country_name'],
+                    airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
 
                     // custom properties
-                    // title: markers[i].title,
+                    title: airports[i]['country_name'],
                     link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
 
                     // custom property
@@ -151,9 +164,9 @@
 
                 marker.addEventListener('mouseover', function() {
 
-                    document.getElementById('tip-layer').style.opacity = 1;
-                    document.getElementById('tip-big').innerHTML = this.airportCode;
-                    document.getElementById('tip-small').innerHTML = this.airportName.split(',').join('<br>');
+                    document.getElementById('tip-layer').style.opacity = 0.7;
+                    document.getElementById('tip-big').innerHTML = this.airportFlag;
+                    document.getElementById('tip-small').innerHTML = this.airportCode + ' - ' + this.airportName.split(',').join('<br>');
 
                     // this.color = 'red';
 
@@ -162,7 +175,7 @@
                 marker.addEventListener('mouseout', function() {
 
                     // if (this != startMarker && this != endMarker) {
-                    this.color = '#00a8ff';
+                    // this.color = '#00a8ff';
                     // }
                     document.getElementById('tip-layer').style.opacity = 0;
 

@@ -20,7 +20,7 @@ class EventsController extends AppController
 
         $events = $this->paginate($this->Events, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('events', 'parameters'));
     }
     public function list()
@@ -28,7 +28,7 @@ class EventsController extends AppController
         $conditions = $this->_filter_params();
         $events = $this->paginate($this->Events, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('events', 'parameters'));
     }
 
@@ -44,11 +44,11 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The Event could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('event_new', 'events', false, false, ['video_thumb','icon', 'image', 'banner_image', 'mobile_image']);
+        $this->_ajaxImageUpload('event_new', 'events', false, false, ['video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
         $this->set('id', false);
 
         $this->__common();
-        
+
         $this->set(compact('event'));
     }
 
@@ -69,9 +69,9 @@ class EventsController extends AppController
 
         $this->__common();
 
-        
+
         $this->set(compact('event', 'id'));
-        $this->_ajaxImageUpload('event_' . $id, 'events', $id, ['id' => $id], [/*'video',*/'video_thumb','icon', 'image', 'banner_image', 'mobile_image']);
+        $this->_ajaxImageUpload('event_' . $id, 'events', $id, ['id' => $id], [/*'video',*/'video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
         $this->render('add');
     }
 
@@ -115,5 +115,6 @@ class EventsController extends AppController
     {
         $uploadSettings = $this->Events->getUploadSettings();
         $this->set(compact('uploadSettings'));
+        $this->set('centerBoxStyle', $this->Events->centerBoxStyle);
     }
 }
