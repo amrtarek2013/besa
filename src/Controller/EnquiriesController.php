@@ -158,5 +158,11 @@ class EnquiriesController extends AppController
     {
 
         $this->set('bodyClass', '');
+
+        $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
 }

@@ -24,49 +24,14 @@
                     <div class="grid-container">
 
                         <?= $this->Form->control('first_name', [
-                            'placeholder' => 'Name',
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                            'placeholder' => 'First Name',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'First Name*', 'required' => true
                         ]) ?>
 
                         <?= $this->Form->control('last_name', [
-                            'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
+                            'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-                        <div class=" form-area">
-                            <label for="">Date of Birth*</label>
-                            <div class="grid-3col">
-                                <select name="day" id="day" placeholder="Day" required="required">
-                                    <option value="">Day</option>
-
-                                    <?php
-                                    for ($i = 1; $i <= 31; $i++) {
-                                        $d = $i; //date('M', strtotime("last day of +$i month"));
-                                        echo "<option value='$d'>$d</option>";
-                                    }
-                                    ?>
-
-                                </select>
-                                <select name="month" id="month" placeholder="Month" required="required">
-                                    <option value="">Month</option>
-                                    <?php
-                                    for ($i = 1; $i <= 12; $i++) {
-                                        $month = $i; // date('M', strtotime("last day of +$i month"));
-                                        echo "<option value='$month'>$month</option>";
-                                    }
-                                    ?>
-                                </select>
-                                <select name="year" id="year" placeholder="Year" required="required">
-                                    <option value="">Year</option>
-                                    <?php
-                                    for ($i = 1980; $i <= 2015; $i++) {
-                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
-                                        echo "<option value='$year'>$year</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
                         <div class=" form-area">
                             <label for="">Mobile*</label>
                             <div class="grid-2col-mobile">
@@ -87,50 +52,10 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-
-                        <?= $this->Form->control('password', [
-                            'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-                        <?= $this->Form->control('passwd', [
-                            'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*',
-                            'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
-
-
-                        <?= $this->Form->control('gender', [
-                            'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
-                            'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
-                        <!-- <?= $this->Form->control('student_type', [
-                                    'label' => 'I am a*', 'required' => true,
-                                    'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
-                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                                ]) ?> -->
-
-
-                        <?= $this->Form->control('country_id', [
-                            'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
-                            'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
-
                         <?= $this->Form->control('city', [
-                            'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+                            'type' => 'text', 'placeholder' => 'School Name', 'label' => 'School Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-
-                        <?= $this->Form->control('current_status', [
-                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
 
                         <?= $this->Form->control('study_level_id', [
                             'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
@@ -138,31 +63,7 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('subject_area_id', [
-                            'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
-                            'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
 
-
-                        <?= $this->Form->control('destination_id', [
-                            'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
-                            'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
-                        <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>
-
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*']) ?>
-            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*']) ?>
-
-            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'label' => 'Gender*', 'required' => true]) ?>
-
-            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'label' => 'Nationality*', 'required' => true]) ?>
-
-            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true]) ?>
-
-            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'label' => 'Address*', 'required' => true]) ?> -->
 
                     </div>
                     <p class="light-para">For the purpose of applying regulation, your details are required.</p>
@@ -181,13 +82,13 @@
                         </div>
                         <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
 
-                        <button type="submit" class="btn greenish-teal">LOG IN</button>
+                        <button type="submit" class="btn greenish-teal">Submit</button>
                     </div>
                 </div>
                 <?= $this->Form->end() ?>
 
             </div>
-            
+
         </div>
     </div>
 </section>
