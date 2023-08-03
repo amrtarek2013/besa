@@ -17,7 +17,7 @@
 
 
             <div class="col-md-12 mr">
-                <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('id' => 'FormVisistorApp', 'class' => 'register')); ?>
 
                 <div class="container-formBox">
                     <h4 class="title">Create an account to apply</h4>
