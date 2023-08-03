@@ -153,4 +153,10 @@ class EnquiriesController extends AppController
                 return $this->redirect('/' . $type);
         }
     }
+
+    public function visitorsApplication()
+    {
+
+        $this->set('bodyClass', '');
+    }
 }
