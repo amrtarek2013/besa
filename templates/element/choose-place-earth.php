@@ -53,21 +53,18 @@
     window.addEventListener("earthjsload", function() {
 
         // parse plane mesh from string in airports-and-plane-mesh.js	
-        Earth.addMesh(airplaneMesh);
+        // Earth.addMesh(airplaneMesh);
 
 
         myearth = new Earth('myearth', {
 
             mapHitTest: true,
-
             autoRotate: true,
             zoom: 1.15,
             zoomMin: 1,
             zoomMax: 3,
             quality: (window.innerWidth <= 1024) ? 4 : 5,
-
             zoomable: true,
-
             location: {
                 lat: 50,
                 lng: 10
@@ -77,77 +74,73 @@
 
             mapLandColor: '#FFF',
             mapSeaColor: '#66D8FF',
-
-
         });
 
 
-        var fading_images = [];
+        // var fading_images = [];
+
+
+
+
         myearth.addEventListener("ready", function() {
 
 
+            photo_overlay = this.addOverlay({
+                content: '<div id="photo"><div id="close-photo" onclick="closePhoto(); event.stopPropagation();"></div></div>',
+                visible: false,
+                containerScale: 1,
+                depthScale: 0.5
+            });
+
             // add airport pins from airports array in airports-and-plane-mesh.js
             for (var i = 0; i < airports.length; i++) {
+                // add photo overlay
 
 
-                // hotspot
-                marker = this.addSprite({
+                // add photo pins
 
+
+                var marker = this.addMarker({
 
                     // mesh: "Marker",
+                    mesh: ["Pin", "Needle"],
+                    color: '#00A8FF',
                     location: {
                         lat: airports[i]['latitude'],
                         lng: airports[i]['longitude']
                     },
 
+                    scale: 0.01,
+                    offset: 1.6,
                     visible: false,
+                    transparent: true,
                     hotspot: true,
-                    hotspotRadius: 0.5,
-                    hotspotHeight: 1,
+                    hotspotRadius: 0.75,
+                    hotspotHeight: 1.3,
+
                     image: "/img/flags/" + airports[i]['flag'],
-
-                    // mesh: ["Pin", "Needle"],
-                    // color: 0x30b81f,
-
-                    // transparent: true,
 
                     airportCode: airports[i]['code'],
                     airportName: airports[i]['country_name'],
                     airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
 
-                    // custom properties
+
+                    // custom property
                     title: airports[i]['country_name'],
                     link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
 
                     // custom property
                     photo_info: "/img/flags/" + airports[i]['flag']
+
                 });
+
                 marker.addEventListener('click', function() {
 
                     // alert('sssssssssss');
                     window.open(this.link);
                 });
 
-                // this.addOverlay({
-                //     content: 'hotspot: true',
-
-                //     location: {
-                //         lat: airports[i]['latitude'],
-                //         lng: airports[i]['longitude']
-                //     },
-                //     className: 'docs-tip',
-                //     depthScale: 0.5,
-                //     airportCode: airports[i]['country_code'],
-                //     airportName: airports[i]['country_name'],
-
-                //     // custom properties
-                //     // title: markers[i].title,
-                //     link: '/country-details/' + airports[i]['permalink'],
-
-                //     // custom property
-                //     photo_info: "/img/flags/" + airports[i]['flag']
-                // });
-
+                // marker.addEventListener('click', openPhoto);
 
                 // animate marker
                 setTimeout((function() {
@@ -160,16 +153,16 @@
                         easing: 'bounce'
                     });
                 }).bind(marker), 280 * i);
-                // pin events
 
                 marker.addEventListener('mouseover', function() {
+                    // rotate earth if needed
+
+                    this.autoRotate= false;
 
                     document.getElementById('tip-layer').style.opacity = 0.7;
                     document.getElementById('tip-big').innerHTML = this.airportFlag;
                     document.getElementById('tip-small').innerHTML = this.airportCode + ' - ' + this.airportName.split(',').join('<br>');
-
                     // this.color = 'red';
-
                 });
 
                 marker.addEventListener('mouseout', function() {
@@ -178,217 +171,115 @@
                     // this.color = '#00a8ff';
                     // }
                     document.getElementById('tip-layer').style.opacity = 0;
-
                 });
-                markers.push(marker);
 
             }
 
-            // restorePins();
-
-
-
-            // North America
-
-            var text_image = Earth.TextImage.draw('North\nAmerica', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 39,
-                    lng: -98
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-            // South America
-
-            var text_image = Earth.TextImage.draw('South\nAmerica', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: -15,
-                    lng: -57
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Africa
-
-            var text_image = Earth.TextImage.draw('Africa', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 5,
-                    lng: 26
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Europe
-
-            var text_image = Earth.TextImage.draw('Europe', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 49,
-                    lng: 11
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Asia
-
-            var text_image = Earth.TextImage.draw('Asia', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 41,
-                    lng: 87
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Australia
-
-            var text_image = Earth.TextImage.draw('Australia', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: -25,
-                    lng: 134
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.8,
-                imageResolution: text_image.resolution,
-                color: '#333'
-            });
-
-            fading_images.push(image);
-
-
-
-
-            // Atlantic Ocean
-
-            var text_image = Earth.TextImage.draw('Atlantic\nOcean', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 23,
-                    lng: -43
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.6,
-                imageResolution: text_image.resolution,
-                color: '#c7e6fb'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Pacific Ocean
-
-            var text_image = Earth.TextImage.draw('Pacific Ocean', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: 8,
-                    lng: -168
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.6,
-                imageResolution: text_image.resolution,
-                color: '#c7e6fb'
-            });
-
-            fading_images.push(image);
-
-
-
-            // Indian Ocean
-
-            var text_image = Earth.TextImage.draw('Indian Ocean', {
-                fontFamily: 'Kalam, sans-serif',
-                fontWeight: 'bold'
-            });
-
-            var image = myearth.addImage({
-                location: {
-                    lat: -13,
-                    lng: 80
-                },
-                image: text_image.image,
-                scale: text_image.scale * 0.6,
-                imageResolution: text_image.resolution,
-                color: '#c7e6fb'
-            });
-
-            fading_images.push(image);
 
         });
+    });
 
+    /*marker = this.addSprite({
+
+        // mesh: "Marker",
+        location: {
+            lat: airports[i]['latitude'],
+            lng: airports[i]['longitude']
+        },
+
+        visible: false,
+        hotspot: true,
+        hotspotRadius: 0.5,
+        hotspotHeight: 1,
+        // image: "/img/flags/" + airports[i]['flag'],
+
+        // mesh: ["Pin", "Needle"],
+        // color: 0x30b81f,
+
+        // transparent: true,
+
+        airportCode: airports[i]['code'],
+        airportName: airports[i]['country_name'],
+        airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
+
+        // custom properties
+        title: airports[i]['country_name'],
+        link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
+
+        // custom property
+        photo_info: "/img/flags/" + airports[i]['flag']
+    });
+    marker.addEventListener('click', function() {
+
+        // alert('sssssssssss');
+        window.open(this.link);
+    });
+
+    // this.addOverlay({
+    //     content: 'hotspot: true',
+
+    //     location: {
+    //         lat: airports[i]['latitude'],
+    //         lng: airports[i]['longitude']
+    //     },
+    //     className: 'docs-tip',
+    //     depthScale: 0.5,
+    //     airportCode: airports[i]['country_code'],
+    //     airportName: airports[i]['country_name'],
+
+    //     // custom properties
+    //     // title: markers[i].title,
+    //     link: '/country-details/' + airports[i]['permalink'],
+
+    //     // custom property
+    //     photo_info: "/img/flags/" + airports[i]['flag']
+    // });
+
+    // this.addOverlay({
+    //     content: '<div id="photo"><div id="close-photo" onclick="closePhoto(); event.stopPropagation();"></div></div>',
+    //     visible: true,
+    //     containerScale: 1,
+    //     depthScale: 0.5
+    // });
+
+    // animate marker
+    setTimeout((function() {
+        this.visible = true;
+        this.animate('scale', 0.9, {
+            duration: 140
+        });
+        this.animate('offset', 0, {
+            duration: 1100,
+            easing: 'bounce'
+        });
+    }).bind(marker), 280 * i);
+    // pin events
+
+    marker.addEventListener('mouseover', function() {
+        document.getElementById('tip-layer').style.opacity = 0.7;
+        document.getElementById('tip-big').innerHTML = this.airportFlag;
+        document.getElementById('tip-small').innerHTML = this.airportCode + ' - ' + this.airportName.split(',').join('<br>');
+        // this.color = 'red';
+    });
+
+    marker.addEventListener('mouseout', function() {
+
+        // if (this != startMarker && this != endMarker) {
+        // this.color = '#00a8ff';
+        // }
+        document.getElementById('tip-layer').style.opacity = 0;
+    });
+    markers.push(marker);
+
+    }
+    // restorePins();
 
 
     });
+
+
+
+    });    */
 </script>
 <!-- Start choose place-->
 <section class="choose-place">

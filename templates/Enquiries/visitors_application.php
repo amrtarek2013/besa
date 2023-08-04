@@ -63,8 +63,6 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-
-
                     </div>
                     <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
