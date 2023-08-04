@@ -157,7 +157,7 @@
                 marker.addEventListener('mouseover', function() {
                     // rotate earth if needed
 
-                    this.autoRotate= false;
+                    myearth.autoRotate= false;
 
                     document.getElementById('tip-layer').style.opacity = 0.7;
                     document.getElementById('tip-big').innerHTML = this.airportFlag;
@@ -171,6 +171,8 @@
                     // this.color = '#00a8ff';
                     // }
                     document.getElementById('tip-layer').style.opacity = 0;
+                    
+                    myearth.autoRotate= true;
                 });
 
             }
