@@ -1,11 +1,10 @@
-
 <section class="main-banner banner-about-us aboutUs2-banner">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg1.png" alt="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg1.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-5">
@@ -25,118 +24,24 @@
             <div class="col-md-12">
                 <div class="timeline-container timeline-theme-1">
                     <div class="timeline js-timeline custome-timeline">
-                        <div data-time="2013">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
 
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2014">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2015">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
 
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2016">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/LocationSudan_22.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2017">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                    <p class="descrp">BESA WAS ESTABLISHED and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
+                        <?php if (!empty($aboutusSlidersList)) : ?>
+                            <?php foreach ($aboutusSlidersList as $aboutSlider) : ?>
+                                <div data-time="<?= $aboutSlider['year'] ?>">
+                                    <div class="container-item-data">
+                                        <div class="text">
+                                            <h4 class="title"><?= $aboutSlider['title'] ?></h4>
+                                            <p class="descrp"><?= $aboutSlider['short_description'] ?></p>
 
+                                        </div>
+                                        <div class="image">
+                                            <img src="<?= $aboutSlider['image_path'] ?>" alt="">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2018">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                    <p class="descrp">BESA WAS ESTABLISHED and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
-
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2019">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                    <p class="descrp">BESA WAS ESTABLISHED and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
-
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2020">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                    <p class="descrp">BESA WAS ESTABLISHED and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
-
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div data-time="2021">
-                            <div class="container-item-data">
-                                <div class="text">
-                                    <h4 class="title">BESA WAS ESTABLISHED</h4>
-                                    <p class="descrp">BESA WAS ESTABLISHED IN 2012. PLACING EGYPTIAN STUDENTS IN INTERNATIONAL INSTITUTIONS</p>
-                                    <p class="descrp">BESA WAS ESTABLISHED and became the 1st agency to start recruiting Sudanese students to study abroad.</p>
-
-                                </div>
-                                <div class="image">
-                                    <img src="<?=WEBSITE_URL?>img/new-images/LocationSudan_(1956–2011) 1 (1).png" alt="">
-                                </div>
-                            </div>
-                        </div>
-
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
 
                 </div>

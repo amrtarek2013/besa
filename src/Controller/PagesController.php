@@ -308,6 +308,10 @@ class PagesController extends AppController
         $aboutusSnippet = $this->getSnippet('aboutus');
         $this->set('bodyClass', 'pageAbout');
         $this->set('aboutusSnippet', $aboutusSnippet);
+        $this->loadModel('AboutusSliders');
+        $aboutusSlidersList = $this->AboutusSliders->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
+        
+        $this->set('aboutusSlidersList', $aboutusSlidersList);
     }
     public function partnershipWithBesa()
     {
