@@ -1,19 +1,15 @@
-<section class="main-banner register-banner Create-account-banner">
+<section class="main-banner visitors-application">
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg3.png" alt="" style="z-index: 2;">
+                    <img src="<?= WEBSITE_URL ?>img/Welcome-vis.png" alt="" >
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Create</h1>
-                    <h2 class="title text-left">Create an account</h2>
-                </div>
-            </div>
+            
+            
 
 
             <div class="col-md-12 mr">
