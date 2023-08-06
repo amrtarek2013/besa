@@ -1,4 +1,4 @@
-<section class="main-banner visitors-application">
+<section class="main-banner Create-account-banner  visitors-application">
 
     <div class="container">
         <div class="row">
@@ -14,6 +14,7 @@
 
             <div class="col-md-12 mr">
                 <?= $this->Form->create(null, array('id' => 'FormVisistorApp', 'class' => 'register')); ?>
+                <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
                 <div class="container-formBox">
                     <h4 class="title">Create an account to apply</h4>
@@ -28,20 +29,23 @@
                             'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-                        <div class=" form-area">
-                            <label for="">Mobile*</label>
-                            <div class="grid-2col-mobile">
-                                <?= $this->Form->control('mobile_code', [
-                                    'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
-                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                                ]) ?>
 
-                                <?= $this->Form->control('mobile', [
+                        <?= $this->Form->control('mobile', [
                                     'placeholder' => 'Mobile', 'class' => 'form-control', 'label' => false, 'required' => true,
                                     'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                                 ]) ?>
+                                <!--
+                        <div class=" form-area">
+                            <label for="">Mobile*</label>
+                            <div class="grid-2col-mobile">
+                                <?= /*$this->Form->control('mobile_code', [
+                                    'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ])*/ ?>
+
+                                
                             </div>
-                        </div>
+                        </div> -->
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
@@ -60,7 +64,6 @@
                         ]) ?>
 
                     </div>
-                    <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
                     <div class="container-submit">
 
@@ -76,8 +79,9 @@
                         </div>
                         <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
 
-                        <button type="submit" class="btn greenish-teal">Submit</button>
                     </div>
+                    <button type="submit" class="btn greenish-teal">Submit</button>
+
                 </div>
                 <?= $this->Form->end() ?>
 

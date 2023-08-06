@@ -93,7 +93,7 @@ select {
 }
 
 body {
-   /* -webkit-font-smoothing: subpixel-antialiased !important;*/
+    /* -webkit-font-smoothing: subpixel-antialiased !important;*/
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -7995,10 +7995,24 @@ input[type="search"]:focus {
     display: none;
 }
 
-.user-dashboard{
+.user-dashboard {
     margin-bottom: 30px;
 }
 
-.visitors-application{
-    
+.visitors-application .background-banner-color {
+    padding: 0;
+    margin-bottom: 25px;
+    background: transparent;
+}
+
+.relative-dots-about {
+    right: 15px;
+}
+.visitors-application .container-formBox{
+    max-width: 830px;
+    margin: auto;
+}
+.visitors-application .container-formBox .grid-container{
+    grid-template-columns: 1fr 1fr;
+
 }
