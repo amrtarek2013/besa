@@ -48,7 +48,7 @@
                                 ],
                             ])]);
 
-                            echo $this->AdminForm->control('short_text', ['type' => 'textarea', 'class' => '']);
+                            echo $this->AdminForm->control('short_description', ['type' => 'textarea', 'class' => '']);
                             echo $this->AdminForm->control('display_order', []);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
