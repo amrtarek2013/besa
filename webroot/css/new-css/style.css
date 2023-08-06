@@ -8008,11 +8008,32 @@ input[type="search"]:focus {
 .relative-dots-about {
     right: 15px;
 }
-.visitors-application .container-formBox{
+
+.visitors-application .container-formBox {
     max-width: 830px;
     margin: auto;
 }
-.visitors-application .container-formBox .grid-container{
+
+.visitors-application .container-formBox .grid-container {
     grid-template-columns: 1fr 1fr;
+
+}
+
+.visitors-application .light-para {
+    margin: 19px auto 24px;
+    max-width: 830px;
+}
+
+.visitors-application .container-formBox h4 {
+    display: none;
+}
+
+.visitors-application .container-formBox .checkboxes {
+    padding: 0 20px 10px;
+}
+
+.visitors-application .container-formBox button[type="submit"] {
+    width: calc(100% - 20px);
+    margin-left: 20px;
 
 }
