@@ -31,9 +31,9 @@
                         ]) ?>
 
                         <?= $this->Form->control('mobile', [
-                                    'placeholder' => 'Mobile', 'label' => 'Last Name*', 'class' => 'form-control', 'label' => false, 'required' => true,
-                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                                ]) ?>
+                            'placeholder' => 'Mobile', 'label' => 'Mobile*', 'class' => 'form-control', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
                                 <!--
                         <div class=" form-area">
                             <label for="">Mobile*</label>
