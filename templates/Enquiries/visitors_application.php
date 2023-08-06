@@ -38,10 +38,7 @@
                         <div class=" form-area">
                             <label for="">Mobile*</label>
                             <div class="grid-2col-mobile">
-                                <?= /*$this->Form->control('mobile_code', [
-                                    'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
-                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                                ])*/ ?>
+                               
 
                                 
                             </div>
