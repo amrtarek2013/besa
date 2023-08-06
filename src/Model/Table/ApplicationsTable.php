@@ -33,13 +33,13 @@ class ApplicationsTable extends Table
     'foundation-programs' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'high_school_certificate' => ['label' => 'High School Certificate', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'international-year-one' => [
       'passport' => ['label' => 'Passport*', 'required' => true],
       'high_school_certificate' => ['label' => 'High School Certificate', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'bachelor-degree' => [
@@ -47,7 +47,7 @@ class ApplicationsTable extends Table
       'high_school_certificate' => ['label' => 'High School Ccertificate*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement*', 'required' => true],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter*', 'required' => true],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'pre-masters' => [
@@ -55,7 +55,7 @@ class ApplicationsTable extends Table
       'university_transcript' => ['label' => 'University Transcript*', 'required' => true],
       'personal_statement' => ['label' => 'Personal Statement', 'required' => false],
       'recommendation_letter' => ['label' => 'Recommendation Letter', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'master-degrees' => [
@@ -65,7 +65,7 @@ class ApplicationsTable extends Table
       'updated_cv' => ['label' => 'Updated CV*', 'required' => true],
       'professional_recommendation_letter' => ['label' => 'Professional Recommendation Letter', 'required' => false],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'phd-degrees' => [
@@ -76,7 +76,7 @@ class ApplicationsTable extends Table
       'research_proposal' => ['label' => 'Research Proposal*', 'required' => true],
       'professional_recommendation_letter' => ['label' => 'Professional Recommendation Letter', 'required' => false],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
 
     'postgraduate-degrees' => [
@@ -87,7 +87,7 @@ class ApplicationsTable extends Table
       'research_proposal' => ['label' => 'Research Proposal*', 'required' => true],
       'professional_recommendation_letter' => ['label' => 'Professional Recommendation Letter', 'required' => false],
       'academic_recommendation_letter' => ['label' => 'Academic Recommendation Letter', 'required' => false],
-      'ilets_elt' => ['label' => 'ILETS /ELT', 'required' => false],
+      'ielts_elt' => ['label' => 'IELTS /ELT', 'required' => false],
     ],
   ];
 
@@ -106,7 +106,7 @@ class ApplicationsTable extends Table
     'professional_recommendation_letter' => 'Professional Recommendation Letter',
 
     'research_proposal' => 'Research Proposal',
-    'ilets_elt' => 'ILETS /ELT',
+    'ielts_elt' => 'IELTS /ELT',
 
   ];
   /**
@@ -135,7 +135,7 @@ class ApplicationsTable extends Table
     //       'path' => 'files/applications/',
     //       'required' => true,
     //     ],
-    //     'ilets_elt' => [
+    //     'ielts_elt' => [
     //       'file_name' => '{$rand}_{$file_name}',
     //       'extensions' => array('pdf'/*, 'doc', 'docx'*/),
     //       'path' => 'files/applications/',
@@ -161,7 +161,7 @@ class ApplicationsTable extends Table
   {
 
     // $validator->notEmptyString('passport', 'This field is required.');
-    // $validator->notEmptyString('ilets_elt', 'This field is required.');
+    // $validator->notEmptyString('ielts_elt', 'This field is required.');
     return $validator;
   }
 
