@@ -53,18 +53,18 @@ $(document).ready(function () {
     margin: 10,
     dots: true,
     nav: false,
+    autoplay:true,
+    autoplayTimeout:2000,
+    autoplayHoverPause:true
   });
 
   sliderTestimonials.owlCarousel({
     items: 1,
     loop: true,
     nav: false,
-    autoplay: true,
-    autoPlaySpeed: 3000,
-    autoPlayTimeout: 3000,
-    autoplayHoverPause: true,
-    slideSpeed: 3000,
-    smartSpeed: 3000,
+    autoplay:true,
+    autoplayTimeout:2000,
+    autoplayHoverPause:true,
     navText: [
       "<i class='fa-solid fa-arrow-left'></i>",
       "<i class='fa-solid fa-arrow-right'></i>",
@@ -85,6 +85,9 @@ $(document).ready(function () {
     margin: 10,
     dots: true,
     nav: false,
+    autoplay:true,
+    autoplayTimeout:2000,
+    autoplayHoverPause:true
   });
 
   lifeBesaslider.owlCarousel({
