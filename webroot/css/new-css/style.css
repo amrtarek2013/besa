@@ -8046,8 +8046,10 @@ input[type="search"]:focus {
 .container-icons .icon-box{
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 .container-icons .icon-box img{
     margin: auto;
+
 }
