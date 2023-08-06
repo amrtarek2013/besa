@@ -557,8 +557,14 @@
         grid-column: unset;
     }
 
+    .visitors-application .container-formBox {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
     .container-formBox {
         padding: 20px;
+
     }
 
     .container-formBox.blue-border .form-area:nth-child(5) {
@@ -1661,7 +1667,8 @@
 
     }
 
-    .grid-container-3col, .grid-container-2col {
+    .grid-container-3col,
+    .grid-container-2col {
         grid-template-columns: 1fr;
         grid-gap: 30px;
     }
@@ -1764,37 +1771,45 @@
         width: 100%;
 
     }
-    .why_besa2 .container-icons{
+
+    .why_besa2 .container-icons {
         grid-template-columns: 1fr 1fr;
     }
+
     .servFair .grid-3col {
         grid-template-columns: 1fr;
         padding: 0;
     }
+
     .bannar-green .btn-green,
     .bannar-blue .btn-blue {
         font-size: 22px;
-     
+
         height: unset;
         padding: 15px 30px;
         margin: auto;
         width: 90%;
         text-align: center;
     }
+
     .fair-banner .text-radius {
         padding: 25px;
         margin-right: 0;
     }
+
     .pagination li {
         padding: 5px 5px;
     }
+
     .pagination a {
         padding: 3px;
     }
+
     .paginator p {
         font-size: 14px !important;
     }
-    .title .blue-para{
+
+    .title .blue-para {
         margin-top: 10px;
     }
 

@@ -12,7 +12,7 @@
             
 
 
-            <div class="col-md-12 mr">
+            <div class="col-md-12 ">
                 <?= $this->Form->create(null, array('id' => 'FormVisistorApp', 'class' => 'register')); ?>
                 <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
