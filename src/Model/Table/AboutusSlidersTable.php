@@ -62,7 +62,8 @@ class AboutusSlidersTable extends Table
 
         $validator->notEmptyString('title', 'This field is required.');
         
-        $validator->notEmptyString('country_id', 'This field is required.');
+        $validator->notEmptyString('year', 'This field is required.');
+        $validator->notEmptyString('short_description', 'This field is required.');
         // $validator->notEmptyString('text', 'This field is required.');
 
         return $validator;
