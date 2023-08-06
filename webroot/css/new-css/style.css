@@ -8011,11 +8011,13 @@ input[type="search"]:focus {
 
 .visitors-application .container-formBox {
     max-width: 830px;
-    margin: auto;
+    margin: auto;    padding: 40px 45px;
+
 }
 
 .visitors-application .container-formBox .grid-container {
     grid-template-columns: 1fr 1fr;
+    padding: 0;
 
 }
 
@@ -8029,11 +8031,10 @@ input[type="search"]:focus {
 }
 
 .visitors-application .container-formBox .checkboxes {
-    padding: 0 20px 10px;
+    padding: 0 0 10px;
 }
 
 .visitors-application .container-formBox button[type="submit"] {
-    width: calc(100% - 20px);
-    margin-left: 20px;
+    width: 100% ;
 
 }
