@@ -16,11 +16,11 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /**
- * Councillors Controller
+ * Counselors Controller
  *
  */
 
-class CouncillorsController extends AppController
+class CounselorsController extends AppController
 {
 
 
@@ -42,17 +42,17 @@ class CouncillorsController extends AppController
     public function login()
     {
 
-        $councillorData = $this->Auth->user();
+        $counselorData = $this->Auth->user();
 
         if ($this->request->is('ajax')) {
             $this->viewBuilder()->disableAutoLayout();
             $this->autoRender = false;
         }
-        $msg = $this->getSnippet('councillor_login_success');
-        // $popup_image = $this->getSnippet_image('councillor_login_success');
-        if ($councillorData) {
+        $msg = $this->getSnippet('counselor_login_success');
+        // $popup_image = $this->getSnippet_image('counselor_login_success');
+        if ($counselorData) {
 
-            $return['url']    = "/councillor";
+            $return['url']    = "/counselor";
             $return['status']  = 1;
             // $return['message'] = 'Success';
             $return['message'] = $msg;
@@ -71,13 +71,13 @@ class CouncillorsController extends AppController
         if ($this->request->is('post')) {
 
             $p_data = $this->request->getData();
-            $red_url = "/councillor";
+            $red_url = "/counselor";
             if (!empty($p_data["from_url"])) {
                 $red_url = $p_data["from_url"];
             }
-            $councillor = $this->Auth->identify();
-            if ($councillor) {
-                $this->Auth->setUser($councillor);
+            $counselor = $this->Auth->identify();
+            if ($counselor) {
+                $this->Auth->setUser($counselor);
                 $return['url']    = $red_url;
                 $return['url_text'] = 'Continue';
                 $return['status']  = 1;
@@ -88,7 +88,7 @@ class CouncillorsController extends AppController
                 $return['type']    = 'login';
                 // $this->loadModel('Subscriptions');
                 // $subscription = $this->Subscriptions->find()->where([
-                //     'Subscriptions.councillor_id' => $councillor['id'],
+                //     'Subscriptions.counselor_id' => $counselor['id'],
                 //     'end_date >=' => date('Y M d'),
                 //     'expired' => 0,
                 //     'status' => 1
@@ -108,8 +108,8 @@ class CouncillorsController extends AppController
                 // }
             } else {
 
-                $msg = $this->getSnippet('councillor_login_error');
-                // $popup_image = $this->getSnippet_image('councillor_login_success');
+                $msg = $this->getSnippet('counselor_login_error');
+                // $popup_image = $this->getSnippet_image('counselor_login_success');
                 $return['message'] = $msg;
 
                 $return['status']  = 0;
@@ -124,7 +124,7 @@ class CouncillorsController extends AppController
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
 
-                    $this->redirect('/councillor');
+                    $this->redirect('/counselor');
                 } else {
 
                     $this->Flash->error(__($return['message']));
@@ -145,19 +145,19 @@ class CouncillorsController extends AppController
             $this->Flash->error(__('Wrong Data', true));
             $this->redirect('/');
         }
-        $councillor = $this->Councillors->find()->where(['hash' => $hash_data])->first();
-        if (empty($councillor)) {
+        $counselor = $this->Counselors->find()->where(['hash' => $hash_data])->first();
+        if (empty($counselor)) {
             $this->Flash->error(__('Wrong Data', true));
             $this->redirect('/');
         }
 
         if ($this->request->is('post')) {
-            // $councillor = $this->Councillors->patchEntity($councillor, $this->request->getData());
+            // $counselor = $this->Counselors->patchEntity($counselor, $this->request->getData());
             $data = $this->request->getData();
-            $councillor->password = $data['password'];
-            $this->Councillors->save($councillor);
+            $counselor->password = $data['password'];
+            $this->Counselors->save($counselor);
             // dd($data);
-            $this->redirect('/councillor/login');
+            $this->redirect('/counselor/login');
         }
     }
 
@@ -173,43 +173,43 @@ class CouncillorsController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
-            $councillor = $this->Councillors->find()->where(['email' => $data['email']])->first();
+            $counselor = $this->Counselors->find()->where(['email' => $data['email']])->first();
 
-            if (!empty($councillor)) {
+            if (!empty($counselor)) {
 
                 // $new_passowrd   = substr(md5(rand() . ''), 0, 6);
 
-                // $councillor->password = $new_passowrd;
-                $id = $councillor['id'];
-                $hashed_value = $councillor['hash'];
+                // $counselor->password = $new_passowrd;
+                $id = $counselor['id'];
+                $hashed_value = $counselor['hash'];
                 if (empty($hashed_value) || $hashed_value == null) {
-                    $hashed_value = md5($id . uniqid() . md5($councillor['email'] . $_SERVER['HTTP_USER_AGENT']));
+                    $hashed_value = md5($id . uniqid() . md5($counselor['email'] . $_SERVER['HTTP_USER_AGENT']));
                 }
-                $councillor->hash = $hashed_value;
-                $councillor->hash_created_date = date('Y-m-d H:i:s');
-                // dd($councillor);
-                if ($this->Councillors->save($councillor, ['validate' => false])) {
-                    $to = $councillor['email'];
+                $counselor->hash = $hashed_value;
+                $counselor->hash_created_date = date('Y-m-d H:i:s');
+                // dd($counselor);
+                if ($this->Counselors->save($counselor, ['validate' => false])) {
+                    $to = $counselor['email'];
                     $from = '';
 
-                    $url = Router::url('/councillor/reset-password/' . $hashed_value, true);
+                    $url = Router::url('/counselor/reset-password/' . $hashed_value, true);
                     $replace = array(
-                        '{%first_name%}' => $councillor['first_name'],
-                        '{%last_name%}' => $councillor['last_name'],
+                        '{%first_name%}' => $counselor['first_name'],
+                        '{%last_name%}' => $counselor['last_name'],
                         '{%new_password%}' => '<a href="' . $url . '">Click Here</a>',
                     );
 
                     $this->sendEmail($to, false, 'new_password', $replace);
                     $this->Flash->success('Your new password reset link has been sent to your email');
-                    $this->redirect('/councillor/forgot-password-success');
+                    $this->redirect('/counselor/forgot-password-success');
                 } else {
 
                     $this->Flash->error('Could not reset your password..', 'Errormessage');
-                    $this->redirect('/councillor/forgot-password');
+                    $this->redirect('/counselor/forgot-password');
                 }
             } else {
                 $this->Flash->error('This email is not exsist!', 'Errormessage');
-                $this->redirect('/councillor/forgot-password');
+                $this->redirect('/counselor/forgot-password');
             }
         }
     }
@@ -224,7 +224,7 @@ class CouncillorsController extends AppController
 
         // 
 
-        // $this->Session->delete('Councillor');
+        // $this->Session->delete('Counselor');
         return $this->redirect($this->Auth->logout());
     }
 
@@ -232,9 +232,9 @@ class CouncillorsController extends AppController
     {
         $this->autoRender = false;
 
-        $councillor = $this->Councillors->get($id);
-        $this->Auth->setUser($councillor->toArray());
-        return $this->redirect('/councillor');
+        $counselor = $this->Counselors->get($id);
+        $this->Auth->setUser($counselor->toArray());
+        return $this->redirect('/counselor');
     }
 
     public function sendConfirmationEmail()
@@ -245,12 +245,12 @@ class CouncillorsController extends AppController
         $un_replace = array(
             '{%first_name%}' => $seller['first_name'],
             '{%last_name%}' => $seller['last_name'],
-            '{%confirmation_url%}' => Router::url(array('controller' => 'Councillors', 'action' => 'confirm_email', $hashed_value), true),
+            '{%confirmation_url%}' => Router::url(array('controller' => 'Counselors', 'action' => 'confirm_email', $hashed_value), true),
         );
         $seller['email'] = 'developerae@thesitefactory.com.au';
-        $councillor = $this->Councillors->find()->where(["id" => $seller['id']])->first();
-        $councillor->hash = $hashed_value;
-        $this->Councillors->save($councillor);
+        $counselor = $this->Counselors->find()->where(["id" => $seller['id']])->first();
+        $counselor->hash = $hashed_value;
+        $this->Counselors->save($counselor);
 
         $this->sendEmail($seller['email'], false, 'seller.re-confirm-email-address', $un_replace, []);
 
@@ -267,23 +267,23 @@ class CouncillorsController extends AppController
             $confirm_code = preg_replace('/\s+/', ' ', $confirm_code);
             $confirm_code = str_ireplace(' ', '', $confirm_code);
         }
-        $councillor = $this->Councillors->find()->where(["hash" => $confirm_code])->first();
+        $counselor = $this->Counselors->find()->where(["hash" => $confirm_code])->first();
 
         if (isset($_GET['test'])) {
             echo $confirm_code . '</br >';
-            debug($councillor);
+            debug($counselor);
             die;
         }
 
-        if (!$councillor) {
+        if (!$counselor) {
             $this->Flash->error('Invalid security code', 'Errormessage');
             $this->redirect('/');
         }
-        $councillor->email_confirmed = true;
-        $councillor->confirmed = true;
-        if ($this->Councillors->save($councillor)) {
+        $counselor->email_confirmed = true;
+        $counselor->confirmed = true;
+        if ($this->Counselors->save($counselor)) {
             $this->Flash->success('Email Confirmed', 'Sucmessage');
-            // $this->admin_loginas($this->Councillors->id);
+            // $this->admin_loginas($this->Counselors->id);
             $this->redirect('/');
         }
         $this->redirect('/');
@@ -295,33 +295,33 @@ class CouncillorsController extends AppController
 
     //     $conditions = $this->_filter_params();
 
-    // $councillors = $this->paginate($this->Councillors, ['conditions' => $conditions/*, 'contain' => ['CouncillorGroups']*/]);
-    //     // foreach ($councillors as $id => $councillor) {
-    //     //     $councillor->councillor_group_name = $councillor->councillor_group->title;
+    // $counselors = $this->paginate($this->Counselors, ['conditions' => $conditions/*, 'contain' => ['CounselorGroups']*/]);
+    //     // foreach ($counselors as $id => $counselor) {
+    //     //     $counselor->counselor_group_name = $counselor->counselor_group->title;
     //     // }
     //     $parameters = $this->request->getAttribute('params');
-    //     $this->set(compact('councillors', 'parameters'));
+    //     $this->set(compact('counselors', 'parameters'));
     //     $this->formCommon();
     // }
 
 
     public function formCommon()
     {
-        // $this->loadModel('CouncillorGroups');
-        // $councillorGroups =  $this->CouncillorGroups->find('list', array('keyField' => 'id', 'valueField' => 'title'));
-        // $this->set(compact('councillorGroups'));
+        // $this->loadModel('CounselorGroups');
+        // $counselorGroups =  $this->CounselorGroups->find('list', array('keyField' => 'id', 'valueField' => 'title'));
+        // $this->set(compact('counselorGroups'));
     }
 
 
     public function workTimes($id = null)
     {
-        $councillor = $this->Councillors->get($id);
-        $this->loadModel('CouncillorWorkDayTimes');
-        $councillorWorkDayTimes = $this->CouncillorWorkDayTimes->find('all', array('conditions' => ['CouncillorWorkDayTimes.councillor_id' => $id], 'order' => array('CouncillorWorkDayTimes.id' => 'desc'), 'contain' => []))->toArray();
+        $counselor = $this->Counselors->get($id);
+        $this->loadModel('CounselorWorkDayTimes');
+        $counselorWorkDayTimes = $this->CounselorWorkDayTimes->find('all', array('conditions' => ['CounselorWorkDayTimes.counselor_id' => $id], 'order' => array('CounselorWorkDayTimes.id' => 'desc'), 'contain' => []))->toArray();
 
-        if (!empty($councillorWorkDayTimes)) {
+        if (!empty($counselorWorkDayTimes)) {
 
-            $councillorWorkDayTimes = Hash::combine($councillorWorkDayTimes, '{n}.day', '{n}');
+            $counselorWorkDayTimes = Hash::combine($counselorWorkDayTimes, '{n}.day', '{n}');
         }
 
 
@@ -329,28 +329,28 @@ class CouncillorsController extends AppController
 
             $formData = $this->request->getData();
 
-            foreach ($formData['CouncillorWorkDayTimes'] as $time) {
+            foreach ($formData['CounselorWorkDayTimes'] as $time) {
 
-                $time['councillor_id'] = $id;
+                $time['counselor_id'] = $id;
 
                 if (!empty($time['id'])) {
-                    $emptyEntity = $this->CouncillorWorkDayTimes->get($time['id']);
+                    $emptyEntity = $this->CounselorWorkDayTimes->get($time['id']);
                 } else {
-                    $emptyEntity = $this->CouncillorWorkDayTimes->newEmptyEntity();
+                    $emptyEntity = $this->CounselorWorkDayTimes->newEmptyEntity();
                 }
 
-                $entity = $this->CouncillorWorkDayTimes->patchEntity($emptyEntity, $time);
+                $entity = $this->CounselorWorkDayTimes->patchEntity($emptyEntity, $time);
 
-                $this->CouncillorWorkDayTimes->save($entity);
+                $this->CounselorWorkDayTimes->save($entity);
             }
 
-            $this->Flash->success(__('The Councillor Work Time has been saved.'));
+            $this->Flash->success(__('The Counselor Work Time has been saved.'));
             return $this->redirect(['action' => 'workTimes', $id]);
         }
 
 
         $days = daysList();
-        $this->set(compact('councillor', 'days', 'id', 'councillorWorkDayTimes'));
+        $this->set(compact('counselor', 'days', 'id', 'counselorWorkDayTimes'));
     }
 
 
@@ -365,86 +365,86 @@ class CouncillorsController extends AppController
 
 
 
-        $councillorData = $this->Auth->user();
+        $counselorData = $this->Auth->user();
 
         $return                          = [];
 
-        $msg = $this->getSnippet('councillor_register_success');
-        // dd($councillorData);
-        if ($councillorData) {
+        $msg = $this->getSnippet('counselor_register_success');
+        // dd($counselorData);
+        if ($counselorData) {
             if ($this->request->is('ajax')) {
-                $return['url']    = "/councillor";
+                $return['url']    = "/counselor";
                 $return['status']  = 1;
 
                 $return['message'] = $msg;
                 $return['type']    = 'login';
                 $return['title'] = 'Thank You';
                 die(json_encode($return));
-                // die(json_encode(array('status' => 'failed', 'message' => __('This councillor already exist!!'))));
+                // die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
             } else {
 
                 $this->Flash->success(__('Welcome'));
-                $this->redirect('/councillor');
+                $this->redirect('/counselor');
             }
         }
         // Configure::write('debug', false);
 
-        $councillorEntity = $this->Councillors->newEmptyEntity();
+        $counselorEntity = $this->Counselors->newEmptyEntity();
         $validation                      = ['validate' => 'register'];
 
         if ($this->request->is(['patch', 'post', 'put'])) {
 
             $this->data = $this->request->getData();
-            $existed_councillor = $this->Councillors->find()->where(["email" => $this->data['email']])->first();
+            $existed_counselor = $this->Counselors->find()->where(["email" => $this->data['email']])->first();
 
-            if ($existed_councillor) {
+            if ($existed_counselor) {
                 if ($this->request->is('ajax')) {
-                    die(json_encode(array('status' => 'failed', 'message' => __('This councillor already exist!!'))));
+                    die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
                 } else {
 
-                    $this->Flash->error(__('This councillor already exist!!'));
+                    $this->Flash->error(__('This counselor already exist!!'));
                 }
             } else {
-                $councillorEntity = $this->Councillors->patchEntity($councillorEntity, $this->data, $validation);
+                $counselorEntity = $this->Counselors->patchEntity($counselorEntity, $this->data, $validation);
 
-                if ($this->Councillors->save($councillorEntity)) {
-                    $id = $councillorEntity->id;
+                if ($this->Counselors->save($counselorEntity)) {
+                    $id = $counselorEntity->id;
 
-                    $councillor = $this->Councillors->get($id);
+                    $counselor = $this->Counselors->get($id);
 
-                    $to = $councillor['email'];
+                    $to = $counselor['email'];
 
                     $from    = $this->g_configs['basic']['txt.send_mail_from'];
                     $replace = array(
-                        '{%first_name%}' => $councillor['first_name'],
-                        '{%last_name%}'  => $councillor['last_name'],
-                        '{%councillorname%}'  => $councillor['councillorname'],
-                        '{%email%}'  => $councillor['email'],
-                        '{%mobile%}'  => $councillor['mobile'],
+                        '{%first_name%}' => $counselor['first_name'],
+                        '{%last_name%}'  => $counselor['last_name'],
+                        '{%counselorname%}'  => $counselor['counselorname'],
+                        '{%email%}'  => $counselor['email'],
+                        '{%mobile%}'  => $counselor['mobile'],
                     );
-                    $this->sendEmail($to, $from, 'councillor.notify_councillor_registration', $replace);
-                    $this->sendEmail($to, $from, 'admin.notify_councillor_registration', $replace);
+                    $this->sendEmail($to, $from, 'counselor.notify_counselor_registration', $replace);
+                    $this->sendEmail($to, $from, 'admin.notify_counselor_registration', $replace);
 
-                    $return['url']    = "/councillor";
+                    $return['url']    = "/counselor";
                     $return['status']  = 1;
                     $return['message'] = $msg;
                     $return['type']    = 'register';
                     $return['title'] = 'Thank You';
                     $return['url_text'] = 'Continue';
 
-                    $this->Auth->setUser($councillor->toArray());
+                    $this->Auth->setUser($counselor->toArray());
                     // die(json_encode($return));
                 } else {
 
-                    // dd($councillorEntity->getErrors());
+                    // dd($counselorEntity->getErrors());
 
 
-                    $return['url']    = "/councillor";
+                    $return['url']    = "/counselor";
                     $return['status']  = 0;
-                    $return['validationErrors']  = $councillorEntity->getErrors();
+                    $return['validationErrors']  = $counselorEntity->getErrors();
                     $return['message'] = 'Invalid credentials, try again';
 
-                    // $return['message'] = $this->getSnippet('councillor_register_error');
+                    // $return['message'] = $this->getSnippet('counselor_register_error');
                     $return['type']    = 'register';
                     $return['title'] = 'Info';
 
@@ -459,7 +459,7 @@ class CouncillorsController extends AppController
                 } else {
                     if ($return['status']) {
                         $this->Flash->success(__($return['message']));
-                        $this->redirect('/councillor');
+                        $this->redirect('/counselor');
                     } else {
 
                         $this->Flash->error(__($return['message']));
@@ -469,7 +469,7 @@ class CouncillorsController extends AppController
         }
 
 
-        $this->set('councillor', $councillorEntity);
+        $this->set('counselor', $counselorEntity);
         // $this->loadModel('Countries');
         // $countriesList = $this->Countries->find('list', [
         //     'keyField' => 'id', 'valueField' => 'country_name'
@@ -482,41 +482,41 @@ class CouncillorsController extends AppController
     {
 
 
-        $councillor = $this->Auth->user();
-        $councillor = $this->Councillors->get($councillor['id']);
+        $counselor = $this->Auth->user();
+        $counselor = $this->Counselors->get($counselor['id']);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sent_data = $this->request->getData();
-            $councillor = $this->Councillors->patchEntity($councillor, $this->request->getData(), ['validate' => 'profile']);
+            $counselor = $this->Counselors->patchEntity($counselor, $this->request->getData(), ['validate' => 'profile']);
 
             if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
-                $councillor->password = $sent_data['password'];
+                $counselor->password = $sent_data['password'];
             } else {
-                $councillor->password = "";
-                unset($councillor->password);
+                $counselor->password = "";
+                unset($counselor->password);
             }
-            if (empty($councillor->councillorname))
-                $councillor->councillorname = $councillor->email;
+            if (empty($counselor->counselorname))
+                $counselor->counselorname = $counselor->email;
 
-            if ($this->Councillors->save($councillor)) {
+            if ($this->Counselors->save($counselor)) {
                 $this->Flash->success(__('The profile date has been saved.'));
 
                 return $this->redirect(['action' => 'accountInfo']);
             }
 
-            // dd($councillor->getErrors());
+            // dd($counselor->getErrors());
             $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
-        $this->set(compact('councillor'));
+        $this->set(compact('counselor'));
         
     }
 
 
     public function accountInfo()
     {
-        $councillor_session = $this->Auth->user();
-        $councillor = $this->Councillors->get($councillor_session["id"]);
-        $this->set(compact('councillor'));
+        $counselor_session = $this->Auth->user();
+        $counselor = $this->Counselors->get($counselor_session["id"]);
+        $this->set(compact('counselor'));
 
         $advertising_questions_section = $this->getSnippet('advertising-questions-section');
         $this->set("advertising_questions_section", $advertising_questions_section);
@@ -526,25 +526,25 @@ class CouncillorsController extends AppController
     {
 
 
-        $councillor = $this->Auth->user();
+        $counselor = $this->Auth->user();
         // $this->set_dynamic_layout("dashboard");
         // $this->pageTitle = $h1 = __("Dashboard", true);
         $data  = array();
-        // if (!empty($councillor)) {
+        // if (!empty($counselor)) {
         //     try {
         //code...
 
-        $councillorEntity = $this->Councillors->newEmptyEntity();
+        $counselorEntity = $this->Counselors->newEmptyEntity();
 
-        $data = $this->Councillors->patchEntity($councillorEntity, $councillor);
-        // dd($councillor);
-        // $data            = $this->Councillors->get($councillor);
+        $data = $this->Counselors->patchEntity($counselorEntity, $counselor);
+        // dd($counselor);
+        // $data            = $this->Counselors->get($counselor);
 
         // dd($data);
         //     } catch (\Throwable $th) {
         //         //throw $th;
 
-        //         // dd($councillor->getErrors());
+        //         // dd($counselor->getErrors());
         //         $this->redirect('/');
         //     }
         // } else {
@@ -553,47 +553,47 @@ class CouncillorsController extends AppController
         $this->set('data', $data);
         // $this->set('edit', 1);
         // $this->loadModel('Ads');
-        // $this->set('presenter_dashboard_ad', $this->Ads->get_ads('councillor-dashboard'));
-        //$this->set('levels', $this->Councillors->PresenterSkill->levels);
+        // $this->set('presenter_dashboard_ad', $this->Ads->get_ads('counselor-dashboard'));
+        //$this->set('levels', $this->Counselors->PresenterSkill->levels);
         // $this->set('h1', $h1);
     }
     public function _profile()
     {
-        $councillor = $this->is_councillor();
-        if (!$this->is_councillor()) {
+        $counselor = $this->is_counselor();
+        if (!$this->is_counselor()) {
             $this->Flash->error('You must login first', "fail alert alert-error");
-            $this->redirect('/councillor/login');
+            $this->redirect('/counselor/login');
         }
         // $this->get_dynamic_layout("dashboard");
         if (!empty($this->data)) {
-            $this->Councillors->id = $councillor['id'];
-            if (!empty($this->data['password']) && !$councillor['confirmed']) {
+            $this->Counselors->id = $counselor['id'];
+            if (!empty($this->data['password']) && !$counselor['confirmed']) {
                 $this->data['confirmed'] = 1;
             }
             $need_verification = false;
 
-            // if ($this->data['email'] != $councillor['email']) {
+            // if ($this->data['email'] != $counselor['email']) {
             //     $need_verification                       = true;
             //     $data['hash']                    = "";
             //     $data['confirm_email']           = 0;
             //     $data['verification_email_sent'] = 0;
             // }
 
-            if ($this->Councillors->saveCouncillor($this->data, $councillor['id'])) {
-                $councillor = $this->Councillors->get($this->Councillors->id);
+            if ($this->Counselors->saveCounselor($this->data, $counselor['id'])) {
+                $counselor = $this->Counselors->get($this->Counselors->id);
                 // if ($need_verification) {
-                //     $this->_send_verification_email($councillor);
+                //     $this->_send_verification_email($counselor);
                 // }
-                $this->Session->write('councillor', $councillor);
+                $this->Session->write('counselor', $counselor);
                 $this->Flash->success(__("Your profile has been saved successfully.", true), "Sucmessage alert alert-Sucmessage");
-                $this->redirect(array('controller' => 'councillors', 'action' => 'profile'));
+                $this->redirect(array('controller' => 'counselors', 'action' => 'profile'));
             } else {
                 $this->Flash->error(__("Your profile could not be saved.", true), "fail alert alert-error");
             }
         } else {
 
-            unset($councillor['password']);
-            $this->data = $councillor;
+            unset($counselor['password']);
+            $this->data = $counselor;
             unset($this->data["id"]);
         }
         $this->pageTitle = $h1 = __("My Profile", true);

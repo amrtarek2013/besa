@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-12">
       <p class="descrpReg">
-        Add your new Password
+        Add your registered email address.</br>BESA will send an email with a link to reset your password
       </p>
     </div>
 
@@ -32,20 +32,17 @@
           <h4 class="title">Reset Password</h4>
           <div class="grid-container" style="display: block;">
 
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'New Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => false, 'label' => 'New Password*']) ?>
-            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
-
-
+            <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
           </div>
           <div class="container-submit">
             <div class="checkboxes">
               <div>
 
-                <a href="<?= $this->Url->Build('/councillor/register') ?>"> Register?</a>
+                <a href="<?= $this->Url->Build('/counselor/register') ?>"> Register?</a>
               </div>
               <div>
 
-                <a href="<?= $this->Url->Build('/councillor/login') ?>"> Login</a>
+                <a href="<?= $this->Url->Build('/counselor/login') ?>"> Login</a>
               </div>
             </div>
 

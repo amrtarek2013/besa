@@ -8,7 +8,7 @@
                 <div class="card">
                     <?php
                     $session = $this->getRequest()->getSession();
-                    echo $this->List->filter_form($councillors, $filters, [], [], $parameters, $session) ?>
+                    echo $this->List->filter_form($counselors, $filters, [], [], $parameters, $session) ?>
                 </div>
             <?php } ?>
             <a href="<?= $this->Url->build(array('action' => 'add', 'Admin' => true)) ?>" class="btn btn-info btn-flat" icon="fas fa-pencil-alt"><i class="fa fa-plus"></i> Add New</a>
@@ -18,11 +18,11 @@
                 <?php
 
                 $fields = [
-                    'basicModel' => 'councillors',
+                    'basicModel' => 'counselors',
                     'first_name' => [],
                     'last_name' => [],
                     'email' => [],
-                    'councillorname' => [],
+                    'counselorname' => [],
                     'display_order' => [],
                     'active' => ['format' => 'bool']
                 ];
@@ -49,7 +49,7 @@
 
 
 
-                echo $this->List->adminIndex($fields, $councillors, $actions, true, $multi_select_actions, $parameters);
+                echo $this->List->adminIndex($fields, $counselors, $actions, true, $multi_select_actions, $parameters);
                 $url_query = [];
                 if (isset($parameters['?'])) {
                     $url_query = $parameters['?'];
@@ -67,7 +67,7 @@ document.getElementById('unsubscriber').style.display = 'none';
                         Export to csv</a><a></a>
                 </h3>
                 <div style="display: block;" id="exporter" class="more_option_box">
-                    <form action="<?php echo Cake\Routing\Router::url(array('controller' => "councillors", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+                    <form action="<?php echo Cake\Routing\Router::url(array('controller' => "counselors", 'action' => 'export', '?' => $url_query)) ?>" method="get">
                         Delimited:
                         <select name="delimited">
                             <option value="comma">Comma ( , )</option>

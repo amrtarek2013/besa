@@ -125,18 +125,18 @@ return static function (RouteBuilder $routes) {
         $routes->connect('/reset-password/*', ['controller' => 'Users', 'action' => 'resetPassword']);
         $routes->fallbacks(DashedRoute::class);
     });
-    Router::prefix('councillor', function (RouteBuilder $routes) {
+    Router::prefix('counselor', function (RouteBuilder $routes) {
         $routes->connect('/locale/*', ['controller' => 'Localizations', 'action' => 'setLocale']);
-        $routes->connect('/', ['controller' => 'Councillors', 'action' => 'dashboard']);
-        // $routes->connect('/', ['controller' => 'Councillors', 'action' => 'profile']);
-        $routes->connect('/profile', ['controller' => 'Councillors', 'action' => 'profile']);
-        $routes->connect('/login', ['controller' => 'Councillors', 'action' => 'login']);
-        $routes->connect('/logout', ['controller' => 'Councillors', 'action' => 'logout']);
-        $routes->connect('/register', ['controller' => 'Councillors', 'action' => 'register']);
-        $routes->connect('/forgot-password', ['controller' => 'Councillors', 'action' => 'forgotPassword']);
-        // $routes->connect('/forgotPassword', ['controller' => 'Councillors', 'action' => 'forgotPassword']);
-        $routes->connect('/forgot-password-success', ['controller' => 'Councillors', 'action' => 'forgotPasswordSuccess']);
-        $routes->connect('/reset-password/*', ['controller' => 'Councillors', 'action' => 'resetPassword']);
+        $routes->connect('/', ['controller' => 'Counselors', 'action' => 'dashboard']);
+        // $routes->connect('/', ['controller' => 'Counselors', 'action' => 'profile']);
+        $routes->connect('/profile', ['controller' => 'Counselors', 'action' => 'profile']);
+        $routes->connect('/login', ['controller' => 'Counselors', 'action' => 'login']);
+        $routes->connect('/logout', ['controller' => 'Counselors', 'action' => 'logout']);
+        $routes->connect('/register', ['controller' => 'Counselors', 'action' => 'register']);
+        $routes->connect('/forgot-password', ['controller' => 'Counselors', 'action' => 'forgotPassword']);
+        // $routes->connect('/forgotPassword', ['controller' => 'Counselors', 'action' => 'forgotPassword']);
+        $routes->connect('/forgot-password-success', ['controller' => 'Counselors', 'action' => 'forgotPasswordSuccess']);
+        $routes->connect('/reset-password/*', ['controller' => 'Counselors', 'action' => 'resetPassword']);
         $routes->fallbacks(DashedRoute::class);
     });
 

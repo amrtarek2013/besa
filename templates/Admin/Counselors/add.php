@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Councillors') ?></h1>
+                    <h1><?= __('Counselors') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active"><?= __('Councillors') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Counselors') ?></li>
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Councillor') ?></h3>
+                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Counselor') ?></h3>
                         </div>
 
                         <?php
@@ -31,7 +31,7 @@
                         ?>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($councillor, ['type' => 'file', 'id' => $action . 'AdminForm']);
+                            echo $this->AdminForm->create($counselor, ['type' => 'file', 'id' => $action . 'AdminForm']);
                             ?>
 
                             <div class="col-md-12">
@@ -56,7 +56,7 @@
 
                                         <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
 
-                                        <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'councillor_' . $id, $mainAdminToken) ?> -->
+                                        <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'counselor_' . $id, $mainAdminToken) ?> -->
                                         <?= $this->AdminForm->control('active', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('confirmed', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('display_order', []) ?>

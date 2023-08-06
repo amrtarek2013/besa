@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title"><?= ucfirst($this->getRequest()->getParam('action') . ' Councillors') ?></h3>
+                        <h3 class="card-title"><?= ucfirst($this->getRequest()->getParam('action') . ' Counselors') ?></h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                 <i class="fas fa-minus"></i></button>
@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <?php
-                        echo $this->AdminForm->create($councillor, ['type' => 'file']); ?>
+                        echo $this->AdminForm->create($counselor, ['type' => 'file']); ?>
                         <?php echo $this->AdminForm->control('file', ['type' => 'file']);
 
 

@@ -7,7 +7,7 @@
 
                     <h3 class="page-title">Account Details</h3>
                     <div class="buttons">
-                        <a href="/councillor/profile" class="bttn blue edit-profile"><i class="fa fa-edit fa-lg" style="    margin-right: 6px;"></i> Edit info</a>
+                        <a href="/counselor/profile" class="bttn blue edit-profile"><i class="fa fa-edit fa-lg" style="    margin-right: 6px;"></i> Edit info</a>
                     </div>
                 </div>
                 <div class="table-account-details">
@@ -15,23 +15,23 @@
                         <tbody>
                             <tr>
                                 <th class="account-info-label"> Display Name</th>
-                                <th class="info-value"><?= $councillor['councillorname'] ?></th>
+                                <th class="info-value"><?= $counselor['counselorname'] ?></th>
                             </tr>
                             <tr>
                                 <th class="account-info-label">Full Name</th>
-                                <th class="info-value"><?= $councillor['first_name'] . ' ' . $councillor['last_name'] ?></th>
+                                <th class="info-value"><?= $counselor['first_name'] . ' ' . $counselor['last_name'] ?></th>
                             </tr>
                             <tr>
                                 <th class="account-info-label">Email</th>
-                                <th class="info-value"> <?= $councillor['email'] ?> </th>
+                                <th class="info-value"> <?= $counselor['email'] ?> </th>
                             </tr>
                             <tr>
                                 <th class="account-info-label">Mobile</th>
-                                <th class="info-value"><?= $councillor['mobile'] ?></th>
+                                <th class="info-value"><?= $counselor['mobile'] ?></th>
                             </tr>
                             <tr>
                                 <th class="account-info-label">Address</th>
-                                <th class="info-value">  <?= $councillor['address'] ?></th>
+                                <th class="info-value">  <?= $counselor['address'] ?></th>
                             </tr>
                         </tbody>
                     </table>

@@ -11,11 +11,11 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use MobileValidator\MobileValidator;
 
-class CouncillorsTable extends Table
+class CounselorsTable extends Table
 {
 
 
-  public $modelName = 'councillors';
+  public $modelName = 'counselors';
   public $filters = ['first_name' => 'like', 'email' => 'like'];
 
   public $schema_of_export = array(
@@ -47,7 +47,7 @@ class CouncillorsTable extends Table
   {
     parent::initialize($config);
 
-    $this->setTable('councillors');
+    $this->setTable('counselors');
     $this->setDisplayField('name');
     $this->setPrimaryKey('id');
     $this->addBehavior('Timestamp');
@@ -63,7 +63,7 @@ class CouncillorsTable extends Table
                   'resize' => ['width' => 180, 'height' => 180],
                   'datePath' => ['path' => ''],
                   // 'datePath' => false,
-                  'path' => 'uploads/councillors',
+                  'path' => 'uploads/counselors',
                   'file_name' => '{$rand}_{$file_name}',
 
                   // 'thumbs' => [
@@ -96,7 +96,7 @@ class CouncillorsTable extends Table
 
     $validator->notEmptyString('mobile', 'This field is required.');
     $validator->notEmptyString('postcode', 'This field is required.');
-    // $validator->notEmptyString('councillorname', 'This field is required.');
+    // $validator->notEmptyString('counselorname', 'This field is required.');
     return $validator;
   }
 
@@ -134,7 +134,7 @@ class CouncillorsTable extends Table
         ]
       ]);
 
-    // $validator->notEmptyString('councillorname', 'This field is required.');
+    // $validator->notEmptyString('counselorname', 'This field is required.');
     // $validator->notEmptyString('postcode', 'This field is required.');
     $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
       'checkCaptcha' => [
@@ -155,9 +155,9 @@ class CouncillorsTable extends Table
   {
 
     if (isset($email) && !empty($email)) {
-      $existed_councillor = $this->find()->where(["email" => $email])->first();
+      $existed_counselor = $this->find()->where(["email" => $email])->first();
 
-      if (!empty($existed_councillor)) {
+      if (!empty($existed_counselor)) {
         return false;
       }
     }
@@ -168,9 +168,9 @@ class CouncillorsTable extends Table
   {
 
     if (isset($mobile) && !empty($mobile)) {
-      $existed_councillor = $this->find()->where(["mobile" => $mobile])->first();
+      $existed_counselor = $this->find()->where(["mobile" => $mobile])->first();
 
-      if (!empty($existed_councillor)) {
+      if (!empty($existed_counselor)) {
         return false;
       }
     }

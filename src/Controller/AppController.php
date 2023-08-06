@@ -21,7 +21,7 @@ use \Zend\Diactoros\UploadedFile;
 
 class AppController extends Controller
 {
-    public $prefixesNeedMenues = ['admin', 'user', 'councillor'];
+    public $prefixesNeedMenues = ['admin', 'user', 'counselor'];
     public $sideMenus = array();
     public $g_configs = array();
     public $locale_pr = "";
@@ -121,7 +121,7 @@ class AppController extends Controller
                 || ($current_controller == "Files" && $current_action == "generateDemoFiles")
 
                 || ($current_controller == "Users")
-                || ($current_controller == "Councillors")
+                || ($current_controller == "Counselors")
                 // || ($current_controller == "Users" && $current_action == "register")
                 // || ($current_controller == "Users" && $current_action == "logout")
                 // || ($current_controller == "Users" && $current_action == "dashboard")
@@ -342,31 +342,31 @@ class AppController extends Controller
                     $this->set('pageHead', "User");
                     break;
 
-                case 'councillor':
+                case 'counselor':
                     $this->viewBuilder()->setLayout('default');
                     $this->authCom = $this->loadComponent('Auth', [
                         'authenticate' => [
-                            'Basic' => ['userModel' => 'Councillors'],
+                            'Basic' => ['userModel' => 'Counselors'],
                             'Form' => [
-                                'userModel' => 'Councillors',
+                                'userModel' => 'Counselors',
                                 'fields' => ['username' => 'email', 'password' => 'password'],
                             ],
                         ],
                         'loginAction' => [
-                            'controller' => 'Councillors',
+                            'controller' => 'Counselors',
                             'action' => 'register',
                         ],
                         'loginRedirect' => [
-                            'controller' => 'Councillors',
+                            'controller' => 'Counselors',
                             'action' => 'dashboard',
                         ],
                         'logoutRedirect' => [
-                            'controller' => 'Councillors',
+                            'controller' => 'Counselors',
                             'action' => 'register',
                         ],
                         'storage' => [
                             'className' => 'Session',
-                            'key' => 'Auth.Councillor',
+                            'key' => 'Auth.Counselor',
                         ],
                         'unauthorizedRedirect' => $this->referer(),
                     ]);
@@ -376,8 +376,8 @@ class AppController extends Controller
                         $this->set('auth', $this->Auth);
                     }
                     $this->set('user_title_prefix', "BESA System");
-                    $this->set('urlPrefixText', "Councillor");
-                    $this->set('pageHead', "Councillor");
+                    $this->set('urlPrefixText', "Counselor");
+                    $this->set('pageHead', "Counselor");
                     break;
 
                 default:

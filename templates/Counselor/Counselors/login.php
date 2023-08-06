@@ -45,11 +45,11 @@
             <div class="checkboxes">
               <div>
 
-                <a href="<?= $this->Url->Build('/councillor/register') ?>"> Register?</a>
+                <a href="<?= $this->Url->Build('/counselor/register') ?>"> Register?</a>
               </div>
               <div>
 
-                <a href="<?= $this->Url->Build('/councillor/forgot-password') ?>"> Forget Password?</a>
+                <a href="<?= $this->Url->Build('/counselor/forgot-password') ?>"> Forget Password?</a>
               </div>
             </div>
 

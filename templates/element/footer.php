@@ -55,7 +55,7 @@
                                     <a href="/contact-us"><?= __('Contact us') ?></a>
                                 </li>
                                 <li>
-                                    <a href="/content/book-free-counselling-session"><?= __('Schools councillors portal') ?></a>
+                                    <a href="/counselor"><?= __('School counselors portal') ?></a>
                                 </li>
                             </ul>
                         </div>

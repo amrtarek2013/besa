@@ -30,7 +30,7 @@ echo $this->AdminForm->create(null, array('url' => array('action' => 'workTimes'
 
    
 $i = 0;
-// dd($councillorWorkDayTimes);
+// dd($counselorWorkDayTimes);
 foreach ($days as $k =>  $day) {
 
 	$i = $day_id = $k;
@@ -40,11 +40,11 @@ foreach ($days as $k =>  $day) {
 		'from' => "00:00:00",
 		'to' => "23:59:59",
 	);
-	$availableDate = isset($councillorWorkDayTimes[$day_id]) ? $councillorWorkDayTimes[$day_id] : $defult_settings;
+	$availableDate = isset($counselorWorkDayTimes[$day_id]) ? $counselorWorkDayTimes[$day_id] : $defult_settings;
 	@$from = ($availableDate && $availableDate->time != null) ? $availableDate->time : $agent_time_configs['time.default_agent_chat_time_from'];
 
 
-	echo $this->AdminForm->hidden("CouncillorWorkDayTimes.$i.id", array("value" => @$availableDate->id, "class" => "input required"));
+	echo $this->AdminForm->hidden("CounselorWorkDayTimes.$i.id", array("value" => @$availableDate->id, "class" => "input required"));
 	?>
         <div class="row bottom-line">
 
@@ -55,7 +55,7 @@ foreach ($days as $k =>  $day) {
                     <b><?php echo $day; ?></b>
 
                     <?php
-	echo $this->AdminForm->hidden("CouncillorWorkDayTimes.$i.day", array("value" => $day_id));
+	echo $this->AdminForm->hidden("CounselorWorkDayTimes.$i.day", array("value" => $day_id));
 
 	?>
                 </div>
@@ -63,7 +63,7 @@ foreach ($days as $k =>  $day) {
 
             <div class="col-md-2">
                 <?php
-echo $this->AdminForm->control("CouncillorWorkDayTimes.$i.active", array("type" => "checkbox", 'label' => 'On/Off', 'checked' => $availableDate['active'], "class" => "input chceckbox"));
+echo $this->AdminForm->control("CounselorWorkDayTimes.$i.active", array("type" => "checkbox", 'label' => 'On/Off', 'checked' => $availableDate['active'], "class" => "input chceckbox"));
 	?>
             </div>
 
@@ -71,7 +71,7 @@ echo $this->AdminForm->control("CouncillorWorkDayTimes.$i.active", array("type" 
 
             <div class="col-md-3">
                 <?php
-echo $this->AdminForm->control("CouncillorWorkDayTimes.$i.time", array("type" => "text", 'value' => $from, "class" => "input Time required Time_" . $i));
+echo $this->AdminForm->control("CounselorWorkDayTimes.$i.time", array("type" => "text", 'value' => $from, "class" => "input Time required Time_" . $i));
 	?>
             </div>
 

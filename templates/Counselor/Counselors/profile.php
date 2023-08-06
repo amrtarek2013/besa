@@ -21,7 +21,7 @@
                 <p class="descrpReg">For the purpose of applying regulation, your details are required.</p>
             </div> -->
 
-            <?= $this->Form->create($councillor, array('id' => 'FormProfile')); ?>
+            <?= $this->Form->create($counselor, array('id' => 'FormProfile')); ?>
             <div class="col-md-12">
                 <div class="container-formBox">
                     <h4 class="title">Basic Information</h4>

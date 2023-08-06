@@ -1,4 +1,4 @@
-<section class="main-banner register-banner profile-banner school-councillors-profile">
+<section class="main-banner register-banner profile-banner school-counselors-profile">
 
     <div class="container">
         <div class="row">
@@ -11,7 +11,7 @@
             <div class="col-md-7">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Profile</h1>
-                    <h2 class="title text-left">School Councillors Profile</h2>
+                    <h2 class="title text-left">School Counselors Profile</h2>
                 </div>
             </div>
             <div class="col-md-12">
@@ -30,7 +30,7 @@
 
                             <ul class="listOfPage">
 
-                                <?= $this->AdminSideMenu->render($sideMenus, 'councillor', true); ?>
+                                <?= $this->AdminSideMenu->render($sideMenus, 'counselor', true); ?>
                                 <!-- <li>
                                     <a href="#">Edit account details</a>
                                 </li>

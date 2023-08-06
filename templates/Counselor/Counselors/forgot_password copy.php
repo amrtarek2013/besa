@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Councillor | Reset Password</title>
+  <title>Counselor | Reset Password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,7 +43,7 @@
           <span class="fas fa-envelope"></span>
           <!-- <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-councillor"></span>
+              <span class="fas fa-counselor"></span>
             </div>
           </div> -->
         </div>

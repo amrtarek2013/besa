@@ -65,7 +65,7 @@
                                             <?= substr($service['text'], 0, 120) ?>
                                             <!-- <strong>
                                                 unsure on how to start a UCAS application? </strong> <br>
-                                            our dedicated councillors will manage your application supporting you through your journey to study abroad. -->
+                                            our dedicated counselors will manage your application supporting you through your journey to study abroad. -->
                                         </p>
                                     </div>
                                 </div>

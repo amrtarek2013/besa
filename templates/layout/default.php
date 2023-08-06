@@ -86,7 +86,7 @@ if (!empty($metaDescription)) {
 
         <?php
 
-        if ((isset($_SESSION['Auth']['User']) || isset($_SESSION['Auth']['Councillor'])) && $this->request->getParam('action') != 'dashboard') { ?>
+        if ((isset($_SESSION['Auth']['User']) || isset($_SESSION['Auth']['Counselor'])) && $this->request->getParam('action') != 'dashboard') { ?>
 
 
             <div class="container">

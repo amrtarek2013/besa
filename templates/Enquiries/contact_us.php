@@ -144,7 +144,7 @@
 
                 <div class="text">
                     <h2>
-                        Book a <span> free meeting </span> with <br> our councillors, experts in <br> study abroad enquiries
+                        Book a <span> free meeting </span> with <br> our counselors, experts in <br> study abroad enquiries
                     </h2>
                     <a href="#" class="btn greenish-teal">Book Now <img src="img/icon/arrow-right.svg" alt=""></a>
                 </div>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Councillors | Log in</title>
+  <title>Counselors | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="/"><b>Councillor </b>login</a>
+      <a href="/"><b>Counselor </b>login</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -33,7 +33,7 @@
         <?= $this->Form->create() ?>
         <div class="input-group mb-3">
           <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => false, 'required' => true]) ?>
-          <span class="fas fa-councillor"></span>
+          <span class="fas fa-counselor"></span>
         </div>
         <div class="input-group mb-3">
           <?= $this->Form->control('password', ['placeholder' => 'Password', 'class' => 'form-control', 'label' => false, 'required' => true]) ?>
@@ -45,7 +45,7 @@
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
-          <a href="<?= $this->Url->Build('/councillor/forgot-password') ?>" lass="ForgotP">Forgot Password?</a>
+          <a href="<?= $this->Url->Build('/counselor/forgot-password') ?>" lass="ForgotP">Forgot Password?</a>
         </div>
         <?= $this->Form->end() ?>
       </div>

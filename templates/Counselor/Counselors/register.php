@@ -17,7 +17,7 @@
 
 
       <div class="col-md-8 mr">
-        <?= $this->Form->create($councillor, array('id' => 'FormRegister', 'class' => 'register')); ?>
+        <?= $this->Form->create($counselor, array('id' => 'FormRegister', 'class' => 'register')); ?>
 
         <div class="container-formBox">
           <h4 class="title">Create an account to apply</h4>
@@ -104,9 +104,9 @@
       </div>
       <div class="col-md-4 ml">
         <div class="container-formBox blue-border ">
-          <form action="/councillor/login" class="login" method="post">
+          <form action="/counselor/login" class="login" method="post">
 
-            <?= $this->Form->create($councillor, array('url' => '/councillor/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
+            <?= $this->Form->create($counselor, array('url' => '/counselor/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
             <h4 class="title">Log in</h4>
             <div class="grid-container">
               <div class="form-area">

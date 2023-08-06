@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Councillors List') ?></h1>
+                    <h1><?= __('Counselors List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Councillors') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Counselors') ?></li>
                     </ol>
                 </div>
             </div>
@@ -26,11 +26,11 @@
                     <div class="card">
                         <?php
                         $session = $this->getRequest()->getSession();
-                        echo $this->List->filter_form($councillors, $filters, [], [], $parameters, $session) ?>
+                        echo $this->List->filter_form($counselors, $filters, [], [], $parameters, $session) ?>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Councillors List') ?></h3>
+                            <h3 class="card-title"><?= __('Counselors List') ?></h3>
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
                                 <?= __('Add new') ?>
                             </a>
@@ -38,7 +38,7 @@
                         <?php
 
                         $fields = [
-                            'basicModel' => 'councillors',
+                            'basicModel' => 'counselors',
                             'id' => [],
                             'first_name' => [],
                             // 'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
@@ -72,7 +72,7 @@
                         ];
 
 
-                        echo $this->List->adminIndex($fields, $councillors, $actions, true, $multi_select_actions, $parameters);
+                        echo $this->List->adminIndex($fields, $counselors, $actions, true, $multi_select_actions, $parameters);
                         ?>
 
                     </div>
