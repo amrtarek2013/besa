@@ -71,7 +71,7 @@
                             </div>
                             <div>
                                 <input type="checkbox" name="is_subscribed" id="is_subscribed">
-                                <label for="">Tick box to stay updated through BESA’s newsletter</label>
+                                <label for="">I’d like being informed about latest news and tips</label>
                             </div>
                         </div>
                         <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->

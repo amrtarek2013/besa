@@ -8001,7 +8001,7 @@ input[type="search"]:focus {
 
 .visitors-application .background-banner-color {
     padding: 0;
-    margin-bottom: 25px;
+    margin-bottom: 0;
     background: transparent;
 }
 
@@ -8022,8 +8022,10 @@ input[type="search"]:focus {
 }
 
 .visitors-application .light-para {
-    margin: 19px auto 24px;
+    margin: 22px auto 31px;
     max-width: 830px;
+    font-size: 18px;
+
 }
 
 .visitors-application .container-formBox h4 {
@@ -8036,5 +8038,7 @@ input[type="search"]:focus {
 
 .visitors-application .container-formBox button[type="submit"] {
     width: 100% ;
-
+}
+.visitors-application  .container-submit .checkboxes div label a {
+    color: #33CA94;
 }
