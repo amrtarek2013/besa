@@ -93,7 +93,7 @@ select {
 }
 
 body {
-   /* -webkit-font-smoothing: subpixel-antialiased !important;*/
+    /* -webkit-font-smoothing: subpixel-antialiased !important;*/
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -7995,6 +7995,61 @@ input[type="search"]:focus {
     display: none;
 }
 
-.user-dashboard{
+.user-dashboard {
     margin-bottom: 30px;
+}
+
+.visitors-application .background-banner-color {
+    padding: 0;
+    margin-bottom: 0;
+    background: transparent;
+}
+
+.relative-dots-about {
+    right: 15px;
+}
+
+.visitors-application .container-formBox {
+    max-width: 830px;
+    margin: auto;    padding: 40px 45px;
+
+}
+
+.visitors-application .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+
+}
+
+.visitors-application .light-para {
+    margin: 22px auto 31px;
+    max-width: 830px;
+    font-size: 18px;
+
+}
+
+.visitors-application .container-formBox h4 {
+    display: none;
+}
+
+.visitors-application .container-formBox .checkboxes {
+    padding: 0 0 10px;
+}
+
+.visitors-application .container-formBox button[type="submit"] {
+    width: 100% ;
+}
+.visitors-application  .container-submit .checkboxes div label a {
+    color: #33CA94;
+}
+
+.container-icons .icon-box{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.container-icons .icon-box img{
+    margin: auto;
+
 }
