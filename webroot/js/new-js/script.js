@@ -11,6 +11,22 @@ $(document).ready(function () {
   });
 
   //
+  function setTimelineItemWidth() {
+    var screenWidth = $(window).width();
+    if (screenWidth < 767) {
+      $(".timeline-item").css("width", screenWidth + "px");
+    } else {
+      $(".timeline-item").css("width", ""); // Reset width to default (CSS-defined width) if screen size is greater than or equal to 767px
+    }
+  }
+
+  // Call the function on page load
+  setTimelineItemWidth();
+
+  // Call the function whenever the window is resized
+  $(window).resize(function () {
+    setTimelineItemWidth();
+  });
   // Add click event listener to each question
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
