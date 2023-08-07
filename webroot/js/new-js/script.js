@@ -27,6 +27,7 @@ $(document).ready(function () {
   $(window).resize(function () {
     setTimelineItemWidth();
   });
+  
   // Add click event listener to each question
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
