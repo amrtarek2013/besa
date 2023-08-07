@@ -8069,3 +8069,13 @@ input[type="search"]:focus {
     top: calc(50% + 6px);
 
 }
+
+.container-submit .checkboxes div a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    display: block;
+}

@@ -48,7 +48,7 @@
           ]) ?>
 
           </div>
-          <div class="container-submit">
+          <div class="container-submit" style="padding: 0 20px;">
             <div class="checkboxes">
               <div>
 
