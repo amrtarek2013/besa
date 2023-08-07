@@ -133,21 +133,21 @@
 
 
             <?= $this->Form->control('study_level_id', [
-              'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-              'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+              'placeholder' => 'Preferred study level', 'type' => 'select', 'empty' => 'Select Preferred study level*',
+              'options' => $mainStudyLevels, 'label' => 'Preferred study level*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
             <?= $this->Form->control('subject_area_id', [
-              'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
-              'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+              'placeholder' => 'Preferred subject area', 'type' => 'select', 'empty' => 'Select Preferred subject area*',
+              'options' => $subjectAreas, 'label' => 'Preferred subject area*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
 
             <?= $this->Form->control('destination_id', [
-              'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
-              'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
+              'placeholder' => 'Preferred study destination', 'type' => 'select', 'empty' => 'Select Preferred study destination',
+              'options' => $destinationsList, 'label' => 'Preferred study destination*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 

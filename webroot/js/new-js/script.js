@@ -16,11 +16,11 @@ $(document).ready(function () {
   faqItems.forEach((item) => {
     item.addEventListener("click", toggleAnswer);
   });
-  
+
   function toggleAnswer() {
     this.querySelector(".faq-answer").classList.toggle("show");
   }
-  
+
 
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
@@ -56,7 +56,7 @@ $(document).ready(function () {
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause:true,
+    autoplayHoverPause: true,
 
   });
 
@@ -64,10 +64,10 @@ $(document).ready(function () {
     items: 1,
     loop: true,
     nav: false,
-    autoplay:true,
-    autoplayTimeout:3000,
+    autoplay: true,
+    autoplayTimeout: 3000,
     autoPlaySpeed: 3000,
-    autoplayHoverPause:true,
+    autoplayHoverPause: true,
     navText: [
       "<i class='fa-solid fa-arrow-left'></i>",
       "<i class='fa-solid fa-arrow-right'></i>",
@@ -89,9 +89,9 @@ $(document).ready(function () {
     dots: true,
     nav: false,
     autoplay: true,
-    autoPlaySpeed:2000,
+    autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause:true,
+    autoplayHoverPause: true,
 
   });
 
@@ -104,19 +104,19 @@ $(document).ready(function () {
     navText: [
       "<img src='./img/chevron-right.svg'>",
       "<img src='./img/chevron-left.svg'>",
-      
+
     ],
-    responsive:{
-      0:{
-          items:1
+    responsive: {
+      0: {
+        items: 1
       },
-      600:{
-          items:2
+      600: {
+        items: 2
       },
-      1000:{
-          items:3
+      1000: {
+        items: 3
       }
-  }
+    }
   });
 
   // jQuery animated number counter from zero to value
