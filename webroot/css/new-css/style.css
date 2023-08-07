@@ -8053,3 +8053,14 @@ input[type="search"]:focus {
     margin: auto;
 
 }
+
+
+.container-formBox .form-area i {
+    position: absolute;
+    top: calc(50% + 15px);
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #696F79;
+
+}

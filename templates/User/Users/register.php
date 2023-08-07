@@ -99,11 +99,12 @@
             ]) ?>
 
             <?= $this->Form->control('passwd', [
-              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*',
-              'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                'type' => 'password',
+                'placeholder' => 'Confirm Password',
+                'label' => 'Confirm Password*',
+                'required' => true,
+                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility()"></i></div>']
             ]) ?>
-
 
 
             <?= $this->Form->control('gender', [
