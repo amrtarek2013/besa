@@ -8064,3 +8064,8 @@ input[type="search"]:focus {
     color: #696F79;
 
 }
+
+#FormLogin .form-area i{
+    top: calc(50% + 6px);
+
+}
