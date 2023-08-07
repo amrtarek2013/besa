@@ -246,7 +246,7 @@ $(document).ready(function () {
 
 function togglePasswordVisibility(inputId) {
   const passwordInput = document.getElementById(inputId);
-  const eyeIcon = passwordInput.nextElementSibling.querySelector(".toggle-password");
+  const eyeIcon = passwordInput.parentNode.querySelector(".toggle-password");
 
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
