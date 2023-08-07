@@ -11,6 +11,7 @@ $(document).ready(function () {
   });
 
   //
+
   // Add click event listener to each question
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
@@ -20,7 +21,6 @@ $(document).ready(function () {
   function toggleAnswer() {
     this.querySelector(".faq-answer").classList.toggle("show");
   }
-
 
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
@@ -46,7 +46,6 @@ $(document).ready(function () {
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
 
-
   mainSlider.owlCarousel({
     items: 1,
     loop: true,
@@ -57,7 +56,6 @@ $(document).ready(function () {
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
-
   });
 
   sliderTestimonials.owlCarousel({
@@ -92,7 +90,6 @@ $(document).ready(function () {
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
-
   });
 
   lifeBesaslider.owlCarousel({
@@ -104,19 +101,18 @@ $(document).ready(function () {
     navText: [
       "<img src='./img/chevron-right.svg'>",
       "<img src='./img/chevron-left.svg'>",
-
     ],
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       600: {
-        items: 2
+        items: 2,
       },
       1000: {
-        items: 3
-      }
-    }
+        items: 3,
+      },
+    },
   });
 
   // jQuery animated number counter from zero to value
@@ -242,8 +238,6 @@ $(document).ready(function () {
   });
 });
 
-
-
 function togglePasswordVisibility(inputId) {
   const passwordInput = document.getElementById(inputId);
   const eyeIcon = passwordInput.parentNode.querySelector(".toggle-password");
@@ -258,13 +252,6 @@ function togglePasswordVisibility(inputId) {
     eyeIcon.classList.add("fa-eye");
   }
 }
-
-
-
-
-
-
-
 
 // Get the search input element
 // const searchInput = document.querySelector(".search");
