@@ -8064,7 +8064,7 @@ input[type="search"]:focus {
 }
 
 
-.container-formBox .form-area i {
+.form-area i.toggle-password{
     position: absolute;
     top: calc(50% + 15px);
     right: 15px;
@@ -8074,7 +8074,7 @@ input[type="search"]:focus {
 
 }
 
-#FormLogin .form-area i{
+#FormLogin .form-area i.toggle-password{
     top: calc(50% + 6px);
 
 }

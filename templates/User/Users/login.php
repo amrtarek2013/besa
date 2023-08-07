@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="background-banner-color">
-          <img src="<?=WEBSITE_URL?>img/hero-bg3.png" alt="" style="z-index: 2;">
-          <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+          <img src="<?= WEBSITE_URL ?>img/hero-bg3.png" alt="" style="z-index: 2;">
+          <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
         </div>
       </div>
       <div class="col-md-6">
@@ -30,14 +30,18 @@
           <h4 class="title">Login Details</h4>
           <div class="grid-container" style="display: block;">
 
-            <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
+
+            <?= $this->Form->control('email', [
+              'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
 
 
           </div>
           <br /><br />
           <div class="grid-container" style="display: block;">
 
-          <?= $this->Form->control('password', [
+            <?= $this->Form->control('password', [
               'type' => 'password',
               'placeholder' => 'Password',
               'class' => 'form-area',
@@ -45,7 +49,7 @@
               'autocomplete' => false,
               'label' => 'Password*',
               'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
-          ]) ?>
+            ]) ?>
 
           </div>
           <div class="container-submit" style="padding: 0 20px;">

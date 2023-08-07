@@ -42,7 +42,7 @@
               </div>
               <div>
 
-                <a href="<?= $this->Url->Build('/user/login') ?>"> Login</a>
+                <a href="<?= $this->Url->Build('/user/register') ?>"> Login</a>
               </div>
             </div>
 

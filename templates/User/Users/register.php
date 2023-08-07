@@ -88,24 +88,24 @@
             ]) ?>
 
 
-              <?= $this->Form->control('password', [
-                  'type' => 'password',
-                  'placeholder' => 'Password',
-                  'label' => 'Password*',
-                  'required' => true,
-                  'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
-              ]) ?>
-              <?= $this->Form->control('passwd', [
-                  'type' => 'password',
-                  'placeholder' => 'Confirm Password',
-                  'label' => 'Confirm Password*',
-                  'required' => true,
-                  'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
-              ]) ?>
+            <?= $this->Form->control('password', [
+              'type' => 'password',
+              'placeholder' => 'Password',
+              'label' => 'Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+            ]) ?>
+            <?= $this->Form->control('passwd', [
+              'type' => 'password',
+              'placeholder' => 'Confirm Password',
+              'label' => 'Confirm Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+            ]) ?>
 
 
 
-            
+
 
 
             <?= $this->Form->control('gender', [
@@ -202,17 +202,27 @@
 
           <h4 class="title">Log in</h4>
           <div class="grid-container">
-            <div class="form-area">
+            <!-- <div class="form-area">
               <label for="email">Email*</label>
               <input type="email" id="email" name="email" placeholder="Email">
-            </div>
+            </div> -->
+
+            <?= $this->Form->control('email', [
+              'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+            <?= $this->Form->control('password', [
+              'type' => 'password',
+              'placeholder' => 'Password',
+              'label' => 'Password*',
+              'required' => true,
+              'id' => 'login-password',
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'login-password\')"></i></div>']
+            ]) ?>
             <div class="form-area">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="password">
-              
-            </div>
-            <div class="form-area">
-              <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
+              <a href="/user/forgot-password" class="">Forgot Password?</a>
+              <br/><br/>
               <button type="submit" class="btn clear-blue">LOG IN</button>
             </div>
           </div>
