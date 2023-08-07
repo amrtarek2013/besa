@@ -11,33 +11,16 @@ $(document).ready(function () {
   });
 
   //
-  function setTimelineItemWidth() {
-    var screenWidth = $(window).width();
-    if (screenWidth < 767) {
-      $(".timeline-item").css("width", screenWidth + "px");
-    } else {
-      $(".timeline-item").css("width", ""); // Reset width to default (CSS-defined width) if screen size is greater than or equal to 767px
-    }
-  }
 
-  // Call the function on page load
-  setTimelineItemWidth();
-
-  // Call the function whenever the window is resized
-  $(window).resize(function () {
-    setTimelineItemWidth();
-  });
-  
   // Add click event listener to each question
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
     item.addEventListener("click", toggleAnswer);
   });
-  
+
   function toggleAnswer() {
     this.querySelector(".faq-answer").classList.toggle("show");
   }
-  
 
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
@@ -63,7 +46,6 @@ $(document).ready(function () {
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
 
-
   mainSlider.owlCarousel({
     items: 1,
     loop: true,
@@ -73,18 +55,17 @@ $(document).ready(function () {
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause:true,
-
+    autoplayHoverPause: true,
   });
 
   sliderTestimonials.owlCarousel({
     items: 1,
     loop: true,
     nav: false,
-    autoplay:true,
-    autoplayTimeout:3000,
+    autoplay: true,
+    autoplayTimeout: 3000,
     autoPlaySpeed: 3000,
-    autoplayHoverPause:true,
+    autoplayHoverPause: true,
     navText: [
       "<i class='fa-solid fa-arrow-left'></i>",
       "<i class='fa-solid fa-arrow-right'></i>",
@@ -106,10 +87,9 @@ $(document).ready(function () {
     dots: true,
     nav: false,
     autoplay: true,
-    autoPlaySpeed:2000,
+    autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause:true,
-
+    autoplayHoverPause: true,
   });
 
   lifeBesaslider.owlCarousel({
@@ -121,19 +101,18 @@ $(document).ready(function () {
     navText: [
       "<img src='./img/chevron-right.svg'>",
       "<img src='./img/chevron-left.svg'>",
-      
     ],
-    responsive:{
-      0:{
-          items:1
+    responsive: {
+      0: {
+        items: 1,
       },
-      600:{
-          items:2
+      600: {
+        items: 2,
       },
-      1000:{
-          items:3
-      }
-  }
+      1000: {
+        items: 3,
+      },
+    },
   });
 
   // jQuery animated number counter from zero to value
@@ -259,8 +238,6 @@ $(document).ready(function () {
   });
 });
 
-
-
 function togglePasswordVisibility(inputId) {
   const passwordInput = document.getElementById(inputId);
   const eyeIcon = passwordInput.parentNode.querySelector(".toggle-password");
@@ -275,13 +252,6 @@ function togglePasswordVisibility(inputId) {
     eyeIcon.classList.add("fa-eye");
   }
 }
-
-
-
-
-
-
-
 
 // Get the search input element
 // const searchInput = document.querySelector(".search");
@@ -352,3 +322,21 @@ function togglePasswordVisibility(inputId) {
 // rangeContainer
 //   .querySelectorAll('input[type="range"]')
 //   .forEach((rangeInput) => (rangeInput.value = 0));
+
+
+function setTimelineItemWidth() {
+  var screenWidth = $(window).width();
+  if (screenWidth < 767) {
+    $(".timeline-item").css("width", screenWidth + "px");
+  } else {
+    $(".timeline-item").css("width", ""); // Reset width to default (CSS-defined width) if screen size is greater than or equal to 767px
+  }
+}
+
+// Call the function on page load
+setTimelineItemWidth();
+
+// Call the function whenever the window is resized
+$(window).resize(function () {
+  setTimelineItemWidth();
+});
