@@ -37,7 +37,17 @@
           <br /><br />
           <div class="grid-container" style="display: block;">
 
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => false, 'label' => 'Password*']) ?>
+          <div class="password-container">
+            <?= $this->Form->control('password', [
+                'type' => 'password',
+                'placeholder' => 'Password',
+                'class' => 'form-area',
+                'value' => '',
+                'autocomplete' => false,
+                'label' => 'Password*',
+                'templates' => ['inputContainer' => '{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(this)"></i>']
+            ]) ?>
+          </div>
 
 
           </div>
