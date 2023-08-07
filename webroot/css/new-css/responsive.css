@@ -1596,10 +1596,7 @@
         width: 100%;
     }
 
-    .timeline-list,
-    .timeline-item {
-        width: 100%;
-    }
+  
 
     .timeline-dots-wrap {
         display: flex;
@@ -1651,6 +1648,7 @@
 
     .timeline-item {
         width: 390px !important;
+        height: unset;
     }
 
     .services-rendered .box-icon {
