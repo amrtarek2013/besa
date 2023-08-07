@@ -1595,7 +1595,7 @@
         width: 100%;
     }
 
-  
+
 
     .timeline-dots-wrap {
         display: flex;
@@ -1648,6 +1648,7 @@
     .timeline-item {
         width: 390px !important;
         height: unset !important;
+        
     }
 
     .services-rendered .box-icon {
@@ -1809,5 +1810,4 @@
     .title .blue-para {
         margin-top: 10px;
     }
-
 }
