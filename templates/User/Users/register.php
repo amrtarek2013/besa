@@ -209,7 +209,7 @@
             <div class="form-area">
               <label for="password">Password</label>
               <input type="password" id="password" name="password" placeholder="password">
-              <i class="toggle-password fas fa-eye-slash" onclick="togglePasswordVisibility('password')"></i>
+              
             </div>
             <div class="form-area">
               <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
