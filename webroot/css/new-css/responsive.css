@@ -1573,7 +1573,6 @@
     .sectionTimeline .container-item-data {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        padding: 0 20px;
 
     }
 
@@ -1648,7 +1647,7 @@
 
     .timeline-item {
         width: 390px !important;
-        height: unset;
+        height: unset !important;
     }
 
     .services-rendered .box-icon {
