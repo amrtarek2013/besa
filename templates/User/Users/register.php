@@ -88,16 +88,24 @@
             ]) ?>
 
 
-            <?= $this->Form->control('password', [
-              'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
-            <?= $this->Form->control('passwd', [
-              'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*',
-              'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
+              <?= $this->Form->control('password', [
+                  'type' => 'password',
+                  'placeholder' => 'Password',
+                  'label' => 'Password*',
+                  'required' => true,
+                  'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+              ]) ?>
+              <?= $this->Form->control('passwd', [
+                  'type' => 'password',
+                  'placeholder' => 'Confirm Password',
+                  'label' => 'Confirm Password*',
+                  'required' => true,
+                  'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+              ]) ?>
 
+
+
+            
 
 
             <?= $this->Form->control('gender', [
@@ -201,6 +209,7 @@
             <div class="form-area">
               <label for="password">Password</label>
               <input type="password" id="password" name="password" placeholder="password">
+              
             </div>
             <div class="form-area">
               <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->

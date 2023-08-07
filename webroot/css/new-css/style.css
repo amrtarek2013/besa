@@ -7144,7 +7144,6 @@ input[type="search"]:focus {
 }
 
 .form-area textarea,
-.form-area select,
 .form-area input {
     border-radius: 4px;
     border: 1.2px solid #B4BEC8;
@@ -7155,6 +7154,16 @@ input[type="search"]:focus {
     line-height: normal;
     letter-spacing: 0.32px;
     background: transparent;
+}
+.form-area select{
+    border-radius: 4px;
+    border: 1.2px solid #B4BEC8;
+    border: 1.2px solid #33CA94;
+    color: #878787;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
 }
 
 .form-area textarea {
@@ -8052,4 +8061,30 @@ input[type="search"]:focus {
 .container-icons .icon-box img{
     margin: auto;
 
+}
+
+
+.container-formBox .form-area i {
+    position: absolute;
+    top: calc(50% + 15px);
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #696F79;
+
+}
+
+#FormLogin .form-area i{
+    top: calc(50% + 6px);
+
+}
+
+.container-submit .links div a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    display: block;
 }

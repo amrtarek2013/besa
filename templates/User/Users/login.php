@@ -37,12 +37,19 @@
           <br /><br />
           <div class="grid-container" style="display: block;">
 
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => false, 'label' => 'Password*']) ?>
-
+          <?= $this->Form->control('password', [
+              'type' => 'password',
+              'placeholder' => 'Password',
+              'class' => 'form-area',
+              'value' => '',
+              'autocomplete' => false,
+              'label' => 'Password*',
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+          ]) ?>
 
           </div>
-          <div class="container-submit">
-            <div class="checkboxes">
+          <div class="container-submit" style="padding: 0 20px;">
+            <div class="checkboxes links">
               <div>
 
                 <a href="<?= $this->Url->Build('/user/register') ?>"> Register?</a>
