@@ -244,9 +244,9 @@ $(document).ready(function () {
 
 
 
-function togglePasswordVisibility() {
-  const passwordInput = document.getElementById("password");
-  const eyeIcon = document.querySelector(".toggle-password");
+function togglePasswordVisibility(inputId) {
+  const passwordInput = document.getElementById(inputId);
+  const eyeIcon = passwordInput.nextElementSibling.querySelector(".toggle-password");
 
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
@@ -258,6 +258,7 @@ function togglePasswordVisibility() {
     eyeIcon.classList.add("fa-eye");
   }
 }
+
 
 
 
