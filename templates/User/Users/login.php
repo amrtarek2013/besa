@@ -49,7 +49,7 @@
 
           </div>
           <div class="container-submit" style="padding: 0 20px;">
-            <div class="checkboxes">
+            <div class="checkboxes links">
               <div>
 
                 <a href="<?= $this->Url->Build('/user/register') ?>"> Register?</a>
