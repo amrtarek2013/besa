@@ -16,11 +16,11 @@ $(document).ready(function () {
   faqItems.forEach((item) => {
     item.addEventListener("click", toggleAnswer);
   });
-
+  
   function toggleAnswer() {
     this.querySelector(".faq-answer").classList.toggle("show");
   }
-
+  
 
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
@@ -56,7 +56,7 @@ $(document).ready(function () {
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
+    autoplayHoverPause:true,
 
   });
 
@@ -64,10 +64,10 @@ $(document).ready(function () {
     items: 1,
     loop: true,
     nav: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
+    autoplay:true,
+    autoplayTimeout:3000,
     autoPlaySpeed: 3000,
-    autoplayHoverPause: true,
+    autoplayHoverPause:true,
     navText: [
       "<i class='fa-solid fa-arrow-left'></i>",
       "<i class='fa-solid fa-arrow-right'></i>",
@@ -89,9 +89,9 @@ $(document).ready(function () {
     dots: true,
     nav: false,
     autoplay: true,
-    autoPlaySpeed: 2000,
+    autoPlaySpeed:2000,
     autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
+    autoplayHoverPause:true,
 
   });
 
@@ -104,19 +104,19 @@ $(document).ready(function () {
     navText: [
       "<img src='./img/chevron-right.svg'>",
       "<img src='./img/chevron-left.svg'>",
-
+      
     ],
-    responsive: {
-      0: {
-        items: 1
+    responsive:{
+      0:{
+          items:1
       },
-      600: {
-        items: 2
+      600:{
+          items:2
       },
-      1000: {
-        items: 3
+      1000:{
+          items:3
       }
-    }
+  }
   });
 
   // jQuery animated number counter from zero to value
@@ -211,36 +211,37 @@ $(document).ready(function () {
     })
     .trigger("scroll");
 
-  // Triger  timeline slider
-  $(".custome-timeline").Timeline({
-    itemClass: "timeline-item",
-    dotsPosition: "top",
-    autoplaySpeed: 20,
-  });
-  var $cols = $(".timeline-horizontal .timeline-dots li");
-  var numberOfCols = $cols.length;
-  $cols.css("width", 100 / numberOfCols + "%");
+    // Trigger timeline slider with custom settings
+    $(".custome-timeline").Timeline({
+      itemClass: "timeline-item",
+      dotsPosition: "top",
+      autoplaySpeed: 20,
+    });
 
-  // On next click, if the slide-next element exists, trigger the click event on it
-  $(".nav-timeline .next").click(function (e) {
-    e.preventDefault();
-    if ($(".slide-next").length) {
-      $(".slide-next").trigger("click");
-    }
-  });
+    // Set width for timeline dots based on the number of columns
+    var $cols = $(".timeline-horizontal .timeline-dots li");
+    var numberOfCols = $cols.length;
+    $cols.css("width", 100 / numberOfCols + "%");
 
-  // Attach a click event listener to elements with the class "nav-timeline" and "prev"
-  $(".nav-timeline .prev").click(function (e) {
-    // Prevent the default behavior of the click event (i.e. following a link, submitting a form, etc.)
-    e.preventDefault();
+    // On "next" click, trigger click event on element with class "slide-next"
+    $(".nav-timeline .next").click(function(e) {
+      e.preventDefault();
+      if ($(".slide-next").length) {
+        $(".slide-next").trigger("click");
+      }
+    });
 
-    // Check if there is an element on the page with the class "slide-prev"
-    if ($(".slide-prev").length) {
-      // If such an element exists, trigger a click event on it
-      $(".slide-prev").trigger("click");
-    }
-  });
-});
+    // Attach a click event listener to elements with the class "nav-timeline" and "prev"
+    $(".nav-timeline .prev").click(function(e) {
+      // Prevent the default behavior of the click event
+      e.preventDefault();
+
+      // Check if there is an element on the page with the class "slide-prev"
+      if ($(".slide-prev").length) {
+        // If such an element exists, trigger a click event on it
+        $(".slide-prev").trigger("click");
+      }
+    });;
 
 
 
