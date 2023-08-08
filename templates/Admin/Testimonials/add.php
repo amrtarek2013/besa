@@ -34,7 +34,7 @@
 
                             echo $this->AdminForm->control('university', ['label' => 'University', 'type' => 'text']);
                             // echo $this->AdminForm->control('text', ['type' => 'text']);
-                            echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => 'editor']);
+                            echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => '']);
 
 
                             // echo $this->AdminForm->control('date', ['type' => 'text', 'class' => 'hasDate']);
