@@ -37,7 +37,7 @@ class UsersTable extends Table
     'active'
   );
 
-  
+
   /**
    * Initialize method
    *
@@ -76,6 +76,9 @@ class UsersTable extends Table
     );
 
     $this->belongsTo('Countries')->setForeignKey('country_id');
+    $this->belongsTo('Destinations', [
+      'className' => 'Countries', 'foreignKey' => 'destination_id'
+    ]);
     $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
   }
@@ -208,11 +211,8 @@ class UsersTable extends Table
   public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, ArrayObject $options)
   {
 
-      if ($entity->isDirty('password')) {
-           $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
-      }
+    if ($entity->isDirty('password')) {
+      $entity->password =  (new \Cake\Auth\DefaultPasswordHasher())->hash($entity->password);
+    }
   }
-
-
-
 }

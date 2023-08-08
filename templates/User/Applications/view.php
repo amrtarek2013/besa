@@ -103,13 +103,6 @@
                             </table>
                         <?php } ?>
                     </div>
-
-
-
-
-
-
-
                 </div>
 
                 <div class="card-footer">

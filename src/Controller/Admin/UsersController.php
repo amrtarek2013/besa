@@ -129,9 +129,12 @@ class UsersController extends AppController
 
     public function view($id = null)
     {
-        $user = $this->Users->get($id);
+        $user = $this->Users->find()->where(['Users.id' => $id])->contain(['Countries', 'StudyLevels', 'SubjectAreas', 'Destinations'])->first();
 
+        // dd($user);
         $this->set('user', $user);
+        $this->loadModel('StudyLevels');
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
 
     public function export()

@@ -7911,6 +7911,15 @@ input[type="search"]:focus {
 
 }
 
+.No {
+    background: #d3d3d3;
+}
+
+.Yes {
+    background: #198754;
+    color: #fff;
+
+}
 
 /*************************Start Front End Pagination**************************************/
 

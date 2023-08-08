@@ -74,6 +74,19 @@ use Cake\I18n\I18n;
             color: #fff;
 
         }
+
+
+
+        .No {
+            background: #bb2d3b;
+            color: #fff;
+        }
+
+        .Yes {
+            background: #ffc107;
+            color: #fff;
+
+        }
     </style>
 </head>
 
