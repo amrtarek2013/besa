@@ -30,15 +30,12 @@
                         <div class='FormExtended'>
                             <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                                 <tbody>
-
-
-
                                     <tr class="table-header">
                                         <th class="" width="">Name</th>
                                         <td><?= $user->first_name ?></td>
                                     </tr>
                                     <tr class="table-header">
-                                        <th class="" width="">last_name</th>
+                                        <th class="" width="">Last Name</th>
                                         <td><?= $user->last_name ?></td>
                                     </tr>
                                     <tr class="table-header">
@@ -114,11 +111,11 @@
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width="">Active</th>
-                                        <?= $user->active ? '<span class="btn-status Yes">Yes</span>' : '<span class="btn-status No">No</span>' ?>
+                                        <td><?= $user->active ? '<span class="btn-status Yes">Yes</span>' : '<span class="btn-status No">No</span>' ?></td>
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width="">Subscribed</th>
-                                        <?= $user->is_subscribed ? '<span class="btn-status Yes">Yes</span>' : '<span class="btn-status No">No</span>' ?>
+                                        <td><?= $user->is_subscribed ? '<span class="btn-status Yes">Yes</span>' : '<span class="btn-status No">No</span>' ?></td>
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width=""><a>Date</a></th>
