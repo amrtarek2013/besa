@@ -403,10 +403,10 @@
                     <p><?= $mainBranch['phone'] ?></p>
                     <p><?= $mainBranch['email'] ?></p>
                 </div>
-                <div class="map">
+                <!-- <div class="map">
 
                     <img src="<?= $mainBranch['location_image_path'] ?>" alt="">
-                </div>
+                </div> -->
             </div>
 
         </div>
