@@ -8082,7 +8082,7 @@ input[type="search"]:focus {
 }
 
 .login-en .form-area i.toggle-password {
-    top: calc(50% + 15px);
+    top: calc(50% + 15px) !important;
 }
 
 .container-submit .links div a {
@@ -8094,3 +8094,15 @@ input[type="search"]:focus {
     letter-spacing: 0.2px;
     display: block;
 }
+
+a.forgot-link{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    display: block;
+}
+
+.Create-account-banner {}
