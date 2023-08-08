@@ -29,7 +29,7 @@
             ]) ?>
 
             <?= $this->Form->control('last_name', [
-              'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
+              'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
@@ -67,6 +67,19 @@
                 </select>
               </div>
             </div>
+
+
+            <?= $this->Form->control('gender', [
+              'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
+              'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+            <?= $this->Form->control('nationality', [
+              'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
+              'type' => 'select', 'empty' => 'Select Nationality*',
+              'options' => $countriesList,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
             <div class=" form-area">
               <label for="">Mobile*</label>
               <div class="grid-2col-mobile">
@@ -107,12 +120,6 @@
 
 
 
-
-            <?= $this->Form->control('gender', [
-              'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
-              'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
 
             <!-- <?= $this->Form->control('student_type', [
                     'label' => 'I am a*', 'required' => true,

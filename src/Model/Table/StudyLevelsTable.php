@@ -19,8 +19,16 @@ class StudyLevelsTable extends Table
 
     public $types = [0 => 'Pathway Programs', 1 => 'Direct Entry', 2 => 'Others'];
 
-    public $mainStudyLevels = [0 => 'Undergraduate', 1 => 'Postgraduate'];
+    // public $mainStudyLevels = [0 => 'Undergraduate', 1 => 'Postgraduate'];
+    public $mainStudyLevels = [0 => 'Secondary Education', 1 => 'Post Secondary Education', 2 => 'Bachelor\'s Degree', 3 => 'Master\'s Degree', 4 => 'Doctorate'];
     /*
+- Secondary Education 
+- Post Secondary Education 
+- Bachelor's Degree 
+- Master's Degree
+- Doctorate 
+
+
 - Foundation 
 - Undergraduate 
 - Postgraduate 
