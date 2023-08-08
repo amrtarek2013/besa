@@ -8106,3 +8106,7 @@ a.forgot-link{
 }
 
 .Create-account-banner {}
+
+.login-en .form-area{
+    margin-bottom: 0;
+}
