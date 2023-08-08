@@ -8114,3 +8114,10 @@ a.forgot-link {
     grid-gap: 25px;
     padding: 0;
 }
+
+.Create-account-banner .form-area textarea,
+.Create-account-banner .form-area select,
+.Create-account-banner .form-area input {
+    padding: 17px 20px;
+
+}
