@@ -30,7 +30,7 @@ class TestimonialsController extends AppController
         $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']]]]);
         // debug($testimonials);
         $parameters = $this->request->getAttribute('params');
-        $this->set(compact('testimonials', 'parameters'));
+        $this->set(compact('testimonials', 'parameters', 'country_id'));
     }
 
     public function add()

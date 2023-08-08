@@ -41,12 +41,16 @@
                             'basicModel' => 'testimonials',
                             'id' => [],
                             'client_name' => [],
-                            'country.country_name' => ['Country'],
+                            // 'country.country_name' => ['Country'],
                             'university' => [],
-                            'image_path' => ['title'=>'Client Image','format' => 'img'],
+                            'image_path' => ['title' => 'Client Image', 'format' => 'img'],
                             'display_order' => [],
                             'active' => ['format' => 'bool'],
                         ];
+
+                        if (!empty($country_id)) {
+                            $fields['country.country_name'] = ['Country'];
+                        }
 
                         $multi_select_actions = array(
                             'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
