@@ -39,6 +39,7 @@ class EnquiriesTable extends Table
         'app-support' => ['validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support', 'fields' => ['name', 'surname', 'email', 'message']],
         'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name', 'surname', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
         'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
+        'visitors-application' => ['validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application', 'fields' => ['name', 'surname', 'phone', 'email', 'school_name', 'study_level']],
 
     ];
     public $enquiryTypesList = [
@@ -47,6 +48,7 @@ class EnquiriesTable extends Table
         'app-support' => 'App Support',
         'career-apply' => 'Career Apply',
         'partnership-with-besa' => 'Partnership with besa',
+        'visitors-application' => 'Visitors Application',
 
     ];
     public $types = [0 => 'Full Service'];
@@ -195,6 +197,30 @@ class EnquiriesTable extends Table
             ->notEmptyString('email', 'This field is required.');
 
         // $validator->notEmptyString('message', 'This field is required.');
+
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
+    public function validationVisitorsApplication(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('surname', 'This field is required.');
+
+        $validator->notEmptyString('school_name', 'This field is required.');
+        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('study_level', 'This field is required.');
 
 
         $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [

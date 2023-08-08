@@ -4,12 +4,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/Welcome-vis.png" alt="" >
+                    <img src="<?= WEBSITE_URL ?>img/Welcome-vis.png" alt="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
-            
-            
+
+
 
 
             <div class="col-md-12 ">
@@ -34,7 +34,7 @@
                             'placeholder' => 'Mobile', 'label' => 'Mobile*', 'class' => 'form-control', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-                                <!--
+                        <!--
                         <div class=" form-area">
                             <label for="">Mobile*</label>
                             <div class="grid-2col-mobile">
@@ -59,6 +59,8 @@
                             'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+                        <?= $this->element('security_code') ?>
 
                     </div>
 
