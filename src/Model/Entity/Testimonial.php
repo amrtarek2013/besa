@@ -36,8 +36,8 @@ class Testimonial extends Entity
     {
 
         $no_image_path = DS . 'img' . DS . 'men.png';
-        if (!empty($this->video_thumb)) {
-            $image_path = 'uploads' . DS . 'testimonials' .$this->video_thumb;
+        if (!empty($this->image)) {
+            $image_path = 'uploads' . DS . 'testimonials' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -50,7 +50,7 @@ class Testimonial extends Entity
 
         $no_image_path = DS . 'img' . DS . 'men.png';
         if (!empty($this->video_thumb)) {
-            $image_path = 'uploads' . DS . 'testimonials' .$this->video_thumb;
+            $image_path = 'uploads' . DS . 'testimonials' . $this->video_thumb;
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
