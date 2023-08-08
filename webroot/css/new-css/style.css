@@ -8095,7 +8095,7 @@ input[type="search"]:focus {
     display: block;
 }
 
-a.forgot-link{
+a.forgot-link {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -8105,8 +8105,12 @@ a.forgot-link{
     display: block;
 }
 
-.Create-account-banner {}
-
-.login-en .form-area{
+.Create-account-banner .form-area,
+.login-en .form-area {
     margin-bottom: 0;
+}
+
+.Create-account-banner .container-formBox .grid-container {
+    grid-gap: 25px;
+    padding: 0;
 }
