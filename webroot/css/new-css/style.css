@@ -7155,7 +7155,8 @@ input[type="search"]:focus {
     letter-spacing: 0.32px;
     background: transparent;
 }
-.form-area select{
+
+.form-area select {
     border-radius: 4px;
     border: 1.2px solid #B4BEC8;
     border: 1.2px solid #33CA94;
@@ -8020,7 +8021,8 @@ input[type="search"]:focus {
 
 .visitors-application .container-formBox {
     max-width: 830px;
-    margin: auto;    padding: 40px 45px;
+    margin: auto;
+    padding: 40px 45px;
 
 }
 
@@ -8046,25 +8048,26 @@ input[type="search"]:focus {
 }
 
 .visitors-application .container-formBox button[type="submit"] {
-    width: 100% ;
+    width: 100%;
 }
-.visitors-application  .container-submit .checkboxes div label a {
+
+.visitors-application .container-submit .checkboxes div label a {
     color: #33CA94;
 }
 
-.container-icons .icon-box{
+.container-icons .icon-box {
     justify-content: center;
     text-align: center;
     align-items: center;
 }
 
-.container-icons .icon-box img{
+.container-icons .icon-box img {
     margin: auto;
 
 }
 
 
-.form-area i.toggle-password{
+.form-area i.toggle-password {
     position: absolute;
     top: calc(50% + 15px);
     right: 15px;
@@ -8074,11 +8077,15 @@ input[type="search"]:focus {
 
 }
 
-#FormLogin .form-area i.toggle-password{
+#FormLogin .form-area i.toggle-password {
     top: calc(50% + 6px);
 }
 
-.container-submit .links div a{
+.login-en .form-area i.toggle-password {
+    top: calc(50% + 15px) !important;
+}
+
+.container-submit .links div a {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -8086,4 +8093,31 @@ input[type="search"]:focus {
     line-height: 18px;
     letter-spacing: 0.2px;
     display: block;
+}
+
+a.forgot-link {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    display: block;
+}
+
+.Create-account-banner .form-area,
+.login-en .form-area {
+    margin-bottom: 0;
+}
+
+.Create-account-banner .container-formBox .grid-container {
+    grid-gap: 25px;
+    padding: 0;
+}
+
+.Create-account-banner .form-area textarea,
+.Create-account-banner .form-area select,
+.Create-account-banner .form-area input {
+    padding: 17px 20px;
+
 }

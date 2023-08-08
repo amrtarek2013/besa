@@ -221,8 +221,8 @@
               'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'login-password\')"></i></div>']
             ]) ?>
             <div class="form-area">
-              <a href="/user/forgot-password" class="">Forgot Password?</a>
-              <br/><br/>
+              <a href="/user/forgot-password" class="forgot-link">Forgot Password?</a>
+              <br/> 
               <button type="submit" class="btn clear-blue">LOG IN</button>
             </div>
           </div>
