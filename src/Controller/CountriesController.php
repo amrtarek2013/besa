@@ -272,7 +272,7 @@ class CountriesController extends AppController
         $this->set('countriesData', $countries);
     }
 
-    public function updateCCodes()
+    private function __updateCCodes()
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 

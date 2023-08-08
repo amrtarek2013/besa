@@ -85,6 +85,7 @@
               <div class="grid-2col-mobile">
                 <?= $this->Form->control('mobile_code', [
                   'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
+                  'type' => 'select', 'options' => $countriesCodesList,
                   'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                 ]) ?>
 
@@ -95,10 +96,10 @@
               </div>
             </div>
 
-            <?= $this->Form->control('email', [
-              'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
+            <!-- <?= $this->Form->control('email', [
+                    'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?>
 
 
             <?= $this->Form->control('password', [
@@ -114,7 +115,7 @@
               'label' => 'Confirm Password*',
               'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
-            ]) ?>
+            ]) ?> -->
 
 
 
@@ -147,23 +148,61 @@
             ]) ?>
 
 
-            <?= $this->Form->control('study_level_id', [
-              'placeholder' => 'Preferred study level', 'type' => 'select', 'empty' => 'Select Preferred study level*',
-              'options' => $mainStudyLevels, 'label' => 'Preferred study level*', 'required' => true,
+            <?= $this->Form->control('current_study_level', [
+              'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
+              'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
+            <!-- <?= $this->Form->control('study_level_id', [
+                    'placeholder' => 'Preferred study level', 'type' => 'select', 'empty' => 'Select Preferred study level*',
+                    'options' => $studyLevels, 'label' => 'Preferred study level*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?> -->
+
             <?= $this->Form->control('subject_area_id', [
-              'placeholder' => 'Preferred subject area', 'type' => 'select', 'empty' => 'Select Preferred subject area*',
-              'options' => $subjectAreas, 'label' => 'Preferred subject area*', 'required' => true,
+              'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
+              'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+            <!-- <?= $this->Form->control('subject_area_id', [
+                    'placeholder' => 'Preferred subject area', 'type' => 'select', 'empty' => 'Select Preferred subject area*',
+                    'options' => $subjectAreas, 'label' => 'Preferred subject area*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?> -->
 
 
             <?= $this->Form->control('destination_id', [
-              'placeholder' => 'Preferred study destination', 'type' => 'select', 'empty' => 'Select Preferred study destination',
-              'options' => $destinationsList, 'label' => 'Preferred study destination*', 'required' => true,
+              'placeholder' => 'Country of study', 'type' => 'select', 'empty' => 'Select Country of study',
+              'options' => $destinationsList, 'label' => 'Country of study*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+            <!-- <?= $this->Form->control('destination_id', [
+                    'placeholder' => 'Preferred study destination', 'type' => 'select', 'empty' => 'Select Preferred study destination',
+                    'options' => $destinationsList, 'label' => 'Preferred study destination*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?> -->
+
+            <?= $this->Form->control('email', [
+              'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+
+            <?= $this->Form->control('password', [
+              'type' => 'password',
+              'placeholder' => 'Password',
+              'label' => 'Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+            ]) ?>
+            <?= $this->Form->control('passwd', [
+              'type' => 'password',
+              'placeholder' => 'Confirm Password',
+              'label' => 'Confirm Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
             ]) ?>
 
             <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>

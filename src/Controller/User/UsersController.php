@@ -519,17 +519,29 @@ class UsersController extends AppController
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
-        
+
         $destinationsList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['%s (+%s)', '{n}.code', '{n}.phone_code']
+        );
+        
+        $this->set('countriesCodesList', $countriesCodesList);
+
         $this->loadModel('StudyLevels');
-        // $studyLevels = $this->StudyLevels->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'title'
-        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        $this->set('studyLevels', $studyLevels);
 
         $this->loadModel('SubjectAreas');
         $subjectAreas = $this->SubjectAreas->find('list', [
@@ -587,11 +599,16 @@ class UsersController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
-        
+
         $destinationsList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
+
+        $countriesCodesList = $this->Countries->find('list', [
+            'keyField' => 'phone_code', 'valueField' => 'concatt(code,"- (+",phone_code,")")'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+        $this->set('countriesCodesList', $countriesCodesList);
 
 
         $this->loadModel('StudyLevels');
