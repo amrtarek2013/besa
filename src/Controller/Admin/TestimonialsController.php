@@ -22,6 +22,9 @@ class TestimonialsController extends AppController
         if (isset($country_id)) {
             $conditions['country_id'] = $country_id;
             $this->Session->write('country_id', $country_id);
+        } else {
+        
+            $conditions[] = 'country_id is null';
         }
 
         $testimonials = $this->paginate($this->Testimonials, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']]]]);
