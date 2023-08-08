@@ -1,5 +1,10 @@
 <script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
+<style>
+    .btn-sm {
+        margin-top: 5px;
+    }
+</style>
 
 <div class="content-wrapper">
 
@@ -40,12 +45,11 @@
                         $fields = [
                             'basicModel' => 'users',
                             'id' => [],
-                            'first_name' => [],
+                            'first_name' => ['title'=>'Name'],
                             // 'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'country.country_name' => ['title' => 'Country'],
 
                             'email' => [],
-                            'mobile_code' => [],
                             'mobile' => [],
                             'display_order' => [],
                             'active' => ['format' => 'bool'],
