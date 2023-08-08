@@ -163,7 +163,7 @@
             <?= $this->Form->control('subject_area_id', [
               'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
               'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
             ]) ?>
             <!-- <?= $this->Form->control('subject_area_id', [
                     'placeholder' => 'Preferred subject area', 'type' => 'select', 'empty' => 'Select Preferred subject area*',
@@ -278,3 +278,13 @@
     </div>
   </div>
 </section>
+<script>
+  $('#current-study-level').on('change', function() {
+
+    if ($(this).val() == 0) {
+      $('#subject-area').hide();
+      $('#subject-area').val('');
+    } else
+      $('#subject-area').show();
+  });
+</script>
