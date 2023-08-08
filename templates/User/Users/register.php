@@ -196,7 +196,7 @@
 
       </div>
       <div class="col-md-4 ml">
-        <div class="container-formBox blue-border ">
+        <div class="container-formBox blue-border login-en ">
           <?= $this->Form->create($user, array('url' => '/user/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
 
 
