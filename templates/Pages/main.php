@@ -323,7 +323,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title">Need any help</h2>
+                <h2 class="title">Need any help?</h2>
 
             </div>
             <div class="col-md-11 col-md-offset-1">
