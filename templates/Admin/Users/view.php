@@ -64,10 +64,6 @@
                                         <td><img src="<?= $user->image_path ?>" /></td>
                                     </tr>
                                     <tr class="table-header">
-                                        <th class="" width="">Current/Previous-(School/University)</th>
-                                        <td><?= $user->current_status ?></td>
-                                    </tr>
-                                    <tr class="table-header">
                                         <th class="" width="">Nationality</th>
                                         <td><?= $user->nationality ?></td>
                                     </tr>
@@ -75,6 +71,15 @@
                                         <th class="" width="">Country of Residence</th>
                                         <td><?= !empty($user->country) ? $user->country->country_name : '' ?></td>
                                     </tr>
+                                    <tr class="table-header">
+                                        <th class="" width="">City</th>
+                                        <td><?= $user->city ?></td>
+                                    </tr>
+                                    <tr class="table-header">
+                                        <th class="" width="">Current/Previous-(School/University)</th>
+                                        <td><?= $user->current_status ?></td>
+                                    </tr>
+                                    
                                     <tr class="table-header">
                                         <th class="" width="">Current/last Level of study</th>
                                         <td><?= isset($mainStudyLevels[$user->current_study_level]) ? $mainStudyLevels[$user->current_study_level] : '' ?></td>
@@ -87,10 +92,7 @@
                                         <th class="" width="">Major/subject of your study</th>
                                         <td><?= !empty($user->subject_area) ? $user->subject_area->title : '' ?></td>
                                     </tr>
-                                    <tr class="table-header">
-                                        <th class="" width="">City</th>
-                                        <td><?= $user->city ?></td>
-                                    </tr>
+                                    
                                     <tr class="table-header">
                                         <th class="" width="">Country of study</th>
                                         <td><?= !empty($user->destination) ? $user->destination->country_name : '' ?></td>
