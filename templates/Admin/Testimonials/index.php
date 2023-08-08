@@ -49,7 +49,7 @@
                         ];
 
                         if (!empty($country_id)) {
-                            $fields['country.country_name'] = ['Country'];
+                            $fields['country.country_name'] = ['title' => 'Country'];
                         }
 
                         $multi_select_actions = array(
