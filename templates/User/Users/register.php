@@ -222,28 +222,13 @@
             ]) ?>
             <div class="form-area">
               <a href="/user/forgot-password" class="forgot-link">Forgot Password?</a>
-              <br/> 
+              <br />
               <button type="submit" class="btn clear-blue">LOG IN</button>
             </div>
           </div>
           </form>
         </div>
       </div>
-      <!-- <div class="col-md-12">
-        <div class="container-submit">
-          <div class="checkboxes">
-            <div>
-              <input type="checkbox" name="agree" id="agree">
-              <label for="agree">I agree to <a href="#">terms & conditions</a> </label>
-            </div>
-            <div>
-              <input type="checkbox" name="news_subscribe" id="news_subscribe">
-              <label for="news_subscribe">I’d like being informed about latest news and tips</label>
-            </div>
-          </div>
-          <button type="submit" class="btn clear-blue">Sign Up</button>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>
