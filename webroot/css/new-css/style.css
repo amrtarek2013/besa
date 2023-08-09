@@ -5010,8 +5010,6 @@ input.search {
     line-height: 18px;
     color: #8692A6;
     margin: 19px 0 24px;
-    margin-top: 25px;
-    margin-top: 25px;
 
 }
 
@@ -5020,6 +5018,8 @@ input.search {
     grid-template-columns: 56% 36%;
     grid-gap: 50px;
     padding: 0;
+    margin-top: 25px;
+
 }
 
 .Create-account-banner .container-submit .btn {
