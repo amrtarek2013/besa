@@ -57,10 +57,10 @@
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
+                        
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
-                            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details* <img src="<?= WEBSITE_URL ?>img/icon-label.svg">',
+                            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
 
