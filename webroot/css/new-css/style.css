@@ -2243,8 +2243,10 @@ p.descrp {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    min-height: 22px;}
+    justify-content: space-between;
+    min-height: 22px;
+    padding-right: 15px;
+}
 
 .remodal .container-formBox .form-area label,
 .container-formBox .input label {
