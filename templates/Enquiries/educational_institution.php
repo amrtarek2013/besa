@@ -70,7 +70,7 @@
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
-                                'label' => '<label{{attrs}}>{{Upload attending students details*}}<img src="/img/icon-label.svg" ></label>'
+                                'label' => '<label{{attrs}}>Upload attending students details*<img src="/img/icon-label.svg"></label>'
                             ]
                         ]); ?>
 
