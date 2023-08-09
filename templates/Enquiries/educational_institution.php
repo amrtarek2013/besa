@@ -1,4 +1,4 @@
-<section class="main-banner Create-account-banner  educational-institution">
+<section class="main-banner Create-account-banner visitors-application educational-institution">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
