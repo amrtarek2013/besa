@@ -81,7 +81,7 @@
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
-                        <?= $this->element('security_code') ?>
+                        <?= $this->element('security_code', ['show_label'=>true]) ?>
 
                     </div>
 
