@@ -58,11 +58,11 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
                         
-                        <?= $this->Form->control('certificate', [
+                        <?php /*$this->Form->control('certificate', [
                             'type' => 'file',
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                        ]); ?>
+                        ]); */?>
 
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
@@ -70,7 +70,7 @@
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
-                                'label' => '<label{{attrs}}>{{text}}<img src="<?= WEBSITE_URL ?>img/icon-label.svg" ></label>'
+                                'label' => '<label{{attrs}}>{{Upload attending students details*}}<img src="/img/icon-label.svg" ></label>'
                             ]
                         ]); ?>
 
