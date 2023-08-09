@@ -16,10 +16,10 @@
                 <?= $this->Form->create(null, array('type' => 'file', 'id' => 'FormEducationalInstitution', 'class' => 'register')); ?>
                 
                 <input type="hidden" id="type" name="type" value="educational-institution">
-                <p class="light-para">For the purpose of applying regulation, your details are required.</p>
+                <!-- <p class="light-para">For the purpose of applying regulation, your details are required.</p> -->
 
                 <div class="container-formBox">
-                    <h4 class="title">Create an account to apply</h4>
+                    <!-- <h4 class="title">Create an account to apply</h4> -->
                     <div class="grid-container">
 
                         <?= $this->Form->control('first_name', [
