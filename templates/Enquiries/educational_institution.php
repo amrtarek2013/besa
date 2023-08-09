@@ -23,7 +23,7 @@
                 <input type="hidden" id="type" name="type" value="educational-institution">
                 <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
-                <div class="container-formBox">
+                <div class="container-formBox  blue-border">
                     <!-- <h4 class="title">Create an account to apply</h4> -->
                     <div class="grid-container">
 
