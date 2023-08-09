@@ -2240,7 +2240,12 @@ p.descrp {
     letter-spacing: 0.2px;
     color: #696F79;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 22px;
+    padding-right: 15px;
 }
 
 .remodal .container-formBox .form-area label,
@@ -5395,7 +5400,8 @@ input.search {
     padding-bottom: 0;
 }
 
-.aboutUs2-banner.main-banner .title-banner-blue, .aboutus2-blue {
+.aboutUs2-banner.main-banner .title-banner-blue,
+.aboutus2-blue {
     padding: 77px 0;
     background: #1565D8;
 
@@ -8134,7 +8140,26 @@ a.forgot-link {
 
 }
 
-.form-area .country_code{
+
+
+.educational-institution .container-formBox {
+    border-top: 14px solid #2575FC;
+
+}
+
+.educational-institution .container-formBox button[type="submit"] {
+    background: #2575FC;
+}
+
+
+.educational-institution .form-area textarea,
+.educational-institution .form-area select,
+.educational-institution .form-area input {
+    border: 1px solid #2575FC;
+
+}
+
+.form-area .country_code {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -8149,4 +8174,8 @@ a.forgot-link {
 .form-area input[type="tel"] {
     padding-left: 80px;
 
+}
+
+input[type="file" i] {
+    
 }
