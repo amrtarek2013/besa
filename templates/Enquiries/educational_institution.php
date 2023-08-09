@@ -1,7 +1,7 @@
 <section class="main-banner Create-account-banner  visitors-application">
     <div class="container-fluid">
         <div class="row">
-            <!-- <div class="col-md-6">
+            <div class="col-md-6">
                 <div class="background-banner-color">
                     <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
@@ -12,7 +12,7 @@
                     <h1 class="relative-text">Educati<br/>Instit<</h1>
                     <h2 class="title text-left">Educational <br/>Institution</h2>
                 </div>
-            </div> -->
+            </div>
 
 
 
@@ -23,7 +23,7 @@
                 <input type="hidden" id="type" name="type" value="educational-institution">
                 <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
-                <div class="container-formBox  blue-border">
+                <div class="container-formBox">
                     <!-- <h4 class="title">Create an account to apply</h4> -->
                     <div class="grid-container">
 
