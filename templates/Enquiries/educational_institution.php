@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">Educati<br/>Instit<</h1>
-                    <h2 class="title text-left">Educational <br/>Institution</h2>
+                    <h1 class="relative-text">Educati<br />Instit<< /h1>
+                            <h2 class="title text-left">Educational <br />Institution</h2>
                 </div>
             </div>
 
@@ -27,22 +27,22 @@
                     <!-- <h4 class="title">Create an account to apply</h4> -->
                     <div class="grid-container">
 
-                        <?= $this->Form->control('first_name', [
+                        <?= $this->Form->control('school_name', [
                             'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('last_name', [
+                        <?= $this->Form->control('school_counselor_name', [
                             'placeholder' => 'School counselor name *', 'label' => 'School counselor name *', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <div class="form-area ">
-                            <?= $this->Form->label('mobile', 'Mobile*') ?>
-                            <?= $this->Form->control('mobile', [
+                            <?= $this->Form->label('phone', 'Mobile*') ?>
+                            <?= $this->Form->control('phone', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
                             ]) ?>
-                            <?= $this->Form->control('mobile_code', [
+                            <?= $this->Form->control('phone_code', [
                                 'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
@@ -53,7 +53,7 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('city', [
+                        <?= $this->Form->control('attending_students_no', [
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>

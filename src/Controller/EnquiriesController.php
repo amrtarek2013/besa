@@ -24,8 +24,8 @@ class EnquiriesController extends AppController
 
             Configure::write('debug', 0);
             Configure::write('debug', false);
-            // debug($this->request->getData());
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData(), ['validate' => 'contactUs']);
+            $data = $this->request->getData();
+            $enquiry = $this->Enquiries->patchEntity($enquiry, $data, ['validate' => $data['type']]);
 
             // debug($enquiry);
             // die;
@@ -164,9 +164,10 @@ class EnquiriesController extends AppController
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
-        
+
         $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -174,10 +175,9 @@ class EnquiriesController extends AppController
             '{n}.phone_code',
             ['+%s', '{n}.phone_code']
         );
-        
-        
+
+
         $this->set('countriesCodesList', $countriesCodesList);
-        
     }
 
     public function educationalInstitution()
@@ -186,7 +186,8 @@ class EnquiriesController extends AppController
         $this->set('bodyClass', '');
 
         $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -194,8 +195,8 @@ class EnquiriesController extends AppController
             '{n}.phone_code',
             ['+%s', '{n}.phone_code']
         );
-        
-        
+
+
         $this->set('countriesCodesList', $countriesCodesList);
         $this->loadModel('StudyLevels');
         // $studyLevels = $this->StudyLevels->find('list', [
@@ -213,9 +214,10 @@ class EnquiriesController extends AppController
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
-        
+
         $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -223,7 +225,39 @@ class EnquiriesController extends AppController
             '{n}.phone_code',
             ['+%s', '{n}.phone_code']
         );
-        
+
         $this->set('countriesCodesList', $countriesCodesList);
+    }
+    public function bookAppointment()
+    {
+
+        $this->set('bodyClass', '');
+
+        $this->loadModel('StudyLevels');
+        $this->loadModel('SubjectAreas');
+        $this->loadModel('Countries');
+
+        $countries = $this->Countries->find()->select([
+            'id', 'country_name', 'code', 'phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countries->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+
+        $destinations = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc']);
+
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        $this->set('countriesCodesList', $countriesCodesList);
+        $this->set('destinationsList', $destinations);
+        $this->set('subjectAreasList', $subjectAreas);
     }
 }

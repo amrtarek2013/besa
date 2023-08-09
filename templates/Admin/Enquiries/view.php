@@ -38,39 +38,10 @@
 
                                     foreach ($enquiryType['fields'] as $field) : ?>
                                         <tr class="table-header">
-                                            <th class=""><a><?= Inflector::humanize($field) ?></a></th>
+                                            <th class=""><a><?= isset($enquiryType['fields'][$field]) ? $enquiryType['fields'][$field] : Inflector::humanize($field) ?></a></th>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>
                                         </tr>
                                     <?php endforeach; ?>
-                                    <!-- 
-<tr class="table-header">
-                                        <th class=""><a>Name</a></th>
-                                        <td><?php echo (!empty($enquiry->name) ? $enquiry->name : '') ?></td>
-                                    </tr>
-                                    <tr class="table-header">
-                                        <th class="" width=""><a>Phone</a></th>
-                                        <td><?php echo (!empty($enquiry->phone) ? $enquiry->phone : '') ?></td>
-                                    </tr>
-
-                                    <tr class="table-header">
-                                        <th class="" width=""><a>Email</a></th>
-                                        <td><?php echo (!empty($enquiry->email) ? $enquiry->email : '') ?></td>
-                                    </tr>
-
-                                    <tr class="table-header">
-                                        <th class="" width=""><a>Date</a></th>
-                                        <td><?php echo (!empty($enquiry->created->format('H:m:i d-m-Y')) ? $enquiry->created->format('H:m:i d-m-y') : '') ?></td>
-                                    </tr>
-
-                                    <tr class="table-header">
-
-                                        <th class="" width=""><a>Subject</a></th>
-                                        <td><?php echo (!empty($enquiry->subject) ? $enquiry->subject : '') ?></td>
-                                    </tr>
-                                    <tr class="table-header">
-                                        <th class="" width=""><a>Message</a></th>
-                                        <td><?php echo (!empty($enquiry->message) ? $enquiry->message : '') ?></td>
-                                    </tr> -->
 
 
 

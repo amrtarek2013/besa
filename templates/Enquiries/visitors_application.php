@@ -21,12 +21,12 @@
                     <h4 class="title">Create an account to apply</h4>
                     <div class="grid-container">
 
-                        <?= $this->Form->control('first_name', [
+                        <?= $this->Form->control('name', [
                             'placeholder' => 'First Name',
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'First Name*', 'required' => true
                         ]) ?>
 
-                        <?= $this->Form->control('last_name', [
+                        <?= $this->Form->control('surname', [
                             'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
@@ -41,11 +41,11 @@
                         ?>
 
                         <div class="form-area ">
-                            <?= $this->Form->label('mobile', 'Mobile*') ?>
-                            <?= $this->Form->control('mobile', [
+                            <?= $this->Form->label('phone', 'Mobile*') ?>
+                            <?= $this->Form->control('phone', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
                             ]) ?>
-                            <?= $this->Form->control('mobile_code', [
+                            <?= $this->Form->control('phone_code', [
                                 'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
