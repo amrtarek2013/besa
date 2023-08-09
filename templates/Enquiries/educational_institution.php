@@ -1,4 +1,4 @@
-<section class="main-banner Create-account-banner  visitors-application">
+<section class="main-banner Create-account-banner  educational-institution">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -57,11 +57,13 @@
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
-                            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
+                            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details* <img src="<?= WEBSITE_URL ?>img/icon-label.svg">',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
+
                         <?= $this->element('security_code', ['show_label' => true]) ?>
 
                     </div>

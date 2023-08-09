@@ -5395,7 +5395,8 @@ input.search {
     padding-bottom: 0;
 }
 
-.aboutUs2-banner.main-banner .title-banner-blue, .aboutus2-blue {
+.aboutUs2-banner.main-banner .title-banner-blue,
+.aboutus2-blue {
     padding: 77px 0;
     background: #1565D8;
 
@@ -8134,7 +8135,7 @@ a.forgot-link {
 
 }
 
-.form-area .country_code{
+.form-area .country_code {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -8148,5 +8149,21 @@ a.forgot-link {
 
 .form-area input[type="tel"] {
     padding-left: 80px;
+
+}
+
+.educational-institution .container-formBox {
+    border-top: 14px solid #2575FC;
+
+}
+
+.educational-institution .container-formBox button[type="submit"] {
+    background: #2575FC;
+}
+
+.educational-institution .input select,
+.educational-institution .input textarea,
+.educational-institution .input input:not([type="radio"], [type="checkbox"], [type="range"]) {
+    border: 1px solid #2575FC;
 
 }
