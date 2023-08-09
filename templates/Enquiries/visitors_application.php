@@ -42,7 +42,7 @@
                         <div class="form-area ">
                             <?= $this->Form->label('mobile', 'Mobile*') ?>
                             <?= $this->Form->control('mobile', [
-                                'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
+                                   'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
                             ]) ?>
                             <select name="country_code" id="" class="country_code">
                                 <option value="+20">+20</option>
