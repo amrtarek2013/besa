@@ -2240,8 +2240,11 @@ p.descrp {
     letter-spacing: 0.2px;
     color: #696F79;
     display: block;
-    margin-bottom: 15px;
-}
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 22px;}
 
 .remodal .container-formBox .form-area label,
 .container-formBox .input label {
