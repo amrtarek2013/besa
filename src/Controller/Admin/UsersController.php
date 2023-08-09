@@ -225,6 +225,17 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
+        
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+        
+        $this->set('countriesCodesList', $countriesCodesList);
         $this->loadModel('StudyLevels');
         // $studyLevels = $this->StudyLevels->find('list', [
         //     'keyField' => 'id', 'valueField' => 'title'

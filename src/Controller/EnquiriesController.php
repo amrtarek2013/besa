@@ -164,5 +164,66 @@ class EnquiriesController extends AppController
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        
+        $this->loadModel('Countries');
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+        
+        
+        $this->set('countriesCodesList', $countriesCodesList);
+        
+    }
+
+    public function educationalInstitution()
+    {
+
+        $this->set('bodyClass', '');
+
+        $this->loadModel('Countries');
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+        
+        
+        $this->set('countriesCodesList', $countriesCodesList);
+        $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+    }
+    public function britishTrophySubscription()
+    {
+
+        $this->set('bodyClass', '');
+
+        $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        
+        $this->loadModel('Countries');
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+        
+        $this->set('countriesCodesList', $countriesCodesList);
     }
 }

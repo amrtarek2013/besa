@@ -531,7 +531,7 @@ class UsersController extends AppController
         $countriesCodesList = Hash::combine(
             $countriesCodesList->toArray(),
             '{n}.phone_code',
-            ['%s (+%s)', '{n}.code', '{n}.phone_code']
+            ['+%s', '{n}.phone_code']
         );
         
         $this->set('countriesCodesList', $countriesCodesList);
@@ -605,11 +605,17 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        $countriesCodesList = $this->Countries->find('list', [
-            'keyField' => 'phone_code', 'valueField' => 'concatt(code,"- (+",phone_code,")")'
+        
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
-        $this->set('countriesCodesList', $countriesCodesList);
 
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+        
+        $this->set('countriesCodesList', $countriesCodesList);
 
         $this->loadModel('StudyLevels');
         // $studyLevels = $this->StudyLevels->find('list', [

@@ -80,7 +80,7 @@
               'options' => $countriesList,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-            <div class=" form-area">
+            <!-- <div class=" form-area">
               <label for="">Mobile*</label>
               <div class="grid-2col-mobile">
                 <?= $this->Form->control('mobile_code', [
@@ -94,6 +94,24 @@
                   'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                 ]) ?>
               </div>
+            </div> -->
+            <div class="form-area ">
+              <?= $this->Form->label('mobile', 'Mobile*') ?>
+              <?= $this->Form->control('mobile', [
+                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
+              ]) ?>
+              <?= $this->Form->control('mobile_code', [
+                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
+                'type' => 'select', 'options' => $countriesCodesList,
+                // 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+              ]) ?>
+              <!-- <select name="country_code" id="" class="country_code">
+                <option value="+20">+20</option>
+                <option value="+966">+966</option>
+                <option value="+44">+44</option>
+                <option value="+33">+33</option>
+
+              </select> -->
             </div>
 
             <!-- <?= $this->Form->control('email', [
