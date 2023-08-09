@@ -8137,7 +8137,7 @@ a.forgot-link {
     bottom: 0;
     width: 85px;
     border: none;
-    padding: 10px;
+    padding: 10px !important;
     color: #8692A6 ;
     background-position-x: calc(100% - 18px);
 }
