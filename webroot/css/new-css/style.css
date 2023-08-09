@@ -8130,3 +8130,19 @@ a.forgot-link {
     padding: 17px 20px;
 
 }
+
+.form-area .country_code{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 85px;
+    border: none;
+    padding: 10px;
+    color: #8692A6 ;
+    background-position-x: calc(100% - 18px);
+}
+
+.form-area input[type="mobile"]{
+    padding-left: 71px;
+
+}
