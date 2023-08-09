@@ -8135,14 +8135,15 @@ a.forgot-link {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 85px;
+    width: max-content;
     border: none;
-    padding: 10px !important;
-    color: #8692A6 ;
-    background-position-x: calc(100% - 18px);
+    padding: 0 15px 0 10px !important;
+    color: #8692A6;
+    background-position-x: 100%;
+    text-align: center;
 }
 
 .form-area input[type="tel"] {
-    padding-left: 71px;
+    padding-left: 75px;
 
 }
