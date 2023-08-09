@@ -8135,6 +8135,25 @@ a.forgot-link {
 
 }
 
+
+
+.educational-institution .container-formBox {
+    border-top: 14px solid #2575FC;
+
+}
+
+.educational-institution .container-formBox button[type="submit"] {
+    background: #2575FC;
+}
+
+
+.educational-institution .form-area textarea,
+.educational-institution .form-area select,
+.educational-institution .form-area input {
+    border: 1px solid #2575FC;
+
+}
+
 .form-area .country_code {
     position: absolute;
     left: 0;
@@ -8149,21 +8168,5 @@ a.forgot-link {
 
 .form-area input[type="tel"] {
     padding-left: 80px;
-
-}
-
-.educational-institution .container-formBox {
-    border-top: 14px solid #2575FC;
-
-}
-
-.educational-institution .container-formBox button[type="submit"] {
-    background: #2575FC;
-}
-
-.educational-institution .input select,
-.educational-institution .input textarea,
-.educational-institution .input input:not([type="radio"], [type="checkbox"], [type="range"]) {
-    border: 1px solid #2575FC;
 
 }

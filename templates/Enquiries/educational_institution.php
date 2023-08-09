@@ -64,6 +64,16 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
 
+                        <?= $this->Form->control('certificate', [
+                            'type' => 'file',
+                            'class' => 'required', 'required' => true,
+                            'templates' => [
+                                'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>'
+                            ],
+                            'label' => '<label for="{{for}}" class="{{required}}">Upload attending students details* <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt=""></label>'
+                        ]); ?>
+
+
                         <?= $this->element('security_code', ['show_label' => true]) ?>
 
                     </div>
