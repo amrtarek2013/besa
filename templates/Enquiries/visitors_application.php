@@ -34,6 +34,21 @@
                             'placeholder' => 'Mobile', 'label' => 'Mobile*', 'class' => 'form-control', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+                        
+                        <div class="form-area">
+                            <?= $this->Form->label('mobile', 'Mobile*') ?>
+                            <div>
+                            <?= $this->Form->control('mobile', [
+                                'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
+                            ]) ?>
+                            <select name="country_code" id="">
+                                <option value="+20"></option>
+                                <option value="+966"></option>
+
+                            </select>
+                            </div>
+                        </div>
                         <!--
                         <div class=" form-area">
                             <label for="">Mobile*</label>
