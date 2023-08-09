@@ -66,11 +66,12 @@
 
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
-                            'class' => 'required', 'required' => true,
+                            'class' => 'required',
+                            'required' => true,
                             'templates' => [
-                                'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>'
-                            ],
-                            'label' => '<label for="{{for}}" class="{{required}}">Upload attending students details* <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt=""></label>'
+                                'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
+                                'label' => '<label{{attrs}}>{{text}}<img src="<?= WEBSITE_URL ?>img/icon-label.svg" ></label>'
+                            ]
                         ]); ?>
 
 
