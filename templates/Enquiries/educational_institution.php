@@ -1,4 +1,4 @@
-<section class="main-banner Create-account-banner  visitors-application contact-banner">
+<section class="main-banner Create-account-banner  visitors-application">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
