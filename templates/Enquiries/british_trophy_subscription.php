@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">Educati<br/>Instit<</h1>
-                    <h2 class="title text-left">The British<br/>Trophy Event<br/>Subscription</h2>
+                    <h1 class="relative-text">Educati<br />Instit<< /h1>
+                            <h2 class="title text-left">The British<br />Trophy Event<br />Subscription</h2>
                 </div>
             </div>
 
@@ -24,23 +24,14 @@
                     <div class="grid-container">
 
                         <?= $this->Form->control('first_name', [
-                            'placeholder' => 'First Name',
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'First Name*', 'required' => true
+                            'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->Form->control('last_name', [
-                            'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
+                            'placeholder' => 'Contact person name*', 'label' => 'Contact person name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-                        <?php
-                        /* 
-                        $this->Form->control('mobile', [
-                            'placeholder' => 'Mobile', 'label' => 'Mobile*', 'class' => 'form-control', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]);
-                        */
-                        ?>
 
                         <div class="form-area ">
                             <?= $this->Form->label('mobile', 'Mobile*') ?>
@@ -52,35 +43,15 @@
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
                         </div>
-                        <!--
-                        <div class=" form-area">
-                            <label for="">Mobile*</label>
-                            <div class="grid-2col-mobile">
-                               
-
-                                
-                            </div>
-                        </div> -->
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('city', [
-                            'type' => 'text', 'placeholder' => 'School Name', 'label' => 'School Name*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
-                        <?= $this->Form->control('study_level_id', [
-                            'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
-                            'class' => 'required', 'required' => true, 'label' => 'Upload school team sheet*',
+                            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
                         <?= $this->element('security_code', ['show_label' => true]) ?>
