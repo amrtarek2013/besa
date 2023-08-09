@@ -47,6 +47,8 @@
                             <select name="country_code" id="" class="country_code">
                                 <option value="+20">+20</option>
                                 <option value="+966">+966</option>
+                                <option value="+44">+44</option>
+                                <option value="+33">+33</option>
 
                             </select>
                         </div>
