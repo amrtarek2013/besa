@@ -64,7 +64,7 @@ class CounselorsController extends AppController
             } else {
 
                 // $this->Flash->success(__('Welcome'));
-                $this->redirect('/counselor');
+                $this->redirect('/counselor/profile');
             }
         }
 
@@ -84,7 +84,7 @@ class CounselorsController extends AppController
             $p_data['password'] = (new \Cake\Auth\DefaultPasswordHasher())->hash($p_data['password']);
 
 
-            $red_url = "/counselor";
+            $red_url = "/counselor/profile";
             if (!empty($p_data["from_url"])) {
                 $red_url = $p_data["from_url"];
             }
@@ -149,7 +149,7 @@ class CounselorsController extends AppController
             } else {
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
-                    $this->redirect('/counselor');
+                    $this->redirect('/counselor/profile');
                 } else {
 
                     $this->Flash->error(__($return['message']));
