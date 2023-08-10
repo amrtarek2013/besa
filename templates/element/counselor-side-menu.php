@@ -67,8 +67,8 @@
                 <div class="circle-img">
                     <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
-                <h3 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
-                <span class="status"><?= $counselor['email_confirmed'] ? 'APPROVED' : 'PENDING' ?></span>
+                <h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                <span class="online-status"><?= true ? 'ONLINE' : 'OFFLINE' ?></span>
 
             </div>
             <!-- </div> -->
@@ -77,15 +77,6 @@
             </div> -->
         </div>
 
-        <!-- SidebarSearch Form -->
-        <!-- <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="<?= __('Search') ?>" aria-label="<?= __('Search') ?>">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar"><i class="fas fa-search fa-fw"></i></button>
-                </div>
-            </div>
-        </div> -->
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
