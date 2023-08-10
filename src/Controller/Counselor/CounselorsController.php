@@ -693,6 +693,12 @@ class CounselorsController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
+
+        $id = $counselor['id'];
+        $this->set(compact('id'));
+        $this->_ajaxImageUpload('counselor_' . $counselor['id'], 'counselors', $counselor['id'], ['id' => $id], ['image']);
+        $uploadSettings = $this->Counselors->getUploadSettings();
+        $this->set(compact('uploadSettings'));
     }
 
 

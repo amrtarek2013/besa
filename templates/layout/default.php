@@ -80,7 +80,7 @@ if (!empty($metaDescription)) {
     ?>
     <?php echo $this->element('navbar'); ?>
     <!-- Start Content -->
-    <?php if ($prefix == 'User') {
+    <?php if (in_array($prefix, ['User', 'Counselor'])) {
 
     ?>
 
@@ -93,7 +93,15 @@ if (!empty($metaDescription)) {
                 <div class="row user-dashboard">
 
                     <div class="col-md-3">
-                        <?php echo $this->element('user-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
+                        <?php
+
+                        if (isset($_SESSION['Auth']['Counselor'])) {
+                        ?>
+                            <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
+
+                        <?php } else { ?>
+                            <?php echo $this->element('user-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
+                        <?php } ?>
                     </div>
                     <div class="col-md-9">
 
