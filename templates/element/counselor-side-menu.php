@@ -46,10 +46,11 @@
         margin-bottom: 0;
         list-style: none;
     }
-    .nav li{
+
+    .nav li {
         width: 100%;
-        clear:both;
-        padding-bottom:15px;
+        clear: both;
+        padding-bottom: 15px;
     }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -61,9 +62,16 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+            <!-- <div class="image"> -->
+            <div class="left-box">
+                <div class="circle-img">
+                    <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
+                </div>
+                <h3 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
+                <span class="status"><?= $counselor['email_confirmed'] ? 'APPROVED' : 'PENDING' ?></span>
+
             </div>
+            <!-- </div> -->
             <!-- <div class="info">
                 <a href="#" class="d-block"><?= __($g_configs['general']['txt.site_name'] . ' System v 1.0 ') ?></a>
             </div> -->
