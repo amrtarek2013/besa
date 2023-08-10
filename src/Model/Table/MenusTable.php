@@ -17,6 +17,7 @@ class MenusTable extends Table
 				'options' => [
 					'admin' => 'Admin area',
 					'user' => 'User area',
+					'counselor'=>'Counselor area'
 					// 'university-admin' => 'University area',
 
 				]
