@@ -37,7 +37,8 @@ class MenusTable extends Table
 
 	public $prefixs = [
 		'admin' => 'Admin area',
-		'user' => 'User area'
+		'user' => 'User area',
+		'counselor'=>'Counselor area'
 		// 'university-admin' => 'University area',
 	];
 	public $types = [0 => 'Internal link', 1 => 'External link'];
