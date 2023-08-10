@@ -40,7 +40,7 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/about', ['controller' => 'Pages', 'action' => 'view']);
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
-        
+
 
         $builder->connect('/services', 'Services::index');
         $builder->connect('/service-details/*', 'Services::details');
@@ -58,7 +58,7 @@ return static function (RouteBuilder $routes) {
         // $builder->connect('/university-placement', 'Pages::universityPlacement');
         // $builder->connect('/young-learners', 'Pages::youngLearners');
         $builder->connect('/partnership-with-besa', 'Pages::partnershipWithBesa');
-        
+
         $builder->connect('/partner-institutions', 'Pages::partnerInstitutions');
         $builder->connect('/app-support', 'Pages::appSupport');
         $builder->connect('/career-apply', 'Pages::careerApply');
@@ -84,7 +84,7 @@ return static function (RouteBuilder $routes) {
         // $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
         // $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
         // $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
-        
+
         // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         /*
          * Connect catchall routes for all controllers.
@@ -107,7 +107,7 @@ return static function (RouteBuilder $routes) {
         $routes->connect('/locale/*', ['controller' => 'Localizations', 'action' => 'setLocale']);
         $routes->connect('/', ['controller' => 'Enquiries', 'action' => 'index']);
         $routes->connect('/login', ['controller' => 'Admins', 'action' => 'login']);
-   
+
         $routes->fallbacks(DashedRoute::class);
     });
     // Admin scope
@@ -127,8 +127,8 @@ return static function (RouteBuilder $routes) {
     });
     Router::prefix('counselor', function (RouteBuilder $routes) {
         $routes->connect('/locale/*', ['controller' => 'Localizations', 'action' => 'setLocale']);
-        $routes->connect('/', ['controller' => 'Counselors', 'action' => 'dashboard']);
-        // $routes->connect('/', ['controller' => 'Counselors', 'action' => 'profile']);
+        $routes->connect('/', ['controller' => 'Counselors', 'action' => 'index']);
+        $routes->connect('/dashboard', ['controller' => 'Counselors', 'action' => 'dashboard']);
         $routes->connect('/profile', ['controller' => 'Counselors', 'action' => 'profile']);
         $routes->connect('/login', ['controller' => 'Counselors', 'action' => 'login']);
         $routes->connect('/logout', ['controller' => 'Counselors', 'action' => 'logout']);

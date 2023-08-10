@@ -150,14 +150,11 @@ class CounselorsController extends AppController
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
                     $this->redirect('/counselor');
-
                 } else {
 
                     $this->Flash->error(__($return['message']));
                     $this->redirect('/counselor/register');
                 }
-                
-                
             }
         }
 
@@ -386,6 +383,145 @@ class CounselorsController extends AppController
     }
 
 
+    public function index()
+    {
+
+        if ($this->request->is('ajax')) {
+            $this->viewBuilder()->disableAutoLayout();
+        }
+        $this->set('bodyClass', '');
+
+
+
+
+        $counselorData = $this->Auth->user();
+
+        $return                          = [];
+        $school_counselors_portal = $this->getSnippet('school_counselors_portal');
+        $this->set('school_counselors_portal', $school_counselors_portal);
+        $msg = $this->getSnippet('counselor_register_success');
+        // dd($counselorData);
+        if ($counselorData) {
+            if ($this->request->is('ajax')) {
+                $return['url']    = "/counselor";
+                $return['status']  = 1;
+
+                $return['message'] = $msg;
+                $return['type']    = 'login';
+                $return['title'] = 'Thank You';
+                die(json_encode($return));
+                // die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
+            } else {
+
+                $this->Flash->success(__('Welcome'));
+                $this->redirect('/counselor');
+            }
+        }
+        // Configure::write('debug', false);
+
+        $counselorEntity = $this->Counselors->newEmptyEntity();
+        $validation                      = ['validate' => 'register'];
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $this->data = $this->request->getData();
+            $existed_counselor = $this->Counselors->find()->where(["email" => $this->data['email']])->first();
+
+            if ($existed_counselor) {
+                if ($this->request->is('ajax')) {
+                    die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
+                } else {
+
+                    $this->Flash->error(__('This counselor already exist!!'));
+                }
+            } else {
+                $counselorEntity = $this->Counselors->patchEntity($counselorEntity, $this->data, $validation);
+
+                if ($this->Counselors->save($counselorEntity)) {
+                    $id = $counselorEntity->id;
+
+                    $counselor = $this->Counselors->get($id);
+
+                    $to = $counselor['email'];
+
+                    $from    = $this->g_configs['general']['txt.send_mail_from'];
+                    $replace = array(
+                        '{%first_name%}' => $counselor['first_name'],
+                        '{%last_name%}'  => $counselor['last_name'],
+                        // '{%counselorname%}'  => $counselor['counselorname'],
+                        '{%email%}'  => $counselor['email'],
+                        '{%mobile%}'  => $counselor['mobile'],
+                    );
+                    $this->sendEmail($to, $from, 'counselor.notify_counselor_registration', $replace);
+                    $this->sendEmail(false, $from, 'admin.notify_counselor_registration', $replace);
+
+                    $return['url']    = "/counselor";
+                    $return['status']  = 1;
+                    $return['message'] = $msg;
+                    $return['type']    = 'register';
+                    $return['title'] = 'Thank You';
+                    $return['url_text'] = 'Continue';
+
+                    $this->sendConfirmationEmail($counselor);
+                    // $this->Auth->setUser($counselor->toArray());
+                    // die(json_encode($return));
+                } else {
+
+                    // dd($counselorEntity->getErrors());
+
+
+                    $return['url']    = "/counselor";
+                    $return['status']  = 0;
+                    $return['validationErrors']  = $counselorEntity->getErrors();
+                    $return['message'] = 'Invalid credentials, try again';
+
+                    // $return['message'] = $this->getSnippet('counselor_register_error');
+                    $return['type']    = 'register';
+                    $return['title'] = 'Info';
+
+                    // die(json_encode($return));
+                }
+
+                // dd($return);
+
+                if ($this->request->is('ajax')) {
+                    echo json_encode($return);
+                    exit();
+                } else {
+                    if ($return['status']) {
+                        $this->Flash->success(__($return['message']));
+                        $this->redirect('/counselor');
+                    } else {
+
+                        $this->Flash->error(__($return['message']));
+                    }
+                }
+            }
+        }
+
+
+        $this->set('counselor', $counselorEntity);
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1])->order(['country_name' => 'asc']);
+        $this->set('countriesList', $countriesList);
+
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            ['+%s', '{n}.phone_code']
+        );
+
+
+        $this->set('countriesCodesList', $countriesCodesList);
+    }
+
+
     public function register()
     {
 
@@ -508,7 +644,6 @@ class CounselorsController extends AppController
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
-
     }
 
     public function profile()

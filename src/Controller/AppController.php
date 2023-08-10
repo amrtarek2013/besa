@@ -245,7 +245,6 @@ class AppController extends Controller
             $this->_set_seo();
             $this->allCoursesList();
         }
-        
     }
     protected function _loadConfig()
     {
@@ -370,7 +369,7 @@ class AppController extends Controller
                         ],
                         'unauthorizedRedirect' => $this->referer(),
                     ]);
-                    $this->Auth->allow(['login', 'logout', 'register', 'confirmEmail', 'forgotPassword', 'resetPassword', 'forgotPasswordSuccess', 'cronZipDailyFiles']);
+                    $this->Auth->allow(['index', 'login', 'logout', 'register', 'confirmEmail', 'forgotPassword', 'resetPassword', 'forgotPasswordSuccess', 'cronZipDailyFiles']);
 
                     if ($this->Auth->user()) {
                         $this->set('auth', $this->Auth);
@@ -1044,7 +1043,7 @@ class AppController extends Controller
             $token = $this->userToken();
             $conds['user_token'] = $token;
         }
-        
+
         $conds['save_later !='] = 2;
         $appCourses = $this->Applications->find()
             ->where($conds)->contain(['ApplicationCourses'])
