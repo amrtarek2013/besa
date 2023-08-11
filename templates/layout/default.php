@@ -99,7 +99,7 @@ if (!empty($metaDescription)) {
                         ?>
                             <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
 
-                        <?php } else { ?>
+                        <?php } else if (isset($_SESSION['Auth']['User'])) { ?>
                             <?php echo $this->element('user-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
                         <?php } ?>
                     </div>

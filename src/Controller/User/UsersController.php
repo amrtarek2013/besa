@@ -525,15 +525,16 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+        $countriesCodesList = $this->Countries->find()->select(['code','phone_code','country_name', 'flag'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
             $countriesCodesList->toArray(),
             '{n}.phone_code',
+            // ['<img src="%s" /> %s +%s', '{n}.flag_path', '{n}.country_name', '{n}.phone_code']
             ['+%s', '{n}.phone_code']
         );
-        
+        // dd($countriesCodesList);
         $this->set('countriesCodesList', $countriesCodesList);
 
         $this->loadModel('StudyLevels');

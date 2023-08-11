@@ -67,7 +67,7 @@
                 <div class="circle-img">
                     <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
-                <h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                <?php /* ?><h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4><?php */ ?>
                 <span class="online-status"><?= true ? 'ONLINE' : 'OFFLINE' ?></span>
 
             </div>

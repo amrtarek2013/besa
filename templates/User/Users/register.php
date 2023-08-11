@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
+<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
 <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
@@ -80,38 +82,30 @@
               'options' => $countriesList,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-            <!-- <div class=" form-area">
-              <label for="">Mobile*</label>
-              <div class="grid-2col-mobile">
-                <?= $this->Form->control('mobile_code', [
-                  'placeholder' => 'Code', 'class' => 'form-control', 'label' => false, 'required' => true,
-                  'type' => 'select', 'options' => $countriesCodesList,
-                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) ?>
 
-                <?= $this->Form->control('mobile', [
-                  'placeholder' => 'Mobile', 'class' => 'form-control', 'label' => false, 'required' => true,
-                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) ?>
-              </div>
-            </div> -->
             <div class="form-area ">
               <?= $this->Form->label('mobile', 'Mobile*') ?>
               <?= $this->Form->control('mobile', [
                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
               ]) ?>
-              <?= $this->Form->control('mobile_code', [
-                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                'type' => 'select', 'options' => $countriesCodesList,
-                // 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-              ]) ?>
-              <!-- <select name="country_code" id="" class="country_code">
-                <option value="+20">+20</option>
-                <option value="+966">+966</option>
-                <option value="+44">+44</option>
-                <option value="+33">+33</option>
+              <?php
+              if (isset($_GET['testdk'])) {
+              ?>
+                <?= $this->Form->control('mobile_code', [
+                  'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
+                  'type' => 'select',
+                  // 'options' => $countriesCodesList,
+                  // 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                ]) ?>
+              <?php } else { ?>
 
-              </select> -->
+                <?= $this->Form->control('mobile_code', [
+                  'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
+                  'type' => 'select',
+                  'options' => $countriesCodesList,
+                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                ]) ?>
+              <?php } ?>
             </div>
 
             <!-- <?= $this->Form->control('email', [
@@ -304,5 +298,20 @@
       $('#subject-area').val('');
     } else
       $('#subject-area').show();
+  });
+  var input = document.querySelector(".mobile_code");
+  window.intlTelInput(input, {
+    // show dial codes too
+    separateDialCode: true,
+    // If there are some countries you want to show on the top.
+    // here we are promoting russia and singapore.
+    preferredCountries: ["eg", "gbp", "us"],
+    //Default country
+    initialCountry: "eg",
+    // show only these countres, remove all other
+    // onlyCountries: ["ru", "cn", "pk", "sg", "my", "bd"],
+    // If there are some countries you want to execlde.
+    // here we are exluding india and israel.
+    // excludeCountries: ["in", "il"]
   });
 </script>
