@@ -204,7 +204,7 @@
 
         if (isLoggedIn == 0) {
             $('.modalMsg .remodal-cancel').show();
-            $('.modalMsg #msgText').html('Ready to start your application? Need some more help? please register first');
+            $('.modalMsg #msgText').html('To proceed with your course application,    kindly register an account first');
             var inst = $('[data-remodal-id=modalMsg]').remodal();
             inst.open();
 

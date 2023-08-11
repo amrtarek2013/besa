@@ -253,7 +253,7 @@
             </div>
             <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
 
-            <button type="submit" class="btn greenish-teal">LOG IN</button>
+            <button type="submit" class="btn greenish-teal">REGISTER</button>
           </div>
         </div>
         <?= $this->Form->end() ?>
