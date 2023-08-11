@@ -13,7 +13,7 @@
 
 
             <div class="col-md-12 ">
-                <?= $this->Form->create(null, array('id' => 'FormVisitorApp', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormVisitorApp', 'class' => 'register')); ?>
                 <input type="hidden" id="type" name="type" value="visitors-application">
                 <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 

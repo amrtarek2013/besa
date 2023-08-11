@@ -16,7 +16,7 @@
             </div>
 
             <div class="col-md-12 ">
-                <?= $this->Form->create(null, array('id' => 'FormBritishTrophySubscription', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormBritishTrophySubscription', 'class' => 'register')); ?>
                 <input type="hidden" id="type" name="type" value="british-trophy-subscription">
                 <!-- <p class="light-para">For the purpose of applying regulation, your details are required.</p> -->
 

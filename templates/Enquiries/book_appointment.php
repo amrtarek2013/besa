@@ -18,7 +18,7 @@
 
 
             <div class="col-md-12">
-                <?= $this->Form->create(null, array('type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="book-appointment">
                 <p class="light-para">

@@ -52,6 +52,10 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/universities/*', 'Universities::index');
 
         $builder->connect('/contact-us', 'Enquiries::contactUs');
+        $builder->connect('/visistors-application', 'Enquiries::visistorsApplication');
+        $builder->connect('/educational-institution', 'Enquiries::educationalInstitution');
+        $builder->connect('/british-trophy-subscription', 'Enquiries::britishTrophySubscription');
+        $builder->connect('/book-appointment', 'Enquiries::bookAppointment');
         $builder->connect('/about-us', 'Pages::aboutUs');
         // $builder->connect('/pathway-programs', 'Pages::pathwayPrograms');
         // $builder->connect('/pathway-placement', 'Pages::pathwayPlacement');

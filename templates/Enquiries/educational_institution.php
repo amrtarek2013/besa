@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">Educati<br />Instit<< /h1>
+                    <h1 class="relative-text">Educati<br />Instit</h1>
                             <h2 class="title text-left">Educational <br />Institution</h2>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 
 
             <div class="col-md-12 ">
-                <?= $this->Form->create(null, array('type' => 'file', 'id' => 'FormEducationalInstitution', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormEducationalInstitution', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="educational-institution">
                 <p class="light-para">For the purpose of applying regulation, your details are required.</p>
