@@ -2,7 +2,7 @@
 <script src="/intl-tel-input/js/intlTelInput.min.js"></script>
 <style>
     #mobile-code,
-    #phone_code {
+    #phone-code {
         display: none !important;
     }
 </style>
