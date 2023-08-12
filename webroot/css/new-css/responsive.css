@@ -1265,7 +1265,7 @@
 
     .Create-account-banner .container-formBox .grid-container {
         grid-template-columns: 1fr;
-        grid-gap: 0;
+        grid-gap: 20px 0;
     }
 
     .Create-account-banner .container-submit {
@@ -1275,14 +1275,13 @@
     }
 
     .container-submit .checkboxes div label {
-
+        text-wrap: wrap;
         line-height: 1.2;
         width: 90%;
     }
 }
 
 @media (max-width: 767px) {
-    p {}
 
     .navbar .sidenav {
         width: 100%;
@@ -1810,4 +1809,18 @@
     .title .blue-para {
         margin-top: 10px;
     }
+    .Create-account-banner .container-submit .btn {
+        margin-top: 25px;
+    }
+    .ml{
+        padding-left: 10px; 
+
+    }
+    .mr{
+         padding-right: 10px; 
+
+    }
+    .container-formBox h4 {
+      
+        font-size: 22px;}
 }

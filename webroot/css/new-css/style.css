@@ -2338,7 +2338,7 @@ input[type="checkbox"] {
     align-items: center;
 }
 
-.container-submit .checkboxes div {
+.checkboxes div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2348,7 +2348,7 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-.container-submit .checkboxes div label {
+.checkboxes div label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2357,8 +2357,10 @@ input[type="checkbox"] {
     color: #696F79;
 }
 
-.container-submit .checkboxes div label a {
+.checkboxes div label a {
     text-decoration: underline;
+    margin-left: 5px;
+    display: block;
 }
 
 .container-submit .btn {
@@ -8148,9 +8150,12 @@ a.forgot-link {
 }
 
 .educational-institution .container-formBox button[type="submit"] {
-    background: #2575FC;
+    background: #2575FC !important;
 }
 
+.educational-institution .container-submit .checkboxes div label a {
+    color: #2575FC !important;
+}
 
 .educational-institution .form-area textarea,
 .educational-institution .form-area select,
@@ -8176,6 +8181,213 @@ a.forgot-link {
 
 }
 
-input[type="file" i] {
-    
+input[type="file" i] {}
+
+.educational-institution .relative-box-about {
+    left: -95px;
+    top: 35px;
+    max-width: 570px;
+}
+
+.educational-institution .relative-box-about h1 {
+    top: 35px;
+    left: -470px;
+    z-index: -1;
+}
+
+.educational-institution .background-banner-color {
+
+    z-index: 8;
+    position: inherit;
+}
+
+.educational-institution .relative-dots-about {
+    right: -415px;
+    top: 50px;
+}
+
+.educational-institution .light-para {
+    margin: 35px auto 20px;
+
+}
+
+
+
+.special-form {
+    display: flex;
+    align-items: end;
+}
+
+.special-form label {
+    padding: 0;
+    width: 100%;
+}
+
+.special-form input {
+    width: 40%;
+    text-align: center;
+    appearance: none;
+    padding: 0;
+    padding-left: 10px;
+}
+
+.special-form input:hover,
+.special-form input:focus {
+    appearance: none;
+
+}
+
+.special-form input[type="number"]::-webkit-inner-spin-button,
+.special-form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.special-form button {
+    position: absolute;
+    bottom: 15px;
+    right: 70px;
+    background: none;
+
+}
+
+.special-form button.decrement {
+    right: 15px;
+}
+
+.checkboxes div label {
+    margin: 0 !important;
+    ;
+    text-wrap: nowrap;
+
+}
+
+.checkboxes div:last-child {
+    margin: 0;
+}
+
+.british-Trophy button[type="submit"] {
+    margin-top: 25px;
+
+}
+
+.check-en {
+    display: flex;
+    align-items: end;
+}
+
+.british-Trophy .container-formBox {
+    margin-top: 35px;
+
+}
+
+.british-Trophy .relative-box-about {
+    position: absolute;
+    left: 0px;
+    top: 115px;
+    z-index: 2;
+}
+
+.british-Trophy .relative-box-about h1 {
+    top: 115px;
+    left: -80px;
+}
+
+.british-Trophy .relative-dots-about {
+    right: -540px;
+    top: 75px;
+}
+
+.british-Trophy .container-formBox .checkboxes {
+    padding: 0;
+}
+
+.british-Trophy .checkboxes div label {
+    font-size: 13.5px !important;
+
+}
+
+.iti__country {
+    display: block;
+}
+
+.iti {
+    left: 10px;
+    position: absolute !important;
+    bottom: 32px;
+}
+
+.form-area input[type="tel"] {
+    padding-left: 95px;
+}
+
+.iti__country,
+.iti--separate-dial-code .iti__selected-dial-code {
+    color: #878787;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+}
+
+#mobile-code {
+    display: none;
+}
+
+.book-appointment .container-formBox,
+.book-appointment .light-para {
+    max-width: 1106px;
+
+}
+
+.book-appointment .light-para {
+    line-height: normal;
+    margin-bottom: 88px;
+}
+
+.book-appointment .container-formBox {
+    border-top: 14px solid #E3B505;
+
+}
+
+.book-appointment .input select,
+.book-appointment .input textarea,
+.book-appointment .input input:not([type="radio"], [type="checkbox"], [type="range"]),
+.book-appointment .form-area textarea,
+.book-appointment .form-area select,
+.book-appointment .form-area input {
+    border: 1.2px solid #E3B505;
+
+}
+
+.book-appointment .container-formBox button[type="submit"] {
+
+    background: #E3B505 !important;
+    width: 320px;
+    margin: 44px auto 0;
+}
+
+.book-appointment .checkboxes div label {
+    display: flex;
+
+}
+
+.country_code {
+    border: none !important;
+
+}
+
+.book-appointment .relative-box-about {
+    left: -55px;
+
+}
+
+.book-appointment {}
+
+.book-appointment .container-formBox .light-para {
+    margin: 0 0 20px;
+}
+
+.book-appointment .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
 }

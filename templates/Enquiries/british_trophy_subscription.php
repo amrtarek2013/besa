@@ -1,10 +1,10 @@
-<section class="main-banner Create-account-banner  visitors-application">
+<section class="main-banner Create-account-banner visitors-application educational-institution  british-Trophy">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
 
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/customer-support-flat.png" alt="customer support">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -55,25 +55,22 @@
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
-                        <?= $this->element('security_code', ['show_label' => true]) ?>
-
-                    </div>
-
-                    <div class="container-submit">
-
-                        <div class="checkboxes">
-                            <div>
-                                <input type="checkbox" name="terms" id="terms" required="required">
-                                <label for="">I agree to <a href="#">terms & conditions</a> </label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="is_subscribed" id="is_subscribed">
-                                <label for="">I’d like being informed about latest news and tips</label>
+                        <?php /* $this->element('security_code', ['show_label' => true]) */?>
+                        <div class="form-area check-en">
+                            <div class="checkboxes">
+                                <div>
+                                    <input type="checkbox" name="terms" id="terms" required="required">
+                                    <label for="">I agree to <a href="#">terms & conditions</a> </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="is_subscribed" id="is_subscribed">
+                                    <label for="">I’d like being informed about latest news and tips</label>
+                                </div>
                             </div>
                         </div>
-                        <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
-
                     </div>
+
+                    
                     <button type="submit" class="btn greenish-teal">Submit</button>
 
                 </div>
