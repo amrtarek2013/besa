@@ -34,7 +34,14 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <div class="form-area ">
+                       
+
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                         <div class="form-area ">
                             <?= $this->Form->label('mobile', 'Mobile*') ?>
                             <?= $this->Form->control('mobile', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
@@ -44,12 +51,6 @@
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
                         </div>
-
-                        <?= $this->Form->control('email', [
-                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-
 
                         <?= $this->Form->control('destination_id', [
                             'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',
@@ -68,10 +69,10 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->element('security_code', ['show_label' => true]) ?>
+                        <?php /*$this->element('security_code', ['show_label' => true])*/ ?>
 
                     </div>
-
+                            <!--
                     <div class="container-submit">
 
                         <div class="checkboxes">
@@ -84,9 +85,8 @@
                                 <label for="">I’d like being informed about latest news and tips</label>
                             </div>
                         </div>
-                        <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
 
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn greenish-teal">Submit</button>
 
                 </div>

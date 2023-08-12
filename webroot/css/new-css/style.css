@@ -8359,25 +8359,35 @@ input[type="file" i] {}
     border: 1.2px solid #E3B505;
 
 }
-.book-appointment .container-formBox button[type="submit"]{
-    background: #E3B505;
+
+.book-appointment .container-formBox button[type="submit"] {
+
+    background: #E3B505 !important;
+    width: 320px;
+    margin: 44px auto 0;
 }
-.book-appointment .checkboxes div label{
+
+.book-appointment .checkboxes div label {
     display: flex;
 
 }
+
 .country_code {
     border: none !important;
 
 }
 
-.book-appointment .relative-box-about{
+.book-appointment .relative-box-about {
     left: -55px;
 
 }
-.book-appointment{
 
-}
+.book-appointment {}
+
 .book-appointment .container-formBox .light-para {
     margin: 0 0 20px;
+}
+
+.book-appointment .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
 }
