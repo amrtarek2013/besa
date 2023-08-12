@@ -88,24 +88,10 @@
               <?= $this->Form->control('mobile', [
                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
               ]) ?>
-              <?php
-              if (isset($_GET['testdk'])) {
-              ?>
-                <?= $this->Form->control('mobile_code', [
-                  'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-                  'type' => 'select',
-                  // 'options' => $countriesCodesList,
-                  // 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) ?>
-              <?php } else { ?>
-
-                <?= $this->Form->control('mobile_code', [
-                  'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                  'type' => 'select',
-                  'options' => $countriesCodesList,
-                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) ?>
-              <?php } ?>
+              <?= $this->Form->control('mobile_code', [
+                'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
+                'type' => 'select',
+              ]) ?>
             </div>
 
             <!-- <?= $this->Form->control('email', [
