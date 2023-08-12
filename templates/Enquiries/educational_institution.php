@@ -1,13 +1,13 @@
 <section class="main-banner Create-account-banner visitors-application educational-institution">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="background-banner-color">
                     <img src="<?= WEBSITE_URL ?>img/Welcome-2.png" alt="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Institution</h1>
                             <h2 class="title text-left">Educational <br />Institution</h2>
