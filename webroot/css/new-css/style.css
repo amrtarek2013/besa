@@ -8273,3 +8273,18 @@ input[type="file" i] {
     display: flex;
     align-items: end;
 }
+
+.british-Trophy .container-formBox{
+    margin-top: 35px;
+
+}
+.british-Trophy .relative-box-about {
+    position: absolute;
+    left: 0px;
+    top: 115px;
+    z-index: 2;
+}
+.british-Trophy .relative-box-about h1 {
+    top: 115px;
+    left: -80px;
+}

@@ -1,4 +1,4 @@
-<section class="main-banner Create-account-banner  british-Trophy">
+<section class="main-banner Create-account-banner visitors-application educational-institution  british-Trophy">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
