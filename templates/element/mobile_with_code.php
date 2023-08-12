@@ -3,7 +3,7 @@
 <style>
     #mobile-code,
     #phone_code {
-        display: none;
+        display: none !important;
     }
 </style>
 <div class="form-area ">
