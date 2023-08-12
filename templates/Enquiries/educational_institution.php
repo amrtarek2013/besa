@@ -47,7 +47,7 @@
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
                         </div> -->
-                        <div class="form-area ">
+                        <!-- <div class="form-area ">
                             <?= $this->Form->label('phone', 'Mobile*') ?>
                             <?= $this->Form->control('phone', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
@@ -56,7 +56,10 @@
                                 'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
                                 'type' => 'select',
                             ]) ?>
-                        </div>
+                        </div> -->
+
+
+                        <?= $this->element('mobile_with_code', ['phone_name' => 'phone', 'phone_label' => 'Mobile', 'phone_code' => 'phone_code']) ?>
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,

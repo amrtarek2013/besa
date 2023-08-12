@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
-<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
+<!-- <link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
+<script src="/intl-tel-input/js/intlTelInput.min.js"></script> -->
 <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
@@ -83,7 +83,7 @@
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <div class="form-area ">
+            <!-- <div class="form-area ">
               <?= $this->Form->label('mobile', 'Mobile*') ?>
               <?= $this->Form->control('mobile', [
                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
@@ -92,7 +92,11 @@
                 'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
                 'type' => 'select',
               ]) ?>
-            </div>
+            </div> -->
+            
+
+            <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+
 
             <!-- <?= $this->Form->control('email', [
                     'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
@@ -285,19 +289,19 @@
     } else
       $('#subject-area').show();
   });
-  var input = document.querySelector(".mobile_code");
-  window.intlTelInput(input, {
-    // show dial codes too
-    separateDialCode: true,
-    // If there are some countries you want to show on the top.
-    // here we are promoting russia and singapore.
-    preferredCountries: ["eg", "gbp", "us"],
-    //Default country
-    initialCountry: "eg",
-    // show only these countres, remove all other
-    // onlyCountries: ["ru", "cn", "pk", "sg", "my", "bd"],
-    // If there are some countries you want to execlde.
-    // here we are exluding india and israel.
-    // excludeCountries: ["in", "il"]
-  });
+  // var input = document.querySelector(".mobile_code");
+  // window.intlTelInput(input, {
+  //   // show dial codes too
+  //   separateDialCode: true,
+  //   // If there are some countries you want to show on the top.
+  //   // here we are promoting russia and singapore.
+  //   preferredCountries: ["eg", "gbp", "us"],
+  //   //Default country
+  //   initialCountry: "eg",
+  //   // show only these countres, remove all other
+  //   // onlyCountries: ["ru", "cn", "pk", "sg", "my", "bd"],
+  //   // If there are some countries you want to execlde.
+  //   // here we are exluding india and israel.
+  //   // excludeCountries: ["in", "il"]
+  // });
 </script>

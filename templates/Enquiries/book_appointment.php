@@ -52,16 +52,8 @@
                             ]) ?>
                         </div> -->
 
-                        <div class="form-area ">
-                            <?= $this->Form->label('phone', 'Mobile*') ?>
-                            <?= $this->Form->control('phone', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('phone_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-                                'type' => 'select',
-                            ]) ?>
-                        </div>
+
+                        <?= $this->element('mobile_with_code', ['phone_name' => 'phone', 'phone_label' => 'Mobile', 'phone_code' => 'phone_code']) ?>
 
                         <?= $this->Form->control('destination_id', [
                             'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',
