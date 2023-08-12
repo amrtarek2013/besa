@@ -10,7 +10,7 @@
             <div class="col-md-6">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Book </h1>
-                    <h2 class="title text-left">Book an <br />Appointment</h2>
+                    <h2 class="title text-left">Book an <br />appointment</h2>
                 </div>
             </div>
 

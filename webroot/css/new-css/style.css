@@ -2348,7 +2348,7 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
- .checkboxes div label {
+.checkboxes div label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2357,7 +2357,7 @@ input[type="checkbox"] {
     color: #696F79;
 }
 
- .checkboxes div label a {
+.checkboxes div label a {
     text-decoration: underline;
     margin-left: 5px;
     display: block;
@@ -8153,9 +8153,10 @@ a.forgot-link {
     background: #2575FC !important;
 }
 
-.educational-institution .container-submit .checkboxes div label a{
+.educational-institution .container-submit .checkboxes div label a {
     color: #2575FC !important;
 }
+
 .educational-institution .form-area textarea,
 .educational-institution .form-area select,
 .educational-institution .form-area input {
@@ -8180,9 +8181,7 @@ a.forgot-link {
 
 }
 
-input[type="file" i] {
-    
-}
+input[type="file" i] {}
 
 .educational-institution .relative-box-about {
     left: -95px;
@@ -8197,12 +8196,12 @@ input[type="file" i] {
 }
 
 .educational-institution .background-banner-color {
-   
+
     z-index: 8;
     position: inherit;
 }
 
-.educational-institution  .relative-dots-about {
+.educational-institution .relative-dots-about {
     right: -415px;
     top: 50px;
 }
@@ -8214,25 +8213,26 @@ input[type="file" i] {
 
 
 
-.special-form{
+.special-form {
     display: flex;
     align-items: end;
 }
 
-.special-form  label {
+.special-form label {
     padding: 0;
     width: 100%;
 }
 
-.special-form input{
+.special-form input {
     width: 40%;
     text-align: center;
     appearance: none;
     padding: 0;
     padding-left: 10px;
 }
+
 .special-form input:hover,
-.special-form input:focus{
+.special-form input:focus {
     appearance: none;
 
 }
@@ -8241,7 +8241,8 @@ input[type="file" i] {
 .special-form input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
-.special-form  button{
+
+.special-form button {
     position: absolute;
     bottom: 15px;
     right: 70px;
@@ -8249,51 +8250,58 @@ input[type="file" i] {
 
 }
 
-.special-form  button.decrement{
+.special-form button.decrement {
     right: 15px;
 }
 
-.checkboxes div label{
-    margin: 0 !important;;
+.checkboxes div label {
+    margin: 0 !important;
+    ;
     text-wrap: nowrap;
 
 }
+
 .checkboxes div:last-child {
     margin: 0;
 }
-.british-Trophy  button[type="submit"]{
+
+.british-Trophy button[type="submit"] {
     margin-top: 25px;
 
 }
 
-.check-en{
+.check-en {
     display: flex;
     align-items: end;
 }
 
-.british-Trophy .container-formBox{
+.british-Trophy .container-formBox {
     margin-top: 35px;
 
 }
+
 .british-Trophy .relative-box-about {
     position: absolute;
     left: 0px;
     top: 115px;
     z-index: 2;
 }
+
 .british-Trophy .relative-box-about h1 {
     top: 115px;
     left: -80px;
 }
+
 .british-Trophy .relative-dots-about {
     right: -540px;
     top: 75px;
 }
 
-.british-Trophy .container-formBox .checkboxes{
+.british-Trophy .container-formBox .checkboxes {
     padding: 0;
 }
-.british-Trophy  .checkboxes div label{
+
+.british-Trophy .checkboxes div label {
     font-size: 13.5px !important;
 
 }
@@ -8301,16 +8309,19 @@ input[type="file" i] {
 .iti__country {
     display: block;
 }
-.iti{
+
+.iti {
     left: 10px;
     position: absolute !important;
     bottom: 32px;
 }
+
 .form-area input[type="tel"] {
     padding-left: 95px;
 }
+
 .iti__country,
-.iti--separate-dial-code .iti__selected-dial-code{
+.iti--separate-dial-code .iti__selected-dial-code {
     color: #878787;
     font-family: 'Poppins';
     font-style: normal;
@@ -8319,27 +8330,53 @@ input[type="file" i] {
 
 }
 
-#mobile-code{
+#mobile-code {
     display: none;
 }
+
 .book-appointment .container-formBox,
-.book-appointment  .light-para{
+.book-appointment .light-para {
     max-width: 1106px;
 
 }
-.book-appointment  .light-para{ line-height: normal;}
 
-.book-appointment .container-formBox{
+.book-appointment .light-para {
+    line-height: normal;
+}
+
+.book-appointment .container-formBox {
     border-top: 14px solid #E3B505;
 
 }
 
-.form-area textarea, .form-area select, .form-area input{
+.book-appointment .input select,
+.book-appointment .input textarea,
+.book-appointment .input input:not([type="radio"], [type="checkbox"], [type="range"]),
+.book-appointment .form-area textarea,
+.book-appointment .form-area select,
+.book-appointment .form-area input {
     border: 1.2px solid #E3B505;
 
 }
+.book-appointment .container-formBox button[type="submit"]{
+    background: #E3B505;
+}
+.book-appointment .checkboxes div label{
+    display: flex;
 
-.country_code{
+}
+.country_code {
     border: none !important;
 
+}
+
+.book-appointment .relative-box-about{
+    left: -55px;
+
+}
+.book-appointment{
+    
+}
+.book-appointment .container-formBox .light-para {
+    margin: 0 0 20px;
 }
