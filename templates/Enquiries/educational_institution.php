@@ -66,16 +66,17 @@
                                 'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>'
                             ]
                         ]) ?>
-<?= $this->Form->control('attending_students_no', [
-    'type' => 'number',
-    'label' => 'Number of attending students*',
-    'required' => true,
-    'templates' => [
-        'inputContainer' => '<div class="special-form form-area custom-number-input">{{content}}</div>',
-        'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>',
-    ],
-    'after' => '<button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>',
-]) ?>
+                        <?= $this->Form->control('attending_students_no', [
+                            'type' => 'number',
+                            'label' => 'Number of attending students*',
+                            'required' => true,
+                            'templates' => [
+                                'inputContainer' => '<div class="special-form form-area">{{content}}<div class="df">{{append}}</div></div>',
+                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>',
+                                'inputContainerError' => '<div class="special-form form-area error">{{content}}<div class="df">{{append}}</div>{{error}}</div>',
+                            ],
+                            'append' => '<button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>',
+                        ]) ?>
 
 
 
