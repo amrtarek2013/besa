@@ -8296,3 +8296,7 @@ input[type="file" i] {
 .british-Trophy .container-formBox .checkboxes{
     padding: 0;
 }
+.british-Trophy  .checkboxes div label{
+    font-size: 13.5px !important;
+
+}
