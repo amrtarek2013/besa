@@ -153,7 +153,7 @@ class CounselorsController extends AppController
                 } else {
 
                     $this->Flash->error(__($return['message']));
-                    $this->redirect('/counselor/register');
+                    $this->redirect('/counselor');
                 }
             }
         }
@@ -183,7 +183,7 @@ class CounselorsController extends AppController
             $counselor->password = $data['password'];
             $this->Counselors->save($counselor);
             // dd($data);
-            $this->redirect('/counselor/register');
+            $this->redirect('/counselor');
         }
     }
 
@@ -873,7 +873,7 @@ class CounselorsController extends AppController
         $counselor = $this->is_counselor();
         if (!$this->is_counselor()) {
             $this->Flash->error('You must login first', "fail alert alert-error");
-            $this->redirect('/counselor/register');
+            $this->redirect('/counselor');
         }
         // $this->get_dynamic_layout("dashboard");
         if (!empty($this->data)) {
