@@ -55,7 +55,10 @@
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
-                        <?php /* $this->element('security_code', ['show_label' => true]) */?>
+                        <?php /* $this->element('security_code', ['show_label' => true]) */ ?>
+
+                        <?= $this->element('security_code', ['show_label' => true]) ?>
+
                         <div class="form-area check-en">
                             <div class="checkboxes">
                                 <div>
@@ -70,7 +73,7 @@
                         </div>
                     </div>
 
-                    
+
                     <button type="submit" class="btn greenish-teal">Submit</button>
 
                 </div>
