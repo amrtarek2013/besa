@@ -8257,7 +8257,7 @@ input[type="file" i] {
 }
 
 .checkboxes div label{
-    margin: 0;
+    margin: 0 !important;;
     text-wrap: nowrap;
 
 }
@@ -8287,4 +8287,12 @@ input[type="file" i] {
 .british-Trophy .relative-box-about h1 {
     top: 115px;
     left: -80px;
+}
+.british-Trophy .relative-dots-about {
+    right: -540px;
+    top: 75px;
+}
+
+.british-Trophy .container-formBox .checkboxes{
+    padding: 0;
 }
