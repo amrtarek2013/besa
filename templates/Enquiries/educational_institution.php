@@ -10,7 +10,7 @@
             <div class="col-md-6">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Educati<br />Instit</h1>
-                            <h2 class="title text-left">Educational <br />Institution</h2>
+                    <h2 class="title text-left">Educational <br />Institution</h2>
                 </div>
             </div>
 
@@ -57,12 +57,12 @@
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-                        
+
                         <?php /*$this->Form->control('certificate', [
                             'type' => 'file',
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                        ]); */?>
+                        ]); */ ?>
 
                         <?= $this->Form->control('certificate', [
                             'type' => 'file',
