@@ -353,7 +353,7 @@ class AppController extends Controller
                         ],
                         'loginAction' => [
                             'controller' => 'Counselors',
-                            'action' => 'register',
+                            'action' => 'index',
                         ],
                         'loginRedirect' => [
                             'controller' => 'Counselors',
@@ -361,7 +361,7 @@ class AppController extends Controller
                         ],
                         'logoutRedirect' => [
                             'controller' => 'Counselors',
-                            'action' => 'register',
+                            'action' => 'index',
                         ],
                         'storage' => [
                             'className' => 'Session',

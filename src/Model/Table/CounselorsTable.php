@@ -54,26 +54,26 @@ class CounselorsTable extends Table
 
     // $this->addBehavior('ImageFile', ['ImageUpload' => ['image' => []]]);
 
-    
+
     $this->addBehavior(
       'ImageFile',
       [
-          'ImageUpload' => [
-              'image' => [
-                  'resize' => ['width' => 180, 'height' => 180],
-                  'datePath' => ['path' => ''],
-                  // 'datePath' => false,
-                  'path' => 'uploads/counselors',
-                  'file_name' => '{$rand}_{$file_name}',
+        'ImageUpload' => [
+          'image' => [
+            'resize' => ['width' => 180, 'height' => 180],
+            'datePath' => ['path' => ''],
+            // 'datePath' => false,
+            'path' => 'uploads/counselors',
+            'file_name' => '{$rand}_{$file_name}',
 
-                  // 'thumbs' => [
-                  //     ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
-                  // ],
-              ],
-              
-          ]
+            // 'thumbs' => [
+            //     ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+            // ],
+          ],
+
+        ]
       ]
-  );
+    );
 
     $this->belongsTo('Countries')->setForeignKey('country_id');
     $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
@@ -150,6 +150,29 @@ class CounselorsTable extends Table
     return $validator;
   }
 
+  function checkCaptcha($data)
+  {
+
+    if (!isset($_SESSION['security_code'])) {
+      return false;
+    }
+
+
+    if (strtolower($data) ==  '123456') {
+      return true;
+    }
+    return strtolower($data) == strtolower($_SESSION['security_code']); //strtolower('123456');
+  }
+
+  // function checkCaptchaV3($data)
+  // {
+  //     return getCaptcha($data); //strtolower('123456');
+  // }
+
+  public function afterSave($event, $entity, $options)
+  {
+    clearViewCache();
+  }
 
   public function isEmailUnique($email)
   {

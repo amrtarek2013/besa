@@ -520,8 +520,9 @@ class CounselorsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
 
             $this->data = $this->request->getData();
+            // dd($this->data);
             $existed_counselor = $this->Counselors->find()->where(["email" => $this->data['email']])->first();
-
+            // dd($existed_counselor);
             if ($existed_counselor) {
                 if ($this->request->is('ajax')) {
                     die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
@@ -567,7 +568,7 @@ class CounselorsController extends AppController
                     // die(json_encode($return));
                 } else {
 
-                    // dd($counselorEntity->getErrors());
+                    dd($counselorEntity->getErrors());
 
 
                     $return['url']    = "/counselor/dashboard";
