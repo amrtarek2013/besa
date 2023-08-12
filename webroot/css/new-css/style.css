@@ -8148,10 +8148,12 @@ a.forgot-link {
 }
 
 .educational-institution .container-formBox button[type="submit"] {
-    background: #2575FC;
+    background: #2575FC !important;
 }
 
-
+.educational-institution .container-submit .checkboxes div label a{
+    color: #2575FC !important;
+}
 .educational-institution .form-area textarea,
 .educational-institution .form-area select,
 .educational-institution .form-area input {
