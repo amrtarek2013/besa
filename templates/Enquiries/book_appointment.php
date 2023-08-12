@@ -34,14 +34,14 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                       
+
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                         <div class="form-area ">
+                        <div class="form-area ">
                             <?= $this->Form->label('mobile', 'Mobile*') ?>
                             <?= $this->Form->control('mobile', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
@@ -69,10 +69,10 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?php /*$this->element('security_code', ['show_label' => true])*/ ?>
+                        <?= $this->element('security_code', ['show_label' => true]) ?>
 
                     </div>
-                            <!--
+                    <!--
                     <div class="container-submit">
 
                         <div class="checkboxes">
