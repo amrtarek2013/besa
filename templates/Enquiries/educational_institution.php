@@ -58,14 +58,14 @@
                             'templates' => ['inputContainer' => '<div class="special-form form-area {{rquired}}">{{content}}</div>']
                         ]) */?>
                         <?= $this->Form->control('attending_students_no', [
-    'type' => 'number',
-    'label' => 'Number of attending students*',
-    'required' => true,
-    'templates' => [
-        'inputContainer' => '<div class="form-area">{{content}}</div>',
-        'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment">+</button><button class="decrement">-</button>'
-    ]
-]) ?>
+                            'type' => 'number',
+                            'label' => 'Number of attending students*',
+                            'required' => true,
+                            'templates' => [
+                                'inputContainer' => '<div class=" special-form form-area">{{content}}</div>',
+                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment">+</button><button class="decrement">-</button>'
+                            ]
+                        ]) ?>
 
 
                         
