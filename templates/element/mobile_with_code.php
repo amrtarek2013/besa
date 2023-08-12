@@ -24,9 +24,9 @@
         separateDialCode: true,
         // If there are some countries you want to show on the top.
         // here we are promoting russia and singapore.
-        preferredCountries: ["eg", "gb", "us"],
+        // preferredCountries: ["eg", "gb", "us"],
         //Default country
-        initialCountry: "eg",
+        // initialCountry: "eg",
         // show only these countres, remove all other
         // onlyCountries: ["ru", "cn", "pk", "sg", "my", "bd"],
         // If there are some countries you want to execlde.
