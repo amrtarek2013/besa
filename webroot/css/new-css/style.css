@@ -8212,10 +8212,7 @@ input[type="file" i] {
 
 }
 
-.country_code{
-    border: none !important;
 
-}
 
 .special-form{
     display: flex;
@@ -8324,4 +8321,25 @@ input[type="file" i] {
 
 #mobile-code{
     display: none;
+}
+.book-appointment .container-formBox,
+.book-appointment  .light-para{
+    max-width: 1106px;
+
+}
+.book-appointment  .light-para{ line-height: normal;}
+
+.book-appointment .container-formBox{
+    border-top: 14px solid #E3B505;
+
+}
+
+.form-area textarea, .form-area select, .form-area input{
+    border: 1.2px solid #E3B505;
+
+}
+
+.country_code{
+    border: none !important;
+
 }
