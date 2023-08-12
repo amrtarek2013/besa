@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
 <script src="/intl-tel-input/js/intlTelInput.min.js"></script>
-
+<style>
+    #mobile-code,
+    #phone_code {
+        display: none;
+    }
+</style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
     <?= $this->Form->control($phone_name, [
