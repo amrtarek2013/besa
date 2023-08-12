@@ -63,9 +63,10 @@
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class=" special-form form-area">{{content}}</div>',
-                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment">+</button><button class="decrement">-</button>'
+                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>'
                             ]
                         ]) ?>
+
 
 
                         
