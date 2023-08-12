@@ -8231,13 +8231,18 @@ input[type="file" i] {
     appearance: none;
     
 }
+.special-form input:focus{
+    appearance: none;
 
+}
 .special-form  button{
     position: absolute;
     bottom: 15px;
-    right: 95px;
+    right: 70px;
+    background: none;
+
 }
 
 .special-form  button.decrement{
-    right: 5px;
+    right: 15px;
 }
