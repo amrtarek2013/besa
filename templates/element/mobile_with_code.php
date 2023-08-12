@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
+<link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.min.css" />
 <script src="/intl-tel-input/js/intlTelInput.min.js"></script>
 <style>
     #mobile-code,
