@@ -8229,5 +8229,15 @@ input[type="file" i] {
     width: 40%;
     text-align: center;
     appearance: none;
-    ap
+    
+}
+
+.special-form  button{
+    position: absolute;
+    bottom: 15px;
+    right: 95px;
+}
+
+.special-form  button.decrement{
+    right: 5px;
 }
