@@ -50,7 +50,7 @@ class CounselorsController extends AppController
         // $popup_image = $this->getSnippet_image('counselor_login_success');
         if ($counselorData) {
 
-            $return['url']    = "/counselor";
+            $return['url']    = "/counselor/dashboard";
             $return['status']  = 1;
             // $return['message'] = 'Success';
             $return['message'] = $msg;
@@ -81,7 +81,7 @@ class CounselorsController extends AppController
             $uuu = $this->Counselors->find()->where(['email' => $p_data['email']])->first();
             // debug($uuu);
             // debug($p_data);
-            $p_data['password'] = (new \Cake\Auth\DefaultPasswordHasher())->hash($p_data['password']);
+            // $p_data['password'] = (new \Cake\Auth\DefaultPasswordHasher())->hash($p_data['password']);
 
 
             $red_url = "/counselor/profile";
@@ -342,46 +342,6 @@ class CounselorsController extends AppController
     }
 
 
-    public function workTimes($id = null)
-    {
-        $counselor = $this->Counselors->get($id);
-        $this->loadModel('CounselorWorkDayTimes');
-        $counselorWorkDayTimes = $this->CounselorWorkDayTimes->find('all', array('conditions' => ['CounselorWorkDayTimes.counselor_id' => $id], 'order' => array('CounselorWorkDayTimes.id' => 'desc'), 'contain' => []))->toArray();
-
-        if (!empty($counselorWorkDayTimes)) {
-
-            $counselorWorkDayTimes = Hash::combine($counselorWorkDayTimes, '{n}.day', '{n}');
-        }
-
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $formData = $this->request->getData();
-
-            foreach ($formData['CounselorWorkDayTimes'] as $time) {
-
-                $time['counselor_id'] = $id;
-
-                if (!empty($time['id'])) {
-                    $emptyEntity = $this->CounselorWorkDayTimes->get($time['id']);
-                } else {
-                    $emptyEntity = $this->CounselorWorkDayTimes->newEmptyEntity();
-                }
-
-                $entity = $this->CounselorWorkDayTimes->patchEntity($emptyEntity, $time);
-
-                $this->CounselorWorkDayTimes->save($entity);
-            }
-
-            $this->Flash->success(__('The Counselor Work Time has been saved.'));
-            return $this->redirect(['action' => 'workTimes', $id]);
-        }
-
-
-        $days = daysList();
-        $this->set(compact('counselor', 'days', 'id', 'counselorWorkDayTimes'));
-    }
-
 
     public function index()
     {
@@ -403,7 +363,7 @@ class CounselorsController extends AppController
         // dd($counselorData);
         if ($counselorData) {
             if ($this->request->is('ajax')) {
-                $return['url']    = "/counselor";
+                $return['url']    = "/counselor/dashboard";
                 $return['status']  = 1;
 
                 $return['message'] = $msg;
@@ -455,7 +415,7 @@ class CounselorsController extends AppController
                     $this->sendEmail($to, $from, 'counselor.notify_counselor_registration', $replace);
                     $this->sendEmail(false, $from, 'admin.notify_counselor_registration', $replace);
 
-                    $return['url']    = "/counselor";
+                    $return['url']    = "/counselor/dashboard";
                     $return['status']  = 1;
                     $return['message'] = $msg;
                     $return['type']    = 'register';
@@ -470,7 +430,7 @@ class CounselorsController extends AppController
                     // dd($counselorEntity->getErrors());
 
 
-                    $return['url']    = "/counselor";
+                    $return['url']    = "/counselor/dashboard";
                     $return['status']  = 0;
                     $return['validationErrors']  = $counselorEntity->getErrors();
                     $return['message'] = 'Invalid credentials, try again';
@@ -530,9 +490,6 @@ class CounselorsController extends AppController
         }
         $this->set('bodyClass', '');
 
-
-
-
         $counselorData = $this->Auth->user();
 
         $return                          = [];
@@ -541,7 +498,7 @@ class CounselorsController extends AppController
         // dd($counselorData);
         if ($counselorData) {
             if ($this->request->is('ajax')) {
-                $return['url']    = "/counselor";
+                $return['url']    = "/counselor/dashboard";
                 $return['status']  = 1;
 
                 $return['message'] = $msg;
@@ -553,6 +510,170 @@ class CounselorsController extends AppController
 
                 $this->Flash->success(__('Welcome'));
                 $this->redirect('/counselor');
+            }
+        }
+        // Configure::write('debug', false);
+
+        $counselorEntity = $this->Counselors->newEmptyEntity();
+        $validation                      = ['validate' => 'register'];
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $this->data = $this->request->getData();
+            $existed_counselor = $this->Counselors->find()->where(["email" => $this->data['email']])->first();
+
+            if ($existed_counselor) {
+                if ($this->request->is('ajax')) {
+                    die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
+                } else {
+
+                    $this->Flash->error(__('This counselor already exist!!'));
+                }
+            } else {
+                $counselorEntity = $this->Counselors->patchEntity($counselorEntity, $this->data, $validation);
+
+                if ($this->Session->check('search_url'))
+                    $counselorEntity->last_url = $this->Session->read('search_url');
+                if ($this->Counselors->save($counselorEntity)) {
+                    $id = $counselorEntity->id;
+
+                    $counselor = $this->Counselors->get($id);
+
+                    $to = $counselor['email'];
+
+                    $from    = $this->g_configs['general']['txt.send_mail_from'];
+                    $replace = array(
+                        '{%first_name%}' => $counselor['first_name'],
+                        '{%last_name%}'  => $counselor['last_name'],
+                        // '{%username%}'  => $counselor['username'],
+                        '{%email%}'  => $counselor['email'],
+                        '{%mobile%}'  => $counselor['mobile'],
+                    );
+
+                    $this->sendEmail($to, $from, 'counselor.notify_counselor_registration', $replace);
+                    $url = '<a href="' . Router::url('/admin/counselors/edit/' . $counselor['id'], true) . '" >View</a>';
+                    $replace['{%view_link%}'] = $url;
+                    $this->sendEmail($to, $from, 'admin.notify_counselor_registration', $replace);
+
+                    $return['url']    = "/counselor/dashboard";
+                    $return['status']  = 1;
+                    $return['message'] = $msg;
+                    $return['type']    = 'register';
+                    $return['title'] = 'Thank You';
+                    $return['url_text'] = 'Continue';
+
+                    $this->sendConfirmationEmail($counselor);
+                    // $this->Auth->setUser($counselor->toArray());
+                    // die(json_encode($return));
+                } else {
+
+                    // dd($counselorEntity->getErrors());
+
+
+                    $return['url']    = "/counselor/dashboard";
+                    $return['status']  = 0;
+                    $return['validationErrors']  = $counselorEntity->getErrors();
+                    $return['message'] = 'Invalid credentials, try again';
+
+                    // $return['message'] = $this->getSnippet('counselor_register_error');
+                    $return['type']    = 'register';
+                    $return['title'] = 'Info';
+
+                    // die(json_encode($return));
+                }
+
+                // dd($return);
+
+                if ($this->request->is('ajax')) {
+                    echo json_encode($return);
+                    exit();
+                } else {
+                    if ($return['status']) {
+                        $this->Flash->success(__($return['message']));
+                        $this->redirect('/counselor/dashboard');
+                    } else {
+
+                        $this->Flash->error(__($return['message']));
+                    }
+                }
+            }
+        }
+
+
+        $this->set('counselor', $counselorEntity);
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1])->order(['country_name' => 'asc']);
+        $this->set('countriesList', $countriesList);
+
+
+        $destinationsList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+        $this->set('destinationsList', $destinationsList);
+
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code', 'country_name', 'flag'
+        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+
+        $countriesCodesList = Hash::combine(
+            $countriesCodesList->toArray(),
+            '{n}.phone_code',
+            // ['<img src="%s" /> %s +%s', '{n}.flag_path', '{n}.country_name', '{n}.phone_code']
+            ['+%s', '{n}.phone_code']
+        );
+        // dd($countriesCodesList);
+        $this->set('countriesCodesList', $countriesCodesList);
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        $this->set('studyLevels', $studyLevels);
+
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
+
+        // $this->redirect('/');
+    }
+
+    /*
+    public function register()
+    {
+
+        if ($this->request->is('ajax')) {
+            $this->viewBuilder()->disableAutoLayout();
+        }
+        $this->set('bodyClass', '');
+
+
+
+
+        $counselorData = $this->Auth->user();
+
+        $return                          = [];
+
+        $msg = $this->getSnippet('counselor_register_success');
+        // dd($counselorData);
+        if ($counselorData) {
+            if ($this->request->is('ajax')) {
+                $return['url']    = "/counselor/dashboard";
+                $return['status']  = 1;
+
+                $return['message'] = $msg;
+                $return['type']    = 'login';
+                $return['title'] = 'Thank You';
+                die(json_encode($return));
+                // die(json_encode(array('status' => 'failed', 'message' => __('This counselor already exist!!'))));
+            } else {
+
+                $this->Flash->success(__('Welcome'));
+                $this->redirect('/counselor/dashboard');
             }
         }
         // Configure::write('debug', false);
@@ -593,7 +714,7 @@ class CounselorsController extends AppController
                     $this->sendEmail($to, $from, 'counselor.notify_counselor_registration', $replace);
                     $this->sendEmail(false, $from, 'admin.notify_counselor_registration', $replace);
 
-                    $return['url']    = "/counselor";
+                    $return['url']    = "/counselor/dashboard";
                     $return['status']  = 1;
                     $return['message'] = $msg;
                     $return['type']    = 'register';
@@ -608,7 +729,7 @@ class CounselorsController extends AppController
                     // dd($counselorEntity->getErrors());
 
 
-                    $return['url']    = "/counselor";
+                    $return['url']    = "/counselor/dashboard";
                     $return['status']  = 0;
                     $return['validationErrors']  = $counselorEntity->getErrors();
                     $return['message'] = 'Invalid credentials, try again';
@@ -628,7 +749,7 @@ class CounselorsController extends AppController
                 } else {
                     if ($return['status']) {
                         $this->Flash->success(__($return['message']));
-                        $this->redirect('/counselor');
+                        $this->redirect('/counselor/dashboard');
                     } else {
 
                         $this->Flash->error(__($return['message']));
@@ -645,7 +766,7 @@ class CounselorsController extends AppController
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
     }
-
+    */
     public function profile()
     {
 
