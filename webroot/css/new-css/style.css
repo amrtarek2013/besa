@@ -8342,6 +8342,7 @@ input[type="file" i] {}
 
 .book-appointment .light-para {
     line-height: normal;
+    margin-bottom: 88px;
 }
 
 .book-appointment .container-formBox {
@@ -8375,7 +8376,7 @@ input[type="file" i] {}
 
 }
 .book-appointment{
-    
+
 }
 .book-appointment .container-formBox .light-para {
     margin: 0 0 20px;
