@@ -254,9 +254,6 @@ class UsersController extends AppController
      */
     public function logout()
     {
-
-        // 
-
         // $this->Session->delete('User');
         return $this->redirect($this->Auth->logout());
     }
@@ -288,9 +285,7 @@ class UsersController extends AppController
         $this->Users->save($user);
 
         $this->sendEmail($user['email'], false, 'user.re-confirm-email-address', $un_replace, []);
-
         $this->Flash->success(__('The confirmation email has been sent.'));
-
         return $this->redirect('/');
     }
     public function confirmEmail($confirm_code = null)
