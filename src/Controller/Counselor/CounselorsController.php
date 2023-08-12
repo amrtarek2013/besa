@@ -374,7 +374,7 @@ class CounselorsController extends AppController
             } else {
 
                 $this->Flash->success(__('Welcome'));
-                $this->redirect('/counselor');
+                $this->redirect('/counselor/dashboard');
             }
         }
         // Configure::write('debug', false);
