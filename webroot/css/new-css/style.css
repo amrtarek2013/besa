@@ -2359,6 +2359,8 @@ input[type="checkbox"] {
 
  .checkboxes div label a {
     text-decoration: underline;
+    margin-left: 5px;
+    display: block;
 }
 
 .container-submit .btn {
@@ -8252,4 +8254,22 @@ input[type="file" i] {
 
 .special-form  button.decrement{
     right: 15px;
+}
+
+.checkboxes div label{
+    margin: 0;
+    text-wrap: nowrap;
+
+}
+.checkboxes div:last-child {
+    margin: 0;
+}
+.british-Trophy  button[type="submit"]{
+    margin-top: 25px;
+
+}
+
+.check-en{
+    display: flex;
+    align-items: end;
 }

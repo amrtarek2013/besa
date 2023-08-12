@@ -1,4 +1,4 @@
-<section class="main-banner Create-account-banner  visitors-application">
+<section class="main-banner Create-account-banner  british-Trophy">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -56,7 +56,7 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
                         <?php /* $this->element('security_code', ['show_label' => true]) */?>
-                        <div class="container-submit">
+                        <div class="form-area check-en">
                             <div class="checkboxes">
                                 <div>
                                     <input type="checkbox" name="terms" id="terms" required="required">
