@@ -2338,7 +2338,7 @@ input[type="checkbox"] {
     align-items: center;
 }
 
-.container-submit .checkboxes div {
+.checkboxes div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2348,7 +2348,7 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-.container-submit .checkboxes div label {
+ .checkboxes div label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2357,7 +2357,7 @@ input[type="checkbox"] {
     color: #696F79;
 }
 
-.container-submit .checkboxes div label a {
+ .checkboxes div label a {
     text-decoration: underline;
 }
 
