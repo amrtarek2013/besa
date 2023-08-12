@@ -8300,3 +8300,25 @@ input[type="file" i] {
     font-size: 13.5px !important;
 
 }
+
+.iti__country {
+    display: block;
+}
+.iti{
+    left: 10px;
+    position: absolute;
+    bottom: 34px;
+}
+.form-area input[type="tel"] {
+    padding-left: 95px;
+}
+.iti__country,
+.iti--separate-dial-code .iti__selected-dial-code{
+    color: #878787;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+}
+
