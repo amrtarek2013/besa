@@ -2231,7 +2231,8 @@ p.descrp {
 } */
 
 .container-formBox .form-area label,
-.container-formBox .input label {
+.container-formBox .input label,
+.container-formBox .security_code .input label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
