@@ -8214,3 +8214,18 @@ input[type="file" i] {
     border: none !important;
 
 }
+
+.special-form{
+    display: flex;
+    align-items: end;
+}
+
+.special-form  label {
+    padding: 0;
+    width: 100%;
+}
+
+.special-form input{
+    width: 40%;
+    text-align: center;
+}

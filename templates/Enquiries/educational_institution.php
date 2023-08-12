@@ -53,10 +53,23 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('attending_students_no', [
+                        <?php /* $this->Form->control('attending_students_no', [
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                            'templates' => ['inputContainer' => '<div class="special-form form-area {{rquired}}">{{content}}</div>']
+                        ]) */?>
+                        <?= $this->Form->control('attending_students_no', [
+                            'type' => 'number',
+                            'label' => ['text' => 'Number of attending students*', 'class' => 'form-label'],
+                            'required' => true,
+                            'templates' => [
+                                'inputContainer' => '<div class="custom-number-input">{{content}}<div class="button-group">{{append}}</div></div>',
+                            ],
+                            'inputTemplates' => [
+                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>',
+                            ],
+                            'append' => '<button class="increment">+</button><button class="decrement">-</button>',
                         ]) ?>
+
                         
                         <?php /*$this->Form->control('certificate', [
                             'type' => 'file',
