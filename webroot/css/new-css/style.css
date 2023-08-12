@@ -8229,8 +8229,10 @@ input[type="file" i] {
     width: 40%;
     text-align: center;
     appearance: none;
-    
+    padding: 0;
+    padding-left: 10px;
 }
+.special-form input:hover,
 .special-form input:focus{
     appearance: none;
 
