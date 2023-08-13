@@ -7,6 +7,7 @@
     --bs-black: #000000;
     --bs-blue: #242F65;
     --bs-Grey: #4B4F58;
+    --bs-new-blue: #012475;
 }
 
 .clear-blue {
@@ -141,7 +142,8 @@ body {
 }
 
 .title {
-    color: var(--bs-blue);
+    /* color: var(--bs-blue); */
+    color: var(--bs-new-blue);
     text-align: center;
     margin-bottom: 25px;
 }
@@ -8330,6 +8332,7 @@ input[type="file" i] {}
     font-size: 16px;
 
 }
+
 .iti__country-list {
     margin: 15px 0px 0 -11px !important;
 }
