@@ -114,6 +114,35 @@ class EnquiriesTable extends Table
         return $validator;
     }
 
+    public function validationHome(Validator $validator): Validator
+    {
+        // $validator->add('g-recaptcha-response', [
+        //     'checkCaptchaV3' => [
+        //         'rule' => 'checkCaptchaV3',
+        //         'provider' => 'table',
+        //         'message' => 'Page session expired, please reload the page!!',
+        //     ]
+        // ]);
+        $validator->notEmptyString('name', 'This field is required.');
+        // $validator->notEmptyString('last_name', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        // $validator->notEmptyString('phone', 'This field is required.');
+        // $validator->notEmptyString('subject', 'This field is required.');
+        $validator->notEmptyString('message', 'This field is required.');
+
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
     public function validationContactus(Validator $validator): Validator
     {
         // $validator->add('g-recaptcha-response', [
