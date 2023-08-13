@@ -11,12 +11,12 @@
         'type' => 'tel', 'placeholder' => $phone_label, 'label' => false, 'class' => 'form-control', 'required' => true
     ]) ?>
     <?= $this->Form->control($phone_code, [
-        'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-        'type' => 'select',
+        'class' => 'country_code mobile_code', 'label' => false,
+        'type' => 'select', 'options' => []
     ]) ?>
 </div>
 
-<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
+<script src="/intl-tel-input/js/intlTelInput.js"></script>
 
 <script src="/intl-tel-input/js/utils.js"></script>
 <script>

@@ -297,7 +297,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        $validator->notEmptyString('study_level_id', 'This field is required.');
+        $validator->notEmptyString('study_level', 'This field is required.');
         $validator->notEmptyString('subject_area_id', 'This field is required.');
 
         $validator->notEmptyString('destination_id', 'This field is required.');
