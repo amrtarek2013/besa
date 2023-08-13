@@ -3,11 +3,14 @@
 :root {
     --bs-main: #F3F3F3;
     --bs-white: #ffff;
-    --bs-red: #e52522;
+    /* --bs-red: #e52522; */
+    --bs-red: #e22222;
     --bs-black: #000000;
     --bs-blue: #242F65;
     --bs-Grey: #4B4F58;
     --bs-new-blue: #012475;
+    --bs-green: #29b752;
+    --bs-yellow: #ffcc02;
 }
 
 .clear-blue {
@@ -4694,7 +4697,8 @@ input.search {
     font-size: 28px;
     line-height: 35px;
     text-align: center;
-    color: #33CA94;
+    /* color: #33CA94; */
+    color: var(--bs-green);
 }
 
 .study-broad-guidance .btn {
