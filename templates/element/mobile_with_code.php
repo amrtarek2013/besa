@@ -16,6 +16,9 @@
     ]) ?>
 </div>
 
+<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
+
+<script src="/intl-tel-input/js/utils.js"></script>
 <script>
     var input = document.querySelector(".mobile_code");
     window.intlTelInput(input, {
@@ -33,7 +36,3 @@
         // excludeCountries: ["in", "il"]
     });
 </script>
-
-<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
-
-<script src="/intl-tel-input/js/utils.js"></script>
