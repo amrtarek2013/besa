@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.min.css" />
-<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
 <style>
     #mobile-code,
     #phone-code {
@@ -34,3 +33,7 @@
         // excludeCountries: ["in", "il"]
     });
 </script>
+
+<script src="/intl-tel-input/js/intlTelInput.min.js"></script>
+
+<script src="/intl-tel-input/js/utils.js"></script>
