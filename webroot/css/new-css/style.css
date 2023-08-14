@@ -2379,6 +2379,9 @@ input[type="checkbox"] {
     display: block;
 }
 
+.checkboxes .terms-condtions label a {
+    float: right;
+}
 .container-submit .btn {
     color: var(--bs-white);
 }
