@@ -2377,11 +2377,13 @@ input[type="checkbox"] {
     text-decoration: underline;
     margin-left: 5px;
     display: block;
+
 }
 
-.checkboxes .terms-condtions label a {
+.checkboxes .terms-conditions label a {
     float: right;
 }
+
 .container-submit .btn {
     color: var(--bs-white);
 }
@@ -8186,7 +8188,7 @@ a.forgot-link {
 
 
 .educational-institution .container-formBox {
-    
+
     /* border-top: 1px solid var(--bs-light-blue); */
 
     border-top: 14px solid var(--bs-light-blue);
