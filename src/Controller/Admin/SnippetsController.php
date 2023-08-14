@@ -26,7 +26,8 @@ class SnippetsController extends AppController
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('snippets', 'parameters'));
 
-        $this->set('categoryTitle', $this->Snippets->snippetCategories[$cat]);
+        $categoryTitle = isset($this->Snippets->snippetCategories[$cat])?$this->Snippets->snippetCategories[$cat]: 'Enquiries';
+        $this->set('categoryTitle', $categoryTitle);
         $this->__common();
     }
 
