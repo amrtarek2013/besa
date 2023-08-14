@@ -7653,7 +7653,8 @@ input[type="search"]:focus {
 
 
 .user-dashboard .sidebar {
-    background: var(--bs-white);
+    /* background: var(--bs-white); */
+    background: var(--bs-gray);
 
     border-top: 14px solid var(--bs-light-blue) !important;
     border-radius: 30px !important;
@@ -7681,7 +7682,8 @@ input[type="search"]:focus {
     font-size: 16px;
     line-height: 18px;
     letter-spacing: 0.2px;
-    color: #696F79;
+    /* color: #696F79; */
+    color: var(--bs-black);
     width: 100%;
     padding-left: 15px;
     white-space: pre-wrap;
@@ -7725,7 +7727,8 @@ input[type="search"]:focus {
 }
 
 .user-dashboard .sidebar .nav-link .nav-icon {
-    color: #696F79;
+    /* color: #696F79; */
+    color: var(--bs-black);
 
 }
 
