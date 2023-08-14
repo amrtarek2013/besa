@@ -152,7 +152,8 @@ body {
 .title {
     /* color: var(--bs-blue); */
     color: var(--bs-blue);
-    text-align: center;
+    /* text-align: center; */
+    text-align: left;
     margin-bottom: 25px;
 }
 
@@ -229,7 +230,8 @@ p {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    text-align: center;
+    /* text-align: center; */
+    text-align: left;
     color: var(--bs-light-grey);
 }
 
@@ -4704,7 +4706,8 @@ input.search {
     font-weight: 900;
     font-size: 28px;
     line-height: 35px;
-    text-align: center;
+    text-align: left;
+    /* text-align: center; */
     /* color: var(--bs-green); */
     color: var(--bs-green);
 }
