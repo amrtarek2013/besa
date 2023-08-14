@@ -4743,7 +4743,7 @@ input.search {
     height: 78px;
     left: 50%;
     top: -51px;
-    background: var(--bs-green);
+    background: #012475;
     -webkit-box-shadow: 7px 3px 1px rgba(0, 0, 0, 0.22);
     box-shadow: 7px 3px 1px rgba(0, 0, 0, 0.22);
     border-radius: 50px;
