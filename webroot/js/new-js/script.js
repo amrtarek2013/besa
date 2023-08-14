@@ -260,6 +260,14 @@ for (i = 0; i < buttons.length; i++) {
     e.preventDefault();
   });
 }
+
+$('.increment, .decrement').on('click', function (e) {
+  const isNegative = $(e.target).closest('.decrement').is('.decrement');
+  const input = $(e.target).closest('.input-group').find('input');
+  if (input.is('input')) {
+    input[0][isNegative ? 'stepDown' : 'stepUp']()
+  }
+})
 // Get the search input element
 // const searchInput = document.querySelector(".search");
 

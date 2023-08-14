@@ -76,7 +76,10 @@
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class=" special-form form-area">{{content}}</div>',
-                                'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>'
+                                `input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>
+                                <button class="increment" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><img src="/img/increment.svg" alt="increment"></button>
+                                <button class="decrement" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"><img src="/img/decrement.svg" alt="decrement"></button>`
+                                // 'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>'
                             ]
                         ]) ?>
                         <?php /*$this->Form->control('certificate', [
@@ -105,7 +108,7 @@
                         <div class="checkboxes">
                             <div class="terms-conditions">
                                 <input type="checkbox" name="terms" id="terms" required="required">
-                                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('/content/terms-conditions')?>">terms & conditions</a> </label>
+                                <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label>
                             </div>
                             <div>
                                 <input type="checkbox" name="is_subscribed" id="is_subscribed">
