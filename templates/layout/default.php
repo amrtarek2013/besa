@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" />
     <?= $this->Html->css([
 
-
         '/css/new-css/remodal.css',
         '/css/new-css/remodal-default-theme.css',
         '/css/new-css/all.min.css',
