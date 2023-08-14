@@ -89,6 +89,6 @@
 <?= $book_free_meeting ?>
 <script>
     function openPage(link) {
-        window.location.replace("<?= Router::url('/service-details/') ?>" + link);
+        // window.location.replace("<?= Router::url('/service-details/') ?>" + link);
     }
 </script>

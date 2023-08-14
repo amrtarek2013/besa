@@ -996,10 +996,10 @@ class AppController extends Controller
             '::1'
         );
 
-        if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
-            $this->loadComponent('EmailSender');
-            $this->EmailSender->send($to, $from, $email_template_name, $replace, $attachments);
-        }
+        // if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
+        //     $this->loadComponent('EmailSender');
+        //     $this->EmailSender->send($to, $from, $email_template_name, $replace, $attachments);
+        // }
         return true;
     }
 
