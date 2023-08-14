@@ -79,9 +79,9 @@
                     <div class="container-submit">
 
                         <div class="checkboxes">
-                            <div>
+                            <div class="terms-conditions">
                                 <input type="checkbox" name="terms" id="terms" required="required">
-                                <label for="">I agree to <a href="#">terms & conditions</a> </label>
+                                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('terms-conditions')?>">terms & conditions</a> </label>
                             </div>
                             <div>
                                 <input type="checkbox" name="is_subscribed" id="is_subscribed">

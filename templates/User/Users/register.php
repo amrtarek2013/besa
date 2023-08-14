@@ -42,6 +42,9 @@
                   <option value="">Day</option>
 
                   <?php
+
+            use Cake\Routing\Router;
+
                   for ($i = 1; $i <= 31; $i++) {
                     $d = $i; //date('M', strtotime("last day of +$i month"));
                     echo "<option value='$d'>$d</option>";
@@ -226,7 +229,7 @@
           <div class="container-submit">
 
             <div class="checkboxes">
-              <div>
+              <div class="terms-conditions">
                 <input type="checkbox" name="terms" id="terms" required="required">
                 <label for="">I agree to <a href="#">terms & conditions</a> </label>
               </div>
