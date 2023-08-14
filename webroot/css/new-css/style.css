@@ -2212,7 +2212,7 @@ p.descrp {
     background: var(--bs-white);
     border-radius: 30px;
     padding: 40px 23px;
-    border: 1px solid var(--bs-green);
+    /* border: 1px solid var(--bs-green); */
     border-top: 14px solid var(--bs-green);
 }
 
@@ -2320,8 +2320,6 @@ p.descrp {
 
 .container-formBox.blue-border {
     margin-top: 46px;
-    
-    border: 1px solid var(--bs-light-blue);
     border-color: var(--bs-light-blue);
 }
 
@@ -4796,8 +4794,7 @@ input.search {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    /* text-align: center; */
-    text-align: left;
+    text-align: center;
     margin-left: 10px;
     color: var(--bs-black);
 }
@@ -7646,6 +7643,7 @@ input[type="search"]:focus {
 
 .user-dashboard .sidebar {
     background: var(--bs-white);
+
     border-top: 14px solid var(--bs-light-blue) !important;
     border-radius: 30px !important;
     -webkit-border-radius: 30px !important;
@@ -8180,6 +8178,9 @@ a.forgot-link {
 
 
 .educational-institution .container-formBox {
+    
+    /* border-top: 1px solid var(--bs-light-blue); */
+
     border-top: 14px solid var(--bs-light-blue);
 
 }
