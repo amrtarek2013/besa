@@ -21,7 +21,7 @@ class EnquiriesController extends AppController
         $conditions = $this->_filter_params();
 
 
-        $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
+        $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['created' => 'DESC']]);
         $parameters = $this->request->getAttribute('params');
 
         // $this->loadModel('Branches');

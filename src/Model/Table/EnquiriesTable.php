@@ -395,9 +395,9 @@ class EnquiriesTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if ($entity->isNew() && empty($entity->permalink)) {
-            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->name, '_')));
-        }
+        // if ($entity->isNew() && empty($entity->permalink)) {
+        //     $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->name, '_')));
+        // }
 
         // if (empty($entity->banner_image)) {
         //     $entity->banner_image = str_replace('\\','',$entity->banner_image);
