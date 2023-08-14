@@ -8287,13 +8287,16 @@ input[type="file" i] {}
 
 }
 
-.special-form input[type="number"]::-webkit-inner-spin-button,
-.special-form input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
 
 .special-form input[type="number"] {
+    -webkit-appearance: textfield;
     -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.special-form input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 .special-form input[type="number"]:hover,
@@ -8301,7 +8304,7 @@ input[type="file" i] {}
     -moz-appearance: number-input;
 }
 
-.special-form button {
+.special-form button, .special-form a {
     position: absolute;
     bottom: 15px;
     right: 70px;
@@ -8309,7 +8312,7 @@ input[type="file" i] {}
 
 }
 
-.special-form button.decrement {
+.special-form button.decrement, .special-form a.decrement {
     right: 15px;
 }
 

@@ -70,15 +70,31 @@
                             'type' => 'number', 'label' => 'Number of attending students*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="special-form form-area {{rquired}}">{{content}}</div>']
                         ]) */ ?>
+                        <?php
+                        $customNumber = '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>';
+                        // $customNumber .= '<button class="increment" onclick="';
+                        // $customNumber .= "this.parentNode.querySelector('input[type=number]').stepUp()";
+                        // $customNumber .= '"><img src="/img/increment.svg" alt="increment"></button>';
+                        // $customNumber .= '<button class="decrement" onclick="';
+                        // $customNumber .= "this.parentNode.querySelector('input[type=number]').stepDown()";
+                        // $customNumber .= '"><img src="/img/decrement.svg" alt="decrement"></button>';
+                        
+                        $customNumber .= '<a class="increment" onclick="';
+                        $customNumber .= "this.parentNode.querySelector('input[type=number]').stepUp()";
+                        $customNumber .= '"><img src="/img/increment.svg" alt="increment"></a>';
+                        $customNumber .= '<a class="decrement" onclick="';
+                        $customNumber .= "this.parentNode.querySelector('input[type=number]').stepDown()";
+                        $customNumber .= '"><img src="/img/decrement.svg" alt="decrement"></a>';
+                        ?>
                         <?= $this->Form->control('attending_students_no', [
                             'type' => 'number',
                             'label' => 'Number of attending students*',
+                            'min' => 1,
+                            'default' => 1,
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class=" special-form form-area">{{content}}</div>',
-                                `input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}>
-                                <button class="increment" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><img src="/img/increment.svg" alt="increment"></button>
-                                <button class="decrement" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"><img src="/img/decrement.svg" alt="decrement"></button>`
+                                'input' => $customNumber
                                 // 'input' => '<input type="{{type}}" name="{{name}}" class="{{required}}"{{attrs}}><button class="increment"><img src="/img/increment.svg" alt="increment"></button><button class="decrement"><img src="/img/decrement.svg" alt="decrement"></button>'
                             ]
                         ]) ?>

@@ -295,6 +295,31 @@ class EnquiriesTable extends Table
         return $validator;
     }
 
+    public function validationEducationalInstitution(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('school_counselor_name', 'This field is required.');
+        $validator->notEmptyString('attending_students_no', 'This field is required.');
+
+        $validator->notEmptyString('school_name', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('certificate', 'This field is required.');
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+
     public function validationBritishTrophySubscription(Validator $validator): Validator
     {
 

@@ -260,6 +260,9 @@ for (i = 0; i < buttons.length; i++) {
     e.preventDefault();
   });
 }
+$('form').on('click', 'button:not([type="submit"])', function (e) {
+  e.preventDefault();
+})
 
 $('.increment, .decrement').on('click', function (e) {
   const isNegative = $(e.target).closest('.decrement').is('.decrement');
