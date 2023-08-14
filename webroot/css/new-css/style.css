@@ -4784,6 +4784,16 @@ input.search {
     color: var(--bs-light-grey);
 }
 
+.contaienr-conditions .box p.descrip {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--bs-black);
+}
+
 .contaienr-conditions .box:not(:first-child)::before {
     /*CSSrulesforalldivsexceptthefirstone*/
     /*content: url(../img/new-images/arrow-right-gray.svg);*/
@@ -4844,7 +4854,8 @@ input.search {
 /* Start why besa 2*/
 
 .why_besa2 {
-    background: #2C3041;
+    /* background: #2C3041; */
+    background: #012475;
     padding: 20px 0;
 }
 
