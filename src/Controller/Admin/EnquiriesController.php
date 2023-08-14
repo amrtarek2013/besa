@@ -158,7 +158,7 @@ class EnquiriesController extends AppController
         $fieldsArray = [
             'Primary Key' => 'Enquiries.id',
             'User Name' => 'Enquiries.name',
-            'Phone' => 'Enquiries.phone',
+            'Phone' => 'Enquiries.mobile',
             'Email Address' => 'Enquiries.email',
             'Created' => 'Enquiries.created',
 

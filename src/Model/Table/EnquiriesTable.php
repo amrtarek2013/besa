@@ -15,7 +15,7 @@ class EnquiriesTable extends Table
         'type' => ['like', 'options' => ['lable' => 'Type', 'type' => 'select']],
         'name' => ['like', 'options' => ['lable' => 'User Name']],
         'email' => ['like', 'options' => ['lable' => 'User Email']],
-        'phone' => ['like', 'options' => ['lable' => 'User Phone']],
+        'mobile' => ['like', 'options' => ['lable' => 'User Mobile']],
         'created' => ['type' => 'date_range'],
         // 'branch_id' => ['title' => "Branch", 'empty' => "Select a branch"]
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
@@ -35,14 +35,14 @@ class EnquiriesTable extends Table
     );
     public $enquiryTypes = [
         'home' => ['validation' => 'home', 'redirect' => '/', 'title' => 'Home', 'fields' => ['name', 'email', 'message']],
-        'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'phone', 'email', 'subject', 'message']],
+        'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'mobile', 'email', 'subject', 'message']],
         'app-support' => ['validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support', 'fields' => ['name', 'surname', 'email', 'message']],
-        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name', 'surname', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
-        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'phone', 'email', 'address', 'certificate', 'how_hear_about_us']],
-        'visitors-application' => ['validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application', 'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'phone' => 'Mobile', 'email', 'school_name', 'study_level' => 'Level of Study']],
-        'educational-institution' => ['validation' => 'educationalInstitution', 'redirect' => '/educational-institution', 'title' => 'Educational Institution', 'fields' => ['school_name', 'school_counselor_name', 'phone', 'email', 'attending_students_no' => 'Number of attending students', 'certificate' => 'Upload attending students details']],
-        'british-trophy-subscription' => ['validation' => 'britishTrophySubscription', 'redirect' => '/british-trophy-subscription', 'title' => 'The British Trophy Event Subscription', 'fields' => ['school_name', 'name' => 'Contact person name', 'phone' => 'Mobile', 'email', 'certificate' => 'Upload school team sheet']],
-        'book-appointment' => ['validation' => 'bookAppointment', 'redirect' => '/book-appointment', 'title' => 'Book An appointment', 'fields' => ['name' => 'Full Name', 'phone' => 'Mobile', 'email', 'study_level_id' => 'Study level interested in', 'subject_area_id' => 'Subject area interested in', 'destination_id' => 'Study destination interested in']],
+        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name', 'surname', 'mobile', 'email', 'address', 'certificate', 'how_hear_about_us']],
+        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'mobile', 'email', 'address', 'certificate', 'how_hear_about_us']],
+        'visitors-application' => ['validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application', 'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email', 'school_name', 'study_level' => 'Level of Study']],
+        'educational-institution' => ['validation' => 'educationalInstitution', 'redirect' => '/educational-institution', 'title' => 'Educational Institution', 'fields' => ['school_name', 'school_counselor_name', 'mobile', 'email', 'attending_students_no' => 'Number of attending students', 'certificate' => 'Upload attending students details']],
+        'british-trophy-subscription' => ['validation' => 'britishTrophySubscription', 'redirect' => '/british-trophy-subscription', 'title' => 'The British Trophy Event Subscription', 'fields' => ['school_name', 'name' => 'Contact person name', 'mobile' => 'Mobile', 'email', 'certificate' => 'Upload school team sheet']],
+        'book-appointment' => ['validation' => 'bookAppointment', 'redirect' => '/book-appointment', 'title' => 'Book An appointment', 'fields' => ['name' => 'Full Name', 'mobile' => 'Mobile', 'email', 'study_level_id' => 'Study level interested in', 'subject_area_id' => 'Subject area interested in', 'destination_id' => 'Study destination interested in']],
 
     ];
     public $enquiryTypesList = [
@@ -128,7 +128,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        // $validator->notEmptyString('phone', 'This field is required.');
+        // $validator->notEmptyString('mobile', 'This field is required.');
         // $validator->notEmptyString('subject', 'This field is required.');
         $validator->notEmptyString('message', 'This field is required.');
 
@@ -157,7 +157,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->notEmptyString('subject', 'This field is required.');
         $validator->notEmptyString('message', 'This field is required.');
 
@@ -200,7 +200,7 @@ class EnquiriesTable extends Table
     {
 
         $validator->notEmptyString('name', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->notEmptyString('certificate', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
@@ -228,7 +228,7 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('certificate', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -252,7 +252,7 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -277,7 +277,7 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -301,7 +301,7 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('name', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -322,7 +322,7 @@ class EnquiriesTable extends Table
     {
 
         $validator->notEmptyString('name', 'This field is required.');
-        $validator->notEmptyString('phone', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 

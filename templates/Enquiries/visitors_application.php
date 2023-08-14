@@ -31,16 +31,8 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?php
-                        /* 
-                        $this->Form->control('mobile', [
-                            'placeholder' => 'Mobile', 'label' => 'Mobile*', 'class' => 'form-control', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]);
-                        */
-                        ?>
 
-                        <div class="form-area ">
+                        <!-- <div class="form-area ">
                             <?= $this->Form->label('phone', 'Mobile*') ?>
                             <?= $this->Form->control('phone', [
                                 'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
@@ -49,16 +41,10 @@
                                 'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
                                 'type' => 'select', 'options' => $countriesCodesList
                             ]) ?>
-                        </div>
-                        <!--
-                        <div class=" form-area">
-                            <label for="">Mobile*</label>
-                            <div class="grid-2col-mobile">
-                               
-
-                                
-                            </div>
                         </div> -->
+                        
+
+                        <?= $this->element('mobile_with_code') ?>
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,

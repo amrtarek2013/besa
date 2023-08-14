@@ -233,11 +233,12 @@
                             ]);
 
 
-                            echo $this->Form->control('phone', [
-                                'placeholder' => 'Your Phone', 'type' => 'text',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
+                            // echo $this->Form->control('phone', [
+                            //     'placeholder' => 'Your Phone', 'type' => 'text',
+                            //     'class' => 'required', 'required' => true,
+                            //     'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            // ]);
+                            echo  $this->element('mobile_with_code', ['phone_label' => 'Mobile']);
 
                             echo $this->Form->control('email', [
                                 'placeholder' => 'Email Address', 'type' => 'email',
@@ -246,7 +247,7 @@
                             ]);
                             ?>
                             <?= $this->element('security_code') ?>
-                           
+
                         </div>
                         <div class="form-right form">
                             <!-- <div class="form-area">

@@ -339,17 +339,7 @@
                     <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
 
                     <input type="hidden" id="type" name="type" value="home">
-                    <!-- <div class="form-area">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="your name">
-                    </div>
-                    <div class="form-area">
-                        <input type="email" id="email" name="email" placeholder="Email Address">
-                    </div>
-                    <div class="form-area">
-                        <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                    </div> -->
-
+                  
                     <?php
 
                     echo $this->Form->control('name', [

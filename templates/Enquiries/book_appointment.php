@@ -53,7 +53,7 @@
                         </div> -->
 
 
-                        <?= $this->element('mobile_with_code', ['phone_name' => 'phone', 'phone_label' => 'Mobile', 'phone_code' => 'phone_code']) ?>
+                        <?= $this->element('mobile_with_code') ?>
 
                         <?= $this->Form->control('destination_id', [
                             'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',

@@ -46,7 +46,7 @@ class EnquiriesController extends AppController
                     $b_replace = array(
                         '{%name%}' => $enquiry['name'],
                         '{%email%}' => $enquiry['email'],
-                        '{%phone%}' => $enquiry['phone'],
+                        '{%phone%}' => $enquiry['mobile'],
                         '{%subject%}' => $enquiry['subject'],
                         '{%message%}' => $enquiry['message'],
                         '{%enquiry_type%}' => $enquiryTitle,
@@ -56,7 +56,7 @@ class EnquiriesController extends AppController
                         $a_replace = array(
                             '{%name%}' => $enquiry['name'],
                             '{%email%}' => $enquiry['email'],
-                            '{%phone%}' => $enquiry['phone'],
+                            '{%phone%}' => $enquiry['mobile'],
                             '{%subject%}' => $enquiry['subject'],
                             '{%message%}' => $enquiry['message'],
 
@@ -64,14 +64,14 @@ class EnquiriesController extends AppController
                             // '{%branch_name%}'  => $branch['name'],
                             // '{%branch_address%}'  => $branch['address'] . ', ' . $branch['city'] . ', ' . $branch['state'] . ', ' . $branch['postcode'] . ', ' . $branch['country'],
                             // '{%branch_email%}'  => $branch['email'],
-                            // '{%branch_phone%}'  => $branch['phone'],
+                            // '{%branch_phone%}'  => $branch['mobile'],
                             '{%view_link%}'  => $url,
                         );
                     } else
                         $a_replace = array(
                             '{%name%}' => $enquiry['name'],
                             '{%email%}' => $enquiry['email'],
-                            '{%phone%}' => $enquiry['phone'],
+                            '{%phone%}' => $enquiry['mobile'],
                             '{%subject%}' => $enquiry['subject'],
                             '{%message%}' => $enquiry['message'],
                             '{%enquiry_type%}' => $enquiryTitle,
@@ -85,7 +85,7 @@ class EnquiriesController extends AppController
                     $a_replace = array(
                         '{%name%}' => $enquiry['name'],
                         '{%email%}' => $enquiry['email'],
-                        '{%phone%}' => $enquiry['phone'],
+                        '{%phone%}' => $enquiry['mobile'],
                         '{%subject%}' => $enquiry['subject'],
                         '{%message%}' => $enquiry['message'],
                         '{%enquiry_type%}' => $enquiryTitle,
@@ -101,7 +101,7 @@ class EnquiriesController extends AppController
                 $u_replace = array(
                     '{%name%}' => $enquiry['name'],
                     '{%email%}' => $enquiry['email'],
-                    '{%phone%}' => $enquiry['phone'],
+                    '{%phone%}' => $enquiry['mobile'],
                     '{%subject%}' => $enquiry['subject'],
                     '{%message%}' => $enquiry['message'],
                     '{%enquiry_type%}' => $enquiryTitle

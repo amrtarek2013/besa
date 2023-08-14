@@ -65,7 +65,7 @@
 
                                         <tr class="table-header">
                                             <th class="" width=""><a>Phone</a></th>
-                                            <td><?php echo (!empty($enquiry->branch->phone) ? $enquiry->branch->phone : '') ?></td>
+                                            <td><?php echo (!empty($enquiry->branch->mobile) ? $enquiry->branch->mobile : '') ?></td>
                                         </tr>
 
                                         <tr class="table-header">

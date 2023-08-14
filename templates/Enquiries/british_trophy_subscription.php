@@ -57,7 +57,7 @@
                         </div> -->
 
 
-                        <?= $this->element('mobile_with_code', ['phone_name' => 'phone', 'phone_label' => 'Mobile', 'phone_code' => 'phone_code']) ?>
+                        <?= $this->element('mobile_with_code') ?>
 
                         <?= $this->Form->control('email', [
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,

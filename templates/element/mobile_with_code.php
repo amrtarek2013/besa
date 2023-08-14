@@ -5,6 +5,11 @@
         display: none !important;
     }
 </style>
+<?php
+$phone_code = isset($phone_code) ? $phone_code : 'mobile_code';
+$phone_name = isset($phone_name) ? $phone_name : 'mobile';
+$phone_label = isset($phone_label) ? $phone_label : 'Mobile';
+?>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
     <?= $this->Form->control($phone_name, [
@@ -26,7 +31,7 @@
         separateDialCode: true,
         // If there are some countries you want to show on the top.
         // here we are promoting russia and singapore.
-        preferredCountries: ["eg","sd", "gb", "us"],
+        preferredCountries: ["eg", "sd", "gb", "us"],
         //Default country
         // initialCountry: "eg",
         // show only these countres, remove all other

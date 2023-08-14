@@ -43,7 +43,7 @@
                             // echo $this->AdminForm->control('city', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('street', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('postcode', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('phone', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('mobile', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('mobile', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('email', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('postcode', ['type' => 'text', 'class' => 'INPUT required']);
