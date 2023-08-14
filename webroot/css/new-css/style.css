@@ -1,7 +1,8 @@
 /* Start Global Css AT*/
 
 :root {
-    --bs-main: #F3F3F3;
+    --bs-gray: #F3F3F3;
+    --bs-main: #ffffff;
     --bs-white: #FFFFFF;
     --bs-red: #e22222;
     --bs-black: #000000;
@@ -4675,9 +4676,10 @@ input.search {
 
 /*Start study broad guidance*/
 .study-broad-guidance {
-    background: -o-linear-gradient(top, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%);
+    /* background: -o-linear-gradient(top, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%);
     background: -webkit-gradient(linear, left top, left bottom, from(#DEDEDE), color-stop(47.92%, rgba(217, 217, 217, 0.3)));
-    background: linear-gradient(180deg, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%);
+    background: linear-gradient(180deg, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%); */
+    background: var(--bs-white);
 }
 
 .study-broad-guidance .title {
@@ -4730,7 +4732,8 @@ input.search {
 }
 
 .contaienr-conditions .box {
-    background: var(--bs-white);
+    /* background: var(--bs-white); */
+    background: var(--bs-gray);
     border-radius: 10px;
     padding: 40px 18px 40px 15px;
     position: relative;
@@ -4790,7 +4793,9 @@ input.search {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    text-align: center;
+    /* text-align: center; */
+    text-align: left;
+    margin-left: 10px;
     color: var(--bs-black);
 }
 
@@ -4804,8 +4809,11 @@ input.search {
     display: inline-block;
     width: 11px;
     height: 11px;
-    border-right: 14px solid #ebebeb;
-    border-top: 14px solid #ebebeb;
+    /* border-right: 14px solid #ebebeb;
+    border-top: 14px solid #ebebeb; */
+
+    border-right: 14px solid var(--bs-white);
+    border-top: 14px solid var(--bs-white);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
@@ -4820,13 +4828,15 @@ input.search {
     display: inline-block;
     width: 25px;
     height: 25px;
-    border-right: 12px solid var(--bs-white);
-    border-top: 12px solid var(--bs-white);
+    /* border-right: 12px solid var(--bs-white);
+    border-top: 12px solid var(--bs-white); */
+    border-right: 12px solid var(--bs-gray);
+    border-top: 12px solid var(--bs-gray);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
     font-size: 60px;
-    color: var(--bs-white);
+    color: var(--bs-gray);
     z-index: 3;
 }
 
