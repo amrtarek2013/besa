@@ -2212,6 +2212,7 @@ p.descrp {
     background: var(--bs-white);
     border-radius: 30px;
     padding: 40px 23px;
+    border: 1px solid var(--bs-green);
     border-top: 14px solid var(--bs-green);
 }
 
@@ -2319,6 +2320,8 @@ p.descrp {
 
 .container-formBox.blue-border {
     margin-top: 46px;
+    
+    border: 1px solid var(--bs-light-blue);
     border-color: var(--bs-light-blue);
 }
 

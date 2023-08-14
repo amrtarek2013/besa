@@ -1,3 +1,9 @@
+<?php
+
+use Cake\Routing\Route\Route;
+use Cake\Routing\Router;
+
+?>
 <section class="footer">
     <div class="container">
         <div class="row">
@@ -7,19 +13,19 @@
                         <img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="" width="165">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                <img src="<?=WEBSITE_URL?>img/icon/facebook.svg" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/icon/facebook.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                <img src="<?=WEBSITE_URL?>img/icon/instagram.svg" alt="" target="_blank">
+                                <img src="<?= WEBSITE_URL ?>img/icon/instagram.svg" alt="" target="_blank">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                <img src="<?=WEBSITE_URL?>img/icon/youtube.svg" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/icon/youtube.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                <img src="<?=WEBSITE_URL?>img/icon/linkedin.svg" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                <img src="<?=WEBSITE_URL?>img/icon/twitter.svg" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
                             </a>
                         </div>
                     </div>
@@ -30,7 +36,7 @@
                         <div class="list-des">
                             <ul>
                                 <li>
-                                    <a href="/blogs"> Blogs</a>
+                                    <a href="<?= Router::url('/blogs') ?>"> Blogs</a>
                                 </li>
 
                                 <li>
@@ -49,13 +55,13 @@
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="#"><?= __('Book an appointment') ?></a>
+                                    <a href="<?= Router::url('/book-appointment') ?>"><?= __('Book an appointment') ?></a>
                                 </li>
                                 <li>
-                                    <a href="/contact-us"><?= __('Contact us') ?></a>
+                                    <a href="<?= Router::url('/contact-us') ?>"><?= __('Contact us') ?></a>
                                 </li>
                                 <li>
-                                    <a href="/counselor"><?= __('School counselors portal') ?></a>
+                                    <a href="<?= Router::url('/counselor') ?>"><?= __('School counselors portal') ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -66,13 +72,13 @@
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="/about-us"><?= __('About Us') ?></a>
+                                    <a href="<?= Router::url('/about-us') ?>"><?= __('About Us') ?></a>
                                 </li>
                                 <li>
-                                    <a href="#"><?= __('Partnerships') ?></a>
+                                    <a href="<?= Router::url('/partnership-with-besa') ?>"><?= __('Partnerships') ?></a>
                                 </li>
                                 <li>
-                                    <a href="/careers"><?= __('Careers') ?></a>
+                                    <a href="<?= Router::url('/careers') ?>"><?= __('Careers') ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -86,7 +92,7 @@
                                     foreach ($servicesList as $key => $serviceValue) {
                                     ?>
                                         <li>
-                                            <a href="/service-details/<?= $serviceValue['permalink'] ?>"> <?= strtoupper($serviceValue['title']) ?></a>
+                                            <a href="<?= Router::url('/service-details/' . $serviceValue['permalink']) ?>"> <?= strtoupper($serviceValue['title']) ?></a>
                                         </li>
                                     <?php
                                         if ($key == 4) {
@@ -121,7 +127,7 @@
 
                                                 foreach ($countryList as $countryValue) {
                                             ?>
-                                                    <li><a href="/country-details/<?= $countryValue['permalink'] ?>"><?= $countryValue['country_name'] ?></a></li>
+                                                    <li><a href="<?= Router::url('/country-details/'.$countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
                                                 <?php
                                                     if ($key == 'uk')
                                                         break;
@@ -152,7 +158,7 @@
 
                                                 foreach ($countryList as $countryValue) {
                                             ?>
-                                                    <li><a href="/country-details/<?= $countryValue['permalink'] ?>"><?= $countryValue['country_name'] ?></a></li>
+                                                    <li><a href="<?= Router::url('/country-details/'. $countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
                                                 <?php
 
                                                 } ?>
@@ -174,7 +180,7 @@
                                     foreach ($eventsMenuList as $key => $eventValue) {
                                     ?>
                                         <li>
-                                            <a href="/event-details/<?= $eventValue['permalink'] ?>"><?= strtoupper($eventValue['title']) ?></a>
+                                            <a href="<?= Router::url('/event-details/'.$eventValue['permalink']) ?>"><?= strtoupper($eventValue['title']) ?></a>
                                         </li>
                                     <?php } ?>
 
@@ -187,19 +193,19 @@
                             <div class="list">
                                 <ul>
                                     <li>
-                                        <a href="/content/about"><?= __('About Us') ?></a>
+                                        <a href="<?= Router::url('/content/about')?>"><?= __('About Us') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/content/careers"><?= __('Careers') ?></a>
+                                        <a href="<?= Router::url('/content/careers')?>"><?= __('Careers') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/content/blog"><?= __('Blog') ?></a>
+                                        <a href="<?= Router::url('/content/blog')?>"><?= __('Blog') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/contact-us"><?= __('Contact Us') ?></a>
+                                        <a href="<?= Router::url('/contact-us')?>"><?= __('Contact Us') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/content/book-free-counselling-session"><?= __('Book A FREE Counselling Session') ?></a>
+                                        <a href="<?= Router::url('/content/book-free-counselling-session')?>"><?= __('Book A FREE Counselling Session') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -211,13 +217,13 @@
                                 <ul>
                                     <li>
 
-                                        <a href="/b2b-services"><?= __('B2B Services') ?></a>
+                                        <a href="<?= Router::url('/b2b-services')?>"><?= __('B2B Services') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/content/partnerships"><?= __('Partnerships') ?></a>
+                                        <a href="<?= Router::url('/content/partnerships')?>"><?= __('Partnerships') ?></a>
                                     </li>
                                     <li>
-                                        <a href="/content/school-counselling-portal"><?= __('School Counselling Portal') ?></a>
+                                        <a href="<?= Router::url('/content/school-counselling-portal')?>"><?= __('School Counselling Portal') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -233,6 +239,6 @@
 </section>
 <div class="go-up">
     <span class="up " id="scrollToTop" style="display: none;">
-        <img src="<?=WEBSITE_URL?>img/red-arrow-top.svg" alt="">
+        <img src="<?= WEBSITE_URL ?>img/red-arrow-top.svg" alt="">
     </span>
 </div>
