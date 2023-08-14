@@ -89,7 +89,7 @@
             <div class="checkboxes">
               <div>
                 <input type="checkbox" name="" id="">
-                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('terms-conditions')?>">terms & conditions</a> </label>
+                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('/content/terms-conditions')?>">terms & conditions</a> </label>
               </div>
               <div>
                 <input type="checkbox" name="" id="">
