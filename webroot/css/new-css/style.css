@@ -2209,7 +2209,8 @@ p.descrp {
 }
 
 .container-formBox {
-    background: var(--bs-white);
+    /* background: var(--bs-white); */
+    background: var(--bs-gray);
     border-radius: 30px;
     padding: 40px 23px;
     /* border: 1px solid var(--bs-green); */
