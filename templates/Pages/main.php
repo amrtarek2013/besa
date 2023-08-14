@@ -326,7 +326,8 @@
                 <h2 class="title">Need any help?</h2>
 
             </div>
-            <div class="col-md-11 col-md-offset-1">
+            <!-- <div class="col-md-11 col-md-offset-1"> -->
+            <div class="col-md-12">
                 <div class="form">
                     <!-- <h3 class="title-form">Reach Us</h3> -->
                     <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
@@ -339,7 +340,7 @@
                     <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
 
                     <input type="hidden" id="type" name="type" value="home">
-                  
+
                     <?php
 
                     echo $this->Form->control('name', [
