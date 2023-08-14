@@ -253,6 +253,13 @@ function togglePasswordVisibility(inputId) {
   }
 }
 
+
+var buttons = document.querySelectorAll('form button:not([type="submit"])');
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function (e) {
+    e.preventDefault();
+  });
+}
 // Get the search input element
 // const searchInput = document.querySelector(".search");
 
