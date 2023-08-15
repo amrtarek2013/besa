@@ -4829,8 +4829,7 @@ input.search {
     display: inline-block;
     width: 35px;
     height: 35px;
-    border-right: 14px solid #ebebeb;
-    border-top: 14px solid #ebebeb;
+    
     border-right: 8px solid var(--bs-blue);
     border-top: 8px solid var(--bs-blue);
     -webkit-transform: translateY(-50%) rotate(45deg);
