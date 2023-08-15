@@ -4841,13 +4841,13 @@ input.search {
     height: 25px;
     /* border-right: 12px solid var(--bs-white);
     border-top: 12px solid var(--bs-white); */
-    border-right: 12px solid var(--bs-gray);
-    border-top: 12px solid var(--bs-gray);
+    border-right: 12px solid var(--bs-green);
+    border-top: 12px solid var(--bs-green);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
     font-size: 60px;
-    color: var(--bs-gray);
+    color: var(--bs-green);
     z-index: 3;
 }
 
