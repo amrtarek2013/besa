@@ -4841,8 +4841,8 @@ input.search {
     height: 25px;
     /* border-right: 12px solid var(--bs-white);
     border-top: 12px solid var(--bs-white); */
-    border-right: 12px solid var(--bs-green);
-    border-top: 12px solid var(--bs-green);
+    border-right: 8px solid var(--bs-green);
+    border-top: 8px solid var(--bs-green);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
