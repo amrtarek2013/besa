@@ -48,6 +48,7 @@
                             echo $this->AdminForm->control('mobile', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('email', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('postcode', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('working_time', ['type' => 'text', 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('location_image', ['label' => 'Location Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $branch,
