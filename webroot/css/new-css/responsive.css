@@ -1442,6 +1442,9 @@
     .contaienr-conditions .box {
         max-width: 80%;
     }
+    .contaienr-conditions .box:not(:first-child)::before{
+        left: -4.89%;
+    }
 
     .container-icons {
         grid-template-columns: 1fr;
