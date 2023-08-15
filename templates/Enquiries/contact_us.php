@@ -358,7 +358,7 @@
 
 <?php echo $this->Html->script('new-js/jquery.validate'); ?>
 
-<script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
+<!-- <script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
 <script>
     var number = 0;
 
@@ -376,7 +376,7 @@
     grecaptcha.ready(function() {
         reLoadCaptchaV3();
     });
-</script>
+</script> -->
 
 <script type="text/javascript">
     var request_busy = false;
