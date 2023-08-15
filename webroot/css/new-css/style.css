@@ -4830,8 +4830,8 @@ input.search {
     width: 35px;
     height: 35px;
     
-    border-right: 8px solid var(--bs-blue);
-    border-top: 8px solid var(--bs-blue);
+    border-right: 8px solid var(--bs-gray);
+    border-top: 8px solid var(--bs-gray);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
