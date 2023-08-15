@@ -4816,15 +4816,23 @@ input.search {
     content: '';
     position: absolute;
     top: 50%;
-    left: -5.89%;
+    /* left: -5.89%;
     display: inline-block;
     width: 11px;
     height: 11px;
-    /* border-right: 14px solid #ebebeb;
-    border-top: 14px solid #ebebeb; */
+     border-right: 14px solid #ebebeb;
+    border-top: 14px solid #ebebeb; 
 
     border-right: 14px solid var(--bs-white);
-    border-top: 14px solid var(--bs-white);
+    border-top: 14px solid var(--bs-white); */
+    left: -13.89%;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-right: 14px solid #ebebeb;
+    border-top: 14px solid #ebebeb;
+    border-right: 8px solid var(--bs-blue);
+    border-top: 8px solid var(--bs-blue);
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
@@ -8305,7 +8313,8 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: number-input;
 }
 
-.special-form button, .special-form a {
+.special-form button,
+.special-form a {
     position: absolute;
     bottom: 15px;
     right: 70px;
@@ -8313,7 +8322,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-.special-form button.decrement, .special-form a.decrement {
+.special-form button.decrement,
+.special-form a.decrement {
     right: 15px;
 }
 
