@@ -328,8 +328,8 @@
             </div>
             <!-- <div class="col-md-11 col-md-offset-1"> -->
             <div class="col-md-12">
-                    <!-- <h3 class="title-form">Reach Us</h3> -->
-                    <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
+                <!-- <h3 class="title-form">Reach Us</h3> -->
+                <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
             </div>
             <div class="col-md-5 col-md-offset-1 ">
                 <div class="form">
@@ -382,19 +382,21 @@
 
             </div>
             <div class="col-md-6">
-                <div class="text">
-                    <p>
-                        <?= $mainBranch['name'] ?>
-                        <?php //=$mainBranch['address'].', '.$mainBranch['city'].', '.$mainBranch['state'].', '.$mainBranch['postcode'].', '.$mainBranch['country']
-                        ?>
-                    </p>
-                    <p><?= $mainBranch['phone'] ?></p>
-                    <p><?= $mainBranch['email'] ?></p>
-                </div>
-                <!-- <div class="map">
+                <?php if (!empty($mainBranch)) { ?>
+                    <div class="text">
+                        <p>
+                            <?= $mainBranch['name'] ?>
+                            <?php //=$mainBranch['address'].', '.$mainBranch['city'].', '.$mainBranch['state'].', '.$mainBranch['postcode'].', '.$mainBranch['country']
+                            ?>
+                        </p>
+                        <p><?= $mainBranch['phone'] ?></p>
+                        <p><?= $mainBranch['email'] ?></p>
+                    </div>
+                    <!-- <div class="map">
 
                     <img src="<?= $mainBranch['location_image_path'] ?>" alt="">
                 </div> -->
+                <?php } ?>
             </div>
 
         </div>
