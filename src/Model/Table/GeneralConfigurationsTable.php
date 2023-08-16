@@ -146,7 +146,8 @@ class GeneralConfigurationsTable extends Table
 
             if (in_array($field, $this->fieldCanUploaded)) {
 
-                if ($value->getError() > 0) {
+                $new = $this->patchEntity($new, $newData);
+                if ($new->getErrors() > 0) {
 
                     $new->value = $oldData[$field];
                     $newData['value'] = $oldData[$field];
