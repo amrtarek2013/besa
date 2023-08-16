@@ -144,10 +144,14 @@ class GeneralConfigurationsTable extends Table
             $newData['config_group'] = $group;
             $newData['field'] = $field;
 
+            // debug($field);
+            // debug($this->fieldCanUploaded);
+            // debug($oldData);
             if (in_array($field, $this->fieldCanUploaded)) {
 
                 $new = $this->patchEntity($new, $newData);
-                if ($new->getErrors() > 0) {
+                if ($value->getError() > 0) {
+                    dd($value->getError());
 
                     $new->value = $oldData[$field];
                     $newData['value'] = $oldData[$field];

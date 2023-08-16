@@ -140,6 +140,7 @@ class GeneralConfigurationsController extends AppController
         $Configurations = $this->GeneralConfigurations->newEmptyEntity();
         $finalFields = array_merge($fields, $generalConfiguration->toArray());
         if ($this->request->is(['patch', 'post', 'put'])) {
+            
             if ($this->GeneralConfigurations->insertOrUpdateConfigs($this->request->getData(), $group, $finalFields)) {
                 $this->Flash->success(__('The General Configuration has been saved.'));
                 return $this->redirect(['action' => 'manage', $group]);

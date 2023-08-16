@@ -674,7 +674,8 @@ textarea {
 }
 
 .gridContainer-navbar .logo img {
-    max-width: 160px;
+    /* max-width: 160px; */
+    max-width: 250px;
 }
 
 .navbar .links {
