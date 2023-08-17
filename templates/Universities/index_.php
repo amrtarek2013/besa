@@ -57,7 +57,7 @@
 
                     ?>
                             <div class="box">
-                                <a href="/university-details/<?= $university['permalink'] ?>">
+                                <a href="/<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universities.details']) ?>/<?= $university['permalink'] ?>">
                                     <img src="<?= $university['image_path'] ?>" alt="">
                                     <h5 class="title-university"><?= $university['university_name'] ?></h5>
                                 </a>

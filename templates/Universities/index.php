@@ -34,7 +34,7 @@
                                     <div class="content-blog">
                                         <p><?= $university['title'] ?></p>
                                         <p><?= $university['short_description'] ?></p>
-                                        <a href="/courses/<?= $university['id'] ?>/<?= $university['permalink'] ?>/2" class="read-anchor">Check Courses</a>
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?><?= $university['id'] ?>/<?= $university['permalink'] ?>/2" class="read-anchor">Check Courses</a>
                                     </div>
                                 </div>
 

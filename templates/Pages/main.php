@@ -25,7 +25,7 @@
                                                 <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
                                             </a>
                                         <?php } else { ?>
-                                            <a href="/event-details/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
+                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
                                                 Apply Now
                                                 <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
                                             </a>
@@ -36,7 +36,7 @@
                                             <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
 
                                         <?php } else { ?>
-                                            <a href="/contact-us" class="btn MainBtn contact-us">Contact Us</a>
+                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn contact-us">Contact Us</a>
 
                                         <?php } ?>
                                     </div>
@@ -262,7 +262,7 @@
                                 <p class="descriptionBX">
                                     <?= $event['sub_title'] ?>
                                 </p>
-                                <a href="/event-details/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
+                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
                                     Learn More
                                     <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
                                 </a>
@@ -297,7 +297,7 @@
                                     <img width="500" height="415" src="<?= $service['image_path'] ?>" />
                                     <div class="text-acco">
                                         <h3 class="title-acco"><?= $service['title'] ?></h3>
-                                        <a href="<?= Router::url('/service-details/' . $service['permalink']) ?>" class="btn discover-more">Discover More</a>
+                                        <a href="<?= Router::url('/'.$g_dynamic_routes['services.details'].'/'. $service['permalink']) ?>" class="btn discover-more">Discover More</a>
                                     </div>
                                 </div>
 

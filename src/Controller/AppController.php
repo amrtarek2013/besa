@@ -24,6 +24,7 @@ class AppController extends Controller
     public $prefixesNeedMenues = ['admin', 'user', 'counselor'];
     public $sideMenus = array();
     public $g_configs = array();
+    public $g_dynamic_routes = array();
     public $locale_pr = "";
     public $permissions_ids = array();
 
@@ -244,6 +245,7 @@ class AppController extends Controller
             // SEO functions
             $this->_set_seo();
             $this->allCoursesList();
+            $this->loadDynamicRoutes();
         }
     }
     protected function _loadConfig()
@@ -1100,5 +1102,16 @@ class AppController extends Controller
             ->order(['course_name' => 'asc']);
 
         $this->set('studyCoursesList', $studyCoursesList);
+    }
+    public function loadDynamicRoutes()
+    {
+
+        $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
+
+        $dynamicRoutes = $DynamicRoutes->find()->select(['slug', 'controller' => 'lower(controller)', 'action' => 'lower(action)'])->where(['is_active' => 1])->all();
+        $dynamicRoutes = Hash::combine($dynamicRoutes->toArray(), ['%s.%s', '{n}.controller', '{n}.action'], '{n}.slug');
+        $this->g_dynamic_routes = $dynamicRoutes;
+        // dd($dynamicRoutes);
+        $this->set('g_dynamic_routes', $this->g_dynamic_routes);
     }
 }

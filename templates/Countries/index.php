@@ -38,7 +38,7 @@
 
                     ?>
                             <div class="box">
-                                <a href="/country-details/<?= $country['permalink'] ?>">
+                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $country['permalink'] ?>">
                                     <img src="<?= $country['flag_path'] ?>" alt="">
                                     <h5 class="title-country"><?= $country['country_name'] ?></h5>
                                 </a>

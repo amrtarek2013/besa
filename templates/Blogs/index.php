@@ -23,7 +23,8 @@
                 <div class="col-md-12">
 
 
-                    <?php if (!empty($blogs)) : ?>
+                    <?php
+ if (!empty($blogs)) : ?>
                         <?php $counter = 0; ?>
 
                         <div class="display-flex">
@@ -33,7 +34,7 @@
                                     <img src="<?= $blog['image_path'] ?>" alt="This Is Blog Img 1" loading="lazy">
                                     <div class="content-blog">
                                         <p><?= $blog['title'] ?></p>
-                                        <a href="/blog-details/<?= $blog['permalink'] ?>" class="read-anchor">READ MORE</a>
+                                        <a href="<?= Cake\Routing\Router::url('/'.$g_dynamic_routes['blogs.details'].'/'. $blog['permalink']) ?>" class="read-anchor">READ MORE</a>
                                     </div>
                                 </div>
 

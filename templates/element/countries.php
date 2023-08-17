@@ -24,7 +24,7 @@
                                 foreach ($countryList as $countryValue) {
                     ?>
                                     <div class="box-country">
-                                        <a href="/country-details/<?= $countryValue['permalink'] ?>">
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
                                             <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>
@@ -48,7 +48,7 @@
                                 foreach ($countryList as $countryValue) {
                         ?>
                                     <div class="box-country">
-                                        <a href="/country-details/<?= $countryValue['permalink'] ?>">
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
                                             <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>
@@ -72,7 +72,7 @@
                                 foreach ($countryList as $countryValue) {
                     ?>
                                     <div class="box-country">
-                                        <a href="/country-details/<?= $countryValue['permalink'] ?>">
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
                                             <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>

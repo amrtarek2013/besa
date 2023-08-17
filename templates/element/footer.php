@@ -36,7 +36,7 @@ use Cake\Routing\Router;
                         <div class="list-des">
                             <ul>
                                 <li>
-                                    <a href="<?= Router::url('/blogs') ?>"> Blogs</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>"> Blogs</a>
                                 </li>
 
                                 <li>
@@ -55,10 +55,10 @@ use Cake\Routing\Router;
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="<?= Router::url('/book-appointment') ?>"><?= __('Book an appointment') ?></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.bookappointment']) ?>"><?= __('Book an appointment') ?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Router::url('/contact-us') ?>"><?= __('Contact us') ?></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>"><?= __('Contact us') ?></a>
                                 </li>
                                 <li>
                                     <a href="<?= Router::url('/counselor') ?>"><?= __('School counselors portal') ?></a>
@@ -72,13 +72,13 @@ use Cake\Routing\Router;
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="<?= Router::url('/about-us') ?>"><?= __('About Us') ?></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>"><?= __('About Us') ?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Router::url('/partnership-with-besa') ?>"><?= __('Partnerships') ?></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnershipwithbesa']) ?>"><?= __('Partnerships') ?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Router::url('/careers') ?>"><?= __('Careers') ?></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>"><?= __('Careers') ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -92,7 +92,7 @@ use Cake\Routing\Router;
                                     foreach ($servicesList as $key => $serviceValue) {
                                     ?>
                                         <li>
-                                            <a href="<?= Router::url('/service-details/' . $serviceValue['permalink']) ?>"> <?= strtoupper($serviceValue['title']) ?></a>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['services.details'] . '/' . $serviceValue['permalink']) ?>"> <?= strtoupper($serviceValue['title']) ?></a>
                                         </li>
                                     <?php
                                         if ($key == 4) {
@@ -127,7 +127,7 @@ use Cake\Routing\Router;
 
                                                 foreach ($countryList as $countryValue) {
                                             ?>
-                                                    <li><a href="<?= Router::url('/country-details/'.$countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
+                                                    <li><a href="<?= Router::url('/' . $g_dynamic_routes['countries.details'] . '/' . $countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
                                                 <?php
                                                     if ($key == 'uk')
                                                         break;
@@ -158,7 +158,7 @@ use Cake\Routing\Router;
 
                                                 foreach ($countryList as $countryValue) {
                                             ?>
-                                                    <li><a href="<?= Router::url('/country-details/'. $countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
+                                                    <li><a href="<?= Router::url('/' . $g_dynamic_routes['countries.details'] . '/' . $countryValue['permalink']) ?>"><?= $countryValue['country_name'] ?></a></li>
                                                 <?php
 
                                                 } ?>
@@ -180,7 +180,7 @@ use Cake\Routing\Router;
                                     foreach ($eventsMenuList as $key => $eventValue) {
                                     ?>
                                         <li>
-                                            <a href="<?= Router::url('/event-details/'.$eventValue['permalink']) ?>"><?= strtoupper($eventValue['title']) ?></a>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails'] . '/' . $eventValue['permalink']) ?>"><?= strtoupper($eventValue['title']) ?></a>
                                         </li>
                                     <?php } ?>
 
@@ -193,19 +193,19 @@ use Cake\Routing\Router;
                             <div class="list">
                                 <ul>
                                     <li>
-                                        <a href="<?= Router::url('/content/about')?>"><?= __('About Us') ?></a>
+                                        <a href="<?= Router::url('/content/about') ?>"><?= __('About Us') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/content/careers')?>"><?= __('Careers') ?></a>
+                                        <a href="<?= Router::url('/content/careers') ?>"><?= __('Careers') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/content/blog')?>"><?= __('Blog') ?></a>
+                                        <a href="<?= Router::url('/content/blog') ?>"><?= __('Blog') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/contact-us')?>"><?= __('Contact Us') ?></a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>"><?= __('Contact Us') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/content/book-free-counselling-session')?>"><?= __('Book A FREE Counselling Session') ?></a>
+                                        <a href="<?= Router::url('/content/book-free-counselling-session') ?>"><?= __('Book A FREE Counselling Session') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -217,13 +217,13 @@ use Cake\Routing\Router;
                                 <ul>
                                     <li>
 
-                                        <a href="<?= Router::url('/b2b-services')?>"><?= __('B2B Services') ?></a>
+                                        <a href="<?= Router::url('/b2b-services') ?>"><?= __('B2B Services') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/content/partnerships')?>"><?= __('Partnerships') ?></a>
+                                        <a href="<?= Router::url('/content/partnerships') ?>"><?= __('Partnerships') ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?= Router::url('/content/school-counselling-portal')?>"><?= __('School Counselling Portal') ?></a>
+                                        <a href="<?= Router::url('/content/school-counselling-portal') ?>"><?= __('School Counselling Portal') ?></a>
                                     </li>
                                 </ul>
                             </div>

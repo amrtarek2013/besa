@@ -31,7 +31,7 @@ use Cake\Routing\Router;
         <div class="row">
             <div class="col-md-12">
                 <div class="gridTabes">
-                    <a href="<?= Router::url('/destinations') ?>" class="btn clear-blue foundation">EXPLORE STUDYING ABROAD</a>
+                    <a href="<?= Router::url('/'.$g_dynamic_routes['countries.index']) ?>" class="btn clear-blue foundation">EXPLORE STUDYING ABROAD</a>
 
                     <a href="<?= Router::url('/user/register') ?>" class="btn greenish-teal master">REGISTER NOW</a>
 

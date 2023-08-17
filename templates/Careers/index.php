@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg47.png" alt="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg47.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-5">
@@ -31,7 +31,7 @@
                                 <div class="item">
                                     <h5><?= $career['title'] ?></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
-                                    <a href="/career-apply/<?= $career['id'] ?>/<?= $career['title'] ?>" class="btn">Apply Now</a>
+                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>
                                 </div>
                             <?php endforeach; ?>
 
@@ -45,14 +45,14 @@
     </div>
 </section>
 
-<section class="lifeBesaSlider">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="title">Life at <span> BESA </span> </h2>
-                <div class="owl-carousel owl-theme owl-lifeBesa">
+<?php if (!empty($careerImages->toArray())) : ?>
+    <section class="lifeBesaSlider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title">Life at <span> BESA </span> </h2>
+                    <div class="owl-carousel owl-theme owl-lifeBesa">
 
-                    <?php if (!empty($careerImages)) : ?>
                         <?php foreach ($careerImages as $careerImage) : ?>
                             <div class="item">
                                 <div class="image">
@@ -61,10 +61,10 @@
                             </div>
 
                         <?php endforeach; ?>
-
-                    <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+<?php endif; ?>

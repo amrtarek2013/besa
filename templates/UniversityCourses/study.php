@@ -247,7 +247,7 @@
                     <div class="button-group">
                         <button type="submit" class="btn btn-green"><?= __('Find') ?></button>
                         <!-- <a href="#" class="btn btn-green">Find</a> -->
-                        <a href="/contact-us" class="btn btn-blue">
+                        <a href="<?= Cake\Routing\Router::url('/'.$g_dynamic_routes['enquiries.contactus']) ?>" class="btn btn-blue">
                             <span class="big">Need Help?</span>
                             <span class="small">Schedule a FREE session with our Counsellors </span>
                         </a>

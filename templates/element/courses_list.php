@@ -256,7 +256,7 @@
 
                     $(document).on('confirmation', '.modalMsg', function(e) {
 
-                        window.location.assign('<?= Router::url('/') ?>applications');
+                        window.location.assign('<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['applications.index']) ?>');
                     });
 
                 }

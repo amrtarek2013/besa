@@ -48,62 +48,62 @@
                 <h2 class="title">COUNTRIES THAT OFFER <span class="green">BACHELOR</span> DEGREE </h2>
                 <div class="gridCountries">
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/UK.png" alt="">
                             <h5 class="title-country">United Kingdom</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/USA.png" alt="">
                             <h5 class="title-country">USA</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Canada.png" alt="">
                             <h5 class="title-country">Canada</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Lithuania.png" alt="">
                             <h5 class="title-country"> Lithuania</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details" id="">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>" id="">
                             <img src="<?=WEBSITE_URL?>img/Malaysia.png" alt="">
                             <h5 class="title-country">Malaysia</h5>
                         </a>
                     </div>
 
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Spain.png" alt="">
                             <h5 class="title-country">Spain</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Germany.png" alt="">
                             <h5 class="title-country">Germany</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Netherlands.png" alt="">
                             <h5 class="title-country">Netherlands</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Switzerland.png" alt="">
                             <h5 class="title-country">SWITZERLAND</h5>
                         </a>
                     </div>
                     <div class="box">
-                        <a href="/service-details">
+                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['services.details']) ?>">
                             <img src="<?=WEBSITE_URL?>img/Russia.png" alt="">
                             <h5 class="title-country">Russia</h5>
                         </a>
