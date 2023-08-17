@@ -32,13 +32,13 @@
                         <?= $this->AdminForm->create($dynamicRoute, ['id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            echo '<h4>URL: /' . $dynamicRoute['controller'] . '/' . $dynamicRoute['action'] . ($dynamicRoute['has_params'] ? '/*' : '') . '</h4>';
-                            echo '<h4>New URL: /<span id="new-url">' . $dynamicRoute['slug'] . '</span>' . ($dynamicRoute['has_params'] ? '/*' : '') . '</h4>';
+                            echo '<h4>Original URL (you can always use this URL): /' . $dynamicRoute['controller'] . '/' . $dynamicRoute['action'] . ($dynamicRoute['has_params'] ? '/*' : '') . '</h4>';
+                            echo '<h4>Current New URL: /<span id="new-url">' . $dynamicRoute['slug'] . '</span>' . ($dynamicRoute['has_params'] ? '/*' : '') . '</h4>';
                             echo '<p><b>Note "/*"</b> means: the url contain some params</p>';
 
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('slug', ['type' => 'text', 'class' => 'INPUT required']);
-
+                            echo '<p></p>';
 
                             // echo $this->AdminForm->control('is_active');
                             // echo $this->AdminForm->control('has_params');
