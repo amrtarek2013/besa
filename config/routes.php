@@ -1,5 +1,6 @@
 <?php
 
+use Cake\ORM\TableRegistry;
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
@@ -33,11 +34,20 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
         // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+        $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
+        $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1])->all();
+
+        foreach ($dynamicRoutes as $routePage) {
+            if ($routePage['has_params'])
+                $routePage['slug'] = $routePage['slug'] . '/*';
+
+            $builder->connect('/' . $routePage['slug'], ['controller' => $routePage['controller'], 'action' => $routePage['action']]);
+        }
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
-        $builder->connect('/about', ['controller' => 'Pages', 'action' => 'view']);
+        // $builder->connect('/about', ['controller' => 'Pages', 'action' => 'view']);
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
 
 
@@ -83,12 +93,12 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/courses/*', 'UniversityCourses::index');
 
 
-        // $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
-        // $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
-        // $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
-        // $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
 
-        // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         /*
          * Connect catchall routes for all controllers.
          *
