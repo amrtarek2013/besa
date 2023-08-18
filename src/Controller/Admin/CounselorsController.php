@@ -80,10 +80,12 @@ class CounselorsController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-            
+         
+
             $counselor = $this->Counselors->patchEntity($counselor, $data);
-            if (!empty($data->password))
-                $data['pp'] = $data->passwd;
+            // dd($counselor);
+            if (!empty($counselor->isDirty('password')))
+                $counselor['pp'] = $counselor->passwd;
             if ($this->Counselors->save($counselor)) {
                 $this->Flash->success(__('The Counselor has been saved.'));
 

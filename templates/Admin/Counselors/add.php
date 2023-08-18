@@ -45,7 +45,8 @@
 
                                         <?= $this->AdminForm->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
 
-                                        <?= $this->AdminForm->lable('password', 'Current Password:' . $counselor['pp']) ?>
+
+                                        <?= $this->AdminForm->control('pp', ['type' => 'text', 'readonly' => 'readonly', 'placeholder' => 'Current Password', 'class' => 'form-area', 'label' => 'Current Password*']) ?>
                                         <?= $this->AdminForm->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
                                         <?= $this->AdminForm->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
 
@@ -77,12 +78,16 @@
     </section>
 </div>
 <script>
-    $(document).ready(function() {
-        $('.select-single').select2();
-        $('.select-multiple').select2();
+    var oldpp = '<?= $counselor['pp'] ?>';
+    $('#password').on('change focus keyup keypress keydown', function() { // ,keyup , keydown, focus
+        let va = $(this).val();
+        // va = va.replace(/\W+/g, '-').toLowerCase();
+        // $(this).val(va);
+        console.log(va);
+        console.log($(this).val() == '' || $(this).val() == undefined)
+        if ($(this).val() == '' || $(this).val() == undefined)
+            $('#pp').val(oldpp);
+        else
+            $('#pp').val($(this).val());
     });
 </script>
-<?php
-
-echo $this->Html->script('select2.min');
-echo $this->Html->css('select2.min');
