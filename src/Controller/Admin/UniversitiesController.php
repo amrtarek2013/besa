@@ -140,4 +140,79 @@ class UniversitiesController extends AppController
         else
             return $this->redirect(['action' => 'index']);
     }
+
+
+
+    public function export()
+    {
+
+        $this->autoLayout = $this->autoRender = false;
+        $conditions = $this->_filter_params();
+        $users = $this->Users->find('all')->where($conditions)->toArray();
+
+        $dataToExport[] = array(
+            'User ID' => 'User ID',
+            'name' => 'Name',
+            // 'job_title' => 'Job Title',
+            'email' => 'Email',
+            'address' => 'Address',
+            // 'barcode_number' => 'Barcode Number',
+            'password' => 'Password',
+            'active' => 'Active',
+        );
+
+        foreach ($users as $user) {
+            $dataToExport[] = [
+                $user->id,
+                $user->name,
+                // $user->job_title,
+                $user->email,
+                $user->address,
+                // $user->barcode_number,
+                '',
+                ($user->active) ? 'Yes' : 'No',
+            ];
+        }
+
+        $this->loadComponent('Csv');
+        $this->Csv->download($dataToExport, 'users-list-' . date('Ymd'));
+
+        exit();
+    }
+    public function import()
+    {
+
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+
+            $error = $data['file']->getError();
+            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+                $this->loadComponent('Csv');
+                $usersArray = $this->Csv->convertCsvToArray($data['file'], $this->Users->schema_of_import);
+                foreach ($usersArray as $userLine) {
+                    if (empty($userLine['id'])) {
+                        unset($userLine['id']);
+                        $user = $this->Users->newEmptyEntity();
+                    } else {
+                        $user = $this->Users->get($userLine['id']);
+                    }
+                    if (empty($userLine['password'])) {
+                        unset($userLine['password']);
+                    }
+
+                    $userLine['active'] = (strtolower($userLine['active']) == 'yes') ? 1 : 0;
+                    // fd($userLine);
+                    $user = $this->Users->patchEntity($user, $userLine);
+                    // dd($user);
+                    $this->Users->save($user);
+                }
+            }
+
+            $this->Flash->success(__('The Users has been imported.'));
+            return $this->redirect(['action' => 'import']);
+        }
+
+        $this->set(compact('user'));
+    }
 }

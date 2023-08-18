@@ -40,7 +40,7 @@ class CounselorsController extends AppController
         $conditions = $this->_filter_params();
         // $conditions['Counselors.is_office_admin !='] = 1;
 
-        $counselors = $this->paginate($this->Counselors, ['conditions' => $conditions, 'contain' => ['Countries', 'Services']]);
+        $counselors = $this->paginate($this->Counselors, ['conditions' => $conditions, 'contain' => ['Countries']]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('counselors', 'parameters'));
@@ -53,6 +53,9 @@ class CounselorsController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
             $counselor = $this->Counselors->patchEntity($counselor, $data);
+
+            if (!empty($data->password))
+                $data['pp'] = $data->passwd;
             if ($this->Counselors->save($counselor)) {
                 $this->Flash->success(__('The Counselor has been saved.'));
 
@@ -77,12 +80,10 @@ class CounselorsController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-
-
-
+            
             $counselor = $this->Counselors->patchEntity($counselor, $data);
-
-
+            if (!empty($data->password))
+                $data['pp'] = $data->passwd;
             if ($this->Counselors->save($counselor)) {
                 $this->Flash->success(__('The Counselor has been saved.'));
 
