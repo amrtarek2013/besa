@@ -76,6 +76,7 @@ class AdminsController extends AppController
         $this->checkIfSuperadmin();
 
         $conditions = $this->_filter_params();
+
         $this->paginate = array('limit' => 100);
         $admins = $this->paginate($this->Admins, ['conditions' => $conditions]);
 
@@ -185,11 +186,14 @@ class AdminsController extends AppController
         $this->checkIfSuperadmin();
         // $this->request->allowMethod(['post', 'delete']);
         $admin = $this->Admins->get($id);
-        if ($this->Admins->delete($admin)) {
-            $this->Flash->success(__('The admin has been deleted.'));
-        } else {
-            $this->Flash->error(__('The admin could not be deleted. Please, try again.'));
-        }
+        if ($admin['super_admin'] != 1)
+            if ($this->Admins->delete($admin)) {
+                $this->Flash->success(__('The admin has been deleted.'));
+            } else {
+                $this->Flash->error(__('The admin could not be deleted. Please, try again.'));
+            }
+        else
+            $this->Flash->error(__('Sorry, you can not delete super admin!!!!.'));
 
         return $this->redirect(['action' => 'index']);
     }

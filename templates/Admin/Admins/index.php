@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Users List') ?></h1>
+                    <h1><?= __('Admins List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Users') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Admins') ?></li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +34,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Users List') ?></h3>
+                            <h3 class="card-title"><?= __('Admins List') ?></h3>
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
                                 <?= __('Add new') ?>
                             </a>
@@ -50,7 +50,7 @@
                         ];
 
                         $multi_select_actions = array(
-                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
+                            // 'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
                         );
 
                         $actions = [
