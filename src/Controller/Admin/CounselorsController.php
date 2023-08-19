@@ -64,7 +64,10 @@ class CounselorsController extends AppController
             $this->Flash->error(__('The Counselor could not be saved. Please, try again.'));
         }
 
-        // $this->_ajaxImageUpload('Counselors_new', 'counselors', false, false, ['image']);
+        $this->_ajaxImageUpload('counselors_mew', 'counselors', false, false, ['image']);
+        $uploadSettings = $this->Counselors->getUploadSettings();
+        $this->set(compact('uploadSettings'));
+
         $this->set('id', false);
 
         $this->formCommon();
@@ -80,7 +83,7 @@ class CounselorsController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-         
+
 
             $counselor = $this->Counselors->patchEntity($counselor, $data);
             // dd($counselor);
@@ -94,8 +97,16 @@ class CounselorsController extends AppController
             $this->Flash->error(__('The Counselor could not be saved. Please, try again.'));
         }
         $this->formCommon();
-        $this->set(compact('id'));
+        // $this->set(compact('id'));
         // $this->_ajaxImageUpload('Counselors_' . $id, 'counselors', $id, ['id' => $id], ['image']);
+
+
+        $id = $counselor['id'];
+        $this->set(compact('id'));
+        $this->_ajaxImageUpload('counselor_' . $counselor['id'], 'counselors', $counselor['id'], ['id' => $id], ['image']);
+        $uploadSettings = $this->Counselors->getUploadSettings();
+        $this->set(compact('uploadSettings'));
+
         $this->set(compact('counselor'));
         $this->render('add');
     }

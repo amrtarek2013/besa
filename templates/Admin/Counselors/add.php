@@ -56,8 +56,19 @@
                                         <!-- <?= $this->AdminForm->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?> -->
 
                                         <!-- <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?> -->
+                                        <?php
+                                        echo $this->AdminForm->control('image', ['label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                            'data' => $counselor,
+                                            'field' => 'image',
+                                            'info' => [
+                                                'width' => $uploadSettings['image']['width'],
+                                                'height' => $uploadSettings['image']['height'],
+                                                'path' => $uploadSettings['image']['path']
 
-                                        <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'counselor_' . $id, $mainAdminToken) ?> -->
+                                            ],
+                                        ])]);
+                                        ?>
+                                        <?= $this->AdminForm->enableAjaxUploads($id, 'counselor_' . $id, $mainAdminToken) ?>
                                         <?= $this->AdminForm->control('active', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('confirmed', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('display_order', []) ?>

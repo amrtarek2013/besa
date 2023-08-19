@@ -467,18 +467,18 @@ class CounselorsController extends AppController
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
-        $countriesCodesList = $this->Countries->find()->select([
-            'code', 'phone_code'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+        // $countriesCodesList = $this->Countries->find()->select([
+        //     'code', 'phone_code'
+        // ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
-        $countriesCodesList = Hash::combine(
-            $countriesCodesList->toArray(),
-            '{n}.phone_code',
-            ['+%s', '{n}.phone_code']
-        );
+        // $countriesCodesList = Hash::combine(
+        //     $countriesCodesList->toArray(),
+        //     '{n}.phone_code',
+        //     ['+%s', '{n}.phone_code']
+        // );
 
 
-        $this->set('countriesCodesList', $countriesCodesList);
+        // $this->set('countriesCodesList', $countriesCodesList);
     }
 
 
@@ -614,31 +614,31 @@ class CounselorsController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        $countriesCodesList = $this->Countries->find()->select([
-            'code', 'phone_code', 'country_name', 'flag'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+        // $countriesCodesList = $this->Countries->find()->select([
+        //     'code', 'phone_code', 'country_name', 'flag'
+        // ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
-        $countriesCodesList = Hash::combine(
-            $countriesCodesList->toArray(),
-            '{n}.phone_code',
-            // ['<img src="%s" /> %s +%s', '{n}.flag_path', '{n}.country_name', '{n}.phone_code']
-            ['+%s', '{n}.phone_code']
-        );
+        // $countriesCodesList = Hash::combine(
+        //     $countriesCodesList->toArray(),
+        //     '{n}.phone_code',
+        //     // ['<img src="%s" /> %s +%s', '{n}.flag_path', '{n}.country_name', '{n}.phone_code']
+        //     ['+%s', '{n}.phone_code']
+        // );
         // dd($countriesCodesList);
-        $this->set('countriesCodesList', $countriesCodesList);
+        // $this->set('countriesCodesList', $countriesCodesList);
 
-        $this->loadModel('StudyLevels');
-        $studyLevels = $this->StudyLevels->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
-        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
-        $this->set('studyLevels', $studyLevels);
+        // $this->loadModel('StudyLevels');
+        // $studyLevels = $this->StudyLevels->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        // $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        // $this->set('studyLevels', $studyLevels);
 
-        $this->loadModel('SubjectAreas');
-        $subjectAreas = $this->SubjectAreas->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
-        $this->set('subjectAreas', $subjectAreas);
+        // $this->loadModel('SubjectAreas');
+        // $subjectAreas = $this->SubjectAreas->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        // $this->set('subjectAreas', $subjectAreas);
 
         // $this->redirect('/');
     }
