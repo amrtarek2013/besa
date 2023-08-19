@@ -25,7 +25,7 @@
 
             </div>
             <div class="col-md-4 ml">
-                <div class="container-formBox blue-border ">
+                <!-- <div class="container-formBox blue-border ">
                     <form action="/counselor/login" class="login" method="post">
 
                         <?= $this->Form->create($counselor, array('url' => '/counselor/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
@@ -46,7 +46,7 @@
                         </div>
                     </form>
                 </div>
-                <br/><br/>
+                <br/><br/> -->
                 <div class="container-formBox blue-border ">
                     <!-- <form action="/counselor/register" class="login" method="post"> -->
 
