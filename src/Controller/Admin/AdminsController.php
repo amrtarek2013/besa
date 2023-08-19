@@ -193,7 +193,7 @@ class AdminsController extends AppController
                 $this->Flash->error(__('The admin could not be deleted. Please, try again.'));
             }
         else
-            $this->Flash->error(__('Sorry, you can not delete super admin!!!!.'));
+            $this->Flash->error(__('Sorry, you are not allowed to delete super admin!!!!.'));
 
         return $this->redirect(['action' => 'index']);
     }
