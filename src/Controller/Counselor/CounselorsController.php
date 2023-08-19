@@ -158,6 +158,7 @@ class CounselorsController extends AppController
             }
         }
 
+        $this->redirect('/counselor');
         // $this->redirect('/');
     }
 

@@ -26,6 +26,28 @@
             </div>
             <div class="col-md-4 ml">
                 <div class="container-formBox blue-border ">
+                    <form action="/counselor/login" class="login" method="post">
+
+                        <?= $this->Form->create($counselor, array('url' => '/counselor/login', 'id' => 'FormLogin', 'class' => 'login')); ?>
+                        <h4 class="title">Log in</h4>
+                        <div class="grid-container">
+                            <div class="form-area">
+                                <label for="email">Email*</label>
+                                <input type="email" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-area">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="password">
+                            </div>
+                            <div class="form-area">
+                                <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
+                                <button type="submit" class="btn clear-blue">LOG IN</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br/><br/>
+                <div class="container-formBox blue-border ">
                     <!-- <form action="/counselor/register" class="login" method="post"> -->
 
                     <?= $this->Form->create($counselor, array('url' => '/counselor/register', 'id' => 'FormRegister', 'class' => 'login')); ?>
