@@ -46,6 +46,8 @@
                                         <?= $this->AdminForm->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
 
 
+                                        <?= $this->AdminForm->control('pp', ['type' => 'text', 'placeholder' => 'Current Password', 'readonly' => 'readonly', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Current Password*']) ?>
+
                                         <?= $this->AdminForm->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
                                         <?= $this->AdminForm->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
 
