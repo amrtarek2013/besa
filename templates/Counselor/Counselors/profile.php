@@ -12,23 +12,56 @@
                 <div class="container-formBox">
                     <h4 class="title">Basic Information</h4>
                     <div class="grid-container">
-                        <?= $this->Form->control('first_name', ['placeholder' => 'Full Name', 'class' => 'form-area', 'label' => 'Full Name*', 'required' => true]) ?>
-                        <!-- <?= $this->Form->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?>
-                        <?= $this->Form->control('last_name', ['placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true]) ?> -->
-                        <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
+                        <?= $this->Form->control('first_name', [
+                            'placeholder' => 'Full Name', 'class' => 'form-area', 'label' => 'Full Name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+                        <!-- <?= $this->Form->control('middle_name', [
+                                    'placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false,
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ]) ?>
+                        <?= $this->Form->control('last_name', [
+                            'placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?> -->
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
+                        <?= $this->Form->control('mobile', [
+                            'placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
-                        <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
+                        <?= $this->Form->control('password', [
+                            'type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+                        <?= $this->Form->control('passwd', [
+                            'type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                        <?= $this->Form->control('gender', [
+                            'placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('school_name', ['placeholder' => 'School Name', 'class' => 'form-area', 'label' => 'School Name*', 'required' => true]) ?>
+                        <?= $this->Form->control('school_name', [
+                            'placeholder' => 'School Name', 'class' => 'form-area', 'label' => 'School Name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality']) ?>
+                        <?= $this->Form->control('nationality', [
+                            'placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
-                        <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address']) ?>
+                        <?= $this->Form->control('address', [
+                            'type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
 
                         <?= $this->Form->control('country_id', [
@@ -37,9 +70,9 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
                         <!-- <?= $this->Form->control('city', [
-                            'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
+                                    'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+                                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                                ]) ?>
                         <?= $this->Form->control('current_status', [
                             'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
@@ -63,22 +96,26 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?> -->
                         <?php
-                        echo $this->AdminForm->control('image', ['label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                            'data' => $counselor,
-                            'field' => 'image',
-                            'info' => [
-                                'width' => $uploadSettings['image']['width'],
-                                'height' => $uploadSettings['image']['height'],
-                                'path' => $uploadSettings['image']['path']
+                        echo $this->AdminForm->control('image', [
+                            'label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $counselor,
+                                'field' => 'image',
+                                'info' => [
+                                    'width' => $uploadSettings['image']['width'],
+                                    'height' => $uploadSettings['image']['height'],
+                                    'path' => $uploadSettings['image']['path']
 
-                            ],
-                        ])]);
+                                ],
+                            ]),
+
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]);
                         ?>
 
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-12">
                 <div class="container-submit">
                     <button type="submit" class="btn clear-blue">Update</button>

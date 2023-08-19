@@ -1442,7 +1442,8 @@
     .contaienr-conditions .box {
         max-width: 80%;
     }
-    .contaienr-conditions .box:not(:first-child)::before{
+
+    .contaienr-conditions .box:not(:first-child)::before {
         left: -3.89%;
     }
 
@@ -1650,7 +1651,7 @@
     .timeline-item {
         width: 390px !important;
         height: unset !important;
-        
+
     }
 
     .services-rendered .box-icon {
@@ -1812,18 +1813,29 @@
     .title .blue-para {
         margin-top: 10px;
     }
+
     .Create-account-banner .container-submit .btn {
         margin-top: 25px;
     }
-    .ml{
-        padding-left: 10px; 
+
+    .ml {
+        padding-left: 10px;
 
     }
-    .mr{
-         padding-right: 10px; 
+
+    .mr {
+        padding-right: 10px;
 
     }
+
     .container-formBox h4 {
-      
-        font-size: 22px;}
+
+        font-size: 22px;
+    }
+
+
+    .circle-img-center {
+        top: -60px;
+        /* left: 90px */
+    }
 }

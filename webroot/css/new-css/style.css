@@ -94,7 +94,8 @@ select {
     -webkit-appearance: none;
     /* Safari and Chrome */
     appearance: none;
-    background: transparent;
+    /* background: transparent; */
+    background: var(--bs-white);
     background-image: url("../img/icon/arrow-select.svg");
     background-repeat: no-repeat;
     background-position-x: calc(100% - 15px);
@@ -106,7 +107,7 @@ body {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
-    font-family: "Merriweather";
+    font-family: "Merriweather", "Times New Roman";
     background: var(--bs-main);
 }
 
@@ -147,6 +148,12 @@ body {
 .circle-img img {
     width: 100%;
     height: 100%;
+}
+
+.circle-img-center {
+    position: absolute;
+    top: 0px;
+    /* left: 90px */
 }
 
 .title {
@@ -349,6 +356,7 @@ button {
 
 select,
 textarea,
+.file file,
 input:not([type="radio"],
     [type="checkbox"],
     [type="range"]) {
@@ -368,12 +376,17 @@ input:not([type="radio"],
 
 .input select,
 .input textarea,
+.file file,
 .input input:not([type="radio"],
     [type="checkbox"],
     [type="range"]) {
     border: 1px solid var(--bs-green);
     border-radius: 6px;
 
+}
+
+.fix-overlapping {
+    margin-top: -19px;
 }
 
 textarea {
@@ -4821,8 +4834,8 @@ input.search {
     display: inline-block;
     width: 11px;
     height: 11px;
-     border-right: 14px solid #ebebeb;
-    border-top: 14px solid #ebebeb; 
+    border-right: 14px solid #ebebeb;
+    border-top: 14px solid #ebebeb;
 
     border-right: 14px solid var(--bs-white);
     border-top: 14px solid var(--bs-white);
@@ -7207,7 +7220,8 @@ input[type="search"]:focus {
 }
 
 .form-area textarea,
-.form-area input {
+.form-area input,
+.form-area file {
     border-radius: 4px;
     border: 1.2px solid #B4BEC8;
     border: 1.2px solid var(--bs-green);
@@ -7216,7 +7230,8 @@ input[type="search"]:focus {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.32px;
-    background: transparent;
+    /* background: transparent; */
+    background: var(--bs-white);
 }
 
 .form-area select {
@@ -7671,8 +7686,13 @@ input[type="search"]:focus {
     -moz-border-radius: 30px !important;
     -ms-border-radius: 30px !important;
     -o-border-radius: 30px !important;
-    margin-top: 55px;
+    margin-top: 54px;
     padding: 0;
+    background: linear-gradient(180deg, #D0E1E7 0%, #FFF 27.60%);
+
+    border-bottom: 6px solid var(--bs-light-blue) !important;
+    padding-bottom: 30px;
+    padding-top: 70px;
 
 }
 
@@ -7681,6 +7701,41 @@ input[type="search"]:focus {
 
 }
 
+
+.user-dashboard .online-status {
+    padding: 0 110px;
+    color: #33CA94;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+
+}
+
+.counselor-sidebar .nav-sidebar {
+    margin-top: 40px;
+}
+
+.counselor-sidebar .nav-sidebar .info {
+    margin-top: 30px;
+    color: var(--bs-light-blue);
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+}
+
+.counselor-sidebar .left-box {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .user-dashboard .sidebar .nav-link a {
     float: unset !important;

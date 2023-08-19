@@ -64,16 +64,19 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
                         <?php
-                        echo $this->AdminForm->control('image', ['label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                            'data' => $user,
-                            'field' => 'image',
-                            'info' => [
-                                'width' => $uploadSettings['image']['width'],
-                                'height' => $uploadSettings['image']['height'],
-                                'path' => $uploadSettings['image']['path']
+                        echo $this->AdminForm->control('image', [
+                            'label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $user,
+                                'field' => 'image',
+                                'info' => [
+                                    'width' => $uploadSettings['image']['width'],
+                                    'height' => $uploadSettings['image']['height'],
+                                    'path' => $uploadSettings['image']['path']
 
-                            ],
-                        ])]);
+                                ],
+                            ]),
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" style="margin-top: -19px !important;">{{content}}</div>']
+                        ]);
                         ?>
 
                     </div>

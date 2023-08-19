@@ -53,10 +53,10 @@
         padding-bottom: 15px;
     }
 </style>
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 counselor-sidebar">
     <a href="<?= USER_LINK ?>" class="brand-link">
         <!-- <img src="<?= ADMIN_ASSETS ?>/dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-        <span class="brand-text font-weight-light"><?= __('User Dashboard') ?></span>
+        <span class="brand-text font-weight-light"><?= __('Counselor Dashboard') ?></span>
     </a>
 
     <!-- Sidebar -->
@@ -64,10 +64,14 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <!-- <div class="image"> -->
             <div class="left-box">
-                <div class="circle-img">
+                <div class="circle-img circle-img-center">
                     <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
-                <?php /* ?><h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4><?php */ ?>
+                <?php /* ?><h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4><?php */
+
+                use Cake\Routing\Router;
+
+                ?>
                 <span class="online-status"><?= true ? 'ONLINE' : 'OFFLINE' ?></span>
 
             </div>
@@ -82,7 +86,7 @@
         <nav class="mt-2">
             <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, true); ?>
             <div class="info">
-                <a href="#" class="Track-App"><?= __('Track & view your application') ?></a>
+                <a href="<?= Router::url('/applications') ?>" class="Track-App"><?= __('Track & view your application') ?></a>
             </div>
         </nav>
         <!-- /.sidebar-menu -->

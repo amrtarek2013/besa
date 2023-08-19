@@ -46,7 +46,7 @@
                                 <tr class="table-header">
                                     <th class="" width=""><a>Status</a></th>
                                     <td>
-                                        <span class="btn-status <?= $statuses[$application->status] ?>">
+                                        <span class="btn-status <?=$statuses[$application->status] ?>">
                                             <?php echo $statuses[$application->status] ?>
                                         </span>
                                     </td>
