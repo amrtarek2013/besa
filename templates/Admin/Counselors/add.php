@@ -38,25 +38,24 @@
                                 <div class="container-formBox">
                                     <h4 class="title">Basic Information</h4>
                                     <div class="grid-container">
-                                        <?= $this->AdminForm->control('first_name', ['placeholder' => 'First Name', 'class' => 'form-area', 'label' => 'First Name*', 'required' => true]) ?>
-                                        <?= $this->AdminForm->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?>
-                                        <?= $this->AdminForm->control('last_name', ['placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('first_name', ['placeholder' => 'Full Name', 'class' => 'form-area', 'label' => 'Full Name*', 'required' => true]) ?>
+                                        <!-- <?= $this->AdminForm->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?>
+                                        <?= $this->AdminForm->control('last_name', ['placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true]) ?> -->
                                         <?= $this->AdminForm->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
 
                                         <?= $this->AdminForm->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
 
 
-                                        <?= $this->AdminForm->control('pp', ['type' => 'text', 'readonly' => 'readonly', 'placeholder' => 'Current Password', 'class' => 'form-area', 'label' => 'Current Password*']) ?>
                                         <?= $this->AdminForm->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
                                         <?= $this->AdminForm->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
 
                                         <?= $this->AdminForm->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('school_name', ['placeholder' => 'School Name', 'class' => 'form-area', 'label' => 'School Name*', 'required' => true]) ?>
+                                        <!-- <?= $this->AdminForm->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?> -->
 
-                                        <?= $this->AdminForm->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?>
+                                        <!-- <?= $this->AdminForm->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?> -->
 
-                                        <?= $this->AdminForm->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?>
-
-                                        <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
+                                        <!-- <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?> -->
 
                                         <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'counselor_' . $id, $mainAdminToken) ?> -->
                                         <?= $this->AdminForm->control('active', ['type' => 'checkbox']) ?>

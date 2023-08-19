@@ -76,7 +76,7 @@ class CounselorsTable extends Table
     );
 
     $this->belongsTo('Countries')->setForeignKey('country_id');
-    $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
+    // $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     // $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
   }
 
@@ -90,12 +90,12 @@ class CounselorsTable extends Table
   {
 
     $validator->notEmptyString('first_name', 'This field is required.');
-    $validator->notEmptyString('last_name', 'This field is required.');
+    // $validator->notEmptyString('last_name', 'This field is required.');
     $validator->email('email', false, 'Please enter a valid email address.')->notEmptyString('email', 'This field is required.');
 
 
     $validator->notEmptyString('mobile', 'This field is required.');
-    $validator->notEmptyString('postcode', 'This field is required.');
+    // $validator->notEmptyString('postcode', 'This field is required.');
     // $validator->notEmptyString('counselorname', 'This field is required.');
     return $validator;
   }
@@ -106,7 +106,7 @@ class CounselorsTable extends Table
   {
 
     $validator->notEmptyString('first_name', 'This field is required.');
-    $validator->notEmptyString('last_name', 'This field is required.');
+    // $validator->notEmptyString('last_name', 'This field is required.');
     $validator->email('email', false, 'Please enter a valid email address.')
       ->notEmptyString('email', 'This field is required.')
       ->add('email', [
@@ -118,6 +118,7 @@ class CounselorsTable extends Table
       ]);
     // ->equalToField('email', 'email_confirm', 'Email must be same as the confirm email field');
 
+    $validator->notEmptyString('school_name', 'This field is required.');
     $validator->notEmptyString('mobile', 'This field is required.')
       // ->add('mobile', [
       //   'validMobileNumber' => [
@@ -143,9 +144,9 @@ class CounselorsTable extends Table
         'message' => 'Security Code is not valid',
       ]
     ]);
-    // $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
-    //   ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
-    //   ->notEmptyString('password', 'This field is required.');
+    $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
+      ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
+      ->notEmptyString('password', 'This field is required.');
 
     return $validator;
   }
