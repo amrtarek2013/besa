@@ -1,3 +1,7 @@
+<?php
+
+use Cake\Routing\Router;
+?>
 <section class="main-banner register-banner Create-account-banner">
 
     <div class="container">
@@ -40,13 +44,12 @@
                                 <input type="password" id="password" name="password" placeholder="password">
                             </div>
                             <div class="form-area">
-                                <!-- <a href="#" class="btn clear-blue">LOG IN</a> -->
-                                <button type="submit" class="btn clear-blue">LOG IN</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <br/><br/> -->
+                <button type="submit" class="btn clear-blue">LOG IN</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <br /><br /> -->
                 <div class="container-formBox blue-border ">
                     <!-- <form action="/counselor/register" class="login" method="post"> -->
 
@@ -82,6 +85,8 @@
                         <?= $this->element('security_code') ?>
 
                         <div class="form-area">
+                            <a href="<?= Router::url('/counselor/login') ?>" class="forgot-link">Login</a>
+                            <br />
                             <button type="submit" class="btn clear-blue">SUBMIT</button>
                         </div>
                     </div>
