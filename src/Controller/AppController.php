@@ -1001,6 +1001,7 @@ class AppController extends Controller
 
         if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
             $this->loadComponent('EmailSender');
+            $replace['{%website_url%}'] = WEBSITE_PATH;
             $this->EmailSender->send($to, $from, $email_template_name, $replace, $attachments);
         }
         return true;

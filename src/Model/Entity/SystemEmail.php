@@ -25,6 +25,7 @@ class SystemEmail extends Entity
             '{%subject%}'  => 'Subject',
             '{%message%}'  => 'Message',
             '{%enquiry_type%}' => 'Enquiry Type',
+            '{%website_url%}' => 'Website Url'
         ),
         'admin.contactus_enquiry' => array(
             '{%name%}' => 'Username',
@@ -49,6 +50,7 @@ class SystemEmail extends Entity
             '{%message%}'  => 'Message',
             '{%enquiry_type%}' => 'Enquiry Type',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
         'user.notify_user_registration' => array(
             // '{%username%}' => 'Username',
@@ -57,6 +59,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
         'admin.notify_user_registration' => array(
             '{%username%}' => 'Username',
@@ -65,6 +68,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
 
 
@@ -75,6 +79,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%confirmation_url%}' => 'Confirmation URL',
+            '{%website_url%}' => 'Website Url'
         ),
 
 
@@ -85,6 +90,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%new_password%}' => 'Reset Password URL',
+            '{%website_url%}' => 'Website Url'
         ),
 
 
@@ -95,6 +101,7 @@ class SystemEmail extends Entity
             // '{%email%}'  => 'Email',
             // '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
         'admin.notify_user_new_apply' => array(
             // '{%username%}' => 'Username',
@@ -103,6 +110,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
 
 
@@ -117,6 +125,7 @@ class SystemEmail extends Entity
             '{%status_text%}'  => 'Status Message',
             '{%status_time%}'  => 'status_time',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
         'admin.notify_user_app_updated' => array(
             // '{%username%}' => 'Username',
@@ -125,6 +134,7 @@ class SystemEmail extends Entity
             '{%email%}'  => 'Email',
             '{%mobile%}'  => 'Mobile',
             '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
         ),
 
 
@@ -135,6 +145,7 @@ class SystemEmail extends Entity
         //     '{%email%}'  => 'Email',
         //     '{%mobile%}'  => 'Mobile',
         //     '{%view_link%}' => 'View Link',
+        // '{%website_url%}' => 'Website Url'
         // ),
         // 'admin.notify_presenter_registration' => array(
         //     '{%username%}' => 'Username',
