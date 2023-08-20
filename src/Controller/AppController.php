@@ -63,6 +63,7 @@ class AppController extends Controller
                 $this->redirect("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
             }
         }
+
         $this->setDefaultLayout();
 
         // $isIP = (bool)ip2long($_SERVER['HTTP_HOST']);
