@@ -20,8 +20,8 @@ class EnquiriesController extends AppController
     {
         $conditions = $this->_filter_params();
 
-        Configure::write('debug', true);
-        Configure::write('debug', 1);
+        // Configure::write('debug', true);
+        // Configure::write('debug', 1);
 
         $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['created' => 'DESC']]);
         $parameters = $this->request->getAttribute('params');

@@ -11,7 +11,7 @@ use Cake\I18n\I18n;
     <title><?= $admin_title_prefix ?> | Dashboard </title>
     <script language="JavaScript" type="text/javascript" src="<?= ADMIN_ASSETS ?>/plugins/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/plugins/fontawesome-free/css/all.min.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/dist/css/ionicons.min.css">
     <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_css.css?v=<?= time() ?>">
