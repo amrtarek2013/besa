@@ -1487,7 +1487,7 @@ textarea {
     letter-spacing: 0.02em;
     color: var(--bs-white);
     padding: 10px 20px 11px;
-    background-color: var(--bs-black);
+    background-color: var(--bs-white);
     border: 2px solid var(--bs-gold);
     border-radius: 10px;
     text-decoration: none;
