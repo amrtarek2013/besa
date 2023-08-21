@@ -115,6 +115,14 @@
         font-size: 16px !important;
     }
 
+    .unitedKingdom-banner .title-banner-blue h3 {
+        font-size: 18px !important;
+    }
+    .unitedKingdom-banner .title-banner-blue {
+       
+        padding: 16px 0 !important;
+    }
+
     section {
         padding: 25px 0;
     }
