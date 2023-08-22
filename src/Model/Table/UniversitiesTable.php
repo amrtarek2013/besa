@@ -143,6 +143,41 @@ class UniversitiesTable extends Table
         // $validator->notEmptyString('city', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
 
+        $validator->notEmptyFile('image')
+            ->uploadedFile('image', [
+                'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
+                'minSize' => 1024, // Min 1 KB
+                'maxSize' => 1024 * 1024 // Max 1 MB
+            ])
+            // ->add('image', 'minSize', [
+            //     'rule' => ['imageSize', [
+            //         // Min 10x10 pixel
+            //         'width' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
+            //         'height' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
+            //     ]]
+            // ])
+            // ->add('image', 'maxSize', [
+            //     'rule' => ['imageSize', [
+            //         // Max 100x100 pixel
+            //         'width' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
+            //         'height' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
+            //     ]]
+            // ])
+            ->add('image', 'filename', [
+                'rule' => function (UploadedFileInterface $file) {
+                    // filename must not be a path
+                    $filename = $file->getClientFilename();
+                    if (strcmp(basename($filename), $filename) === 0) {
+                        return true;
+                    }
+
+                    return false;
+                }
+            ])
+            ->add('image', 'extension', [
+                'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
+            ]);
+
         return $validator;
     }
     public function afterSave($event, $entity, $options)
