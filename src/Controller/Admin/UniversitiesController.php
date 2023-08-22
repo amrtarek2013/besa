@@ -185,10 +185,10 @@ class UniversitiesController extends AppController
             $data = $this->request->getData();
 
 
-            Configure::write('debug', true);
-            Configure::write('debug', 1);
-            var_dump($data['file']);
-            dd('DD');
+            // Configure::write('debug', true);
+            // Configure::write('debug', 1);
+            // var_dump($data['file']);
+            // dd('DD');
             $error = $data['file']->getError();
 
             if ($data['file']->getError() == UPLOAD_ERR_OK) {
