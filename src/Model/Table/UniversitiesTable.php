@@ -225,7 +225,7 @@ class UniversitiesTable extends Table
     {
 
         if ($entity->isNew() && empty($entity->permalink)) {
-            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
+            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->university_name, '_')));
         }
 
         // if (empty($entity->banner_image)) {
