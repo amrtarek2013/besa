@@ -109,8 +109,10 @@ class AppController extends Controller
         $this->set(compact('current_controller', 'current_action', 'current_prefix'));
         // debug($current_prefix);
         if (isset($this->authCom) && !empty($this->Auth->user())) {
+
+
             if (
-                in_array($current_controller, $permitted_controllers) ||
+                (in_array($current_controller, $permitted_controllers) && $this->checkIfSuperadmin()) ||
                 ($current_controller == "Localizations" && $current_action == "setLocale")
                 || ($current_controller == "Admins" && $current_action == "login")
                 || ($current_controller == "Admins" && $current_action == "logout")
