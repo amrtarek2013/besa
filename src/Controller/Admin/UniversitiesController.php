@@ -47,6 +47,11 @@ class UniversitiesController extends AppController
         $university = $this->Universities->newEmptyEntity();
         if ($this->request->is('post')) {
             $university = $this->Universities->patchEntity($university, $this->request->getData());
+            if ($university->getErrors()) {
+                Configure::write('debug', true);
+                Configure::write('debug', 1);
+                dd($university->getErrors());
+            }
             if ($this->Universities->save($university)) {
                 $this->Flash->success(__('The University has been saved.'));
 
