@@ -77,7 +77,8 @@
 
     $('#slug').on('change focus keyup keypress keydown', function() { // ,keyup , keydown, focus
         let va = $(this).val();
-        va = va.replace(/\W+/g, '-').toLowerCase();
+        // va = va.replace(/\W+/g, '-').toLowerCase();
+        va = va.replace(/[^a-z0-9/-]/gi, '-').toLowerCase();
         $(this).val(va);
         $('#new-url').html(va);
     });
