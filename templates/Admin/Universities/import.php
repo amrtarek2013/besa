@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-body">
                             <?php
-                            echo $this->AdminForm->create($university, ['type' => 'file']); ?>
+                            echo $this->AdminForm->create($university, ['type' => 'file', 'enctype' => 'multipart/form-data']); ?>
                             <?php echo $this->AdminForm->control('file', ['type' => 'file']);
 
 
