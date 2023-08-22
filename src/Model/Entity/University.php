@@ -38,7 +38,7 @@ class University extends Entity
 
         $no_logo_path = DS . 'img' . DS . '200x120.png';
         if (!empty($this->logo)) {
-            $logo_path = 'uploads' . DS . 'countries' . DS . 'logo' . DS . $this->logo;
+            $logo_path = 'uploads' . DS . 'universities' . DS . 'logo' . DS . $this->logo;
             if (file_exists(WWW_ROOT . $logo_path))
                 return DS . $logo_path;
             else

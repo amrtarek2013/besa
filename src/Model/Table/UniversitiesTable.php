@@ -23,6 +23,24 @@ class UniversitiesTable extends Table
     ];
 
     public $types = [0 => 'Full Service'];
+
+    public $schema_of_export = array(
+        'id',
+        'university_name',
+        'destination',
+        'rank',
+        'description',
+
+    );
+
+    public $schema_of_import = array(
+        // 'id',
+        'university_name',
+        'destination',
+        'rank',
+        'description'
+    );
+
     /**
      * Initialize method
      *

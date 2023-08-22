@@ -43,11 +43,12 @@
                             'university_name' => [],
                             // 'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
+                            'country_name' => ['title' => 'Country Name'],
 
                             // 'email' => [],
                             // 'telephone' => [],
                             // 'permalink' => [],
-                            'logo_path' => ['format' => 'img'],
+                            'logo_path' => ['title' => 'Logo', 'format' => 'image'],
                             'show_on_destination' => ['format' => 'bool'],
                             'active' => ['format' => 'bool'],
                         ];

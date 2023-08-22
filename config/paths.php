@@ -98,8 +98,11 @@ define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
 
 
-
-define('WEBSITE_PATH', "https://$_SERVER[HTTP_HOST]");
+if (empty($_SERVER["HTTPS"])) {
+    
+    define('WEBSITE_PATH', "http://$_SERVER[HTTP_HOST]");
+} else
+    define('WEBSITE_PATH', "https://$_SERVER[HTTP_HOST]");
 // define('WEBSITE_PATH', 'https://besa.intimedev.com')
 define('WEBSITE_URL', Router::url(null, true));
 define('ADMIN_ASSETS', WEBSITE_PATH . '/Admin'); //WEBSITE_PATH.'/Admin');

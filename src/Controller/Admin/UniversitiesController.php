@@ -25,6 +25,7 @@ class UniversitiesController extends AppController
 
 
         $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC']]);
+        // dd($universities);
         $parameters = $this->request->getAttribute('params');
         $types = $this->Universities->types;
         $this->set(compact('universities', 'parameters', 'types'));
@@ -148,71 +149,107 @@ class UniversitiesController extends AppController
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        $users = $this->Users->find('all')->where($conditions)->toArray();
+        $universities = $this->Universities->find('all')->where($conditions)->toArray();
 
         $dataToExport[] = array(
-            'User ID' => 'User ID',
-            'name' => 'Name',
-            // 'job_title' => 'Job Title',
-            'email' => 'Email',
-            'address' => 'Address',
-            // 'barcode_number' => 'Barcode Number',
-            'password' => 'Password',
-            'active' => 'Active',
+            'id' => 'University ID',
+            'university_name' => 'University Name',
+            'destination' => 'Destination',
+            'rank' => 'Rank',
+            'description' => 'Description'
         );
 
-        foreach ($users as $user) {
+        foreach ($universities as $university) {
             $dataToExport[] = [
-                $user->id,
-                $user->name,
-                // $user->job_title,
-                $user->email,
-                $user->address,
-                // $user->barcode_number,
-                '',
-                ($user->active) ? 'Yes' : 'No',
+                $university->id,
+                $university->university_name,
+                $university->destination,
+                $university->rank,
+                $university->description,
+                // '',
+                // ($university->active) ? 'Yes' : 'No',
             ];
         }
 
         $this->loadComponent('Csv');
-        $this->Csv->download($dataToExport, 'users-list-' . date('Ymd'));
+        $this->Csv->download($dataToExport, 'universities-list-' . date('Ymd'));
 
         exit();
     }
     public function import()
     {
 
-        $user = $this->Users->newEmptyEntity();
+        $university = $this->Universities->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
             $error = $data['file']->getError();
             if ($data['file']->getError() == UPLOAD_ERR_OK) {
+
+                //load all countries
+
+                $this->loadModel("Countries");
+                $countries = $this->Countries->find('list', [
+                    'keyField' => 'code', 'valueField' => 'id'
+                ])->toArray();
+                $countriesTitles = $this->Countries->find('list', [
+                    'keyField' => 'university_name', 'valueField' => 'id'
+                ])->toArray();
+
+
+                // dd($countries);
                 $this->loadComponent('Csv');
-                $usersArray = $this->Csv->convertCsvToArray($data['file'], $this->Users->schema_of_import);
-                foreach ($usersArray as $userLine) {
-                    if (empty($userLine['id'])) {
-                        unset($userLine['id']);
-                        $user = $this->Users->newEmptyEntity();
-                    } else {
-                        $user = $this->Users->get($userLine['id']);
-                    }
-                    if (empty($userLine['password'])) {
-                        unset($userLine['password']);
+                // dd($data['file']);
+                $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->Universities->schema_of_import);
+                // dd($universitiesArray);
+                $universityList = [];
+                $counter = 0;
+                foreach ($universitiesArray as $universityLine) {
+
+                    $university = $this->Universities->newEmptyEntity();
+                    if (isset($universityLine['id']) && empty($universityLine['id'])) {
+                        unset($universityLine['id']);
+                    } else if (isset($universityLine['id'])  && !empty($universityLine['id'])) {
+                        $university = $this->Universities->get($universityLine['id']);
                     }
 
-                    $userLine['active'] = (strtolower($userLine['active']) == 'yes') ? 1 : 0;
-                    // fd($userLine);
-                    $user = $this->Users->patchEntity($user, $userLine);
-                    // dd($user);
-                    $this->Users->save($user);
+                    if (isset($universityLine['active']))
+                        $universityLine['active'] = (strtolower($universityLine['active']) == 'yes') ? 1 : 0;
+                    $universityLine['logo'] = trim($universityLine['university_name']) . '.png';
+                    $universityLine['title'] = $universityLine['university_name'];
+
+                    if (isset($universityLine['destination']))
+                        $universityLine['country_name'] = trim($universityLine['destination']);
+
+                    if (isset($countries[trim($universityLine['destination'])]))
+                        $universityLine['country_id'] = $countries[trim($universityLine['destination'])];
+                    else if (isset($countriesTitles[trim($universityLine['destination'])]))
+                        $universityLine['country_id'] = $countriesTitles[trim($universityLine['destination'])];
+                    $university = $this->Universities->patchEntity($university, $universityLine);
+
+                    $universityList[] = $university;
+                    $counter++;
+                    if ($counter == 50) {
+                        // dd($universityList);
+                        $this->Universities->saveMany($universityList);
+                        $universityList = [];
+                        $counter = 0;
+                    }
+                }
+
+                if ($counter > 0) {
+
+                    // dd($universityList);
+                    $this->Universities->saveMany($universityList);
+                    $universityList = [];
+                    $counter = 0;
                 }
             }
 
-            $this->Flash->success(__('The Users has been imported.'));
+            $this->Flash->success(__('The Universities has been imported.'));
             return $this->redirect(['action' => 'import']);
         }
 
-        $this->set(compact('user'));
+        $this->set(compact('university'));
     }
 }

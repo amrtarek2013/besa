@@ -1,15 +1,19 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Controller\Component;
 
 use Cake\Controller\Component;
+use Cake\Core\Configure;
+use Cake\Cache\Cache;
 
 /**
  * Csv component
  */
 
-class CsvComponent extends Component {
+class CsvComponent extends Component
+{
 	/**
 	 * Default configuration.
 	 *
@@ -26,27 +30,30 @@ class CsvComponent extends Component {
 	protected $buffer;
 	protected $configs;
 
-	public function initialize(array $config): void{
+	public function initialize(array $config): void
+	{
 		$this->configs = $this->getConfig(null, []);
 	}
 
-	public function download($data = [], $filename) {
+	public function download($data = [], $filename)
+	{
 
-		// Configure::write('debug', 0);
+		Configure::write('debug', false);
 
 		$this->_setFileName($filename);
 		$this->_setHeaders();
 		echo $this->_download($data);
-
 	}
 
-	public function _setFileName($name) {
+	public function _setFileName($name)
+	{
 		$this->filename = str_replace('{name}', $name, $this->configs['filename']);
 		$this->filename = str_replace('{date}', date("Y_m_d"), $this->filename);
 		$this->filename .= '.csv';
 	}
 
-	public function _setHeaders() {
+	public function _setHeaders()
+	{
 		$filename = $this->filename;
 		$now = gmdate("D, d M Y H:i:s");
 		// header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
@@ -72,11 +79,10 @@ class CsvComponent extends Component {
 		header("Content-Disposition: attachment; filename={$filename}");
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		header('Pragma: public');
-	
-
 	}
 
-	public function _download($array) {
+	public function _download($array)
+	{
 
 		if (count($array) == 0) {
 			return null;
@@ -91,7 +97,7 @@ class CsvComponent extends Component {
 		// unset($array['0']);
 		// foreach ($array as $value) {
 
-		// 	fputcsv($handle, (array) $value, ',');
+		//     fputcsv($handle, (array) $value, ',');
 		// }
 
 		// fclose($handle);
@@ -112,7 +118,37 @@ class CsvComponent extends Component {
 		return ob_get_clean();
 	}
 
+	public function convertCsvToArray($file, $schema_of_import)
+	{
+
+		$finalData = [];
+		$fileTOOpen = $file->getStream()->getMetadata('uri');
+		$fh = fopen($fileTOOpen, 'r');
+		set_time_limit(0);
+		ini_set('memory_limit', '512M');
+		$counter = 0;
+		while (($line = fgetcsv($fh, null, ',', '"')) != false) {
+			$lineData = [];
 
 
+			// debug(count($line));
+			// debug(count($schema_of_import));
+			if (count($schema_of_import) == count($line)) {
+				
+				// debug($line);
+				if ($counter > 0) { // To ignor header line
 
+					for ($i = 0; $i < count($schema_of_import); $i++) {
+
+						$lineData[$schema_of_import[$i]] = $line[$i];
+					}
+					$finalData[] = $lineData;
+				}
+				$counter++;
+			}
+		}
+
+		// Cache::write('csv', json_encode($finalData), '_users_importing_');
+		return $finalData;
+	}
 }
