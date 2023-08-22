@@ -176,8 +176,8 @@ class UniversitiesTable extends Table
             ])
             ->add('image', 'extension', [
                 'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            ])->isArray('logo')
-            ->allowEmptyArray('logo');
+            ])->isArray('image')
+            ->allowEmptyArray('image');
 
         $validator->uploadedFile('logo', [
             'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
