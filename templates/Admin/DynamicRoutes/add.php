@@ -80,7 +80,9 @@
         // va = va.replace(/\W+/g, '-').toLowerCase();
         va = va.replace(/[^a-z0-9/-]/gi, '-').toLowerCase();
         va = va.replace('--', '-');
-        va = va.replace(['-/', '/-','//'], '/');
+        va = va.replace('-/', '/');
+        va = va.replace('//', '/');
+        va = va.replace('/-', '/');
         $(this).val(va);
         $('#new-url').html(va);
     });
