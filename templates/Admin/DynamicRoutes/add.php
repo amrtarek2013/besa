@@ -83,6 +83,10 @@
         va = va.replace('-/', '/');
         va = va.replace('//', '/');
         va = va.replace('/-', '/');
+        letter = va.charAt(0);
+        if (letter == '/')
+            va = va.substring(1);
+
         $(this).val(va);
         $('#new-url').html(va);
     });
