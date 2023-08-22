@@ -124,8 +124,8 @@ class AppController extends Controller
                 || ($current_controller == "Files" && $current_action == "cronZipDailyFiles")
                 || ($current_controller == "Files" && $current_action == "generateDemoFiles")
 
-                || ($current_controller == "Users")
-                || ($current_controller == "Counselors")
+                // || ($current_controller == "Users")
+                // || ($current_controller == "Counselors")
                 // || ($current_controller == "Users" && $current_action == "register")
                 // || ($current_controller == "Users" && $current_action == "logout")
                 // || ($current_controller == "Users" && $current_action == "dashboard")
