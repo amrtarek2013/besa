@@ -183,7 +183,7 @@ class UniversitiesController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
-            $error = $data['file']->getError();
+            // $error = $data['file']->getError();
             if ($data['file']->getError() == UPLOAD_ERR_OK) {
 
                 //load all countries
@@ -206,7 +206,6 @@ class UniversitiesController extends AppController
                 $counter = 0;
                 foreach ($universitiesArray as $universityLine) {
 
-                    $university = $this->Universities->newEmptyEntity();
                     if (isset($universityLine['id']) && empty($universityLine['id'])) {
                         unset($universityLine['id']);
                     } else if (isset($universityLine['id'])  && !empty($universityLine['id'])) {
