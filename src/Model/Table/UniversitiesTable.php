@@ -143,7 +143,7 @@ class UniversitiesTable extends Table
         // $validator->notEmptyString('city', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
 
-        $validator->notEmptyFile('image')
+        $validator
             ->uploadedFile('image', [
                 'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
                 'minSize' => 1024, // Min 1 KB
@@ -176,13 +176,14 @@ class UniversitiesTable extends Table
             ])
             ->add('image', 'extension', [
                 'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            ]);
-        $validator->notEmptyFile('logo')
-            ->uploadedFile('logo', [
-                'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
-                'minSize' => 1024, // Min 1 KB
-                'maxSize' => 1024 * 1024 // Max 1 MB
-            ])
+            ])->isArray('logo')
+            ->allowEmptyArray('logo');
+
+        $validator->uploadedFile('logo', [
+            'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
+            'minSize' => 1024, // Min 1 KB
+            'maxSize' => 1024 * 1024 // Max 1 MB
+        ])
             // ->add('logo', 'minSize', [
             //     'rule' => ['imageSize', [
             //         // Min 10x10 pixel
@@ -210,7 +211,8 @@ class UniversitiesTable extends Table
             ])
             ->add('logo', 'extension', [
                 'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            ]);
+            ])->isArray('logo')
+            ->allowEmptyArray('logo');
 
         return $validator;
     }
