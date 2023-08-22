@@ -154,13 +154,15 @@ use Cake\Routing\Router;
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'main' ? 'class="active"' : '' ?>>
                                     <a href="/">Home</a>
                                 </li>
-
-                                <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
+<li <?= strtolower($current_controller) == 'universities' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['universities.index']) ?>">Partners</a>
+                                </li>
+                                <!-- <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'study' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['universitycourses.study']) ?>">Search</a>
-                                </li>
-                                <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
+                                </li> -->
+                                <!-- <li <?= strtolower($current_controller) == 'universitycourses' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?>">All Courses</a>
-                                </li>
+                                </li> -->
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
                                 </li>
