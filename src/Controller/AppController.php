@@ -421,6 +421,7 @@ class AppController extends Controller
             return false;
         }
 
+        $this->set('user', $user);
         $role_permission_row = $this->RolesPermissions->find()->where(['role_id' => $user["role_id"], 'permission_id' => $permission_row["id"]])->first();
         if (empty($role_permission_row)) {
             return false;

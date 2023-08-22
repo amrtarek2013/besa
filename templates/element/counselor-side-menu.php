@@ -65,7 +65,7 @@
             <!-- <div class="image"> -->
             <div class="left-box">
                 <div class="circle-img circle-img-center">
-                    <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
+                    <img src="<?= $logged_user_info['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
                 <?php /* ?><h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4><?php */
 
