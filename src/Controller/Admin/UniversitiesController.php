@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Universities Controller
@@ -184,8 +185,10 @@ class UniversitiesController extends AppController
             $data = $this->request->getData();
 
 
+            Configure::write('debug', true);
+            Configure::write('debug', 1);
             var_dump($data['file']);
-            return true;
+            dd('DD');
             $error = $data['file']->getError();
 
             if ($data['file']->getError() == UPLOAD_ERR_OK) {
