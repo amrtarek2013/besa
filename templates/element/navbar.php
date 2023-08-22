@@ -175,7 +175,7 @@ use Cake\Routing\Router;
                                         <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                                        <a href="/<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events</a>
                                     </li>
                                 <?php endif; ?>
                                 <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
