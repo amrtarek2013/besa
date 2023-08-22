@@ -84,7 +84,7 @@ class AppController extends Controller
         //     $this->Admins->save($admin);
         //     die('done');
 
-        $permitted_controllers = ["Roles"];
+        $permitted_controllers = ["Roles", "Menus"];
         $current_controller = $this->request->getParam('controller');
         $current_action = $this->request->getParam('action');
 
@@ -120,9 +120,9 @@ class AppController extends Controller
                 || ($current_controller == "GeneralConfigurations" && $current_action == "enableRandomSelection")
                 || ($current_action == "resetFilter")
                 || ($current_action == "updateDisplayOrder")
-                || ($current_controller == "Menus")
-                || ($current_controller == "Files" && $current_action == "cronZipDailyFiles")
-                || ($current_controller == "Files" && $current_action == "generateDemoFiles")
+                // || ($current_controller == "Menus")
+                // || ($current_controller == "Files" && $current_action == "cronZipDailyFiles")
+                // || ($current_controller == "Files" && $current_action == "generateDemoFiles")
 
                 // || ($current_controller == "Users")
                 // || ($current_controller == "Counselors")
