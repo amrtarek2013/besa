@@ -49,7 +49,7 @@
                             // echo $this->AdminForm->control('email', ['type' => 'text', 'class' => 'INPUT required']);
                             // echo $this->AdminForm->control('website', ['type' => 'text']);
 
-                            echo $this->AdminForm->control('short_description', ['label' => 'Short Description', 'type' => 'textarea', 'required' => true, 'class' => 'required']);
+                            // echo $this->AdminForm->control('short_description', ['label' => 'Short Description', 'type' => 'textarea', 'required' => true, 'class' => 'required']);
                             echo $this->AdminForm->control('description', ['label' => 'Description', 'type' => 'textarea', 'required' => true, 'class' => 'required']);
 
                             // echo $this->AdminForm->control('why_text', ['type' => 'textarea', 'class' => 'editor']);
