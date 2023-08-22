@@ -47,8 +47,8 @@ class UniversitiesController extends AppController
         $university = $this->Universities->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-            $data['logo'] = $data['logo']->toArray();
-            $data['image'] = $data['image']->toArray();
+            // $data['logo'] = $data['logo']->toArray();
+            // $data['image'] = $data['image']->toArray();
             $university = $this->Universities->patchEntity($university, $data);
             if ($university->getErrors()) {
                 Configure::write('debug', true);
