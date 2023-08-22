@@ -183,8 +183,9 @@ class UniversitiesController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
-            $error = $data['file']->getError();
-            dd($data['file']);
+            
+            dd($data['file']);$error = $data['file']->getError();
+            
             if ($data['file']->getError() == UPLOAD_ERR_OK) {
 
                 //load all countries
