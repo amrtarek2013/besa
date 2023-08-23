@@ -30,7 +30,7 @@
                             <?php foreach ($universities as $university) : ?>
                                 <?php $counter++; ?>
                                 <div class="box-blog display-flex">
-                                    <img src="<?= $university['image_path'] ?>" alt="This Is University Img 1" loading="lazy">
+                                    <img src="<?= $university['logo_path'] ?>" alt="This Is University Img 1" loading="lazy">
                                     <div class="content-blog">
                                         <p><?= $university['title'] ?></p>
                                         <p><?= $university['short_description'] ?></p>
