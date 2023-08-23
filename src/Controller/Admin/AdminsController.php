@@ -126,13 +126,12 @@ class AdminsController extends AppController
         }
         $this->set(compact('admin'));
 
-        $this->loadModel("Roles");
-        $roles_data = $this->Roles->find()->all()->toArray();
-        $roles_list = [];
-        foreach ($roles_data as $key => $value) {
-            $roles_list[$value->id] = $value->title;
-        }
-        $this->set("roles", $roles_list);
+
+		$this->loadModel("Roles");
+		$roles_list = $this->Roles->find('list', [
+			'keyField' => 'id', 'valueField' => 'title'
+		])->toArray();
+		$this->set("roles", $roles_list);
     }
 
     /**

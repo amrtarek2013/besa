@@ -1,18 +1,22 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\Core\Configure;
+
 /**
  * Menus Controller
  *
  */
 
-class MenusController extends AppController {
+class MenusController extends AppController
+{
 
-	public function a() {
+	public function a()
+	{
 		$conditions = $this->_filter_params();
 		$this->paginate['sortWhitelist'] = ['*'];
 		$menus = $this->paginate($this->Menus, ['conditions' => $conditions]);
@@ -20,7 +24,8 @@ class MenusController extends AppController {
 		$this->set(compact('menus', 'parameters'));
 		$this->_common();
 	}
-	public function index() {
+	public function index()
+	{
 		// Configure::write('debug', true);
 		$conditions = $this->_filter_params();
 		if (isset($conditions['Menus.is_parent'])) {
@@ -40,18 +45,19 @@ class MenusController extends AppController {
 		$parents = [];
 		$allparents = $this->Menus->find('all')->where(['parent_id' => 0]);
 		foreach ($allparents as $menu) {
-			$parents[$menu->id] = ucfirst($menu->prefix).' - '.$menu->title;
+			$parents[$menu->id] = ucfirst($menu->prefix) . ' - ' . $menu->title;
 		}
-// dd($parents);
+		// dd($parents);
 		// $parents = $this->Menus->find('list')->where(['parent_id <' => 1]);
 		// $parents = $parents->toArray();
-		
+
 		$this->set(compact('menus', 'parameters', 'parents'));
 
 		$this->_common();
 	}
 
-	public function children($parentId) {
+	public function children($parentId)
+	{
 
 		$conditions = $this->_filter_params();
 		if (isset($conditions['Menus.is_parent'])) {
@@ -72,8 +78,9 @@ class MenusController extends AppController {
 		$this->_common();
 	}
 
-	public function add() {
-		Configure::write('debug', true);
+	public function add()
+	{
+		// Configure::write('debug', true);
 		$menu = $this->Menus->newEmptyEntity();
 		if ($this->request->is('post')) {
 			$menu = $this->Menus->patchEntity($menu, $this->request->getData());
@@ -87,11 +94,11 @@ class MenusController extends AppController {
 
 		$this->set(compact('menu'));
 		$this->_common();
-
 	}
 
-	public function edit($id = null) {
-		Configure::write('debug', true);
+	public function edit($id = null)
+	{
+		// Configure::write('debug', true);
 		$menu = $this->Menus->get($id);
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			// debug($this->request->getData());die;
@@ -106,10 +113,10 @@ class MenusController extends AppController {
 		$this->set(compact('menu'));
 		$this->_common();
 		$this->render('add');
-
 	}
 
-	public function delete($id = null) {
+	public function delete($id = null)
+	{
 		$this->request->allowMethod(['post', 'delete', 'get']);
 		$menu = $this->Menus->get($id);
 		if ($this->Menus->delete($menu)) {
@@ -121,7 +128,8 @@ class MenusController extends AppController {
 		return $this->redirect(['action' => 'index']);
 	}
 
-	public function deleteMulti() {
+	public function deleteMulti()
+	{
 		$this->request->allowMethod(['post', 'delete', 'get']);
 
 		$ids = $this->request->getData('ids');
@@ -134,24 +142,25 @@ class MenusController extends AppController {
 		}
 
 		return $this->redirect(['action' => 'index']);
-
 	}
 
-	public function view($id = null) {
+	public function view($id = null)
+	{
 		$menu = $this->Menus->get($id);
 
 		$this->set('menu', $menu);
 	}
 
-	public function _common() {
+	public function _common()
+	{
 		$finalMenuList = [];
-		$menus = $this->Menus->find('all')->Order(['title'=>'asc']);
+		$menus = $this->Menus->find('all')->Order(['title' => 'asc']);
 		$finalMenuList[0] = '---';
 		foreach ($menus as $menu) {
-			$finalMenuList[$menu->id] = ucfirst($menu->prefix).' - '.$menu->title;
+			$finalMenuList[$menu->id] = ucfirst($menu->prefix) . ' - ' . $menu->title;
 		}
 		// dd($finalMenuList);
-		
+
 		$prefixs = $this->Menus->prefixs;
 		$types = $this->Menus->types;
 		$this->set(compact('prefixs', 'types'));
@@ -160,9 +169,15 @@ class MenusController extends AppController {
 		$this->loadModel("Permissions");
 
 		$permissions = $this->Permissions->find('list', [
-                        'keyField' => 'id', 'valueField' => 'title' . $this->locale_pr
-                    ])->toArray();
+			'keyField' => 'id', 'valueField' => 'title' . $this->locale_pr
+		])->toArray();
 		$this->set('permissions', $permissions);
-	}
 
+
+		$this->loadModel("Roles");
+		$roles_list = $this->Roles->find('list', [
+			'keyField' => 'id', 'valueField' => 'title'
+		])->toArray();
+		$this->set("roles", $roles_list);
+	}
 }

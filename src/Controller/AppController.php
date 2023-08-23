@@ -666,14 +666,21 @@ class AppController extends Controller
             $conditions = array();
             $conditions['active'] = true;
             $conditions['prefix'] = $prefix;
+
+            $user = $this->Auth->user();
+            // if (!empty($user['role_id']) && $prefix == 'admin') {
+
+            //     $conditions['role_id'] = $user['role_id'];
+            // } else {
             if (!empty($this->permissions_ids)) {
                 $conditions['permission_id in'] = $this->permissions_ids;
             } else {
                 $conditions['permission_id in'] = "-1";
             }
+            // }
             $this->Menus = new MenusTable();
             $menus = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all();
-// dd($menus);
+            // dd($menus);
             $this->sideMenus[$prefix] = $this->checkmenu($menus->toArray(), $prefix);
             // print_r($this->sideMenus);die;
             $this->set('sideMenus', $this->sideMenus);

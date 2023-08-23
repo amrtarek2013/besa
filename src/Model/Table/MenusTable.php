@@ -17,7 +17,7 @@ class MenusTable extends Table
 				'options' => [
 					'admin' => 'Admin area',
 					'user' => 'User area',
-					'counselor'=>'Counselor area'
+					'counselor' => 'Counselor area'
 					// 'university-admin' => 'University area',
 
 				]
@@ -39,7 +39,7 @@ class MenusTable extends Table
 	public $prefixs = [
 		'admin' => 'Admin area',
 		'user' => 'User area',
-		'counselor'=>'Counselor area'
+		'counselor' => 'Counselor area'
 		// 'university-admin' => 'University area',
 	];
 	public $types = [0 => 'Internal link', 1 => 'External link'];
@@ -65,6 +65,8 @@ class MenusTable extends Table
 				],
 			],
 		]);
+
+		// $this->belongsTo('Roles')->setForeignKey('role_id');
 	}
 
 	public function validationDefault(Validator $validator): Validator

@@ -41,7 +41,7 @@
                                 echo $this->AdminForm->control('prefix', ['label' => __('Menu For'), 'empty' => 'Please Select area', 'type' => 'select', 'options' => $prefixs]);
                                 echo $this->AdminForm->control('type', ['label' => __('Link Type'), 'empty' => 'Please Select Type', 'type' => 'select', 'options' => $types]);
                                 echo $this->AdminForm->control('permission_id', ['label' => __('Permission'), 'class' => 'select2', 'empty' => 'Select', 'type' => 'select']);
-
+                                // echo $this->AdminForm->control('roles', ['class' => 'form-control select2', 'type' => 'select', 'empty' => 'Select', 'options' => $roles, 'multiple' => true, 'label' => __('Role'), 'required' => true]);
                                 echo $this->AdminForm->control('active');
 
                                 ?>
