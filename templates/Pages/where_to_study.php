@@ -6,7 +6,7 @@
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Where</h1>
                     <h2 class="title text-left">Where to Study</h2>
-                    <p class="relative-textP">BESA Can Help You Study in Over 9 Countries</p>
+                    <p class="relative-textP">BESA Can Help You Study in Over 10 Countries</p>
                 </div>
             </div>
             <div class="col-md-6">
