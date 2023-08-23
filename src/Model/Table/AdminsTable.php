@@ -47,6 +47,7 @@ class AdminsTable extends Table
             // 'FileUpload'=>['avatar'=>['file_name' => '{$rand}_{$file_name}']],
             
           ));
+          $this->belongsTo('Roles')->setForeignKey('role_id');
     }
 
     /**

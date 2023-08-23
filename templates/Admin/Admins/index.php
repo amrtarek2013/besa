@@ -45,7 +45,7 @@
                             'basicModel' => 'Admins',
                             'id' => [],
                             'name' => ['title' => 'Name'],
-                            'role_id' => ['title' => 'Role'],
+                            'role.title' => ['title' => 'Role'],
                             'redirect_url' => [],
                             'created' => [],
                             // 'active' => ['format' => 'bool']

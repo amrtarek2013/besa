@@ -55,7 +55,7 @@ class AdminsController extends AppController
                 // return $this->redirect($this->Auth->redirectUrl());
                 if ($this->checkIfSuperadmin())
                     return $this->redirect('/admin');
-                else if(isset($user['redirect_url'])){
+                else if (isset($user['redirect_url'])) {
 
                     return $this->redirect($user['redirect_url']);
                 }
@@ -83,7 +83,7 @@ class AdminsController extends AppController
         $conditions = $this->_filter_params();
 
         $this->paginate = array('limit' => 100);
-        $admins = $this->paginate($this->Admins, ['conditions' => $conditions]);
+        $admins = $this->paginate($this->Admins, ['contain' => ['Roles'], 'conditions' => $conditions]);
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('parameters', 'admins'));

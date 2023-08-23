@@ -32,7 +32,7 @@
                             <?php echo $this->AdminForm->control('password', ['class' => 'form-control', 'label' => __('Password')]); ?>
                             <?php echo $this->AdminForm->control('repeat_password', ['class' => 'form-control', 'type' => 'password', 'label' => __('Repeat Password')]); ?>
                             <?php echo $this->AdminForm->control('role_id', ['class' => 'form-control', 'type' => 'select', 'label' => __('Role')]); ?>
-                            <?php echo $this->AdminForm->control('redirect_url', ['class' => 'form-control', 'type' => 'select', 'label' => __('Redirect Url')]); ?>
+                            <?php echo $this->AdminForm->control('redirect_url', ['class' => 'form-control', 'label' => __('Redirect Url')]); ?>
                         </div>
 
                         <div class="card-footer">
