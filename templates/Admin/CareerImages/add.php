@@ -32,8 +32,8 @@
                         <?= $this->AdminForm->create($careerImage, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            
-                            echo $this->AdminForm->control('career_id', ['type' => 'select', 'option' => $careers, 'class' => 'INPUT required']);
+
+                            // echo $this->AdminForm->control('career_id', ['type' => 'select', 'option' => $careers, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('title', ['type' => 'text']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [

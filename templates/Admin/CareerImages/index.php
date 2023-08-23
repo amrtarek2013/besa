@@ -40,10 +40,10 @@
                         $fields = [
                             'basicModel' => 'careerImages',
                             'id' => [],
-                            'career_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $careers]],
+                            // 'career_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $careers]],
                             'title' => [],
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
-                            
+
                             'display_order' => [],
                             'active' => ['format' => 'bool'],
                         ];
@@ -75,5 +75,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
