@@ -673,7 +673,7 @@ class AppController extends Controller
             }
             $this->Menus = new MenusTable();
             $menus = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all();
-
+// dd($menus);
             $this->sideMenus[$prefix] = $this->checkmenu($menus->toArray(), $prefix);
             // print_r($this->sideMenus);die;
             $this->set('sideMenus', $this->sideMenus);
@@ -696,6 +696,7 @@ class AppController extends Controller
         $read_url = $session->read("{$prefix}_menu_path");
 
 
+        // dd($menus);
         foreach ($menus as $k1 => $menu) {
 
             if (isset($uniqe_url[$menu->link])) {

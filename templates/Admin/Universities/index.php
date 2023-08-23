@@ -30,9 +30,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Universities List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/universities/add">
-                                <?= __('Add new') ?>
-                            </a>
+                            <?php if (isset($permissionList[strtolower($current_controller) . '.add'])) { ?>
+
+                                <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/universities/add">
+                                    <?= __('Add new') ?>
+                                </a>
+                            <?php } ?>
                         </div>
                         <?php
 
