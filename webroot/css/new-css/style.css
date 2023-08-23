@@ -5998,6 +5998,7 @@ input.search {
 
 .blogs .box-blog img {
     border-radius: 32px;
+    border: 1px solid var(--bs-gray);
 }
 
 .blogs .box-blog .content-blog p {
