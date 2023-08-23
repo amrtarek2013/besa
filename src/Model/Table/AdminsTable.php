@@ -67,6 +67,8 @@ class AdminsTable extends Table
         //     ->maxLength('name', 100)
         //     ->allowEmptyString('name');
         $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('role_id', 'This field is required.');
+        $validator->notEmptyString('redirect_url', 'This field is required.');
 
         // $validator
         //     ->scalar('password')

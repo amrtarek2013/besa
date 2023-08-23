@@ -28,11 +28,11 @@
 
                         <?= $this->AdminForm->create($admin, ['type' => 'file']) ?>
                         <div class="card-body">
-                            <?php echo $this->AdminForm->control('name', ['class' => 'form-control', 'label' => __('Username')]); ?>
+                            <?php echo $this->AdminForm->control('name', ['class' => 'form-control', 'label' => __('Username'), 'required' => true]); ?>
                             <?php echo $this->AdminForm->control('password', ['class' => 'form-control', 'label' => __('Password')]); ?>
                             <?php echo $this->AdminForm->control('repeat_password', ['class' => 'form-control', 'type' => 'password', 'label' => __('Repeat Password')]); ?>
-                            <?php echo $this->AdminForm->control('role_id', ['class' => 'form-control', 'type' => 'select', 'label' => __('Role')]); ?>
-                            <?php echo $this->AdminForm->control('redirect_url', ['class' => 'form-control', 'label' => __('Redirect Url')]); ?>
+                            <?php echo $this->AdminForm->control('role_id', ['class' => 'form-control', 'type' => 'select', 'label' => __('Role'), 'required' => true]); ?>
+                            <?php echo $this->AdminForm->control('redirect_url', ['class' => 'form-control', 'label' => __('Redirect Url'), 'required' => true]); ?>
                         </div>
 
                         <div class="card-footer">
@@ -49,7 +49,6 @@
 </div>
 
 <script type="text/javascript">
-
     $('#redirect-url').on('change focus keyup keypress keydown', function() { // ,keyup , keydown, focus
         let va = $(this).val();
         // va = va.replace(/\W+/g, '-').toLowerCase();
