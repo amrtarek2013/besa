@@ -14,9 +14,15 @@ use App\Controller\AppController;
 class CareerImagesController extends AppController
 {
 
-    public function index()
+    public function index($career_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($career_id)) {
+            $conditions['career_id'] = $career_id;
+            $this->Session->write('career_id', $career_id);
+        }
 
         $careerImages = $this->paginate($this->CareerImages, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
@@ -41,7 +47,7 @@ class CareerImagesController extends AppController
             if ($this->CareerImages->save($careerImage)) {
                 $this->Flash->success(__('The CareerImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The CareerImage could not be saved. Please, try again.'));
         }
@@ -61,7 +67,7 @@ class CareerImagesController extends AppController
             if ($this->CareerImages->save($careerImage)) {
                 $this->Flash->success(__('The CareerImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The CareerImage could not be saved. Please, try again.'));
         }
@@ -84,7 +90,7 @@ class CareerImagesController extends AppController
             $this->Flash->error(__('The CareerImage could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -100,7 +106,7 @@ class CareerImagesController extends AppController
             $this->Flash->error(__('The Career Images could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -118,7 +124,15 @@ class CareerImagesController extends AppController
         $careers = $this->Careers->find('list', [
             'keyField' => 'id',
             'valueField' => 'title',
-        ])->where(["active" => 1])->order(['display_order'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','careers'));
+        ])->where(["active" => 1])->order(['display_order' => 'ASC'])->toArray();
+        $this->set(compact('uploadSettings', 'careers'));
+    }
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('career_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('career_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 }
