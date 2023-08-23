@@ -55,7 +55,7 @@ class AdminsController extends AppController
                 // return $this->redirect($this->Auth->redirectUrl());
                 if ($this->checkIfSuperadmin())
                     return $this->redirect('/admin');
-                else {
+                else if(isset($user['redirect_url'])){
 
                     return $this->redirect($user['redirect_url']);
                 }
