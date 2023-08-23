@@ -57,7 +57,7 @@ class AdminsController extends AppController
                     return $this->redirect('/admin');
                 else if (isset($user['redirect_url'])) {
 
-                    return $this->redirect($user['redirect_url']);
+                    return $this->redirect('/admin/' . $user['redirect_url']);
                 }
             } else {
                 $this->Flash->error(__('Username or password is incorrect'));
