@@ -29,6 +29,7 @@ class AppController extends Controller
     public $permissions_ids = array();
     public $permissions_list = [];
 
+    protected $tempPath = WWW_ROOT . 'files' . DS . 'temp_files' . DS;
     public $pageTitle = null;
     public $metaDescription = null;
     public $metaKeywords = null;
