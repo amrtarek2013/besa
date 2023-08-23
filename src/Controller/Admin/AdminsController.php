@@ -53,7 +53,12 @@ class AdminsController extends AppController
                 $this->Auth->setUser($user);
                 $this->logedInUser = $user;
                 // return $this->redirect($this->Auth->redirectUrl());
-                return $this->redirect('/admin');
+                if ($this->checkIfSuperadmin())
+                    return $this->redirect('/admin');
+                else {
+
+                    return $this->redirect($user['redirect_url']);
+                }
             } else {
                 $this->Flash->error(__('Username or password is incorrect'));
             }
