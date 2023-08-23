@@ -22,7 +22,8 @@
 
                 <input type="hidden" id="type" name="type" value="book-appointment">
                 <p class="light-para">
-                    Access study abroad counseling conveniently from any location and at your own pace. If you're seeking guidance on studying abroad but prefer to avoid in-person meetings or face challenges like traffic, we have the perfect solution for you. Reach out to us to schedule a remote counseling session with IDP's knowledgeable education counselors. They will provide comprehensive support to help you reach your dream destination. From analyzing your study options and selecting the ideal destination, university, and course, to assisting with application submissions, visa guidance, accommodation services, and more – all of this can be conveniently accessed online. Don't let barriers hold you back; take advantage of our remote counseling services today.
+                    <?= $bookAppointmentSnippet ?>
+                    
                 </p>
 
                 <div class="container-formBox">
@@ -81,7 +82,7 @@
                         <div class="checkboxes">
                             <div class="terms-conditions">
                                 <input type="checkbox" name="terms" id="terms" required="required">
-                                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('/content/terms-conditions')?>">terms & conditions</a> </label>
+                                <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label>
                             </div>
                             <div>
                                 <input type="checkbox" name="is_subscribed" id="is_subscribed">

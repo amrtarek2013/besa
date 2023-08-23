@@ -260,5 +260,10 @@ class EnquiriesController extends AppController
         $this->set('countriesCodesList', $countriesCodesList);
         $this->set('destinationsList', $destinations);
         $this->set('subjectAreasList', $subjectAreas);
+
+        $book_appointment = $this->getSnippet('book_appointment_top_text');
+
+        $this->set('bookAppointmentSnippet', $book_appointment);
+
     }
 }
