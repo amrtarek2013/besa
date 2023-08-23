@@ -18,7 +18,7 @@
         '/css/new-css/owl.carousel.min.css',
         '/css/new-css/grid.css',
         '/css/new-css/style.css?v=' . time(),
-        '/css/new-css/responsive.css',
+        '/css/new-css/responsive.css?v=' . time(),
         '/css/new-css/animations.css',
         '/css/new-css/timeline.css'
     ]) ?>
