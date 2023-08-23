@@ -61,10 +61,10 @@ class UniversitiesTable extends Table
                 'ImageUpload' => [
 
                     'logo' => [
-                        'resize' => [],
-                        // 'width' => 0, 'height' => 0,
+                        'resize' => ['width' => 200, 'height' => 120],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
+                        'width' => 200, 'height' => 120,
                         'path' => 'uploads/universities/logo',
                         'file_name' => '{$rand}_{$file_name}',
 
