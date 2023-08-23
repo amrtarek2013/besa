@@ -54,17 +54,31 @@
 
                         $actions = [
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'],array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
-                            'edit' => $this->Html->link('Edit', array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-flat', 'icon' => 'fas fa-pencil-alt')),
-                            'delete' => $this->Html->link(
-                                'Delete',
+                            // 'edit' => $this->Html->link('Edit', array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-flat', 'icon' => 'fas fa-pencil-alt')),
+                            // 'delete' => $this->Html->link(
+                            //     'Delete',
+                            //     ['action' => 'delete', '%id%'],
+                            //     [
+                            //         'confirm' => 'Are you sure you wish to delete this?',
+                            //         'class' => 'btn btn-danger btn-flat', 'icon' => 'fas fa-trash'
+                            //     ]
+                            // ),
+                        ];
+
+                        if (isset($permissionList[strtolower($current_controller) . '.edit'])) {
+                            $actions['edit'] = $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt'));
+                        }
+                        if (isset($permissionList[strtolower($current_controller) . '.delete'])) {
+                            $actions['delete'] = $this->Html->link(
+
+                                __('Delete'),
                                 ['action' => 'delete', '%id%'],
                                 [
                                     'confirm' => 'Are you sure you wish to delete this?',
-                                    'class' => 'btn btn-danger btn-flat', 'icon' => 'fas fa-trash'
+                                    'class' => 'btn btn-danger btn-sm', 'icon' => 'fas fa-trash'
                                 ]
-                            ),
-                        ];
-
+                            );
+                        }
 
 
                         echo $this->List->adminIndex($fields, $seo, $actions, false, $multi_select_actions, $parameters);

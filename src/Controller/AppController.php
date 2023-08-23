@@ -27,6 +27,7 @@ class AppController extends Controller
     public $g_dynamic_routes = array();
     public $locale_pr = "";
     public $permissions_ids = array();
+    public $permissions_list = [];
 
     public $pageTitle = null;
     public $metaDescription = null;
@@ -140,7 +141,8 @@ class AppController extends Controller
             }
         }
 
-        $permissions_list = $this->permissions_list();
+        $this->permissions_list = $permissions_list = $this->permissions_list();
+
         $this->set('permissions_list', $permissions_list);
         // echo $current_controller."------".$current_action;die;
 
@@ -433,6 +435,7 @@ class AppController extends Controller
     public function permissions_list()
     {
         $permitted_list = [];
+        $permissions_list = [];
 
         $this->loadModel("RolesPermissions");
         $this->loadModel("Permissions");
@@ -464,8 +467,11 @@ class AppController extends Controller
             foreach ($related_permissions as $key => $value) {
                 $perm_key = $value->controller . "_" . $value->action;
                 $permitted_list[] = $perm_key;
+                $permissions_list[strtolower($value->controller) . "." . strtolower($value->action)] = strtolower($value->controller) . "." . strtolower($value->action);
             }
         }
+        $this->set('permissionList', $permissions_list);
+        // dd($permissions_list);
         return $permitted_list;
     }
 

@@ -410,6 +410,7 @@ class ListHelper extends Helper
 
 			$cell = '';
 			if (is_array($actions) && !empty($actions)) {
+				
 				$cell .= "<div class='project-actions'>";
 				foreach ($actions as $k => $action) {
 					$actionIcon = '';
