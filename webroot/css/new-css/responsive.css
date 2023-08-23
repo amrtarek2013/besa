@@ -1141,7 +1141,10 @@
         flex-flow: column;
         grid-gap: 10px;
         text-align: center;
-
+        width: 100%;
+    }
+    .blogs .box-blog .content-blog{
+        width: 100%;
     }
 
     .blogs .box-blog .content-blog p br {
