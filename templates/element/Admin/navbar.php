@@ -49,7 +49,7 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="<?= Router::url('/admin/admins/logout') ?>" class="nav-link nav-link2 ">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                <p>Log out</p>
+                Log out
             </a>
         </li>
 
