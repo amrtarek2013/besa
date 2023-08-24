@@ -508,7 +508,6 @@ class CounselorsController extends AppController
             $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
         $this->set(compact('counselor'));
-        
     }
 
 
@@ -725,5 +724,152 @@ class CounselorsController extends AppController
 
         $this->Courses->saveMany($updatedCourses);
         dd($updatedCourses);
+    }
+
+
+    public function testuncourses()
+    {
+
+        $reader = IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+
+        $reader->setLoadAllSheets();
+        $spreadsheet = $reader->load('1st Patch Universities Courses Data in UK.xlsx');
+
+        $loadedSheetNames = $spreadsheet->getSheetNames();
+
+        $this->loadModel('Universities');
+        $this->loadModel('Courses');
+
+        $this->loadModel('UniversityCourses');
+
+        $this->loadModel('SubjectAreas');
+        $this->loadModel('StudyLevels');
+        $savedCourses = [];
+        $savedCoursesUni = [];
+
+        $universities = $this->Universities->find('list', ['keyField' => 'university_name', 'valueFiled' => 'id'])->toArray();
+        dd($universities);
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => "title", 'valueField' => 'id'
+        ])->toArray();
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => "title", 'valueField' => 'id'
+        ])->toArray();
+
+        $universityList = [];
+        $degree = null;
+        $numberOfCourses = 0;
+        foreach ($loadedSheetNames as $sheetIndex => $loadedSheetName) {
+            // debug('<b>Worksheet #' . $sheetIndex . ' -> ' . $loadedSheetName . ' (Formatted)</b>');
+            $spreadsheet->setActiveSheetIndexByName($loadedSheetName);
+            $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+            // var_dump($sheetData);
+            $counter = 0;
+            $loadedSheetName = trim($loadedSheetName);
+            $university_id = null;
+            if (isset($universities[trim($loadedSheetName)])) {
+
+                $university_id = $universities[trim($loadedSheetName)];
+            }
+            // else {
+            //     $this->Universities->save($university);
+            // }
+
+            // $universityList[] = $university;
+
+            // $university_id = $university->id;
+
+            $cou_list = [];
+
+            foreach ($sheetData as $i => $row) {
+
+                if (!isset($row['C'])) {
+
+                    // debug($loadedSheetName);
+                    // debug($row);
+
+                    // dd($cou_list);
+                    continue;
+                }
+                $mainCourseName = str_replace([' ', ','], ' ', strtolower(trim($row['C'])));
+                // debug($mainCourseName);
+                $numberOfCourses++;
+                if (
+                    $i == 0 || !$row['A'] || strtolower(trim($row['C'])) == 'course name'
+                    || (isset($savedCoursesUni[$mainCourseName])
+                        && $savedCoursesUni[$mainCourseName] == $university_id
+                    )
+                ) {
+                    continue;
+                }
+
+                $course = $this->UniversityCourses->newEmptyEntity();
+                // if ($row['A']) {
+                //     $degree = trim($row['A']);
+                // }
+
+
+
+                if ($university_id) {
+
+                    $course->university_id = $university_id;
+                }
+
+
+
+
+                if (isset($savedCourses[$mainCourseName])) {
+
+                    $course->course_id = $savedCourses[$mainCourseName];
+                } else {
+
+                    $mainCourse = $this->Courses->newEmptyEntity();
+                    $mainCourse->course_name = trim($row['C']);
+                    // $this->Courses->save($mainCourse);
+                    // $course->course_id = $mainCourse->id;
+
+                    // $savedCourses[$mainCourseName] = $mainCourse->id;
+                    $savedCoursesUni[$mainCourseName] = $university_id;
+                }
+
+                if (isset($studyLevels[trim($row['A'])])) {
+
+                    $course->study_level_id = $studyLevels[trim($row['A'])];
+                }
+                if (isset($subjectAreas[trim($row['B'])])) {
+
+                    $course->subject_area_id = $subjectAreas[trim($row['B'])];
+                }
+                $course->course_name = trim($row['C']);
+
+                $course->university = trim($row['D']);
+                $course->total_fees = floatval($row['E']);
+                $course->fees = floatval($row['F']);
+                $course->duration = !empty($row['G']) ? trim($row['G'] . '') : '';
+                $course->intake = !empty($row['H']) ? trim($row['H']) : '';
+
+                $course->university_id = $university_id;
+                $course->country_id = 238;
+
+                $cou_list[$counter] = $course;
+
+                // if ($counter == 100) {
+                // $counter = 0;
+                // $this->UniversityCourses->saveMany($cou_list);
+                // $cou_list = [];
+                // } else
+                $counter++;
+            }
+
+            debug($cou_list);
+
+            // $this->UniversityCourses->saveMany($cou_list);
+        }
+
+        debug($numberOfCourses);
+        // debug($universityList);
+        debug($savedCourses);
+        die('done');
     }
 }

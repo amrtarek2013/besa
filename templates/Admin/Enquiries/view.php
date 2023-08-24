@@ -36,7 +36,11 @@
                                     use Cake\Routing\Router;
                                     use Cake\Utility\Inflector;
 
-                                    foreach ($enquiryType['fields'] as $field) : ?>
+                                    foreach ($enquiryType['fields'] as $key => $field) :
+                                        if(is_string($key)){
+                                            $field = $key;
+                                        }
+                                    ?>
                                         <tr class="table-header">
                                             <th class=""><a><?= isset($enquiryType['fields'][$field]) ? $enquiryType['fields'][$field] : Inflector::humanize($field) ?></a></th>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>

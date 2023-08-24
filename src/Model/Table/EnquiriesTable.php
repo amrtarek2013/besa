@@ -95,6 +95,8 @@ class EnquiriesTable extends Table
                         'file_name' => '{$rand}_{$file_name}',
                         'path' => 'uploads/enquiries',
 
+                        'extensions' => array('pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'txt'),
+
                     ]
                 ],
             ]

@@ -120,7 +120,7 @@ class SubjectAreasController extends AppController
         $this->loadModel("Countries");
         $countries = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(["active" => 1, 'is_destination'=>1])->order(['country_name' => 'ASC'])->toArray();
+        ])->where(["active" => 1, 'is_destination' => 1])->order(['country_name' => 'ASC'])->toArray();
         $this->set("countries", $countries);
 
 
@@ -129,11 +129,127 @@ class SubjectAreasController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['title' => 'asc'])->all();
         $this->set('services', $services);
+    }
 
-        // $this->loadModel("Universities");
-        // $universities = $this->Universities->find()->where(['active' => 1])->order(['university_name' => 'asc'])->all();
-        // $this->set('universities', $universities);
 
-        // $this->set('studyLevels', $this->Courses->studyLevels);
+
+    public function export()
+    {
+
+        $this->autoLayout = $this->autoRender = false;
+        $conditions = $this->_filter_params();
+        $subjectAreas = $this->SubjectAreas->find('all')->where($conditions)->toArray();
+
+        $dataToExport[] = array(
+            'id' => 'SubjectArea ID',
+            'title' => 'SubjectArea Name',
+            'destination' => 'Destination',
+            'rank' => 'Rank',
+            'description' => 'Description'
+        );
+
+        foreach ($subjectAreas as $subjectArea) {
+            $dataToExport[] = [
+                $subjectArea->id,
+                $subjectArea->title,
+                // $subjectArea->destination,
+                // $subjectArea->rank,
+                // $subjectArea->description,
+                // '',
+                ($subjectArea->active) ? 'Yes' : 'No',
+            ];
+        }
+
+        $this->loadComponent('Csv');
+        $this->Csv->download($dataToExport, 'subjectAreas-list-' . date('Ymd'));
+
+        exit();
+    }
+    public function import()
+    {
+
+        $subjectArea = $this->SubjectAreas->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+
+
+            // Configure::write('debug', true);
+            // Configure::write('debug', 1);
+            // var_dump($data['file']);
+            // dd('DD');
+            $error = $data['file']->getError();
+
+            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+
+                //load all SubjectAreas
+
+                $this->loadModel("SubjectAreas");
+                $this->SubjectAreas->virtualFields = array(
+                    'name' => "LOWER(SubjectAreas.title)"
+                );
+                $subjectAreas = $this->SubjectAreas->find('list', [
+                    'keyField' => "title", 'valueField' => 'id'
+                ])->toArray();
+
+                // debug($subjectAreas);
+                $this->loadComponent('Csv');
+                // dd($data['file']);
+                $subjectAreasArray = $this->Csv->convertCsvToArray($data['file'], $this->SubjectAreas->schema_of_import);
+                // dd($subjectAreasArray);
+                $subjectAreaList = [];
+                $fsubjectAreaList = [];
+                $counter = 0;
+                foreach ($subjectAreasArray as $subjectAreaLine) {
+
+                    $subjectArea = $this->SubjectAreas->newEmptyEntity();
+
+                    if (isset($subjectAreas[$subjectAreaLine['title']])) {
+                        $fsubjectAreaList[] = $subjectAreaLine['title'];
+
+                        $subjectArea = $this->SubjectAreas->get($subjectAreas[$subjectAreaLine['title']]);
+                     
+                        $subjectArea->is_old = 0;
+                        // continue;
+                    }
+                    if (isset($subjectAreaLine['id']) && empty($subjectAreaLine['id'])) {
+                        unset($subjectAreaLine['id']);
+                    } else if (isset($subjectAreaLine['id'])  && !empty($subjectAreaLine['id'])) {
+                        $subjectArea = $this->SubjectAreas->get($subjectAreaLine['id']);
+                    }
+
+                    if (isset($subjectAreaLine['active']))
+                        $subjectAreaLine['active'] = (strtolower($subjectAreaLine['active']) == 'yes') ? 1 : 0;
+                    else
+                        $subjectAreaLine['active'] = 1;
+
+                    $subjectAreaLine['title'] = trim($subjectAreaLine['title']);
+                    $subjectArea = $this->SubjectAreas->patchEntity($subjectArea, $subjectAreaLine);
+
+                    $subjectAreaList[] = $subjectArea;
+                    $counter++;
+                    if ($counter == 50) {
+                        // dd($subjectAreaList);
+                        $this->SubjectAreas->saveMany($subjectAreaList);
+                        $subjectAreaList = [];
+                        $counter = 0;
+                    }
+                }
+                // debug($subjectAreaList);
+                // dd($fsubjectAreaList);
+
+                if ($counter > 0) {
+
+                    // dd($subjectAreaList);
+                    $this->SubjectAreas->saveMany($subjectAreaList);
+                    $subjectAreaList = [];
+                    $counter = 0;
+                }
+            }
+
+            $this->Flash->success(__('The SubjectAreas has been imported.'));
+            return $this->redirect(['action' => 'import']);
+        }
+
+        $this->set(compact('subjectArea'));
     }
 }

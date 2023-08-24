@@ -37,6 +37,7 @@ class Enquiry extends Entity
     {
 
         if (!empty($this->certificate)) {
+            
             $file_path = 'uploads' . DS . 'enquiries' . DS . str_replace(DS, "", $this->certificate);
             if (file_exists(WWW_ROOT . $file_path))
                 return DS . $file_path;

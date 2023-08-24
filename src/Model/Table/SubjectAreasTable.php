@@ -16,6 +16,24 @@ class SubjectAreasTable extends Table
         'title' => array('type' => 'like', 'options' => array('type' => 'text')),
     ];
 
+
+    public $schema_of_export = array(
+        'id',
+        'title',
+        // 'destination',
+        // 'rank',
+        // 'description',
+
+    );
+
+    public $schema_of_import = array(
+        // 'id',
+        'title',
+        // 'destination',
+        // 'rank',
+        // 'description'
+    );
+
     /**
      * Initialize method
      *
@@ -74,7 +92,7 @@ class SubjectAreasTable extends Table
         // $validator->notEmptyString('code', 'This field is required.');
         // $validator->notEmptyString('description', 'This field is required.');
         // $validator->notEmptyString('university_id', 'This field is required.');
-        
+
 
         return $validator;
     }
