@@ -78,7 +78,7 @@
                         // $customNumber .= '<button class="decrement" onclick="';
                         // $customNumber .= "this.parentNode.querySelector('input[type=number]').stepDown()";
                         // $customNumber .= '"><img src="/img/decrement.svg" alt="decrement"></button>';
-                        
+
                         $customNumber .= '<a class="increment" onclick="';
                         $customNumber .= "this.parentNode.querySelector('input[type=number]').stepUp()";
                         $customNumber .= '"><img src="/img/increment.svg" alt="increment"></a>';
@@ -110,11 +110,16 @@
                             'required' => true,
                             'templates' => [
                                 'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
-                                'label' => '<label{{attrs}}>Upload attending students details*<img src="/img/icon-label.svg"></label>'
+                                'label' => '<label{{attrs}}>Upload attending students details*
+                                <div class="tooltip">&nbsp;
+                                <span class="tooltiptext">Excel/CSV file, Contains Students Deteils ( Student Name, Mobile Number, Email, Grade )</span>
+                              </div></label>'
                             ]
                         ]); ?>
-
-
+                        <!-- <div class="tooltip">Hover over me
+                            <span class="tooltiptext">Tooltip text</span>
+                        </div> -->
+                        <!-- <span class="tooltiptext">Tooltip text</span> -->
                         <?= $this->element('security_code', ['show_label' => true]) ?>
 
                     </div>
@@ -144,3 +149,8 @@
         </div>
     </div>
 </section>
+<script>
+    $('.tooltip').on('hover', function() {
+        $('.tooltip').show();
+    });
+</script>
