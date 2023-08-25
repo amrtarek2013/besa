@@ -40,9 +40,9 @@
                         $fields = [
                             'basicModel' => 'universityCourses',
                             'id' => [],
-                            'course_name' => [],
+                            // 'course_name' => [],
                             'course.course_name' => ['title' => 'Course'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
-                            'code' => [],
+                            // 'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university_id' => ['title' => 'University', 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
                             'university_title' => [],

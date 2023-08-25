@@ -46,6 +46,9 @@ use Cake\I18n\I18n;
             font-size: 14px;
 
         }
+        .btn-sm{
+            margin-bottom: 5px;
+        }
 
         .Pendeing {
             background: #d3d3d3;
