@@ -24,7 +24,7 @@ class StudyLevelsController extends AppController
         $this->set(compact('studyLevels', 'parameters', 'types'));
 
         $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
-        
+
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
     public function list()
@@ -126,5 +126,126 @@ class StudyLevelsController extends AppController
 
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('searchDegreeOptions', $this->StudyLevels->searchDegreeOptions);
+    }
+
+
+    public function export()
+    {
+
+        $this->autoLayout = $this->autoRender = false;
+        $conditions = $this->_filter_params();
+        $studyLevels = $this->StudyLevels->find('all')->where($conditions)->toArray();
+
+        $dataToExport[] = array(
+            'id' => 'Subject Area ID',
+            'title' => 'Subject Area Name',
+            // 'destination' => 'Destination',
+            // 'rank' => 'Rank',
+            // 'description' => 'Description'
+        );
+
+        foreach ($studyLevels as $studyLevel) {
+            $dataToExport[] = [
+                $studyLevel->id,
+                $studyLevel->title,
+                // $studyLevel->destination,
+                // $studyLevel->rank,
+                // $studyLevel->description,
+                // '',
+                // ($studyLevel->active) ? 'Yes' : 'No',
+            ];
+        }
+
+        $this->loadComponent('Csv');
+        $this->Csv->download($dataToExport, 'studyLevels-list-' . date('Ymd'));
+
+        exit();
+    }
+    public function import()
+    {
+
+        $studyLevel = $this->StudyLevels->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+
+
+            // Configure::write('debug', true);
+            // Configure::write('debug', 1);
+            // var_dump($data['file']);
+            // dd('DD');
+            $error = $data['file']->getError();
+
+            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+
+                //load all StudyLevels
+
+                $this->loadModel("StudyLevels");
+                $this->StudyLevels->virtualFields = array(
+                    'name' => "LOWER(StudyLevels.title)"
+                );
+                $studyLevels = $this->StudyLevels->find('list', [
+                    'keyField' => "title", 'valueField' => 'id'
+                ])->toArray();
+
+                // debug($studyLevels);
+                $this->loadComponent('Csv');
+                // dd($data['file']);
+                $studyLevelsArray = $this->Csv->convertCsvToArray($data['file'], $this->StudyLevels->schema_of_import);
+                // dd($studyLevelsArray);
+                $studyLevelList = [];
+                $fstudyLevelList = [];
+                $counter = 0;
+                foreach ($studyLevelsArray as $studyLevelLine) {
+
+                    $studyLevel = $this->StudyLevels->newEmptyEntity();
+
+                    if (isset($studyLevels[$studyLevelLine['title']])) {
+                        $fstudyLevelList[] = $studyLevelLine['title'];
+
+                        $studyLevel = $this->StudyLevels->get($studyLevels[$studyLevelLine['title']]);
+
+                        $studyLevel->is_old = 0;
+                        // continue;
+                    }
+                    if (isset($studyLevelLine['id']) && empty($studyLevelLine['id'])) {
+                        unset($studyLevelLine['id']);
+                    } else if (isset($studyLevelLine['id'])  && !empty($studyLevelLine['id'])) {
+                        $studyLevel = $this->StudyLevels->get($studyLevelLine['id']);
+                    }
+
+                    if (isset($studyLevelLine['active']))
+                        $studyLevelLine['active'] = (strtolower($studyLevelLine['active']) == 'yes') ? 1 : 0;
+                    else
+                        $studyLevelLine['active'] = 1;
+
+                    $studyLevelLine['title'] = trim($studyLevelLine['title']);
+                    $studyLevel = $this->StudyLevels->patchEntity($studyLevel, $studyLevelLine);
+
+                    $studyLevelList[] = $studyLevel;
+                    $counter++;
+                    if ($counter == 50) {
+                        // dd($studyLevelList);
+                        $this->StudyLevels->saveMany($studyLevelList);
+                        $studyLevelList = [];
+                        $counter = 0;
+                    }
+                }
+                // debug($studyLevelList);
+                // dd($fstudyLevelList);
+
+                if ($counter > 0) {
+
+                    // dd($studyLevelList);
+                    $this->StudyLevels->saveMany($studyLevelList);
+                    $studyLevelList = [];
+                    $counter = 0;
+                }
+            }
+
+            $this->Flash->success(__('The StudyLevels has been imported.'));
+            return $this->redirect(['action' => 'import']);
+        }
+
+        $this->set(compact('studyLevel'));
     }
 }

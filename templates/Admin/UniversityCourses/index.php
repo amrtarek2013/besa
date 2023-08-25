@@ -40,13 +40,15 @@
                         $fields = [
                             'basicModel' => 'universityCourses',
                             'id' => [],
-                            'course_id' => ['title' => 'Course', 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
+                            'course_name' => [],
+                            'course.course_name' => ['title' => 'Course'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
                             'code' => [],
                             'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university_id' => ['title' => 'University', 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
+                            'university_title' => [],
                             // 'service_id' => ['title' => 'Service/Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
                             'study_level_id' => ['title' => 'Study Level', 'format' => 'get_from_array', 'options' => ['items_list' => $studyLevels]],
-                            // 'subject_area_id' => ['title' => 'Subject Area', 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],
+                            'subject_area_id' => ['title' => 'Subject Area', 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],
                             // 'major_id' => ['title' => 'Major', 'format' => 'get_from_array', 'options' => ['items_list' => $majors]],
 
                             // 'permalink' => [],

@@ -17,6 +17,24 @@ class StudyLevelsTable extends Table
         'title' => array('type' => 'like', 'options' => array('type' => 'text')),
     ];
 
+
+    public $schema_of_export = array(
+        'id',
+        'title',
+        // 'destination',
+        // 'rank',
+        // 'description',
+
+    );
+
+    public $schema_of_import = array(
+        // 'id',
+        'title',
+        // 'destination',
+        // 'rank',
+        // 'description'
+    );
+
     public $types = [0 => 'Pathway Programs', 1 => 'Direct Entry', 2 => 'Others'];
 
     // public $mainStudyLevels = [0 => 'Undergraduate', 1 => 'Postgraduate'];

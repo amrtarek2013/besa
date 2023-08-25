@@ -19,12 +19,18 @@ class UniversityCoursesTable extends Table
 
     public $filters = [
         // 'course_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'university_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'service_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'subject_area_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'study_level_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'duration' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'fees' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        // 'university_id' => array('type' => 'like', 'options' => array('label' => 'University', 'empty' => 'Select', 'type' => 'select')),
+        'university_title' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'course_name' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'country_id' => array('type' => 'like', 'options' => array('label' => 'destination', 'empty' => 'Select', 'type' => 'select')),
+        
+        'subject_area_id' => array('type' => 'like', 'options' => array('label' => 'Subject Area', 'empty' => 'Select', 'type' => 'select')),
+        'study_level_id' => array('type' => 'like', 'options' => array('type' => 'text')),
+        // 'show_on_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
+
+        'duration' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        'fees' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
     ];
 
     public $types = [0 => 'Full Service'];

@@ -141,11 +141,11 @@ class SubjectAreasController extends AppController
         $subjectAreas = $this->SubjectAreas->find('all')->where($conditions)->toArray();
 
         $dataToExport[] = array(
-            'id' => 'SubjectArea ID',
-            'title' => 'SubjectArea Name',
-            'destination' => 'Destination',
-            'rank' => 'Rank',
-            'description' => 'Description'
+            'id' => 'Subject Area ID',
+            'title' => 'Subject Area Name',
+            // 'destination' => 'Destination',
+            // 'rank' => 'Rank',
+            // 'description' => 'Description'
         );
 
         foreach ($subjectAreas as $subjectArea) {
@@ -156,7 +156,7 @@ class SubjectAreasController extends AppController
                 // $subjectArea->rank,
                 // $subjectArea->description,
                 // '',
-                ($subjectArea->active) ? 'Yes' : 'No',
+                // ($subjectArea->active) ? 'Yes' : 'No',
             ];
         }
 

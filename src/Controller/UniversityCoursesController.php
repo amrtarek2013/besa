@@ -240,7 +240,7 @@ class UniversityCoursesController extends AppController
         if (isset($url_params['country_id']) && !empty($url_params['country_id']))
             if (is_array($url_params['country_id'])) {
                 $conditions['UniversityCourses.country_id in'] = $url_params['country_id'];
-            } else{
+            } else {
                 $conditions['UniversityCourses.country_id'] = $url_params['country_id'];
             }
         // if (isset($url_params['degree'])) {
@@ -291,4 +291,6 @@ class UniversityCoursesController extends AppController
         $this->set('course', $course);
         $this->set('permalink', $id);
     }
+
+
 }
