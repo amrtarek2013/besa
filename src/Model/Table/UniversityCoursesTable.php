@@ -18,19 +18,19 @@ class UniversityCoursesTable extends Table
 
 
     public $filters = [
-        // 'course_id' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        // 'university_id' => array('type' => 'like', 'options' => array('label' => 'University', 'empty' => 'Select', 'type' => 'select')),
-        'university_title' => array('type' => 'like', 'options' => array('type' => 'text')),
-        'course_name' => array('type' => 'like', 'options' => array('type' => 'text')),
-        'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
-        'country_id' => array('type' => 'like', 'options' => array('label' => 'destination', 'empty' => 'Select', 'type' => 'select')),
-        
-        'subject_area_id' => array('type' => 'like', 'options' => array('label' => 'Subject Area', 'empty' => 'Select', 'type' => 'select')),
-        'study_level_id' => array('type' => 'like', 'options' => array('type' => 'text')),
+        // 'course_id' => array('type' => 'like', 'options' => array('title' => 'Course', 'type' => 'select')),
+        'university_id' => array('title' => 'University', 'type' => 'select'),
+        'university_title' => array('type' => 'like'),
+        'course_name' => array('type' => 'like'),
+        'university_name' => array('type' => 'like'),
+        'country_id' => array('title' => 'Destination', 'type' => 'select'),
+
+        'subject_area_id' => array('title' => 'Subject Area', 'type' => 'select'),
+        'study_level_id' => array('title' => 'Study Level', 'type' => 'select'),
         // 'show_on_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
 
-        'duration' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
-        'fees' => array('type' => 'like', 'options' => array('label' => 'Course', 'type' => 'select')),
+        'duration' => array('type' => 'like'),
+        'fees' => array('type' => 'like'),
     ];
 
     public $types = [0 => 'Full Service'];
