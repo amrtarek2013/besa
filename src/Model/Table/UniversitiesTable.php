@@ -167,11 +167,11 @@ class UniversitiesTable extends Table
             // ->isArray('image')
             // ->allowEmptyArray('image');
 
-        $validator->uploadedFile('logo', [
-            'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
-            'minSize' => 1024, // Min 1 KB
-            'maxSize' => 1024 * 1024 // Max 1 MB
-        ])
+        // $validator->uploadedFile('logo', [
+        //     'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
+        //     'minSize' => 1024, // Min 1 KB
+        //     'maxSize' => 1024 * 1024 // Max 1 MB
+        // ]);
             // ->add('logo', 'minSize', [
             //     'rule' => ['imageSize', [
             //         // Min 10x10 pixel
