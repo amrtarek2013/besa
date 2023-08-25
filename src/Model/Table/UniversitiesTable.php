@@ -186,21 +186,21 @@ class UniversitiesTable extends Table
             //         'height' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
             //     ]]
             // ])
-            ->add('logo', 'filename', [
-                'rule' => function (UploadedFileInterface $file) {
-                    // filename must not be a path
-                    $filename = $file->getClientFilename();
-                    if (strcmp(basename($filename), $filename) === 0) {
-                        return true;
-                    }
+            // ->add('logo', 'filename', [
+            //     'rule' => function (UploadedFileInterface $file) {
+            //         // filename must not be a path
+            //         $filename = $file->getClientFilename();
+            //         if (strcmp(basename($filename), $filename) === 0) {
+            //             return true;
+            //         }
 
-                    return false;
-                }
-            ])
-            ->add('logo', 'extension', [
-                'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            ])->isArray('logo')
-            ->allowEmptyArray('logo');
+            //         return false;
+            //     }
+            // ])
+            // ->add('logo', 'extension', [
+            //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
+            // ])->isArray('logo')
+            // ->allowEmptyArray('logo');
 
         return $validator;
     }
