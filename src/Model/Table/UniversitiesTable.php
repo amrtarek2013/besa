@@ -143,27 +143,27 @@ class UniversitiesTable extends Table
         // $validator->notEmptyString('city', 'This field is required.');
         $validator->notEmptyString('country_id', 'This field is required.');
 
-        $validator
-            ->uploadedFile('image', [
-                'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
-                'minSize' => 1024, // Min 1 KB
-                'maxSize' => 1024 * 1024 // Max 1 MB
-            ])
+        // $validator
+        //     ->uploadedFile('image', [
+        //         'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
+        //         'minSize' => 1024, // Min 1 KB
+        //         'maxSize' => 1024 * 1024 // Max 1 MB
+        //     ]);
             
-            ->add('image', 'filename', [
-                'rule' => function (UploadedFileInterface $file) {
-                    // filename must not be a path
-                    $filename = $file->getClientFilename();
-                    if (strcmp(basename($filename), $filename) === 0) {
-                        return true;
-                    }
+            // ->add('image', 'filename', [
+            //     'rule' => function (UploadedFileInterface $file) {
+            //         // filename must not be a path
+            //         $filename = $file->getClientFilename();
+            //         if (strcmp(basename($filename), $filename) === 0) {
+            //             return true;
+            //         }
 
-                    return false;
-                }
-            ])
-            ->add('image', 'extension', [
-                'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            ]);
+            //         return false;
+            //     }
+            // ])
+            // ->add('image', 'extension', [
+            //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
+            // ]);
             // ->isArray('image')
             // ->allowEmptyArray('image');
 
