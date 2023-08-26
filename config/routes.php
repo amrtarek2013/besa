@@ -93,12 +93,12 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/courses/*', 'UniversityCourses::index');
 
 
-        $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
+        // $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
         $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
         $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
 
-        $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
+        // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         /*
          * Connect catchall routes for all controllers.
          *
@@ -128,6 +128,7 @@ return static function (RouteBuilder $routes) {
         $routes->connect('/locale/*', ['controller' => 'Localizations', 'action' => 'setLocale']);
         $routes->connect('/', ['controller' => 'Users', 'action' => 'dashboard']);
         // $routes->connect('/', ['controller' => 'Users', 'action' => 'profile']);
+        $routes->connect('/dashboard', ['controller' => 'Users', 'action' => 'dashboard']);
         $routes->connect('/profile', ['controller' => 'Users', 'action' => 'profile']);
         $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
         $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
