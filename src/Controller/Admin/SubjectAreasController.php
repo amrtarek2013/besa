@@ -46,7 +46,7 @@ class SubjectAreasController extends AppController
             }
             $this->Flash->error(__('The SubjectArea could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('subjectArea_new', 'subjectAreas', false, false, ['image', 'flag', 'banner_image']);
+        // $this->_ajaxImageUpload('subjectArea_new', 'subjectAreas', false, false, ['image', 'flag', 'banner_image']);
         $this->set('id', false);
 
         $this->__common();
@@ -71,7 +71,7 @@ class SubjectAreasController extends AppController
         $this->__common();
 
         $this->set(compact('subjectArea', 'id'));
-        $this->_ajaxImageUpload('subjectArea_' . $id, 'subjectAreas', $id, ['id' => $id], ['image', 'flag', 'banner_image']);
+        // $this->_ajaxImageUpload('subjectArea_' . $id, 'subjectAreas', $id, ['id' => $id], ['image', 'flag', 'banner_image']);
         $this->render('add');
     }
 

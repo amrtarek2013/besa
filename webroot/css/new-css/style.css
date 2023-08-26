@@ -2301,6 +2301,10 @@ p.descrp {
     padding-top: 5px !important;
 }
 
+.remodal.removebg {
+    background-color: transparent !important;
+}
+
 .form-area textarea,
 .form-area select,
 .form-area input {

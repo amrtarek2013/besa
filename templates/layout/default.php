@@ -85,23 +85,25 @@ if (!empty($metaDescription)) {
 
         <?php
 
-        if ((isset($_SESSION['Auth']['User']) || isset($_SESSION['Auth']['Counselor'])) && $this->request->getParam('action') != 'dashboard') { ?>
+        if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user' && $this->request->getParam('action') != 'dashboard') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor')) { ?>
 
 
             <div class="container">
                 <div class="row user-dashboard">
+                    <?php
+                    if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
+                    ?>
+                        <div class="col-md-3">
 
-                    <div class="col-md-3">
-                        <?php
-
-                        if (isset($_SESSION['Auth']['Counselor'])) {
-                        ?>
                             <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
+                        </div>
+                    <?php } else if (isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') { ?>
 
-                        <?php } else if (isset($_SESSION['Auth']['User'])) { ?>
+                        <div class="col-md-3">
                             <?php echo $this->element('user-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
-                        <?php } ?>
-                    </div>
+
+                        </div>
+                    <?php } ?>
                     <div class="col-md-9">
 
 
