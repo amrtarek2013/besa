@@ -808,7 +808,8 @@ CODEBLOCK;
 					// $value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field][0]);
 					$value = empty($url_params['?'][$field]) && !(isset($url_params['?'][$field]) && strval($url_params['?'][$field]) === '0') ? '' : strval($url_params['?'][$field]);
 					
-					$label = empty($filter['title']) ? Inflector::humanize($field) : $filter['title'];
+					$label = str_replace("_id", "", $field);
+					$label = empty($filter['title']) ? Inflector::humanize($label) : $filter['title'];
 
 
 					$multiple = empty($filter['multiple']) ? false : 'multiple';
@@ -816,7 +817,7 @@ CODEBLOCK;
 					if (isset($filter['empty']) && empty($filter['empty'])) {
 						$empty1 = false;
 					} else {
-						$empty1 = empty($filter['empty']) ? __('[Any ' . Inflector::humanize($field) . ']') : __($filter['empty']);
+						$empty1 = empty($filter['empty']) ? __('[Any ' . Inflector::humanize($label) . ']') : __($filter['empty']);
 					}
 					$required1 = empty($filter['required']) ? false : $filter['required'];
 

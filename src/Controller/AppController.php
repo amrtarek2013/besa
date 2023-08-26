@@ -603,7 +603,8 @@ class AppController extends Controller
                     break;
                 default:
                     if (!empty($params[$param]) || (isset($params[$param]) && strval($params[$param]) === '0')) {
-                        $conditions["{$modelName}.$field $type"] = $params[$param];
+                        // $conditions["{$modelName}.$field $type"] = $params[$param];
+                        $conditions["{$modelName}.$field"] = $params[$param];
                     }
                     break;
             }

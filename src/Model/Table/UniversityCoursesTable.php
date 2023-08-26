@@ -19,7 +19,7 @@ class UniversityCoursesTable extends Table
 
     public $filters = [
         // 'course_id' => array('type' => 'like', 'options' => array('title' => 'Course', 'type' => 'select')),
-        'university_id' => array('title' => 'University', 'type' => 'select'),
+        // 'university_id' => array('title' => 'University', 'type' => 'select'),
         'university_title' => array('type' => 'like'),
         'course_name' => array('type' => 'like'),
         'university_name' => array('type' => 'like'),
@@ -27,6 +27,7 @@ class UniversityCoursesTable extends Table
 
         'subject_area_id' => array('title' => 'Subject Area', 'type' => 'select'),
         'study_level_id' => array('title' => 'Study Level', 'type' => 'select'),
+        // 'is_partner' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
         // 'show_on_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
 
         'duration' => array('type' => 'like'),

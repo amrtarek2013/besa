@@ -51,6 +51,7 @@
                             // 'telephone' => [],
                             // 'permalink' => [],
                             'logo_path' => ['title' => 'Logo', 'format' => 'image'],
+                            'is_partner' => ['format' => 'bool'],
                             'show_on_destination' => ['format' => 'bool'],
                             'active' => ['format' => 'bool'],
                         ];

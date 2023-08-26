@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * UniversityCourses Controller
@@ -16,8 +17,10 @@ class UniversityCoursesController extends AppController
 
     public function index()
     {
+        // Configure::write('debug', 0);
         $conditions = $this->_filter_params();
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'Services', 'Countries'], 'limit' => 50, 'order' => ['course_name' => 'ASC']]);
+        // dd($conditions);
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels','SubjectAreas', 'Countries'], 'limit' => 20, 'order' => ['course_name' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 

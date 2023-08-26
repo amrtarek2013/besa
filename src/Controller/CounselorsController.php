@@ -726,7 +726,67 @@ class CounselorsController extends AppController
         dd($updatedCourses);
     }
 
+    public function checkuni()
+    {
 
+        $this->loadModel('Universities');
+
+        $universities = $this->Universities->find()->select(['title' => 'trim(lower(university_name))', 'id'])->toArray();
+        $universities = Hash::combine($universities, '{n}.title', '{n}.id');
+
+        // dd($universities);
+
+        $not_partners = [
+            'aston university - oncampus' => 'Aston University - ONCAMPUS',
+            'university of birmingham - kaplan uk' => 'University of Birmingham - Kaplan UK',
+            'city, university of london - into uk' => 'City, University of London - INTO UK',
+            'university of essex - kaplan uk' => 'University of Essex - Kaplan UK',
+            'durham university - study group uk' => 'Durham University - Study Group UK',
+            'university of huddersfield - study group uk' => 'University of Huddersfield - Study Group UK',
+            'university of hull - oncampus' => 'University of Hull - ONCAMPUS',
+            'kingston university london - study group uk' => 'Kingston University London - Study Group UK',
+            'liverpool john moores university - study group uk' => 'Liverpool John Moores University - Study Group UK',
+            'london south bank university - oncampus' => 'London South Bank University - ONCAMPUS',
+            'university of reading - oncampus' => 'University of Reading - ONCAMPUS',
+            'university of southampton - oncampus' => 'University of Southampton - ONCAMPUS',
+            'loughborough university - oncampus' => 'Loughborough University - ONCAMPUS',
+            'university of aberdeen - study group uk' => 'University of Aberdeen - Study Group UK',
+            'cardiff university - study group uk' => 'Cardiff University - Study Group UK',
+            'university of strhclyde - study group uk' => 'University of Strhclyde - Study Group UK',
+            'leeds beckett - study group uk' => 'Leeds Beckett - Study Group UK',
+            'university of sussex - study group uk' => 'University of Sussex - Study Group UK',
+            'university of leeds - study group uk' => 'University of Leeds - Study Group UK',
+            'university of surrey - study group uk' => 'University of Surrey - Study Group UK',
+            'university of south wales - qa higher educion' => 'University of South Wales - QA Higher Educion',
+            'middlesex university - qa higher educion' => 'Middlesex University - QA Higher Educion',
+            'solent university - qa higher educion' => 'Solent University - QA Higher Educion',
+        ];
+
+        $universitiesList = [];
+        $counter = 0;
+        foreach ($not_partners as $k => $v) {
+
+            $university = $this->Universities->newEmptyEntity();
+
+            if (isset($universities[$k])) {
+
+                $university->id = $universities[$k];
+                $university->is_partner = 0;
+                $counter++;
+            } else {
+
+                $university->title = $university->university_name = $v;
+                $university->is_partner = 0;
+                $counter++;
+            }
+            $universitiesList[] = $university;
+        }
+        if ($counter > 0) {
+            $this->Universities->saveMany($universitiesList);
+        }
+        dd($universitiesList);
+        die('sssss');
+    }
     public function testuncourses()
     {
 
@@ -763,9 +823,6 @@ class CounselorsController extends AppController
 
         $studyLevels = $this->StudyLevels->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
         $studyLevels = Hash::combine($studyLevels, '{n}.title', '{n}.id');
-        // debug($universities);
-        // debug($subjectAreas);
-        // dd($studyLevels);
 
         $universityList = [];
         $degree = null;
@@ -776,33 +833,38 @@ class CounselorsController extends AppController
         $numberOfFaileds = [];
         $numberOfSucsUn = [];
         foreach ($loadedSheetNames as $sheetIndex => $loadedSheetName) {
-            // debug('<b>Worksheet #' . $sheetIndex . ' -> ' . $loadedSheetName . ' (Formatted)</b>');
+
             $spreadsheet->setActiveSheetIndexByName($loadedSheetName);
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-            // var_dump($sheetData);
+
             $counter = 0;
             $loadedSheetName = trim($loadedSheetName);
             $university_id = null;
-            if (isset($universities[strtolower(trim($loadedSheetName))])) {
 
-                $university_id = $universities[strtolower(trim($loadedSheetName))];
-                $numberOfSucsUn[$university_id] = trim($loadedSheetName);
-            } else {
-                $found = false;
-                // foreach ($universities as $uni_name => $uni_id) {
-                //     similar_text(trim($loadedSheetName), $uni_name, $percent);
-                //     if ($percent >= 80) {
+            // if (isset($universities[strtolower(trim($loadedSheetName))])) {
 
-                //         $university_id = $uni_id;
-                //         $numberOfSucsUn[$uni_id] = trim($loadedSheetName);
-                //         $found = true;
-                //     }
-                // }
-                if (!$found && !isset($numberOfFaileds[strtolower(trim($loadedSheetName))])) {
-                    $numberOfMUnis++;
-                    $numberOfFaileds[strtolower(trim($loadedSheetName))] = trim($loadedSheetName);
-                }
-            }
+            //     $university_id = $universities[strtolower(trim($loadedSheetName))];
+            //     $numberOfSucsUn[$university_id] = trim($loadedSheetName);
+            // } else {
+            //     $found = false;
+            // foreach ($universities as $uni_name => $uni_id) {
+            //     similar_text(trim($loadedSheetName), $uni_name, $percent);
+            //     if ($percent >= 80) {
+
+            //         $university_id = $uni_id;
+            //         $numberOfSucsUn[$uni_id] = trim($loadedSheetName);
+            //         $found = true;
+            //     }
+            // }
+            // if (!$found && !isset($numberOfFaileds[strtolower(trim($loadedSheetName))])) {
+            //     $numberOfMUnis++;
+            //     $numberOfFaileds[strtolower(trim($loadedSheetName))] = trim($loadedSheetName);
+            // }
+            // else {
+
+
+            // }
+            // }
             // else {
             //     $this->Universities->save($university);
             // }
@@ -815,55 +877,50 @@ class CounselorsController extends AppController
 
             foreach ($sheetData as $i => $row) {
 
-                if (!isset($row['C'])) {
-
-                    // debug($loadedSheetName);
-                    // debug($row);
-
-                    // dd($cou_list);
+                if (!isset($row['C']) || strtolower(trim($row['C'])) == 'course name') {
                     continue;
                 }
                 $mainCourseName = str_replace([' ', ','], ' ', strtolower(trim($row['C'])));
-                // debug($mainCourseName);
                 $numberOfCourses++;
-
-
 
                 if (
                     $i == 0 || !$row['A'] || strtolower(trim($row['C'])) == 'course name'
-                    || (isset($savedCoursesUni[$mainCourseName])
-                        && $savedCoursesUni[$mainCourseName] == $university_id
-                    )
+                    // || ((isset($saved[$mainCourseName])
+                    //     && $savedCoursesUni[$mainCourseName] == $university_id)
+                    // )
                 ) {
                     continue;
                 }
 
                 $course = $this->UniversityCourses->newEmptyEntity();
-                // if ($row['A']) {
-                //     $degree = trim($row['A']);
-                // }
+                // if (!empty($university_id)) {
+
+                //     $course->university_id = $university_id;
+                // } else {
 
 
+                if (isset($universities[strtolower(trim($row['D']))])) {
 
-                if ($university_id) {
-
-                    $course->university_id = $university_id;
+                    $university_id = $universities[strtolower(trim($row['D']))];
+                    $numberOfSucsUn[$university_id] = trim($row['D']);
+                    if ((isset($saved[$mainCourseName])
+                        && $savedCoursesUni[$mainCourseName] == $university_id)) {
+                        continue;
+                    }
                 } else {
 
+                    $university = $this->Universities->newEmptyEntity();
+                    $university->title = $university->university_name = trim(trim($row['D']));
 
-                    if (isset($universities[strtolower(trim($row['D']))])) {
-
-                        $university_id = $universities[strtolower(trim($row['D']))];
-                        $numberOfSucsUn[$university_id] = trim($row['D']);
-                    } else {
-                        //check similar_text
-
-                        if (!isset($numberOfFaileds[strtolower(trim($row['D']))])) {
-                            $numberOfMUnis++;
-                            $numberOfFaileds[strtolower(trim($loadedSheetName))] = trim($loadedSheetName);
-                        }
-                    }
+                    $this->Universities->save($university);
+                    $university_id = $university->id;
+                    $universities[strtolower($university->title)] = $university_id;
+                    // if (!isset($numberOfFaileds[strtolower(trim($row['D']))])) {
+                    //     $numberOfMUnis++;
+                    //     $numberOfFaileds[strtolower(trim($loadedSheetName))] = trim($loadedSheetName);
+                    // }
                 }
+                // }
 
                 if (isset($savedCourses[strtolower($mainCourseName)])) {
 
