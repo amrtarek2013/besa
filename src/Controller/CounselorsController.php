@@ -787,6 +787,39 @@ class CounselorsController extends AppController
         dd($universitiesList);
         die('sssss');
     }
+
+    public function checkmaincourses()
+    {
+
+        $this->loadModel('Courses');
+
+        $courses = $this->Courses->find()->contain(['UniversityCourses'])->toArray();
+        // $courses = Hash::combine($courses, '{n}.title', '{n}.id');
+
+
+
+        $universitiesList = [];
+        $counter = 0;
+        foreach ($courses as $course) {
+
+
+            $course->subject_area_id = $course->university_courses[0]->subject_area_id;
+            $course->study_level_id = $course->university_courses[0]->study_level_id;
+            $universitiesList[] = $course;
+
+            $counter++;
+            if ($counter > 0) {
+                $this->Courses->saveMany($universitiesList);
+                $universitiesList = [];
+                $counter = 0;
+            }
+        }
+        if ($counter > 0) {
+            $this->Courses->saveMany($universitiesList);
+        }
+        dd($universitiesList);
+        die('sssss');
+    }
     public function testuncourses()
     {
 
@@ -929,6 +962,14 @@ class CounselorsController extends AppController
 
                     $mainCourse = $this->Courses->newEmptyEntity();
                     $mainCourse->course_name = trim($row['C']);
+                    if (isset($studyLevels[strtolower(trim($row['A']))])) {
+
+                        $mainCourse->study_level_id = $studyLevels[strtolower(trim($row['A']))];
+                    }
+                    if (isset($subjectAreas[strtolower(trim($row['B']))])) {
+
+                        $mainCourse->subject_area_id = $subjectAreas[strtolower(trim($row['B']))];
+                    }
                     $this->Courses->save($mainCourse);
                     $course->course_id = $mainCourse->id;
 
