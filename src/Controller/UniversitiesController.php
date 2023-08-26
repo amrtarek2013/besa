@@ -17,7 +17,7 @@ class UniversitiesController extends AppController
         // $universities = $this->Universities->find()->where($conditions)->order(['university_name' => 'asc'])->limit(10)->all();
 
         $conditions = $this->_filter_params();
-        $conditions = ['active' => 1];
+        $conditions = ['active' => 1, 'is_partner' => 1];
         if (isset($country)) {
 
             // $c_id = explode('-', $country);
