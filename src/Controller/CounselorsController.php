@@ -911,7 +911,7 @@ class CounselorsController extends AppController
 
                     $university = $this->Universities->newEmptyEntity();
                     $university->title = $university->university_name = trim(trim($row['D']));
-
+                    $university->is_partner = 1;
                     $this->Universities->save($university);
                     $university_id = $university->id;
                     $universities[strtolower($university->title)] = $university_id;
