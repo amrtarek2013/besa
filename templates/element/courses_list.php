@@ -31,7 +31,7 @@
                                             <p class="green"><?= $course['study_level']['title'] ?></p>
                                         </div>
                                         <div class="right">
-                                            <p>Total course fee</p>
+                                            <p>Fees</p>
                                             <p class="green">USD <?= number_format($course['fees'], 2) ?></p>
                                         </div>
 
