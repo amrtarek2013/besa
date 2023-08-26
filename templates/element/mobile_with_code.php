@@ -6,6 +6,9 @@
     }
 </style>
 <?php
+
+use Cake\Routing\Router;
+
 $phone_code = isset($phone_code) ? $phone_code : 'mobile_code';
 $phone_name = isset($phone_name) ? $phone_name : 'mobile';
 $phone_label = isset($phone_label) ? $phone_label : 'Mobile';
@@ -21,9 +24,9 @@ $phone_label = isset($phone_label) ? $phone_label : 'Mobile';
     ]) ?>
 </div>
 
-<script src="/intl-tel-input/js/intlTelInput.js"></script>
+<script src="<?= Router::url('/intl-tel-input/js/intlTelInput.js') ?>"></script>
 
-<script src="/intl-tel-input/js/utils.js"></script>
+<script src="<?= Router::url('/intl-tel-input/js/utils.js') ?>"></script>
 <script>
     var input = document.querySelector(".mobile_code");
     window.intlTelInput(input, {
