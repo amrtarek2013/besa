@@ -46,7 +46,8 @@ use Cake\I18n\I18n;
             font-size: 14px;
 
         }
-        .btn-sm{
+
+        .btn-sm {
             margin-bottom: 5px;
         }
 
@@ -89,6 +90,40 @@ use Cake\I18n\I18n;
             background: #ffc107;
             color: #fff;
 
+        }
+
+        .select2-container {
+            width: 100% !important;
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: .375rem .75rem;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            box-shadow: inset 0 0 0 transparent;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: none;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+
+            top: 4px !important;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: unset !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+
+            margin-top: -10px !important;
         }
     </style>
 </head>
