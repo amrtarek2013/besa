@@ -209,7 +209,7 @@
 </div>
 
 
-<div class="remodal removebg" data-remodal-id="become-sponser" style="max-width: 1060px !important;">
+<div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
     <button data-remodal-action="close" class="remodal-close"></button>
 
     <section class="register-banner Create-account-banner">
@@ -218,118 +218,34 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <?= $this->Form->create(null, array('id' => 'FormRegister', 'class' => 'register')); ?>
+                    <?= $this->Form->create(null, array('id' => 'FormSponsor', 'class' => 'register')); ?>
 
                     <div class="container-formBox">
-                        <h4 class="title">Create an account to apply</h4>
+                        <h4 class="title">Become a Sponsor</h4>
                         <div class="grid-container">
 
-                            <?= $this->Form->control('first_name', [
-                                'placeholder' => 'Name',
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                            <?= $this->Form->control('school_name', [
+                                'placeholder' => 'Institution Name', 'label' => 'Institution Name*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                             ]) ?>
-                            <!-- <?= $this->Form->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?> -->
-                            <?= $this->Form->control('last_name', [
-                                'placeholder' => 'Surname*', 'label' => 'Surname*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+                            <?= $this->Form->control('school_counselor_name', [
+                                'placeholder' => 'Contact Person Name*', 'label' => 'Contact Person Name*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                             ]) ?>
 
-                            <div class=" form-area">
-                                <label for="">Date of Birth*</label>
-                                <div class="grid-3col">
-                                    <select name="day" id="day" placeholder="Day" required="required">
-                                        <option value="">Day</option>
 
-                                        <?php
-                                        for ($i = 1; $i <= 31; $i++) {
-                                            $d = $i; //date('M', strtotime("last day of +$i month"));
-                                            echo "<option value='$d'>$d</option>";
-                                        }
-                                        ?>
-
-                                    </select>
-                                    <select name="month" id="month" placeholder="Month" required="required">
-                                        <option value="">Month</option>
-                                        <?php
-                                        for ($i = 1; $i <= 12; $i++) {
-                                            $month = $i; // date('M', strtotime("last day of +$i month"));
-                                            echo "<option value='$month'>$month</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                    <select name="year" id="year" placeholder="Year" required="required">
-                                        <option value="">Year</option>
-                                        <?php
-                                        for ($i = 1980; $i <= 2015; $i++) {
-                                            $year = $i; //date('Y', strtotime("last day of +$i year"));
-                                            echo "<option value='$year'>$year</option>";
-                                        }
-                                        ?>
-
-                                        <!-- <option value="2001">2001</option> -->
-                                    </select>
-                                </div>
-                            </div>
+                            <?= $this->element('mobile_with_code') ?>
                             <?= $this->Form->control('email', [
                                 'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                             ]) ?>
 
-
-                            <?= $this->Form->control('password', [
-                                'type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
-                            <?= $this->Form->control('passwd', [
-                                'type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
-
-
-
-                            <?= $this->Form->control('gender', [
-                                'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
-                                'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
-
-                            <?= $this->Form->control('student_type', [
-                                'label' => 'I am a*', 'required' => true,
-                                'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
-
-                            <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
-
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'label' => 'Password*']) ?>
-            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
-
-            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
-
-            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?>
-
-            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?>
-
-            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?> -->
-
+                            <?= $this->element('security_code', ['show_label' => true]) ?>
                         </div>
-                        <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
                         <div class="container-submit">
 
-                            <div class="checkboxes">
-                                <div class="terms-conditions">
-                                    <input type="checkbox" name="terms" id="terms" required="required">
-                                    <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="is_subscribed" id="is_subscribed">
-                                    <label for="">Tick box to stay updated through BESA’s newsletter</label>
-                                </div>
-                            </div>
-                            <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
-
-                            <button type="submit" class="btn greenish-teal">LOG IN</button>
+                            <button type="submit" class="btn greenish-teal">SUBMIT</button>
                         </div>
                     </div>
                     <?= $this->Form->end() ?>
