@@ -1,3 +1,10 @@
+<style>
+    .iti {
+        left: 10px;
+        position: absolute !important;
+        bottom: 55px;
+    }
+</style>
 <section class="main-banner register-banner">
 
     <div class="container" style="width:100%">
@@ -30,7 +37,8 @@
                         ]) ?>
 
 
-                        <?= $this->element('mobile_with_code')//, ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+                        <?= $this->element('mobile_with_code') //, ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) 
+                        ?>
 
 
 
