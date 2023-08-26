@@ -222,7 +222,7 @@
 
 
                     <button data-remodal-action="close" class="remodal-close"></button>
-                    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormSponsor', 'class' => 'register')); ?>
+                    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'SponsorForm', 'class' => 'register')); ?>
 
                     <input type="hidden" id="type" name="type" value="become-sponsor">
                     <div class="container-formBox">
@@ -304,10 +304,10 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
 <script type="text/javascript">
     var request_busy = false;
     $(function() {
-        setInterval(function() {
-            reLoadCaptchaV3();
-        }, 2 * 60 * 1000);
-        $('#FormSponsor').validate({
+        // setInterval(function() {
+        //     reLoadCaptchaV3();
+        // }, 2 * 60 * 1000);
+        $('#SponsorForm').validate({
             rules: {
                 'school_name': {
                     required: true,
@@ -365,7 +365,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                         $('.error-message').remove();
                         $(form)[0].reset();
 
-                        reLoadCaptchaV3();
+                        // reLoadCaptchaV3();
 
                     } else {
 

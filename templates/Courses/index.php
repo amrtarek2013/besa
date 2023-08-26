@@ -52,7 +52,7 @@
                                         </div>
                                         <!-- <div class="right">
                                             <p>Total course fee</p>
-                                            <p class="green">USD <?= $course['fees'] ?></p>
+                                            <p class="green">GBP <?= $course['fees'] ?></p>
                                         </div> -->
 
                                     </div>
