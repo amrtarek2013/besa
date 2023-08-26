@@ -73,8 +73,8 @@ class UniversitiesController extends AppController
     public function edit($id = null)
     {
         $university = $this->Universities->get($id);
-        Configure::write('debug', true);
-        Configure::write('debug', 1);
+        // Configure::write('debug', true);
+        // Configure::write('debug', 1);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $university = $this->Universities->patchEntity($university, $this->request->getData());
 
