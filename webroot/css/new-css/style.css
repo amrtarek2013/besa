@@ -4586,6 +4586,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 }
 
+.courseDetailsModal .courses p {
+    text-align:left;
+
+}
+
 .box-result .courses {
     display: flex;
     grid-gap: 26px;

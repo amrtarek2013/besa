@@ -98,16 +98,34 @@
     <div class="box-result" id="box-result-3922">
         <h4 class="title-result" id="title-result">Course Name</h4>
         <p class="education" id="university">Lincoln</p>
-        
+        <br/><br/>
         <div class="courses">
             <div class="left">
-                <p>Course Qualification</p>
-                <p class="green" id="degree"> Bachelor Degree</p>
+                <p><strong>Course Qualification:</strong> <span class="green" id="degree">--</p>
+
+                <p><strong>Duration (Years):</strong> <span class="green" id="duration">--</p>
             </div>
             <div class="right">
-                <p>Total course fee</p>
-                <p class="green" id="fees">USD 14,400.00</p>
+                <p><strong>Per Year:</strong> <span class="green" id="fees">--</p>
+                <p><strong>Intake:</strong> <span class="green" id="intake">--</p>
             </div>
+
+            <!-- <div class="left">
+                <p>Course Qualification</p>
+                <p class="green" id="degree">--</p>
+            </div>
+            <div class="left">
+                <p>Duration (Years)</p>
+                <p class="green" id="duration">--</p>
+            </div>
+            <div class="right">
+                <p>Fees Per Year</p>
+                <p class="green" id="fees">--</p>
+            </div>
+            <div class="right">
+                <p>Intake</p>
+                <p class="green" id="intake">--</p>
+            </div> -->
 
         </div>
     </div>
@@ -130,6 +148,8 @@
             $('.courseDetailsModal #university').html(coursesDetails[courseID]['university']['university_title']);
             $('.courseDetailsModal #degree').html(coursesDetails[courseID]['study_level']['title']);
             $('.courseDetailsModal #fees').html(coursesDetails[courseID].fees);
+            $('.courseDetailsModal #intake').html(coursesDetails[courseID].intake);
+            $('.courseDetailsModal #duration').html(coursesDetails[courseID].duration);
 
             inst.open();
 
