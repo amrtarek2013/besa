@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="right">
                                             <p>Fees Per Year</p>
-                                            <p class="green">USD <?= number_format($course['fees'], 2) ?></p>
+                                            <p class="green"><?= isset($course['country']['country_currncy']) ? $course['country']['country_currncy'] : 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
                                         </div>
 
                                     </div>
@@ -98,7 +98,7 @@
     <div class="box-result" id="box-result-3922">
         <h4 class="title-result" id="title-result">Course Name</h4>
         <p class="education" id="university">Lincoln</p>
-        <br/><br/>
+        <br /><br />
         <div class="courses">
             <div class="left">
                 <p><strong>Course Qualification:</strong> <span class="green" id="degree">--</p>

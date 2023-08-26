@@ -73,6 +73,8 @@ class UniversitiesController extends AppController
     public function edit($id = null)
     {
         $university = $this->Universities->get($id);
+        Configure::write('debug', true);
+        Configure::write('debug', 1);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $university = $this->Universities->patchEntity($university, $this->request->getData());
 
@@ -81,6 +83,8 @@ class UniversitiesController extends AppController
                 $this->Flash->success(__('The University has been saved.'));
 
                 $this->__redirectToIndex();
+            } else {
+                dd($university->getErrors());
             }
             $this->Flash->error(__('The University could not be saved. Please, try again.'));
         }

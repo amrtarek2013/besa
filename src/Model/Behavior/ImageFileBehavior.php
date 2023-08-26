@@ -326,6 +326,10 @@ class ImageFileBehavior extends Behavior
 
 
 
+            // debug($file);
+            // debug(file_exists($file['tmp_name']));
+            // debug(file_exists($folder));
+            // dd($file['tmp_name'].'--------'.$folder . $filename);
             if (move_uploaded_file($file['tmp_name'], $folder . $filename)) {
                 $entity->set($field, $filename);
                 chmod($folder . $filename, 0777);
