@@ -153,7 +153,7 @@ class CounselorsController extends AppController
                 } else {
 
                     $this->Flash->error(__($return['message']));
-                    $this->redirect('/counselor');
+                    $this->redirect('/counselor/login');
                 }
             }
         }
