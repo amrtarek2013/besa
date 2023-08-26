@@ -3,19 +3,23 @@
 use Cake\Routing\Router;
 ?>
 <link rel="stylesheet" href="<?= Router::url('/intl-tel-input/css/intlTelInput.min.css') ?>" />
-<style>
-    #mobile-code,
-    #phone-code {
-        display: none !important;
-    }
-</style>
+
 <?php
 
 
 $phone_code = isset($phone_code) ? $phone_code : 'mobile_code';
 $phone_name = isset($phone_name) ? $phone_name : 'mobile';
 $phone_label = isset($phone_label) ? $phone_label : 'Mobile';
+
+$modileCodeId = 'mobile_code' . rand();
 ?>
+<style>
+    .mobile_code,
+    #mobile-code,
+    #phone-code {
+        display: none !important;
+    }
+</style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
     <?= $this->Form->control($phone_name, [
@@ -23,7 +27,8 @@ $phone_label = isset($phone_label) ? $phone_label : 'Mobile';
     ]) ?>
     <?= $this->Form->control($phone_code, [
         'class' => 'country_code mobile_code', 'label' => false,
-        'type' => 'select', 'options' => []
+        'type' => 'select', 'options' => [],
+        'id' => $modileCodeId
     ]) ?>
 </div>
 
@@ -31,7 +36,7 @@ $phone_label = isset($phone_label) ? $phone_label : 'Mobile';
 
 <script src="<?= Router::url('/intl-tel-input/js/utils.js') ?>"></script>
 <script>
-    var input = document.querySelector(".mobile_code");
+    var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {
         // show dial codes too
         separateDialCode: true,
