@@ -2305,6 +2305,28 @@ p.descrp {
     background-color: transparent !important;
 }
 
+.remodal.removebg .container-formBox {
+    background: var(--bs-main);
+}
+
+.remodal.removebg .container-formBox h4 {
+    padding: 16px 0px;
+}
+
+.remodal.removebg .container-formBox .grid-container {
+    margin-top: 37px;
+}
+
+.remodal.removebg .container-formBox {
+    padding: 29px 47px !important;
+    padding-bottom: 60px !important;
+}
+
+.remodal.removebg .remodal-close {
+    top: 20px;
+    left: 20px;
+}
+
 .form-area textarea,
 .form-area select,
 .form-area input {
@@ -2367,6 +2389,19 @@ input[type="checkbox"] {
     display: grid;
     -ms-grid-columns: 1fr 45px 2fr;
     grid-template-columns: 1fr 2fr;
+    grid-gap: 45px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+.container-submit-one-col {
+    padding: 40px 0 20px 40px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr !important;
+    grid-template-columns: 1fr !important;
     grid-gap: 45px;
     -webkit-box-align: center;
     -ms-flex-align: center;

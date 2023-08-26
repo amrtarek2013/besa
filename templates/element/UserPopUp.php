@@ -37,7 +37,6 @@
 </div>
 
 <div class="remodal removebg" data-remodal-id="login">
-    <button data-remodal-action="close" class="remodal-close"></button>
     <!-- <h1>Login</h1> -->
     <section class="register-banner Create-account-banner">
 
@@ -45,6 +44,8 @@
             <div class="row">
 
                 <div class="col-md-12">
+
+                    <button data-remodal-action="close" class="remodal-close"></button>
                     <div class="container-formBox blue-border ">
                         <form action="/user/login" class="login" method="post">
 
@@ -75,7 +76,6 @@
 </div>
 
 <div class="remodal removebg" data-remodal-id="register" style="max-width: 1060px !important;">
-    <button data-remodal-action="close" class="remodal-close"></button>
 
     <section class="register-banner Create-account-banner">
 
@@ -83,6 +83,8 @@
             <div class="row">
 
                 <div class="col-md-12">
+
+                    <button data-remodal-action="close" class="remodal-close"></button>
                     <?= $this->Form->create(null, array('id' => 'FormRegister', 'class' => 'register')); ?>
 
                     <div class="container-formBox">
@@ -210,7 +212,6 @@
 
 
 <div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
-    <button data-remodal-action="close" class="remodal-close"></button>
 
     <section class="register-banner Create-account-banner">
 
@@ -218,10 +219,16 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <?= $this->Form->create(null, array('id' => 'FormSponsor', 'class' => 'register')); ?>
 
+
+                    <button data-remodal-action="close" class="remodal-close"></button>
+                    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormSponsor', 'class' => 'register')); ?>
+
+                    <input type="hidden" id="type" name="type" value="become-sponsor">
                     <div class="container-formBox">
+
                         <h4 class="title">Become a Sponsor</h4>
+
                         <div class="grid-container">
 
                             <?= $this->Form->control('school_name', [
@@ -243,7 +250,7 @@
                             <?= $this->element('security_code', ['show_label' => true]) ?>
                         </div>
 
-                        <div class="container-submit">
+                        <div class="container-submit container-submit-one-col">
 
                             <button type="submit" class="btn greenish-teal">SUBMIT</button>
                         </div>
@@ -290,3 +297,105 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
         });
     </script>
 <?php } ?>
+
+
+<?php echo $this->Html->script('new-js/jquery.validate'); ?>
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        setInterval(function() {
+            reLoadCaptchaV3();
+        }, 2 * 60 * 1000);
+        $('#FormSponsor').validate({
+            rules: {
+                'school_name': {
+                    required: true,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                'school_counselor_name': {
+                    required: true,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+                sponsorSubmitForm(form, true);
+            }
+        });
+
+        sponsorSubmitForm = function(form, register) {
+
+            if (!request_busy) {
+
+                // $('body').LoadingOverlay("show");
+
+                request_busy = true;
+                // $('#registerbox .modal').append("<div class='remodal-loading'></div>");
+                $.ajax({
+                    type: "POST",
+                    url: $(form).prop('action'),
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                }).done(function(data) {
+                    request_busy = false;
+                    $('.remodal-loading').remove();
+                    console.log(data.status);
+                    if (data.status) {
+
+
+                        notification('success', data.message, data.title);
+
+
+                        $('.error-message').remove();
+                        $(form)[0].reset();
+
+                        reLoadCaptchaV3();
+
+                    } else {
+
+                        // $('body').LoadingOverlay("hide");
+
+                        notification('error', data.message, data.title);
+
+                        var rmodal_id = 'modal';
+
+                        // reLoadCaptchaV3();
+                        $('.error-message').remove();
+                        if (data['validationErrors']) {
+                            for (i in data.validationErrors) {
+                                if (typeof(data.validationErrors[i]) === 'object') {
+                                    var errors_array = data.validationErrors[i];
+                                    for (j in errors_array) {
+                                        $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
+                                    }
+                                } else {
+                                    $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
+                                }
+                            }
+                        }
+
+                    }
+                });
+
+                // $('body').LoadingOverlay("hide");
+            }
+        }
+
+    });
+</script>

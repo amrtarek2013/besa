@@ -55,7 +55,8 @@ class EnquiriesTable extends Table
         'visitors-application' => 'Visitors Application',
         'educational-institution' => 'Educational Institution',
         'british-trophy-subscription' => 'The British Trophy Event Subscription',
-        'book-appointment' => 'Book An appointment'
+        'book-appointment' => 'Book An appointment',
+        'become-sponsor' => 'Become a Sponsor'
 
 
     ];
@@ -310,6 +311,28 @@ class EnquiriesTable extends Table
             ->notEmptyString('email', 'This field is required.');
 
         $validator->notEmptyString('certificate', 'This field is required.');
+
+        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+            'checkCaptcha' => [
+                'rule' => 'checkCaptcha',
+                'provider' => 'table',
+                'message' => 'Security Code is not valid',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+    public function validationBecomeSponsor(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('school_counselor_name', 'This field is required.');
+
+        $validator->notEmptyString('school_name', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
 
         $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
             'checkCaptcha' => [
