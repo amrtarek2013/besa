@@ -40,10 +40,12 @@ class UniversityCoursesController extends AppController
 
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
-                'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
+                // 'Majors' => ['fields' => ['title']],
+                'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
-                'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+                // 'Services' => ['fields' => ['title']], 
+                'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
             ],
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
         ]);
