@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="right">
                                             <p>Fees Per Year</p>
-                                            <p class="green">GBP <?= number_format($course['fees'], 2) ?></p>
+                                            <p class="green">USD <?= number_format($course['fees'], 2) ?></p>
                                         </div>
 
                                     </div>
