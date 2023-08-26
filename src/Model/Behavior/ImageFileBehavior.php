@@ -342,7 +342,7 @@ class ImageFileBehavior extends Behavior
     {
 
 
-        if ($image['type'] !== 'image/svg+xml') {
+        if (isset($image['type']) && $image['type'] !== 'image/svg+xml') {
             $uniqid = uniqid();
             $filename = str_replace('{$rand}', $uniqid, $settings['file_name']);
             $name = substr($image['name'], 0, strrpos($image['name'], '.'));
