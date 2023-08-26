@@ -20,7 +20,7 @@ class UniversityCoursesController extends AppController
         // Configure::write('debug', 0);
         $conditions = $this->_filter_params();
         // dd($conditions);
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels','SubjectAreas', 'Countries'], 'limit' => 20, 'order' => ['course_name' => 'ASC']]);
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'SubjectAreas', 'Countries'], 'limit' => 20, 'order' => ['course_name' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 
@@ -173,11 +173,19 @@ class UniversityCoursesController extends AppController
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        $universityCourses = $this->UniversityCourses->find('all')->where($conditions)->toArray();
+        $universityCourses = $this->UniversityCourses->find()->contain(['Universities', 'StudyLevels', 'SubjectAreas', 'Countries'])->where($conditions)->all()->toArray();
 
         $dataToExport[] = array(
-            'id' => 'University Course ID',
-            'course_name' => 'University Course Name',
+            'id' => 'Course ID',
+            'course_name' => 'Course Name',
+            // 'study_level' => 'Study Level',
+            'subject_area' => 'Subject Area',
+            'university' => 'University',
+            'country' => 'Destination',
+            'total_fees' => 'Total Tuition Fees (GBP)',
+            'fees' => 'Tution Fees Per Year (GBP)',
+            'duration' => 'Duration (Years)',
+            'intake' => 'Intake',
             // 'destination' => 'Destination',
             // 'rank' => 'Rank',
             // 'description' => 'Description'
@@ -187,6 +195,14 @@ class UniversityCoursesController extends AppController
             $dataToExport[] = [
                 $universityCourse->id,
                 $universityCourse->course_name,
+                // $universityCourse->study_level->title,
+                $universityCourse->subject_area->title,
+                $universityCourse->university->university_name,
+                $universityCourse->country->country_name,
+                number_format(floatval($universityCourse->total_fees),2),
+                number_format(floatval($universityCourse->fees),2),
+                $universityCourse->duration,
+                $universityCourse->intake,
                 // $universityCourse->destination,
                 // $universityCourse->rank,
                 // $universityCourse->description,

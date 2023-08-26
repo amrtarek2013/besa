@@ -97,10 +97,10 @@ class UniversityCoursesTable extends Table
 
 
         $this->belongsTo('Courses')->setForeignKey('course_id');
-        $this->belongsTo('Majors')->setForeignKey('major_id');
+        // $this->belongsTo('Majors')->setForeignKey('major_id');
         $this->belongsTo('Countries')->setForeignKey('country_id');
         $this->belongsTo('Universities')->setForeignKey('university_id');
-        $this->belongsTo('Services')->setForeignKey('service_id');
+        // $this->belongsTo('Services')->setForeignKey('service_id');
         $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
         $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
     }
