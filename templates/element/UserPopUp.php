@@ -211,6 +211,48 @@
 </div>
 
 
+
+
+
+<div class="remodal removebg newsletter" data-remodal-id="newsletter">
+    <!-- <h1>Login</h1> -->
+    <section class="register-banner Create-account-banner">
+
+        <div class="">
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <button data-remodal-action="close" class="remodal-close"></button>
+                    <?= $this->Form->create(null, array('url' => 'newsletters/add', 'id' => 'NewsletterForm', 'class' => 'register')); ?>
+
+                    <div class="container-formBox blue-border ">
+                        <h4 class="title">Newsletter</h4>
+                        <!-- <div class="grid-container"> -->
+                            <?= $this->Form->control('email', [
+                                'placeholder' => 'Email', 'class' => 'form-control', 'label' => false, 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+                            ]) ?>
+
+
+                            <div class="container-submit">
+
+                                <button type="submit" class="btn clear-blue">Subscribe</button>
+                            </div>
+
+                        <!-- </div> -->
+                    </div>
+
+                    <?= $this->Form->end() ?>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
+</div>
 <div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
 
     <section class="register-banner Create-account-banner">

@@ -4587,8 +4587,20 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .courseDetailsModal .courses p {
-    text-align:left;
+    text-align: left;
 
+}
+
+.newsletter h4,
+.newsletter input,
+.newsletter .container-submit {
+    text-align: center;
+}
+
+.newsletter .container-submit {
+    /* width: 100%; */
+    -ms-grid-columns: 100% !important;
+    grid-template-columns: 1fr !important;
 }
 
 .box-result .courses {
