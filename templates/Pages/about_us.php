@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="timeline-container timeline-theme-1">
-                    <!-- <div class="timeline js-timeline custome-timeline">
+                    <div class="timeline js-timeline custome-timeline">
 
 
                         <?php if (!empty($aboutusSlidersList)) : ?>
@@ -42,9 +42,9 @@
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
-                    </div> -->
+                    </div>
 
-                    <?= $this->element('aboutus_slider', ['aboutusSlidersList' => $aboutusSlidersList]) ?>
+                    <?php //= $this->element('aboutus_slider', ['aboutusSlidersList' => $aboutusSlidersList]) ?>
 
                 </div>
             </div>
