@@ -6,10 +6,9 @@
                     <div class="grid-container-<?= $gridContainerCols ?>col">
                         <?php
 
-                                                use Cake\Core\Configure;
-                                                use Cake\Routing\Router;
+                        use Cake\Routing\Router;
 
-                        Configure::write('debug', 1);
+
                         if (!empty($courses)) : ?>
                             <?php foreach ($courses as $course) :
 
@@ -34,7 +33,7 @@
                                         </div>
                                         <div class="right">
                                             <p>Fees Per Year</p>
-                                            <p class="green"><?= isset($course['country']['country_currency']) ? $course['country']['country_currency'] : 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
+                                            <p class="green"><?= /*isset($course['country']['country_currency']) ? $course['country']['country_currency'] :*/ 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
                                         </div>
 
                                     </div>
