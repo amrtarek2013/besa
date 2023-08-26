@@ -247,7 +247,7 @@
                                 'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                             ]) ?>
 
-                            <?php= $this->element('security_code', ['show_label' => true]) ?>
+                            <?= $this->element('security_code', ['show_label' => true]) ?>
                         </div>
 
                         <div class="container-submit container-submit-one-col">
