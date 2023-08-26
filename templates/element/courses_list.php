@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="right">
                                             <p>Fees Per Year</p>
-                                            <p class="green"><?= /*isset($course['country']['country_currency']) ? $course['country']['country_currency'] :*/ 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
+                                            <p class="green"><?= isset($course['country']['country_currency']) ? $course['country']['country_currency'] : 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
                                         </div>
 
                                     </div>
