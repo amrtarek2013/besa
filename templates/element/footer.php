@@ -40,7 +40,7 @@ use Cake\Routing\Router;
                                 </li>
 
                                 <li>
-                                    <a href="#"> Newsletter</a>
+                                    <a href="#newsletter"> Newsletter</a>
                                 </li>
                                 <li>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['pages.appsupport']) ?>"> App Support</a>
