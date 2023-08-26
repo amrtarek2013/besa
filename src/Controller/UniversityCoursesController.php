@@ -234,10 +234,13 @@ class UniversityCoursesController extends AppController
             $conditions['UniversityCourses.fees <='] = $url_params['max_budget'];
 
 
-        if (isset($url_params['study_level_id']) && !empty($url_params['study_level_id']))
-            $conditions['Courses.study_level_id'] = $url_params['study_level_id'];
-        if (isset($url_params['subject_area_id']) && !empty($url_params['subject_area_id']))
-            $conditions['Courses.subject_area_id'] = $url_params['subject_area_id'];
+        if (isset($url_params['study_level_id']) && !empty($url_params['study_level_id'])) {
+            $conditions[] = ["(Courses.study_level_id = {$url_params['study_level_id']} OR UniversityCourses.study_level_id = {$url_params['study_level_id']})"];
+        }
+        if (isset($url_params['subject_area_id']) && !empty($url_params['subject_area_id'])) {
+            // $conditions['Courses.subject_area_id'] = $url_params['subject_area_id'];
+            $conditions[] = ["(Courses.subject_area_id = {$url_params['subject_area_id']} OR UniversityCourses.subject_area_id = {$url_params['subject_area_id']})"];
+        }
 
         if (isset($url_params['country_id']) && !empty($url_params['country_id']))
             if (is_array($url_params['country_id'])) {
@@ -293,6 +296,4 @@ class UniversityCoursesController extends AppController
         $this->set('course', $course);
         $this->set('permalink', $id);
     }
-
-
 }
