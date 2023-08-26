@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.min.css" />
+<?php
+
+use Cake\Routing\Router;
+?>
+<link rel="stylesheet" href="<?= Router::url('/intl-tel-input/css/intlTelInput.min.css') ?>" />
 <style>
     #mobile-code,
     #phone-code {
@@ -7,7 +11,6 @@
 </style>
 <?php
 
-use Cake\Routing\Router;
 
 $phone_code = isset($phone_code) ? $phone_code : 'mobile_code';
 $phone_name = isset($phone_name) ? $phone_name : 'mobile';

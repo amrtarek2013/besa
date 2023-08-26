@@ -241,13 +241,13 @@
                             ]) ?>
 
 
-                            <?= $this->element('mobile_with_code') ?>
+                            <?php //= $this->element('mobile_with_code') ?>
                             <?= $this->Form->control('email', [
                                 'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                             ]) ?>
 
-                            <?= $this->element('security_code', ['show_label' => true]) ?>
+                            <?php= $this->element('security_code', ['show_label' => true]) ?>
                         </div>
 
                         <div class="container-submit container-submit-one-col">

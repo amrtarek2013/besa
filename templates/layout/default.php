@@ -84,8 +84,8 @@ if (!empty($metaDescription)) {
     ?>
 
         <?php
-
-        if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor')  && $this->request->getParam('action') != 'dashboard') { ?>
+        // debug((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor')  && $this->request->getParam('action') != 'dashboard');
+        if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user' && $this->request->getParam('action') != 'dashboard') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor'  && $this->request->getParam('action') != 'dashboard')) { ?>
 
 
             <div class="container">
