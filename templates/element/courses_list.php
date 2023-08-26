@@ -6,8 +6,10 @@
                     <div class="grid-container-<?= $gridContainerCols ?>col">
                         <?php
 
-                        use Cake\Routing\Router;
+                                                use Cake\Core\Configure;
+                                                use Cake\Routing\Router;
 
+                        Configure::write('debug', 1);
                         if (!empty($courses)) : ?>
                             <?php foreach ($courses as $course) :
 
