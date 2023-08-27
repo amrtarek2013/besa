@@ -28,10 +28,20 @@ class EnquiriesController extends AppController
             // dd($data);
             $enquiry = $this->Enquiries->patchEntity($enquiry, $data, ['validate' => $this->Enquiries->enquiryTypes[$data['type']]['validation']]);
 
+
+            $return = [];
+            $return['message'] = 'Sorry, try again';
+            $return['status']  = 0;
+            $return['title'] = 'Error';
             // debug($enquiry);
             // die;
             $enquiry_redirect_url = $enquiry['type'];
             if ($this->Enquiries->save($enquiry)) {
+
+
+                $return['message'] = 'Success';
+                $return['status']  = 1;
+                $return['title'] = 'Success';
 
                 $enquiryTitle = Inflector::humanize($enquiry['type']);
                 $a_replace = [];
@@ -109,11 +119,26 @@ class EnquiriesController extends AppController
                 );
 
                 $this->sendEmail($to, false, 'user.contactus_thankyou_enquiry', $u_replace);
-                $this->Flash->success(__('The Enquiry has been saved.'));
+                // 
+                $return['message'] = __('The Enquiry has been saved.');
+
+                if ($this->request->is('ajax')) {
+                    die(json_encode($return));
+                } else {
+                    $this->Flash->success(__('The Enquiry has been saved.'));
+                }
+
                 // return $this->redirect(['action' => 'contact-us']);
             } else {
-                // dd($enquiry->getErrors());
-                $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
+
+
+                if ($this->request->is('ajax')) {
+
+                    $return['message'] = __('The Enquiry could not be sent. Please, try again.');
+                    die(json_encode($return));
+                } else {
+                    $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
+                }
             }
 
             if ($enquiry->type == 'career_apply' && $enquiry->career_id)
