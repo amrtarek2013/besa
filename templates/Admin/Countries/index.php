@@ -45,15 +45,19 @@
                         $fields = [
                             'basicModel' => 'countries',
                             'id' => [],
+
+                            'code' => [],
                             'country_name' => [],
+                            'permalink' => [],
+                            'use_country_currency' => ['format'=>'bool'],
+                            'currency' => [],
+                            'symbol' => ['title'=>'$'],
 
                             'is_destination' => ['format' => 'bool'],
-                            'country_code' => [],
-                            'permalink' => [],
-                            'continent' => [],
+                            // 'continent' => [],
                             // 'continent' => ['format' => 'get_from_array', 'options' => ['items_list' => $continents]],
                             'flag_path' => ['title' => 'Flag', 'format' => 'img'],
-                            'image_path' => ['title' => 'Image', 'format' => 'link'],
+                            // 'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
                             // 'dealerships'=>[],
                             'display_order' => [],

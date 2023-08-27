@@ -37,7 +37,8 @@
 
                             echo $this->AdminForm->control('country_name', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('country_code', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('country_currency', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('country_currency', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('use_country_currency', ['type' => 'checkbox', 'class' => 'INPUT']);
                             echo $this->AdminForm->control('green_section', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('text_header', ['type' => 'text', 'class' => 'INPUT required']);
 
