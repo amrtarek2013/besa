@@ -2303,6 +2303,7 @@ p.descrp {
 
 .remodal.removebg {
     background-color: transparent !important;
+    padding: 0 !important;
 }
 
 .remodal.removebg .container-formBox {
