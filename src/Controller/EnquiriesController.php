@@ -37,7 +37,8 @@ class EnquiriesController extends AppController
                 $a_replace = [];
                 $b_replace = [];
                 $u_replace = [];
-                $url = '<a href="' . Router::url('/admin/enquiries/view/' . $enquiry['id'], true) . '" >View Enquiry</a>';
+                // $url = '<a href="' . Router::url('/admin/enquiries/view/' . $enquiry['id'], true) . '" >View Enquiry</a>';
+                $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
                 if (isset($enquiry['branch_id'])) {
                     $this->loadModel('Branches');
                     $branch = $this->Branches->find()->where(['id' => $enquiry['branch_id']])->first();
@@ -264,6 +265,5 @@ class EnquiriesController extends AppController
         $book_appointment = $this->getSnippet('book_appointment_top_text');
 
         $this->set('bookAppointmentSnippet', $book_appointment);
-
     }
 }

@@ -224,23 +224,21 @@
                 <div class="col-md-12">
 
                     <button data-remodal-action="close" class="remodal-close"></button>
-                    <?= $this->Form->create(null, array('url' => 'newsletters/add', 'id' => 'NewsletterForm', 'class' => 'register')); ?>
+                    <?= $this->Form->create(null, array('url' => 'newsletters/subscribe', 'id' => 'NewsletterForm', 'class' => 'register')); ?>
 
                     <div class="container-formBox blue-border ">
                         <h4 class="title">Newsletter</h4>
-                        <!-- <div class="grid-container"> -->
-                            <?= $this->Form->control('email', [
-                                'placeholder' => 'Email', 'class' => 'form-control', 'label' => false, 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
+
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => false, 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+                        ]) ?>
 
 
-                            <div class="container-submit">
+                        <div class="container-submit">
 
-                                <button type="submit" class="btn clear-blue">Subscribe</button>
-                            </div>
-
-                        <!-- </div> -->
+                            <button type="submit" class="btn clear-blue">Subscribe</button>
+                        </div>
                     </div>
 
                     <?= $this->Form->end() ?>
@@ -250,8 +248,6 @@
         </div>
     </section>
     <br>
-    <!-- <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-    <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
 </div>
 <div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
 
@@ -380,8 +376,86 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                 sponsorSubmitForm(form, true);
             }
         });
+        $('#NewsletterForm').validate({
+            rules: {
 
+                // 'email': {
+                //     required: true,
+                    // email: true
+                // }
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                form.submit();
+                // newsletterSubmitForm(form, true);
+            }
+        });
         sponsorSubmitForm = function(form, register) {
+
+            if (!request_busy) {
+
+                // $('body').LoadingOverlay("show");
+
+                request_busy = true;
+                // $('#registerbox .modal').append("<div class='remodal-loading'></div>");
+                $.ajax({
+                    type: "POST",
+                    url: $(form).prop('action'),
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                }).done(function(data) {
+                    request_busy = false;
+                    $('.remodal-loading').remove();
+                    console.log(data.status);
+                    if (data.status) {
+
+
+                        notification('success', data.message, data.title);
+
+
+                        $('.error-message').remove();
+                        $(form)[0].reset();
+
+                        // reLoadCaptchaV3();
+
+                    } else {
+
+                        // $('body').LoadingOverlay("hide");
+
+                        notification('error', data.message, data.title);
+
+                        var rmodal_id = 'modal';
+
+                        // reLoadCaptchaV3();
+                        $('.error-message').remove();
+                        if (data['validationErrors']) {
+                            for (i in data.validationErrors) {
+                                if (typeof(data.validationErrors[i]) === 'object') {
+                                    var errors_array = data.validationErrors[i];
+                                    for (j in errors_array) {
+                                        $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
+                                    }
+                                } else {
+                                    $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
+                                }
+                            }
+                        }
+
+                    }
+                });
+
+                // $('body').LoadingOverlay("hide");
+            }
+        }
+
+        newsletterSubmitForm = function(form, register) {
 
             if (!request_busy) {
 
