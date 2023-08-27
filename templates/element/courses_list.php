@@ -107,7 +107,7 @@
                 <p><strong>Duration (Years):</strong> <span class="green" id="duration">--</p>
             </div>
             <div class="right">
-                <p><strong>Per Year:</strong> <span class="green" id="fees">--</p>
+                <p><strong>Fees Per Year:</strong> <span class="green" id="fees">--</p>
                 <p><strong>Intake:</strong> <span class="green" id="intake">--</p>
             </div>
 
