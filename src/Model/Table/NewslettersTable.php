@@ -13,7 +13,7 @@ class NewslettersTable extends Table
 
 
     public $filters = [
-        'title' => array('type' => 'like', 'options' => array('type' => 'text')),
+        'email' => array('type' => 'like', 'options' => array('type' => 'email')),
     ];
 
 
