@@ -41,6 +41,7 @@
                             'basicModel' => 'newsletters',
                             'id' => [],
                             'email' => [],
+                            'subscribed' => ['format' => 'bool'],
                             'created' => [],
                         ];
 
