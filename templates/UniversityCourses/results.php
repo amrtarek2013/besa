@@ -19,6 +19,9 @@
                     <h1 class="relative-text">Results</h1>
                     <h2 class="title text-left">
                         Results
+                        <br/>
+                        <span class="blue-para"><?=$this->Paginator->counter(__('{{count}}'))?> international courses
+                            found</span>
                     </h2>
                     <!-- <h2 class="title text-left">
                         <span class=" green-small"><?= !empty($courses) && isset($courses[0]['course']['course_name']) ? $courses[0]['course']['course_name'] : '' ?></span>
