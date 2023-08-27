@@ -34,6 +34,8 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
         // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+        
+        $builder->connect('/courses', 'UniversityCourses::results');
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
         $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1])->all();
@@ -89,7 +91,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/study', 'UniversityCourses::study');
         $builder->connect('/results', 'UniversityCourses::results');
         $builder->connect('/course-details/*', 'UniversityCourses::details');
-        $builder->connect('/courses', 'UniversityCourses::index');
+        // $builder->connect('/courses', 'UniversityCourses::index');
         $builder->connect('/courses/*', 'UniversityCourses::index');
 
 
