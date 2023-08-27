@@ -794,11 +794,15 @@ class CounselorsController extends AppController
 
                 $university->id = $universities[$k];
                 $university->is_partner = 0;
+                $university->country_id = 238;
+                $university->country_name = 'UK';
                 $counter++;
             } else {
 
                 $university->title = $university->university_name = $v;
                 $university->is_partner = 0;
+                $university->country_id = 238;
+                $university->country_name = 'UK';
                 $counter++;
             }
             $universitiesList[] = $university;
