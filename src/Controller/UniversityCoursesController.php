@@ -32,7 +32,7 @@ class UniversityCoursesController extends AppController
 
         // $courses = $this->UniversityCourses->find()->contain([
         //     'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
-        //     'Countries' => ['fields' => ['country_name', 'country_currency']],
+        //     'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
         //     'Universities' => ['fields' => ['university_name', 'rank']],
         //     'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all();
@@ -42,7 +42,7 @@ class UniversityCoursesController extends AppController
             'contain' => [
                 // 'Majors' => ['fields' => ['title']],
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name', 'country_currency']],
+                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 // 'Services' => ['fields' => ['title']], 
                 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
@@ -141,7 +141,7 @@ class UniversityCoursesController extends AppController
         if (!$this->Session->check('Auth.User'))
             $this->Session->write('search_url', $_SERVER["REQUEST_URI"]);
         // $courses = $this->UniversityCourses->find()->contain([
-        //     'Courses' => ['fields' => ['course_name']], 'Countries' => ['fields' => ['country_name', 'country_currency']], 'Universities' => ['fields' => ['university_name', 'rank']], 'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+        //     'Courses' => ['fields' => ['course_name']], 'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']], 'Universities' => ['fields' => ['university_name', 'rank']], 'Services' => ['fields' => ['title']], 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->->toArray();
 
         // $conditions = $this->_filter_params();
@@ -157,7 +157,7 @@ class UniversityCoursesController extends AppController
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name', 'country_currency']],
+                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
                 'StudyLevels' => ['fields' => ['title']],
@@ -277,7 +277,7 @@ class UniversityCoursesController extends AppController
         $course = $this->UniversityCourses->find()
             ->contain([
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name', 'country_currency']],
+                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']]
