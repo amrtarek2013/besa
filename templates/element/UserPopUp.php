@@ -381,7 +381,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
 
                 // 'email': {
                 //     required: true,
-                    // email: true
+                // email: true
                 // }
             },
             messages: {
@@ -429,7 +429,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
 
                         // $('body').LoadingOverlay("hide");
 
-                        notification('error', data.message, data.title);
+                        // notification('error', data.message, data.title);
 
                         var rmodal_id = 'modal';
 
@@ -449,6 +449,10 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                         }
 
                     }
+
+                    $('.modalMsg #msgText').html(result.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
                 });
 
                 // $('body').LoadingOverlay("hide");
@@ -487,7 +491,8 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
 
                         // $('body').LoadingOverlay("hide");
 
-                        notification('error', data.message, data.title);
+                        // notification('error', data.message, data.title);
+
 
                         var rmodal_id = 'modal';
 
@@ -507,6 +512,10 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                         }
 
                     }
+
+                    $('.modalMsg #msgText').html(result.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
                 });
 
                 // $('body').LoadingOverlay("hide");
