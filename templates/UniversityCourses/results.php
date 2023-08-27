@@ -20,7 +20,7 @@
                     <h2 class="title text-left">
                         Results
                         <br/>
-                        <span class="blue-para"><?=$this->Paginator->counter(__('{{count}}'))?> international courses
+                        <span class="green-small"><?=$this->Paginator->counter(__('{{count}}'))?> international courses
                             found</span>
                     </h2>
                     <!-- <h2 class="title text-left">
