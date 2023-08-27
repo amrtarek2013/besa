@@ -34,11 +34,11 @@
                             <?php
 
 
-                            echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('email', ['type' => 'email', 'class' => 'INPUT required']);
 
-                           
-                            echo $this->AdminForm->control('active', ['type' => 'checkbox']);
-                            echo $this->AdminForm->control('display_order', []);
+
+                            echo $this->AdminForm->control('subscribed', ['type' => 'checkbox']);
+                            // echo $this->AdminForm->control('display_order', []);
                             ?>
                         </div>
                         <div class="card-footer">
