@@ -452,7 +452,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                     var binst = $('[data-remodal-id=become-sponsor]').remodal();
                     binst.close();
 
-                    $('.modalMsg #msgText').html(result.message);
+                    $('.modalMsg #msgText').html(data.message);
                     var inst = $('[data-remodal-id=modalMsg]').remodal();
                     inst.open();
                 });
@@ -481,7 +481,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                     if (data.status) {
 
 
-                        notification('success', data.message, data.title);
+                        // notification('success', data.message, data.title);
 
 
                         $('.error-message').remove();
@@ -518,7 +518,7 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
                     var binst = $('[data-remodal-id=newsletter]').remodal();
                     binst.close();
 
-                    $('.modalMsg #msgText').html(result.message);
+                    $('.modalMsg #msgText').html(data.message);
                     var inst = $('[data-remodal-id=modalMsg]').remodal();
                     inst.open();
                 });
