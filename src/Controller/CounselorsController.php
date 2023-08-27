@@ -853,7 +853,8 @@ class CounselorsController extends AppController
         $reader->setReadDataOnly(TRUE);
 
         $reader->setLoadAllSheets();
-        $spreadsheet = $reader->load('1st Patch Universities Courses Data in UK.xlsx');
+        // $spreadsheet = $reader->load('Second Patch of UK Universities Modified2 20230827.xlsx');
+        $spreadsheet = $reader->load('Spain.xlsx');
 
         $loadedSheetNames = $spreadsheet->getSheetNames();
 
@@ -882,6 +883,11 @@ class CounselorsController extends AppController
 
         $studyLevels = $this->StudyLevels->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
         $studyLevels = Hash::combine($studyLevels, '{n}.title', '{n}.id');
+        $univCourses = $this->UniversityCourses->find()->select(['title' => 'trim(lower(course_name))', 'id', 'university_id'])->toArray();
+        $savedUnivCoursesIDs = Hash::combine($univCourses, '{n}.title', '{n}.id');
+        // debug($savedUnivCoursesIDs);
+        $savedCoursesUni = Hash::combine($univCourses, '{n}.title', '{n}.university_id');
+        // dd($savedCoursesUni);
 
         $universityList = [];
         $degree = null;
@@ -900,37 +906,6 @@ class CounselorsController extends AppController
             $loadedSheetName = trim($loadedSheetName);
             $university_id = null;
 
-            // if (isset($universities[strtolower(trim($loadedSheetName))])) {
-
-            //     $university_id = $universities[strtolower(trim($loadedSheetName))];
-            //     $numberOfSucsUn[$university_id] = trim($loadedSheetName);
-            // } else {
-            //     $found = false;
-            // foreach ($universities as $uni_name => $uni_id) {
-            //     similar_text(trim($loadedSheetName), $uni_name, $percent);
-            //     if ($percent >= 80) {
-
-            //         $university_id = $uni_id;
-            //         $numberOfSucsUn[$uni_id] = trim($loadedSheetName);
-            //         $found = true;
-            //     }
-            // }
-            // if (!$found && !isset($numberOfFaileds[strtolower(trim($loadedSheetName))])) {
-            //     $numberOfMUnis++;
-            //     $numberOfFaileds[strtolower(trim($loadedSheetName))] = trim($loadedSheetName);
-            // }
-            // else {
-
-
-            // }
-            // }
-            // else {
-            //     $this->Universities->save($university);
-            // }
-
-            // $universityList[] = $university;
-
-            // $university_id = $university->id;
 
             $cou_list = [];
 
@@ -957,10 +932,20 @@ class CounselorsController extends AppController
                 //     $course->university_id = $university_id;
                 // } else {
 
+                if (!empty(intval($row['E'])) && intval($row['E']) > 0) {
 
-                if (isset($universities[strtolower(trim($row['D']))])) {
+                    // $university_id = $universities[strtolower(trim($row['D']))];
+                    $university_id = (!empty(intval($row['E'])) && intval($row['E']) > 0) ? intval($row['E']) : null;
+
+                    $numberOfSucsUn[$university_id] = trim($row['D']);
+                    if ((isset($saved[$mainCourseName])
+                        && $savedCoursesUni[$mainCourseName] == $university_id)) {
+                        continue;
+                    }
+                } else if (isset($universities[strtolower(trim($row['D']))])) {
 
                     $university_id = $universities[strtolower(trim($row['D']))];
+
                     $numberOfSucsUn[$university_id] = trim($row['D']);
                     if ((isset($saved[$mainCourseName])
                         && $savedCoursesUni[$mainCourseName] == $university_id)) {
@@ -971,6 +956,8 @@ class CounselorsController extends AppController
                     $university = $this->Universities->newEmptyEntity();
                     $university->title = $university->university_name = trim(trim($row['D']));
                     $university->is_partner = 1;
+                    // $university->country_id = 238;
+                    $university->country_id = 211;
                     $this->Universities->save($university);
                     $university_id = $university->id;
                     $universities[strtolower($university->title)] = $university_id;
@@ -987,40 +974,49 @@ class CounselorsController extends AppController
                 } else {
 
                     $mainCourse = $this->Courses->newEmptyEntity();
+
+
                     $mainCourse->course_name = trim($row['C']);
+
                     if (isset($studyLevels[strtolower(trim($row['A']))])) {
 
                         $mainCourse->study_level_id = $studyLevels[strtolower(trim($row['A']))];
                     }
-                    if (isset($subjectAreas[strtolower(trim($row['B']))])) {
-
+                    // dd($row);
+                    if (isset($subjectAreas[strtolower(trim($row['B'].""))])) {
+    
                         $mainCourse->subject_area_id = $subjectAreas[strtolower(trim($row['B']))];
                     }
+    
                     $this->Courses->save($mainCourse);
                     $course->course_id = $mainCourse->id;
 
                     $savedCourses[strtolower($mainCourseName)] = $mainCourse->id;
                     $savedCoursesUni[strtolower($mainCourseName)] = $university_id;
                 }
-
                 if (isset($studyLevels[strtolower(trim($row['A']))])) {
 
                     $course->study_level_id = $studyLevels[strtolower(trim($row['A']))];
                 }
-                if (isset($subjectAreas[strtolower(trim($row['B']))])) {
+                // dd($row);
+                if (isset($subjectAreas[strtolower(trim($row['B'].""))])) {
 
                     $course->subject_area_id = $subjectAreas[strtolower(trim($row['B']))];
                 }
+
                 $course->course_name = trim($row['C']);
 
                 $course->university_title = trim($row['D']);
-                $course->total_fees = floatval($row['E']);
-                $course->fees = floatval($row['F']);
-                $course->duration = !empty($row['G']) ? trim($row['G'] . '') : '';
-                $course->intake = !empty($row['H']) ? trim($row['H']) : '';
+                // $course->university_id = !empty(intval($row['E'])) && is_integer(intval($row['E'])) ? intval($row['E']) : null;
+                $course->total_fees = floatval($row['F']);
+                $course->fees = floatval($row['G']);
+                $course->duration = !empty($row['H']) ? trim($row['H'] . '') : '';
+                $course->intake = !empty($row['I']) ? trim($row['I']) : '';
 
                 $course->university_id = $university_id;
-                $course->country_id = 238;
+                // $course->country_id = 238;
+                $course->country_id = 211;
+                
 
                 $cou_list[$counter] = $course;
 
