@@ -726,7 +726,7 @@ class CounselorsController extends AppController
         dd($updatedCourses);
     }
 
-    public function checkuni()
+    public function checkhiddenuni()
     {
 
         $this->loadModel('Universities');
@@ -760,6 +760,28 @@ class CounselorsController extends AppController
             'university of south wales - qa higher educion' => 'University of South Wales - QA Higher Educion',
             'middlesex university - qa higher educion' => 'Middlesex University - QA Higher Educion',
             'solent university - qa higher educion' => 'Solent University - QA Higher Educion',
+            'northumbria university - qa higher education' => 'Northumbria University - QA Higher Education',
+            'university of plymouth - navitas uk' => 'University of Plymouth - Navitas UK',
+            "queen's university belfast - into uk" => "Queen's University Belfast - INTO UK",
+            'the university of sheffield - study group uk' => 'The University of Sheffield - Study Group UK',
+            'university of sunderland - oncampus' => 'University of Sunderland - ONCAMPUS',
+            'ulster university - qa higher education' => 'Ulster University - QA Higher Education',
+            'university of exeter - into uk' => 'University of Exeter - INTO UK',
+            'the university of manchester - into uk' => 'The University of Manchester - INTO UK',
+            'newcastle university - into uk' => 'Newcastle University - INTO UK',
+            'manchester metropolitan university - into uk' => 'Manchester Metropolitan University - INTO UK',
+            'university of east anglia - into uk' => 'University of East Anglia - INTO UK',
+            'university of stirling - into uk' => 'University of Stirling - INTO UK',
+            'newton a-levels - into uk' => 'Newton A-Levels - INTO UK',
+            'internional college portsmouth - navitas uk' => 'Internional College Portsmouth - Navitas UK',
+            'birmingham city university internional college - navitas uk' => 'Birmingham City University Internional College - Navitas UK',
+            'ua92 global - navitas uk' => 'UA92 Global - Navitas UK',
+            'lancaster university leipzig - navitas uk' => 'Lancaster University Leipzig - Navitas UK',
+            'internional college robert gordon university - navitas uk' => 'Internional College Robert Gordon University - Navitas UK',
+            'aru college - navitas uk' => 'ARU College - Navitas UK',
+            'university of leicester global study centre - navitas uk' => 'University of Leicester Global Study Centre - Navitas UK',
+            'keele university internional college - navitas uk' => 'Keele University Internional College - Navitas UK',
+
         ];
 
         $universitiesList = [];
