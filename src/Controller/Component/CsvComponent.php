@@ -168,10 +168,10 @@ class CsvComponent extends Component
 			$lineData = [];
 
 
-			var_dump($file);
-			echo '<br/>';
-			var_dump($line);
-			die;
+			// var_dump($file);
+			// echo '<br/>';
+			// var_dump($line);
+			// die;
 			
 			// debug(count($line));
 			// debug(count($schema_of_import));
