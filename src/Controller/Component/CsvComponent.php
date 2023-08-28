@@ -135,7 +135,7 @@ class CsvComponent extends Component
 			// debug(count($line));
 			// debug(count($schema_of_import));
 			if (count($schema_of_import) == count($line)) {
-				
+
 				// debug($line);
 				if ($counter > 0) { // To ignor header line
 
@@ -156,9 +156,14 @@ class CsvComponent extends Component
 	{
 
 		$finalData = [];
-		$fileTOOpen = $file['temp_name'];//$file->getStream()->getMetadata('uri');
+		$fileTOOpen = $file['temp_name']; //$file->getStream()->getMetadata('uri');
+
+		
 		$fh = fopen($fileTOOpen, 'r');
 		
+		var_dump($fh);
+		die;
+
 		set_time_limit(0);
 		ini_set('memory_limit', '512M');
 		$counter = 0;
@@ -166,12 +171,10 @@ class CsvComponent extends Component
 			$lineData = [];
 
 
-			var_dump($line);
-			die;
 			// debug(count($line));
 			// debug(count($schema_of_import));
 			if (count($schema_of_import) == count($line)) {
-				
+
 				// debug($line);
 				if ($counter > 0) { // To ignor header line
 
