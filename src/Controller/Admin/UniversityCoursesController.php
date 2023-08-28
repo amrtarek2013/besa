@@ -244,7 +244,7 @@ class UniversityCoursesController extends AppController
 
             var_dump($data['file']);
             
-            var_dump($data['file']->getError());
+            var_dump($data['file']['error']);
             
             die('DD');
             $error = $data['file']->getError();
