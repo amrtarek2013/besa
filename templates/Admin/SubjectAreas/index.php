@@ -76,7 +76,6 @@
                             'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
                         );
 
-
                         $actions = [
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
@@ -91,7 +90,6 @@
                                 ]
                             )
                         ];
-
 
                         echo $this->List->adminIndex($fields, $subjectAreas, $actions, false, $multi_select_actions, $parameters);
                         ?>

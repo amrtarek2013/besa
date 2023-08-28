@@ -139,6 +139,7 @@ class StudyLevelsController extends AppController
         $dataToExport[] = array(
             'id' => 'Subject Area ID',
             'title' => 'Subject Area Name',
+            'main_study_level_id' => 'Main Study Level',
             // 'destination' => 'Destination',
             // 'rank' => 'Rank',
             // 'description' => 'Description'
@@ -148,11 +149,7 @@ class StudyLevelsController extends AppController
             $dataToExport[] = [
                 $studyLevel->id,
                 $studyLevel->title,
-                // $studyLevel->destination,
-                // $studyLevel->rank,
-                // $studyLevel->description,
-                // '',
-                // ($studyLevel->active) ? 'Yes' : 'No',
+                $this->StudyLevels->mainStudyLevels[$studyLevel->main_study_level_id]
             ];
         }
 
@@ -221,6 +218,7 @@ class StudyLevelsController extends AppController
                     $studyLevelLine['title'] = trim($studyLevelLine['title']);
                     $studyLevel = $this->StudyLevels->patchEntity($studyLevel, $studyLevelLine);
 
+                    $studyLevel->main_study_level_id = isset($this->StudyLevels->mainStudyLevelsTitle[trim($studyLevelLine['main_study_level_id'])]) ? $this->StudyLevels->mainStudyLevelsTitle[trim($studyLevelLine['main_study_level_id'])] : 0;
                     $studyLevelList[] = $studyLevel;
                     $counter++;
                     if ($counter == 50) {

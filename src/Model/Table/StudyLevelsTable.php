@@ -21,6 +21,7 @@ class StudyLevelsTable extends Table
     public $schema_of_export = array(
         'id',
         'title',
+        'main_study_level_id'
         // 'destination',
         // 'rank',
         // 'description',
@@ -30,6 +31,7 @@ class StudyLevelsTable extends Table
     public $schema_of_import = array(
         // 'id',
         'title',
+        'main_study_level_id'
         // 'destination',
         // 'rank',
         // 'description'
@@ -39,6 +41,7 @@ class StudyLevelsTable extends Table
 
     // public $mainStudyLevels = [0 => 'Undergraduate', 1 => 'Postgraduate'];
     public $mainStudyLevels = [0 => 'Secondary Education', 1 => 'Post Secondary Education', 2 => 'Bachelor\'s Degree', 3 => 'Master\'s Degree', 4 => 'Doctorate'];
+    public $mainStudyLevelsTitle = ['Secondary Education' => 0, 'Post Secondary Education' => 1, 'Bachelor\'s Degree' => 2, 'Master\'s Degree' => 3, 'Doctorate' => 4];
     /*
 - Secondary Education 
 - Post Secondary Education 

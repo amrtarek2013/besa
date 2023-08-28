@@ -62,7 +62,7 @@
                             'basicModel' => 'studyLevels',
                             'id' => [],
                             'title' => [],
-                            'permalink' => [],
+                            // 'permalink' => [],
                             // 'icon_path' => ['title' => 'Icon', 'format' => 'link'],
                             // 'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
@@ -134,5 +134,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
