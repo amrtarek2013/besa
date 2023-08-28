@@ -66,11 +66,27 @@ class UniversityCoursesTable extends Table
     );
 
     public $schema_of_import = array(
-        // 'id',
-        'university_name',
-        'destination',
-        'rank',
-        'description'
+        'id',
+        'course_name',
+
+        'study_level_id',
+        'study_level',
+
+        'subject_area_id',
+        'subject_area',
+
+        'university_id',
+        'university',
+
+        'country_id',
+        'country',
+
+        'total_fees',
+        'fees',
+        'duration',
+        'intake',
+
+        'description',
     );
 
     /**

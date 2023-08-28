@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\Core\Configure;
+use Cake\Utility\Hash;
 
 /**
  * UniversityCourses Controller
@@ -196,8 +197,8 @@ class UniversityCoursesController extends AppController
             'duration' => 'Duration (Years)',
             'intake' => 'Intake',
 
-            'description' => 'Description',
-            'active' => 'Active'
+            'description' => 'Description'
+
         );
 
         foreach ($universityCourses as $universityCourse) {
@@ -222,9 +223,9 @@ class UniversityCoursesController extends AppController
                 $universityCourse->duration,
                 $universityCourse->intake,
 
-                $universityCourse->description,
+                $universityCourse->description
 
-                ($universityCourse->active) ? 'Yes' : 'No',
+                // ($universityCourse->active) ? 'Yes' : 'No',
             ];
         }
 
@@ -252,33 +253,32 @@ class UniversityCoursesController extends AppController
                 //load all countries
 
                 $this->loadModel("Countries");
-                $countries = $this->Countries->find('list', [
-                    'keyField' => 'country_name', 'valueField' => 'id'
-                ])->toArray();
-                $countriesTitles = $this->Countries->find('list', [
-                    'keyField' => 'university_name', 'valueField' => 'id'
-                ])->toArray();
+                // $countries = $this->Countries->find('list', [
+                //     'keyField' => 'country_name', 'valueField' => 'id'
+                // ])->toArray();
+                $countries = $this->Countries->find()->select(['title' => 'trim(lower(country_name))', 'id'])->toArray();
+                $countries = Hash::combine($countries, '{n}.title', '{n}.id');
+                // $countriesTitles = $this->Countries->find('list', [
+                //     'keyField' => 'university_name', 'valueField' => 'id'
+                // ])->toArray();
 
                 $this->loadModel("Universities");
-                $universities = $this->Universities->find('list', [
-                    'keyField' => 'university_name', 'valueField' => 'id'
-                ])->toArray();
+                $universities = $this->Universities->find()->select(['title' => 'trim(lower(university_name))', 'id'])->toArray();
+                $universities = Hash::combine($universities, '{n}.title', '{n}.id');
                 $this->loadModel("SubjectAreas");
-                $subjectAreas = $this->SubjectAreas->find('list', [
-                    'keyField' => 'title', 'valueField' => 'id'
-                ])->toArray();
+                $subjectAreas = $this->SubjectAreas->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
+                $subjectAreas = Hash::combine($subjectAreas, '{n}.title', '{n}.id');
                 $this->loadModel("StudyLevels");
-                $studyLevels = $this->StudyLevels->find('list', [
-                    'keyField' => 'title', 'valueField' => 'id'
-                ])->toArray();
+                $studyLevels = $this->StudyLevels->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
+                $studyLevels = Hash::combine($studyLevels, '{n}.title', '{n}.id');
 
-                // dd($countries);
                 $this->loadComponent('Csv');
                 // dd($data['file']);
                 $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
                 // dd($universitiesArray);
                 $universityCourseList = [];
                 $counter = 0;
+                // dd($universitiesArray);
                 foreach ($universitiesArray as $universityCourseLine) {
 
                     $universityCourse = $this->UniversityCourses->newEmptyEntity();
@@ -292,20 +292,21 @@ class UniversityCoursesController extends AppController
                     if (isset($universityCourseLine['active']))
                         $universityCourseLine['active'] = (strtolower($universityCourseLine['active']) == 'yes') ? 1 : 0;
 
-                    if (empty($universityCourseLine['country_id']) && isset($countries[trim($universityCourseLine['destination'])]))
-                        $universityCourseLine['country_id'] = $countries[trim($universityCourseLine['destination'])];
+                    if (empty($universityCourseLine['country_id']) && isset($countries[strtolower(trim($universityCourseLine['destination']))]))
+                        $universityCourseLine['country_id'] = $countries[strtolower(trim($universityCourseLine['destination']))];
 
-                    else if (empty($universityCourseLine['country_id']) && isset($countriesTitles[trim($universityCourseLine['destination'])]))
-                        $universityCourseLine['country_id'] = $countriesTitles[trim($universityCourseLine['destination'])];
+                    if (empty($universityCourseLine['university_id']) && isset($countries[strtolower(trim($universityCourseLine['university']))]))
+                        $universityCourseLine['university_id'] = $universities[strtolower(trim($universityCourseLine['university']))];
 
-                    if (empty($universityCourseLine['university_id']) && isset($countries[trim($universityCourseLine['university'])]))
-                        $universityCourseLine['university_id'] = $universities[trim($universityCourseLine['destination'])];
+                    if (empty($universityCourseLine['subject_area_id']) && isset($subjectAreas[strtolower(trim($universityCourseLine['subject_area']))]))
+                        $universityCourseLine['subject_area_id'] = $subjectAreas[strtolower(trim($universityCourseLine['subject_area']))];
 
-                    else if (empty($universityCourseLine['country_id']) && isset($countriesTitles[trim($universityCourseLine['destination'])]))
-                        $universityCourseLine['country_id'] = $countriesTitles[trim($universityCourseLine['destination'])];
+                    if (empty($universityCourseLine['study_level_id']) && isset($studyLevels[strtolower(trim($universityCourseLine['study_level']))]))
+                        $universityCourseLine['study_level_id'] = $studyLevels[strtolower(trim($universityCourseLine['study_level']))];
 
-
-                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine);
+                    $universityCourseLine['total_fees'] = !empty($universityCourseLine['total_fees']) ? floatval(str_replace(',', '', $universityCourseLine['total_fees'])) : 0.00;
+                    $universityCourseLine['fees'] = !empty($universityCourseLine['fees']) ? floatval(str_replace(',', '', $universityCourseLine['fees'])) : 0.00;
+                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine, ['validate'=>false]);
 
                     $universityCourseList[] = $universityCourse;
                     $counter++;
@@ -321,12 +322,16 @@ class UniversityCoursesController extends AppController
 
                     // dd($universityCourseList);
                     $this->UniversityCourses->saveMany($universityCourseList);
-                    $universityCourseList = [];
-                    $counter = 0;
                 }
+
+                // dd($universityCourseList);
+                $this->Flash->success(__('The University Courses has been imported...'));
+            } else {
+
+                $this->Flash->success(__('Sorry, the University Courses couldn\'t been imported.'));
+                dd($error);
             }
 
-            $this->Flash->success(__('The UniversityCourses has been imported.'));
             return $this->redirect(['action' => 'import']);
         }
 
