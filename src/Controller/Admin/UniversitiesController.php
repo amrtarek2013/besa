@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use Cake\Core\Configure;
+use Cake\Utility\Hash;
 
 /**
  * Universities Controller
@@ -162,11 +163,12 @@ class UniversitiesController extends AppController
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        $universities = $this->Universities->find('all')->where($conditions)->toArray();
+        $universities = $this->Universities->find('all')->contain(['Countries' => ['fields' => ['country_name']]])->where($conditions)->toArray();
 
         $dataToExport[] = array(
             'id' => 'University ID',
             'university_name' => 'University Name',
+            'country_id' => 'Destination ID',
             'destination' => 'Destination',
             'rank' => 'Rank',
             'description' => 'Description'
@@ -176,7 +178,8 @@ class UniversitiesController extends AppController
             $dataToExport[] = [
                 $university->id,
                 $university->university_name,
-                $university->destination,
+                $university->country_id,
+                $university->country->country_name,
                 $university->rank,
                 $university->description,
                 // '',
@@ -208,12 +211,9 @@ class UniversitiesController extends AppController
                 //load all countries
 
                 $this->loadModel("Countries");
-                $countries = $this->Countries->find('list', [
-                    'keyField' => 'code', 'valueField' => 'id'
-                ])->toArray();
-                $countriesTitles = $this->Countries->find('list', [
-                    'keyField' => 'university_name', 'valueField' => 'id'
-                ])->toArray();
+
+                $countries = $this->Countries->find()->select(['title' => 'trim(lower(country_name))', 'id'])->toArray();
+                $countries = Hash::combine($countries, '{n}.title', '{n}.id');
 
 
                 // dd($countries);
@@ -240,10 +240,9 @@ class UniversitiesController extends AppController
                     if (isset($universityLine['destination']))
                         $universityLine['country_name'] = trim($universityLine['destination']);
 
-                    if (isset($countries[trim($universityLine['destination'])]))
-                        $universityLine['country_id'] = $countries[trim($universityLine['destination'])];
-                    else if (isset($countriesTitles[trim($universityLine['destination'])]))
-                        $universityLine['country_id'] = $countriesTitles[trim($universityLine['destination'])];
+                    if (empty($universityLine['country_id']) && isset($countries[strtolower(trim($universityLine['destination']))]))
+                        $universityLine['country_id'] = $countries[strtolower(trim($universityLine['destination']))];
+                        
                     $university = $this->Universities->patchEntity($university, $universityLine);
 
                     $universityList[] = $university;

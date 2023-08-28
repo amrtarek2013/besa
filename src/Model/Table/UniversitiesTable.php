@@ -29,6 +29,7 @@ class UniversitiesTable extends Table
     public $schema_of_export = array(
         'id',
         'university_name',
+        'country_id',
         'destination',
         'rank',
         'description',
@@ -36,11 +37,12 @@ class UniversitiesTable extends Table
     );
 
     public $schema_of_import = array(
-        // 'id',
+        'id',
         'university_name',
+        'country_id',
         'destination',
         'rank',
-        'description'
+        'description',
     );
 
     /**
