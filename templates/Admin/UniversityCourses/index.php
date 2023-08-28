@@ -64,7 +64,7 @@
                             'basicModel' => 'universityCourses',
                             'id' => [],
                             // 'course_name' => [],
-                            'course.course_name' => ['title' => 'Course'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
+                            'course_name' => ['title' => 'Course'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
                             // 'code' => [],
                             'country.country_name' => ['title' => 'Country'], //'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university.university_name' => ['title' => 'University'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],

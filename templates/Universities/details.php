@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="extra-bar">
-        <h4 class="title"><?= $university['title'] ?></h4>
+        <h4 class="title"><?= $university['university_name'] ?></h4>
     </div>
 </section>
 
