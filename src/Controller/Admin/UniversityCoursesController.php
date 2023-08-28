@@ -375,8 +375,7 @@ class UniversityCoursesController extends AppController
                 $this->loadComponent('Csv');
                 // dd($data['file']);
                 
-var_dump($data['file']);
-                $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
+                $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
                 die('ssssssss');
                 // dd($universitiesArray);
                 $universityCourseList = [];
