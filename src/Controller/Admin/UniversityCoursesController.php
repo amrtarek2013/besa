@@ -353,36 +353,30 @@ class UniversityCoursesController extends AppController
                 //load all countries
 
                 $this->loadModel("Countries");
-                // $countries = $this->Countries->find('list', [
-                //     'keyField' => 'country_name', 'valueField' => 'id'
-                // ])->toArray();
+                
                 $countries = $this->Countries->find()->select(['title' => 'trim(lower(country_name))', 'id'])->toArray();
                 $countries = Hash::combine($countries, '{n}.title', '{n}.id');
-                // $countriesTitles = $this->Countries->find('list', [
-                //     'keyField' => 'university_name', 'valueField' => 'id'
-                // ])->toArray();
 
                 $this->loadModel("Universities");
                 $universities = $this->Universities->find()->select(['title' => 'trim(lower(university_name))', 'id'])->toArray();
                 $universities = Hash::combine($universities, '{n}.title', '{n}.id');
+
                 $this->loadModel("SubjectAreas");
                 $subjectAreas = $this->SubjectAreas->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
                 $subjectAreas = Hash::combine($subjectAreas, '{n}.title', '{n}.id');
+
                 $this->loadModel("StudyLevels");
                 $studyLevels = $this->StudyLevels->find()->select(['title' => 'trim(lower(title))', 'id'])->toArray();
                 $studyLevels = Hash::combine($studyLevels, '{n}.title', '{n}.id');
 
                 $this->loadComponent('Csv');
-                // dd($data['file']);
                 $universitiesArray = [];
 
                 $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
 
-                // die('ssssssss');
-                // dd($universitiesArray);
                 $universityCourseList = [];
                 $counter = 0;
-                // dd($universitiesArray);
+                
                 foreach ($universitiesArray as $universityCourseLine) {
 
                     $universityCourse = $this->UniversityCourses->newEmptyEntity();
@@ -415,7 +409,6 @@ class UniversityCoursesController extends AppController
                     $universityCourseList[] = $universityCourse;
                     $counter++;
                     if ($counter == 50) {
-                        // dd($universityCourseList);
                         $this->UniversityCourses->saveMany($universityCourseList);
                         $universityCourseList = [];
                         $counter = 0;
@@ -424,18 +417,14 @@ class UniversityCoursesController extends AppController
 
                 if ($counter > 0) {
 
-                    // dd($universityCourseList);
                     $this->UniversityCourses->saveMany($universityCourseList);
                 }
-
-                // dd($universityCourseList);
                 $this->Flash->success(__('The University Courses has been imported...'));
             } else {
 
                 $this->Flash->success(__('Sorry, the University Courses couldn\'t been imported.'));
                 // dd($error);
             }
-
             return $this->redirect(['action' => 'import']);
         }
 
