@@ -121,40 +121,6 @@ class CsvComponent extends Component
 	public function convertCsvToArray($file, $schema_of_import)
 	{
 
-		var_dump($file);
-		$finalData = [];
-		$fileTOOpen = $file->getStream()->getMetadata('uri');
-		$fh = fopen($fileTOOpen, 'r');
-		set_time_limit(0);
-		ini_set('memory_limit', '512M');
-		$counter = 0;
-		while (($line = fgetcsv($fh, null, ',', '"')) != false) {
-			$lineData = [];
-
-
-			// debug(count($line));
-			// debug(count($schema_of_import));
-			if (count($schema_of_import) == count($line)) {
-
-				// debug($line);
-				if ($counter > 0) { // To ignor header line
-
-					for ($i = 0; $i < count($schema_of_import); $i++) {
-
-						$lineData[$schema_of_import[$i]] = $line[$i];
-					}
-					$finalData[] = $lineData;
-				}
-				$counter++;
-			}
-		}
-
-		// Cache::write('csv', json_encode($finalData), '_users_importing_');
-		return $finalData;
-	}
-	public function convertCsvToArrayNew($file, $schema_of_import)
-	{
-
 		$finalData = [];
 		$fileTOOpen = '';
 		if (is_array($file)) {
@@ -173,14 +139,6 @@ class CsvComponent extends Component
 		while (($line = fgetcsv($fh, null, ',', '"')) != false) {
 			$lineData = [];
 
-
-			// var_dump($file);
-			// echo '<br/>';
-			// var_dump($line);
-			// die;
-
-			// debug(count($line));
-			// debug(count($schema_of_import));
 			if (count($schema_of_import) == count($line)) {
 
 				// debug($line);
