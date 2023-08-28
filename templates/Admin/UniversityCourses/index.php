@@ -31,31 +31,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('University Courses List') ?></h3>
-                            
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/university-courses/add">
-                                <?= __('Add new') ?>
-                            </a>
-                            <?php
-                            $url_query = [];
-                            if (isset($parameters['?'])) {
-                                $url_query = $parameters['?'];
-                            }
-
-                            ?>
-                            <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
-                                <form action="<?php echo Cake\Routing\Router::url(array('controller' => "university-courses", 'action' => 'export', '?' => $url_query)) ?>" method="get">
-
-                                    <?php
-
-                                    // dd($url_query);
-                                    foreach ($url_query as $key => $value) :
-                                    ?>
-                                        <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
-
-                                    <?php endforeach; ?>
-                                    <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
-                                </form>
-                            </div>
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
 
                         </div>
                         <?php
@@ -63,18 +39,15 @@
                         $fields = [
                             'basicModel' => 'universityCourses',
                             'id' => [],
-                            // 'course_name' => [],
                             'course_name' => ['title' => 'Course'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
-                            // 'code' => [],
                             'country.country_name' => ['title' => 'Country'], //'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university.university_name' => ['title' => 'University'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
                             // 'university_title' => [],
-                            // 'service_id' => ['title' => 'Service/Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
                             'study_level.title' => ['title' => 'Study Level'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $studyLevels]],
                             'subject_area.title' => ['title' => 'Subject Area'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],
-                            // 'major_id' => ['title' => 'Major', 'format' => 'get_from_array', 'options' => ['items_list' => $majors]],
 
-                            // 'permalink' => [],
+                            'fees' => ['title' => 'Fees per Year'],
+                            'intake' => ['title' => 'Intake'],
                             // 'dealerships'=>[],
                             'active' => ['format' => 'bool'],
                         ];
@@ -101,28 +74,10 @@
 
 
                         echo $this->List->adminIndex($fields, $universityCourses, $actions, false, $multi_select_actions, $parameters);
-
-                        $url_query = [];
-                        if (isset($parameters['?'])) {
-                            $url_query = $parameters['?'];
-                        }
-
                         ?>
-                        <div style="display: block;" id="exporter" class="more_option_box">
-                            <form action="<?php echo Cake\Routing\Router::url(array('controller' => "university-courses", 'action' => 'export', '?' => $url_query)) ?>" method="get">
-
-                                <?php
-
-                                // dd($url_query);
-                                foreach ($url_query as $key => $value) :
-                                ?>
-                                    <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
-
-                                <?php endforeach; ?>
-                                <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
-                            </form>
+                        <div class="card-footer clearfix">
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
-
                     </div>
                 </div>
             </div>

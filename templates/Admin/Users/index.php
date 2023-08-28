@@ -36,16 +36,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Students List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/users/add">
-                                <?= __('Add new') ?>
-                            </a>
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
                         <?php
 
                         $fields = [
                             'basicModel' => 'users',
                             'id' => [],
-                            'first_name' => ['title'=>'Name'],
+                            'first_name' => ['title' => 'Name'],
                             // 'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'country.country_name' => ['title' => 'Country'],
 
@@ -76,6 +74,9 @@
                         ];
                         echo $this->List->adminIndex($fields, $users, $actions, true, $multi_select_actions, $parameters);
                         ?>
+                        <div class="card-footer clearfix">
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -31,9 +31,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('Enquiries List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/enquiries/add">
-                                <?= __('Add new') ?>
-                            </a>
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
                         <?php
 
@@ -71,46 +69,13 @@
 
 
                         echo $this->List->adminIndex($fields, $enquiries, $actions, true, $multi_select_actions, $parameters);
-                       
-
-                        $url_query = [];
-                        if (isset($parameters['?'])) {
-                        $url_query = $parameters['?'];
-                        }
-
                         ?>
-
-                        <h3 class="more_option">
-                            <a onclick="
-            document.getElementById('sms_sender').style.display = 'none';
-            document.getElementById('email_sender').style.display = 'none';
-            document.getElementById('exporter').style.display = 'block';
-            document.getElementById('unsubscriber').style.display = 'none';
-       " href="javascript:void(0)">
-                                Export to csv</a><a></a>
-                        </h3>
-                        <div style="display: block;" id="exporter" class="more_option_box">
-                            <form action="<?php echo Cake\Routing\Router::url(array('controller' => "enquiries", 'action' => 'export_csv', '?' => $url_query)) ?>" method="get">
-                                Delimited:
-                                <select name="delimited">
-                                    <option value="comma">Comma ( , )</option>
-                                    <option value="tab">Tab</option>
-                                    <option value="semi">Semicolon(;)</option>
-                                </select>
-                                <?php
-
-                                // dd($url_query);
-                                foreach ($url_query as $key => $value) :
-                                ?>
-                                    <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
-
-                                <?php endforeach; ?>
-                                <input value="Dump CSV File" type="submit">
-                            </form>
+                        <div class="card-footer clearfix">
+                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
-
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
