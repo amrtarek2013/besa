@@ -34,6 +34,7 @@ class WishListsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Courses');
+        $this->belongsTo('UniversityCourses')->setForeignKey('university_course_id');
 
     }
 

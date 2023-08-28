@@ -18,7 +18,7 @@ class WishListsController extends AppController
     {
         $conditions = $this->_filter_params();
 
-        $wishLists = $this->paginate($this->WishLists, ['conditions' => $conditions, 'contain'=>['Courses'], 'order'=>['continent'=>'ASC']]);
+        $wishLists = $this->paginate($this->WishLists, ['conditions' => $conditions, 'contain' => ['Courses', 'UniversityCourses'], 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         // dd($wishLists);
         $this->set(compact('wishLists', 'parameters'));
@@ -28,7 +28,7 @@ class WishListsController extends AppController
         $conditions = $this->_filter_params();
         $wishLists = $this->paginate($this->WishLists, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
-        
+
         $this->set(compact('wishLists', 'parameters'));
     }
 
@@ -48,7 +48,7 @@ class WishListsController extends AppController
     //     $this->set('id', false);
 
     //     $this->__common();
-        
+
     //     $this->set(compact('wishList'));
     // }
 
@@ -58,7 +58,7 @@ class WishListsController extends AppController
     //     if ($this->request->is(['patch', 'post', 'put'])) {
     //        $wishList = $this->WishLists->patchEntity($wishList, $this->request->getData());
 
-            
+
     //         if ($this->WishLists->save($wishList)) {
     //             $this->Flash->success(__('The WishList has been saved.'));
 
@@ -69,7 +69,7 @@ class WishListsController extends AppController
 
     //     $this->__common();
 
-        
+
     //     $this->set(compact('wishList', 'id'));
     //     $this->_ajaxImageUpload('wishList_' . $id, 'wishLists', $id, ['id' => $id], ['image_why_study','image', 'flag', 'banner_image']);
     //     $this->render('add');

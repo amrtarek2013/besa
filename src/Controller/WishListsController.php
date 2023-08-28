@@ -63,6 +63,7 @@ class WishListsController extends AppController
             if ($isNew == 'add') {
                 $wishList = $this->WishLists->patchEntity($wishList, $this->request->getData());
                 $wishList->course_id = $course_id;
+                $wishList->university_course_id = $course_id;
                 if (isset($_SESSION['Auth']['User'])) {
                     $user = $_SESSION['Auth']['User'];
                     $wishList->user_id = $user['id'];
@@ -76,7 +77,10 @@ class WishListsController extends AppController
                     $message = __('The WishList could not be saved. Please, try again.');
                 }
             } else {
-                $conditions = ['course_id' => $course_id];
+                $conditions = [
+                    // 'course_id' => $course_id,
+                    'university_course_id' => $course_id
+                ];
                 if (isset($_SESSION['Auth']['User'])) {
                     $user = $_SESSION['Auth']['User'];
                     $conditions['user_id'] = $user['id'];

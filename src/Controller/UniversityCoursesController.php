@@ -41,11 +41,12 @@ class UniversityCoursesController extends AppController
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 // 'Majors' => ['fields' => ['title']],
-                'Courses' => ['fields' => ['course_name']],
+                // 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 // 'Services' => ['fields' => ['title']], 
-                'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
+                'StudyLevels' => ['fields' => ['title']],
+                'SubjectAreas' => ['fields' => ['title']]
             ],
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
         ]);
@@ -82,12 +83,12 @@ class UniversityCoursesController extends AppController
 
 
         $this->loadModel('Courses');
-        $studyCourses = $this->Courses->find(
-            'list',
-            ['keyField' => 'id', 'valueField' => 'course_name']
-        )
-            // ->where(['active' => 1])
-            ->order(['course_name' => 'asc']);
+        // $studyCourses = $this->Courses->find(
+        //     'list',
+        //     ['keyField' => 'id', 'valueField' => 'course_name']
+        // )
+        //     // ->where(['active' => 1])
+        //     ->order(['course_name' => 'asc']);
 
 
         // $studyCourses = $this->Courses->find()->where(['active' => 1])->all()->toArray();
@@ -227,6 +228,11 @@ class UniversityCoursesController extends AppController
             $conditions['UniversityCourses.course_id'] = $url_params['course_id'];
         else
             unset($url_params['course_id']);
+
+        if (isset($url_params['id']) && !empty($url_params['id']))
+            $conditions['UniversityCourses.id'] = $url_params['id'];
+        else
+            unset($url_params['id']);
 
 
 

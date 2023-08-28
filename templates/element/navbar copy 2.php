@@ -501,7 +501,7 @@
                 var regex = new RegExp(obVal, 'i');
                 if (val1.search(regex) != -1)
                     searchResult += `<li> <img src = "img/icon/search-blue.svg" alt = "" >
-                <a target="_blank" href="/results?course_id=` + key + `">` + val + `</a></li>`;
+                <a target="_blank" href="/results?id=` + key + `">` + val + `</a></li>`;
             });
             if (searchResult.length > 0) {
                 $('.search-list-result').html(searchResult);

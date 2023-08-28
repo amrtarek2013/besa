@@ -1114,8 +1114,10 @@ class AppController extends Controller
 
     public function allCoursesList()
     {
-        $this->loadModel('Courses');
-        $studyCoursesList = $this->Courses->find(
+        // $this->loadModel('Courses');
+        // $studyCoursesList = $this->Courses->find(
+        $this->loadModel('UniversityCourses');
+        $studyCoursesList = $this->UniversityCourses->find(
             'list',
             ['keyField' => 'id', 'valueField' => 'course_name']
         )

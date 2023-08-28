@@ -40,10 +40,8 @@
                         $fields = [
                             'basicModel' => 'wishLists',
                             'id' => [],
-                            'course.course_name' => ['title' => 'Course'],
-                            // 'course_id' => ['title' => 'Course'],
+                            'university_course.course_name' => ['title' => 'Course'],
                             'user_id' => ['title' => 'User'],
-                            // 'course.course_name' => ['title' => 'Course', 'format' => 'get_from_array', 'options' => ['items_list' => $courses]],
 
                             'created' => ['date_format' => "d-m-Y H:i:s", 'title' => 'Created']
                         ];
