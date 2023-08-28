@@ -846,7 +846,7 @@ class CounselorsController extends AppController
         dd($universitiesList);
         die('sssss');
     }
-    public function testuncourses()
+    public function __testuncourses()
     {
 
         $reader = IOFactory::createReader('Xlsx');

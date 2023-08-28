@@ -155,11 +155,10 @@ class CsvComponent extends Component
 	public function convertCsvToArrayNew($file, $schema_of_import)
 	{
 
-		var_dump($file);
-		die;
 		$finalData = [];
-		$fileTOOpen = $file->getStream()->getMetadata('uri');
+		$fileTOOpen = $file['temp_name'];//$file->getStream()->getMetadata('uri');
 		$fh = fopen($fileTOOpen, 'r');
+		
 		set_time_limit(0);
 		ini_set('memory_limit', '512M');
 		$counter = 0;
@@ -167,6 +166,8 @@ class CsvComponent extends Component
 			$lineData = [];
 
 
+			var_dump($line);
+			die;
 			// debug(count($line));
 			// debug(count($schema_of_import));
 			if (count($schema_of_import) == count($line)) {
