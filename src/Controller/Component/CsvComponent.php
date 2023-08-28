@@ -156,13 +156,8 @@ class CsvComponent extends Component
 	{
 
 		$finalData = [];
-		$fileTOOpen = $file['temp_name']; //$file->getStream()->getMetadata('uri');
+		$fileTOOpen = $file['tmp_name']; //$file->getStream()->getMetadata('uri');
 
-		var_dump($file);
-		echo '<br/>';
-		var_dump($fileTOOpen);
-		die;
-		
 		$fh = fopen($fileTOOpen, 'r');
 		
 
@@ -173,6 +168,11 @@ class CsvComponent extends Component
 			$lineData = [];
 
 
+			var_dump($file);
+			echo '<br/>';
+			var_dump($line);
+			die;
+			
 			// debug(count($line));
 			// debug(count($schema_of_import));
 			if (count($schema_of_import) == count($line)) {
