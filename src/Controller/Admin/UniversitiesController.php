@@ -84,9 +84,9 @@ class UniversitiesController extends AppController
 
                 $this->__redirectToIndex();
             } else {
-                dd($university->getErrors());
+
+                $this->Flash->error(__('The University could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The University could not be saved. Please, try again.'));
         }
 
         $this->__common();
@@ -203,7 +203,7 @@ class UniversitiesController extends AppController
             // dd('DD');
             //comment* $error = $data['file']->getError();
 
-            if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
+            if ($data['file']->getError() == UPLOAD_ERR_OK) {
 
                 //load all countries
 
