@@ -158,11 +158,13 @@ class CsvComponent extends Component
 		$finalData = [];
 		$fileTOOpen = $file['temp_name']; //$file->getStream()->getMetadata('uri');
 
+		var_dump($file);
+		echo '<br/>';
+		var_dump($fileTOOpen);
+		die;
 		
 		$fh = fopen($fileTOOpen, 'r');
 		
-		var_dump($fh);
-		die;
 
 		set_time_limit(0);
 		ini_set('memory_limit', '512M');
