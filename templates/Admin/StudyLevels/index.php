@@ -34,6 +34,27 @@
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
                                 <?= __('Add new') ?>
                             </a>
+                            <?php
+                            $url_query = [];
+                            if (isset($parameters['?'])) {
+                                $url_query = $parameters['?'];
+                            }
+
+                            ?>
+                            <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
+                                <form action="<?php echo Cake\Routing\Router::url(array('controller' => "study-levels", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+
+                                    <?php
+
+                                    // dd($url_query);
+                                    foreach ($url_query as $key => $value) :
+                                    ?>
+                                        <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
+
+                                    <?php endforeach; ?>
+                                    <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
+                                </form>
+                            </div>
                         </div>
                         <?php
 
@@ -89,7 +110,27 @@
 
                         echo $this->List->adminIndex($fields, $studyLevels, $actions, true, $multi_select_actions, $parameters);
                         ?>
+                        <?php
+                        $url_query = [];
+                        if (isset($parameters['?'])) {
+                            $url_query = $parameters['?'];
+                        }
 
+                        ?>
+                        <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
+                            <form action="<?php echo Cake\Routing\Router::url(array('controller' => "study-levels", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+
+                                <?php
+
+                                // dd($url_query);
+                                foreach ($url_query as $key => $value) :
+                                ?>
+                                    <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
+
+                                <?php endforeach; ?>
+                                <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

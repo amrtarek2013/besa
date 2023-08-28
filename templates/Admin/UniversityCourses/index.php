@@ -31,9 +31,32 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><?= __('University Courses List') ?></h3>
+                            
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/university-courses/add">
                                 <?= __('Add new') ?>
                             </a>
+                            <?php
+                            $url_query = [];
+                            if (isset($parameters['?'])) {
+                                $url_query = $parameters['?'];
+                            }
+
+                            ?>
+                            <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
+                                <form action="<?php echo Cake\Routing\Router::url(array('controller' => "university-courses", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+
+                                    <?php
+
+                                    // dd($url_query);
+                                    foreach ($url_query as $key => $value) :
+                                    ?>
+                                        <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
+
+                                    <?php endforeach; ?>
+                                    <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
+                                </form>
+                            </div>
+
                         </div>
                         <?php
 
@@ -85,19 +108,9 @@
                         }
 
                         ?>
-
-                        <h3 class="more_option">
-                            <a onclick="document.getElementById('sms_sender').style.display = 'none'; document.getElementById('email_sender').style.display = 'none'; document.getElementById('exporter').style.display = 'block';document.getElementById('unsubscriber').style.display = 'none';" href="javascript:void(0)">
-                                Export to csv</a><a></a>
-                        </h3>
                         <div style="display: block;" id="exporter" class="more_option_box">
                             <form action="<?php echo Cake\Routing\Router::url(array('controller' => "university-courses", 'action' => 'export', '?' => $url_query)) ?>" method="get">
-                                <!-- Delimited:
-                                <select name="delimited">
-                                    <option value="comma">Comma ( , )</option>
-                                    <option value="tab">Tab</option>
-                                    <option value="semi">Semicolon(;)</option>
-                                </select> -->
+
                                 <?php
 
                                 // dd($url_query);
@@ -106,7 +119,7 @@
                                     <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
 
                                 <?php endforeach; ?>
-                                <input value="Dump CSV File" type="submit">
+                                <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
                             </form>
                         </div>
 

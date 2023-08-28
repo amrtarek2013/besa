@@ -34,6 +34,27 @@
                             <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/subjectAreas/add">
                                 <?= __('Add new') ?>
                             </a>
+                            <?php
+                            $url_query = [];
+                            if (isset($parameters['?'])) {
+                                $url_query = $parameters['?'];
+                            }
+
+                            ?>
+                            <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
+                                <form action="<?php echo Cake\Routing\Router::url(array('controller' => "subject-areas", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+
+                                    <?php
+
+                                    // dd($url_query);
+                                    foreach ($url_query as $key => $value) :
+                                    ?>
+                                        <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
+
+                                    <?php endforeach; ?>
+                                    <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
+                                </form>
+                            </div>
                         </div>
                         <?php
 
@@ -45,7 +66,7 @@
                             // 'country_id' => ['title' => 'Country', 'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             // 'university_id' => ['title' => 'University', 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
                             // 'service_id' => ['title' => 'Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
-                           
+
                             // 'permalink' => [],
                             // 'dealerships'=>[],
                             'active' => ['format' => 'bool'],
@@ -74,9 +95,30 @@
 
                         echo $this->List->adminIndex($fields, $subjectAreas, $actions, false, $multi_select_actions, $parameters);
                         ?>
+                        <?php
+                        $url_query = [];
+                        if (isset($parameters['?'])) {
+                            $url_query = $parameters['?'];
+                        }
 
+                        ?>
+                        <div style="display: block; float:right; margin-right:5px" id="exporter" class="more_option_box">
+                            <form action="<?php echo Cake\Routing\Router::url(array('controller' => "subject-areas", 'action' => 'export', '?' => $url_query)) ?>" method="get">
+
+                                <?php
+
+                                // dd($url_query);
+                                foreach ($url_query as $key => $value) :
+                                ?>
+                                    <input type="hidden" value="<?php echo $value ?>" name="<?php echo $key ?>">
+
+                                <?php endforeach; ?>
+                                <button class="add-new-btn btn btn-info" type="submit"><i class="nav-icon fas fa-file-csv"></i> Export CSV File</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
