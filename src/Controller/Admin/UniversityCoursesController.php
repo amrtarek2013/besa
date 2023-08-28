@@ -243,9 +243,9 @@ class UniversityCoursesController extends AppController
 
 
             var_dump($data['file']);
-            
+
             var_dump($data['file']['error']);
-            
+
             die('DD');
             $error = $data['file']->getError();
 
@@ -307,7 +307,7 @@ class UniversityCoursesController extends AppController
 
                     $universityCourseLine['total_fees'] = !empty($universityCourseLine['total_fees']) ? floatval(str_replace(',', '', $universityCourseLine['total_fees'])) : 0.00;
                     $universityCourseLine['fees'] = !empty($universityCourseLine['fees']) ? floatval(str_replace(',', '', $universityCourseLine['fees'])) : 0.00;
-                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine, ['validate'=>false]);
+                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine, ['validate' => false]);
 
                     $universityCourseList[] = $universityCourse;
                     $counter++;
@@ -348,7 +348,7 @@ class UniversityCoursesController extends AppController
 
             // $error = $data['file']->getError();
 
-            if ($data['file']['error'] == UPLOAD_ERR_OK) {
+            if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
 
                 //load all countries
 
@@ -374,8 +374,13 @@ class UniversityCoursesController extends AppController
 
                 $this->loadComponent('Csv');
                 // dd($data['file']);
-                
-                $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
+                $universitiesArray = [];
+
+                if (is_array($data['file'])) {
+                    $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
+                } else if (is_array($data['file'])) {
+                    $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
+                }
                 // die('ssssssss');
                 // dd($universitiesArray);
                 $universityCourseList = [];
@@ -408,7 +413,7 @@ class UniversityCoursesController extends AppController
 
                     $universityCourseLine['total_fees'] = !empty($universityCourseLine['total_fees']) ? floatval(str_replace(',', '', $universityCourseLine['total_fees'])) : 0.00;
                     $universityCourseLine['fees'] = !empty($universityCourseLine['fees']) ? floatval(str_replace(',', '', $universityCourseLine['fees'])) : 0.00;
-                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine, ['validate'=>false]);
+                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine, ['validate' => false]);
 
                     $universityCourseList[] = $universityCourse;
                     $counter++;
