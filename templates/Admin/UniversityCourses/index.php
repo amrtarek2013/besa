@@ -68,7 +68,7 @@
                             // 'code' => [],
                             'country.country_name' => ['title' => 'Country'], //'format' => 'get_from_array', 'options' => ['items_list' => $countries]],
                             'university.university_name' => ['title' => 'University'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $universities]],
-                            'university_title' => [],
+                            // 'university_title' => [],
                             // 'service_id' => ['title' => 'Service/Degree', 'format' => 'get_from_array', 'options' => ['items_list' => $services]],
                             'study_level.title' => ['title' => 'Study Level'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $studyLevels]],
                             'subject_area.title' => ['title' => 'Subject Area'], //, 'format' => 'get_from_array', 'options' => ['items_list' => $subjectAreas]],

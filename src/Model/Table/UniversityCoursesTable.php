@@ -20,7 +20,7 @@ class UniversityCoursesTable extends Table
     public $filters = [
         // 'course_id' => array('type' => 'like', 'options' => array('title' => 'Course', 'type' => 'select')),
         'university_id' => array('title' => 'University', 'type' => 'select'),
-        'university_title' => array('type' => 'like'),
+        // 'university_title' => array('type' => 'like'),
         'course_name' => array('type' => 'like'),
         // 'university_name' => array('type' => 'like'),
         'country_id' => array('title' => 'Destination', 'type' => 'select'),
