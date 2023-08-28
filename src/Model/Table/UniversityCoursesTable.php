@@ -37,6 +37,42 @@ class UniversityCoursesTable extends Table
     public $types = [0 => 'Full Service'];
 
     public $studyLevels = [1 => 'Level 1', 2 => 'Level 2', 3 => 'Level 3', 4 => 'Level 4', 5 => 'Level 5',];
+
+
+    public $schema_of_export = array(
+        'id',
+        'course_name',
+
+        'study_level_id',
+        'study_level',
+
+        'subject_area_id',
+        'subject_area',
+
+        'university_id',
+        'university',
+
+        'country_id',
+        'country',
+
+        'total_fees',
+        'fees',
+        'duration',
+        'intake',
+
+        'description',
+        'active' => 'Active'
+
+    );
+
+    public $schema_of_import = array(
+        // 'id',
+        'university_name',
+        'destination',
+        'rank',
+        'description'
+    );
+
     /**
      * Initialize method
      *

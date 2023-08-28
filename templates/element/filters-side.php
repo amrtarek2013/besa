@@ -113,6 +113,11 @@
                 'value' => (isset($filterParams) && isset($filterParams['subject_area_id']) ? $filterParams['subject_area_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+            <?= $this->Form->control('duration', [
+                'placeholder' => 'Duration in Year', 'type' => 'number', 'label' => 'Duration in Year',
+                'value' => (isset($filterParams) && isset($filterParams['duration']) ? $filterParams['duration'] : ''),
+                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
             <!-- </nav> -->
             <!-- /.sidebar-menu -->
             <div class="range-wrapper">
@@ -156,7 +161,7 @@
         </div>
         <div class="container-submit">
 
-            <a class="btn clear-blue" id="FilterClear">CLEAR</a>
+            <button class="btn clear-blue" id="FilterClear">CLEAR</button>
             <button type="submit" class="btn greenish-teal">FILTER</button>
         </div>
 
@@ -167,7 +172,8 @@
 <script>
     var currentUrl = '<?= $_SERVER['REQUEST_URI'] ?>';
     $(function() {
-        $('#FilterClear').click(function() {
+        $('#FilterClear').click(function(e) {
+            e.preventDefault();
             $.ajax({
                 url: '/university-courses/reset-filter/results',
                 success: function(data, status) {

@@ -42,7 +42,7 @@ class UniversityCoursesController extends AppController
             'contain' => [
                 // 'Majors' => ['fields' => ['title']],
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
+                'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 // 'Services' => ['fields' => ['title']], 
                 'StudyLevels' => ['fields' => ['title']], 'SubjectAreas' => ['fields' => ['title']]
@@ -157,7 +157,7 @@ class UniversityCoursesController extends AppController
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
+                'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
                 'StudyLevels' => ['fields' => ['title']],
@@ -228,6 +228,13 @@ class UniversityCoursesController extends AppController
         else
             unset($url_params['course_id']);
 
+
+
+        if (isset($url_params['duration']) && !empty($url_params['duration']))
+            $conditions['UniversityCourses.duration'] = intval($url_params['duration']);
+        else
+            unset($url_params['duration']);
+
         if (isset($url_params['min_budget']) && !empty($url_params['min_budget']))
             $conditions['UniversityCourses.fees >='] = $url_params['min_budget'];
         if (isset($url_params['max_budget']) && !empty($url_params['max_budget']))
@@ -277,7 +284,7 @@ class UniversityCoursesController extends AppController
         $course = $this->UniversityCourses->find()
             ->contain([
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name','use_country_currency', 'currency']],
+                'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']]

@@ -178,36 +178,53 @@ class UniversityCoursesController extends AppController
         $dataToExport[] = array(
             'id' => 'Course ID',
             'course_name' => 'Course Name',
-            // 'study_level' => 'Study Level',
+
+            'study_level_id' => 'Study Level ID',
+            'study_level' => 'Study Level',
+
+            'subject_area_id' => 'Subject Area ID',
             'subject_area' => 'Subject Area',
+
+            'university_id' => 'University ID',
             'university' => 'University',
+
+            'country_id' => 'Destination ID',
             'country' => 'Destination',
+
             'total_fees' => 'Total Tuition Fees (GBP)',
             'fees' => 'Tution Fees Per Year (GBP)',
             'duration' => 'Duration (Years)',
             'intake' => 'Intake',
-            // 'destination' => 'Destination',
-            // 'rank' => 'Rank',
-            // 'description' => 'Description'
+
+            'description' => 'Description',
+            'active' => 'Active'
         );
 
         foreach ($universityCourses as $universityCourse) {
             $dataToExport[] = [
                 $universityCourse->id,
                 $universityCourse->course_name,
-                // $universityCourse->study_level->title,
+
+                $universityCourse->study_level_id,
+                $universityCourse->study_level->title,
+
+                $universityCourse->subject_area_id,
                 $universityCourse->subject_area->title,
+
+                $universityCourse->university_id,
                 $universityCourse->university->university_name,
+
+                $universityCourse->country_id,
                 $universityCourse->country->country_name,
-                number_format(floatval($universityCourse->total_fees),2),
-                number_format(floatval($universityCourse->fees),2),
+
+                number_format(floatval($universityCourse->total_fees), 2),
+                number_format(floatval($universityCourse->fees), 2),
                 $universityCourse->duration,
                 $universityCourse->intake,
-                // $universityCourse->destination,
-                // $universityCourse->rank,
-                // $universityCourse->description,
-                // '',
-                // ($universityCourse->active) ? 'Yes' : 'No',
+
+                $universityCourse->description,
+
+                ($universityCourse->active) ? 'Yes' : 'No',
             ];
         }
 
@@ -216,86 +233,103 @@ class UniversityCoursesController extends AppController
 
         exit();
     }
-    // public function import()
-    // {
+    public function import()
+    {
 
-    //     $universityCourse = $this->UniversityCourses->newEmptyEntity();
-    //     if ($this->request->is('post')) {
-    //         $data = $this->request->getData();
-
-
-    //         // Configure::write('debug', true);
-    //         // Configure::write('debug', 1);
-    //         // var_dump($data['file']);
-    //         // dd('DD');
-    //         $error = $data['file']->getError();
-
-    //         if ($data['file']->getError() == UPLOAD_ERR_OK) {
-
-    //             //load all countries
-
-    //             $this->loadModel("Countries");
-    //             $countries = $this->Countries->find('list', [
-    //                 'keyField' => 'code', 'valueField' => 'id'
-    //             ])->toArray();
-    //             $countriesTitles = $this->Countries->find('list', [
-    //                 'keyField' => 'university_name', 'valueField' => 'id'
-    //             ])->toArray();
+        $universityCourse = $this->UniversityCourses->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
 
 
-    //             // dd($countries);
-    //             $this->loadComponent('Csv');
-    //             // dd($data['file']);
-    //             $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
-    //             // dd($universitiesArray);
-    //             $universityCourseList = [];
-    //             $counter = 0;
-    //             foreach ($universitiesArray as $universityCourseLine) {
+            // Configure::write('debug', true);
+            // Configure::write('debug', 1);
+            // var_dump($data['file']);
+            // dd('DD');
+            $error = $data['file']->getError();
 
-    //                 $universityCourse = $this->UniversityCourses->newEmptyEntity();
-    //                 if (isset($universityCourseLine['id']) && empty($universityCourseLine['id'])) {
-    //                     unset($universityCourseLine['id']);
-    //                 } else if (isset($universityCourseLine['id'])  && !empty($universityCourseLine['id'])) {
-    //                     $universityCourse = $this->UniversityCourses->get($universityCourseLine['id']);
-    //                 }
+            if ($data['file']->getError() == UPLOAD_ERR_OK) {
 
-    //                 if (isset($universityCourseLine['active']))
-    //                     $universityCourseLine['active'] = (strtolower($universityCourseLine['active']) == 'yes') ? 1 : 0;
-    //                 $universityCourseLine['logo'] = trim($universityCourseLine['university_name']) . '.png';
-    //                 $universityCourseLine['title'] = $universityCourseLine['university_name'];
+                //load all countries
 
-    //                 if (isset($universityCourseLine['destination']))
-    //                     $universityCourseLine['country_name'] = trim($universityCourseLine['destination']);
+                $this->loadModel("Countries");
+                $countries = $this->Countries->find('list', [
+                    'keyField' => 'country_name', 'valueField' => 'id'
+                ])->toArray();
+                $countriesTitles = $this->Countries->find('list', [
+                    'keyField' => 'university_name', 'valueField' => 'id'
+                ])->toArray();
 
-    //                 if (isset($countries[trim($universityCourseLine['destination'])]))
-    //                     $universityCourseLine['country_id'] = $countries[trim($universityCourseLine['destination'])];
-    //                 else if (isset($countriesTitles[trim($universityCourseLine['destination'])]))
-    //                     $universityCourseLine['country_id'] = $countriesTitles[trim($universityCourseLine['destination'])];
-    //                 $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine);
+                $this->loadModel("Universities");
+                $universities = $this->Universities->find('list', [
+                    'keyField' => 'university_name', 'valueField' => 'id'
+                ])->toArray();
+                $this->loadModel("SubjectAreas");
+                $subjectAreas = $this->SubjectAreas->find('list', [
+                    'keyField' => 'title', 'valueField' => 'id'
+                ])->toArray();
+                $this->loadModel("StudyLevels");
+                $studyLevels = $this->StudyLevels->find('list', [
+                    'keyField' => 'title', 'valueField' => 'id'
+                ])->toArray();
 
-    //                 $universityCourseList[] = $universityCourse;
-    //                 $counter++;
-    //                 if ($counter == 50) {
-    //                     // dd($universityCourseList);
-    //                     $this->UniversityCourses->saveMany($universityCourseList);
-    //                     $universityCourseList = [];
-    //                     $counter = 0;
-    //                 }
-    //             }
+                // dd($countries);
+                $this->loadComponent('Csv');
+                // dd($data['file']);
+                $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
+                // dd($universitiesArray);
+                $universityCourseList = [];
+                $counter = 0;
+                foreach ($universitiesArray as $universityCourseLine) {
 
-    //             if ($counter > 0) {
+                    $universityCourse = $this->UniversityCourses->newEmptyEntity();
 
-    //                 // dd($universityCourseList);
-    //                 $this->UniversityCourses->saveMany($universityCourseList);
-    //                 $universityCourseList = [];
-    //                 $counter = 0;
-    //             }
-    //         }
+                    if (isset($universityCourseLine['id']) && empty($universityCourseLine['id'])) {
+                        unset($universityCourseLine['id']);
+                    } else if (isset($universityCourseLine['id'])  && !empty($universityCourseLine['id'])) {
+                        $universityCourse = $this->UniversityCourses->get($universityCourseLine['id']);
+                    }
 
-    //         $this->Flash->success(__('The UniversityCourses has been imported.'));
-    //         return $this->redirect(['action' => 'import']);
-    //     }
+                    if (isset($universityCourseLine['active']))
+                        $universityCourseLine['active'] = (strtolower($universityCourseLine['active']) == 'yes') ? 1 : 0;
 
-    //     $this->set(compact('universityCourse'));
-    // }
+                    if (empty($universityCourseLine['country_id']) && isset($countries[trim($universityCourseLine['destination'])]))
+                        $universityCourseLine['country_id'] = $countries[trim($universityCourseLine['destination'])];
+
+                    else if (empty($universityCourseLine['country_id']) && isset($countriesTitles[trim($universityCourseLine['destination'])]))
+                        $universityCourseLine['country_id'] = $countriesTitles[trim($universityCourseLine['destination'])];
+
+                    if (empty($universityCourseLine['university_id']) && isset($countries[trim($universityCourseLine['university'])]))
+                        $universityCourseLine['university_id'] = $universities[trim($universityCourseLine['destination'])];
+
+                    else if (empty($universityCourseLine['country_id']) && isset($countriesTitles[trim($universityCourseLine['destination'])]))
+                        $universityCourseLine['country_id'] = $countriesTitles[trim($universityCourseLine['destination'])];
+
+
+                    $universityCourse = $this->UniversityCourses->patchEntity($universityCourse, $universityCourseLine);
+
+                    $universityCourseList[] = $universityCourse;
+                    $counter++;
+                    if ($counter == 50) {
+                        // dd($universityCourseList);
+                        $this->UniversityCourses->saveMany($universityCourseList);
+                        $universityCourseList = [];
+                        $counter = 0;
+                    }
+                }
+
+                if ($counter > 0) {
+
+                    // dd($universityCourseList);
+                    $this->UniversityCourses->saveMany($universityCourseList);
+                    $universityCourseList = [];
+                    $counter = 0;
+                }
+            }
+
+            $this->Flash->success(__('The UniversityCourses has been imported.'));
+            return $this->redirect(['action' => 'import']);
+        }
+
+        $this->set(compact('universityCourse'));
+    }
 }

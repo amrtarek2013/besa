@@ -255,42 +255,4 @@ class UsersController extends AppController
         ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
     }
-
-    public function workTimes($id = null)
-    {
-        $user = $this->Users->get($id);
-        $this->loadModel('UserWorkDayTimes');
-        $userWorkDayTimes = $this->UserWorkDayTimes->find('all', array('conditions' => ['UserWorkDayTimes.user_id' => $id], 'order' => array('UserWorkDayTimes.id' => 'desc'), 'contain' => []))->toArray();
-
-        if (!empty($userWorkDayTimes)) {
-
-            $userWorkDayTimes = Hash::combine($userWorkDayTimes, '{n}.day', '{n}');
-        }
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $formData = $this->request->getData();
-
-            foreach ($formData['UserWorkDayTimes'] as $time) {
-
-                $time['user_id'] = $id;
-
-                if (!empty($time['id'])) {
-                    $emptyEntity = $this->UserWorkDayTimes->get($time['id']);
-                } else {
-                    $emptyEntity = $this->UserWorkDayTimes->newEmptyEntity();
-                }
-
-                $entity = $this->UserWorkDayTimes->patchEntity($emptyEntity, $time);
-
-                $this->UserWorkDayTimes->save($entity);
-            }
-
-            $this->Flash->success(__('The User Work Time has been saved.'));
-            return $this->redirect(['action' => 'workTimes', $id]);
-        }
-
-        $days = daysList();
-        $this->set(compact('user', 'days', 'id', 'userWorkDayTimes'));
-    }
 }

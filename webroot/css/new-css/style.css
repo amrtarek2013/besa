@@ -8180,6 +8180,14 @@ input[type="search"]:focus {
 
 }
 
+
+.main-sidebar input {
+
+    padding: 10px;
+    height: 50px;
+    font-size: 15px;
+}
+
 .main-sidebar .container-submit {
     padding: 10px 0 0;
 
