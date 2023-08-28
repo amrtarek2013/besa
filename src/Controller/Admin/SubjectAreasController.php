@@ -177,9 +177,9 @@ class SubjectAreasController extends AppController
             // Configure::write('debug', 1);
             // var_dump($data['file']);
             // dd('DD');
-            $error = $data['file']->getError();
+            //comment* $error = $data['file']->getError();
 
-            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+            if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
 
                 //load all SubjectAreas
 

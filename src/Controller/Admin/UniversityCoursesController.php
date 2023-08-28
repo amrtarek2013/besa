@@ -247,9 +247,9 @@ class UniversityCoursesController extends AppController
             var_dump($data['file']['error']);
 
             die('DD');
-            $error = $data['file']->getError();
+            //comment* $error = $data['file']->getError();
 
-            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+            if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
 
                 //load all countries
 
@@ -346,7 +346,7 @@ class UniversityCoursesController extends AppController
             $data = $this->request->getData();
 
 
-            // $error = $data['file']->getError();
+            // //comment* $error = $data['file']->getError();
 
             if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
 
@@ -376,11 +376,8 @@ class UniversityCoursesController extends AppController
                 // dd($data['file']);
                 $universitiesArray = [];
 
-                if (is_array($data['file'])) {
-                    $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
-                } else if (is_array($data['file'])) {
-                    $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
-                }
+                $universitiesArray = $this->Csv->convertCsvToArray($data['file'], $this->UniversityCourses->schema_of_import);
+
                 // die('ssssssss');
                 // dd($universitiesArray);
                 $universityCourseList = [];

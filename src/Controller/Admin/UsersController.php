@@ -180,8 +180,8 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
-            $error = $data['file']->getError();
-            if ($data['file']->getError() == UPLOAD_ERR_OK) {
+            //comment* $error = $data['file']->getError();
+            if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
                 $this->loadComponent('Csv');
                 $usersArray = $this->Csv->convertCsvToArray($data['file'], $this->Users->schema_of_import);
                 foreach ($usersArray as $userLine) {
