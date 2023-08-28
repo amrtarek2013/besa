@@ -27,7 +27,7 @@ class SubjectAreasTable extends Table
     );
 
     public $schema_of_import = array(
-        // 'id',
+        'id',
         'title',
         // 'destination',
         // 'rank',
