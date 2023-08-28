@@ -376,7 +376,7 @@ class UniversityCoursesController extends AppController
                 // dd($data['file']);
                 
                 $universitiesArray = $this->Csv->convertCsvToArrayNew($data['file'], $this->UniversityCourses->schema_of_import);
-                die('ssssssss');
+                // die('ssssssss');
                 // dd($universitiesArray);
                 $universityCourseList = [];
                 $counter = 0;
@@ -431,7 +431,7 @@ class UniversityCoursesController extends AppController
             } else {
 
                 $this->Flash->success(__('Sorry, the University Courses couldn\'t been imported.'));
-                dd($error);
+                // dd($error);
             }
 
             return $this->redirect(['action' => 'import']);
