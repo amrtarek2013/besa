@@ -26,7 +26,7 @@ class UniversitiesController extends AppController
         }
 
 
-        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'order' => ['title' => 'ASC']]);
+        $universities = $this->paginate($this->Universities, ['conditions' => $conditions, 'contain' => ['Countries'], 'order' => ['title' => 'ASC']]);
         // dd($universities);
         $parameters = $this->request->getAttribute('params');
         $types = $this->Universities->types;
@@ -171,6 +171,7 @@ class UniversitiesController extends AppController
             'country_id' => 'Destination ID',
             'destination' => 'Destination',
             'rank' => 'Rank',
+            'is_partner'=>'Is Partner',
             'description' => 'Description'
         );
 
@@ -181,6 +182,7 @@ class UniversitiesController extends AppController
                 $university->country_id,
                 $university->country->country_name,
                 $university->rank,
+                $university->is_partner,
                 $university->description,
                 // '',
                 // ($university->active) ? 'Yes' : 'No',
@@ -242,7 +244,7 @@ class UniversitiesController extends AppController
 
                     if (empty($universityLine['country_id']) && isset($countries[strtolower(trim($universityLine['destination']))]))
                         $universityLine['country_id'] = $countries[strtolower(trim($universityLine['destination']))];
-                        
+
                     $university = $this->Universities->patchEntity($university, $universityLine);
 
                     $universityList[] = $university;

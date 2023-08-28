@@ -21,7 +21,7 @@ class UniversitiesTable extends Table
         'university_name' => array('type' => 'like', 'options' => array('type' => 'text')),
         'is_partner' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
         'show_on_destination' => ['options' => ['options' => [1 => 'Yes', 0 => 'No']]],
-        
+
     ];
 
     public $types = [0 => 'Full Service'];
@@ -32,6 +32,7 @@ class UniversitiesTable extends Table
         'country_id',
         'destination',
         'rank',
+        'is_partner',
         'description',
 
     );
@@ -42,6 +43,7 @@ class UniversitiesTable extends Table
         'country_id',
         'destination',
         'rank',
+        'is_partner',
         'description',
     );
 
@@ -153,58 +155,58 @@ class UniversitiesTable extends Table
         //         'minSize' => 1024, // Min 1 KB
         //         'maxSize' => 1024 * 1024 // Max 1 MB
         //     ]);
-            
-            // ->add('image', 'filename', [
-            //     'rule' => function (UploadedFileInterface $file) {
-            //         // filename must not be a path
-            //         $filename = $file->getClientFilename();
-            //         if (strcmp(basename($filename), $filename) === 0) {
-            //             return true;
-            //         }
 
-            //         return false;
-            //     }
-            // ])
-            // ->add('image', 'extension', [
-            //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            // ]);
-            // ->isArray('image')
-            // ->allowEmptyArray('image');
+        // ->add('image', 'filename', [
+        //     'rule' => function (UploadedFileInterface $file) {
+        //         // filename must not be a path
+        //         $filename = $file->getClientFilename();
+        //         if (strcmp(basename($filename), $filename) === 0) {
+        //             return true;
+        //         }
+
+        //         return false;
+        //     }
+        // ])
+        // ->add('image', 'extension', [
+        //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
+        // ]);
+        // ->isArray('image')
+        // ->allowEmptyArray('image');
 
         // $validator->uploadedFile('logo', [
         //     'types' => ['image/png', 'image/jpg', 'image/jpeg'], // only PNG image files
         //     'minSize' => 1024, // Min 1 KB
         //     'maxSize' => 1024 * 1024 // Max 1 MB
         // ]);
-            // ->add('logo', 'minSize', [
-            //     'rule' => ['imageSize', [
-            //         // Min 10x10 pixel
-            //         'width' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
-            //         'height' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
-            //     ]]
-            // ])
-            // ->add('logo', 'maxSize', [
-            //     'rule' => ['imageSize', [
-            //         // Max 100x100 pixel
-            //         'width' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
-            //         'height' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
-            //     ]]
-            // ])
-            // ->add('logo', 'filename', [
-            //     'rule' => function (UploadedFileInterface $file) {
-            //         // filename must not be a path
-            //         $filename = $file->getClientFilename();
-            //         if (strcmp(basename($filename), $filename) === 0) {
-            //             return true;
-            //         }
+        // ->add('logo', 'minSize', [
+        //     'rule' => ['imageSize', [
+        //         // Min 10x10 pixel
+        //         'width' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
+        //         'height' => [Validation::COMPARE_GREATER_OR_EQUAL, 10],
+        //     ]]
+        // ])
+        // ->add('logo', 'maxSize', [
+        //     'rule' => ['imageSize', [
+        //         // Max 100x100 pixel
+        //         'width' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
+        //         'height' => [Validation::COMPARE_LESS_OR_EQUAL, 100],
+        //     ]]
+        // ])
+        // ->add('logo', 'filename', [
+        //     'rule' => function (UploadedFileInterface $file) {
+        //         // filename must not be a path
+        //         $filename = $file->getClientFilename();
+        //         if (strcmp(basename($filename), $filename) === 0) {
+        //             return true;
+        //         }
 
-            //         return false;
-            //     }
-            // ])
-            // ->add('logo', 'extension', [
-            //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
-            // ])->isArray('logo')
-            // ->allowEmptyArray('logo');
+        //         return false;
+        //     }
+        // ])
+        // ->add('logo', 'extension', [
+        //     'rule' => ['extension', ['png', 'jpg', 'jpeg']] // .png file extension only
+        // ])->isArray('logo')
+        // ->allowEmptyArray('logo');
 
         return $validator;
     }
