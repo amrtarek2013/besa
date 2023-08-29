@@ -6108,17 +6108,17 @@ input.search {
 .blogs .box-blog .content-blog a {
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
+    font-weight: bold;
+    font-size: 18px;
     line-height: 35px;
     color: var(--bs-green);
     display: block;
 }
 
-.blogs .box-blog .content-blog p.title{
+.blogs .box-blog .content-blog p.title {
     font-size: 18px;
     font-weight: bold;
-    
+
 
 }
 
