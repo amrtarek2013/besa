@@ -941,20 +941,20 @@ textarea {
     margin-bottom: 10px;
 }
 
-.navbar .sidenav ul li a {
+/* .navbar .sidenav ul li a {
     color: var(--bs-red);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
-}
+} */
 
-.navbar .sidenav ul li:hover {
+/* .navbar .sidenav ul li:hover {
     background: var(--bs-red);
 }
 
 .navbar .sidenav ul li:hover a {
     color: var(--bs-white);
-}
+} */
 
 .navbar .colse {
     text-align: right;
@@ -1829,7 +1829,9 @@ p.descrp {
     padding-top: 70px;
     padding-bottom: 0;
 }
-.sectionTimeline .timeline, .sectionTimeline .nav-timeline {
+
+.sectionTimeline .timeline,
+.sectionTimeline .nav-timeline {
     display: block;
 }
 
@@ -6334,7 +6336,7 @@ input[type="search"]:focus {
 }
 
 .menu-dropdown {
-    
+
     display: none;
     position: absolute;
     background: rgba(231, 231, 233, 1);
@@ -6404,7 +6406,83 @@ input[type="search"]:focus {
     }
 }
 
+/********* Start mobile sub menu********/
 
+.navbar .navbar-mobile  li:hover .toggle i {
+    color: unset !important;
+}
+
+.navbar .navbar-mobile  li:hover .toggle i a {
+    color: var(--bs-white);
+}
+/* .navbar .navbar-mobile  li:hover .toggle i a {
+    color: var(--bs-red);
+} */
+
+.navbar-mobile .mobile-menu-dropdown {
+
+    position: relative;
+    min-width: 121px;
+    top: 5px;
+    margin-bottom: 10px;
+}
+
+.navbar-mobile .mobile-menu-dropdown li {
+    padding: 5px 20px 5px 10px !important;
+    width: 100%;
+
+}
+
+.navbar-mobile .mobile-menu-dropdown li a {
+    color: rgba(118, 123, 146, 1) !important;
+    font-size: 18px !important;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.navbar-mobile .mobile-menu-dropdown li:last-child a {
+    border: none;
+}
+
+
+
+.navbar .navbar-mobile  .sidenav ul li {
+    display: block;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.navbar .navbar-mobile  .links li {
+    position: relative;
+}
+
+.navbar .navbar-mobile  .sidenav ul li a {
+    color: var(--bs-red);
+    font-size: 20px;
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+ .navbar .navbar-mobile .sidenav ul li a {
+    color: var(--bs-red);
+    font-size: 20px;
+    font-family: "Poppins";
+    font-weight: 600;
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+}
+
+/* .navbar .navbar-mobile  .sidenav ul li:hover {
+    background: unset !important;
+} */
+
+.navbar .navbar-mobile .sidenav ul li a:hover {
+    background: var(--bs-red) !important;
+    color: var(--bs-white) !important;
+}
+
+/********* End mobile sub menu********/
 
 .services-rendered .gridServices {
     grid-template-columns: 1fr 1fr;
