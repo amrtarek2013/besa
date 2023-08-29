@@ -362,7 +362,7 @@ use Cake\Routing\Router;
     $(function() {
         $(".mobile-menu-dropdown").hide();
 
-        $(".parent-menu").click(function(e) {
+        $(".parent-menu>a").click(function(e) {
             e.preventDefault();
 
             // $(".mobile-menu-dropdown").hide();
