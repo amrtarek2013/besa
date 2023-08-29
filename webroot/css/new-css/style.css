@@ -6495,10 +6495,10 @@ input[type="search"]:focus {
     background: unset !important;
 } */
 
-.navbar .navbar-mobile .sidenav ul li a:hover {
+/* .navbar .navbar-mobile .sidenav ul li a:hover {
     background: var(--bs-red) !important;
     color: var(--bs-white) !important;
-}
+} */
 
 /********* End mobile sub menu********/
 
