@@ -1829,6 +1829,9 @@ p.descrp {
     padding-top: 70px;
     padding-bottom: 0;
 }
+.sectionTimeline .timeline, .sectionTimeline .nav-timeline {
+    display: block;
+}
 
 .sectionTimeline .container,
 .sectionTimeline .timeline-list,
@@ -1876,6 +1879,23 @@ p.descrp {
     position: absolute;
     bottom: 45px;
     left: 10px;
+}
+
+
+/*For Mobile*/
+.aboutus-timeline-mobile {
+    display: none;
+}
+
+.timeline-year {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #242F65;
+    margin-bottom: 20px;
 }
 
 /* End Section Timeline */

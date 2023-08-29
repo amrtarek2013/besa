@@ -44,7 +44,7 @@
                         <?php endif; ?>
                     </div>
 
-                    <?php //= $this->element('aboutus_slider', ['aboutusSlidersList' => $aboutusSlidersList]) ?>
+                    <?= $this->element('aboutus_slider', ['aboutusSlidersList' => $aboutusSlidersList]) ?>
 
                 </div>
             </div>
