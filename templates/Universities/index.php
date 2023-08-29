@@ -32,7 +32,7 @@
                                 <div class="box-blog display-flex">
                                     <img src="<?= $university['logo_path'] ?>" alt="This Is University Img 1" loading="lazy">
                                     <div class="content-blog">
-                                        <p><?= $university['university_name'] ?></p>
+                                        <p class="title"><?= $university['university_name'] ?></p>
                                         <p><?= $university['short_description'] ?></p>
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?>/<?= $university['id'] ?>/<?= $university['permalink'] ?>/2" class="read-anchor">Check Courses</a>
                                     </div>
