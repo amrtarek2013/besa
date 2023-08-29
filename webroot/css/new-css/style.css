@@ -6078,7 +6078,7 @@ input.search {
 }
 
 .blogs>.container>.row .col-md-12>.display-flex {
-    grid-gap: 20px 100px;
+    grid-gap: 20px 20px;
     justify-content: center;
 
 }
