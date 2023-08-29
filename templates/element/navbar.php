@@ -294,7 +294,7 @@ use Cake\Routing\Router;
                 </div>
 
 
-                <div class="buttons apply-now-btn-header mobile-search">
+                <!-- <div class="buttons apply-now-btn-header mobile-search">
 
                     <div class="button li-search">
 
@@ -310,7 +310,7 @@ use Cake\Routing\Router;
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
