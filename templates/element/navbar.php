@@ -364,7 +364,9 @@ use Cake\Routing\Router;
 
         $(".parent-menu").click(function(e) {
             e.preventDefault();
+            e.stopPropagation();
 
+            // if (event.target === event.currentTarget) {
             // $(".mobile-menu-dropdown").hide();
             $(".mobile-menu-dropdown", this).fadeToggle();
 
@@ -372,6 +374,7 @@ use Cake\Routing\Router;
                 $(".parent-icon", this).removeClass('fa-angle-up').addClass('fa-angle-down');
             else
                 $(".parent-icon", this).removeClass('fa-angle-down').addClass('fa-angle-up');
+            // }
         });
     });
 </script>

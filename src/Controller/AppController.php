@@ -1106,6 +1106,7 @@ class AppController extends Controller
             if (empty($this->metaKeywords)) {
                 $this->metaKeywords = $this->g_configs['general']['txt.keywords'];
             }
+            
         }
 
         $this->set('metaDescription', h(substr(preg_replace('/\\s+/', ' ', $this->metaDescription), 0, 500)));
