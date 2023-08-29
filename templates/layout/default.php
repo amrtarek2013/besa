@@ -4,7 +4,7 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= isset($title) ? $title : $g_configs['general']['txt.site_name'] . ' - British educational services agency' ?></title>
+    <title><?= isset($title) ? $g_configs['general']['txt.site_name'] . '-' . $title : $g_configs['general']['txt.site_name'] . ' - British educational services agency' ?></title>
     <link rel="icon" type="image/x-icon" href="<?= FRONT_ASSETS ?>/favicon.ico">
     <!-- add This File (range slider)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
