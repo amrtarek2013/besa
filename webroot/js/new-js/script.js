@@ -67,8 +67,8 @@ $(document).ready(function () {
     autoPlaySpeed: 3000,
     autoplayHoverPause: true,
     navText: [
-      "<i class='fa-solid fa-arrow-left'></i>",
-      "<i class='fa-solid fa-arrow-right'></i>",
+      "<i class='fa-solid fa-chevron-left'></i>",
+      "<i class='fa-solid fa-chevron-right'></i>",
     ],
   });
 
