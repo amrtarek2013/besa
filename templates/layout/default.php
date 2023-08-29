@@ -43,9 +43,9 @@
     if (!empty($metaKeywords)) {
         echo $this->Html->meta('keywords', $metaKeywords);
     }
-    if (!empty($metaDescription)) {
+    // if (!empty($metaDescription)) {
         echo $this->Html->meta('description', $metaDescription);
-    }
+    // }
 
     ?>
     <?= $this->fetch('meta') ?>
