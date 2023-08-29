@@ -965,6 +965,10 @@
         top: 0;
     }
 
+    .navbar-mobile .menu-dropdown {
+        display: block;
+        position: relative;
+    }
     .british-banner .relative-textP {
 
         margin-top: 15px;

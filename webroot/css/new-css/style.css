@@ -6334,6 +6334,7 @@ input[type="search"]:focus {
 }
 
 .menu-dropdown {
+    
     display: none;
     position: absolute;
     background: rgba(231, 231, 233, 1);
