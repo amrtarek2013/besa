@@ -362,13 +362,13 @@ use Cake\Routing\Router;
     $(function() {
         $(".mobile-menu-dropdown").hide();
 
-        $(".parent-menu").click(function(e) {
+        $(".parent-menu > a").click(function(e) {
             e.preventDefault();
             e.stopPropagation();
 
             // if (event.target === event.currentTarget) {
             // $(".mobile-menu-dropdown").hide();
-            $(".mobile-menu-dropdown", this).fadeToggle();
+            $(this).next("div.mobile-menu-dropdown").fadeToggle();
 
             if ($(".parent-icon", this).hasClass('fa-angle-up'))
                 $(".parent-icon", this).removeClass('fa-angle-up').addClass('fa-angle-down');

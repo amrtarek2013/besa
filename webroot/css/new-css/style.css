@@ -6450,13 +6450,6 @@ input[type="search"]:focus {
 
 }
 
-.navbar-mobile .mobile-menu-dropdown li a {
-    color: rgba(118, 123, 146, 1) !important;
-    font-size: 18px !important;
-    width: 70%;
-    padding: 5px 0;
-}
-
 .navbar-mobile .mobile-menu-dropdown li:last-child a {
     border: none;
 }
@@ -6481,14 +6474,27 @@ input[type="search"]:focus {
     font-weight: 600;
 }
 
+
 .navbar .navbar-mobile .sidenav ul li a {
+    color: var(--bs-red);
+    font-family: "Poppins";
+    font-weight: 600;   
+    font-size: 18px !important;
+ 
+    padding: 5px 0;
+    
+    display: inline-block;
+    width: 100%;
+}
+
+.navbar .navbar-mobile .sidenav ul li.buttons a {
     color: var(--bs-red);
     font-size: 20px;
     font-family: "Poppins";
-    font-weight: 600;
-    width: 100%;
-   
+    font-weight: 600;   
+    display: flex;
 }
+
 
 
 /* .navbar .navbar-mobile  .sidenav ul li:hover {
