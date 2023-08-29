@@ -32,7 +32,22 @@
         '/js/new-js/timeline.js',
         '/js/new-js/script.js?v=' . time(),
     ]) ?>
+    <?php
 
+    echo $g_configs['general']['txt.facebook_pixels'];
+    echo $g_configs['general']['txt.google_analytics'];
+
+    if (!empty($metaRobots)) {
+        echo $this->Html->meta('robots', $metaRobots);
+    }
+    if (!empty($metaKeywords)) {
+        echo $this->Html->meta('keywords', $metaKeywords);
+    }
+    if (!empty($metaDescription)) {
+        echo $this->Html->meta('description', $metaDescription);
+    }
+
+    ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
