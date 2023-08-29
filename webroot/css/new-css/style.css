@@ -6116,8 +6116,9 @@ input.search {
 }
 
 .blogs .box-blog .content-blog p.title{
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: bold;
+    
 
 }
 
