@@ -4742,6 +4742,7 @@ input.search {
     display: none;
 }
 
+
 .search-list ul li {
     display: flex;
     align-items: center;
@@ -4769,6 +4770,19 @@ input.search {
 
 .search-list.show {
     display: block;
+}
+
+
+.search-list.show {
+    max-height: 300px;
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid var(--bs-gray);
+    max-width: 325px;
+}
+
+.mobile-search {
+    display: none !important;
 }
 
 .navbar {
@@ -6408,13 +6422,14 @@ input[type="search"]:focus {
 
 /********* Start mobile sub menu********/
 
-.navbar .navbar-mobile  li:hover .toggle i {
+.navbar .navbar-mobile li:hover .toggle i {
     color: unset !important;
 }
 
-.navbar .navbar-mobile  li:hover .toggle i a {
+.navbar .navbar-mobile li:hover .toggle i a {
     color: var(--bs-white);
 }
+
 /* .navbar .navbar-mobile  li:hover .toggle i a {
     color: var(--bs-red);
 } */
@@ -6425,6 +6440,8 @@ input[type="search"]:focus {
     min-width: 121px;
     top: 5px;
     margin-bottom: 10px;
+
+    margin-left: -15px;
 }
 
 .navbar-mobile .mobile-menu-dropdown li {
@@ -6436,7 +6453,7 @@ input[type="search"]:focus {
 .navbar-mobile .mobile-menu-dropdown li a {
     color: rgba(118, 123, 146, 1) !important;
     font-size: 18px !important;
-    width: 100%;
+    width: 70%;
     padding: 5px 0;
 }
 
@@ -6446,32 +6463,33 @@ input[type="search"]:focus {
 
 
 
-.navbar .navbar-mobile  .sidenav ul li {
+.navbar .navbar-mobile .sidenav ul li {
     display: block;
-    padding: 0;
-    margin-bottom: 0;
+    
+    padding: 5px 25px;
+    margin-bottom: 10px;
 }
 
-.navbar .navbar-mobile  .links li {
+.navbar .navbar-mobile .links li {
     position: relative;
 }
 
-.navbar .navbar-mobile  .sidenav ul li a {
+.navbar .navbar-mobile .sidenav ul li a {
     color: var(--bs-red);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
 }
 
- .navbar .navbar-mobile .sidenav ul li a {
+.navbar .navbar-mobile .sidenav ul li a {
     color: var(--bs-red);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
-    display: inline-block;
     width: 100%;
-    padding: 5px;
+   
 }
+
 
 /* .navbar .navbar-mobile  .sidenav ul li:hover {
     background: unset !important;
