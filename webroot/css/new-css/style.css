@@ -8582,8 +8582,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .checkboxes div label {
     margin: 0 !important;
-    ;
-    text-wrap: nowrap;
+    
 
 }
 
