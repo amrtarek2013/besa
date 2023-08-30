@@ -1020,7 +1020,7 @@ class AppController extends Controller
             'https://besa.intimedev.com'
         );
 
-        debug($_SERVER['REMOTE_ADDR']);
+        debug($_SERVER);
        
         if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
             $this->loadComponent('EmailSender');
