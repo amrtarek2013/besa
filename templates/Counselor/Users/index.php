@@ -143,21 +143,20 @@
                                                         $appText = "";
                                                         if (!empty($userApp['applications'])) {
 
-
                                                             $appClass = 'app-apply';
-                                                            if ($userApp['applications'][0]['status'] == $statusLabel['Approved']) {
+                                                            if ($userApp['applications'][0]['status'] == $statusLabel['Joined Successfully']) {
 
                                                                 $appClass = 'app-completed';
                                                             } else if ($userApp['applications'][0]['status'] == $statusLabel['Rejected']) {
 
                                                                 $appClass = 'app-apply-fail';
                                                                 $appText = "<span class='app-fail-text'>Application Failed</span>";
-                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Under-Review']) {
+                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['University Offer']) {
 
                                                                 $appClass = 'app-uni-offer';
-                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Replied']) {
+                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Application Pass']) {
 
-                                                                $appClass = 'app-apply-path';
+                                                                $appClass = 'app-apply-pass';
                                                             }
                                                         } else {
                                                             $appText = "<span class='app-fail-text'>Didn't Apply</span>";

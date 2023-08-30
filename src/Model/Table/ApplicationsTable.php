@@ -44,11 +44,11 @@ In Cases 1, 4, 5, and 6, the students are not allowed to make any changes to the
 */
 
   // public $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-  public $statuses = [0 => "Did not Apply", 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Application Pass', 5 => 'University Offer', 6 => 'Joined Successfully'];
+  public $statuses = [0 => "Apply", 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Application Pass', 5 => 'University Offer', 6 => 'Joined Successfully'];
 
 
   // public $statusClasses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-  public $statusLabel = ["Didn't Apply" => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Application Pass' => 4, 'University Offer' => 5, 'Joined Successfully' => 6];
+  public $statusLabel = ["Apply" => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Application Pass' => 4, 'University Offer' => 5, 'Joined Successfully' => 6];
   public $saveLater = [0 => 'InProgress', 2 => 'Created', 1 => 'Save Later'];
   public $app_files = [
 
