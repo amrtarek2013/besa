@@ -80,7 +80,7 @@ use Cake\I18n\I18n;
         }
 
         .University-Offer {
-            background: #7fee4b;
+            background: #45951f;
             color: #fff;
 
         }
