@@ -101,6 +101,11 @@
 </section>
 <?php if ($this->request->is('mobile')) { ?>
     <script>
-        
+        $(document).ready(function(){
+
+            let text = $('.title .text-left').html();
+            text = text.replace('<br/>', ' ');
+            $('.title .text-left').html(text);
+        });
     </script>
 <?php } ?>
