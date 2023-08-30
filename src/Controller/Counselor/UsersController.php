@@ -45,6 +45,9 @@ class UsersController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('usersApp', 'parameters'));
+        $this->loadModel('Applications');
+        $this->set('statuses', $this->Applications->statuses);
+        $this->set('statusLabel', $this->Applications->statusLabel);
         $this->formCommon();
     }
 
