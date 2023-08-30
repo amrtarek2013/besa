@@ -8576,8 +8576,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .checkboxes div label {
     margin: 0 !important;
-
-
 }
 
 .checkboxes div:last-child {
@@ -8690,10 +8688,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 44px auto 0;
 }
 
-.book-appointment .checkboxes div label {
-    display: flex;
 
-}
 
 .country_code {
     border: none !important;
