@@ -26,7 +26,7 @@
         &nbsp;
       </div>
       <div class="col-md-8">
-        <div class="container-formBox">
+        <div class="container-formBox custom-container-form">
           <h4 class="title">Login Details</h4>
           <div class="grid-container" style="display: block;">
 
