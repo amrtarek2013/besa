@@ -98,7 +98,7 @@ class ApplicationsController extends AppController
 
                     if ($application->user_id) {
                         $this->loadModel('Users');
-                        $user = $this->Users->get($application->user_id);
+                        $user = $this->Users->find()->where(['id'=>$application->user_id])->first();
                         if ($user) {
 
                             $to = $user['email'];
