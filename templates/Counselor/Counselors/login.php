@@ -26,7 +26,7 @@
         &nbsp;
       </div>
       <div class="col-md-8">
-        <div class="container-formBox">
+        <div class="container-formBox custom-container-form">
           <h4 class="title">Login Details</h4>
           <div class="grid-container" style="display: block;">
 
@@ -34,14 +34,14 @@
 
 
           </div>
-          <br /><br />
+          <br />
           <div class="grid-container" style="display: block;">
 
             <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => false, 'label' => 'Password*']) ?>
 
 
           </div>
-          <div class="container-submit">
+          <div class="container-submit login-box-links" style="padding: 0 20px;">
             <div class="checkboxes">
               <div>
 
