@@ -144,6 +144,7 @@ class AppController extends Controller
 
         $this->permissions_list = $permissions_list = $this->permissions_list();
 
+        // dd($this->permissions_list());
         $this->set('permissions_list', $permissions_list);
         // echo $current_controller."------".$current_action;die;
 

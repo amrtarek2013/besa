@@ -75,6 +75,7 @@ class UsersTable extends Table
       ]
     );
 
+    $this->hasMany('Applications')->setForeignKey('user_id');
     $this->belongsTo('Countries')->setForeignKey('country_id');
     $this->belongsTo('Destinations', [
       'className' => 'Countries', 'foreignKey' => 'destination_id'

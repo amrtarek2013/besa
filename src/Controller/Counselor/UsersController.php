@@ -22,12 +22,14 @@ class UsersController extends AppController
         $conditions = $this->_filter_params();
 
         $counselor = $this->Auth->user();
+        // dd($counselor);
         $conditions['Users.counselor_id'] = $counselor['id'];
 
-        $users = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']]/*, 'Services'*/]]);
+        $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
+        // dd($usersApp->toArray());
 
         $parameters = $this->request->getAttribute('params');
-        $this->set(compact('users', 'parameters'));
+        $this->set(compact('usersApp', 'parameters'));
         $this->formCommon();
     }
 
