@@ -14,7 +14,7 @@
 
     .progressbar>div {
         background-color: var(--bs-light-blue);
-        width: 50%;
+        width: 46%;
         /* Adjust with JavaScript */
         height: 13px;
         float: left;
@@ -22,29 +22,29 @@
 
 
     .progressbar .app-apply {
-        width: 25%;
+        width: 18%;
     }
 
     .progressbar .app-not-apply {
-        width: 25%;
+        width: 18%;
 
         background-color: unset;
         border: 1px solid #E3B505;
     }
 
     .progressbar .app-apply-pass {
-        width: 50%;
+        width: 46%;
     }
 
     .progressbar .app-apply-fail {
-        width: 50%;
+        width: 46%;
         background-color: unset;
         border: 1px solid #E3B505;
     }
 
 
     .progressbar .app-uni-offer {
-        width: 75%;
+        width: 70%;
     }
 
     .progressbar .app-completed {
@@ -110,7 +110,7 @@ $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected'
     <div class="container" style="width:100%">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title text-left title-dash">Students</h2>
+                <h2 class="title text-left title-dash">Track & view your application</h2>
             </div>
         </div>
         <div class="row">
@@ -126,7 +126,7 @@ $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected'
                                     <thead>
                                         <tr class="table-header">
                                             <td class=""></td>
-                                            <td class="">Apply</td>
+                                            <td class="" style="width: 15% !important; ">Apply</td>
                                             <td class="">Application's Pass</td>
                                             <td class="">University's Offer</td>
                                             <td class="">Joined Successfuly</td>

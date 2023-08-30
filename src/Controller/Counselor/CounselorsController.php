@@ -50,7 +50,7 @@ class CounselorsController extends AppController
         // $popup_image = $this->getSnippet_image('counselor_login_success');
         if ($counselorData) {
 
-            $return['url']    = "/counselor/dashboard";
+            $return['url']    = "/counselor";
             $return['status']  = 1;
             // $return['message'] = 'Success';
             $return['message'] = $msg;
@@ -64,7 +64,7 @@ class CounselorsController extends AppController
             } else {
 
                 // $this->Flash->success(__('Welcome'));
-                $this->redirect('/counselor/profile');
+                $this->redirect('/counselor');
             }
         }
 
@@ -149,7 +149,7 @@ class CounselorsController extends AppController
             } else {
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
-                    $this->redirect('/counselor/profile');
+                    $this->redirect('/counselor');
                 } else {
 
                     $this->Flash->error(__($return['message']));
