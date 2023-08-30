@@ -64,7 +64,7 @@ class CounselorsController extends AppController
             } else {
 
                 // $this->Flash->success(__('Welcome'));
-                $this->redirect('/counselor');
+                $this->redirect('/counselor/dashboard');
             }
         }
 
@@ -149,7 +149,7 @@ class CounselorsController extends AppController
             } else {
                 if ($return['status']) {
                     $this->Flash->success(__($return['message']));
-                    $this->redirect('/counselor');
+                    $this->redirect('/counselor/dashboard');
                 } else {
 
                     $this->Flash->error(__($return['message']));
@@ -158,7 +158,7 @@ class CounselorsController extends AppController
             }
         }
 
-        // $this->redirect('/counselor');
+        // $this->redirect('/counselor/dashboard');
         // $this->redirect('/');
     }
 
@@ -184,7 +184,7 @@ class CounselorsController extends AppController
             $counselor->password = $data['password'];
             $this->Counselors->save($counselor);
             // dd($data);
-            $this->redirect('/counselor');
+            $this->redirect('/counselor/dashboard');
         }
     }
 
@@ -261,7 +261,7 @@ class CounselorsController extends AppController
 
         $counselor = $this->Counselors->get($id);
         $this->Auth->setUser($counselor->toArray());
-        return $this->redirect('/counselor');
+        return $this->redirect('/counselor/dashboard');
     }
 
     public function sendConfirmationEmail($counselor)
@@ -451,7 +451,7 @@ class CounselorsController extends AppController
                 } else {
                     if ($return['status']) {
                         $this->Flash->success(__($return['message']));
-                        $this->redirect('/counselor');
+                        $this->redirect('/counselor/dashboard');
                     } else {
 
                         $this->Flash->error(__($return['message']));
@@ -510,7 +510,7 @@ class CounselorsController extends AppController
             } else {
 
                 $this->Flash->success(__('Welcome'));
-                $this->redirect('/counselor');
+                $this->redirect('/counselor/dashboard');
             }
         }
         // Configure::write('debug', false);
@@ -878,7 +878,7 @@ class CounselorsController extends AppController
         $counselor = $this->is_counselor();
         if (!$this->is_counselor()) {
             $this->Flash->error('You must login first', "fail alert alert-error");
-            $this->redirect('/counselor');
+            $this->redirect('/counselor/dashboard');
         }
         // $this->get_dynamic_layout("dashboard");
         if (!empty($this->data)) {
