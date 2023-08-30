@@ -79,6 +79,12 @@ use Cake\I18n\I18n;
 
         }
 
+        .University-Offer {
+            background: #7fee4b;
+            color: #fff;
+
+        }
+
 
 
         .No {
