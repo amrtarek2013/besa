@@ -44,7 +44,8 @@
 
 
     .progressbar .app-uni-offer {
-        width: 70%;
+        
+        width: 75%;
     }
 
     .progressbar .app-completed {
