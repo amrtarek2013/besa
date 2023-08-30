@@ -1920,4 +1920,8 @@
         top: -60px;
         /* left: 90px */
     }
+    .british-Trophy .checkboxes div label {
+        font-size: 13.5px !important;
+        text-wrap: wrap;
+    }
 }
