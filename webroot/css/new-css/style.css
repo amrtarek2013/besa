@@ -8195,31 +8195,31 @@ input[type="search"]:focus {
 
 } */
 
-.Pendeing {
+.Apply {
     background: #d3d3d3;
 }
 
 .Under-Review {
     background: #0d6efd;
-    color: var(--bs-white);
+    color: #fff;
 }
 
 
 .Replied {
     background: #ffc107;
-    color: var(--bs-white);
+    color: #fff;
 
 }
 
 .Rejected {
     background: #bb2d3b;
-    color: var(--bs-white);
+    color: #fff;
 
 }
 
-.Approved {
+.Joined-Successfully {
     background: #198754;
-    color: var(--bs-white);
+    color: #fff;
 
 }
 
