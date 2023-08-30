@@ -22,7 +22,7 @@ class UsersController extends AppController
 
         $counselor = $this->Auth->user();
         try {
-            $counselor = $this->Counselors->get($counselor['id']);
+            // $counselor = $this->Counselors->get($counselor['id']);
 
             if (!$counselor) {
                 $this->Flash->error(__('Counselor not Found!!!'));
