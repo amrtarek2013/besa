@@ -1238,6 +1238,10 @@
         color: var(--bs-white) !important;
     }
 
+    .iti.iti--allow-dropdown.iti--separate-dial-code.iti--show-flags {
+        bottom: 32px;
+    }
+
     .main-banner {
         padding-top: 0;
         padding-bottom: 0;
