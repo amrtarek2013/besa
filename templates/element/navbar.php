@@ -53,7 +53,7 @@ use Cake\Routing\Router;
 
 
                         <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events</a>
+                            <a href="/<?= $g_dynamic_routes['events.index'] ?>">Events</a>
 
                             <div class="menu-dropdown">
                                 <ul>
