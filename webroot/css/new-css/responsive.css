@@ -1302,6 +1302,10 @@
         text-align: center;
     }
 
+    .main-banner .title-banner-blue {
+        padding: 15px !important;
+    }
+
     .partiner-banner .title-banner-blue h3 {
         font-weight: 700;
         font-size: 28px;
