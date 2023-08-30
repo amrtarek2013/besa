@@ -1306,6 +1306,11 @@
         padding: 15px !important;
     }
 
+    .remodal.removebg .container-formBox {
+        padding: 25px 25px !important;
+        padding-bottom: 30px !important;
+    }
+
     .partiner-banner .title-banner-blue h3 {
         font-weight: 700;
         font-size: 28px;
