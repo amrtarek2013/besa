@@ -44,7 +44,7 @@ class ApplicationsController extends AppController
     {
 
         $counselor = $this->Auth->user();
-        debug($counselor);
+        // debug($counselor);
         try {
 
             // $counselor = $this->Counselors->get($counselor['id']);
