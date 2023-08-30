@@ -1350,6 +1350,9 @@
         line-height: 1.2;
         width: 90%;
     }
+    .british-Trophy .checkboxes div label {
+        text-wrap: wrap;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1920,8 +1923,5 @@
         top: -60px;
         /* left: 90px */
     }
-    .british-Trophy .checkboxes div label {
-        font-size: 13.5px !important;
-        text-wrap: wrap;
-    }
+    
 }
