@@ -7421,6 +7421,7 @@ input[type="search"]:focus {
     letter-spacing: 0.32px;
     /* background: transparent; */
     background: var(--bs-white);
+    position: relative;
 }
 
 .form-area select {
