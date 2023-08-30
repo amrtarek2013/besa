@@ -8770,6 +8770,6 @@ input[type=number]::-webkit-outer-spin-button {
 padding: 0;
 }
 
-.form-area  .logo_image .hint{
+.form-area  .logo_image{
     display: none;
 }
