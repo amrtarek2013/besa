@@ -34,7 +34,7 @@
 
 
           </div>
-          <br /><br />
+          <br />
           <div class="grid-container" style="display: block;">
 
             <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => false, 'label' => 'Password*']) ?>
