@@ -52,7 +52,7 @@
             ]) ?>
 
           </div>
-          <div class="container-submit" style="padding: 0 20px;">
+          <div class="container-submit login-box-links" style="padding: 0 20px;">
             <div class="checkboxes links">
               <div>
 

@@ -1349,6 +1349,7 @@
         text-wrap: wrap;
         line-height: 1.2;
         width: 90%;
+        display: flex;
     }
     .british-Trophy .checkboxes div label {
         text-wrap: wrap;
@@ -1923,5 +1924,7 @@
         top: -60px;
         /* left: 90px */
     }
-    
+    .book-appointment .container-formBox button[type="submit"] {
+        width: 100%;
+    }
 }

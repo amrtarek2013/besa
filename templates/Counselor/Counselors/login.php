@@ -41,7 +41,7 @@
 
 
           </div>
-          <div class="container-submit">
+          <div class="container-submit login-box-links" style="padding: 0 20px;">
             <div class="checkboxes">
               <div>
 
