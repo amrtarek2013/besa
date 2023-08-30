@@ -105,20 +105,22 @@
                         ]) ?> -->
                         <?php
                         echo $this->AdminForm->control('image', [
-                            'label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                                'data' => $counselor,
-                                'field' => 'image',
-                                'info' => [
-                                    'width' => $uploadSettings['image']['width'],
-                                    'height' => $uploadSettings['image']['height'],
-                                    'path' => $uploadSettings['image']['path']
-
-                                ],
-                            ]),
-
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                            'label' => 'Profile Picture',
+                            'type' => 'file',
+                            'between' => '<div class="d-flex">' . 
+                                            $this->element('image_input_between', [
+                                                'data' => $counselor,
+                                                'field' => 'image',
+                                                'info' => [
+                                                    'width' => $uploadSettings['image']['width'],
+                                                    'height' => $uploadSettings['image']['height'],
+                                                    'path' => $uploadSettings['image']['path']
+                                                ],
+                                            ]) .
+                                         '</div>',
+                            'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]);
-                        ?>
+                        
 
                     </div>
                 </div>
