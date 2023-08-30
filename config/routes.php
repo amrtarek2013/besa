@@ -144,7 +144,7 @@ return static function (RouteBuilder $routes) {
     Router::prefix('counselor', function (RouteBuilder $routes) {
         $routes->connect('/locale/*', ['controller' => 'Localizations', 'action' => 'setLocale']);
         $routes->connect('/', ['controller' => 'Counselors', 'action' => 'index']);
-        $routes->connect('/dashboard', ['controller' => 'Users', 'action' => 'index']);
+        $routes->connect('/dashboard', ['controller' => 'Applications', 'action' => 'index']);
         $routes->connect('/users', ['controller' => 'Users', 'action' => 'index']);
         $routes->connect('/profile', ['controller' => 'Counselors', 'action' => 'profile']);
         $routes->connect('/login', ['controller' => 'Counselors', 'action' => 'login']);

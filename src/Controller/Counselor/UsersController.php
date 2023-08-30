@@ -35,9 +35,7 @@ class UsersController extends AppController
         }
         
         $conditions = $this->_filter_params();
-
-        $counselor = $this->Auth->user();
-        // dd($counselor);
+        
         $conditions['Users.counselor_id'] = $counselor['id'];
 
         $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
