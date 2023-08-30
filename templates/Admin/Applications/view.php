@@ -60,7 +60,7 @@
                                     <tr class="table-header">
                                         <th class="" width=""><a>Status</a></th>
                                         <td>
-                                            <span class="btn-status <?= $statuses[$application->status] ?>">
+                                            <span class="btn-status <?= str_replace(' ', '-', $statuses[$application->status]) ?>">
                                                 <?php echo $statuses[$application->status] ?>
                                             </span>
                                         </td>
@@ -71,7 +71,7 @@
                                             <div class="row">
 
                                                 <?php
-                                                echo $this->AdminForm->create($application, ['url' => '/admin/applications/edit/' . $application->id.'/view', 'id' => 'UpdateAdminForm']);
+                                                echo $this->AdminForm->create($application, ['url' => '/admin/applications/edit/' . $application->id . '/view', 'id' => 'UpdateAdminForm']);
 
                                                 echo $this->AdminForm->control('id', ['type' => 'hidden', 'value' => $application->id]) ?>
                                                 <div class="col-md-12">
