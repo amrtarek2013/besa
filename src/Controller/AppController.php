@@ -1016,12 +1016,11 @@ class AppController extends Controller
 
         $local = array(
             '127.0.0.1',
-            '::1'
+            '::1',
+            'https://besa.intimedev.com'
         );
 
-        if(strpos($_SERVER['REMOTE_ADDR'], 'intimedev') !== false){
-            return true;
-        }
+       
         if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
             $this->loadComponent('EmailSender');
             $replace['{%website_url%}'] = WEBSITE_PATH;
