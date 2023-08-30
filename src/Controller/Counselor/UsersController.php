@@ -6,6 +6,7 @@ namespace App\Controller\Counselor;
 
 use App\Controller\AppController;
 use Cake\Utility\Hash;
+use Exception;
 
 /**
  * Users Controller
@@ -19,6 +20,20 @@ class UsersController extends AppController
     public function index()
     {
 
+        $counselor = $this->Auth->user();
+        try {
+            $counselor = $this->Counselors->get($counselor['id']);
+
+            if (!$counselor) {
+                $this->Flash->error(__('Counselor not Found!!!'));
+                $this->redirect('/counselor/logout');
+            }
+        } catch (Exception $ex) {
+
+            $this->Flash->error(__('Counselor not Found!!!'));
+            $this->redirect('/counselor/logout');
+        }
+        
         $conditions = $this->_filter_params();
 
         $counselor = $this->Auth->user();
