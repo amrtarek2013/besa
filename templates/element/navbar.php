@@ -18,19 +18,19 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-navbar">
                     <div class="logo">
-                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo"></a>
+                        <a href="<?= '/' . $g_dynamic_routes['pages.main'] ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo"></a>
                     </div>
                     <ul class="links">
 
                         <li>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study</a>
+                            <a href="<?= '/' . $g_dynamic_routes['pages.wheretostudy'] ?>">Study</a>
                             <div class="menu-dropdown">
                                 <ul>
                                     <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
+                                        <a href="<?= '/' . $g_dynamic_routes['services.index'] ?>">Services </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'destinations') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations </a>
+                                        <a href="<?= '/' . $g_dynamic_routes['countries.index'] ?>">Destinations </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
                                         <a href="<?= Router::url('/' . $g_dynamic_routes['pathwayprograms.index']) ?>">Pathway Programs </a>
@@ -46,7 +46,7 @@ use Cake\Routing\Router;
                         </li>
 
                         <li>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
+                            <a href="<?= '/' . $g_dynamic_routes['pages.partnerinstitutions'] ?>">Partners</a>
 
                         </li>
 
