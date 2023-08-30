@@ -18,42 +18,42 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-navbar">
                     <div class="logo">
-                        <a href="<?= '/' . $g_dynamic_routes['pages.main'] ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo"></a>
+                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo"></a>
                     </div>
                     <ul class="links">
 
                         <li>
-                            <a href="<?= '/' . $g_dynamic_routes['pages.wheretostudy'] ?>">Study</a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study</a>
                             <div class="menu-dropdown">
                                 <ul>
                                     <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['services.index'] ?>">Services </a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'destinations') ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['countries.index'] ?>">Destinations </a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['pathwayprograms.index'] ?>">Pathway Programs </a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pathwayprograms.index']) ?>">Pathway Programs </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'universityplacements') ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['universityplacements.index'] ?>">University Placement </a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['universityplacements.index']) ?>">University Placement </a>
                                     </li>
                                     <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'younglearners') ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['younglearners.index'] ?>">Young Learners </a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['younglearners.index']) ?>">Young Learners </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
                         <li>
-                            <a href="<?= '/' . $g_dynamic_routes['pages.partnerinstitutions'] ?>">Partners</a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
 
                         </li>
 
 
 
                         <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                            <a href="/<?= $g_dynamic_routes['events.index'] ?>">Events</a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events</a>
 
                             <div class="menu-dropdown">
                                 <ul>
@@ -61,7 +61,7 @@ use Cake\Routing\Router;
                                     foreach ($eventsMenuList as $key => $eventValue) {
                                     ?>
                                         <li>
-                                            <a href="<?= '/' . $g_dynamic_routes['events.eventdetails'] ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
                                         </li>
                                     <?php } ?>
 
@@ -76,20 +76,20 @@ use Cake\Routing\Router;
                             <div class="menu-dropdown">
                                 <ul>
                                     <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['pages.aboutus'] ?>">About us</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'blogs' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['blogs.index'] ?>">Blog</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>">Blog</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['careers.index'] ?>">Careers</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>">Careers</a>
                                     </li>
 
                                     <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['services.b2bservices'] ?>">B2B Services</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['enquiries.contactus'] ?>">Contact Us</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
                                     </li>
 
                                 </ul>
@@ -100,7 +100,7 @@ use Cake\Routing\Router;
                     <div class="buttons apply-now-btn-header">
 
                         <div class="button li-search">
-                            <!-- <a href="<?= '/' . $g_dynamic_routes['enquiries.contactus'] ?>" class="btn MainBtn">Apply Now</a> -->
+                            <!-- <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn">Apply Now</a> -->
 
                             <div class="search">
                                 <input type="search" name="search" class="searchInput" id="searchInput" placeholder="Search">
@@ -157,52 +157,52 @@ use Cake\Routing\Router;
                                 </li>
 
                                 <li class="<?= strtolower($current_controller) == 'pages' ? 'parent-menu active' : 'parent-menu' ?>">
-                                    <a href="<?= '/' . $g_dynamic_routes['pages.wheretostudy'] ?>">Study <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
                                     <div class="mobile-menu-dropdown">
                                         <ul>
 
                                             <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'wheretostudy') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['pages.wheretostudy'] ?>">Where To Study </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Where To Study </a>
                                             </li>
                                             <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['services.index'] ?>">Services </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
                                             </li>
                                             <li <?= (strtolower($current_controller) == 'destinations') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['countries.index'] ?>">Destinations </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations </a>
                                             </li>
                                             <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['pathwayprograms.index'] ?>">Pathway Programs </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['pathwayprograms.index']) ?>">Pathway Programs </a>
                                             </li>
                                             <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'universityplacements') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['universityplacements.index'] ?>">University Placement </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['universityplacements.index']) ?>">University Placement </a>
                                             </li>
                                             <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'younglearners') ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['younglearners.index'] ?>">Young Learners </a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['younglearners.index']) ?>">Young Learners </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
 
                                 <li>
-                                    <a href="<?= '/' . $g_dynamic_routes['pages.partnerinstitutions'] ?>">Partners</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
 
                                 </li>
 
 
 
                                 <li class="<?= strtolower($current_controller) == 'events' ? 'parent-menu active' : 'parent-menu' ?>">
-                                    <a href="<?= '/' . $g_dynamic_routes['events.index'] ?>">Events <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
 
                                     <div class="mobile-menu-dropdown">
                                         <ul>
                                             <li>
-                                                <a href="<?= '/' . $g_dynamic_routes['events.index'] ?>">All Events</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">All Events</a>
                                             </li>
                                             <?php
                                             foreach ($eventsMenuList as $key => $eventValue) {
                                             ?>
                                                 <li>
-                                                    <a href="<?= '/' . $g_dynamic_routes['events.eventdetails'] ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
+                                                    <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
                                                 </li>
                                             <?php } ?>
 
@@ -216,49 +216,49 @@ use Cake\Routing\Router;
                                     <div class="mobile-menu-dropdown">
                                         <ul>
                                             <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['pages.aboutus'] ?>">About us</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
                                             </li>
                                             <li <?= strtolower($current_controller) == 'blogs' ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['blogs.index'] ?>">Blogs</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>">Blogs</a>
                                             </li>
                                             <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['careers.index'] ?>">Careers</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>">Careers</a>
                                             </li>
 
                                             <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['services.b2bservices'] ?>">B2B Services</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
                                             </li>
                                             <!-- <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
-                                                <a href="<?= '/' . $g_dynamic_routes['enquiries.contactus'] ?>">Contact Us</a>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
                                             </li> -->
                                     </div>
                                 </li>
                                 <!-- <li <?= strtolower($current_controller) == 'universities' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
-                                    <a href="<?= '/' . $g_dynamic_routes['universities.index'] ?>">Partners</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['universities.index']) ?>">Partners</a>
                                 </li>
 
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
-                                    <a href="<?= '/' . $g_dynamic_routes['pages.aboutus'] ?>">About us</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
                                 </li>
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'whereToStudy' ? 'class="active"' : '' ?>>
-                                    <a href="<?= '/' . $g_dynamic_routes['pages.wheretostudy'] ?>">Study</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study</a>
                                 </li>
                                 <?php if ($this->request->is('mobile')) : ?>
                                     <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['services.index'] ?>">Services</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'countries' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['countries.index'] ?>">Destinations</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations</a>
                                     </li>
                                     <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                                        <a href="<?= '/' . $g_dynamic_routes['events.index'] ?>">Events</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events</a>
                                     </li>
                                 <?php endif; ?> -->
                                 <!-- <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
-                                    <a href="<?= '/' . $g_dynamic_routes['services.b2bservices'] ?>">B2B Services</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
                                 </li> -->
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
-                                    <a href="<?= '/' . $g_dynamic_routes['enquiries.contactus'] ?>">Contact Us</a>
+                                    <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
                                 </li>
 
                                 <?php if (isset($_SESSION['Auth']['User'])) { ?>
