@@ -19,7 +19,7 @@
                     <?= $visitorsApplicationToText ?>
                     
                 </p>
-                <p class="light-para">For the purpose of applying regulation, your details are required.</p>
+                <!-- <p class="light-para">For the purpose of applying regulation, your details are required.</p> -->
 
                 <div class="container-formBox">
                     <h4 class="title">Create an account to apply</h4>
