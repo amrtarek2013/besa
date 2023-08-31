@@ -45,6 +45,12 @@
                                 ?>
 
                             <?php endforeach; ?>
+                            
+                            <?php
+                                if ($counter % 2 != 0) {
+                                    echo '<div class="display-flex"></div>';
+                                }
+                                ?>
                         </div>
 
                         <div class="paginator">
