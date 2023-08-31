@@ -1,5 +1,3 @@
-<!-- <link rel="stylesheet" href="/intl-tel-input/css/intlTelInput.css" />
-<script src="/intl-tel-input/js/intlTelInput.min.js"></script> -->
 <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
@@ -293,19 +291,4 @@
     } else
       $('#subject-area').show();
   });
-  // var input = document.querySelector(".mobile_code");
-  // window.intlTelInput(input, {
-  //   // show dial codes too
-  //   separateDialCode: true,
-  //   // If there are some countries you want to show on the top.
-  //   // here we are promoting russia and singapore.
-  //   preferredCountries: ["eg", "gbp", "us"],
-  //   //Default country
-  //   initialCountry: "eg",
-  //   // show only these countres, remove all other
-  //   // onlyCountries: ["ru", "cn", "pk", "sg", "my", "bd"],
-  //   // If there are some countries you want to execlde.
-  //   // here we are exluding india and israel.
-  //   // excludeCountries: ["in", "il"]
-  // });
 </script>
