@@ -728,10 +728,10 @@ CODEBLOCK;
 					$to_value = empty($allValues[$field . '_to']) ? '' : $allValues[$field . '_to'];
 
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_from', array('label' => __('From'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value, 'div' => array('id' => $from_div_id), "autocomplete" => "off"));
+					$output .= $this->AdminForm->control($field . '_from', array('label' => __($from), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}From", 'value' => $from_value, 'selected' => $from_value, 'div' => array('id' => $from_div_id), "autocomplete" => "off"));
 					$output .= '</div>';
 					$output .= '<div class="col-md-2">';
-					$output .= $this->AdminForm->control($field . '_to', array('label' => __('To'), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value, 'div' => array('id' => $to_div_id), "autocomplete" => "off"));
+					$output .= $this->AdminForm->control($field . '_to', array('label' => __($to), 'class' => $extra['input_class'] . ' hasDate', 'id' => "{$field}To", 'value' => $to_value, 'selected' => $to_value, 'div' => array('id' => $to_div_id), "autocomplete" => "off"));
 					$output .= '</div>';
 					$hasDate = true;
 				} elseif (!empty($filter['type']) && strtolower($filter['type']) == 'date_time_range') {
