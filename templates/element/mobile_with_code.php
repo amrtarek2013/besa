@@ -2,7 +2,7 @@
 
 use Cake\Routing\Router;
 ?>
-<link rel="stylesheet" href="<?= Router::url('/intl-tel-input/css/intlTelInput.min.css') ?>" />
+<link rel="stylesheet" href="<?= Router::url('/intlTelInput/css/intlTelInput.min.css') ?>" />
 
 <?php
 
@@ -32,9 +32,9 @@ $modileCodeId = 'mobile_code' . rand();
     ]) ?>
 </div>
 
-<script src="<?= Router::url('/intl-tel-input/js/intlTelInput.js') ?>"></script>
+<script src="<?= Router::url('/intlTelInput/js/intlTelInput.js') ?>"></script>
 
-<script src="<?= Router::url('/intl-tel-input/js/utils.js') ?>"></script>
+<script src="<?= Router::url('/intlTelInput/js/utils.js') ?>"></script>
 <script>
     var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {

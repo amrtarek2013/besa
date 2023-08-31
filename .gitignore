@@ -18,7 +18,7 @@
 /webroot/phplive/*
 /webroot/img_uploads/*
 /webroot/img/uploads/*
-/webroot/intl-tel-input/*
+/webroot/intlTelInput/*
 /webroot/uploads/*
 /webroot/config.php
 /webroot/cached_data/*
