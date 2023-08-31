@@ -449,7 +449,8 @@ class AppController extends Controller
         $permitted_list = [];
         $permissions_list = [];
 
-
+        $cached_permissions = [];
+        $cached_permissionsids = [];
         $prefix = $this->request->getParam('prefix');
         if (isset($prefix) && !empty($prefix)) {
 
@@ -704,7 +705,7 @@ class AppController extends Controller
         $cached_menus = Cache::read('menus', '_menus_');
         // dd($cached_menus);
         $menus = [];
-        if (empty($cached_menus) || isset($cached_menus[$prefix]) || $reFind) {
+        if (empty($cached_menus) || !isset($cached_menus[$prefix]) || $reFind) {
             $conditions = array();
             $conditions['active'] = true;
             $conditions['prefix'] = $prefix;
@@ -719,16 +720,21 @@ class AppController extends Controller
             // dd($cached_menus);
 
             Cache::write('menus', $cached_menus, '_menus_');
+
+            $this->sideMenus[$prefix] = $this->checkmenu($menus, $prefix);
+            $this->set('sideMenus', $this->sideMenus[$prefix]);
         } else {
 
             $menus = $cached_menus[$prefix];
         }
-        $this->sideMenus[$prefix] = $this->checkmenu($menus, $prefix);
-        // print_r($this->sideMenus);die;
-        //     $this->set('sideMenus', $this->sideMenus);
-        // } else {
-        $this->set('sideMenus', $this->sideMenus[$prefix]);
-        // }
+        if (empty($this->sideMenus[$prefix]) || $reFind) {
+
+            $this->sideMenus[$prefix] = $this->checkmenu($menus->toArray(), $prefix);
+            // print_r($this->sideMenus);die;
+            $this->set('sideMenus', $this->sideMenus);
+        } else {
+            $this->set('sideMenus', $this->sideMenus[$prefix]);
+        }
 
         // if (empty($this->sideMenus[$prefix]) || $reFind) {
         //     $conditions = array();

@@ -197,7 +197,8 @@ class UniversityCoursesController extends AppController
             'duration' => 'Duration (Years)',
             'intake' => 'Intake',
 
-            'description' => 'Description'
+            'description' => 'Description',
+            'active'=>'Active'
 
         );
 
@@ -225,7 +226,7 @@ class UniversityCoursesController extends AppController
 
                 $universityCourse->description
 
-                // ($universityCourse->active) ? 'Yes' : 'No',
+                ($universityCourse->active) ? 'Yes' : 'No',
             ];
         }
 

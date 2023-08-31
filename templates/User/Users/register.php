@@ -43,7 +43,7 @@
 
                   <?php
 
-            use Cake\Routing\Router;
+                  use Cake\Routing\Router;
 
                   for ($i = 1; $i <= 31; $i++) {
                     $d = $i; //date('M', strtotime("last day of +$i month"));
@@ -96,7 +96,7 @@
                 'type' => 'select',
               ]) ?>
             </div> -->
-            
+
 
             <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
 
@@ -223,6 +223,7 @@
 
             <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'label' => 'Address*', 'required' => true]) ?> -->
 
+            <?= $this->element('security_code', ['show_label' => 1]) ?>
           </div>
           <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
