@@ -8587,7 +8587,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .checkboxes div label {
     margin: 0 !important;
-    
+
     text-wrap: nowrap;
 
 }
@@ -8760,21 +8760,37 @@ input[type=number]::-webkit-outer-spin-button {
 
 /**************** End Tool tip*******************************/
 
-.login-box-links a{
+.login-box-links a {
     font-size: 15px;
     font-family: 'Poppins';
     color: #2575fc;
 }
 
-.custom-container-form{
+.custom-container-form {
     margin: 30px 0 50px;
 
 }
 
-.custom-container-form .grid-container{
-padding: 0;
+.custom-container-form .grid-container {
+    padding: 0;
 }
 
-.form-area  .logo_image{
-    display: none;
+.fix-overlapping .logo_image {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    margin-bottom: 0px;
+    grid-gap: 10px;
+    justify-content: space-between;
+    font-family: 'Poppins';
+}
+
+.fix-overlapping label {
+    min-height: 20px;
+    margin: 0;
+
+}
+
+.blogs>.container>.row .col-md-12>.display-flex {
+    justify-content: start;
 }
