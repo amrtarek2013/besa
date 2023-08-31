@@ -45,6 +45,7 @@ class UsersController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('users', 'parameters'));
+        
         $this->formCommon();
     }
 
@@ -241,6 +242,7 @@ class UsersController extends AppController
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        $this->set('currentStudyLevels', $this->StudyLevels->mainStudyLevels);
 
         $this->loadModel('SubjectAreas');
         $subjectAreas = $this->SubjectAreas->find('list', [

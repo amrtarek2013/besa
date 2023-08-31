@@ -16,7 +16,12 @@ class UsersTable extends Table
 
 
   public $modelName = 'users';
-  public $filters = ['first_name' => 'like', 'email' => 'like'];
+  public $filters = [
+    'first_name' => 'like',
+    'email' => 'like',
+    'current_study_level' => ['type' => 'select'],
+    'created' => ['type' => 'date_range']
+  ];
 
   public $schema_of_export = array(
     'id',
