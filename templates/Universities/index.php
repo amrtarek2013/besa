@@ -45,24 +45,26 @@
                                 ?>
 
                             <?php endforeach; ?>
-                            
+
                             <?php
-                                if ($counter % 2 != 0) {
-                                    echo '<div class="box-blog display-flex"></div>';
-                                }
-                                ?>
+                            if ($counter % 2 != 0) {
+                                echo '<div class="box-blog display-flex"></div>';
+                            }
+                            ?>
                         </div>
 
-                        <div class="paginator">
-                            <ul class="pagination">
-                                <?= $this->Paginator->first(' << ') ?>
-                                <?= $this->Paginator->prev(' < ') ?>
-                                <?= $this->Paginator->numbers() ?>
-                                <?= $this->Paginator->next(' > ') ?>
-                                <?= $this->Paginator->last(' >> ') ?>
-                            </ul>
-                            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-                        </div>
+                        <?php if (sizeof($universities) == 20) : ?>
+                            <div class="paginator">
+                                <ul class="pagination">
+                                    <?= $this->Paginator->first(' << ') ?>
+                                    <?= $this->Paginator->prev(' < ') ?>
+                                    <?= $this->Paginator->numbers() ?>
+                                    <?= $this->Paginator->next(' > ') ?>
+                                    <?= $this->Paginator->last(' >> ') ?>
+                                </ul>
+                                <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <!-- <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
