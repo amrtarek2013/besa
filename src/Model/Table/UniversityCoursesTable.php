@@ -87,6 +87,7 @@ class UniversityCoursesTable extends Table
         'intake',
 
         'description',
+        'active' => 'Active'
     );
 
     /**
