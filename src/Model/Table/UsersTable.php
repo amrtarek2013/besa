@@ -20,7 +20,7 @@ class UsersTable extends Table
     'first_name' => 'like',
     'email' => 'like',
     'current_study_level' => ['type' => 'select'],
-    'created' => ['type' => 'date_range']
+    'created' => ['type' => 'date_range', 'from'=>'Date created from', 'to'=>'Date created to']
   ];
 
   public $schema_of_export = array(
