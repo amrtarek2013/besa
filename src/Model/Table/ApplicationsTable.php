@@ -22,11 +22,33 @@ class ApplicationsTable extends Table
     'save_later' => ['options' => ['options' => [0 => 'InProgress', 2 => 'Completed', 1 => 'Save Later']]]
   ];
 
-  public $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
+  /*
+Application Current Progress
+0 - Pending
+1 - Under-Review
+2 - Replied
+3 - Rejected
+4 - Approved
+
+The new application progress based on the "View & Track Your Application" design will be as follows:
+0 - Didn't Apply
+1 - Under-Review
+2 - Replied
+3 - Rejected/Failed 
+4 - Application Pass
+5 - University's Offer
+6 - Joined Successfully
+
+In Cases 2 and 3, the students are allowed to make changes to their application. This means that they have the opportunity to edit or modify any information they have already submitted.
+In Cases 1, 4, 5, and 6, the students are not allowed to make any changes to their application. Once they have submitted their application, they are not able to edit or modify any of the information provided.
+*/
+
+  // public $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
+  public $statuses = [0 => "Apply", 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Application Pass', 5 => 'University Offer', 6 => 'Joined Successfully'];
 
 
   // public $statusClasses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-  public $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
+  public $statusLabel = ["Apply" => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Application Pass' => 4, 'University Offer' => 5, 'Joined Successfully' => 6];
   public $saveLater = [0 => 'InProgress', 2 => 'Created', 1 => 'Save Later'];
   public $app_files = [
 

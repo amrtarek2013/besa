@@ -12,6 +12,7 @@
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Trophy</h1>
                     <h2 class="title text-left">The British<br />Trophy Event<br />Subscription</h2>
+                    <!-- <h2 class="title text-left-mobile">The British<br />Trophy Event<br />Subscription</h2> -->
                 </div>
             </div>
 
@@ -77,7 +78,7 @@
                             <div class="checkboxes">
                                 <div class="terms-conditions">
                                     <input type="checkbox" name="terms" id="terms" required="required">
-                                    <label for="">I agree to <a href="<?=Cake\Routing\Router::url('/content/terms-conditions')?>">terms & conditions</a> </label>
+                                    <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="is_subscribed" id="is_subscribed">
@@ -98,3 +99,13 @@
         </div>
     </div>
 </section>
+<?php if ($this->request->is('mobile')) { ?>
+    <script>
+        $(document).ready(function(){
+
+            let text = $('.title .text-left').html();
+            text = text.replace('<br/>', ' ');
+            $('.title .text-left').html(text);
+        });
+    </script>
+<?php } ?>

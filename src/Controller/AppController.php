@@ -1019,6 +1019,9 @@ class AppController extends Controller
             '::1'
         );
 
+        if ($_SERVER['HTTP_HOST'] == 'besa.intimedev.com')
+            return true;
+
         if (!(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
             $this->loadComponent('EmailSender');
             $replace['{%website_url%}'] = WEBSITE_PATH;
@@ -1107,7 +1110,6 @@ class AppController extends Controller
             if (empty($this->metaKeywords)) {
                 $this->metaKeywords = $this->g_configs['general']['txt.keywords'];
             }
-            
         }
 
         $this->set('metaDescription', h(substr(preg_replace('/\\s+/', ' ', $this->metaDescription), 0, 500)));

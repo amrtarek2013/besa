@@ -205,6 +205,10 @@ class EnquiriesController extends AppController
 
 
         $this->set('countriesCodesList', $countriesCodesList);
+        
+        $visitors_application_top_text = $this->getSnippet('visitors_application_top_text');
+
+        $this->set('visitorsApplicationToText', $visitors_application_top_text);
     }
 
     public function educationalInstitution()

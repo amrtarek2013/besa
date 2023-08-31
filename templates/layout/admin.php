@@ -51,7 +51,7 @@ use Cake\I18n\I18n;
             margin-bottom: 5px;
         }
 
-        .Pendeing {
+        .Apply {
             background: #d3d3d3;
         }
 
@@ -73,8 +73,14 @@ use Cake\I18n\I18n;
 
         }
 
-        .Approved {
+        .Joined-Successfully {
             background: #198754;
+            color: #fff;
+
+        }
+
+        .University-Offer {
+            background: #45951f;
             color: #fff;
 
         }

@@ -103,7 +103,7 @@ if (empty($_SERVER["HTTPS"])) {
     define('WEBSITE_PATH', "http://$_SERVER[HTTP_HOST]");
 } else
     define('WEBSITE_PATH', "https://$_SERVER[HTTP_HOST]");
-// define('WEBSITE_PATH', 'https://besa.intimedev.com')
+// define('WEBSITE_PATH', 'https://besaeg.com')
 define('WEBSITE_URL', Router::url(null, true));
 define('ADMIN_ASSETS', WEBSITE_PATH . '/Admin'); //WEBSITE_PATH.'/Admin');
 define('FRONT_ASSETS', WEBSITE_PATH . '/webroot/Front');

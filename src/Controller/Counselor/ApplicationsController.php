@@ -7,6 +7,7 @@ namespace App\Controller\Counselor;
 use App\Controller\AppController;
 use Cake\Routing\Router;
 use Cake\Utility\Hash;
+use Exception;
 
 /**
  * Applications Controller
@@ -17,46 +18,67 @@ class ApplicationsController extends AppController
 {
 
 
-    public function getAll()
-    {
-        $all = $this->Applications->find('all');
-        $searchForValue = ',';
-        $stringValue = ',3,4,';
+    // public function index()
+    // {
 
-        if (strpos($stringValue, $searchForValue) !== false) {
-            echo "Found";
-        }
-        foreach ($all as  $one) {
-            if (strpos($one->application_group_id, ",") !== false) continue;
-            $one->application_group_id = ',' . $one->application_group_id . ',';
-            $this->Applications->save($one);
-            //    dd($one);
-        }
-        dd('$one');
-    }
+    //     $conditions = $this->_filter_params();
+    //     $user = $this->Auth->user();
+    //     $conditions['Applications.user_id'] = $user['id'];
+
+    //     $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'StudyLevels', 'Services', 'Users']]);
+
+    //     $parameters = $this->request->getAttribute('params');
+    //     $this->set(compact('applications', 'parameters'));
+
+    //     $statuses = $this->Applications->statuses;
+    //     $statusesBtns = [];
+    //     foreach ($statuses as $key => $status) {
+    //         $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
+    //     }
+    //     $this->set('statusesBtns', $statusesBtns);
+    //     $this->set('statuses', $statuses);
+    //     $this->formCommon();
+    // }
 
     public function index()
     {
 
-        $conditions = $this->_filter_params();
-        $user = $this->Auth->user();
-        $conditions['Applications.user_id'] = $user['id'];
+        $counselor = $this->Auth->user();
+        // debug($counselor);
+        try {
 
-        $applications = $this->paginate($this->Applications, ['conditions' => $conditions, 'contain' => ['Universities', 'StudyLevels', 'Services', 'Users']]);
+            // $counselor = $this->Counselors->get($counselor['id']);
+
+            if (!$counselor) {
+                $this->Flash->error(__('Counselor not Found!!!'));
+                $this->redirect('/counselor/logout');
+            } else if ($counselor['role_id'] != 3) {
+                $this->Flash->error(__('Sorry, you don\'t has permission to access this page!!!'));
+                $this->redirect('/counselor/logout');
+            }
+        } catch (Exception $ex) {
+
+            $this->Flash->error(__('User not Found!!!'));
+            $this->redirect('/counselor/logout');
+        }
+
+        $this->loadModel('Users');
+        $conditions = $this->_filter_params();
+
+        $conditions['Users.counselor_id'] = $counselor['id'];
+
+        $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
+        // dd($usersApp->toArray());
 
         $parameters = $this->request->getAttribute('params');
-        $this->set(compact('applications', 'parameters'));
-
-        $statuses = $this->Applications->statuses;
-        $statusesBtns = [];
-        foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
-        }
-        $this->set('statusesBtns', $statusesBtns);
-        $this->set('statuses', $statuses);
-        $this->formCommon();
+        $this->set(compact('usersApp', 'parameters'));
+        $this->loadModel('Applications');
+        $this->set('statuses', $this->Applications->statuses);
+        $this->set('statusLabel', $this->Applications->statusLabel);
+        // $this->formCommon();
     }
 
+    /*
     public function add($service_id = null)
     {
 
@@ -64,18 +86,6 @@ class ApplicationsController extends AppController
 
         $user_id = $conditions['Applications.user_id'] = $user['id'];
 
-        /*
-
-        $this->loadModel('Services');
-        $service = [];
-        if ($service_id) {
-            $service = $this->Services->get($service_id);
-        } else {
-            $service = $this->Services->find()->first();
-        }
-        $appService = $service['permalink'];
-
-        */
         $this->loadModel('StudyLevels');
         $service = [];
         if ($service_id) {
@@ -342,7 +352,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -430,7 +440,7 @@ class ApplicationsController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 
@@ -461,42 +471,5 @@ class ApplicationsController extends AppController
         ])->where(['active' => 1])->order(['university_name' => 'asc'])->toArray();
         $this->set('universities', $universities);
     }
-
-    public function workTimes($id = null)
-    {
-        $application = $this->Applications->get($id);
-        $this->loadModel('ApplicationWorkDayTimes');
-        $applicationWorkDayTimes = $this->ApplicationWorkDayTimes->find('all', array('conditions' => ['ApplicationWorkDayTimes.application_id' => $id], 'order' => array('ApplicationWorkDayTimes.id' => 'desc'), 'contain' => []))->toArray();
-
-        if (!empty($applicationWorkDayTimes)) {
-
-            $applicationWorkDayTimes = Hash::combine($applicationWorkDayTimes, '{n}.day', '{n}');
-        }
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $formData = $this->request->getData();
-
-            foreach ($formData['ApplicationWorkDayTimes'] as $time) {
-
-                $time['application_id'] = $id;
-
-                if (!empty($time['id'])) {
-                    $emptyEntity = $this->ApplicationWorkDayTimes->get($time['id']);
-                } else {
-                    $emptyEntity = $this->ApplicationWorkDayTimes->newEmptyEntity();
-                }
-
-                $entity = $this->ApplicationWorkDayTimes->patchEntity($emptyEntity, $time);
-
-                $this->ApplicationWorkDayTimes->save($entity);
-            }
-
-            $this->Flash->success(__('The Application Work Time has been saved.'));
-            return $this->redirect(['action' => 'workTimes', $id]);
-        }
-
-        $days = daysList();
-        $this->set(compact('application', 'days', 'id', 'applicationWorkDayTimes'));
-    }
+*/
 }

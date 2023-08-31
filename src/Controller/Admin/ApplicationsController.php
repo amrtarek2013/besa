@@ -50,7 +50,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -98,7 +98,7 @@ class ApplicationsController extends AppController
 
                     if ($application->user_id) {
                         $this->loadModel('Users');
-                        $user = $this->Users->get($application->user_id);
+                        $user = $this->Users->find()->where(['id'=>$application->user_id])->first();
                         if ($user) {
 
                             $to = $user['email'];
@@ -210,7 +210,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-',$status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -298,7 +298,7 @@ class ApplicationsController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 

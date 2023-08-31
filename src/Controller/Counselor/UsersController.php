@@ -6,6 +6,7 @@ namespace App\Controller\Counselor;
 
 use App\Controller\AppController;
 use Cake\Utility\Hash;
+use Exception;
 
 /**
  * Users Controller
@@ -19,10 +20,22 @@ class UsersController extends AppController
     public function index()
     {
 
-        $conditions = $this->_filter_params();
-
         $counselor = $this->Auth->user();
-        // dd($counselor);
+        try {
+            // $counselor = $this->Counselors->get($counselor['id']);
+
+            if (!$counselor) {
+                $this->Flash->error(__('Counselor not Found!!!'));
+                $this->redirect('/counselor/logout');
+            }
+        } catch (Exception $ex) {
+
+            $this->Flash->error(__('Counselor not Found!!!'));
+            $this->redirect('/counselor/logout');
+        }
+        
+        $conditions = $this->_filter_params();
+        
         $conditions['Users.counselor_id'] = $counselor['id'];
 
         $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
@@ -30,6 +43,9 @@ class UsersController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('usersApp', 'parameters'));
+        $this->loadModel('Applications');
+        $this->set('statuses', $this->Applications->statuses);
+        $this->set('statusLabel', $this->Applications->statusLabel);
         $this->formCommon();
     }
 

@@ -44,7 +44,8 @@
 
 
     .progressbar .app-uni-offer {
-        width: 70%;
+        
+        width: 75%;
     }
 
     .progressbar .app-completed {
@@ -102,8 +103,8 @@
 </style>
 <?php
 
-$statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-$statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
+// $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
+// $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
 ?>
 <section class="register-banner">
 
@@ -143,21 +144,20 @@ $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected'
                                                         $appText = "";
                                                         if (!empty($userApp['applications'])) {
 
-
                                                             $appClass = 'app-apply';
-                                                            if ($userApp['applications'][0]['status'] == $statusLabel['Approved']) {
+                                                            if ($userApp['applications'][0]['status'] == $statusLabel['Joined Successfully']) {
 
                                                                 $appClass = 'app-completed';
                                                             } else if ($userApp['applications'][0]['status'] == $statusLabel['Rejected']) {
 
                                                                 $appClass = 'app-apply-fail';
                                                                 $appText = "<span class='app-fail-text'>Application Failed</span>";
-                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Under-Review']) {
+                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['University Offer']) {
 
                                                                 $appClass = 'app-uni-offer';
-                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Replied']) {
+                                                            } else if ($userApp['applications'][0]['status'] == $statusLabel['Application Pass']) {
 
-                                                                $appClass = 'app-apply-path';
+                                                                $appClass = 'app-apply-pass';
                                                             }
                                                         } else {
                                                             $appText = "<span class='app-fail-text'>Didn't Apply</span>";

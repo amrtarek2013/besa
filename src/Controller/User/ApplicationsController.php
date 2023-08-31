@@ -50,7 +50,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -148,6 +148,7 @@ class ApplicationsController extends AppController
 
         $user_id = $conditions['Applications.user_id'] = $user['id'];
 
+        // $conditions['Applications.status in'] = [2, 3];
         $application = $this->Applications->find()->where($conditions)
             ->contain(['Users', 'ApplicationCourses', 'Universities', 'StudyLevels', 'Services'])
             ->order(['Applications.created' => 'DESC'])->first();
@@ -157,7 +158,7 @@ class ApplicationsController extends AppController
             return $this->redirect('/applications');
         }
 
-        if ($application['status'] != 2) {
+        if (!in_array($application['status'], [2, 3])) {
             $this->Flash->error(__('Sorry, you are not allowed to edit this Application!'));
             return $this->redirect(['action' => 'index']);
         }
@@ -342,7 +343,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . $status . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);
@@ -430,7 +431,7 @@ class ApplicationsController extends AppController
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
 
