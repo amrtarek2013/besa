@@ -48,7 +48,7 @@
                             
                             <?php
                                 if ($counter % 2 != 0) {
-                                    echo '<div class="display-flex"></div>';
+                                    echo '<div class="box-blog display-flex"></div>';
                                 }
                                 ?>
                         </div>
