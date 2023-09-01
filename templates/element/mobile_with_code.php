@@ -52,6 +52,6 @@ $modileCodeId = 'mobile_code' . rand();
         // excludeCountries: ["in", "il"]
     });
     $(document).ready(function(){
-        $(".iti__flag").css("background-image", "url(https://besaeg.com/intlTelInput/img/flags.png?1) !important"); 
+        $(".iti__flag").css("background-image", "url(https://besa.intimedev.com/intlTelInput/img/flags.png?1) !important"); 
     });
 </script>
