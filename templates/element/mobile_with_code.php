@@ -19,10 +19,6 @@ $modileCodeId = 'mobile_code' . rand();
     #phone-code {
         display: none !important;
     }
-
-    .iti__flag {
-        background-image: url(https://besaeg.com/intlTelInput/img/flags.png?1) !important;
-    }
 </style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
@@ -54,5 +50,8 @@ $modileCodeId = 'mobile_code' . rand();
         // If there are some countries you want to execlde.
         // here we are exluding india and israel.
         // excludeCountries: ["in", "il"]
+    });
+    $(document).ready(function(){
+        $(".iti__flag").css("background-image", "url(https://besaeg.com/intlTelInput/img/flags.png?1) !important"); 
     });
 </script>
