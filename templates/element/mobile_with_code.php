@@ -51,7 +51,7 @@ $modileCodeId = 'mobile_code' . rand();
         // here we are exluding india and israel.
         // excludeCountries: ["in", "il"]
     });
-    $(document).ready(function(){
-        $(".iti__flag").css("background-image", "url(https://besa.intimedev.com/intlTelInput/img/flags.png?1) !important"); 
-    });
+    // $(document).ready(function(){
+    //     $(".iti__flag").css("background-image", "url(https://besa.intimedev.com/intlTelInput/img/flags.png?1) !important"); 
+    // });
 </script>
