@@ -20,7 +20,7 @@
         '/css/new-css/style.css?v=' . time(),
         '/css/new-css/responsive.css?v=' . time(),
         '/css/new-css/animations.css',
-        // '/css/new-css/timeline.css'
+        '/css/new-css/timeline.css'
     ]) ?>
 
     <?= $this->Html->script([
@@ -29,7 +29,7 @@
         '/js/new-js/remodal.js',
         '/js/new-js/owl.carousel.min.js',
         '/js/new-js/pana-accordion.js',
-        // '/js/new-js/timeline.js',
+        '/js/new-js/timeline.js',
         '/js/new-js/script.js?v=' . time(),
     ]) ?>
     <?php
