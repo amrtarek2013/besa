@@ -84,3 +84,5 @@
                 <?php } */ ?>
 </section>
 <?= $event['text'] ?>
+
+<?= $this->element('BecomeSponsorPopUp') ?>
