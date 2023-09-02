@@ -780,10 +780,7 @@ class CounselorsController extends AppController
             if (!$counselor) {
                 $this->Flash->error(__('Counselor not Found!!!'));
                 $this->redirect('/counselor/logout');
-            } else {
-                
-                $this->redirect('/counselor/dashboard');
-            }
+            } 
         } catch (Exception $ex) {
 
             $this->Flash->error(__('Counselor not Found!!!'));
