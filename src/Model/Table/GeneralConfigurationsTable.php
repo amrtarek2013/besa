@@ -279,6 +279,7 @@ class GeneralConfigurationsTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
+        $this->clearCache();
         clearViewCache();
     }
 }

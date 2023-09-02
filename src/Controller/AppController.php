@@ -1071,19 +1071,15 @@ class AppController extends Controller
     {
 
 
-        $cached_snippets = Cache::read('snippets', '_snippets_');
-        // dd($cached_snippets);
-        $snippet = '';
-        if (empty($snippets_configs) || isset($snippets_configs[$name])) {
+        $cached_snippets = Cache::read($name, '_snippets_');
 
-            $cached_snippets[$name] = TableRegistry::getTableLocator()->get('Snippets')->getContent($name);
+        if (empty($cached_snippets) || !isset($cached_snippets)) {
 
-            Cache::write('snippets', $cached_snippets, '_snippets_');
-        } else {
-
-            $snippet = $cached_snippets[$name];
+            $cached_snippets = TableRegistry::getTableLocator()->get('Snippets')->getContent($name);
+            
+            Cache::write($name, $cached_snippets, '_snippets_');
         }
-        return $snippet;
+        return $cached_snippets;
     }
 
 
@@ -1198,7 +1194,7 @@ class AppController extends Controller
         $cached_courses = Cache::read('courses', '_courses_');
 
         // dd($cached_courses);
-        if (empty($courses_configs)) {
+        if (empty($cached_courses)) {
             $this->loadModel('UniversityCourses');
             $cached_courses = $this->UniversityCourses->find(
                 'list',

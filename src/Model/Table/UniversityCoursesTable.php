@@ -179,6 +179,7 @@ class UniversityCoursesTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
+        Cache::read('courses', '_courses_');
         clearViewCache();
     }
 

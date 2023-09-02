@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Cache\Cache;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -24,9 +26,9 @@ class PermissionsTable extends Table
 {
 
 
-    public $filters = ['title'=>'like'];
+    public $filters = ['title' => 'like'];
     public $modelName = 'roles';
-    
+
     /**
      * Initialize method
      *
@@ -67,5 +69,10 @@ class PermissionsTable extends Table
     }
 
 
-
+    public function afterSave($event, $entity, $options)
+    {
+        Cache::read('permissions', '_permissions_');
+        Cache::read('permissionsids', '_permissionsids_');
+        clearViewCache();
+    }
 }

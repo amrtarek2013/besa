@@ -135,6 +135,13 @@ class SnippetsTable extends Table
         }
     }
 
+
+    public function afterSave($event, $entity, $options)
+    {
+        
+        // Cache::delete('snippets', '_snippets_');
+        clearViewCache();
+    }
     public function updateCache($name)
     {
         Cache::delete($name, '_snippets_');
