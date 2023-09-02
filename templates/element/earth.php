@@ -15,8 +15,9 @@
 <style>
     @font-face {
         font-family: 'Kalam';
-        src: url('assets/Kalam-Bold.ttf') format('truetype');
+        src: url('fonts/Kalam-Bold.ttf') format('truetype');
         font-weight: bold;
+        font-display: swap;
     }
 
     .photo-appear {
