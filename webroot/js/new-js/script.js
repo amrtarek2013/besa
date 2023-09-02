@@ -168,11 +168,11 @@ $(document).ready(function () {
   }
 
   // Triger  Slider accordion
-  $(function () {
-    accordion.init({
-      id: "accordion",
-    });
-  });
+  // $(function () {
+  //   accordion.init({
+  //     id: "accordion",
+  //   });
+  // });
 
   // Jumping to sections of the same page
   $(".arrow-bottomGoSection a").on("click", function (event) {
