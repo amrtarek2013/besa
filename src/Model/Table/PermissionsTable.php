@@ -71,8 +71,8 @@ class PermissionsTable extends Table
 
     public function afterSave($event, $entity, $options)
     {
-        Cache::read('permissions', '_permissions_');
-        Cache::read('permissionsids', '_permissionsids_');
+        Cache::delete('permissions', '_permissions_');
+        Cache::delete('permissionsids', '_permissionsids_');
         clearViewCache();
     }
 }

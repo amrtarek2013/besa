@@ -39,7 +39,7 @@ class DynamicRoutesTable extends Table
     public function afterSave($event, $entity, $options)
     {
         
-        Cache::read('dynamicroutes', '_dynamicroutes_');
+        Cache::delete('dynamicroutes', '_dynamicroutes_');
         clearViewCache();
     }
 }

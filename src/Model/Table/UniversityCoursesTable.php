@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Cache\Cache;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -179,7 +180,7 @@ class UniversityCoursesTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
-        Cache::read('courses', '_courses_');
+        Cache::delete('courses', '_courses_');
         clearViewCache();
     }
 

@@ -78,7 +78,7 @@ class MenusTable extends Table
 
 	public function afterSave($event, $entity, $options)
 	{
-		Cache::read('menus', '_menus_');
+		Cache::delete('menus', '_menus_');
 		clearViewCache();
 	}
 }
