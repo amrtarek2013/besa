@@ -1,71 +1,4 @@
-<section class="header animated">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="main-slider  owl-carousel owl-theme animateddiv">
-                    <?php
-
-                    use Cake\Routing\Router;
-
-                    if (!empty($sliders)) {
-                        foreach ($sliders as $key => $slider) {
-
-                    ?>
-                            <div class="item">
-                                <div class="text ">
-                                    <div class="fadeInUp">
-                                        <h1 class="title"><?= $slider['title'] ?></h1>
-                                        <p class=""><?= $slider['text'] ?></p>
-                                    </div>
-                                    <div class="buttons fadeInUp">
-                                        <?php if (isset($slider['url'])) { ?>
-                                            <a href="<?= $slider['url'] ?>" class="btn MainBtn apply-now">
-                                                <?= $slider['url_label'] ?>
-                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
-                                                Apply Now
-                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-                                            </a>
-                                        <?php } ?>
-
-
-                                        <?php if (isset($slider['right_url'])) { ?>
-                                            <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
-
-                                        <?php } else { ?>
-                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn contact-us">Contact Us</a>
-
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                                <div class="image fadeInDown">
-                                    <?php
-                                    if (isset($slider['image_path'])) {
-                                    ?>
-                                        <img src="<?= $slider['image_path'] ?>" alt="">
-                                    <?php } else { ?>
-
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-1.png" alt="" class="box-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-2.png" alt="" class="icon-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/background-header.png" alt="">
-                                    <?php } ?>
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    } ?>
-                </div>
-                <div class="arrow-bottomGoSection">
-                    <a href="#scroll_about"><img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-up.svg" alt=""></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+<?= $this->element('home_slider', ['sliders' => $sliders, 'g_dynamic_routes' => $g_dynamic_routes], ['cache' => ['key' => 'home_slider', 'config' => '_view_long_']]) ?>
 
 <?php //= $home_aboutus 
 ?>
@@ -75,8 +8,9 @@
 
 <!--New section 25/5/2023 by en -->
 <?= $home_study_journey ?>
-<!-- Start study-broad-guidance  -->
-<!-- <section class="study-broad-guidance">
+<?php if (false) { ?>
+    <!-- Start study-broad-guidance  -->
+    <!-- <section class="study-broad-guidance">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -136,10 +70,10 @@
         </div>
     </div>
 </section> -->
-<!-- End study-broad-guidance  -->
+    <!-- End study-broad-guidance  -->
 
-<!-- Start Why Besa 2-->
-<!-- <section class="why_besa2">
+    <!-- Start Why Besa 2-->
+    <!-- <section class="why_besa2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -196,16 +130,17 @@
         </div>
     </div>
 </section> -->
-<!-- End Why Besa 2-->
-
+    <!-- End Why Besa 2-->
+<?php } ?>
 <?= $home_why_besa2 ?>
 
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
 
-<!-- Start testimonials 2-->
+<?php if (false) { ?>
+    <!-- Start testimonials 2-->
 
-<!-- <section class="testimonials2">
+    <!-- <section class="testimonials2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -230,56 +165,54 @@
     </div>
 </section> -->
 
-<!-- End testimonials 2-->
-<?php //= $this->element("choose-place-earth") 
-?>
-<?php //= $home_our_partners 
-?>
-<?php /* ?>
+    <!-- End testimonials 2-->
+    <?php //= $this->element("choose-place-earth") 
+    ?>
+    <?php //= $home_our_partners 
+    ?>
 
-<section class="events have-animations">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="fadeInUp animated-slow">
-                    <!-- <h2 class="title">EVENTS</h2> -->
-                    <p class="description">We are connected with our beloved students, schools, as well as <br> our partners abroad.</p>
-                </div>
-                <div class="gridContainer-events">
+    <section class="events have-animations">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="fadeInUp animated-slow">
+                        <!-- <h2 class="title">EVENTS</h2> -->
+                        <p class="description">We are connected with our beloved students, schools, as well as <br> our partners abroad.</p>
+                    </div>
+                    <div class="gridContainer-events">
 
 
-                    <?php
+                        <?php
 
-                    if (!empty($events)) {
-                        foreach ($events as $key => $event) {
+                        if (!empty($events)) {
+                            foreach ($events as $key => $event) {
 
-                    ?>
-                            <div class="box fadeInUp">
-                                <div class="icon">
-                                    <img src="<?= $event['icon_path'] ?>" alt="">
+                        ?>
+                                <div class="box fadeInUp">
+                                    <div class="icon">
+                                        <img src="<?= $event['icon_path'] ?>" alt="">
+                                    </div>
+                                    <h3 class="titleBx"><?= $event['title'] ?></h3>
+                                    <p class="descriptionBX">
+                                        <?= $event['sub_title'] ?>
+                                    </p>
+                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
+                                        Learn More
+                                        <img src="<?= WEBSITE_URL ?>img/icon/arrow-right.svg" alt="">
+                                    </a>
                                 </div>
-                                <h3 class="titleBx"><?= $event['title'] ?></h3>
-                                <p class="descriptionBX">
-                                    <?= $event['sub_title'] ?>
-                                </p>
-                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $event['permalink'] ?>" class="btn MainBtn learn-more">
-                                    Learn More
-                                    <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
-                                </a>
-                            </div>
 
-                    <?php
-                        }
-                    } ?>
+                        <?php
+                            }
+                        } ?>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-                </section>
-                <?php */ ?>
+    </section>
 
-<!-- <section class="our-services">
+    <!-- <section class="our-services">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -297,7 +230,7 @@
                                     <img width="500" height="415" src="<?= $service['image_path'] ?>" />
                                     <div class="text-acco">
                                         <h3 class="title-acco"><?= $service['title'] ?></h3>
-                                        <a href="<?= Router::url('/'.$g_dynamic_routes['services.details'].'/'. $service['permalink']) ?>" class="btn discover-more">Discover More</a>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.details'] . '/' . $service['permalink']) ?>" class="btn discover-more">Discover More</a>
                                     </div>
                                 </div>
 
@@ -313,8 +246,8 @@
         </div>
     </div>
 </section> -->
-
-<?= $this->element('testimonials', ['testimonials' => $testimonials]) ?>
+<?php } ?>
+<?= $this->element('testimonials', ['testimonials' => $testimonials, ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
 <section class="contact-us">
     <div class="top-dots-img">
