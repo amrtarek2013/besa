@@ -1,5 +1,5 @@
-<link rel="preload" href="/miniature-earth/demo/photo-locations/style.css" as="style">
-<link rel="preload" href="/miniature-earth/miniature.earth.js" as="script" />
+<link rel="stylesheet" href="/miniature-earth/demo/photo-locations/style.css">
+<script src="/miniature-earth/miniature.earth.js"> </script>
 
 <style>
     .photo-appear {
@@ -30,7 +30,8 @@
         pointer-events: all;
         color: #fff;
     }
-    #photo{
+
+    #photo {
         text-align: center;
     }
 </style>

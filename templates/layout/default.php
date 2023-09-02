@@ -7,8 +7,8 @@
     <title><?= isset($title) ? $g_configs['general']['txt.site_name'] . ' - ' . $title : $g_configs['general']['txt.site_name'] . ' - British educational services agency' ?></title>
     <link rel="icon" type="image/x-icon" href="<?= FRONT_ASSETS ?>/favicon.ico">
     <!-- add This File (range slider)-->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" as="style" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" />
     <?= $this->Html->css([
 
         '/css/new-css/remodal.css',
@@ -20,7 +20,7 @@
         '/css/new-css/style.css?v=' . time(),
         '/css/new-css/responsive.css?v=' . time(),
         '/css/new-css/animations.css',
-        '/css/new-css/timeline.css'
+        // '/css/new-css/timeline.css'
     ]) ?>
 
     <?= $this->Html->script([
@@ -28,33 +28,11 @@
         '/js/new-js/fontawesome.min.js',
         '/js/new-js/remodal.js',
         '/js/new-js/owl.carousel.min.js',
-        '/js/new-js/pana-accordion.js',
-        '/js/new-js/timeline.js',
+        // '/js/new-js/pana-accordion.js',
+        // '/js/new-js/timeline.js',
         '/js/new-js/script.js?v=' . time(),
     ]) ?>
-    <!-- <link rel="preload" href=/css/new-css/remodal.css" as="style">
-    <link rel="preload" href="/css/new-css/remodal-default-theme.css" as="style">
-    <link rel="preload" href="/css/new-css/all.min.css" as="style">
-    <link rel="preload" href="/css/new-css/normalize.min.css" as="style">
-    <link rel="preload" href="/css/new-css/owl.carousel.min.css" as="style">
-    <link rel="preload" href="/css/new-css/grid.css" as="style">
-    <link rel="preload" href="/css/new-css/style.css?v=' . time()' as=" style">
-    <link rel="preload" href="/css/new-css/responsive.css?v=' . time()' as=" style">
-    <link rel="preload" href="/css/new-css/animations.css" as="style">
-    <link rel="preload" href="/css/new-css/timeline.css" as="style">
-
-
-
-    <link rel="preload" href="/js/new-js/jquery-3.6.3.min.js" as="script">
-    <link rel="preload" href="/js/new-js/fontawesome.min.js" as="script">
-    <link rel="preload" href="/js/new-js/remodal.js" as="script">
-    <link rel="preload" href="/js/new-js/owl.carousel.min.js" as="script">
-    <link rel="preload" href="/js/new-js/pana-accordion.js" as="script">
-    <link rel="preload" href="/js/new-js/timeline.js'' as=" script">
-    <link rel="preload" href="/js/new-js/script.js?v=<?= time() ?>" as="script"> -->
-
     <?php
-
 
     echo $g_configs['general']['txt.facebook_pixels'];
     echo $g_configs['general']['txt.google_analytics'];
@@ -76,8 +54,8 @@
 </head>
 <?php $bodyClass = isset($bodyClass) ? $bodyClass : '' ?>
 
-<link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" as="style" />
-<link rel="preload" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" as="script">
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.message').hide();
