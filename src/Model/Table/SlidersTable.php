@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Cache\Cache;
 use Cake\ORM\Table;
 use Cake\Utility\Inflector;
 use Cake\Utility\Text;
@@ -73,6 +74,8 @@ class SlidersTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
+        
+        Cache::delete('home_sliders');
         clearViewCache();
     }
 

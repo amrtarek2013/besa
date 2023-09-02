@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Model\Table;
 
 use ArrayObject;
+use Cake\Cache\Cache;
 use Cake\Datasource\EntityInterface;
 use Cake\Event\Event;
 use Cake\ORM\Table;
@@ -118,6 +119,8 @@ class EventsTable extends Table
 
     public function afterSave($event, $entity, $options)
     {
+        Cache::delete('home_events');
+        Cache::delete('events_app_menu_list');
         clearViewCache();
     }
 

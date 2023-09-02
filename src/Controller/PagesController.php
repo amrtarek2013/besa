@@ -77,16 +77,17 @@ class PagesController extends AppController
     {
 
         $this->loadModel('Sliders');
-        $slider = $this->Sliders->find()->where(['active' => 1])->order(['display_order ' => 'asc'])->limit(5);
+        $slider = $this->Sliders->find()->where(['active' => 1])->cache('home_sliders')->order(['display_order ' => 'asc'])->limit(5);
+        // debug($slider->toArray());
         $this->set('sliders', $slider);
 
         $this->loadModel('Events');
-        $events = $this->Events->find()->where(['active' => 1, 'show_on_home' => 1])->order(['display_order ' => 'asc'])->limit(3);
+        $events = $this->Events->find()->where(['active' => 1, 'show_on_home' => 1])->cache('home_events')->order(['display_order ' => 'asc'])->limit(3);
         $this->set('events', $events);
 
 
         $this->loadModel('Testimonials');
-        $testimonials = $this->Testimonials->find()->where(['active' => 1, 'country_id is null or country_id < 1'])->order(['rand()'])->toArray();
+        $testimonials = $this->Testimonials->find()->where(['active' => 1, 'country_id is null or country_id < 1'])->cache('home_testimonials')->order(['rand()'])->toArray();
         $this->set('testimonials', $testimonials);
         // dd($testimonials);
 
@@ -95,7 +96,7 @@ class PagesController extends AppController
         // $this->set('services', $services);
 
         $this->loadModel('Branches');
-        $mainBranch = $this->Branches->find()->where(['active' => 1, 'is_main_branch' => 1])->first();
+        $mainBranch = $this->Branches->find()->where(['active' => 1, 'is_main_branch' => 1])->cache('home_branches')->first();
         $this->set('mainBranch', $mainBranch);
 
         $this->loadModel('Enquiries');
@@ -310,7 +311,7 @@ class PagesController extends AppController
         $this->set('aboutusSnippet', $aboutusSnippet);
         $this->loadModel('AboutusSliders');
         $aboutusSlidersList = $this->AboutusSliders->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
-        
+
         $this->set('aboutusSlidersList', $aboutusSlidersList);
     }
     public function partnershipWithBesa()

@@ -34,11 +34,11 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
         // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-        
+
         $builder->connect('/courses', 'UniversityCourses::results');
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
-        $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1])->all();
+        $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1])->cache('dynamic_routes_route')->all();
 
         foreach ($dynamicRoutes as $routePage) {
             if ($routePage['has_params'])

@@ -215,14 +215,15 @@ class AppController extends Controller
             // $this->_set_seo();
         }
 
-        $header = $this->getSnippet("header");
-        // print_r($header);
-        $footer = $this->getSnippet("footer");
-        $this->set('header', $header);
-        $this->set('footer', $footer);
+        // $header = $this->getSnippet("header");
+        // // print_r($header);
+        // $footer = $this->getSnippet("footer");
+        // $this->set('header', $header);
+        // $this->set('footer', $footer);
 
         $this->loadModel('Countries');
-        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""', 'is_destination' => 1])->order(['country_name' => 'asc'])->all();
+        $countries = $this->Countries->find()->where(['active' => 1, 'continent is not null and continent !=""', 'is_destination' => 1])
+            ->cache('countries_app_data')->order(['country_name' => 'asc'])->all();
         $countriesData = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
 
         // $countryEarth = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
@@ -244,7 +245,7 @@ class AppController extends Controller
         // $this->set('footerServices', $footerServices);
 
         $this->loadModel('Events');
-        $events = $this->Events->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
+        $events = $this->Events->find()->where(['active' => 1])->cache('events_app_menu_list')->order(['display_order' => 'asc'])->all();
         $this->set('eventsMenuList', $events);
         $this->_loadConfig();
 
