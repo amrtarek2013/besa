@@ -55,21 +55,25 @@ h5 {
     font-style: normal;
     font-weight: normal;
     src: url(../webfonts/foco.ttf);
+    font-display: swap;
 }
 
 @font-face {
     src: url(../webfonts/focoblack.ttf);
     font-family: "focoblack";
+    font-display: swap;
 }
 
 @font-face {
     src: url(../webfonts/focobold.ttf);
     font-family: "focobold";
+    font-display: swap;
 }
 
 @font-face {
     src: url(../webfonts/focolight.ttf);
     font-family: "focolight";
+    font-display: swap;
 }
 
 @font-face {
@@ -77,16 +81,19 @@ h5 {
     font-style: normal;
     font-weight: normal;
     src: url(../webfonts/Cairo-Bold.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: "CairoMedium";
     src: url(../webfonts/Cairo-Medium.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: "CairoRegular";
     src: url(../webfonts/Cairo-Regular.ttf);
+    font-display: swap;
 }
 
 .statics {
