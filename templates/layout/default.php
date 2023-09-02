@@ -9,19 +9,19 @@
     <!-- add This File (range slider)-->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" as="style" />
-    <?= $this->Html->css([
+    <?php /* $this->Html->css([
 
-        '/css/new-css/remodal.css',
-        '/css/new-css/remodal-default-theme.css',
-        '/css/new-css/all.min.css',
-        '/css/new-css/normalize.min.css',
-        '/css/new-css/owl.carousel.min.css',
-        '/css/new-css/grid.css',
-        '/css/new-css/style.css?v=' . time(),
-        '/css/new-css/responsive.css?v=' . time(),
-        '/css/new-css/animations.css',
-        '/css/new-css/timeline.css'
-    ]) ?>
+                '/css/new-css/remodal.css',
+                '/css/new-css/remodal-default-theme.css',
+                '/css/new-css/all.min.css',
+                '/css/new-css/normalize.min.css',
+                '/css/new-css/owl.carousel.min.css',
+                '/css/new-css/grid.css',
+                '/css/new-css/style.css?v=' . time(),
+                '/css/new-css/responsive.css?v=' . time(),
+                '/css/new-css/animations.css',
+                '/css/new-css/timeline.css'
+            ]) ?>
 
     <?= $this->Html->script([
         '/js/new-js/jquery-3.6.3.min.js',
@@ -31,8 +31,30 @@
         '/js/new-js/pana-accordion.js',
         '/js/new-js/timeline.js',
         '/js/new-js/script.js?v=' . time(),
-    ]) ?>
+    ])*/ ?>
+    <link rel="preload" href=/css/new-css/remodal.css" as="style">
+    <link rel="preload" href="/css/new-css/remodal-default-theme.css" as="style">
+    <link rel="preload" href="/css/new-css/all.min.css" as="style">
+    <link rel="preload" href="/css/new-css/normalize.min.css" as="style">
+    <link rel="preload" href="/css/new-css/owl.carousel.min.css" as="style">
+    <link rel="preload" href="/css/new-css/grid.css" as="style">
+    <link rel="preload" href="/css/new-css/style.css?v=' . time()' as=" style">
+    <link rel="preload" href="/css/new-css/responsive.css?v=' . time()' as=" style">
+    <link rel="preload" href="/css/new-css/animations.css" as="style">
+    <link rel="preload" href="/css/new-css/timeline.css" as="style">
+
+
+
+    <link rel="preload" href="/js/new-js/jquery-3.6.3.min.js" as="script">
+    <link rel="preload" href="/js/new-js/fontawesome.min.js" as="script">
+    <link rel="preload" href="/js/new-js/remodal.js" as="script">
+    <link rel="preload" href="/js/new-js/owl.carousel.min.js" as="script">
+    <link rel="preload" href="/js/new-js/pana-accordion.js" as="script">
+    <link rel="preload" href="/js/new-js/timeline.js'' as=" script">
+    <link rel="preload" href="/js/new-js/script.js?v=<?= time() ?>" as="script">
+
     <?php
+
 
     echo $g_configs['general']['txt.facebook_pixels'];
     echo $g_configs['general']['txt.google_analytics'];
