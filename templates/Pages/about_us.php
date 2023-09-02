@@ -1,3 +1,6 @@
+<?= $this->Html->css([
+    '/css/new-css/timeline.css'
+]) ?>
 <section class="main-banner banner-about-us aboutUs2-banner">
     <div class="container-fluid">
         <div class="row">
@@ -61,3 +64,7 @@
         </div>
     </div>
 </section>
+
+<?= $this->Html->script([
+    '/js/new-js/timeline.js'
+]) ?>

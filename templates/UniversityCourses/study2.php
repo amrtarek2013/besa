@@ -1,3 +1,6 @@
+<?= $this->Html->css([
+    '/css/new-css/timeline.css'
+]) ?>
 <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
 <section class="steps-en">
     <div class="container">
@@ -196,16 +199,18 @@ background-position-y: 50%;;" />
                     <!-- Buttons to navigate between steps -->
                     <div id="buttons">
                         <button id="prevBtn">Previous</button>
-                        <button id="nextBtn">Next <img src="<?=WEBSITE_URL?>img/new-images/chevron-left.png" alt=""> </button>
+                        <button id="nextBtn">Next <img src="<?= WEBSITE_URL ?>img/new-images/chevron-left.png" alt=""> </button>
                     </div>
                 </div>
             </div>
         </div>
 </section>
 <?= $this->Form->end() ?>
-
 <?= $this->Html->script([
     '/js/new-js/script-steps-en.js?v=' . time()
+]) ?>
+<?= $this->Html->script([
+    '/js/new-js/timeline.js'
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
