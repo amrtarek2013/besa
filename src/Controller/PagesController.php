@@ -310,7 +310,7 @@ class PagesController extends AppController
         $this->set('bodyClass', 'pageAbout');
         $this->set('aboutusSnippet', $aboutusSnippet);
         $this->loadModel('AboutusSliders');
-        $aboutusSlidersList = $this->AboutusSliders->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
+        $aboutusSlidersList = $this->AboutusSliders->find()->where(['active' => 1])->cache('aboutus_slider')->order(['display_order' => 'asc'])->all();
 
         $this->set('aboutusSlidersList', $aboutusSlidersList);
     }
@@ -351,7 +351,7 @@ class PagesController extends AppController
         $this->loadModel('Careers');
         $careersList = $this->Careers->find()->select([
             'id', 'title' => 'CONCAT(title, " (",country,"-", state,")")'
-        ])->where(['active' => 1])->order(['title' => 'asc'])->all();
+        ])->where(['active' => 1])->cache('careersList')->order(['title' => 'asc'])->all();
         // dd($careersList);
         $careersList = Hash::combine($careersList->toArray(), '{n}.id', '{n}.title');
         $this->set('careersList', $careersList);

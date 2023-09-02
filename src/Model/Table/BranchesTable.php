@@ -100,6 +100,7 @@ class BranchesTable extends Table
     {
         
         Cache::delete('home_branches');
+        Cache::delete('contactus_branches');
         clearViewCache();
     }
 

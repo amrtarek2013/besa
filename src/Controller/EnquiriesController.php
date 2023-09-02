@@ -157,7 +157,9 @@ class EnquiriesController extends AppController
         $this->set('book_free_meeting', $book_free_meeting);
 
 
-        $branches = $this->Branches->find()->where(['active' => 1])->order(['display_order' => 'ASC'])->all()->toArray();
+        $branches = $this->Branches->find()->where(['active' => 1])
+            ->cache('contactus_branches')
+            ->order(['display_order' => 'ASC'])->all()->toArray();
         $countries = Hash::combine($branches, '{n}.country', '{n}.country');
         $branchesList = Hash::combine($branches, '{n}.name', '{n}.name', '{n}.country');
         $branches = Hash::combine($branches, '{n}.name', '{n}');
@@ -205,7 +207,7 @@ class EnquiriesController extends AppController
 
 
         // $this->set('countriesCodesList', $countriesCodesList);
-        
+
         $visitors_application_top_text = $this->getSnippet('visitors_application_top_text');
 
         $this->set('visitorsApplicationToText', $visitors_application_top_text);
@@ -216,23 +218,8 @@ class EnquiriesController extends AppController
 
         $this->set('bodyClass', '');
 
-        $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select([
-            'code', 'phone_code'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
-
-        $countriesCodesList = Hash::combine(
-            $countriesCodesList->toArray(),
-            '{n}.phone_code',
-            ['+%s', '{n}.phone_code']
-        );
-
-
-        $this->set('countriesCodesList', $countriesCodesList);
         $this->loadModel('StudyLevels');
-        // $studyLevels = $this->StudyLevels->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'title'
-        // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
     public function britishTrophySubscription()
@@ -245,19 +232,6 @@ class EnquiriesController extends AppController
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
-
-        $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select([
-            'code', 'phone_code'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
-
-        $countriesCodesList = Hash::combine(
-            $countriesCodesList->toArray(),
-            '{n}.phone_code',
-            ['+%s', '{n}.phone_code']
-        );
-
-        $this->set('countriesCodesList', $countriesCodesList);
     }
     public function bookAppointment()
     {
@@ -268,26 +242,16 @@ class EnquiriesController extends AppController
         $this->loadModel('SubjectAreas');
         $this->loadModel('Countries');
 
-        $countries = $this->Countries->find()->select([
-            'id', 'country_name', 'code', 'phone_code'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
-
-        $countriesCodesList = Hash::combine(
-            $countries->toArray(),
-            '{n}.phone_code',
-            ['+%s', '{n}.phone_code']
-        );
 
         $destinations = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1, 'is_destination' => 1])->cache('book_appointment_destinations')->order(['country_name' => 'asc']);
 
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['title' => 'asc']);
+        ])->where(['active' => 1])->cache('book_appointment_subjectareas')->order(['title' => 'asc']);
 
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
-        $this->set('countriesCodesList', $countriesCodesList);
         $this->set('destinationsList', $destinations);
         $this->set('subjectAreasList', $subjectAreas);
 
