@@ -468,6 +468,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/merriweather-v30-latin-300.svg#Merriweather") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -489,6 +490,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/merriweather-v30-latin-regular.svg#Merriweather") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -510,6 +512,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/merriweather-v30-latin-700.svg#Merriweather") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -531,6 +534,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/merriweather-v30-latin-900.svg#Merriweather") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -552,6 +556,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-300.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -573,6 +578,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-regular.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -594,6 +600,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-500.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -615,6 +622,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-600.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -636,6 +644,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-700.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
@@ -657,6 +666,7 @@ textarea {
         /* Safari, Android, iOS */
         url("../fonts/poppins-v20-latin-900.svg#Poppins") format("svg");
     /* Legacy iOS */
+    font-display: swap;
 }
 
 
