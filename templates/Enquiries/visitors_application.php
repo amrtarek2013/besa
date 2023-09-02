@@ -9,9 +9,6 @@
                 </div>
             </div>
 
-
-
-
             <div class="col-md-12 ">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormVisitorApp', 'class' => 'register')); ?>
                 <input type="hidden" id="type" name="type" value="visitors-application">
@@ -34,19 +31,6 @@
                             'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('phone', 'Mobile*') ?>
-                            <?= $this->Form->control('phone', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('phone_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                                'type' => 'select', 'options' => $countriesCodesList
-                            ]) ?>
-                        </div> -->
-                        
 
                         <?= $this->element('mobile_with_code') ?>
 

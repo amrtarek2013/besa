@@ -192,19 +192,19 @@ class EnquiriesController extends AppController
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
 
-        $this->loadModel('Countries');
-        $countriesCodesList = $this->Countries->find()->select([
-            'code', 'phone_code'
-        ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+        // $this->loadModel('Countries');
+        // $countriesCodesList = $this->Countries->find()->select([
+        //     'code', 'phone_code'
+        // ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
-        $countriesCodesList = Hash::combine(
-            $countriesCodesList->toArray(),
-            '{n}.phone_code',
-            ['+%s', '{n}.phone_code']
-        );
+        // $countriesCodesList = Hash::combine(
+        //     $countriesCodesList->toArray(),
+        //     '{n}.phone_code',
+        //     ['+%s', '{n}.phone_code']
+        // );
 
 
-        $this->set('countriesCodesList', $countriesCodesList);
+        // $this->set('countriesCodesList', $countriesCodesList);
         
         $visitors_application_top_text = $this->getSnippet('visitors_application_top_text');
 
