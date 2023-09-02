@@ -1,5 +1,5 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
-<link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
+<link rel="preload" href="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" as="script">
+<link rel="preload" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2" as="style">
 
 <div class="content-wrapper">
 
@@ -88,9 +88,6 @@
 echo $this->Html->css(array('select2'));
 echo $this->Html->script(array('select2'));
 ?>
-
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script> -->
 
 <script>
     $("#subject-area-id, #country-id, #university-id").select2({

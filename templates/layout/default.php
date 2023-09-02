@@ -7,8 +7,8 @@
     <title><?= isset($title) ? $g_configs['general']['txt.site_name'] . ' - ' . $title : $g_configs['general']['txt.site_name'] . ' - British educational services agency' ?></title>
     <link rel="icon" type="image/x-icon" href="<?= FRONT_ASSETS ?>/favicon.ico">
     <!-- add This File (range slider)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" as="style" />
     <?= $this->Html->css([
 
         '/css/new-css/remodal.css',
@@ -54,8 +54,8 @@
 </head>
 <?php $bodyClass = isset($bodyClass) ? $bodyClass : '' ?>
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" as="style" />
+<link rel="preload" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" as="script">
 <script type="text/javascript">
     $(document).ready(function() {
         $('.message').hide();

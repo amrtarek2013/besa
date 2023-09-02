@@ -1,14 +1,15 @@
 <!-- add This File (range slider)-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" />
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" as="style">
+
 <section class="main-banner register-banner study1-banner">
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg-study-01.png" alt="" style="z-index: 2;">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg-study-01.png" alt="" style="z-index: 2;">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -16,7 +17,7 @@
                     <h1 class="relative-text">Courses</h1>
                     <h2 class="title text-left">
                         <!-- <span class=" green-small"><?= $courses[0]['course_name'] ?></span> -->
-                        <span class="blue-para"><?=sizeof($courses)?> international courses
+                        <span class="blue-para"><?= sizeof($courses) ?> international courses
                             found</span>
                     </h2>
                 </div>
@@ -59,21 +60,21 @@
                                     <div class="icons">
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="<?=WEBSITE_URL?>img/icon/wish-list.svg" alt="">
+                                                <img src="<?= WEBSITE_URL ?>img/icon/wish-list.svg" alt="">
                                             </div>
                                             <span class="green">Wish List</span>
                                         </div>
 
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="<?=WEBSITE_URL?>img/icon/more-details.svg" alt="">
+                                                <img src="<?= WEBSITE_URL ?>img/icon/more-details.svg" alt="">
                                             </div>
                                             <span class="green">More Details</span>
                                         </div>
 
                                         <div>
                                             <div class="circle-icon">
-                                                <img src="<?=WEBSITE_URL?>img/icon/aplly-now-green.svg" alt="">
+                                                <img src="<?= WEBSITE_URL ?>img/icon/aplly-now-green.svg" alt="">
                                             </div>
                                             <span class="green">Apply Now</span>
                                         </div>
@@ -90,10 +91,10 @@
 
     <!-- <div class="button-next-prev">
         <a href="#">
-            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-prev.svg" alt="">
+            <img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-prev.svg" alt="">
         </a>
         <a href="#">
-            <img src="<?=WEBSITE_URL?>img/icon/chevron-circle-next.svg" alt="">
+            <img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-next.svg" alt="">
 
         </a>
 

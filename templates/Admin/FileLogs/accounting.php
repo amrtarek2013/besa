@@ -1,6 +1,5 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
-<link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=3">
-
+<link rel="preload" href="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" as="script">
+<link rel="preload" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2" as="style">
 
 <div class="content-wrapper">
 
@@ -147,13 +146,8 @@
 
 </div>
 
-<link href="webroot/css/select2.css" rel="stylesheet" />
-<script src="webroot/js/select2.js" defer></script>
-
-
-<!-- <link href="Admin/multi_select_plugin/css/multi-select.css" rel="stylesheet" /> -->
-<!-- <script src="Admin/multi_select_plugin/js/jquery.multi-select.js" defer></script> -->
-
+<link rel="preload" href="webroot/css/select2.css" as="style" />
+<link rel="preload" href="webroot/js/select2.js" as="script" defer>
 <script type="text/javascript">
     $(document).ready(function() {
 
