@@ -15,6 +15,7 @@ use Cake\I18n\I18n;
 
 use Cake\ORM\TableRegistry;
 use App\Model\Table\MenusTable;
+use Cake\Cache\Cache;
 use Cake\Routing\Router;
 use Cake\Utility\Hash;
 use \Zend\Diactoros\UploadedFile;
@@ -231,16 +232,16 @@ class AppController extends Controller
         $this->set('countriesEarth', $countries->toArray());
         $this->set('continents', $this->Countries->continents);
 
-        $this->loadModel('Services');
-        $this->set('serviceTypes', $this->Services->types);
-        $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'title' => 'asc'])->all();
-        $footerServices = $this->Services->find()->where(['active' => 1, 'show_on_footer' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
+        // $this->loadModel('Services');
+        // $this->set('serviceTypes', $this->Services->types);
+        // $services = $this->Services->find()->where(['active' => 1])->order(['type' => 'ASC', 'title' => 'asc'])->all();
+        // $footerServices = $this->Services->find()->where(['active' => 1, 'show_on_footer' => 1])->order(['type' => 'ASC', 'display_order' => 'asc'])->all();
 
-        $this->set('servicesList', $services);
-        $services = Hash::combine($services->toArray(), '{n}.id', '{n}', '{n}.type');
+        // $this->set('servicesList', $services);
+        // $services = Hash::combine($services->toArray(), '{n}.id', '{n}', '{n}.type');
 
-        $this->set('servicesMenuList', $services);
-        $this->set('footerServices', $footerServices);
+        // $this->set('servicesMenuList', $services);
+        // $this->set('footerServices', $footerServices);
 
         $this->loadModel('Events');
         $events = $this->Events->find()->where(['active' => 1])->order(['display_order' => 'asc'])->all();
@@ -255,17 +256,26 @@ class AppController extends Controller
             $this->loadDynamicRoutes();
         }
     }
+
     protected function _loadConfig()
     {
-        $this->loadModel("GeneralConfigurations");
-        $all_configs = $this->GeneralConfigurations->find()->where()->toArray();
-        $configs = [];
-        foreach ($all_configs as $config_row) {
-            $configs[$config_row->config_group][$config_row->field] = $config_row->value;
-        }
-        $this->g_configs = $configs;
+        $cached_config = Cache::read('configs', '_configs_');
+        // dd($cached_config);
+        if (empty($cached_config)) {
+            $this->loadModel('GeneralConfigurations');
+            $cached_config = $this->GeneralConfigurations->find()->where()->toArray();
 
-        $this->set("g_configs", $configs);
+            $configs = [];
+            foreach ($cached_config as $config_row) {
+                $configs[$config_row->config_group][$config_row->field] = $config_row->value;
+            }
+            $cached_config = $configs;
+            Cache::write('configs', $cached_config, '_configs_');
+        }
+        $GLOBALS['Configs'] = $cached_config;
+        $this->g_configs = $cached_config;
+
+        $this->set("g_configs", $cached_config);
     }
 
     public function setDefaultLayout()
@@ -439,39 +449,67 @@ class AppController extends Controller
         $permitted_list = [];
         $permissions_list = [];
 
-        $this->loadModel("RolesPermissions");
-        $this->loadModel("Permissions");
-
-        // if(empty($this->authCom)){
-        //     return $permitted_list;
-        // }
+        $cached_permissions = [];
+        $cached_permissionsids = [];
         $prefix = $this->request->getParam('prefix');
         if (isset($prefix) && !empty($prefix)) {
+
+
+            ///////////////
+            $cached_permissions = Cache::read('permissions', '_permissions_');
+            $cached_permissionsids = Cache::read('permissionsids', '_permissionsids_');
+            // dd($cached_permissionsids);
+
             $user = $this->Auth->user();
 
             if (!isset($user["role_id"])) {
 
-                // $permitted_list = ['login', 'logout','register','profile','dashboard', 'forgotPassword','resetPassword','forgot-password-success'];
                 return $permitted_list;
             }
             if (empty($user)) {
                 return $permitted_list;
             }
-            $all_role_permissions = $this->RolesPermissions->find()->where(['role_id' => $user["role_id"]])->toArray();
 
-            $permissions_ids = [];
-            foreach ($all_role_permissions as $key => $value) {
-                $permissions_ids[] = $value->permission_id;
-            }
-            $this->permissions_ids = $permissions_ids;
+            if (empty($cached_permissions) || empty($cached_permissionsids) || !isset($cached_permissions[$user['role_id']])) {
 
-            $related_permissions = $this->Permissions->find()->where(['id IN' => $permissions_ids])->toArray();
-            foreach ($related_permissions as $key => $value) {
-                $perm_key = $value->controller . "_" . $value->action;
-                $permitted_list[] = $perm_key;
-                $permissions_list[strtolower($value->controller) . "." . strtolower($value->action)] = strtolower($value->controller) . "." . strtolower($value->action);
+                $this->loadModel("RolesPermissions");
+                $this->loadModel("Permissions");
+
+
+                $all_role_permissions = $this->RolesPermissions->find()->where(['role_id' => $user["role_id"]])->toArray();
+                // dd($all_role_permissions);
+
+                $permissions_ids = [];
+                foreach ($all_role_permissions as $key => $value) {
+                    $permissions_ids[] = $value->permission_id;
+                }
+                $this->permissions_ids = $permissions_ids;
+
+                $related_permissions = $this->Permissions->find()->where(['id IN' => $permissions_ids])->toArray();
+                foreach ($related_permissions as $key => $value) {
+                    $perm_key = $value->controller . "_" . $value->action;
+                    $permitted_list[] = $perm_key;
+                    $permissions_list[strtolower($value->controller) . "." . strtolower($value->action)] = strtolower($value->controller) . "." . strtolower($value->action);
+                }
+
+                $cached_permissions[$user['role_id']] = $permissions_list;
+
+                Cache::write('permissions', $cached_permissions, '_permissions_');
+                Cache::write('permissionsids', $this->permissions_ids, '_permissionsids_');
+            } else if (isset($cached_permissions[$user["role_id"]])) {
+
+                // dd($cached_permissions[$user["role_id"]]);
+                $permissions_list = $cached_permissions[$user["role_id"]];
+                $this->permissions_ids = $cached_permissionsids;
             }
+
+            $GLOBALS['Permissions'] = $cached_permissions;
+
+            /////////////
         }
+        $this->permissionList = $permissions_list;
+
+        $this->permissions_ids = $cached_permissionsids;
         $this->set('permissionList', $permissions_list);
         // dd($permissions_list);
         return $permitted_list;
@@ -664,31 +702,57 @@ class AppController extends Controller
     {
         $prefix = empty($this->request->getParam('prefix')) ? '' : strtolower($this->request->getParam('prefix'));
 
-        if (empty($this->sideMenus[$prefix]) || $reFind) {
+        $cached_menus = Cache::read('menus', '_menus_');
+        // dd($cached_menus);
+        $menus = [];
+        if (empty($cached_menus) || !isset($cached_menus[$prefix]) || empty($this->sideMenus[$prefix]) || $reFind) {
             $conditions = array();
             $conditions['active'] = true;
             $conditions['prefix'] = $prefix;
 
-            $user = $this->Auth->user();
-            // if (!empty($user['role_id']) && $prefix == 'admin') {
-
-            //     $conditions['role_id'] = $user['role_id'];
-            // } else {
             if (!empty($this->permissions_ids)) {
                 $conditions['permission_id in'] = $this->permissions_ids;
             } else {
                 $conditions['permission_id in'] = "-1";
             }
-            // }
             $this->Menus = new MenusTable();
-            $menus = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all();
-            // dd($menus);
-            $this->sideMenus[$prefix] = $this->checkmenu($menus->toArray(), $prefix);
-            // print_r($this->sideMenus);die;
+            $cached_menus[$prefix] = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all()->toArray();
+            // dd($cached_menus[$prefix]);
+
+            Cache::write('menus', $cached_menus, '_menus_');
+
+            $this->sideMenus[$prefix] = $this->checkmenu($cached_menus[$prefix], $prefix);
+            // dd($this->sideMenus);
             $this->set('sideMenus', $this->sideMenus);
         } else {
             $this->set('sideMenus', $this->sideMenus[$prefix]);
         }
+
+        // if (empty($this->sideMenus[$prefix]) || $reFind) {
+        //     $conditions = array();
+        //     $conditions['active'] = true;
+        //     $conditions['prefix'] = $prefix;
+
+        //     $user = $this->Auth->user();
+        //     // if (!empty($user['role_id']) && $prefix == 'admin') {
+
+        //     //     $conditions['role_id'] = $user['role_id'];
+        //     // } else {
+        //     if (!empty($this->permissions_ids)) {
+        //         $conditions['permission_id in'] = $this->permissions_ids;
+        //     } else {
+        //         $conditions['permission_id in'] = "-1";
+        //     }
+        //     // }
+        //     $this->Menus = new MenusTable();
+        //     $menus = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all();
+        //     // dd($menus);
+        //     $this->sideMenus[$prefix] = $this->checkmenu($menus->toArray(), $prefix);
+        //     // print_r($this->sideMenus);die;
+        //     $this->set('sideMenus', $this->sideMenus);
+        // } else {
+        //     $this->set('sideMenus', $this->sideMenus[$prefix]);
+        // }
     }
 
     public function checkmenu($menus, $prefix)
@@ -1006,8 +1070,20 @@ class AppController extends Controller
     public function getSnippet($name)
     {
 
-        // $this->loadModel('Snippets');
-        return TableRegistry::getTableLocator()->get('Snippets')->getContent($name);
+
+        $cached_snippets = Cache::read('snippets', '_snippets_');
+        // dd($cached_snippets);
+        $snippet = '';
+        if (empty($snippets_configs) || isset($snippets_configs[$name])) {
+
+            $cached_snippets[$name] = TableRegistry::getTableLocator()->get('Snippets')->getContent($name);
+
+            Cache::write('snippets', $cached_snippets, '_snippets_');
+        } else {
+
+            $snippet = $cached_snippets[$name];
+        }
+        return $snippet;
     }
 
 
@@ -1118,27 +1194,39 @@ class AppController extends Controller
 
     public function allCoursesList()
     {
-        // $this->loadModel('Courses');
-        // $studyCoursesList = $this->Courses->find(
-        $this->loadModel('UniversityCourses');
-        $studyCoursesList = $this->UniversityCourses->find(
-            'list',
-            ['keyField' => 'id', 'valueField' => 'course_name']
-        )
-            // ->where(['active' => 1])
-            ->order(['course_name' => 'asc']);
 
-        $this->set('studyCoursesList', $studyCoursesList);
+        $cached_courses = Cache::read('courses', '_courses_');
+
+        // dd($cached_courses);
+        if (empty($courses_configs)) {
+            $this->loadModel('UniversityCourses');
+            $cached_courses = $this->UniversityCourses->find(
+                'list',
+                ['keyField' => 'id', 'valueField' => 'course_name']
+            )->order(['course_name' => 'asc'])->toArray();
+
+            Cache::write('courses', $cached_courses, '_courses_');
+        }
+        $this->set('studyCoursesList', $cached_courses);
     }
     public function loadDynamicRoutes()
     {
 
-        $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
+        $cached_dynamicroutes = Cache::read('dynamicroutes', '_dynamicroutes_');
 
-        $dynamicRoutes = $DynamicRoutes->find()->select(['slug', 'controller' => 'lower(controller)', 'action' => 'lower(action)'])->where(['is_active' => 1])->all();
-        $dynamicRoutes = Hash::combine($dynamicRoutes->toArray(), ['%s.%s', '{n}.controller', '{n}.action'], '{n}.slug');
-        $this->g_dynamic_routes = $dynamicRoutes;
-        // dd($dynamicRoutes);
-        $this->set('g_dynamic_routes', $this->g_dynamic_routes);
+
+        // dd($cached_dynamicroutes);
+
+        if (empty($cached_dynamicroutes)) {
+            $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
+
+            $dynamicRoutes = $DynamicRoutes->find()->select(['slug', 'controller' => 'lower(controller)', 'action' => 'lower(action)'])->where(['is_active' => 1])->all();
+            $dynamicRoutes = Hash::combine($dynamicRoutes->toArray(), ['%s.%s', '{n}.controller', '{n}.action'], '{n}.slug');
+            $cached_dynamicroutes = $this->g_dynamic_routes = $dynamicRoutes;
+
+            Cache::write('dynamicroutes', $dynamicRoutes, '_dynamicroutes_');
+        }
+
+        $this->set('g_dynamic_routes', $cached_dynamicroutes);
     }
 }

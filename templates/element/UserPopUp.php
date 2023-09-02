@@ -279,7 +279,7 @@
                             ]) ?>
 
 
-                            <?php //= $this->element('mobile_with_code') ?>
+                            <?= $this->element('mobile_with_code') ?>
                             <?= $this->Form->control('email', [
                                 'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
