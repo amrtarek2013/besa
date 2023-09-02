@@ -66,7 +66,3 @@
         </div>
     </div>
 </section>
-
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
-
-<?= $this->element('testimonials', ['testimonials' => $testimonials]) ?>

@@ -206,11 +206,12 @@ background-position-y: 50%;;" />
         </div>
 </section>
 <?= $this->Form->end() ?>
-<?= $this->Html->script([
-    '/js/new-js/script-steps-en.js?v=' . time()
-]) ?>
+
 <?= $this->Html->script([
     '/js/new-js/timeline.js'
+]) ?>
+<?= $this->Html->script([
+    '/js/new-js/script-steps-en.js?v=' . time()
 ]) ?>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -250,40 +251,6 @@ background-position-y: 50%;;" />
                     $(this).parent('div.course-box').hide();
                 }
             });
-        });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        "use strict";
-        // Triger  timeline slider
-        $(".custome-timeline").Timeline({
-            itemClass: "timeline-item",
-            dotsPosition: "top",
-            autoplaySpeed: 20,
-        });
-        var $cols = $(".timeline-horizontal .timeline-dots li");
-        var numberOfCols = $cols.length;
-        $cols.css("width", 100 / numberOfCols + "%");
-
-        // On next click, if the slide-next element exists, trigger the click event on it
-        $(".nav-timeline .next").click(function(e) {
-            e.preventDefault();
-            if ($(".slide-next").length) {
-                $(".slide-next").trigger("click");
-            }
-        });
-
-        // Attach a click event listener to elements with the class "nav-timeline" and "prev"
-        $(".nav-timeline .prev").click(function(e) {
-            // Prevent the default behavior of the click event (i.e. following a link, submitting a form, etc.)
-            e.preventDefault();
-
-            // Check if there is an element on the page with the class "slide-prev"
-            if ($(".slide-prev").length) {
-                // If such an element exists, trigger a click event on it
-                $(".slide-prev").trigger("click");
-            }
         });
     });
 </script>

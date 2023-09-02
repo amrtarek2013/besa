@@ -28,7 +28,7 @@
         '/js/new-js/fontawesome.min.js',
         '/js/new-js/remodal.js',
         '/js/new-js/owl.carousel.min.js',
-        // '/js/new-js/pana-accordion.js',
+        '/js/new-js/pana-accordion.js',
         // '/js/new-js/timeline.js',
         '/js/new-js/script.js?v=' . time(),
     ]) ?>

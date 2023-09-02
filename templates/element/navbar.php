@@ -134,9 +134,6 @@ use Cake\Routing\Router;
                         <?php } else { ?>
                             <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
-                            <!-- <a href="/user/login" class="btn SecondaryBtn">Login
-                    <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                </a> -->
                         <?php } ?>
 
 
@@ -228,11 +225,11 @@ use Cake\Routing\Router;
                                             <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
                                                 <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
                                             </li>
-                                            <!-- <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
-                                                <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
-                                            </li> -->
+                                        </ul>
                                     </div>
                                 </li>
+
+                                <?php /* ?>
                                 <!-- <li <?= strtolower($current_controller) == 'universities' && strtolower($current_action) == 'index' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['universities.index']) ?>">Partners</a>
                                 </li>
@@ -257,6 +254,8 @@ use Cake\Routing\Router;
                                 <!-- <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
                                 </li> -->
+                                
+                                <?php */ ?>
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
                                     <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
                                 </li>
@@ -294,6 +293,7 @@ use Cake\Routing\Router;
                 </div>
 
 
+                <?php /* ?>
                 <!-- <div class="buttons apply-now-btn-header mobile-search">
 
                     <div class="button li-search">
@@ -311,6 +311,9 @@ use Cake\Routing\Router;
                         </div>
                     </div>
                 </div> -->
+                
+
+                <?php */ ?>
             </div>
 
         </div>
