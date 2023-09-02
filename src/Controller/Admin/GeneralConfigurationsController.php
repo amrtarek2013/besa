@@ -140,7 +140,7 @@ class GeneralConfigurationsController extends AppController
         $Configurations = $this->GeneralConfigurations->newEmptyEntity();
         $finalFields = array_merge($fields, $generalConfiguration->toArray());
         if ($this->request->is(['patch', 'post', 'put'])) {
-            
+
             if ($this->GeneralConfigurations->insertOrUpdateConfigs($this->request->getData(), $group, $finalFields)) {
                 $this->Flash->success(__('The General Configuration has been saved.'));
                 return $this->redirect(['action' => 'manage', $group]);
@@ -270,7 +270,7 @@ class GeneralConfigurationsController extends AppController
             // delete file
         }
 
-        $cachefolders = array('configs', 'models', 'persistent', 'views');
+        $cachefolders = array('configs', 'models', 'persistent', 'views', 'snippets', 'courses', 'dynamicroutes', 'permissions', 'permissionsids', 'menus', 'views');
 
         foreach ($cachefolders as $folder) {
             $model = glob(TMP . 'cache' . DS . $folder . DS . '*'); // get all file names

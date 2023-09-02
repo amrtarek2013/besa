@@ -6,7 +6,7 @@
 <?= $home_why_besa2 ?>
 
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']);//, ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
 
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 

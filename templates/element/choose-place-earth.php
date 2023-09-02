@@ -1,16 +1,5 @@
-<!-- <link rel="stylesheet" href="/miniature-earth/examples/assets/example.css"> -->
-<!-- <link rel="stylesheet" href="/miniature-earth/demo/world-news/style.css"> -->
-
-<!-- <link rel="stylesheet" href="/miniature-earth/demo/flight-time/style.css"> -->
-<link rel="stylesheet" href="/miniature-earth/demo/photo-locations/style.css">
-<!-- <script src="/miniature-earth/miniature.earth.js"></script> -->
-<script src="/miniature-earth/miniature.earth.js"></script>
-<!-- <script src="/miniature-earth/demo/world-news/countries.js"></script> -->
-
-<!-- <script src="/miniature-earth/demo/flight-time/airports-and-plane-mesh.js"></script> -->
-
-<!-- <script type="text/javascript" src="/miniature-earth/modules/miniature.earth.textimage.js"></script> -->
-
+<link rel="preload" href="/miniature-earth/demo/photo-locations/style.css" as="style">
+<link rel="preload" href="/miniature-earth/miniature.earth.js" as="script" />
 
 <style>
     .photo-appear {

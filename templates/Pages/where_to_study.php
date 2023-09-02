@@ -11,14 +11,14 @@
             </div>
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg5.png" alt="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg5.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?= $this->element('countries') ?>
+<?= $this->element('countries', [], ['cache' => ['key' => 'where_to_study_countries', 'config' => '_view_long_']]) ?>
 
 
-<?= $this->element("earth") ?>
+<?= $this->element("earth", [], ['cache' => ['key' => 'earth', 'config' => '_view_long_']]) ?>

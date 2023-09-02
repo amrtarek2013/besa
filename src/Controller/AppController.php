@@ -470,7 +470,10 @@ class AppController extends Controller
                 return $permitted_list;
             }
 
-            if (empty($cached_permissions) || empty($cached_permissionsids) || !isset($cached_permissions[$user['role_id']])) {
+            // debug($cached_permissions);
+            // debug($cached_permissionsids);
+            // dd((empty($cached_permissions) || !isset($cached_permissionsids[$user['role_id']]) || !isset($cached_permissions[$user['role_id']])));
+            if (empty($cached_permissions) || !isset($cached_permissionsids[$user['role_id']]) || !isset($cached_permissions[$user['role_id']])) {
 
                 $this->loadModel("RolesPermissions");
                 $this->loadModel("Permissions");
@@ -493,14 +496,15 @@ class AppController extends Controller
                 }
 
                 $cached_permissions[$user['role_id']] = $permissions_list;
+                $cached_permissionsids[$user['role_id']] = $this->permissions_ids;
 
                 Cache::write('permissions', $cached_permissions, '_permissions_');
-                Cache::write('permissionsids', $this->permissions_ids, '_permissionsids_');
+                Cache::write('permissionsids', $cached_permissionsids, '_permissionsids_');
             } else if (isset($cached_permissions[$user["role_id"]])) {
 
                 // dd($cached_permissions[$user["role_id"]]);
                 $permissions_list = $cached_permissions[$user["role_id"]];
-                $this->permissions_ids = $cached_permissionsids;
+                $this->permissions_ids = $cached_permissionsids[$user["role_id"]];
             }
 
             $GLOBALS['Permissions'] = $cached_permissions;
@@ -509,8 +513,8 @@ class AppController extends Controller
         }
         $this->permissionList = $permissions_list;
 
-        $this->permissions_ids = $cached_permissionsids;
         $this->set('permissionList', $permissions_list);
+        $this->set('permissions_ids', $this->permissions_ids);
         // dd($permissions_list);
         return $permitted_list;
     }
@@ -648,15 +652,11 @@ class AppController extends Controller
                     break;
             }
         }
-        // dd($conditions);
-
 
         return $conditions;
     }
     public function resetFilter($action)
     {
-        // dsadsad
-        // dd();
         $this->autoRender = false;
         $modelName = Inflector::pluralize($this->name);
         // debug($modelName);
@@ -666,8 +666,7 @@ class AppController extends Controller
         }
         $allParams = $this->request->getAttribute('params');
 
-        $filterKey = $allParams['controller'] . '_' . $action . "_Filter";
-        // dd($filterKey);
+        $filterKey = $allParams['controller'] . '_' . $action . "_Filter";;
         $session = $this->getRequest()->getSession();
         // debug($session->read());die;
         $session->delete($filterKey);
@@ -703,9 +702,18 @@ class AppController extends Controller
         $prefix = empty($this->request->getParam('prefix')) ? '' : strtolower($this->request->getParam('prefix'));
 
         $cached_menus = Cache::read('menus', '_menus_');
-        // dd($cached_menus);
+        $user = $this->Auth->user();
+        $role_id = '';
+        $checkPrefix = $prefix;
+        if (isset($user["role_id"]) && $prefix == 'admin') {
+
+            // dd($user);
+            $checkPrefix .= "_{$user['role_id']}";
+        }
+
+        // dd((empty($cached_menus) || !isset($cached_menus[$checkPrefix]) || empty($this->sideMenus[$prefix]) || $reFind) );
         $menus = [];
-        if (empty($cached_menus) || !isset($cached_menus[$prefix]) || empty($this->sideMenus[$prefix]) || $reFind) {
+        if (empty($cached_menus) || !isset($cached_menus[$checkPrefix]) || empty($this->sideMenus[$prefix]) || $reFind) {
             $conditions = array();
             $conditions['active'] = true;
             $conditions['prefix'] = $prefix;
@@ -716,16 +724,17 @@ class AppController extends Controller
                 $conditions['permission_id in'] = "-1";
             }
             $this->Menus = new MenusTable();
-            $cached_menus[$prefix] = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all()->toArray();
-            // dd($cached_menus[$prefix]);
+
+            $cached_menus[$checkPrefix] = $this->Menus->find('threaded')->where($conditions)->order('display_order asc')->all()->toArray();
+            // dd($cached_menus);
 
             Cache::write('menus', $cached_menus, '_menus_');
 
-            $this->sideMenus[$prefix] = $this->checkmenu($cached_menus[$prefix], $prefix);
+            $this->sideMenus[$prefix] = $this->checkmenu($cached_menus[$checkPrefix], $prefix);
             // dd($this->sideMenus);
             $this->set('sideMenus', $this->sideMenus);
         } else {
-            $this->set('sideMenus', $this->sideMenus[$prefix]);
+            $this->set('sideMenus', $this->sideMenus[$checkPrefix]);
         }
 
         // if (empty($this->sideMenus[$prefix]) || $reFind) {
@@ -1076,7 +1085,7 @@ class AppController extends Controller
         if (empty($cached_snippets) || !isset($cached_snippets)) {
 
             $cached_snippets = TableRegistry::getTableLocator()->get('Snippets')->getContent($name);
-            
+
             Cache::write($name, $cached_snippets, '_snippets_');
         }
         return $cached_snippets;
