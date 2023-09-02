@@ -21,4 +21,5 @@
 <?= $this->element('countries', [], ['cache' => ['key' => 'where_to_study_countries', 'config' => '_view_long_']]) ?>
 
 
-<?= $this->element("earth", [], ['cache' => ['key' => 'earth', 'config' => '_view_long_']]) ?>
+<?php /*= $this->element("earth", [], ['cache' => ['key' => 'earth', 'config' => '_view_long_']])*/ ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
