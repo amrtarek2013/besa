@@ -247,7 +247,7 @@
     </div>
 </section> -->
 <?php } ?>
-<?= $this->element('testimonials', ['testimonials' => $testimonials, ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']) ?>
+<?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
 <section class="contact-us">
     <div class="top-dots-img">
