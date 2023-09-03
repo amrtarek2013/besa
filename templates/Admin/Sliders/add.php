@@ -80,7 +80,7 @@
                             // echo $this->AdminForm->control('keywords',['type'=>'text']);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
-                            echo $this->AdminForm->enableAjaxUploads($id, 'slider_' . $id, $mainAdminToken);
+                            // echo $this->AdminForm->enableAjaxUploads($id, 'slider_' . $id, $mainAdminToken);
                             echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>

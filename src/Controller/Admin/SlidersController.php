@@ -44,7 +44,7 @@ class SlidersController extends AppController
             }
             $this->Flash->error(__('The Slider could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('slider_new', 'sliders', false, false, ['image', 'mobile_image']);
+        // $this->_ajaxImageUpload('slider_new', 'sliders', false, false, ['image', 'mobile_image']);
         $this->set('id', false);
 
         $this->__common();
@@ -69,7 +69,7 @@ class SlidersController extends AppController
 
         $types = $this->Sliders->types;
         $this->set(compact('slider', 'id', 'types'));
-        $this->_ajaxImageUpload('slider_' . $id, 'sliders', $id, ['id' => $id], ['image', 'mobile_image']);
+        // $this->_ajaxImageUpload('slider_' . $id, 'sliders', $id, ['id' => $id], ['image', 'mobile_image']);
         $this->render('add');
     }
 
