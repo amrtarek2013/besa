@@ -108,7 +108,7 @@
                             <?php
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'university_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'university_' . $id, $mainAdminToken);
                             echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>

@@ -69,7 +69,7 @@
                             // echo $this->AdminForm->control('ads', ['label' => 'Ads as Json {key:value}']);
 
                             echo $this->AdminForm->enableEditors('.editor');
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'countryPartner_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'countryPartner_' . $id, $mainAdminToken);
                             
                             ?>
                         </div>

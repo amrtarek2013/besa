@@ -108,7 +108,7 @@
                                             ],
                                         ])]);
 
-                                        echo $this->AdminForm->enableAjaxUploads($id, 'page_' . $id, $mainAdminToken);
+                                        // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'page_' . $id, $mainAdminToken);
 
                                         ?>
                                     </div>

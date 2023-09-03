@@ -52,7 +52,7 @@
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
 
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'countryImage_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'countryImage_' . $id, $mainAdminToken);
                             echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>

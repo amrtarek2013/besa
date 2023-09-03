@@ -44,7 +44,7 @@
 
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             echo $this->AdminForm->control('display_order', []);
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'studyLevel_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'studyLevel_' . $id, $mainAdminToken);
                             // echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>

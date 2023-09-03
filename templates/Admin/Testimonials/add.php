@@ -71,7 +71,7 @@
 
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             echo $this->AdminForm->enableEditors('.editor');
-                            // echo $this->AdminForm->enableAjaxUploads($id, 'testimonial_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'testimonial_' . $id, $mainAdminToken);
                             ?>
                         </div>
 

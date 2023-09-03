@@ -96,7 +96,7 @@
                             echo $this->AdminForm->control('is_destination', ['type' => 'checkbox']);
                             echo $this->AdminForm->control('display_order', []);
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
-                            echo $this->AdminForm->enableAjaxUploads($id, 'country_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'country_' . $id, $mainAdminToken);
                             echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>

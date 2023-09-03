@@ -138,7 +138,7 @@
                             echo $this->AdminForm->control('background_color', array('options' => $colors, 'empty' => 'Choose Background Color', 'id' => 'background_color', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_color . " !important; ", 'label' => 'Background Color'));
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
-                            echo $this->AdminForm->enableAjaxUploads($id, 'event_' . $id, $mainAdminToken);
+                            // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'event_' . $id, $mainAdminToken);
 
                             // echo $this->AdminForm->enableAjaxFileUpload(['video'], ['video'], true);
 
