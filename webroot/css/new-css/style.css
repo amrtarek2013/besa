@@ -8804,3 +8804,12 @@ input[type=number]::-webkit-outer-spin-button {
 .blogs>.container>.row .col-md-12>.display-flex {
     justify-content: start;
 }
+
+
+img.desktop-image {
+    display: block !important;
+}
+
+img.mobile-image {
+    display: none !important;
+}

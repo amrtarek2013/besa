@@ -53,7 +53,8 @@ class Slider extends Entity
 
         $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'sliders' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            $image_path = 'uploads' . DS . 'sliders' . DS . "thumb_" . str_replace(DS, "", $this->image);
+            
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

@@ -69,7 +69,7 @@ class Counselor extends Entity
 
         $no_image_path = DS . 'img' . DS . 'new-images' . DS . 'profile-test01.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'counselors' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            $image_path = 'uploads' . DS . 'counselors' . DS . "thumb_" . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

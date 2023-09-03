@@ -131,6 +131,15 @@
         display: none;
     }
 
+
+    img.desktop-image {
+        display: none !important;
+    }
+
+    img.mobile-image {
+        display: block !important;
+    }
+
     .navbar .navbar-mobile {
         display: block;
     }
@@ -1351,6 +1360,7 @@
         width: 90%;
         display: flex;
     }
+
     .british-Trophy .checkboxes div label {
         text-wrap: wrap;
     }
@@ -1924,6 +1934,7 @@
         top: -60px;
         /* left: 90px */
     }
+
     .book-appointment .container-formBox button[type="submit"] {
         width: 100%;
     }

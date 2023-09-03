@@ -65,7 +65,7 @@ class StudyLevel extends Entity
 
         $no_image_path = DS . 'images' . DS . '500x418.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'study_levels' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            $image_path = 'uploads' . DS . 'study_levels' . DS . "thumb_" . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

@@ -53,7 +53,7 @@ class CountryQuestion extends Entity
 
         $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'country_questions' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            $image_path = 'uploads' . DS . 'country_questions' . DS . "thumb_" . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
