@@ -224,7 +224,7 @@ class UniversityCoursesController extends AppController
                 $universityCourse->duration,
                 $universityCourse->intake,
 
-                $universityCourse->description
+                $universityCourse->description,
 
                 ($universityCourse->active) ? 'Yes' : 'No',
             ];
