@@ -13,7 +13,7 @@ class SubjectArea extends Entity
 {
     // use LazyLoadEntityTrait;
 
-    protected $_virtual = [/*'image_path', 'banner_image_path', 'mobile_image_path'*/];
+    protected $_virtual = [/*, 'banner_image_path', 'mobile_image_path'*/];
 
     protected $_accessible = [
         '*' => true,

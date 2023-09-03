@@ -12,7 +12,7 @@ use Cake\ORM\Entity;
 class Testimonial extends Entity
 {
     use LazyLoadEntityTrait;
-    protected $_virtual = ['image_path', 'video_thumb'];
+    protected $_virtual = ['image_path','thumb_image_path', 'video_thumb'];
 
     protected $_accessible = [
         '*' => true,
@@ -38,6 +38,20 @@ class Testimonial extends Entity
         $no_image_path = DS . 'img' . DS . 'men.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'testimonials' . DS . str_replace(DS, "", $this->image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return $no_image_path;
+        }
+        return $no_image_path;
+    }
+
+    protected function _getThumbImagePath()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'men.png';
+        if (!empty($this->image)) {
+            $image_path = 'uploads' . DS . 'testimonials' . DS .'thumb_'. str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

@@ -49,96 +49,96 @@ class UsersController extends AppController
         $this->formCommon();
     }
 
-    public function add()
-    {
-        $user = $this->Users->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $data = $this->request->getData();
-            $user = $this->Users->patchEntity($user, $data);
+    // public function add()
+    // {
+    //     $user = $this->Users->newEmptyEntity();
+    //     if ($this->request->is('post')) {
+    //         $data = $this->request->getData();
+    //         $user = $this->Users->patchEntity($user, $data);
 
-            $counselor = $this->Auth->user();
-            $user['counselor_id'] = $counselor['id'];
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The User has been saved.'));
+    //         $counselor = $this->Auth->user();
+    //         $user['counselor_id'] = $counselor['id'];
+    //         if ($this->Users->save($user)) {
+    //             $this->Flash->success(__('The User has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The User could not be saved. Please, try again.'));
-        }
+    //             return $this->redirect(['action' => 'index']);
+    //         }
+    //         $this->Flash->error(__('The User could not be saved. Please, try again.'));
+    //     }
 
-        // $this->_ajaxImageUpload('Users_new', 'users', false, false, ['image']);
-        $this->set('id', false);
+    //     // $this->_ajaxImageUpload('Users_new', 'users', false, false, ['image']);
+    //     $this->set('id', false);
 
-        $this->formCommon();
+    //     $this->formCommon();
 
-        $this->set(compact('user'));
-    }
+    //     $this->set(compact('user'));
+    // }
 
-    public function edit($id = null)
-    {
+    // public function edit($id = null)
+    // {
 
-        $counselor = $this->Auth->user();
-        $conditions['id'] = $id;
-        $conditions['counselor_id'] = $counselor['id'];
-        $user = $this->Users->find($id)->where($conditions)->first();
+    //     $counselor = $this->Auth->user();
+    //     $conditions['id'] = $id;
+    //     $conditions['counselor_id'] = $counselor['id'];
+    //     $user = $this->Users->find($id)->where($conditions)->first();
 
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $data = $this->request->getData();
-
-
-
-            $user = $this->Users->patchEntity($user, $data);
+    //     if ($this->request->is(['patch', 'post', 'put'])) {
+    //         $data = $this->request->getData();
 
 
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The User has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The User could not be saved. Please, try again.'));
-        }
-        $this->formCommon();
-        $this->set(compact('id'));
-        // $this->_ajaxImageUpload('Users_' . $id, 'users', $id, ['id' => $id], ['image']);
-        $this->set(compact('user'));
-        $this->render('add');
-    }
+    //         $user = $this->Users->patchEntity($user, $data);
 
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete', 'get']);
 
-        $counselor = $this->Auth->user();
-        $conditions['id'] = $id;
-        $conditions['counselor_id'] = $counselor['id'];
-        $user = $this->Users->find($id)->where($conditions)->first();
+    //         if ($this->Users->save($user)) {
+    //             $this->Flash->success(__('The User has been saved.'));
 
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The User has been deleted.'));
-        } else {
-            $this->Flash->error(__('The User could not be deleted. Please, try again.'));
-        }
+    //             return $this->redirect(['action' => 'index']);
+    //         }
+    //         $this->Flash->error(__('The User could not be saved. Please, try again.'));
+    //     }
+    //     $this->formCommon();
+    //     $this->set(compact('id'));
+    //     // $this->_ajaxImageUpload('Users_' . $id, 'users', $id, ['id' => $id], ['image']);
+    //     $this->set(compact('user'));
+    //     $this->render('add');
+    // }
 
-        return $this->redirect(['action' => 'index']);
-    }
+    // public function delete($id = null)
+    // {
+    //     $this->request->allowMethod(['post', 'delete', 'get']);
 
-    public function deleteMulti()
-    {
-        $this->request->allowMethod(['post', 'delete']);
+    //     $counselor = $this->Auth->user();
+    //     $conditions['id'] = $id;
+    //     $conditions['counselor_id'] = $counselor['id'];
+    //     $user = $this->Users->find($id)->where($conditions)->first();
 
-        $ids = $this->request->getData('ids');
+    //     if ($this->Users->delete($user)) {
+    //         $this->Flash->success(__('The User has been deleted.'));
+    //     } else {
+    //         $this->Flash->error(__('The User could not be deleted. Please, try again.'));
+    //     }
 
-        $counselor = $this->Auth->user();
+    //     return $this->redirect(['action' => 'index']);
+    // }
 
-        if (is_array($ids)) {
-            $this->Users->deleteAll(['id IN' => $ids, 'counselor_id' => $counselor['id']]);
-            $this->Flash->success(__('The Users has been deleted.'));
-        } else {
-            $this->Flash->error(__('The Users could not be deleted. Please, try again.'));
-        }
+    // public function deleteMulti()
+    // {
+    //     $this->request->allowMethod(['post', 'delete']);
 
-        return $this->redirect(['action' => 'index']);
-    }
+    //     $ids = $this->request->getData('ids');
+
+    //     $counselor = $this->Auth->user();
+
+    //     if (is_array($ids)) {
+    //         $this->Users->deleteAll(['id IN' => $ids, 'counselor_id' => $counselor['id']]);
+    //         $this->Flash->success(__('The Users has been deleted.'));
+    //     } else {
+    //         $this->Flash->error(__('The Users could not be deleted. Please, try again.'));
+    //     }
+
+    //     return $this->redirect(['action' => 'index']);
+    // }
 
     public function view($id = null)
     {

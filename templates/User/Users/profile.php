@@ -136,6 +136,7 @@
                             'placeholder' => 'Password',
                             'label' => 'Password*',
                             'required' => true,
+                            'autocomplete' => false,
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
                         ]) ?>
                         <?= $this->Form->control('passwd', [

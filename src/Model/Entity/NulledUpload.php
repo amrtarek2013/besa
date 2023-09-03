@@ -23,7 +23,7 @@ class NulledUpload extends Entity
      * @var array
      */
      
-     // protected $_virtual = ['image_path','full_avatar_path'];
+     // protected $_virtual = [,'full_avatar_path'];
      // public $modelName = 'roles';
      // protected $imagePath =  '/img/uploads/';
      protected $_accessible = [

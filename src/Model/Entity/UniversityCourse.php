@@ -13,7 +13,7 @@ class UniversityCourse extends Entity
 {
     // use LazyLoadEntityTrait;
 
-protected $_virtual = ['image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
+protected $_virtual = ['image_path', 'thumb_image_path', 'banner_image_path'/*, 'mobile_image_path'*/];
 
     protected $_accessible = [
         '*' => true,
@@ -39,6 +39,22 @@ protected $_virtual = ['image_path', 'banner_image_path'/*, 'mobile_image_path'*
         $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'university_courses' . DS . str_replace(DS,"",$this->image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return $no_image_path;
+        }
+        return $no_image_path;
+    }
+    protected function _getThumbImagePath()
+    {
+
+
+        $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+
+        if (!empty($this->image)) {
+            $image_path = 'uploads' . DS . 'university_courses' . DS . 'thumb_' . str_replace(DS, "", $this->image);
+
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

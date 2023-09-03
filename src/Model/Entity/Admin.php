@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -26,12 +27,12 @@ class Admin extends Entity
      *
      * @var array
      */
-     
-     protected $_virtual = ['image_path','full_avatar_path'];
-     public $modelName = 'admins';
-     protected $imagePath =  '/img/uploads/';
-     protected $_accessible = [
-        '*'=>true,
+
+    protected $_virtual = ['image_path', 'thumb_image_path', 'full_avatar_path'];
+    public $modelName = 'admins';
+    protected $imagePath =  '/img/uploads/';
+    protected $_accessible = [
+        '*' => true,
     ];
 
     /**
@@ -45,25 +46,34 @@ class Admin extends Entity
 
     public function initialize(array $config): void
     {
-     
     }
 
-    protected function _getImagePath()
-    {
-        return $this->imagePath;
-    }
-     protected function _getFullAvatarPath()
+    protected function _getFullAvatarPath()
     {
         return !empty($this->avatar) ? '/img/uploads/' . $this->avatar : null;
     }
 
+    protected function _getImagePath()
+    {
 
-    protected function _setPassword(string $password) : ?string
+        $no_image_path = DS . 'img' . DS . 'LocationSudan_22.png';
+        if (!empty($this->avatar)) {
+            $image_path = 'img' . DS . 'uploads' . DS . str_replace(DS, "", $this->avatar);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+
+                return $no_image_path;
+        }
+        return $no_image_path;
+    }
+
+
+    protected function _setPassword(string $password): ?string
     {
         if (strlen($password) > 0) {
             return (new DefaultPasswordHasher())->hash($password);
         }
         return null;
     }
-
 }

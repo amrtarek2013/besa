@@ -13,7 +13,7 @@ class Slider extends Entity
 {
     // use LazyLoadEntityTrait;
 
-    protected $_virtual = ['image_path', 'mobile_image_path'];
+    protected $_virtual = ['image_path', 'thumb_image_path', 'mobile_image_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -32,19 +32,33 @@ class Slider extends Entity
     public function initialize(array $config): void
     {
     }
-    
+
     protected function _getImagePath()
     {
 
         $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS,"",$this->image);
+            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
                 return null;
         }
         return null;
+    }
+
+    protected function _getThumbImagePath()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'background-header.png';
+        if (!empty($this->image)) {
+            $image_path = 'uploads' . DS . 'sliders' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return $no_image_path;
+        }
+        return $no_image_path;
     }
 
 
@@ -54,7 +68,7 @@ class Slider extends Entity
 
         $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->mobile_image)) {
-            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS,"",$this->mobile_image);
+            $image_path = 'uploads' . DS . 'sliders' . DS . str_replace(DS, "", $this->mobile_image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else

@@ -13,7 +13,7 @@ class CountryPartner extends Entity
 {
     // use LazyLoadEntityTrait;
 
-protected $_virtual = ['image_path', 'video_thumb_path'];
+    protected $_virtual = ['image_path', 'thumb_image_path', 'video_thumb_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -38,7 +38,7 @@ protected $_virtual = ['image_path', 'video_thumb_path'];
 
         $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
         if (!empty($this->image)) {
-            $image_path = 'uploads' . DS . 'country_partners' . DS . str_replace(DS,"",$this->image);
+            $image_path = 'uploads' . DS . 'country_partners' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
@@ -47,13 +47,27 @@ protected $_virtual = ['image_path', 'video_thumb_path'];
         return $no_image_path;
     }
 
-    
+    protected function _getThumbImagePath()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+        if (!empty($this->image)) {
+            $image_path = 'uploads' . DS . 'country_partners' . DS . "thumbs_" . str_replace(DS, "", $this->image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                
+            return $no_image_path;
+        }
+        return $no_image_path;
+    }
+
     protected function _getVideoThumbPath()
     {
 
         $no_image_path = DS . 'img' . DS . 'men.png';
         if (!empty($this->video_thumb)) {
-            $image_path = 'uploads' . DS . 'country_partners' .$this->video_thumb;
+            $image_path = 'uploads' . DS . 'country_partners' . $this->video_thumb;
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
