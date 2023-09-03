@@ -437,8 +437,10 @@ class UsersController extends AppController
                     $this->Flash->error(__('This user already exist!!'));
                 }
             } else {
+
                 $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
 
+                $userEntity->bd = $this->data['day'] . '-' . $this->data['month'] . '-' . $this->data['year'];
                 if ($this->Session->check('search_url'))
                     $userEntity->last_url = $this->Session->read('search_url');
                 if ($this->Users->save($userEntity)) {
@@ -520,7 +522,8 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code','country_name', 'flag'
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code', 'country_name', 'flag'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -569,7 +572,7 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sent_data = $this->request->getData();
             $user = $this->Users->patchEntity($user, $this->request->getData()/*, ['validate' => 'profile']*/);
-
+            $user->bd = $sent_data['day'] . '-' . $sent_data['month'] . '-' . $sent_data['year'];
             if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
                 $user->password = $sent_data['password'];
             } else {
@@ -601,8 +604,9 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -610,7 +614,7 @@ class UsersController extends AppController
             '{n}.phone_code',
             ['+%s', '{n}.phone_code']
         );
-        
+
         $this->set('countriesCodesList', $countriesCodesList);
 
         $this->loadModel('StudyLevels');

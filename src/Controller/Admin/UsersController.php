@@ -55,6 +55,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
             $user = $this->Users->patchEntity($user, $data);
+            $user->bd = $data['day'] . '-' . $data['month'] . '-' . $data['year'];
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The User has been saved.'));
 
@@ -84,7 +85,7 @@ class UsersController extends AppController
 
             $user = $this->Users->patchEntity($user, $data);
 
-
+            $user->bd = $data['day'] . '-' . $data['month'] . '-' . $data['year'];
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The User has been saved.'));
 
