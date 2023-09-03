@@ -326,16 +326,21 @@ class ImageFileBehavior extends Behavior
 
 
 
+            // $file['tmp_name'] = str_replace('/', "\\", $file["tmp_name"]);
+            // $folder = str_replace('/', "\\", $folder);
             // debug($file);
             // debug(file_exists($file['tmp_name']));
             // debug(file_exists($folder));
-            // dd($file['tmp_name'].'--------'.$folder . $filename);
+            // debug($file['tmp_name'] . '--------' . $folder . $filename);
             if (move_uploaded_file($file['tmp_name'], $folder . $filename)) {
+
+                // dd($file['tmp_name'] . '--------' . $folder . $filename);
                 $entity->set($field, $filename);
                 chmod($folder . $filename, 0777);
 
                 return $filename;
             } else {
+                // dd(move_uploaded_file($file['tmp_name'], $folder . $filename));
                 die('Error while saving uploaded file');
                 return false;
             }
