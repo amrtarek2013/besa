@@ -85,6 +85,9 @@ class UsersTable extends Table
     $this->belongsTo('Destinations', [
       'className' => 'Countries', 'foreignKey' => 'destination_id'
     ]);
+    $this->belongsTo('Nationalities', [
+      'className' => 'Countries', 'foreignKey' => 'nationality_id'
+    ]);
     $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
   }

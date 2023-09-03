@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/datepicker/bootstrap-datepicker.min.css">
 <section class="main-banner register-banner">
 
     <div class="container" style="width:100%">
@@ -13,59 +14,138 @@
                     <h4 class="title">Basic Information</h4>
                     <div class="grid-container">
 
-                        <?= $this->Form->control('first_name', ['placeholder' => 'First Name', 'class' => 'form-area', 'label' => 'First Name*', 'required' => true]) ?>
-                        <?= $this->Form->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?>
-                        <?= $this->Form->control('last_name', ['placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true]) ?>
-                        <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
+
+                        <?= $this->Form->control('first_name', [
+                            'placeholder' => 'Name',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                        ]) ?>
+
+                        <?= $this->Form->control('last_name', [
+                            'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+                        <?= $this->Form->control('date', [
+                            'placeholder' => 'Date of Birth', 'value' => $user->bd, 'class' => 'hasDate', 'label' => 'Date of Birth*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <!-- <div class=" form-area">
+                            <label for="">Date of Birth*</label>
+                            <div class="grid-3col">
+                                <select name="day" id="day" placeholder="Day" required="required">
+                                    <option value="">Day</option>
+
+                                    <?php
+
+                                    use Cake\Routing\Router;
+
+                                    for ($i = 1; $i <= 31; $i++) {
+                                        $d = $i; //date('M', strtotime("last day of +$i month"));
+                                        echo "<option value='$d'>$d</option>";
+                                    }
+                                    ?>
+
+                                </select>
+                                <select name="month" id="month" placeholder="Month" required="required">
+                                    <option value="">Month</option>
+                                    <?php
+                                    for ($i = 1; $i <= 12; $i++) {
+                                        $month = $i; // date('M', strtotime("last day of +$i month"));
+                                        echo "<option value='$month'>$month</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select name="year" id="year" placeholder="Year" required="required">
+                                    <option value="">Year</option>
+                                    <?php
+                                    for ($i = 1980; $i <= 2015; $i++) {
+                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
+                                        echo "<option value='$year'>$year</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div> -->
+
+
+                        <?= $this->Form->control('gender', [
+                            'placeholder' => 'Gender*', 'label' => 'Gender*', 'required' => true,
+                            'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+                        <?= $this->Form->control('nationality_id', [
+                            'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
+                            'type' => 'select', 'empty' => 'Select Nationality*',
+                            'options' => $countriesList,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
 
                         <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-
-
-
-                        <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
-                        <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
-
-                        <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
-
-                        <!-- <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?> -->
-
-                        <!-- <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?> -->
-
-                        <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
-
 
                         <?= $this->Form->control('country_id', [
                             'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
                             'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+
                         <?= $this->Form->control('city', [
                             'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+
                         <?= $this->Form->control('current_status', [
-                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/Uni.)', 'label' => 'Curr/Prev-(School/Uni.) *', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-                        <?= $this->Form->control('study_level_id', [
-                            'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+
+
+                        <?= $this->Form->control('current_study_level', [
+                            'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
+                            'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+
 
                         <?= $this->Form->control('subject_area_id', [
-                            'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
-                            'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+                            'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
+                            'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
+                        ]) ?>
+
+
+                        <?= $this->Form->control('destination_id', [
+                            'placeholder' => 'Country of study', 'type' => 'select', 'empty' => 'Select Country of study',
+                            'options' => $destinationsList, 'label' => 'Country of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
 
-                        <?= $this->AdminForm->control('destination_id', [
-                            'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
-                            'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
+
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+
+
+                        <?= $this->Form->control('password', [
+                            'type' => 'password',
+                            'placeholder' => 'Password',
+                            'label' => 'Password*',
+                            'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+                        ]) ?>
+                        <?= $this->Form->control('passwd', [
+                            'type' => 'password',
+                            'placeholder' => 'Confirm Password',
+                            'label' => 'Confirm Password*',
+                            'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+                        ]) ?>
+
                         <?php
                         echo $this->AdminForm->control('image', [
                             'label' => 'Profile Picture', 'type' => 'file', 'between' => $this->element('image_input_between', [
@@ -78,30 +158,14 @@
 
                                 ],
                             ]),
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" style="margin-top: -19px !important;">{{content}}</div>']
+                            'templates' => ['inputContainer' => '<div class=" {{rquired}}" style="margin-top: -19px !important;">{{content}}</div>']
                         ]);
                         ?>
 
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-12">
-                <div class="container-formBox blue-border">
-                    <h4 class="title">Education Information</h4>
-                    <div class="grid-container">
-                        <?= $this->Form->control('study_level_id', ['placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*', 'options' => $services, 'class' => 'form-area', 'label' => 'Level of study*', 'required' => true]) ?>
 
-                        <?= $this->Form->control('course_interest_id', ['placeholder' => 'Course of Interest', 'type' => 'select', 'empty' => 'Select Course of Interest*', 'options' => $services, 'class' => 'form-area', 'label' => 'Course of Interest*', 'required' => true]) ?>
-
-                        <?= $this->Form->control('current_status', ['type' => 'text', 'placeholder' => 'Current status', 'class' => 'form-area', 'label' => 'Current status*', 'required' => true]) ?>
-
-                        <?= $this->Form->control('high_school_grade', ['type' => 'text', 'placeholder' => 'High school grade', 'class' => 'form-area', 'label' => 'High school grade*', 'required' => true]) ?>
-
-                        <?= $this->Form->control('how_hear_about_us', ['type' => 'text', 'placeholder' => 'How did you hear about us?', 'class' => 'form-area', 'label' => 'How did you hear about us?', 'required' => true]) ?>
-
-                    </div>
-                </div>
-            </div> -->
             <div class="col-md-12">
                 <div class="container-submit">
                     <!-- <div class="checkboxes">
@@ -118,7 +182,36 @@
                 </div>
             </div>
             <?= $this->Form->end() ?>
-
         </div>
     </div>
 </section>
+
+<script src="<?= ADMIN_ASSETS ?>/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= ADMIN_ASSETS ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= ADMIN_ASSETS ?>/datepicker/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+    $.fn.datepicker.dates['en'] = {
+        days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        today: "Today",
+        clear: "Clear",
+        format: "mm/dd/yyyy",
+        titleFormat: "MM yyyy", // Leverages same syntax as 'format' 
+        weekStart: 0
+    };
+    $('.hasDate').datepicker({
+        format: 'dd-mm-yyyy',
+        todayHighlight: true,
+        clearBtn: true,
+        orientation: "left"
+    });
+    var mode = 'index'
+    var intersect = true
+    var ticksStyle = {
+        fontColor: '#495057',
+        fontStyle: 'bold'
+    }
+</script>

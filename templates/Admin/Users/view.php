@@ -54,7 +54,7 @@
 
                                     <tr class="table-header">
                                         <th class="" width="">Birth of Date</th>
-                                        <td><?php echo (!empty($user->bd) ? $user->bd->format('H:m:i d-m-y') : '') ?></td>
+                                        <td><?php echo (!empty($user->bd) ? $user->bd : '---') ?></td>
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width="">Profile Image</th>
@@ -62,7 +62,7 @@
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width="">Nationality</th>
-                                        <td><?= $user->nationality ?></td>
+                                        <td><?= $user->nationality->country_name ?></td>
                                     </tr>
                                     <tr class="table-header">
                                         <th class="" width="">Country of Residence</th>
@@ -76,7 +76,7 @@
                                         <th class="" width="">Current/Previous-(School/University)</th>
                                         <td><?= $user->current_status ?></td>
                                     </tr>
-                                    
+
                                     <tr class="table-header">
                                         <th class="" width="">Current/last Level of study</th>
                                         <td><?= isset($mainStudyLevels[$user->current_study_level]) ? $mainStudyLevels[$user->current_study_level] : '' ?></td>
@@ -89,7 +89,7 @@
                                         <th class="" width="">Major/subject of your study</th>
                                         <td><?= !empty($user->subject_area) ? $user->subject_area->title : '' ?></td>
                                     </tr>
-                                    
+
                                     <tr class="table-header">
                                         <th class="" width="">Country of study</th>
                                         <td><?= !empty($user->destination) ? $user->destination->country_name : '' ?></td>
@@ -118,8 +118,8 @@
                                         <td><?= $user->is_subscribed ? '<span class="btn-status Yes">Yes</span>' : '<span class="btn-status No">No</span>' ?></td>
                                     </tr>
                                     <tr class="table-header">
-                                        <th class="" width=""><a>Date</a></th>
-                                        <td><?php echo (!empty($user->created) ? $user->created->format('H:m:i d-m-y') : '') ?></td>
+                                        <th class="" width=""><a>Created Date</a></th>
+                                        <td><?php echo (!empty($user->created) ? $user->created->format('h:m:i a - d/m/Y') : '') ?></td>
                                     </tr>
                                 </tbody>
                             </table>

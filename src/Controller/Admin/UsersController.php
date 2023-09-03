@@ -45,7 +45,7 @@ class UsersController extends AppController
 
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('users', 'parameters'));
-        
+
         $this->formCommon();
     }
 
@@ -83,9 +83,11 @@ class UsersController extends AppController
 
 
 
+
             $user = $this->Users->patchEntity($user, $data);
 
-            $user->bd = $data['day'] . '-' . $data['month'] . '-' . $data['year'];
+            $user->bd = date('Y-m-d', strtotime($data['date'])); //$data['year'] . '-' . $data['month'] . '-' . $data['day'];
+            // dd($user);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The User has been saved.'));
 
@@ -93,6 +95,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The User could not be saved. Please, try again.'));
         }
+        // dd($user);
+        $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
         $this->formCommon();
         $this->set(compact('id'));
         // $this->_ajaxImageUpload('Users_' . $id, 'users', $id, ['id' => $id], ['image']);
@@ -131,9 +135,14 @@ class UsersController extends AppController
 
     public function view($id = null)
     {
-        $user = $this->Users->find()->where(['Users.id' => $id])->contain(['Countries', 'StudyLevels', 'SubjectAreas', 'Destinations'])->first();
+        $user = $this->Users->find()->where(['Users.id' => $id])->contain([
+            'Countries' => ['fields' => ['country_name']],
+            // 'StudyLevels' => ['fields' => ['title']],
+            'SubjectAreas' => ['fields' => ['title']], 'Destinations' => ['fields' => ['country_name']],
+            'Nationalities' => ['fields' => ['country_name']]
+        ])->first();
 
-        // dd($user);
+        $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
         $this->set('user', $user);
         $this->loadModel('StudyLevels');
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
@@ -227,8 +236,9 @@ class UsersController extends AppController
         ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
         $this->set('destinationsList', $destinationsList);
 
-        
-        $countriesCodesList = $this->Countries->find()->select(['code','phone_code'
+
+        $countriesCodesList = $this->Countries->find()->select([
+            'code', 'phone_code'
         ])->where(['active' => 1])->order(['phone_code' => 'asc']);
 
         $countriesCodesList = Hash::combine(
@@ -236,7 +246,7 @@ class UsersController extends AppController
             '{n}.phone_code',
             ['+%s', '{n}.phone_code']
         );
-        
+
         $this->set('countriesCodesList', $countriesCodesList);
         $this->loadModel('StudyLevels');
         // $studyLevels = $this->StudyLevels->find('list', [

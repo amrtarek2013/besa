@@ -77,60 +77,15 @@
               'type' => 'select', 'empty' => 'Gender', 'options' => ['0' => 'Male', '1' => 'Female'],
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-            <?= $this->Form->control('nationality', [
+            <?= $this->Form->control('nationality_id', [
               'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
               'type' => 'select', 'empty' => 'Select Nationality*',
               'options' => $countriesList,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <!-- <div class="form-area ">
-              <?= $this->Form->label('mobile', 'Mobile*') ?>
-              <?= $this->Form->control('mobile', [
-                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-              ]) ?>
-              <?= $this->Form->control('mobile_code', [
-                'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-                'type' => 'select',
-              ]) ?>
-            </div> -->
-
 
             <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-
-
-            <!-- <?= $this->Form->control('email', [
-                    'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                  ]) ?>
-
-
-            <?= $this->Form->control('password', [
-              'type' => 'password',
-              'placeholder' => 'Password',
-              'label' => 'Password*',
-              'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
-            ]) ?>
-            <?= $this->Form->control('passwd', [
-              'type' => 'password',
-              'placeholder' => 'Confirm Password',
-              'label' => 'Confirm Password*',
-              'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
-            ]) ?> -->
-
-
-
-
-
-
-            <!-- <?= $this->Form->control('student_type', [
-                    'label' => 'I am a*', 'required' => true,
-                    'type' => 'select', 'options' => ['0' => 'Student', '1' => 'Student2'],
-                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                  ]) ?> -->
-
 
             <?= $this->Form->control('country_id', [
               'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
@@ -157,22 +112,13 @@
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <!-- <?= $this->Form->control('study_level_id', [
-                    'placeholder' => 'Preferred study level', 'type' => 'select', 'empty' => 'Select Preferred study level*',
-                    'options' => $studyLevels, 'label' => 'Preferred study level*', 'required' => true,
-                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                  ]) ?> -->
+
 
             <?= $this->Form->control('subject_area_id', [
               'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
               'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
             ]) ?>
-            <!-- <?= $this->Form->control('subject_area_id', [
-                    'placeholder' => 'Preferred subject area', 'type' => 'select', 'empty' => 'Select Preferred subject area*',
-                    'options' => $subjectAreas, 'label' => 'Preferred subject area*', 'required' => true,
-                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                  ]) ?> -->
 
 
             <?= $this->Form->control('destination_id', [
@@ -181,11 +127,7 @@
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
-            <!-- <?= $this->Form->control('destination_id', [
-                    'placeholder' => 'Preferred study destination', 'type' => 'select', 'empty' => 'Select Preferred study destination',
-                    'options' => $destinationsList, 'label' => 'Preferred study destination*', 'required' => true,
-                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                  ]) ?> -->
+
 
             <?= $this->Form->control('email', [
               'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
@@ -208,18 +150,6 @@
               'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
             ]) ?>
 
-            <!-- <?= $this->Form->control('mobile', ['placeholder' => 'Mobile', 'label' => 'Mobile*', 'required' => true]) ?>
-
-            <?= $this->Form->control('password', ['type' => 'password', 'placeholder' => 'Password', 'label' => 'Password*']) ?>
-            <?= $this->Form->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'label' => 'Confirm Password*']) ?>
-
-            <?= $this->Form->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'label' => 'Gender*', 'required' => true]) ?>
-
-            <?= $this->Form->control('nationality', ['placeholder' => 'Nationality', 'label' => 'Nationality*', 'required' => true]) ?>
-
-            <?= $this->Form->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true]) ?>
-
-            <?= $this->Form->control('address', ['type' => 'text', 'placeholder' => 'Address', 'label' => 'Address*', 'required' => true]) ?> -->
 
             <?= $this->element('security_code', ['show_label' => 1]) ?>
           </div>
@@ -237,7 +167,6 @@
                 <label for="">Tick box to stay updated through BESA’s newsletter</label>
               </div>
             </div>
-            <!-- <a href="#" class="btn greenish-teal">SUBMIT</a> -->
 
             <button type="submit" class="btn greenish-teal">REGISTER</button>
           </div>
@@ -252,10 +181,6 @@
 
           <h4 class="title">Log in</h4>
           <div class="grid-container">
-            <!-- <div class="form-area">
-              <label for="email">Email*</label>
-              <input type="email" id="email" name="email" placeholder="Email">
-            </div> -->
 
             <?= $this->Form->control('email', [
               'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,

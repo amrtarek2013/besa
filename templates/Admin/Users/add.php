@@ -52,7 +52,52 @@
 
                                         <?= $this->AdminForm->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
 
-                                        <!-- <?= $this->AdminForm->control('nationality', ['placeholder' => 'Nationality', 'class' => 'form-area', 'label' => 'Nationality*', 'required' => true]) ?> -->
+                                        <?= $this->AdminForm->control('date', ['placeholder' => 'Date of Birth', 'value'=>$user->bd, 'class' => 'form-area hasDate', 'label' => 'Date of Birth*', 'required' => true]) ?>
+                                        <!-- <div class=" form-area">
+                                            <label for="">Date of Birth*</label>
+                                            <div class="grid-3col">
+                                                <?php
+                                                $days = [];
+                                                for ($i = 1; $i <= 31; $i++) {
+                                                    $d = $i; //date('M', strtotime("last day of +$i month"));
+                                                    $days[$d] = $d;
+                                                }
+                                                ?>
+                                                <?= $this->AdminForm->control('date', ['placeholder' => 'Day', 'type' => 'select', 'empty' => 'Select Day', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                                                <?= $this->AdminForm->control('month', ['placeholder' => 'Month', 'type' => 'select', 'empty' => 'Select Month', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                                                <?= $this->AdminForm->control('year', ['placeholder' => 'Year', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                                                <select name="day" id="day" placeholder="Day" required="required">
+                                                    <option value="">Day</option>
+
+                                                    <?php
+                                                    for ($i = 1; $i <= 31; $i++) {
+                                                        $d = $i; //date('M', strtotime("last day of +$i month"));
+                                                        echo "<option value='$d'>$d</option>";
+                                                    }
+                                                    ?>
+
+                                                </select>
+                                                <select name="month" id="month" placeholder="Month" required="required">
+                                                    <option value="">Month</option>
+                                                    <?php
+                                                    for ($i = 1; $i <= 12; $i++) {
+                                                        $month = $i; // date('M', strtotime("last day of +$i month"));
+                                                        echo "<option value='$month'>$month</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <select name="year" id="year" placeholder="Year" required="required">
+                                                    <option value="">Year</option>
+                                                    <?php
+                                                    for ($i = 1980; $i <= 2015; $i++) {
+                                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
+                                                        echo "<option value='$year'>$year</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <?= $this->AdminForm->control('nationality_id', ['placeholder' => 'Nationality', 'type' => 'select', 'class' => 'form-area', 'label' => 'Nationality*', 'options' => $countriesList, 'required' => true]) ?>
 
                                         <!-- <?= $this->AdminForm->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?> -->
 
@@ -125,13 +170,15 @@
         </div>
     </section>
 </div>
+
+<!-- <?php
+
+echo $this->Html->script('select2.min');
+echo $this->Html->css('select2.min');
+?>
 <script>
     $(document).ready(function() {
         $('.select-single').select2();
         $('.select-multiple').select2();
     });
-</script>
-<?php
-
-echo $this->Html->script('select2.min');
-echo $this->Html->css('select2.min');
+</script> -->
