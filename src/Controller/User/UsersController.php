@@ -440,7 +440,7 @@ class UsersController extends AppController
 
                 $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
 
-                $userEntity->bd = $this->data['day'] . '-' . $this->data['month'] . '-' . $this->data['year'];
+                $userEntity->bd = $this->data['year'] . '-' . $this->data['month'] . '-' . $this->data['day'];
                 if ($this->Session->check('search_url'))
                     $userEntity->last_url = $this->Session->read('search_url');
                 if ($this->Users->save($userEntity)) {
@@ -572,7 +572,7 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sent_data = $this->request->getData();
             $user = $this->Users->patchEntity($user, $this->request->getData()/*, ['validate' => 'profile']*/);
-            $user->bd = date('Y-m-d', strtotime($sent_data['date'])); 
+            $user->bd = date('Y-m-d', strtotime($sent_data['date']));
             $user->bd = $sent_data['day'] . '-' . $sent_data['month'] . '-' . $sent_data['year'];
             if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
                 $user->password = $sent_data['password'];
@@ -592,7 +592,7 @@ class UsersController extends AppController
                 // dd($user->getErrors());
                 $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
-        
+
         $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
         $this->set(compact('user'));
 
