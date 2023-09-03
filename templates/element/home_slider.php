@@ -45,8 +45,9 @@
                                     <?php
                                     if (isset($slider['image_path'])) {
                                     ?>
-                                        <img class="desktop-image" src="<?= $slider['image_path'] ?>" alt="">
-                                        <img class="mobile-image" src="<?= $slider['thumb_image_path'] ?>" alt="">
+                                        <img <?= !empty($slider['thumb_image_path']) ? 'class="desktop-image"' : '' ?> src="<?= $slider['image_path'] ?>" alt="">
+                                        <?= !empty($slider['thumb_image_path']) ? '<img src="' . $slider['thumb_image_path'] . '" class="mobile-image" alt="">' : '' ?>
+
                                     <?php } else { ?>
 
                                         <img src="<?= WEBSITE_URL ?>img/bg-popup-1.png" alt="" class="box-message bounceIn">

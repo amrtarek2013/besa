@@ -57,8 +57,8 @@ class CareerImage extends Entity
                 return DS . $image_path;
             else
                 
-            return $no_image_path;
+        return null;
         }
-        return $no_image_path;
+    return null;
     }
 }
