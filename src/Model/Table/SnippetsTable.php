@@ -150,5 +150,6 @@ class SnippetsTable extends Table
 
         Cache::write($name, $snippet->content, '_snippets_');
         Cache::write($name . "_image", "/files/snippets/" . $snippet->image, '_snippets_');
+        clearViewCache();
     }
 }
