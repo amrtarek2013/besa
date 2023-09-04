@@ -598,11 +598,16 @@ class UsersController extends AppController
         unset($user['password']);
         if (!empty($user->bd)) {
             // dd($user->bd);
-            $userbd = explode('-', $user->bd->format('Y-m-d'));
-            // dd($userbd);
-            $user['year'] = intval($userbd[0]);
-            $user['month'] = intval($userbd[1]);
-            $user['day'] = intval($userbd[2]);
+            $userbd = [];
+            if (is_string($user->bd))
+                $userbd = explode('-', $user->bd);
+            else
+                $userbd = explode('-', $user->bd->format('Y-m-d'));
+            if (!empty($userbd)) {
+                $user['year'] = intval($userbd[0]);
+                $user['month'] = intval($userbd[1]);
+                $user['day'] = intval($userbd[2]);
+            }
         }
 
         // dd($user);
