@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/miniature-earth/demo/photo-locations/style.css">
-<script src="/miniature-earth/miniature.earth.js"> </script>
+<script src="/miniature-earth/miniature.earth.js" async> </script>
 
 <style>
     .photo-appear {
