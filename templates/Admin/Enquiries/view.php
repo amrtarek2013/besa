@@ -47,9 +47,9 @@
                                             $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'destination_id') ? $enquiry['country']['country_name'] : $enquiry[$field];
                                             if ($enquiry['type'] == 'book-appointment') {
-                                                if (isset($_GET['dk']))
+                                                if (isset($_GET['dk']) && $field == 'study_level')
                                                     var_dump($interestedStudyLevels[$enquiry[$field]]);
-                                                    
+
                                                 $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
                                             }
                                             ?>
