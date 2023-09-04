@@ -593,7 +593,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('The profile data could not be saved. Please, try again.'));
         }
 
-        $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
+        // $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
 
         unset($user['password']);
         if (!empty($user->bd)) {
