@@ -97,6 +97,7 @@ class GeneralConfigurationsTable extends Table
         'txt.tiktok_pixels',
         'txt.facebook_pixels',
         'txt.google_analytics',
+        'txt.google_tag_manager',
 
     );
 
