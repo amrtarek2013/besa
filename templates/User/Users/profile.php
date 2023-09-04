@@ -135,7 +135,6 @@
                             'type' => 'password',
                             'placeholder' => 'Password',
                             'label' => 'Password*',
-                            'required' => true,
                             'autocomplete' => false,
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
                         ]) ?>
@@ -143,7 +142,6 @@
                             'type' => 'password',
                             'placeholder' => 'Confirm Password',
                             'label' => 'Confirm Password*',
-                            'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
                         ]) ?>
 
