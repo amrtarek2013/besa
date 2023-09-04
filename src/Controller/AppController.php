@@ -50,10 +50,32 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+    public function _checkDebug()
+	{
 
+		$session = $this->getRequest()->getSession();
+
+		if (isset($_GET['debug'])) {
+			if ($_GET['debug'] == 0) {
+				$session->write('debug', false);
+			} else {
+				$session->write('debug', true);
+			}
+		}
+		if ($session->check('debug')) {
+			$debuger = $session->read('debug');
+			Configure::write('debug', $debuger);
+			if ($debuger > 0) {
+				$myApp = new \App\Application('/var/www/html/ozrepo/config');
+				$myApp->addPlugin('DebugKit');
+				// debug('DebugKit');
+			}
+		}
+	}
     public function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
+		$this->_checkDebug();
 
         if (empty($_SERVER["HTTPS"])) {
             $local = array(
