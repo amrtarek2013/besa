@@ -56,12 +56,6 @@
     <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/hero-bg3.png">
     <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/Welcome-vis.png">
     <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/dots-153.png">
-    
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/icon/facebook.svg">
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/icon/instagram.svg">
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/icon/youtube.svg">
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/icon/linkedin.svg">
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/icon/twitter.svg">
 
     <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" as="style" />
 

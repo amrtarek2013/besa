@@ -10,22 +10,22 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-footer">
                     <div class="logo">
-                        <img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="" width="165">
+                        <img loading="lazy" src="<?= $g_configs['general']['file.main_logo'] ?>" alt="" width="165">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                <img src="<?= WEBSITE_URL ?>img/icon/facebook.svg" alt="">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/facebook.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                <img src="<?= WEBSITE_URL ?>img/icon/instagram.svg" alt="" target="_blank">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/instagram.svg" alt="" target="_blank">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                <img src="<?= WEBSITE_URL ?>img/icon/youtube.svg" alt="">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/youtube.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                <img src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
                             </a>
                         </div>
                     </div>
@@ -93,6 +93,6 @@ use Cake\Routing\Router;
 </section>
 <div class="go-up">
     <span class="up " id="scrollToTop" style="display: none;">
-        <img src="<?= WEBSITE_URL ?>img/red-arrow-top.svg" alt="">
+        <img loading="lazy" src="<?= WEBSITE_URL ?>img/red-arrow-top.svg" alt="">
     </span>
 </div>
