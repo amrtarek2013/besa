@@ -9,7 +9,7 @@ use Cake\Routing\Router;
             <div class="col-md-7">
                 <div class="background-banner-color">
                     <img src="<?= WEBSITE_URL ?>img/school_councelor_portal_bg.png" alt="" style="z-index: 2;">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-5">

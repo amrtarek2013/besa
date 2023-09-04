@@ -8,7 +8,7 @@ use Cake\Routing\Router;
             <div class="col-md-6">
                 <div class="background-banner-color">
                     <img src="<?= WEBSITE_URL ?>img/hero-b99.png" alt="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6" style="position: relative;">

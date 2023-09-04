@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <div class="background-banner-color">
                     <img src="./img/hero-bg-study-01.png" alt="" style="z-index: 2;">
-                    <img src="./img/dots-153.png" alt="" class="relative-dots-about">
+                    <img src="./img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
