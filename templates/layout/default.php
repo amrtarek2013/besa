@@ -84,14 +84,6 @@
         }
     });
 </script>
-<style>
-    .circle-img img {
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -o-border-radius: 50%;
-    }
-</style>
 
 <body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
 

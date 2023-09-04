@@ -64,8 +64,8 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="left-box">
-                <div class="circle-img circle-img-center">
-                    <img src="<?= $_SESSION['Auth']['User']['image_path'] ?>?v=1" alt="" style="width: 128px;height: 128px;">
+                <div class=" circle-img-center">
+                    <img class="circle-img" src="<?= $_SESSION['Auth']['User']['image_path'] ?>?v=1" alt="" style="width: 128px;height: 128px;">
                 </div>
                 <!-- <h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4> -->
                 <?php
