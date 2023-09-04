@@ -52,6 +52,13 @@
         clear: both;
         padding-bottom: 15px;
     }
+
+    .circle-img img {
+        border-radius: 50% !important;
+        -webkit-border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        -o-border-radius: 50% !important;
+    }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4 counselor-sidebar">
     <a href="<?= USER_LINK ?>" class="brand-link">

@@ -11,12 +11,7 @@
         background-position-x: calc(100% - 8px) !important;
     }
 
-    .circle-img img {
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -o-border-radius: 50%;
-    }
+    
 </style>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/datepicker/bootstrap-datepicker.min.css">
 <section class="main-banner register-banner">
