@@ -586,6 +586,7 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
 
                 $this->Auth->setUser($user);
+                $_SESSION['Auth']['User'] = $user;
                 $this->Flash->success(__('The profile date has been saved.'));
 
                 // return $this->redirect(['action' => 'accountInfo']);
