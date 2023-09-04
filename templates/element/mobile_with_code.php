@@ -27,7 +27,7 @@ $modileCodeId = 'mobile_code' . rand();
     ]) ?>
     <?= $this->Form->control($phone_code, [
         'class' => 'country_code mobile_code', 'label' => false,
-        'type' => 'select', 'options' => [],
+        'type' => 'text', 
         'id' => $modileCodeId
     ]) ?>
 </div>
@@ -53,7 +53,7 @@ $modileCodeId = 'mobile_code' . rand();
         // excludeCountries: ["in", "il"]
     });
     $('.iti__country').on('click', function() {
-        input.val($(this).data('country-code'));
-        console.log($(this).data('country-code'));
+        $("#" + "<?= $modileCodeId ?>").val($(this).data('dial-code'));
+        console.log($(this).data('dial-code'));
     });
 </script>

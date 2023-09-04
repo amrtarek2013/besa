@@ -25,7 +25,7 @@ class EnquiriesController extends AppController
             // Configure::write('debug', 0);
             // Configure::write('debug', false);
             $data = $this->request->getData();
-            dd($data);
+            // dd($data);
             $enquiry = $this->Enquiries->patchEntity($enquiry, $data, ['validate' => $this->Enquiries->enquiryTypes[$data['type']]['validation']]);
 
 
