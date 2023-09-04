@@ -33,6 +33,10 @@ class EnquiriesTable extends Table
         0 => 'NO ACTION',
 
     );
+    //Foundation, International Year One, Bachelor, Pre Masters, Masters, PHD
+    public $interestedStudyLevels = [0 => 'Foundation', 1 => 'International Year One', 2 => 'Bachelor', 3 => 'Pre Masters', 4 => 'Masters', 5 => 'PHD'];
+    public $interestedStudyLevelsTitle = ['Foundation' => 0, 'International Year One' => 1, 'Bachelor' => 2, 'Pre Masters' => 3, 'Masters' => 4, 'PHD' => 5];
+
     public $enquiryTypes = [
         'home' => ['validation' => 'home', 'redirect' => '/', 'title' => 'Home', 'fields' => ['name', 'email', 'message']],
         'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'mobile', 'email', 'subject', 'message']],
@@ -105,6 +109,8 @@ class EnquiriesTable extends Table
 
         );
         $this->belongsTo('Branches')->setForeignKey('branch_id');
+        $this->belongsTo('Countries')->setForeignKey('destination_id');
+        $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
     }
 
 

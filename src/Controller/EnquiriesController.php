@@ -251,7 +251,7 @@ class EnquiriesController extends AppController
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->cache('book_appointment_subjectareas')->order(['title' => 'asc']);
 
-        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+        $this->set('interestedStudyLevels', $this->Enquiries->interestedStudyLevels);
         $this->set('destinationsList', $destinations);
         $this->set('subjectAreasList', $subjectAreas);
 

@@ -1,5 +1,5 @@
 <style>
-    .form-group{
+    .form-group {
         margin-bottom: 20px;
     }
 </style>
@@ -8,7 +8,7 @@
     <div class="container" style="width:100%">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title text-left title-dash">Import Students</h2>
+                <h2 class="title text-left title-dash">Upload Documents</h2>
             </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
 
                 <div class="container-formBox">
 
-                    <h4 class="title"></h4>
+                    <h4 class="title">Import Students</h4>
 
                     <?= $this->AdminForm->create($user, ['type' => 'file']); ?>
                     <!-- <div class="grid-container"> -->

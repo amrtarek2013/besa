@@ -37,12 +37,18 @@
                                     use Cake\Utility\Inflector;
 
                                     foreach ($enquiryType['fields'] as $key => $field) :
-                                        if(is_string($key)){
+                                        if (is_string($key)) {
                                             $field = $key;
                                         }
                                     ?>
                                         <tr class="table-header">
                                             <th class=""><a><?= isset($enquiryType['fields'][$field]) ? $enquiryType['fields'][$field] : Inflector::humanize($field) ?></a></th>
+                                            <?php
+                                            $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
+                                            if ($enquiry['type'] == 'book_appointment') {
+                                                $enquiry[$field] = ($field == 'study_level_id' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry['study_levelid']] : $enquiry[$field];
+                                            }
+                                            ?>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -55,39 +61,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <?php
-                            /*
-                            if (!empty($enquiry->branch)) { ?>
-                                <h3>Branch Details</h3>
-                                <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
-                                    <tbody>
-                                        <tr class="table-header">
-                                            <th class=""><a>Name</a></th>
-                                            <td><?php echo (!empty($enquiry->branch->name) ? $enquiry->branch->name : '') ?></td>
-                                        </tr>
-
-                                        <tr class="table-header">
-                                            <th class="" width=""><a>Phone</a></th>
-                                            <td><?php echo (!empty($enquiry->branch->mobile) ? $enquiry->branch->mobile : '') ?></td>
-                                        </tr>
-
-                                        <tr class="table-header">
-                                            <th class="" width=""><a>Email</a></th>
-                                            <td><?php echo (!empty($enquiry->branch->email) ? $enquiry->branch->email : '') ?></td>
-                                        </tr>
-
-
-                                        <tr class="table-header">
-
-                                            <th class="" width=""><a>Address</a></th>
-                                            <td><?php echo (!empty($enquiry->branch->address) ? $enquiry->branch['address'] . ', ' . $enquiry->branch['city'] . ', ' . $enquiry->branch['state'] . ', ' . $enquiry->branch['postcode'] . ', ' . $enquiry->branch['country'] : '') ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            <?php }
-                            */
-                            ?>
                         </div>
 
                         <div class="card-footer">

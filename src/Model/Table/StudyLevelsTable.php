@@ -57,6 +57,7 @@ class StudyLevelsTable extends Table
 - English Course 
 - School boarding 
     */
+
     public $searchDegreeOptions = [1 => 'Bachelor/Postgraduate Degree', 2 => 'Boarding/Summer Degree'];
     // public $types = [0 => ['title' => 'Pathway Programs', 'icon' => ''], 1 => ['title' => 'Direct Entry', 'icon' => ''], 2 => ['title' => 'Others', 'icon' => '']];
     /**

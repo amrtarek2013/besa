@@ -69,7 +69,7 @@
                         ]) ?>
                         <?= $this->Form->control('study_level', [
                             'placeholder' => 'Study level interested in*', 'type' => 'select', 'empty' => 'Select Study level interested in*',
-                            'options' => $mainStudyLevels, 'label' => 'Study level interested in*', 'required' => true,
+                            'options' => $interestedStudyLevels, 'label' => 'Study level interested in*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
