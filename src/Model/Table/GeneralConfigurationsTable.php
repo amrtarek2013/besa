@@ -113,6 +113,13 @@ class GeneralConfigurationsTable extends Table
     public $fieldCanUploaded = array(
         'file.main_logo',
     );
+    public $fieldCanBeEmpty = array(
+        'txt.tiktok_pixels',
+        'txt.facebook_pixels',
+        'txt.google_analytics',
+        'txt.keywords',
+        'txt.description'
+    );
     public function getFields(String $group = null, $return = 'fields')
     {
         $generalConfiguration = $this->find('list', ['keyField' => 'field', 'valueField' => 'value'])->where(['config_group' => $group]);
@@ -133,7 +140,7 @@ class GeneralConfigurationsTable extends Table
         $formData = $data['data']['GeneralConfiguration'];
 
         foreach ($formData as $field => $value) {
-            if (empty($value) && $value !== "0" && $value !== 0) {
+            if (!in_array($field, $this->fieldCanBeEmpty) && empty($value) && $value !== "0" && $value !== 0) {
                 continue;
             }
             $field = preg_replace("/_/", '.', $field, 1);
