@@ -8,6 +8,7 @@ use App\Model\Entity\Event;
 use ArrayObject;
 // use Cake\ORM\Entity;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 use MobileValidator\MobileValidator;
 
@@ -170,7 +171,7 @@ class UsersTable extends Table
       ->notEmptyString('email', 'This field is required.')
       ->add('email', [
         'isEmailUnique' => [
-          'rule' => 'isEmailUnique',
+          'rule' => [$this, 'isEmailUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
@@ -232,30 +233,67 @@ class UsersTable extends Table
     clearViewCache();
   }
 
-  public function isEmailUnique($email)
-  {
+  public function isEmailUnique(
+    $value
+    // )
+    // {
 
-    if (isset($email) && !empty($email)) {
-      $existed_user = $this->find()->where(["email" => $email])->first();
+    //   if (isset($value) && !empty($value)) {
+    //     $existed_user = $this->find()->where(["email" => $value])->first();
 
-      if (!empty($existed_user)) {
-        return false;
-      }
+    //     if (!empty($existed_user)) {
+    //       return false;
+    //     }
+    //   }
+    //   return true;
+    // }
+
+    ,
+    $context
+  ) {
+    $table = TableRegistry::get($this->_registryAlias);
+    if ($context['newRecord']) {
+      $where = [
+        'email' => $value,
+      ];
+    } else {
+      $where = [
+        'id !=' => $context['data']['id'],
+        'email' => $value,
+      ];
     }
-    return true;
+    $query = $table->find()->select(['id'])->where($where)->first();
+    return empty($query) ? true : false;
   }
+  public function isMobileUnique(
+    $value
+    // )
+    // {
 
-  public function isMobileUnique($mobile)
-  {
+    //   if (isset($mobile) && !empty($mobile)) {
+    //     $existed_user = $this->find()->where(["mobile" => $mobile])->first();
 
-    if (isset($mobile) && !empty($mobile)) {
-      $existed_user = $this->find()->where(["mobile" => $mobile])->first();
-
-      if (!empty($existed_user)) {
-        return false;
-      }
+    //     if (!empty($existed_user)) {
+    //       return false;
+    //     }
+    //   }
+    //   return true;
+    ,
+    $context
+  ) {
+    $table = TableRegistry::get($this->_registryAlias);
+    if ($context['newRecord']) {
+      $where = [
+        'mobile' => $value,
+      ];
+    } else {
+      $where = [
+        'id !=' => $context['data']['id'],
+        'mobile' => $value,
+      ];
     }
-    return true;
+    $query = $table->find()->select(['id'])->where($where)->first();
+    return empty($query) ? true : false;
   }
 
 

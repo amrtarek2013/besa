@@ -597,12 +597,15 @@ class UsersController extends AppController
 
         unset($user['password']);
         if (!empty($user->bd)) {
-            $userbd = explode('-', $user->bd);
-            $user['year'] = $userbd[0];
-            $user['month'] = $userbd[1];
-            $user['day'] = $userbd[2];
+            // dd($user->bd);
+            $userbd = explode('-', $user->bd->format('Y-m-d'));
+            // dd($userbd);
+            $user['year'] = intval($userbd[0]);
+            $user['month'] = intval($userbd[1]);
+            $user['day'] = intval($userbd[2]);
         }
 
+        // dd($user);
         $this->set(compact('user'));
 
         $this->loadModel('Countries');

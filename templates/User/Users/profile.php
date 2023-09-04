@@ -1,3 +1,21 @@
+<style>
+    .container-formBox .grid-container .grid-3col {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 4px 1.5fr 4px 1.2fr;
+        grid-template-columns: 1fr 1.5fr 1.2fr;
+        grid-gap: 27px 8px;
+    }
+
+    .container-formBox .grid-container .grid-3col select {
+        padding: 14px 6px;
+        text-align: center;
+    }
+
+    select {
+        background-position-x: calc(100% - 8px) !important;
+    }
+</style>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/datepicker/bootstrap-datepicker.min.css">
 <section class="main-banner register-banner">
 
@@ -29,16 +47,51 @@
                             'placeholder' => 'Date of Birth', 'value' => $user->bd, 'class' => 'hasDate', 'label' => 'Date of Birth*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]);*/ ?>
+                        <?php
+
+                        use Cake\Routing\Router;
+
+                        $days = [];
+                        for ($i = 1; $i <= 31; $i++) {
+                            $d = $i; //date('M', strtotime("last day of +$i month"));
+                            $days[$d] = $d;
+                        }
+                        $months = [];
+                        for ($i = 1; $i <= 12; $i++) {
+                            $month = $i; // date('M', strtotime("last day of +$i month"));
+                            $months[$month] = $month;
+                        }
+
+                        $years = [];
+                        for ($i = 1980; $i <= 2015; $i++) {
+                            $year = $i;
+
+                            $years[$year] = $year;
+                        }
+                        ?>
 
                         <div class=" form-area">
                             <label for="">Date of Birth*</label>
                             <div class="grid-3col">
-                                <select name="day" id="day" placeholder="Day" required="required">
+                                <?= $this->Form->control('day', [
+                                    'placeholder' => 'Day*', 'label' => false, 'required' => true,
+                                    'type' => 'select', 'empty' => 'Day', 'options' => $days,
+                                    'templates' => ['inputContainer' => '{{content}}']
+                                ]) ?>
+                                <?= $this->Form->control('month', [
+                                    'placeholder' => 'Month*', 'label' => false, 'required' => true,
+                                    'type' => 'select', 'empty' => 'Month', 'options' => $months,
+                                    'templates' => ['inputContainer' => '{{content}}']
+                                ]) ?>
+                                <?= $this->Form->control('year', [
+                                    'placeholder' => 'Year*', 'label' => false, 'required' => true,
+                                    'type' => 'select', 'empty' => 'Year', 'options' => $years,
+                                    'templates' => ['inputContainer' => '{{content}}']
+                                ]) ?>
+                                <!-- <select name="day" id="day" placeholder="Day" required="required">
                                     <option value="">Day</option>
 
                                     <?php
-
-                                    use Cake\Routing\Router;
 
                                     for ($i = 1; $i <= 31; $i++) {
                                         $d = $i; //date('M', strtotime("last day of +$i month"));
@@ -64,7 +117,7 @@
                                         echo "<option value='$year'>$year</option>";
                                     }
                                     ?>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
 
