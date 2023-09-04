@@ -45,14 +45,14 @@
                                     <?php
                                     if (isset($slider['image_path'])) {
                                     ?>
-                                        <img <?= !empty($slider['thumb_image_path']) ? 'class="desktop-image"' : '' ?> src="<?= $slider['image_path'] ?>" alt="">
-                                        <?= !empty($slider['thumb_image_path']) ? '<img src="' . $slider['thumb_image_path'] . '" class="mobile-image" alt="">' : '' ?>
+                                        <img <?= !empty($slider['thumb_image_path']) ? 'class="desktop-image"' : '' ?> src="<?= $slider['image_path'] ?>" alt="" width="100%" height="100%">
+                                        <?= !empty($slider['thumb_image_path']) ? '<img src="' . $slider['thumb_image_path'] . '" class="mobile-image" alt="" width="100%" height="100%">' : '' ?>
 
                                     <?php } else { ?>
 
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-1.png" alt="" class="box-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-2.png" alt="" class="icon-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/background-header.png" alt="">
+                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-1.png" alt="" width="100%" height="100%" class="box-message bounceIn">
+                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-2.png" alt=""  width="100%" height="100%" class="icon-message bounceIn">
+                                        <img src="<?= WEBSITE_URL ?>img/background-header.png" width="100%" height="100%" alt="">
                                     <?php } ?>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                     } ?>
                 </div>
                 <div class="arrow-bottomGoSection">
-                    <a href="#scroll_about"><img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-up.svg" alt=""></a>
+                    <a href="#scroll_about"><img src="<?= WEBSITE_URL ?>img/icon/chevron-circle-up.svg" width="100%" height="100%" alt=""></a>
                 </div>
             </div>
 
