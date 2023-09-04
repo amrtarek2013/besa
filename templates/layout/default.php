@@ -25,14 +25,19 @@
         // '/css/new-css/timeline.css'
     ]) ?>
 
+    <script src="/js/new-js/jquery-3.6.3.min.js" defer></script>
+    <script src="/js/new-js/fontawesome.min.js" defer></script>
+    <script src="/js/new-js/remodal.js" defer></script>
+    <script src="/js/new-js/owl.carousel.min.js" defer></script>
+    <script src="/js/new-js/script.js?v='<?= time() ?>" defer></script>
     <?= $this->Html->script([
-        '/js/new-js/jquery-3.6.3.min.js',
-        '/js/new-js/fontawesome.min.js',
-        '/js/new-js/remodal.js',
-        '/js/new-js/owl.carousel.min.js',
-        // '/js/new-js/pana-accordion.js',
-        // '/js/new-js/timeline.js',
-        '/js/new-js/script.js?v=' . time(),
+        // '/js/new-js/jquery-3.6.3.min.js',
+        // '/js/new-js/fontawesome.min.js',
+        // '/js/new-js/remodal.js',
+        // '/js/new-js/owl.carousel.min.js',
+        // // '/js/new-js/pana-accordion.js',
+        // // '/js/new-js/timeline.js',
+        // '/js/new-js/script.js?v=' . time(),
     ]) ?>
     <?php
 
