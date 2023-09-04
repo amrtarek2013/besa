@@ -45,6 +45,7 @@
                                             <th class=""><a><?= isset($enquiryType['fields'][$field]) ? $enquiryType['fields'][$field] : Inflector::humanize($field) ?></a></th>
                                             <?php
                                             $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
+                                            $enquiry[$field] = ($field == 'destination_id') ? $enquiry['country']['country_name'] : $enquiry[$field];
                                             if ($enquiry['type'] == 'book_appointment') {
                                                 $enquiry[$field] = ($field == 'study_level_id' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry['study_levelid']] : $enquiry[$field];
                                             }
