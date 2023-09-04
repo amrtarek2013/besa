@@ -24,12 +24,13 @@
                             'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-                        <?= $this->Form->control('date', [
+                        <?php
+                        /*echo $this->Form->control('date', [
                             'placeholder' => 'Date of Birth', 'value' => $user->bd, 'class' => 'hasDate', 'label' => 'Date of Birth*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
+                        ]);*/ ?>
 
-                        <!-- <div class=" form-area">
+                        <div class=" form-area">
                             <label for="">Date of Birth*</label>
                             <div class="grid-3col">
                                 <select name="day" id="day" placeholder="Day" required="required">
@@ -65,7 +66,7 @@
                                     ?>
                                 </select>
                             </div>
-                        </div> -->
+                        </div>
 
 
                         <?= $this->Form->control('gender', [

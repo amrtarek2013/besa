@@ -572,8 +572,8 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sent_data = $this->request->getData();
             $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'profile']);
-            $user->bd = date('Y-m-d', strtotime($sent_data['date']));
-            $user->bd = $sent_data['day'] . '-' . $sent_data['month'] . '-' . $sent_data['year'];
+            // $user->bd = date('Y-m-d', strtotime($sent_data['date']));
+            $user->bd = $sent_data['year'] . '-' . $sent_data['month'] . '-' . $sent_data['day'];
             if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
                 $user->password = $sent_data['password'];
             } else {
@@ -594,7 +594,15 @@ class UsersController extends AppController
         }
 
         $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
+
         unset($user['password']);
+        if (!empty($user->bd)) {
+            $userbd = explode('-', $user->bd);
+            $user['year'] = $userbd[0];
+            $user['month'] = $userbd[1];
+            $user['day'] = $userbd[2];
+        }
+
         $this->set(compact('user'));
 
         $this->loadModel('Countries');
