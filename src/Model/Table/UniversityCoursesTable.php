@@ -62,7 +62,7 @@ class UniversityCoursesTable extends Table
         'intake',
 
         'description',
-        'active' => 'Active'
+        'active'
 
     );
 
@@ -88,7 +88,7 @@ class UniversityCoursesTable extends Table
         'intake',
 
         'description',
-        'active' => 'Active'
+        'active'
     );
 
     /**
