@@ -1,30 +1,44 @@
-<section class="content">
-    <div class="container-fluid">
+<style>
+    .form-group{
+        margin-bottom: 20px;
+    }
+</style>
+<section class="main-banner register-banner">
+
+    <div class="container" style="width:100%">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title"><?= ucfirst($this->getRequest()->getParam('action') . ' Users') ?></h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                <i class="fas fa-minus"></i></button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        echo $this->AdminForm->create($user, ['type' => 'file']); ?>
-                        <?php echo $this->AdminForm->control('file', ['type' => 'file']);
-
-
-                        ?>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary"><?= __('Save') ?> </button>
-                    </div>
-                    <?= $this->AdminForm->end() ?>
-                </div>
+                <h2 class="title text-left title-dash">Import Students</h2>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="container-formBox">
+
+                    <h4 class="title"></h4>
+
+                    <?= $this->AdminForm->create($user, ['type' => 'file']); ?>
+                    <!-- <div class="grid-container"> -->
+
+                    <div class="form-group">
+                        <a class=" <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'export', 1]) ?>">
+                            <i class="nav-icon fas fa-file-csv"></i> <?= __('Export Smaple') ?>
+                        </a>
+                    </div>
+                    <?= $this->AdminForm->control('file', ['type' => 'file']);  ?>
+                    <!-- </div> -->
+
+                    <div class="form-group">
+                        <button type="submit" class="btn clear-blue">Import</button>
+                    </div>
+                    <!-- </div> -->
+
+
+                    <?= $this->Form->end() ?>
+                </div>
+
+            </div>
+        </div>
     </div>
 </section>

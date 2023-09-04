@@ -33,9 +33,9 @@ class UsersController extends AppController
             $this->Flash->error(__('Counselor not Found!!!'));
             $this->redirect('/counselor/logout');
         }
-        
+
         $conditions = $this->_filter_params();
-        
+
         $conditions['Users.counselor_id'] = $counselor['id'];
 
         $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
@@ -154,36 +154,48 @@ class UsersController extends AppController
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
 
-    public function export()
+    public function export($sample = false)
     {
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
 
         $counselor = $this->Auth->user();
-        $conditions['Applications.counselor_id'] = $counselor['id'];
+        $conditions['Users.counselor_id'] = $counselor['id'];
         $users = $this->Users->find('all')->where($conditions)->toArray();
 
-        $dataToExport[] = array(
-            'id' => 'Student ID',
-            'first_name' => 'Student Name',
-            'email' => 'Email',
-            // 'address' => 'Address',
-            // 'password' => 'Password',
-            'active' => 'Active',
-        );
 
-        foreach ($users as $user) {
-            $dataToExport[] = [
-                $user->id,
-                $user->first_name,
-                // $user->job_title,
-                $user->email,
-                // $user->address,
-                // $user->barcode_number,
-                '',
-                ($user->active) ? 'Yes' : 'No',
-            ];
+        // if (!$sample) {
+            $dataToExport[] = array(
+                'id' => 'Student ID',
+                'first_name' => 'Student Name',
+                'email' => 'Email',
+                'mobile' => 'Mobile',
+                'high_school_grade' => 'Grade',
+                'curriculum' => 'Curriculum'
+            );
+        // } else {
+
+        //     $dataToExport[] = array(
+        //         'first_name' => 'Student Name',
+        //         'email' => 'Email',
+        //         'mobile' => 'Mobile',
+        //         'high_school_grade' => 'Grade',
+        //         'curriculum' => 'Curriculum'
+        //     );
+        // }
+
+        if (!$sample) {
+            foreach ($users as $user) {
+                $dataToExport[] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->email,
+                    $user->mobile,
+                    $user->high_school_grade,
+                    $user->curriculum
+                ];
+            }
         }
 
         $this->loadComponent('Csv');
@@ -196,15 +208,26 @@ class UsersController extends AppController
 
         $user = $this->Users->newEmptyEntity();
 
+        $schema_of_import = [
+            'id',
+            'first_name',
+            'email',
+            'mobile',
+            'grade',
+            'curriculum'
+        ];
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
+            // dd($data);
             //comment* $error = $data['file']->getError();
 
             if ((is_array($data['file']) && $data['file']['error'] == UPLOAD_ERR_OK) || (is_object($data['file']) && $data['file']->getError() == UPLOAD_ERR_OK)) {
-                $this->loadComponent('Csv');
-                $usersArray = $this->Csv->convertCsvToArray($data['file'], $this->Users->schema_of_import);
 
+                $this->loadComponent('Csv');
+                $usersArray = $this->Csv->convertCsvToArray($data['file'], $schema_of_import);
+
+                // dd($data['file']);
                 $counselor = $this->Auth->user();
                 foreach ($usersArray as $userLine) {
                     if (empty($userLine['id'])) {
@@ -213,11 +236,11 @@ class UsersController extends AppController
                     } else {
                         $user = $this->Users->get($userLine['id']);
                     }
-                    if (empty($userLine['password'])) {
-                        unset($userLine['password']);
-                    }
+                    // if (empty($userLine['password'])) {
+                    //     unset($userLine['password']);
+                    // }
 
-                    $userLine['active'] = (strtolower($userLine['active']) == 'yes') ? 1 : 0;
+                    // $userLine['active'] = (strtolower($userLine['active']) == 'yes') ? 1 : 0;
                     // fd($userLine);
                     $user = $this->Users->patchEntity($user, $userLine);
                     // dd($user);
@@ -227,7 +250,7 @@ class UsersController extends AppController
                 }
             }
 
-            $this->Flash->success(__('The Users has been imported.'));
+            $this->Flash->success(__('The Students CSV file has been imported.'));
             return $this->redirect(['action' => 'import']);
         }
 
