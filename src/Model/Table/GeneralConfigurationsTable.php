@@ -266,7 +266,7 @@ class GeneralConfigurationsTable extends Table
     public function clearCache()
     {
         if (Cache::delete('configs', '_configs_')) {
-            self::$g_configs = null;
+            $this->g_configs = null;
             return true;
         }
         return false;
