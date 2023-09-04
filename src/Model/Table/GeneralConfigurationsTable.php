@@ -94,6 +94,10 @@ class GeneralConfigurationsTable extends Table
         "txt.happy_students",
         "txt.destinations",
 
+        'txt.tiktok_pixels',
+        'txt.facebook_pixels',
+        'txt.google_analytics',
+
     );
 
     public $dropdownYesNoOptions = array(
