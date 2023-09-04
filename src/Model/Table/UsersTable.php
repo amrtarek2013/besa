@@ -188,7 +188,7 @@ class UsersTable extends Table
       // ])
       ->add('mobile', [
         'isMobileUnique' => [
-          'rule' => 'isMobileUnique',
+          'rule' => [$this, 'isMobileUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]

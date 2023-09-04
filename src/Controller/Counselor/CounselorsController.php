@@ -780,7 +780,7 @@ class CounselorsController extends AppController
             if (!$counselor) {
                 $this->Flash->error(__('Counselor not Found!!!'));
                 $this->redirect('/counselor/logout');
-            } 
+            }
         } catch (Exception $ex) {
 
             $this->Flash->error(__('Counselor not Found!!!'));
@@ -789,7 +789,7 @@ class CounselorsController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $sent_data = $this->request->getData();
-            $counselor = $this->Counselors->patchEntity($counselor, $this->request->getData()/*, ['validate' => 'profile']*/);
+            $counselor = $this->Counselors->patchEntity($counselor, $this->request->getData(), ['validate' => 'profile']);
 
             if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
                 $counselor->password = $sent_data['password'];
@@ -801,7 +801,7 @@ class CounselorsController extends AppController
                 $counselor->counselorname = $counselor->email;
 
             if ($this->Counselors->save($counselor)) {
-                $this->Flash->success(__('The profile date has been saved.'));
+                $this->Flash->success(__('The profile data has been saved.'));
 
                 // return $this->redirect(['action' => 'accountInfo']);
             } else
@@ -822,6 +822,46 @@ class CounselorsController extends AppController
         $this->_ajaxImageUpload('counselor_' . $counselor['id'], 'counselors', $counselor['id'], ['id' => $id], ['image']);
         $uploadSettings = $this->Counselors->getUploadSettings();
         $this->set(compact('uploadSettings'));
+    }
+
+    public function security()
+    {
+
+
+        $counselor = $this->Auth->user();
+        try {
+            $counselor = $this->Counselors->get($counselor['id']);
+
+            if (!$counselor) {
+                $this->Flash->error(__('Counselor not Found!!!'));
+                $this->redirect('/counselor/logout');
+            }
+        } catch (Exception $ex) {
+
+            $this->Flash->error(__('Counselor not Found!!!'));
+            $this->redirect('/counselor/logout');
+        }
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $sent_data = $this->request->getData();
+            $counselor = $this->Counselors->patchEntity($counselor, $this->request->getData(), ['validate' => 'security']);
+
+            if (!empty($sent_data['password']) && !empty($sent_data['passwd']) && $sent_data['password'] == $sent_data['passwd']) {
+                $counselor->password = $sent_data['password'];
+            } else {
+                $counselor->password = "";
+                unset($counselor->password);
+            }
+
+            if (isset($counselor['password']) && $this->Counselors->save($counselor)) {
+                $this->Flash->success(__('Password updated successfly.'));
+            } else
+                $this->Flash->error(__('The Password could not be saved. Please, try again.'));
+        }
+        $this->set(compact('counselor'));
+
+        $id = $counselor['id'];
+        $this->set(compact('id'));
     }
 
 

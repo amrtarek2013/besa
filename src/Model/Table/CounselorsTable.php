@@ -8,6 +8,7 @@ use App\Model\Entity\Event;
 use ArrayObject;
 use Cake\ORM\Entity;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 use MobileValidator\MobileValidator;
 
@@ -111,7 +112,7 @@ class CounselorsTable extends Table
       ->notEmptyString('email', 'This field is required.')
       ->add('email', [
         'isEmailUnique' => [
-          'rule' => 'isEmailUnique',
+          'rule' => [$this, 'isEmailUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
@@ -120,23 +121,14 @@ class CounselorsTable extends Table
 
     $validator->notEmptyString('school_name', 'This field is required.');
     $validator->notEmptyString('mobile', 'This field is required.')
-      // ->add('mobile', [
-      //   'validMobileNumber' => [
-      //     'rule' => 'validMobileNumber',
-      //     'provider' => 'table',
-      //     'message' => 'Valid mobile number required',
-      //   ]
-      // ])
       ->add('mobile', [
         'isMobileUnique' => [
-          'rule' => 'isMobileUnique',
+          'rule' => [$this, 'isMobileUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
       ]);
 
-    // $validator->notEmptyString('counselorname', 'This field is required.');
-    // $validator->notEmptyString('postcode', 'This field is required.');
     $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
       'checkCaptcha' => [
         'rule' => 'checkCaptcha',
@@ -144,6 +136,48 @@ class CounselorsTable extends Table
         'message' => 'Security Code is not valid',
       ]
     ]);
+    $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
+      ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
+      ->notEmptyString('password', 'This field is required.');
+
+    return $validator;
+  }
+
+
+
+  public function validationProfile(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('first_name', 'This field is required.');
+    $validator->email('email', false, 'Please enter a valid email address.')
+      ->notEmptyString('email', 'This field is required.')
+      ->add('email', [
+        'isEmailUnique' => [
+          'rule' => [$this, 'isEmailUnique'],
+          'provider' => 'table',
+          'message' => 'This field already exsist!',
+        ]
+      ]);
+    // ->equalToField('email', 'email_confirm', 'Email must be same as the confirm email field');
+
+    $validator->notEmptyString('school_name', 'This field is required.');
+    $validator->notEmptyString('mobile', 'This field is required.')
+      ->add('mobile', [
+        'isMobileUnique' => [
+          'rule' => [$this, 'isMobileUnique'],
+          'provider' => 'table',
+          'message' => 'This field already exsist!',
+        ]
+      ]);
+
+    $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
+      ->equalToField('password', 'passwd', 'Password must be same as the confirm password field');
+
+    return $validator;
+  }
+
+  public function validationSecurity(Validator $validator): Validator
+  {
     $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
       ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
       ->notEmptyString('password', 'This field is required.');
@@ -175,30 +209,67 @@ class CounselorsTable extends Table
     clearViewCache();
   }
 
-  public function isEmailUnique($email)
-  {
+  // public function isEmailUnique($email)
+  // {
 
-    if (isset($email) && !empty($email)) {
-      $existed_counselor = $this->find()->where(["email" => $email])->first();
+  //   if (isset($email) && !empty($email)) {
+  //     $existed_counselor = $this->find()->where(["email" => $email])->first();
 
-      if (!empty($existed_counselor)) {
-        return false;
-      }
+  //     if (!empty($existed_counselor)) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
+
+  // public function isMobileUnique($mobile)
+  // {
+
+  //   if (isset($mobile) && !empty($mobile)) {
+  //     $existed_counselor = $this->find()->where(["mobile" => $mobile])->first();
+
+  //     if (!empty($existed_counselor)) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
+
+  public function isEmailUnique(
+    $value,
+    $context
+  ) {
+    $table = TableRegistry::get($this->_registryAlias);
+    if ($context['newRecord']) {
+      $where = [
+        'email' => $value,
+      ];
+    } else {
+      $where = [
+        'id !=' => $context['data']['id'],
+        'email' => $value,
+      ];
     }
-    return true;
+    $query = $table->find()->select(['id'])->where($where)->first();
+    return empty($query) ? true : false;
   }
-
-  public function isMobileUnique($mobile)
-  {
-
-    if (isset($mobile) && !empty($mobile)) {
-      $existed_counselor = $this->find()->where(["mobile" => $mobile])->first();
-
-      if (!empty($existed_counselor)) {
-        return false;
-      }
+  public function isMobileUnique(
+    $value,
+    $context
+  ) {
+    $table = TableRegistry::get($this->_registryAlias);
+    if ($context['newRecord']) {
+      $where = [
+        'mobile' => $value,
+      ];
+    } else {
+      $where = [
+        'id !=' => $context['data']['id'],
+        'mobile' => $value,
+      ];
     }
-    return true;
+    $query = $table->find()->select(['id'])->where($where)->first();
+    return empty($query) ? true : false;
   }
 
 
