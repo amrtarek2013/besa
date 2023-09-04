@@ -51,6 +51,9 @@
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/hero-bg3.png">
+    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/Welcome-vis.png">
+    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/dots-153.png">
 </head>
 <?php $bodyClass = isset($bodyClass) ? $bodyClass : '' ?>
 

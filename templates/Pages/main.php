@@ -12,7 +12,7 @@
 
 <section class="contact-us">
     <div class="top-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
+        <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
     </div>
     <div class="container">
         <div class="row">
@@ -45,12 +45,12 @@
                         'class' => 'required', 'label' => false, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
-                    
+
 
                     echo $this->Form->control('message', [
-                    'placeholder' => 'Your Message', 'type' => 'textarea',
-                    'class' => 'required', 'label' => false, 'required' => true,
-                    'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                        'placeholder' => 'Your Message', 'type' => 'textarea',
+                        'class' => 'required', 'label' => false, 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
                     ?>
 
@@ -79,7 +79,7 @@
         </div>
     </div>
     <div class="bottom-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
+        <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
 
     </div>
 </section>
