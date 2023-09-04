@@ -20,7 +20,7 @@ class UsersTable extends Table
     'first_name' => 'like',
     'email' => 'like',
     'current_study_level' => ['type' => 'select'],
-    'created' => ['type' => 'date_range', 'from'=>'Date created from', 'to'=>'Date created to']
+    'created' => ['type' => 'date_range', 'from' => 'Date created from', 'to' => 'Date created to']
   ];
 
   public $schema_of_export = array(
@@ -158,6 +158,52 @@ class UsersTable extends Table
     $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
       ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
       ->notEmptyString('password', 'This field is required.');
+
+    return $validator;
+  }
+  public function validationProfile(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('first_name', 'This field is required.');
+    $validator->notEmptyString('last_name', 'This field is required.');
+    $validator->email('email', false, 'Please enter a valid email address.')
+      ->notEmptyString('email', 'This field is required.')
+      ->add('email', [
+        'isEmailUnique' => [
+          'rule' => 'isEmailUnique',
+          'provider' => 'table',
+          'message' => 'This field already exsist!',
+        ]
+      ]);
+    // ->equalToField('email', 'email_confirm', 'Email must be same as the confirm email field');
+
+    $validator->notEmptyString('mobile', 'This field is required.')
+      // ->add('mobile', [
+      //   'validMobileNumber' => [
+      //     'rule' => 'validMobileNumber',
+      //     'provider' => 'table',
+      //     'message' => 'Valid mobile number required',
+      //   ]
+      // ])
+      ->add('mobile', [
+        'isMobileUnique' => [
+          'rule' => 'isMobileUnique',
+          'provider' => 'table',
+          'message' => 'This field already exsist!',
+        ]
+      ]);
+
+    // $validator->notEmptyString('username', 'This field is required.');
+    // $validator->notEmptyString('postcode', 'This field is required.');
+    // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+    //   'checkCaptcha' => [
+    //     'rule' => 'checkCaptcha',
+    //     'provider' => 'table',
+    //     'message' => 'Security Code is not valid',
+    //   ]
+    // ]);
+    $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
+      ->equalToField('password', 'passwd', 'Password must be same as the confirm password field');
 
     return $validator;
   }
