@@ -44,6 +44,7 @@
     echo $g_configs['general']['txt.facebook_pixels'];
     echo $g_configs['general']['txt.google_analytics'];
     echo $g_configs['general']['txt.tiktok_pixels'];
+    echo $g_configs['general']['txt.google_tag_manager'];
 
     if (!empty($metaRobots)) {
         echo $this->Html->meta('robots', $metaRobots);
