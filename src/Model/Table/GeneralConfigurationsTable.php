@@ -150,9 +150,10 @@ class GeneralConfigurationsTable extends Table
             if (in_array($field, $this->fieldCanUploaded)) {
 
                 $new = $this->patchEntity($new, $newData);
-                if ((is_array($value['file']) && $value['file']['error'] == UPLOAD_ERR_OK) || (is_object($value['file']) && $value['file']->getError() == UPLOAD_ERR_OK)) {
+
+                // dd($value);
+                if ((is_array($value) && $value['error'] != UPLOAD_ERR_OK) || (is_object($value) && $value->getError() != UPLOAD_ERR_OK)) {
                     // if ($value->getError() > 0) {
-                    // dd($value->getError());
 
                     $new->value = $oldData[$field];
                     $newData['value'] = $oldData[$field];
@@ -188,10 +189,17 @@ class GeneralConfigurationsTable extends Table
 
         // echo $value;
         // dd($value);
-        $file_name = $value->getClientFilename();
-        $file_size = $value->getSize();
-        $file_tmp = $value->getStream()->getMetadata('uri');
-        $file_type = $value->getClientMediaType();
+        $file_name = '';
+        if (is_array($value)) {
+
+            $file_name = $value['name'];
+        } else if (is_object($value)) {
+
+            $file_name = $value->getClientFilename();
+        }
+        // $file_size = $value->getSize();
+        // $file_tmp = $value->getStream()->getMetadata('uri');
+        // $file_type = $value->getClientMediaType();
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
         $newFileName = uniqid('configs_') . '.' . $ext;
         $value->moveTo(WWW_ROOT . "img/" . $newFileName);
