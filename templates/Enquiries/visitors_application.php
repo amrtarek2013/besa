@@ -1,10 +1,12 @@
+<link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/Welcome-vis.png">
+<link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/dots-153.png">
 <section class="main-banner Create-account-banner  visitors-application">
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/Welcome-vis.png" alt=""  width="100%" height="100%">
+                    <img src="<?= WEBSITE_URL ?>img/Welcome-vis.png" alt="" width="100%" height="100%">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -14,7 +16,7 @@
                 <input type="hidden" id="type" name="type" value="visitors-application">
                 <p class="light-para">
                     <?= $visitorsApplicationToText ?>
-                    
+
                 </p>
                 <!-- <p class="light-para">For the purpose of applying regulation, your details are required.</p> -->
 
@@ -59,7 +61,7 @@
                         <div class="checkboxes">
                             <div class="terms-conditions">
                                 <input type="checkbox" name="terms" id="terms" required="required">
-                                <label for="">I agree to <a href="<?=Cake\Routing\Router::url('/content/terms-conditions')?>">terms & conditions</a> </label>
+                                <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label>
                             </div>
                             <div>
                                 <input type="checkbox" name="is_subscribed" id="is_subscribed">

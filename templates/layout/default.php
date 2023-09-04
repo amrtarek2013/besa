@@ -58,8 +58,6 @@
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/Welcome-vis.png">
-    <link rel="preload" as="image" href="<?= WEBSITE_URL ?>img/dots-153.png">
 
     <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" as="style" />
 
