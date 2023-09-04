@@ -43,6 +43,7 @@
 
     echo $g_configs['general']['txt.facebook_pixels'];
     echo $g_configs['general']['txt.google_analytics'];
+    echo $g_configs['general']['txt.ticktok_pixels'];
 
     if (!empty($metaRobots)) {
         echo $this->Html->meta('robots', $metaRobots);
