@@ -584,6 +584,8 @@ class UsersController extends AppController
                 $user->username = $user->email;
 
             if ($this->Users->save($user)) {
+
+                $this->Auth->setUser($user);
                 $this->Flash->success(__('The profile date has been saved.'));
 
                 // return $this->redirect(['action' => 'accountInfo']);
