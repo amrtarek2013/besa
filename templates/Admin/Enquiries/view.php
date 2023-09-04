@@ -44,6 +44,7 @@
                                         <tr class="table-header">
                                             <th class=""><a><?= isset($enquiryType['fields'][$field]) ? $enquiryType['fields'][$field] : Inflector::humanize($field) ?></a></th>
                                             <?php
+                                            $enquiry[$field] = ($field == 'mobile' && !empty($enquiry['mobile_code'])) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'destination_id') ? $enquiry['country']['country_name'] : $enquiry[$field];
                                             if ($enquiry['type'] == 'book-appointment') {
