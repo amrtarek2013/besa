@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg1.png" alt="">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg1.png" alt="" width="100%" height="100%">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>

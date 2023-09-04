@@ -3,15 +3,15 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <!-- <img src="<?=WEBSITE_URL?>img/hero-bg6.png" alt=""> -->
-                    <img src="<?= $country['image_path'] ?>" alt="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
+                    <!-- <img src="<?= WEBSITE_URL ?>img/hero-bg6.png" alt=""> -->
+                    <img src="<?= $country['image_path'] ?>" alt="" width="100%" height="100%">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">
-                        <?= substr($country['country_name'],0,6) ?>
+                        <?= substr($country['country_name'], 0, 6) ?>
                     </h1>
                     <h2 class="title text-left">
                         <?= $country['country_name'] ?>
@@ -63,7 +63,7 @@
                         <?= $country['why_text'] ?>
                         <a href="#" class="btn MainBtn clear-blue ">
                             Apply Now
-                            <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
+                            <img src="<?= WEBSITE_URL ?>img/icon/arrow-right.svg" alt="">
                         </a>
                     </div>
                 </div>

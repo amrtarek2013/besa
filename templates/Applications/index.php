@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/new-images/partiner-background.png" alt="" style="z-index: 2;">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/new-images/partiner-background.png" width="100%" height="100%" alt="" style="z-index: 2;">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
                 </div>
             </div>
             <div class="col-md-6">
@@ -25,17 +25,17 @@
             <div class="col-md-12" style="padding: 0;">
                 <div class="container-iconsPartners">
                     <div class="boxPart">
-                        <img src="<?=WEBSITE_URL?>img/new-images/part-icon01.png" alt="">
+                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon01.png" alt="">
                         <h4 class="titlePart">GROWTH</h4>
                         <p class="descrip">BESA is your trusted partner, <br> together we will fulfill student’s <br> ambitions internationally</p>
                     </div>
                     <div class="boxPart">
-                        <img src="<?=WEBSITE_URL?>img/new-images/part-icon02.png" alt="">
+                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon02.png" alt="">
                         <h4 class="titlePart">ACCESS</h4>
                         <p class="descrip">Partnering with BESA means access to a wide range of resources and opportunities in the industry</p>
                     </div>
                     <div class="boxPart">
-                        <img src="<?=WEBSITE_URL?>img/new-images/part-icon03.png" alt="">
+                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon03.png" alt="">
                         <h4 class="titlePart">EVENTS</h4>
                         <p class="descrip">BESA’s events are not to be missed! An opportunity for our partners to grow their presence and join us in exciting ventures</p>
                     </div>
@@ -54,7 +54,7 @@
     </div>
 </section>
 
-<?= $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'appCourses' => $appCourses, 'gridContainerCols'=>3]); ?>
+<?= $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'appCourses' => $appCourses, 'gridContainerCols' => 3]); ?>
 
 <section class="main-banner register-banner  partiner-banner">
     <div class="container">
@@ -134,10 +134,10 @@
                 $('#study-level-id').val(lastSelectedLevel);
         });
 
-        $('.save_later').on('click', function(e){
+        $('.save_later').on('click', function(e) {
 
             $('.form-area input').removeAttr('required');
-            
+
         });
     });
 </script>
