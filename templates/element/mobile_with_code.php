@@ -32,9 +32,11 @@ $modileCodeId = 'mobile_code' . rand();
     ]) ?>
 </div>
 
-<script src="<?= Router::url('/intlTelInput/js/intlTelInput.js?v='.time()) ?>"></script>
+<!-- <script src="<?= Router::url('/intlTelInput/js/intlTelInput.js?v='.time()) ?>"></script>
 
-<script src="<?= Router::url('/intlTelInput/js/utils.js?v='.time()) ?>"></script>
+<script src="<?= Router::url('/intlTelInput/js/utils.js?v='.time()) ?>"></script> -->
+<script src="/intlTelInput/js/intlTelInput.js" async></script>
+<script src="/intlTelInput/js/utils.js" async></script>
 <script>
     var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {
