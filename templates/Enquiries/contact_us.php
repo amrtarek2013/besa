@@ -356,7 +356,9 @@
     }
 </script>
 
-<?php echo $this->Html->script('new-js/jquery.validate'); ?>
+<?php //echo $this->Html->script('new-js/jquery.validate'); 
+?>
+<script src="/js/new-js/jquery.validate.js" async></script>
 
 <!-- <script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
 <script>

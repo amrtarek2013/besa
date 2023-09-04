@@ -284,7 +284,8 @@ if ($session->check('search_url') && isset($_SESSION['Auth']['User'])) {
 <?php } ?>
 
 
-<?php echo $this->Html->script('new-js/jquery.validate'); ?>
+<?php //echo $this->Html->script('new-js/jquery.validate'); ?>
+<script src="/js/new-js/jquery.validate.js" async></script>
 
 <script type="text/javascript">
     var request_busy = false;
