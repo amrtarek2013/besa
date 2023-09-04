@@ -47,7 +47,7 @@
                                             $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'destination_id') ? $enquiry['country']['country_name'] : $enquiry[$field];
                                             if ($enquiry['type'] == 'book_appointment') {
-                                                $enquiry[$field] = ($field == 'study_level_id' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry['study_levelid']] : $enquiry[$field];
+                                                $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry['study_levelid']] : $enquiry[$field];
                                             }
                                             ?>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>
