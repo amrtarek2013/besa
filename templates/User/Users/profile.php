@@ -7,11 +7,6 @@
         grid-gap: 27px 8px;
     }
 
-    .container-formBox .grid-container .grid-3col select {
-        padding: 14px 6px;
-        text-align: center;
-    }
-
     select {
         background-position-x: calc(100% - 8px) !important;
     }
@@ -88,36 +83,7 @@
                                     'type' => 'select', 'empty' => 'Year', 'options' => $years,
                                     'templates' => ['inputContainer' => '{{content}}']
                                 ]) ?>
-                                <!-- <select name="day" id="day" placeholder="Day" required="required">
-                                    <option value="">Day</option>
-
-                                    <?php
-
-                                    for ($i = 1; $i <= 31; $i++) {
-                                        $d = $i; //date('M', strtotime("last day of +$i month"));
-                                        echo "<option value='$d'>$d</option>";
-                                    }
-                                    ?>
-
-                                </select>
-                                <select name="month" id="month" placeholder="Month" required="required">
-                                    <option value="">Month</option>
-                                    <?php
-                                    for ($i = 1; $i <= 12; $i++) {
-                                        $month = $i; // date('M', strtotime("last day of +$i month"));
-                                        echo "<option value='$month'>$month</option>";
-                                    }
-                                    ?>
-                                </select>
-                                <select name="year" id="year" placeholder="Year" required="required">
-                                    <option value="">Year</option>
-                                    <?php
-                                    for ($i = 1980; $i <= 2015; $i++) {
-                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
-                                        echo "<option value='$year'>$year</option>";
-                                    }
-                                    ?>
-                                </select> -->
+                                
                             </div>
                         </div>
 
