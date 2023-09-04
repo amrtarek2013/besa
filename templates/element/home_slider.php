@@ -32,7 +32,7 @@
                                         <?php } ?>
 
 
-                                        <?php if (isset($slider['right_url'])) { ?>
+                                        <?php if (isset($slider['right_url']) && !empty($slider['right_url_label'])) { ?>
                                             <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
 
                                         <?php } else { ?>
