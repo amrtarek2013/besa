@@ -594,6 +594,7 @@ class UsersController extends AppController
         }
 
         $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
+        unset($user['password']);
         $this->set(compact('user'));
 
         $this->loadModel('Countries');
