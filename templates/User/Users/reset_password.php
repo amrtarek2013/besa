@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="background-banner-color">
-          <img src="<?=WEBSITE_URL?>img/hero-bg3.png" alt="" style="z-index: 2;" width="100%" height="100%">
-          <img src="<?=WEBSITE_URL?>img/dots-153.png" width="100%" height="100%" alt="" class="relative-dots-about">
+          <img src="<?=WEBSITE_URL?>img/hero-bg3.png" alt="" style="z-index: 2;" width="">
+          <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="relative-dots-about">
         </div>
       </div>
       <div class="col-md-6">

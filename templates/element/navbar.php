@@ -18,7 +18,7 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-navbar">
                     <div class="logo">
-                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo" width="100%" height="100%"></a>
+                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo" width=""></a>
                     </div>
                     <ul class="links">
 
