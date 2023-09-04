@@ -18,7 +18,7 @@
                                     </p>
                                     <div class="personal-data">
                                         <div class="circle-img">
-                                            <img src="<?= $testimonial['image_path'] ?>" alt="">
+                                            <img src="<?= $testimonial['image_path'] ?>" width="" alt="" loading="lazy">
                                         </div>
                                         <div class="text">
                                             <p><?= $testimonial['client_name'] ?></p>
