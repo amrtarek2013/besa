@@ -21,7 +21,10 @@ class UniversityCoursesController extends AppController
         // Configure::write('debug', 0);
         $conditions = $this->_filter_params();
         // dd($conditions);
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'SubjectAreas', 'Countries'], 'limit' => 20, 'order' => ['course_name' => 'ASC']]);
+        // if(isset($this->request->getAttribute('limit'))){
+
+        // }
+        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'SubjectAreas', 'Countries'], 'limit' => 50, 'order' => ['course_name' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 
