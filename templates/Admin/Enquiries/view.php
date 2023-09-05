@@ -53,6 +53,8 @@
                                                 }
 
                                                 $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                                            } else if ($enquiry['type'] == 'visitors-apolication') {
+                                                $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels)) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
                                             }
                                             ?>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>

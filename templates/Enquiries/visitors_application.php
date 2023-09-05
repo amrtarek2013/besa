@@ -46,7 +46,7 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->Form->control('study_level_id', [
+                        <?= $this->Form->control('study_level', [
                             'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
                             'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']

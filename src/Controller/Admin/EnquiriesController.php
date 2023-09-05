@@ -121,9 +121,11 @@ class EnquiriesController extends AppController
     {
         $enquiry = $this->Enquiries->find()->contain(['Countries' => ['fields' => ['country_name']], 'SubjectAreas' => ['fields' => ['title']]])->where(['Enquiries.id' => $id])->first();
 
+        $this->loadModel('StudyLevels');
         $this->set('enquiry', $enquiry);
         $this->set('enquiryType', $this->Enquiries->enquiryTypes[$enquiry['type']]);
         $this->set('interestedStudyLevels', $this->Enquiries->interestedStudyLevels);
+        $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
     }
 
 
