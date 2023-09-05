@@ -68,7 +68,7 @@
 
                                     <tr class="table-header">
                                         <th class="" width=""><a>Date</a></th>
-                                        <td><?php echo (!empty($enquiry->created->format('H:m:i d-m-Y')) ? $enquiry->created->format('H:m:i d/m/Y') : '') ?></td>
+                                        <td><?php echo (!empty($enquiry->created->format('H:m:i a d-m-Y')) ? $enquiry->created->format('H:m:i d/m/Y') : '') ?></td>
                                     </tr>
                                 </tbody>
                             </table>
