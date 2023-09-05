@@ -53,7 +53,7 @@
                                                 }
 
                                                 $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels)) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
-                                            } else if ($enquiry['type'] == 'visitors-apolication') {
+                                            } else if ($enquiry['type'] == 'visitors-application') {
                                                 if (isset($_GET['dk']) && $field == 'study_level') {
                                                     var_dump($mainStudyLevels[$enquiry[$field]]);
                                                 }
