@@ -62,12 +62,13 @@
                             'class' => 'required', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]);
-                        echo $this->Form->control('phone', [
-                            'placeholder' => 'Phone Number', 'type' => 'text', 'label' => 'Phone Number*',
-                            'class' => 'required', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                        ]);
+                        // echo $this->Form->control('phone', [
+                        //     'placeholder' => 'Phone Number', 'type' => 'text', 'label' => 'Phone Number*',
+                        //     'class' => 'required', 'required' => true,
+                        //     'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                        // ]);
 
+                        echo $this->element('mobile_with_code');
 
                         echo $this->Form->control('email', [
                             'placeholder' => 'Email Address', 'type' => 'email',
