@@ -127,13 +127,13 @@ class EnquiriesTable extends Table
 
     public function validationHome(Validator $validator): Validator
     {
-        // $validator->add('g-recaptcha-response', [
-        //     'checkCaptchaV3' => [
-        //         'rule' => 'checkCaptchaV3',
-        //         'provider' => 'table',
-        //         'message' => 'Page session expired, please reload the page!!',
-        //     ]
-        // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
         $validator->notEmptyString('name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
@@ -144,25 +144,25 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('message', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
-                'provider' => 'table',
-                'message' => 'Security Code is not valid',
-            ]
-        ]);
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
 
         return $validator;
     }
     public function validationContactus(Validator $validator): Validator
     {
-        // $validator->add('g-recaptcha-response', [
-        //     'checkCaptchaV3' => [
-        //         'rule' => 'checkCaptchaV3',
-        //         'provider' => 'table',
-        //         'message' => 'Page session expired, please reload the page!!',
-        //     ]
-        // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
         $validator->notEmptyString('name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
@@ -173,13 +173,13 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('message', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
-                'provider' => 'table',
-                'message' => 'Security Code is not valid',
-            ]
-        ]);
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
 
         return $validator;
     }
@@ -194,15 +194,21 @@ class EnquiriesTable extends Table
             ->notEmptyString('email', 'This field is required.');
 
         $validator->notEmptyString('message', 'This field is required.');
-
-
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
+
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
 
         return $validator;
     }
@@ -219,11 +225,18 @@ class EnquiriesTable extends Table
         // $validator->notEmptyString('message', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -246,11 +259,19 @@ class EnquiriesTable extends Table
         // $validator->notEmptyString('message', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -270,11 +291,18 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('study_level', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -294,14 +322,20 @@ class EnquiriesTable extends Table
 
         $validator->notEmptyString('study_level', 'This field is required.');
 
-
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
 
         return $validator;
     }
@@ -319,14 +353,21 @@ class EnquiriesTable extends Table
 
         $validator->notEmptyString('certificate', 'This field is required.');
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+        
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
-
         return $validator;
     }
 
@@ -341,11 +382,19 @@ class EnquiriesTable extends Table
             ->notEmptyString('email', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -365,11 +414,19 @@ class EnquiriesTable extends Table
 
         $validator->notEmptyString('certificate', 'This field is required.');
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -390,11 +447,18 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('destination_id', 'This field is required.');
 
 
-        $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-            'checkCaptcha' => [
-                'rule' => 'checkCaptcha',
+        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
+        //     'checkCaptcha' => [
+        //         'rule' => 'checkCaptcha',
+        //         'provider' => 'table',
+        //         'message' => 'Security Code is not valid',
+        //     ]
+        // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
                 'provider' => 'table',
-                'message' => 'Security Code is not valid',
+                'message' => 'Page session expired, please reload the page!!',
             ]
         ]);
 
@@ -415,10 +479,10 @@ class EnquiriesTable extends Table
         return strtolower($data) == strtolower($_SESSION['security_code']); //strtolower('123456');
     }
 
-    // function checkCaptchaV3($data)
-    // {
-    //     return getCaptcha($data); //strtolower('123456');
-    // }
+    function checkCaptchaV3($data)
+    {
+        return getCaptcha($data); //strtolower('123456');
+    }
 
     public function afterSave($event, $entity, $options)
     {

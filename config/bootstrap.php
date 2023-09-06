@@ -332,8 +332,8 @@ function clearAllCache()
 }
 
 
-define('CAPTCHA_SITE_KEY', '6Lemf1EkAAAAAMnwcS1hUX3mEjXNKfFfIVTMrDGl');
-define('CAPTCHA_SECRET_KEY', '6Lemf1EkAAAAAP4HLu05B5al95DTliYZOv772POsX');
+define('CAPTCHA_SITE_KEY', '6Lf8KAUoAAAAAGyC5fb9gWa4GyvPaSlLqzmair59');
+define('CAPTCHA_SECRET_KEY', '6Lf8KAUoAAAAANMxjU14vnClcySaovIMYcosGYcI');
 if (!function_exists('getCaptcha')) {
 
     function getCaptcha($SecretKey)

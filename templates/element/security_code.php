@@ -1,3 +1,4 @@
+<?php /* ?>
 <div class="form-area security_code">
     <div class="input captcha" style="position: relative;">
         <?php
@@ -29,3 +30,24 @@
         <?php endif; ?>
     </div>
 </div>
+<?php */ ?>
+
+<script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
+<script>
+    var number = 0;
+
+    function reLoadCaptchaV3() {
+
+        grecaptcha.execute('<?php echo CAPTCHA_SITE_KEY; ?>', {
+                action: 'homepage'
+            })
+            .then(function(token) {
+                //console.log(token);
+                $('#g-recaptcha-response').val(token);
+            });
+        // });
+    }
+    grecaptcha.ready(function() {
+        reLoadCaptchaV3();
+    });
+</script>
