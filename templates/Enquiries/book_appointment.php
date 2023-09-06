@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt="" width="">
+                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt=""  width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <input type="hidden" id="type" name="type" value="book-appointment">
                 <p class="light-para">
                     <?= $bookAppointmentSnippet ?>
-
+                    
                 </p>
 
                 <div class="container-formBox">
@@ -54,7 +54,7 @@
                         </div> -->
 
 
-                        <?= $this->element('mobile_with_code', ['show_label' => true]) ?>
+                        <?= $this->element('mobile_with_code') ?>
 
                         <?= $this->Form->control('destination_id', [
                             'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',

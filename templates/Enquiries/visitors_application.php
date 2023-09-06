@@ -58,7 +58,7 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <?= $this->element('security_code') ?>
+                        <?= $this->element('security_code', ['show_label' => true]) ?>
 
                     </div>
 
