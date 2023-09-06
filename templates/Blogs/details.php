@@ -7,10 +7,8 @@
                 <img src="<?= $blog['header_image_path'] ?>" alt="">
             </div>
             <div class="col-md-12">
-                <!-- <div class="relative-box-about "> -->
-                    <!-- <h1 class="relative-text"><?= $blog['title'] ?></h1> -->
-                    <h2 class="title text-left"><?= $blog['title'] ?></h2>
-                <!-- </div> -->
+                <h1 class="title"><?= $blog['title'] ?></h1>
+
             </div>
         </div>
     </div>
