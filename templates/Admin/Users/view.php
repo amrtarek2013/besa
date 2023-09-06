@@ -91,7 +91,7 @@
                                     </tr>
 
                                     <tr class="table-header">
-                                        <th class="" width="">Country of study</th>
+                                        <th class="" width="">Country you study at</th>
                                         <td><?= !empty($user->destination) ? $user->destination->country_name : '' ?></td>
                                     </tr>
                                     <tr class="table-header">

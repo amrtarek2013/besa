@@ -42,7 +42,7 @@
                         ]) ?>
 
                         <?= $this->Form->control('school_name', [
-                            'type' => 'text', 'placeholder' => 'School Name', 'label' => 'School Name*', 'required' => true,
+                            'type' => 'text', 'placeholder' => 'School / University name', 'label' => 'School / University name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 

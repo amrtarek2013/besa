@@ -122,8 +122,8 @@
 
 
             <?= $this->Form->control('destination_id', [
-              'placeholder' => 'Country of study', 'type' => 'select', 'empty' => 'Select Country of study',
-              'options' => $destinationsList, 'label' => 'Country of study*', 'required' => true,
+              'placeholder' => 'Country you study at', 'type' => 'select', 'empty' => 'Select Country you study at',
+              'options' => $destinationsList, 'label' => 'Country you study at*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
