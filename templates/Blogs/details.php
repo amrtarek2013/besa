@@ -6,10 +6,10 @@
 
                 <img src="<?= $blog['header_image_path'] ?>" alt="">
             </div>
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <h1 class="title" style="font-size: 35px;"><?= $blog['title'] ?></h1>
 
-            </div>
+            </div> -->
         </div>
     </div>
 
