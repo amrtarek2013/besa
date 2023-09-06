@@ -6,6 +6,13 @@
 
                 <img src="<?= $blog['header_image_path'] ?>" alt="">
             </div>
+            <div class="col-md-12">
+                <div class="relative-box-about ">
+                    <h1><?= $blog['title'] ?></h1>
+                    <h2 class="title text-left"><?= $blog['short_text'] ?></h2>
+                </div>
+
+            </div>
         </div>
     </div>
 
