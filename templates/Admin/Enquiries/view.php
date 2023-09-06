@@ -47,6 +47,7 @@
                                             $enquiry[$field] = ($field == 'mobile' && !empty($enquiry['mobile_code'])) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'subject_area_id') ? $enquiry['subject_area']['title'] : $enquiry[$field];
                                             $enquiry[$field] = ($field == 'destination_id') ? $enquiry['country']['country_name'] : $enquiry[$field];
+                                            $enquiry[$field] = ($field == 'fair_venue') ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
                                             if ($enquiry['type'] == 'book-appointment') {
                                                 if (isset($_GET['dk']) && $field == 'study_level') {
                                                     var_dump($interestedStudyLevels[$enquiry[$field]]);

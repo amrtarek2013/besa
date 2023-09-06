@@ -221,6 +221,8 @@ class EnquiriesController extends AppController
         $visitors_application_top_text = $this->getSnippet('visitors_application_top_text');
 
         $this->set('visitorsApplicationToText', $visitors_application_top_text);
+
+        $this->set('fairVenues', $this->Enquiries->fairVenues);
     }
 
     public function educationalInstitution()

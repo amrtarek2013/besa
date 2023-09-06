@@ -126,6 +126,8 @@ class EnquiriesController extends AppController
         $this->set('enquiryType', $this->Enquiries->enquiryTypes[$enquiry['type']]);
         $this->set('interestedStudyLevels', $this->Enquiries->interestedStudyLevels);
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
+
+        $this->set('fairVenues', $this->Enquiries->fairVenues);
     }
 
 

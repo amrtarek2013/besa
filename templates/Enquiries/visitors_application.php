@@ -57,6 +57,11 @@
                             'options' => $destinationsList, 'label' => 'Study destination interested in*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
+                        <?= $this->Form->control('fair_venue', [
+                            'placeholder' => 'Fair Venue*', 'type' => 'select', 'empty' => 'Select Fair Venue*',
+                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
                         <?= $this->element('security_code', ['show_label' => true]) ?>
 
