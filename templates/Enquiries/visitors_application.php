@@ -14,7 +14,7 @@
             <div class="col-md-12 ">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormVisitorApp', 'class' => 'register')); ?>
                 <input type="hidden" id="type" name="type" value="visitors-application">
-                <p class="light-para">
+                <p class="light-para" style="line-height: 28px;">
                     <?= $visitorsApplicationToText ?>
 
                 </p>
