@@ -65,7 +65,7 @@ class Blog extends Entity
     protected function _getHeaderImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . '230x190.png';
+        $no_image_path = DS . 'img' . DS . 'ug-study-homepage-banner-reg.png';
         if (!empty($this->header_image)) {
             $image_path = 'uploads' . DS . 'blogs' . DS . str_replace(DS, "", $this->header_image);
             if (file_exists(WWW_ROOT . $image_path))
