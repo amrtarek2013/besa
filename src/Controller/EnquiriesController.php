@@ -208,6 +208,16 @@ class EnquiriesController extends AppController
 
         // $this->set('countriesCodesList', $countriesCodesList);
 
+
+        $this->loadModel('Countries');
+
+
+        $destinations = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->cache('book_appointment_destinations')->order(['country_name' => 'asc']);
+
+        $this->set('destinationsList', $destinations);
+
         $visitors_application_top_text = $this->getSnippet('visitors_application_top_text');
 
         $this->set('visitorsApplicationToText', $visitors_application_top_text);

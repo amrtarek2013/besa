@@ -52,6 +52,12 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
+                        <?= $this->Form->control('destination_id', [
+                            'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',
+                            'options' => $destinationsList, 'label' => 'Study destination interested in*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
                         <?= $this->element('security_code') ?>
 
                     </div>
