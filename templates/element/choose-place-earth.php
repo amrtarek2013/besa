@@ -57,7 +57,7 @@
         myearth = new Earth('myearth', {
 
             mapHitTest: true,
-            autoRotate: false,
+            autoRotate: true,
             zoom: 1.15,
             zoomMin: 1,
             zoomMax: 3,
