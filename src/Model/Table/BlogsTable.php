@@ -16,7 +16,7 @@ class BlogsTable extends Table
     public $filters = [
         // 'country_name' => 'like',
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
-        
+
         // 'continent',
     ];
 
@@ -55,7 +55,19 @@ class BlogsTable extends Table
                             ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '100']
                         ],
                     ],
-                    
+
+                    'header_image' => [
+                        'resize' => ['width' => 1440, 'height' => 439],
+                        'datePath' => ['path' => ''],
+                        // 'datePath' => false,
+                        'path' => 'uploads/blogs',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                        ],
+                    ],
+
                 ]
             ]
         );

@@ -49,8 +49,19 @@
                                 ],
                             ])]);
                             
+                            echo $this->AdminForm->control('header_image', ['label' => 'Header Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $blog,
+                                'field' => 'header_image',
+                                'info' => [
+                                    'width' => $uploadSettings['header_image']['width'],
+                                    'height' => $uploadSettings['header_image']['height'],
+                                    'path' => $uploadSettings['header_image']['path']
+
+                                ],
+                            ])]);
+                            
                             $class = 'editor';
-                            echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
+                            echo $this->AdminForm->control('content_text', ['class' => $class .' addFrontCss']);
                             
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');

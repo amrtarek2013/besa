@@ -44,7 +44,7 @@ class BlogsController extends AppController
             }
             $this->Flash->error(__('The Blog could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('blog_new', 'blogs', false, false, ['image']);
+        // $this->_ajaxImageUpload('blog_new', 'blogs', false, false, ['image']);
         $this->set('id', false);
 
         $this->__common();
@@ -71,7 +71,7 @@ class BlogsController extends AppController
 
         $continents = $this->Blogs->continents;
         $this->set(compact('blog', 'id', 'continents'));
-        $this->_ajaxImageUpload('blog_' . $id, 'blogs', $id, ['id' => $id], ['image']);
+        // $this->_ajaxImageUpload('blog_' . $id, 'blogs', $id, ['id' => $id], ['image']);
         $this->render('add');
     }
 
