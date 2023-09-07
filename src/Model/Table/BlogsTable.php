@@ -91,7 +91,8 @@ class BlogsTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if ($entity->isNew() && empty($entity->permalink)) {
+        // if ($entity->isNew() && !empty($entity->permalink)) {
+        if (!empty($entity->title)) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }
     }
