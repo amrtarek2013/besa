@@ -35,7 +35,7 @@ class Page extends Entity
     }
 
     public function beforeSave($event, $entity, $options){
-        debug($entity->permalink);die;
+        // debug($entity->permalink);die;
     }
 
     protected function _getUrlLink()

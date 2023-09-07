@@ -92,7 +92,7 @@ class BlogsTable extends Table
     {
 
         // if ($entity->isNew() && !empty($entity->permalink)) {
-        if (!empty($entity->title)) {
+        if (!empty($entity->title)  && $entity->isDirty('title')) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }
     }

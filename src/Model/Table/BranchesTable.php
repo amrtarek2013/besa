@@ -107,7 +107,7 @@ class BranchesTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if ($entity->isNew() && empty($entity->permalink)) {
+        if (!empty($entity->name) && $entity->isDirty('name')) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->name, '_')));
         }
 

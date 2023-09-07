@@ -187,9 +187,12 @@ class UniversityCoursesTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        // if ($entity->isNew() && empty($entity->permalink)) {
-        //     $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->course_name, '_')));
-        // }
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->course_name) && $entity->isDirty('course_name'))
+        ) {
+            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->course_name, '_')));
+        }
 
         // if (empty($entity->banner_image)) {
         //     $entity->banner_image = str_replace('\\','',$entity->banner_image);

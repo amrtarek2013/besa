@@ -110,8 +110,10 @@ class CoursesTable extends Table
 
     public function beforeSave($event, $entity, $options)
     {
-
-        if ($entity->isNew() && empty($entity->permalink)) {
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->course_name) && $entity->isDirty('course_name'))
+        ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->course_name, '_')));
         }
 

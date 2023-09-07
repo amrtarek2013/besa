@@ -128,8 +128,10 @@ class EventsTable extends Table
     public function beforeSave(Event $event, EntityInterface $entity, ArrayObject $options)
     {
 
-
-        if ($entity->isNew() && empty($entity->permalink)) {
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->title) && $entity->isDirty('title'))
+        ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }
         // Move video File

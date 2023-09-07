@@ -16,7 +16,7 @@ class YoungLearnersTable extends Table
     public $filters = [
         // 'country_name' => 'like',
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
-        
+
         // 'continent',
     ];
 
@@ -66,7 +66,7 @@ class YoungLearnersTable extends Table
     {
 
         $validator->notEmptyString('title', 'This field is required.');
-        
+
         $validator->notEmptyString('short_text', 'This field is required.');
         // $validator->notEmptyString('text', 'This field is required.');
 
@@ -79,8 +79,10 @@ class YoungLearnersTable extends Table
 
     public function beforeSave($event, $entity, $options)
     {
-
-        if ($entity->isNew() && empty($entity->permalink)) {
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->title) && $entity->isDirty('title'))
+        ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }
     }

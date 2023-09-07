@@ -218,7 +218,10 @@ class UniversitiesTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if ($entity->isNew() && empty($entity->permalink)) {
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->title) && $entity->isDirty('title'))
+        ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->university_name, '_')));
         }
 
