@@ -57,6 +57,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/service-details/*', 'Services::details');
         $builder->connect('/events', 'Events::index');
         $builder->connect('/event-details/*', 'Events::eventDetails');
+        $builder->connect('/blog-details/*', 'Blogs::details');
         $builder->connect('/destinations/*', 'Countries::index');
         $builder->connect('/country-details/*', 'Countries::details');
         $builder->connect('/university-details/*', 'Universities::details');
