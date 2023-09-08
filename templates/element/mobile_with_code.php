@@ -27,7 +27,7 @@ $modileCodeId = 'mobile_code' . rand();
     ]) ?>
     <?= $this->Form->control($phone_code, [
         'class' => 'country_code mobile_code', 'label' => false,
-        'type' => 'text', 
+        'type' => 'text',
         'id' => $modileCodeId
     ]) ?>
 </div>
@@ -51,6 +51,10 @@ $modileCodeId = 'mobile_code' . rand();
         // If there are some countries you want to execlde.
         // here we are exluding india and israel.
         // excludeCountries: ["in", "il"]
+    });
+    $(document).ready(function() {
+
+        $("#" + "<?= $modileCodeId ?>").val($('.iti__selected-dial-code').html().replace('+', ''));
     });
     $('.iti__country').on('click', function() {
         $("#" + "<?= $modileCodeId ?>").val($(this).data('dial-code'));
