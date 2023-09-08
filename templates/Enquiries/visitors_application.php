@@ -59,7 +59,7 @@
                         ]) ?>
                         <?= $this->Form->control('fair_venue', [
                             'placeholder' => 'Fair Venue*', 'type' => 'select', 'empty' => 'Select Fair Venue*',
-                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue)?$selected_fair_venue:'')
+                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue)?$selected_fair_venue:''),
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
