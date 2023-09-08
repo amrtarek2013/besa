@@ -1,5 +1,5 @@
 <?= $this->element('home_slider', ['sliders' => $sliders, 'g_dynamic_routes' => $g_dynamic_routes], ['cache' => ['key' => 'home_slider', 'config' => '_view_long_']]) ?>
-
+<?= $homeEvents ?>
 <!--New section 25/5/2023 by en -->
 <?= $home_study_journey ?>
 

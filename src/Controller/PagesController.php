@@ -108,7 +108,8 @@ class PagesController extends AppController
         $home_services_destination = $this->getSnippet('home_services_destination');
         $home_aboutus = $this->getSnippet('home_aboutus');
         $home_study_journey = $this->getSnippet('home_study_journey');
-        $this->set(compact('home_why_besa2', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey'));
+        $homeEvents = $this->getSnippet('home_events');
+        $this->set(compact('home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey'));
     }
     private function _get_total_uploaded_files($os = '')
     {
