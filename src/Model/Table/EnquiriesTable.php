@@ -34,6 +34,7 @@ class EnquiriesTable extends Table
 
     );
     public $fairVenues = [0 => 'Cairo', 1 => 'Alexandria'];
+    public $fairVenuesTitles = ['cairo'=>0, 'alexandria'=>2];
     //Foundation, International Year One, Bachelor, Pre Masters, Masters, PHD
     public $interestedStudyLevels = [0 => 'Foundation', 1 => 'International Year One', 2 => 'Bachelor', 3 => 'Pre Masters', 4 => 'Masters', 5 => 'PHD'];
     public $interestedStudyLevelsTitle = ['Foundation' => 0, 'International Year One' => 1, 'Bachelor' => 2, 'Pre Masters' => 3, 'Masters' => 4, 'PHD' => 5];
