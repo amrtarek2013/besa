@@ -224,8 +224,8 @@ class EnquiriesController extends AppController
 
         $this->set('fairVenues', $this->Enquiries->fairVenues);
 
-        if(isset($_GET['location']) && isset($this->Enquiries->fairVenuesTitles[strtoloer($_GET['location'])]))
-            $this->set('selected_fair_venue', $this->Enquiries->fairVenuesTitles[strtoloer($_GET['location'])]);
+        if(isset($_GET['location']) && isset($this->Enquiries->fairVenuesTitles[strtolower($_GET['location'])]))
+            $this->set('selected_fair_venue', $this->Enquiries->fairVenuesTitles[strtolower($_GET['location'])]);
     }
 
     public function educationalInstitution()
