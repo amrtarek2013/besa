@@ -61,7 +61,8 @@
                                                 $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels)) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
                                             }
                                             ?>
-                                            <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>
+                                            <!-- <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td> -->
+                                            <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? $this->Html->link('Download Attachment',Router::url($enquiry['file_path']), ['class'=>'button',  'download' => true, 'title'=>'Download', 'escape' => false]) : '---') : $enquiry[$field]) : '') ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 
