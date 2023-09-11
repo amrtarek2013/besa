@@ -23,12 +23,14 @@ $modileCodeId = 'mobile_code' . rand();
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
     <?= $this->Form->control($phone_name, [
-        'type' => 'tel', 'placeholder' => $phone_label, 'label' => false, 'class' => 'form-control', 'required' => true
+        'type' => 'tel', 'placeholder' => $phone_label, 'label' => false, 'class' => 'form-control', 'required' => true,
+        'value' => (isset($mobileValue) ? $mobileValue : '')
     ]) ?>
     <?= $this->Form->control($phone_code, [
         'class' => 'country_code mobile_code', 'label' => false,
         'type' => 'text',
-        'id' => $modileCodeId
+        'id' => $modileCodeId,
+        'value' => (isset($mobileCodeValue) ? '+'.$mobileCodeValue : '')
     ]) ?>
 </div>
 

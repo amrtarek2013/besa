@@ -149,11 +149,11 @@ class UsersTable extends Table
 
     // $validator->notEmptyString('username', 'This field is required.');
     // $validator->notEmptyString('postcode', 'This field is required.');
-    $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-      'checkCaptcha' => [
-        'rule' => 'checkCaptcha',
+    $validator->add('g-recaptcha-response', [
+      'checkCaptchaV3' => [
+        'rule' => 'checkCaptchaV3',
         'provider' => 'table',
-        'message' => 'Security Code is not valid',
+        'message' => 'Page session expired, please reload the page!!',
       ]
     ]);
     $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
@@ -223,10 +223,10 @@ class UsersTable extends Table
     return strtolower($data) == strtolower($_SESSION['security_code']); //strtolower('123456');
   }
 
-  // function checkCaptchaV3($data)
-  // {
-  //     return getCaptcha($data); //strtolower('123456');
-  // }
+  function checkCaptchaV3($data)
+  {
+    return getCaptcha($data); //strtolower('123456');
+  }
 
   public function afterSave($event, $entity, $options)
   {

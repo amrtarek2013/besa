@@ -80,14 +80,13 @@ class UsersController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
-
-
-
-
             $user = $this->Users->patchEntity($user, $data);
 
-            $user->bd = date('Y-m-d', strtotime($data['date'])); //$data['year'] . '-' . $data['month'] . '-' . $data['day'];
-            // dd($user);
+            if (!empty($data['mobile_code']))
+                $data['mobile_code'] = str_replace('+', '', $data['mobile_code']);
+
+            if (!empty($data['date']) && strtotime($data['date']))
+                $user->bd = date('Y-m-d', strtotime($data['date'])); //$data['year'] . '-' . $data['month'] . '-' . $data['day'];
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The User has been saved.'));
 
@@ -95,7 +94,7 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The User could not be saved. Please, try again.'));
         }
-        // dd($user);
+
         $user->bd = isset($user['bd']) ? $user['bd']->format('d/m/Y') : '';
         $this->formCommon();
         $this->set(compact('id'));

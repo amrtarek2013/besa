@@ -1,3 +1,33 @@
+<style>
+    .iti__country {
+        display: block;
+    }
+
+    .iti {
+        left: 10px;
+        position: relative !important;
+        bottom: 37px;
+
+    }
+
+    .form-area input[type="tel"] {
+        padding-left: 95px;
+    }
+
+    .iti__country,
+    .iti--separate-dial-code .iti__selected-dial-code {
+        color: #878787;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+
+    }
+
+    .iti__country-list {
+        margin: 15px 0px 0 -11px !important;
+    }
+</style>
 <div class="content-wrapper">
 
     <section class="content-header">
@@ -38,103 +68,62 @@
                                 <div class="container-formBox">
                                     <h4 class="title">Basic Information</h4>
                                     <div class="grid-container">
-                                        <?= $this->AdminForm->control('first_name', ['placeholder' => 'First Name', 'class' => 'form-area', 'label' => 'First Name*', 'required' => true]) ?>
-                                        <?= $this->AdminForm->control('middle_name', ['placeholder' => 'Middle Name', 'class' => 'form-area', 'label' => 'Middle Name', 'required' => false]) ?>
+                                        <?= $this->AdminForm->control('first_name', ['placeholder' => 'Name', 'class' => 'form-area', 'label' => 'First Name*', 'required' => true]) ?>
+
                                         <?= $this->AdminForm->control('last_name', ['placeholder' => 'Last Name', 'class' => 'form-area', 'label' => 'Last Name*', 'required' => true]) ?>
                                         <?= $this->AdminForm->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
 
-                                        <?= $this->AdminForm->control('mobile_code', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile Code*', 'required' => true]) ?>
+                                        <?php /*= $this->AdminForm->control('mobile_code', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile Code*', 'required' => true]) ?>
 
-                                        <?= $this->AdminForm->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('mobile', ['placeholder' => 'Mobile', 'class' => 'form-area', 'label' => 'Mobile*', 'required' => true]) */ ?>
+
+                                        <?= $this->element('mobile_with_code', ['mobileValue' => $user['mobile'], 'mobileCodeValue' => $user['mobile_code']]) ?>
 
                                         <?= $this->AdminForm->control('password', ['type' => 'password', 'placeholder' => 'Password', 'class' => 'form-area', 'value' => '', 'autocomplete' => 'off', 'label' => 'Password*']) ?>
                                         <?= $this->AdminForm->control('passwd', ['type' => 'password', 'placeholder' => 'Confirm Password', 'class' => 'form-area', 'label' => 'Confirm Password*']) ?>
 
-                                        <?= $this->AdminForm->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('gender', ['placeholder' => 'Gender', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => false]) ?>
 
-                                        <?= $this->AdminForm->control('date', ['placeholder' => 'Date of Birth', 'value' => $user->bd, 'class' => 'form-area hasDate', 'label' => 'Date of Birth*', 'required' => true]) ?>
-                                        <!-- <div class=" form-area">
-                                            <label for="">Date of Birth*</label>
-                                            <div class="grid-3col">
-                                                <?php
-                                                $days = [];
-                                                for ($i = 1; $i <= 31; $i++) {
-                                                    $d = $i; //date('M', strtotime("last day of +$i month"));
-                                                    $days[$d] = $d;
-                                                }
-                                                ?>
-                                                <?= $this->AdminForm->control('date', ['placeholder' => 'Day', 'type' => 'select', 'empty' => 'Select Day', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
-                                                <?= $this->AdminForm->control('month', ['placeholder' => 'Month', 'type' => 'select', 'empty' => 'Select Month', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
-                                                <?= $this->AdminForm->control('year', ['placeholder' => 'Year', 'type' => 'select', 'empty' => 'Select Gender', 'options' => [0 => 'Male', 1 => 'Female'], 'class' => 'form-area', 'label' => 'Gender*', 'required' => true]) ?>
-                                                <select name="day" id="day" placeholder="Day" required="required">
-                                                    <option value="">Day</option>
+                                        <?= $this->AdminForm->control('date', ['placeholder' => 'Date of Birth', 'value' => $user->bd, 'class' => 'form-area hasDate', 'label' => 'Date of Birth*', 'required' => false]) ?>
 
-                                                    <?php
-                                                    for ($i = 1; $i <= 31; $i++) {
-                                                        $d = $i; //date('M', strtotime("last day of +$i month"));
-                                                        echo "<option value='$d'>$d</option>";
-                                                    }
-                                                    ?>
-
-                                                </select>
-                                                <select name="month" id="month" placeholder="Month" required="required">
-                                                    <option value="">Month</option>
-                                                    <?php
-                                                    for ($i = 1; $i <= 12; $i++) {
-                                                        $month = $i; // date('M', strtotime("last day of +$i month"));
-                                                        echo "<option value='$month'>$month</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <select name="year" id="year" placeholder="Year" required="required">
-                                                    <option value="">Year</option>
-                                                    <?php
-                                                    for ($i = 1980; $i <= 2015; $i++) {
-                                                        $year = $i; //date('Y', strtotime("last day of +$i year"));
-                                                        echo "<option value='$year'>$year</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div> -->
-                                        <?= $this->AdminForm->control('nationality_id', ['placeholder' => 'Nationality', 'type' => 'select', 'class' => 'form-area', 'label' => 'Nationality*', 'options' => $countriesList, 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('nationality_id', ['placeholder' => 'Nationality', 'type' => 'select', 'class' => 'form-area', 'label' => 'Nationality*', 'options' => $countriesList, 'required' => false]) ?>
 
                                         <!-- <?= $this->AdminForm->control('country_id', ['placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence', 'options' => $countriesList, 'class' => 'form-area', 'label' => 'Country of Residence*', 'required' => true]) ?> -->
 
-                                        <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => true]) ?>
+                                        <?= $this->AdminForm->control('address', ['type' => 'text', 'placeholder' => 'Address', 'class' => 'form-area', 'label' => 'Address*', 'required' => false]) ?>
 
 
                                         <?= $this->AdminForm->control('country_id', [
                                             'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
-                                            'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+                                            'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => false,
                                         ]) ?>
 
 
                                         <?= $this->AdminForm->control('city', [
-                                            'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+                                            'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => false,
 
                                         ]) ?>
 
 
                                         <?= $this->AdminForm->control('current_status', [
-                                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+                                            'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => false,
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('study_level_id', [
                                             'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
-                                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+                                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => false,
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('subject_area_id', [
                                             'placeholder' => 'Subject Area', 'type' => 'select', 'empty' => 'Select Subject Area*',
-                                            'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => true,
+                                            'options' => $subjectAreas, 'label' => 'Subject Area*', 'required' => false,
                                         ]) ?>
 
                                         <?= $this->AdminForm->control('destination_id', [
                                             'placeholder' => 'Destination', 'type' => 'select', 'empty' => 'Select Destination',
-                                            'options' => $destinationsList, 'label' => 'Destination*', 'required' => true,
+                                            'options' => $destinationsList, 'label' => 'Destination*', 'required' => false,
                                         ]) ?>
-                                        <!-- <?= $this->AdminForm->enableAjaxUploads($id, 'user_' . $id, $mainAdminToken) ?> -->
+
                                         <?= $this->AdminForm->control('active', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('confirmed', ['type' => 'checkbox']) ?>
                                         <?= $this->AdminForm->control('is_subscribed', ['type' => 'checkbox']) ?>
