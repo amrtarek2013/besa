@@ -98,7 +98,7 @@ class BranchesTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
-        
+
         Cache::delete('home_branches');
         Cache::delete('contactus_branches');
         clearViewCache();
@@ -107,7 +107,10 @@ class BranchesTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        if (!empty($entity->name) && $entity->isDirty('name')) {
+        if (
+            ($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->name)  && $entity->isDirty('name'))
+        ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->name, '_')));
         }
 

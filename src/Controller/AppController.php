@@ -1267,7 +1267,7 @@ class AppController extends Controller
      * ************************** */
 
 
-    public function sendToBitrix($data, $type, $options = [])
+    public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
 
         return true;
