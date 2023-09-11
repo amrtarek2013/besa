@@ -118,9 +118,9 @@ class EnquiriesController extends AppController
                     '{%enquiry_type%}' => $enquiryTitle
                 );
 
-                $email_templates = 'user.contactus_thankyou_enquiry';
-                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']])) {
-                    $email_templates = $this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']];
+                $email_template = 'user.contactus_thankyou_enquiry';
+                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_template']])) {
+                    $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']['email_template']];
                     $u_replace = [];
                     $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']['fields']];
 
@@ -140,7 +140,7 @@ class EnquiriesController extends AppController
                     }
                 }
 
-                $this->sendEmail($to, false, $email_templates, $u_replace);
+                $this->sendEmail($to, false, $email_template, $u_replace);
                 // 
                 $return['message'] = __('The Enquiry has been saved.');
 
