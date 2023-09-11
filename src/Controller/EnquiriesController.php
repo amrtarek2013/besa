@@ -214,7 +214,7 @@ class EnquiriesController extends AppController
 
         $destinations = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1, 'is_destination' => 1])->cache('book_appointment_destinations')->order(['country_name' => 'asc']);
+        ])->where(['active' => 1/*, 'is_destination' => 1*/])->cache('book_appointment_destinations')->order(['country_name' => 'asc']);
 
         $this->set('destinationsList', $destinations);
 
