@@ -49,9 +49,9 @@ class EnquiriesController extends AppController
                 $u_replace = [];
                 // $url = '<a href="' . Router::url('/admin/enquiries/view/' . $enquiry['id'], true) . '" >View Enquiry</a>';
                 $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
-                if (isset($enquiry['branch_id'])) {
+                /*if (isset($enquiry['branch_id'])) {
                     $this->loadModel('Branches');
-                    $branch = $this->Branches->find()->where(['id' => $enquiry['branch_id']])->first();
+                    // $branch = $this->Branches->find()->where(['id' => $enquiry['branch_id']])->first();
 
 
                     $b_replace = array(
@@ -62,7 +62,7 @@ class EnquiriesController extends AppController
                         '{%message%}' => $enquiry['message'],
                         '{%enquiry_type%}' => $enquiryTitle,
                     );
-
+                    
                     if (!empty($branch)) {
                         $a_replace = array(
                             '{%name%}' => $enquiry['name'],
@@ -79,20 +79,6 @@ class EnquiriesController extends AppController
                             '{%view_link%}'  => $url,
                         );
                     } else
-                        $a_replace = array(
-                            '{%name%}' => $enquiry['name'],
-                            '{%email%}' => $enquiry['email'],
-                            '{%phone%}' => $enquiry['mobile'],
-                            '{%subject%}' => $enquiry['subject'],
-                            '{%message%}' => $enquiry['message'],
-                            '{%enquiry_type%}' => $enquiryTitle,
-                            '{%view_link%}'  => $url,
-                        );
-
-                    $this->sendEmail('khaledabdo2012@gmail.com'/*$branch['email']*/, false, 'branch.contactus_enquiry', $b_replace);
-
-                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
-                } else {
                     $a_replace = array(
                         '{%name%}' => $enquiry['name'],
                         '{%email%}' => $enquiry['email'],
@@ -103,8 +89,22 @@ class EnquiriesController extends AppController
                         '{%view_link%}'  => $url,
                     );
 
+                    $this->sendEmail($branch['email'], false, 'branch.contactus_enquiry', $b_replace);
+
                     $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
-                }
+                } else {*/
+                $a_replace = array(
+                    '{%name%}' => $enquiry['name'],
+                    '{%email%}' => $enquiry['email'],
+                    '{%phone%}' => $enquiry['mobile'],
+                    '{%subject%}' => $enquiry['subject'],
+                    '{%message%}' => $enquiry['message'],
+                    '{%enquiry_type%}' => $enquiryTitle,
+                    '{%view_link%}'  => $url,
+                );
+
+                $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
+                // }
                 $to = $enquiry['email'];
                 $from = '';
 
@@ -118,7 +118,11 @@ class EnquiriesController extends AppController
                     '{%enquiry_type%}' => $enquiryTitle
                 );
 
-                $this->sendEmail($to, false, 'user.contactus_thankyou_enquiry', $u_replace);
+                $email_templates = 'user.contactus_thankyou_enquiry';
+                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']]))
+                    $email_templates = $this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']];
+
+                $this->sendEmail($to, false, $email_templates, $u_replace);
                 // 
                 $return['message'] = __('The Enquiry has been saved.');
 
@@ -224,7 +228,7 @@ class EnquiriesController extends AppController
 
         $this->set('fairVenues', $this->Enquiries->fairVenues);
 
-        if(isset($_GET['location']) && isset($this->Enquiries->fairVenuesTitles[strtolower($_GET['location'])]))
+        if (isset($_GET['location']) && isset($this->Enquiries->fairVenuesTitles[strtolower($_GET['location'])]))
             $this->set('selected_fair_venue', $this->Enquiries->fairVenuesTitles[strtolower($_GET['location'])]);
     }
 

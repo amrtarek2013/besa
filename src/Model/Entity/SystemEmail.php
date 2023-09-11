@@ -27,6 +27,15 @@ class SystemEmail extends Entity
             '{%enquiry_type%}' => 'Enquiry Type',
             '{%website_url%}' => 'Website Url'
         ),
+        'user.visitors-application-enquiry' => array(
+            '{%name%}' => 'Username',
+            '{%email%}'  => 'Email',
+            '{%phone%}'  => 'Phone',
+            '{%subject%}'  => 'Subject',
+            '{%message%}'  => 'Message',
+            '{%enquiry_type%}' => 'Enquiry Type',
+            '{%website_url%}' => 'Website Url'
+        ),
         'admin.contactus_enquiry' => array(
             '{%name%}' => 'Username',
             '{%email%}'  => 'Email',

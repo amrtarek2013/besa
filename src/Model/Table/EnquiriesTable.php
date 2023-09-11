@@ -62,6 +62,7 @@ class EnquiriesTable extends Table
         ],
         'visitors-application' => [
             'validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application',
+            'email_template'=>'user.visitors-application-enquiry',
             'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email' => 'Email', 'school_name' => 'School / University name', 'study_level' => 'Level of Study', 'destination_id' => 'Destination interested in', 'fair_venue' => 'Fair Venue']
         ],
         'educational-institution' => [
