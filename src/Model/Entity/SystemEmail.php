@@ -28,12 +28,15 @@ class SystemEmail extends Entity
             '{%website_url%}' => 'Website Url'
         ),
         'user.visitors-application-enquiry' => array(
-            '{%name%}' => 'Username',
-            '{%email%}'  => 'Email',
-            '{%phone%}'  => 'Phone',
-            '{%subject%}'  => 'Subject',
-            '{%message%}'  => 'Message',
-            '{%enquiry_type%}' => 'Enquiry Type',
+            '{%name%}' => 'First Name',
+            '{%surname%}' => 'Last Name',
+            '{%mobile%}' => 'Mobile',
+            '{%email%}' => 'Email',
+            '{%school_name%}' => 'School / University name',
+            '{%study_level%}' => 'Level of Study',
+            '{%destination_id%}' => 'Destination interested in',
+            '{%fair_venue%}' => 'Fair Venue',
+
             '{%website_url%}' => 'Website Url'
         ),
         'admin.contactus_enquiry' => array(

@@ -119,8 +119,17 @@ class EnquiriesController extends AppController
                 );
 
                 $email_templates = 'user.contactus_thankyou_enquiry';
-                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']]))
+                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']])) {
                     $email_templates = $this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']];
+                    $u_replace = array(
+                        '{%name%}' => $enquiry['name'],
+                        '{%email%}' => $enquiry['email'],
+                        '{%phone%}' => $enquiry['mobile'],
+                        '{%subject%}' => $enquiry['subject'],
+                        '{%message%}' => $enquiry['message'],
+                        '{%enquiry_type%}' => $enquiryTitle
+                    );
+                }
 
                 $this->sendEmail($to, false, $email_templates, $u_replace);
                 // 
