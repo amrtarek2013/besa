@@ -34,7 +34,7 @@ class SystemEmail extends Entity
             '{%email%}' => 'Email',
             '{%school_name%}' => 'School / University name',
             '{%study_level%}' => 'Level of Study',
-            '{%destination_id%}' => 'Destination interested in',
+            '{%destination%}' => 'Destination interested in',
             '{%fair_venue%}' => 'Fair Venue',
 
             '{%website_url%}' => 'Website Url'

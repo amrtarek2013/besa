@@ -121,14 +121,23 @@ class EnquiriesController extends AppController
                 $email_templates = 'user.contactus_thankyou_enquiry';
                 if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']])) {
                     $email_templates = $this->Enquiries->enquiryTypes[$enquiry['type']['email_templates']];
-                    $u_replace = array(
-                        '{%name%}' => $enquiry['name'],
-                        '{%email%}' => $enquiry['email'],
-                        '{%phone%}' => $enquiry['mobile'],
-                        '{%subject%}' => $enquiry['subject'],
-                        '{%message%}' => $enquiry['message'],
-                        '{%enquiry_type%}' => $enquiryTitle
-                    );
+                    $u_replace = [];
+                    $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']['fields']];
+
+                    foreach ($dataFields as $field => $fieldTitle) {
+                        $enquiry[$field] = ($field == 'mobile') ? (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : "\t" . $enquiry[$field]) : $enquiry[$field];
+                        $enquiry[$field] = ($field == 'subject_area_id' && isset($enquiry['subject_area']['title'])) ? $enquiry['subject_area']['title'] : $enquiry[$field];
+                        $enquiry[$field] = ($field == 'destination_id' && isset($enquiry['country']['country_name'])) ? $enquiry['country']['country_name'] : $enquiry[$field];
+                        $enquiry[$field] = ($field == 'fair_venue' && isset($fairVenues[$enquiry['fair_venue']])) ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
+                        if ($enquiry['type'] == 'book-appointment') {
+                            $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels[$enquiry[$field]])) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                        } else if ($enquiry['type'] == 'visitors-application') {
+                            $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels[$enquiry[$field]])) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                        }
+
+                        $fieldName = str_replace('_id', '', $field);
+                        $u_replace['{%' . $fieldName . '%}'] = $enquiry[$field];
+                    }
                 }
 
                 $this->sendEmail($to, false, $email_templates, $u_replace);
