@@ -241,30 +241,68 @@ class EnquiriesController extends AppController
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        $enquiries = $this->Enquiries->find('all')->where($conditions)->toArray();
 
         $dataToExport[] = array(
             'id' => 'Enquiry ID',
             'name' => 'Name',
             'email' => 'Email',
-            'address' => 'Address',
+            'mobile' => 'Mobile',
+            'type' => 'Enquiry Type',
         );
+        $fileName = 'Enquiries';
+        // dd($conditions);
+        if (isset($conditions['lower(Enquiries.type)'])) {
+            $dataToExport = [];
+            $dataToExport[] = $this->Enquiries->enquiryTypes[$conditions['lower(Enquiries.type)']]['fields'];
+            $fileName = $this->Enquiries->enquiryTypes[$conditions['lower(Enquiries.type)']]['title'];
+        }
+        // $enquiries = $this->Enquiries->find('all')->where($conditions)->toArray();
+        $enquiries = $this->Enquiries->find()->contain(['Countries' => ['fields' => ['country_name']], 'SubjectAreas' => ['fields' => ['title']]])->where($conditions)->all()->toArray();
 
-        foreach ($enquiries as $enquiry) {
-            $dataToExport[] = [
-                $enquiry->id,
-                $enquiry->name,
-                // $enquiry->job_title,
-                $enquiry->email,
-                $enquiry->address,
-                // $enquiry->barcode_number,
-                '',
-                ($enquiry->active) ? 'Yes' : 'No',
-            ];
+        $this->loadModel('StudyLevels');
+
+        // $enquiryType = $this->Enquiries->enquiryTypes[$enquiry['type']];
+        $interestedStudyLevels = $this->Enquiries->interestedStudyLevels;
+        $mainStudyLevels = $this->StudyLevels->mainStudyLevels;
+
+        $fairVenues = $this->Enquiries->fairVenues;
+
+        if (isset($conditions['lower(Enquiries.type)'])) {
+            $dataFields = $this->Enquiries->enquiryTypes[$conditions['lower(Enquiries.type)']]['fields'];
+
+
+            // dd($enquiries);
+            foreach ($enquiries as $enquiry) {
+                $data = [];
+                foreach ($dataFields as $field => $fieldTitle) {
+                    $enquiry[$field] = ($field == 'mobile')?(!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field]: "\t".$enquiry[$field]) : $enquiry[$field];
+                    $enquiry[$field] = ($field == 'subject_area_id' && isset($enquiry['subject_area']['title'])) ? $enquiry['subject_area']['title'] : $enquiry[$field];
+                    $enquiry[$field] = ($field == 'destination_id' && isset($enquiry['country']['country_name'])) ? $enquiry['country']['country_name'] : $enquiry[$field];
+                    $enquiry[$field] = ($field == 'fair_venue' && isset($fairVenues[$enquiry['fair_venue']])) ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
+                    if ($enquiry['type'] == 'book-appointment') {
+                        $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels[$enquiry[$field]])) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                    } else if ($enquiry['type'] == 'visitors-application') {
+
+                        $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels[$enquiry[$field]])) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                    }
+                    $data[] = $enquiry[$field];
+                }
+                $dataToExport[] = $data;
+            }
+        } else {
+            foreach ($enquiries as $enquiry) {
+                $dataToExport[] = [
+                    $enquiry->id,
+                    $enquiry->name,
+                    $enquiry->mobile,
+                    $enquiry->email,
+                    $enquiry->type,
+                ];
+            }
         }
 
         $this->loadComponent('Csv');
-        $this->Csv->download($dataToExport, 'Enquiries-list-' . date('Ymd'));
+        $this->Csv->download($dataToExport, $fileName . '-list-' . date('Ymd'));
 
         exit();
     }
