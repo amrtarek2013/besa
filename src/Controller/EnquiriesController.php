@@ -119,10 +119,12 @@ class EnquiriesController extends AppController
                 );
 
                 $email_template = 'user.contactus_thankyou_enquiry';
-                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']['email_template']])) {
-                    $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']['email_template']];
+                // dd($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template']);
+                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'])) {
+                    $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'];
+                    // dd($email_template);
                     $u_replace = [];
-                    $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']['fields']];
+                    $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']]['fields'];
 
                     foreach ($dataFields as $field => $fieldTitle) {
                         $enquiry[$field] = ($field == 'mobile') ? (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : "\t" . $enquiry[$field]) : $enquiry[$field];
