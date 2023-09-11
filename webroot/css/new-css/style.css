@@ -63,9 +63,15 @@ ul {
     margin: 0;
 }
 
-li {
+li:not(.cke_panel_listItem) {
     list-style: none;
     display: inline-block;
+}
+
+.cke_panel_list li,
+li.cke_panel_listItem {
+
+    display: block !important;
 }
 
 a,
@@ -8232,6 +8238,7 @@ input[type="search"]:focus {
     color: #fff;
 
 }
+
 .University-Offer {
     background: #7fee4b;
     color: #fff;

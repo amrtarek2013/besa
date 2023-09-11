@@ -505,8 +505,9 @@ var _ckConfigs = '';
 									'/css/new-css/animations.css',
 									'/css/new-css/timeline.css',
 									'/css/new-css/grid.css',
-									'/css/new-css/style.css?v=2',
-									'/css/new-css/responsive.css'
+									'/css/new-css/style.css?v=12',
+									'/css/new-css/responsive.css',
+									'/css/new-css/ck-fix-style.css'
 
                             ];
                         }

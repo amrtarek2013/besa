@@ -131,6 +131,7 @@ use Cake\I18n\I18n;
 
             margin-top: -10px !important;
         }
+        
     </style>
 </head>
 
