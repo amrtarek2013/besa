@@ -29,6 +29,7 @@ class EnquiriesController extends AppController
             $enquiry = $this->Enquiries->patchEntity($enquiry, $data, ['validate' => $this->Enquiries->enquiryTypes[$data['type']]['validation']]);
 
 
+
             $return = [];
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
@@ -37,7 +38,7 @@ class EnquiriesController extends AppController
             // die;
             $enquiry_redirect_url = $enquiry['type'];
             if ($this->Enquiries->save($enquiry)) {
-
+                $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
 
                 $return['message'] = 'Success';
                 $return['status']  = 1;

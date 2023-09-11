@@ -51,31 +51,31 @@ class AppController extends Controller
         //$this->loadComponent('FormProtection');
     }
     public function _checkDebug()
-	{
+    {
 
-		$session = $this->getRequest()->getSession();
+        $session = $this->getRequest()->getSession();
 
-		if (isset($_GET['debug'])) {
-			if ($_GET['debug'] == 0) {
-				$session->write('debug', false);
-			} else {
-				$session->write('debug', true);
-			}
-		}
-		if ($session->check('debug')) {
-			$debuger = $session->read('debug');
-			Configure::write('debug', $debuger);
-			if ($debuger > 0) {
-				$myApp = new \App\Application('/var/www/html/ozrepo/config');
-				$myApp->addPlugin('DebugKit');
-				// debug('DebugKit');
-			}
-		}
-	}
+        if (isset($_GET['debug'])) {
+            if ($_GET['debug'] == 0) {
+                $session->write('debug', false);
+            } else {
+                $session->write('debug', true);
+            }
+        }
+        if ($session->check('debug')) {
+            $debuger = $session->read('debug');
+            Configure::write('debug', $debuger);
+            if ($debuger > 0) {
+                $myApp = new \App\Application('/var/www/html/ozrepo/config');
+                $myApp->addPlugin('DebugKit');
+                // debug('DebugKit');
+            }
+        }
+    }
     public function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
-		$this->_checkDebug();
+        $this->_checkDebug();
 
         if (empty($_SERVER["HTTPS"])) {
             $local = array(
@@ -539,9 +539,11 @@ class AppController extends Controller
 
         $this->set('permissionList', $permissions_list);
         $this->set('permissions_ids', $this->permissions_ids);
-        
+
         return $permitted_list;
     }
+
+
 
     protected function _filter_params($params = false, $filter_name = 'filters')
     {
@@ -1257,5 +1259,17 @@ class AppController extends Controller
         }
 
         $this->set('g_dynamic_routes', $cached_dynamicroutes);
+    }
+
+    /**********************
+     * 
+     * Bitrix Function
+     * ************************** */
+
+
+    public function sendToBitrix($data, $type, $options = [])
+    {
+
+        return true;
     }
 }
