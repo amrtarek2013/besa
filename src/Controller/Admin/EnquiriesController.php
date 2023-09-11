@@ -294,7 +294,7 @@ class EnquiriesController extends AppController
                 $dataToExport[] = [
                     $enquiry->id,
                     $enquiry->name,
-                    $enquiry->mobile,
+                    (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry['mobile']: "\t".$enquiry['mobile']),
                     $enquiry->email,
                     $enquiry->type,
                 ];
