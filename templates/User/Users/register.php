@@ -123,7 +123,7 @@
 
             <?= $this->Form->control('destination_id', [
               'placeholder' => 'Country you study at', 'type' => 'select', 'empty' => 'Select Country you study at',
-              'options' => $destinationsList, 'label' => 'Country you study at*', 'required' => true,
+              'options' => $countriesList, 'label' => 'Country you study at*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
 
