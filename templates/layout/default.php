@@ -90,7 +90,7 @@
     <?= $this->element('UserPopUp'); ?>
     <?php //= $header 
     ?>
-    <?php echo $this->element('navbar'); ?>
+    <?php echo $this->element('navbar', ['cache' => ['key' => 'navbar', 'config' => '_view_long_']]); ?>
     <!-- Start Content -->
     <?php if (in_array($prefix, ['User', 'Counselor'])) {
 
@@ -141,7 +141,7 @@
 
     <?php // $footer 
     ?>
-    <?= $this->element('footer'); ?>
+    <?= $this->element('footer', ['cache' => ['key' => 'footer', 'config' => '_view_long_']]); ?>
 
 </body>
 

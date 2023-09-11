@@ -34,22 +34,52 @@ class EnquiriesTable extends Table
 
     );
     public $fairVenues = [0 => 'Cairo', 1 => 'Alexandria'];
-    public $fairVenuesTitles = ['cairo'=>0, 'alexandria'=>1];
+    public $fairVenuesTitles = ['cairo' => 0, 'alexandria' => 1];
     //Foundation, International Year One, Bachelor, Pre Masters, Masters, PHD
     public $interestedStudyLevels = [0 => 'Foundation', 1 => 'International Year One', 2 => 'Bachelor', 3 => 'Pre Masters', 4 => 'Masters', 5 => 'PHD'];
     public $interestedStudyLevelsTitle = ['Foundation' => 0, 'International Year One' => 1, 'Bachelor' => 2, 'Pre Masters' => 3, 'Masters' => 4, 'PHD' => 5];
 
     public $enquiryTypes = [
-        'home' => ['validation' => 'home', 'redirect' => '/', 'title' => 'Home', 'fields' => ['name', 'email', 'message']],
-        'contact-us' => ['validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us', 'fields' => ['name', 'mobile', 'email', 'subject', 'message']],
-        'app-support' => ['validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support', 'fields' => ['name', 'surname', 'email', 'message']],
-        'career-apply' => ['validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply', 'fields' => ['name', 'surname', 'mobile', 'email', 'address', 'certificate', 'how_hear_about_us']],
-        'partnership-with-besa' => ['validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa', 'fields' => ['name', 'mobile', 'email', 'address', 'certificate', 'how_hear_about_us']],
-        'visitors-application' => ['validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application', 'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email', 'school_name' => 'School / University name', 'study_level' => 'Level of Study', 'destination_id' => 'Destination interested in', 'fair_venue']],
-        'educational-institution' => ['validation' => 'educationalInstitution', 'redirect' => '/educational-institution', 'title' => 'Educational Institution', 'fields' => ['school_name', 'school_counselor_name', 'mobile', 'email', 'attending_students_no' => 'Number of attending students', 'certificate' => 'Upload attending students details']],
-        'british-trophy-subscription' => ['validation' => 'britishTrophySubscription', 'redirect' => '/british-trophy-subscription', 'title' => 'The British Trophy Event Subscription', 'fields' => ['school_name', 'name' => 'Contact person name', 'mobile' => 'Mobile', 'email', 'certificate' => 'Upload school team sheet']],
-        'book-appointment' => ['validation' => 'bookAppointment', 'redirect' => '/book-appointment', 'title' => 'Book An appointment', 'fields' => ['name' => 'Full Name', 'mobile' => 'Mobile', 'email', 'study_level' => 'Study level interested in', 'subject_area_id' => 'Subject area interested in', 'destination_id' => 'Study destination interested in']],
-        'become-sponsor' => ['validation' => 'becomeSponsor', 'redirect' => '/become-sponsor', 'title' => 'Become a Sponsor', 'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile', 'email']],
+        'home' => [
+            'validation' => 'home', 'redirect' => '/', 'title' => 'Home',
+            'fields' => ['name' => 'Name', 'email' => 'Email', 'message' => 'Message']
+        ],
+        'contact-us' => [
+            'validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us',
+            'fields' => ['name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'subject' => 'Subject', 'message' => 'Message']
+        ],
+        'app-support' => [
+            'validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support',
+            'fields' => ['name' => 'Name', 'surname' => 'Surname', 'email' => 'Email', 'message' => 'Message']
+        ],
+        'career-apply' => [
+            'validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply',
+            'fields' => ['name' => 'Name', 'surname' => 'Surname', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us']
+        ],
+        'partnership-with-besa' => [
+            'validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa',
+            'fields' => ['name' => 'Name', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us']
+        ],
+        'visitors-application' => [
+            'validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application',
+            'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email' => 'Email', 'school_name' => 'School / University name', 'study_level' => 'Level of Study', 'destination_id' => 'Destination interested in', 'fair_venue' => 'Fair Venue']
+        ],
+        'educational-institution' => [
+            'validation' => 'educationalInstitution', 'redirect' => '/educational-institution', 'title' => 'Educational Institution',
+            'fields' => ['school_name' => 'School Name', 'school_counselor_name' => 'School Counselor Name', 'mobile' => 'Mobile', 'email' => 'Email', 'attending_students_no' => 'Number of attending students', 'certificate' => 'Upload attending students details']
+        ],
+        'british-trophy-subscription' => [
+            'validation' => 'britishTrophySubscription', 'redirect' => '/british-trophy-subscription', 'title' => 'The British Trophy Event Subscription',
+            'fields' => ['school_name' => 'School Name', 'name' => 'Contact person name', 'mobile' => 'Mobile', 'email' => 'Email', 'certificate' => 'Upload school team sheet']
+        ],
+        'book-appointment' => [
+            'validation' => 'bookAppointment', 'redirect' => '/book-appointment', 'title' => 'Book An appointment',
+            'fields' => ['name' => 'Full Name', 'mobile' => 'Mobile', 'email' => 'Email', 'study_level' => 'Study level interested in', 'subject_area_id' => 'Subject area interested in', 'destination_id' => 'Study destination interested in']
+        ],
+        'become-sponsor' => [
+            'validation' => 'becomeSponsor', 'redirect' => '/become-sponsor', 'title' => 'Become a Sponsor',
+            'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile' => 'Mobile', 'email' => 'Email']
+        ],
 
     ];
     public $enquiryTypesList = [
@@ -361,7 +391,7 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
-        
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',

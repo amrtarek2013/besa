@@ -131,107 +131,140 @@ class EnquiriesController extends AppController
     }
 
 
-    public function exportCsv()
+    // public function export()
+    // {
+    //     $now = gmdate('D, d M Y H:i:s') . ' GMT';
+    //     ini_set('memory_limit', '2024M');
+    //     set_time_limit(0);
+
+    //     Configure::write('debug', false);
+    //     $this->viewBuilder()->disableAutoLayout();
+    //     $this->set("statuses", $this->Enquiries->status_list);
+
+    //     $parameters = $this->request->getAttribute('params');
+
+    //     $url_query = (isset($parameters['?'])) ? $parameters['?'] : [];
+
+    //     $conditions = [];
+    //     $conditions = $this->_filter_params();
+    //     // print_r($conditions);
+    //     // $url_params = array();
+    //     // if (isset($parameters['?'])) {
+    //     //     $url_params = $parameters['?'];
+    //     // }
+    //     // if (isset($url_params['limit']) and $url_params['limit'] != "") {
+    //     //     $limit = intval($url_params['limit']);
+    //     // } else {
+    //     //     $limit = 100;
+    //     // }
+    //     // print_r($url_params);
+    //     // die;
+    //     // $conditions = $this->_mainConditions($parameters);
+    //     $delimited = array('tab' => "\t", 'semi' => ";", 'comma' => ",");
+
+    //     $fieldsArray = [
+    //         'Primary Key' => 'Enquiries.id',
+    //         'User Name' => 'Enquiries.name',
+    //         'Phone' => 'Enquiries.mobile',
+    //         'Email Address' => 'Enquiries.email',
+    //         'Created' => 'Enquiries.created',
+
+    //     ];
+
+    //     // $conditions = [];
+    //     $statuslist    = $this->Enquiries->status_list;
+    //     $count    = $this->Enquiries->find()->where($conditions)->count();
+    //     $enquiries = $this->Enquiries
+    //         ->find()
+    //         ->where($conditions)
+    //         ->select(array_values($fieldsArray))
+    //         ->contain(['Branches' => ['fields' => ['name']]])
+    //         ->limit($count)
+    //         ->order(['Enquiries.id' => 'desc'])
+    //         ->all();
+    //     // ->all();
+
+    //     // print_r($conditions);
+    //     // print_r($enquiries);
+    //     // die;
+
+    //     // $count = 200000; // for debuging
+    //     $data = $enquiries->toArray();
+
+
+    //     foreach ($data as $Enquiry) {
+
+    //         if (!empty($Enquiry['branch'])) {
+    //             $Enquiry['branch'] = $Enquiry['branch']['name'];
+    //         }
+    //         if (isset($Enquiry['created'])) {
+    //             $Enquiry['created'] = $Enquiry['created']->format('d/m/Y H:i:s');
+    //         }
+    //     }
+
+    //     $headers = array(
+    //         'Primary Key',
+    //         'User Name',
+    //         'Phone',
+    //         'Email Address',
+    //         'Created',
+
+    //         'Branch',
+    //         // 'Allocated Time',
+
+    //     );
+
+    //     $fileName = 'enquiries-report-' . date('YmdHis', time());
+    //     header('Content-Encoding: UTF-8');
+    //     header("Content-type: text/csv");
+    //     header('Content-Disposition: attachment;filename="' . $fileName . '.csv"');
+    //     header("Pragma: no-cache");
+    //     header("Expires: 0");
+
+    //     $output = fopen('php://output', 'w');
+    //     fputcsv($output, $headers);
+    //     foreach ($data as $k => $v) {
+    //         // debug($output);
+    //         // debug($v->toArray());
+    //         fputcsv($output, $v->toArray());
+    //     }
+    //     // dd($data);
+    //     fclose($output);
+    //     // flush();
+    //     // ob_end_clean();
+
+    //     exit();
+    // }
+
+    public function export()
     {
-        $now = gmdate('D, d M Y H:i:s') . ' GMT';
-        ini_set('memory_limit', '2024M');
-        set_time_limit(0);
 
-        Configure::write('debug', false);
-        $this->viewBuilder()->disableAutoLayout();
-        $this->set("statuses", $this->Enquiries->status_list);
-
-        $parameters = $this->request->getAttribute('params');
-
-        $url_query = (isset($parameters['?'])) ? $parameters['?'] : [];
-
-        $conditions = [];
+        $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        // print_r($conditions);
-        // $url_params = array();
-        // if (isset($parameters['?'])) {
-        //     $url_params = $parameters['?'];
-        // }
-        // if (isset($url_params['limit']) and $url_params['limit'] != "") {
-        //     $limit = intval($url_params['limit']);
-        // } else {
-        //     $limit = 100;
-        // }
-        // print_r($url_params);
-        // die;
-        // $conditions = $this->_mainConditions($parameters);
-        $delimited = array('tab' => "\t", 'semi' => ";", 'comma' => ",");
+        $enquiries = $this->Enquiries->find('all')->where($conditions)->toArray();
 
-        $fieldsArray = [
-            'Primary Key' => 'Enquiries.id',
-            'User Name' => 'Enquiries.name',
-            'Phone' => 'Enquiries.mobile',
-            'Email Address' => 'Enquiries.email',
-            'Created' => 'Enquiries.created',
-
-        ];
-
-        // $conditions = [];
-        $statuslist    = $this->Enquiries->status_list;
-        $count    = $this->Enquiries->find()->where($conditions)->count();
-        $enquiries = $this->Enquiries
-            ->find()
-            ->where($conditions)
-            ->select(array_values($fieldsArray))
-            ->contain(['Branches' => ['fields' => ['name']]])
-            ->limit($count)
-            ->order(['Enquiries.id' => 'desc'])
-            ->all();
-        // ->all();
-
-        // print_r($conditions);
-        // print_r($enquiries);
-        // die;
-
-        // $count = 200000; // for debuging
-        $data = $enquiries->toArray();
-
-
-        foreach ($data as $Enquiry) {
-
-            if (!empty($Enquiry['branch'])) {
-                $Enquiry['branch'] = $Enquiry['branch']['name'];
-            }
-            if (isset($Enquiry['created'])) {
-                $Enquiry['created'] = $Enquiry['created']->format('d/m/Y H:i:s');
-            }
-        }
-
-        $headers = array(
-            'Primary Key',
-            'User Name',
-            'Phone',
-            'Email Address',
-            'Created',
-
-            'Branch',
-            // 'Allocated Time',
-
+        $dataToExport[] = array(
+            'id' => 'Enquiry ID',
+            'name' => 'Name',
+            'email' => 'Email',
+            'address' => 'Address',
         );
 
-        $fileName = 'enquiries-report-' . date('YmdHis', time());
-        header('Content-Encoding: UTF-8');
-        header("Content-type: text/csv");
-        header('Content-Disposition: attachment;filename="' . $fileName . '.csv"');
-        header("Pragma: no-cache");
-        header("Expires: 0");
-
-        $output = fopen('php://output', 'w');
-        fputcsv($output, $headers);
-        foreach ($data as $k => $v) {
-            // debug($output);
-            // debug($v->toArray());
-            fputcsv($output, $v->toArray());
+        foreach ($enquiries as $enquiry) {
+            $dataToExport[] = [
+                $enquiry->id,
+                $enquiry->name,
+                // $enquiry->job_title,
+                $enquiry->email,
+                $enquiry->address,
+                // $enquiry->barcode_number,
+                '',
+                ($enquiry->active) ? 'Yes' : 'No',
+            ];
         }
-        // dd($data);
-        fclose($output);
-        // flush();
-        // ob_end_clean();
+
+        $this->loadComponent('Csv');
+        $this->Csv->download($dataToExport, 'Enquiries-list-' . date('Ymd'));
 
         exit();
     }
