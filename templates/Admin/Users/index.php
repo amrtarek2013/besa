@@ -1,4 +1,4 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" ></script>
+<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
 <style>
     .btn-sm {
@@ -55,8 +55,9 @@
                         ];
 
                         $multi_select_actions = array(
-                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true),
-                            'confirm' => array('action' => $this->Url->build(array('action' => 'confirm_multi', 'Admin' => true)), 'confirm' => true)
+                            'confirm & Activate' => array('action' => $this->Url->build(['action' => 'confirm_multi', 'Admin' => true]), 'confirm' =>'Are you sure you wish to confirm and activate all selected data?'),
+                            'delete' => array('action' => $this->Url->build(['action' => 'delete_multi', 'Admin' => true]), 'confirm' => true)
+                            
                         );
 
                         $actions = [
