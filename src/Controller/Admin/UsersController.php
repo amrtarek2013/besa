@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Database\Expression\QueryExpression;
 use Cake\Utility\Hash;
 
 /**
@@ -129,6 +130,33 @@ class UsersController extends AppController
             $this->Flash->error(__('The Users could not be deleted. Please, try again.'));
         }
 
+        return $this->redirect(['action' => 'index']);
+    }
+    public function confirmMulti()
+    {
+        $this->request->allowMethod(['patch', 'post', 'put']);
+
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $ids = $this->request->getData('ids');
+
+            if (is_array($ids)) {
+                // $this->Users->find(['id IN' => $ids]);
+
+                // $expression = new QueryExpression('confirmed = true and active = true');
+                // $this->Users->updateAll([$expression], ['id IN' => $ids]);
+
+                $queryObject = $this->Users->query();
+
+                $queryObject->update()->set([
+                    "confirmed" => true,
+                    "active" => true
+                ])->where(['id IN' => $ids])->execute();
+                $this->Flash->success(__('The Users has been confirmed.'));
+            } else {
+                $this->Flash->error(__('The Users could not be confirmed. Please, try again.'));
+            }
+        }
         return $this->redirect(['action' => 'index']);
     }
 

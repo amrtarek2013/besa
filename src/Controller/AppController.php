@@ -444,6 +444,7 @@ class AppController extends Controller
         if (empty($controller) || empty($action)) {
             return false;
         }
+        // dd($controller.', '.$action);
         $this->loadModel("Permissions");
         $this->loadModel("RolesPermissions");
         $permission_row = $this->Permissions->find()->where(['controller' => $controller, 'action' => $action])->first();
@@ -538,7 +539,7 @@ class AppController extends Controller
 
         $this->set('permissionList', $permissions_list);
         $this->set('permissions_ids', $this->permissions_ids);
-        // dd($permissions_list);
+        
         return $permitted_list;
     }
 

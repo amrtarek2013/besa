@@ -55,7 +55,8 @@
                         ];
 
                         $multi_select_actions = array(
-                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
+                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true),
+                            'confirm' => array('action' => $this->Url->build(array('action' => 'confirm_multi', 'Admin' => true)), 'confirm' => true)
                         );
 
                         $actions = [
