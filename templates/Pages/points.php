@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="relative-box-about ">
                     <h1 class="relative-text">Points</h1>
-                    <h2 class="title text-left">Counselor Points</h2>
+                    <h2 class="title text-left">Counselor<br /> Points</h2>
                 </div>
             </div>
         </div>
