@@ -266,7 +266,7 @@
             <div class="col-md-12">
                 <div class="counselor-points">
                     <div class="d-flex">
-                        <div class="box-points">
+                        <div class="container-boxsPoints">
                             <div class="item">
                                 <div class="circle-point">5</div>
                                 <h4>Joined Successfully</h4>
