@@ -1,4 +1,4 @@
-<section class="main-banner  whereToStudy-banner">
+TEST text<section class="main-banner  whereToStudy-banner">
     <div class="container-fluid">
         <div class="row">
 
@@ -17,6 +17,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
