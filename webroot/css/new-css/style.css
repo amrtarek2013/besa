@@ -8820,3 +8820,9 @@ img.desktop-image {
 img.mobile-image {
     display: none !important;
 }
+
+.counselor-points {
+    border-radius: 27px;
+    background: #33CA94;
+    padding: 13px 14px;
+}
