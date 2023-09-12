@@ -8896,11 +8896,17 @@ img.mobile-image {
     -moz-text-decoration-line: underline;
 }
 
+.counselor-points .box-text {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
 .counselor-points .box-text a:first-child {
     margin-bottom: 19px;
 }
 
-.text-success{
+.text-success {
     color: #079C67 !important;
 
 }
