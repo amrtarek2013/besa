@@ -35,6 +35,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
         // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
+        $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/courses', 'UniversityCourses::results');
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
@@ -49,7 +50,6 @@ return static function (RouteBuilder $routes) {
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
-        $builder->connect('/Pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
 
 
