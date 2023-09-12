@@ -8844,6 +8844,7 @@ img.mobile-image {
     display: flex;
     align-items: center;
     justify-content: center;
+    grid-gap: 35px;
 }
 
 .container-boxsPoints .item {
@@ -8870,18 +8871,19 @@ img.mobile-image {
     align-items: center;
     justify-content: center;
 }
-.container-boxsPoints .item  h4{
-    font-family: "Poppins";
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-color: #FFF;
-text-align: center;
 
+.container-boxsPoints .item h4 {
+    font-family: "Poppins";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
+    text-align: center;
+    margin-top: 6px;
 }
 
-.counselor-points .box-text a{
+.counselor-points .box-text a {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -8893,6 +8895,18 @@ text-align: center;
     text-decoration-line: underline;
     -moz-text-decoration-line: underline;
 }
-.counselor-points .box-text a:first-child{
+
+.counselor-points .box-text {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.counselor-points .box-text a:first-child {
     margin-bottom: 19px;
+}
+
+.text-success {
+    color: #079C67 !important;
+
 }
