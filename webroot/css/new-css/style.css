@@ -8911,6 +8911,24 @@ img.mobile-image {
 
 }
 
-.title-banner-green{
+.title-banner-green {
     background: #33CA94 !important;
+}
+
+.title-banner-green h2 {
+    color: #FFF !important;
+    font-family: "Merriweather";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 63px;
+    margin-bottom: 12px;
+}
+
+.title-banner-green p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
 }
