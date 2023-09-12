@@ -412,6 +412,11 @@ class PagesController extends AppController
         $this->set('showImageCountries', true);
         $this->set('bodyClass', 'pageWhereToStudy');
     }
+    public function points()
+    {
+        $this->set('showImageCountries', true);
+        $this->set('bodyClass', 'pageWhereToStudy');
+    }
     public function contactUs()
     {
         $this->set('bodyClass', '');
