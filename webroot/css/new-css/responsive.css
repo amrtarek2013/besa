@@ -1938,4 +1938,16 @@
     .book-appointment .container-formBox button[type="submit"] {
         width: 100%;
     }
+    .counselor-points .d-flex {
+        grid-gap: 20px;
+        flex-flow: column;
+    }
+    .container-boxsPoints {
+      
+        padding: 20px ;
+        display: grid;
+     
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
 }
