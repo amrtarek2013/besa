@@ -8930,5 +8930,5 @@ img.mobile-image {
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    text-align: center;
+    text-align: center !important;
 }
