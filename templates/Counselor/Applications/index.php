@@ -262,6 +262,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-12">
+                <div class="counselor-points">
+                    <div class="d-flex">
+                        <div class="box-points">
+                            <div class="item">
+                                <div class="circle-point">5</div>
+                                <h4>Joined Successfully</h4>
+                            </div>
+                            <div class="item">
+                                <div class="circle-point">25</div>
+                                <h4>Applied</h4>
+                            </div>
+                            <div class="item">
+                                <div class="circle-point">55</div>
+                                <h4>Points Acquired</h4>
+                            </div>
+                            <div class="item">
+                                <div class="circle-point text-success">$500</div>
+                                <h4>Total Gain</h4>
+                            </div>
+                        </div>
+
+                        <div class="box-text">
+                            <a href="#">Withdraw</a>
+                            <a href="#">Counselor Points</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
