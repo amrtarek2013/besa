@@ -41,4 +41,24 @@ class EventsController extends AppController
         // debug($eventImages);
         $this->set('eventImages', $eventImages);
     }
+    public function schoolTours($id = 'school-tours')
+    {
+        $event = $this->Events->findByPermalink($id)->first();
+
+        $this->set('bodyClass', 'pageAbout pageServices');
+
+        if (empty($event))
+
+            throw new NotFoundException(__('Not found'));
+
+        $this->set('event', $event);
+        $this->set('permalink', $id);
+
+
+
+        $this->loadModel('EventImages');
+        $eventImages = $this->EventImages->find()->where(["active" => 1, "event_id" => $event['id']])->order(['display_order' => 'ASC'])->all()->toArray();
+        // debug($eventImages);
+        $this->set('eventImages', $eventImages);
+    }
 }
