@@ -49,7 +49,7 @@ return static function (RouteBuilder $routes) {
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
-        // $builder->connect('/about', ['controller' => 'Pages', 'action' => 'view']);
+        $builder->connect('/Pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
 
 
@@ -79,7 +79,6 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/app-support', 'Pages::appSupport');
         $builder->connect('/career-apply', 'Pages::careerApply');
         $builder->connect('/career-apply/*', 'Pages::careerApply');
-        $builder->connect('/pages/*', 'Pages::display');
         // $builder->connect('/register', 'Users::register');
         // $builder->connect('/login', 'Users::login');
 
@@ -101,6 +100,8 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
         $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
 
+        $builder->connect('/pages/*', 'Pages::display');
+        $builder->connect('/pages/*', 'Pages::display');
         // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         /*
          * Connect catchall routes for all controllers.

@@ -1,4 +1,4 @@
-TEST text<section class="main-banner  whereToStudy-banner">
+<section class="main-banner  whereToStudy-banner">
     <div class="container-fluid">
         <div class="row">
 
