@@ -1938,16 +1938,34 @@
     .book-appointment .container-formBox button[type="submit"] {
         width: 100%;
     }
+
     .counselor-points .d-flex {
         grid-gap: 20px;
         flex-flow: column;
     }
+
     .container-boxsPoints {
-      
-        padding: 20px ;
+
+        padding: 20px;
         display: grid;
-     
+
         grid-gap: 20px;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .school-tour-slider .grid-boxes,
+    .global-engagement .group-cards {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+
+    }
+    .owl-school-tour .owl-next, .owl-school-tour .owl-prev{
+        top: 55%;
+    }
+    .owl-school-tour .owl-prev {
+        left:  0;
+    }
+    .owl-school-tour .owl-next {
+        right: 0;
     }
 }
