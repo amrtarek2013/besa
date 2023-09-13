@@ -9034,8 +9034,12 @@ title-banner-green {
     cursor: pointer;
     border-radius: 29px;
     border: 6px solid #FFF;
-}
+    overflow: hidden;
 
+}
+.school-tour-slider  h2{
+    margin-bottom: 41px;
+}
 .large-image {
     text-align: center;
     margin-top: 20px;
