@@ -118,17 +118,19 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="large-image">
-                <img id="largeImage" src="/img/school-tour-slider-img-large.png" alt="Large Image">
-                <div class="caption">
-                    <p>Our School Tour at Nefertari International School</p>
+<div class="banner-ourSchool">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="large-image">
+                    <img id="largeImage" src="/img/school-tour-slider-img-large.png" alt="Large Image">
+                    <div class="caption">
+                        <p>Our School Tour at Nefertari International School</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
