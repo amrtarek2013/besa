@@ -59,4 +59,71 @@
     </div>
 </div>
 
+<div class="ExploringAbroadSection">
+    <div class="container">
+        <div class="row">
+            <div class="cold-md-12">
+                <p class="p_18">Embark on a Journey of Discovery: BESA School Tours Unveil the World of Study Abroad</p>
+                <p class="p_12">At BESA, we believe that studying abroad is an unparalleled opportunity forpersonal and intellectual growth. We understand the importance of immersingoneself in different cultures</p>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+<div class="school-tour-slider">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="slider">
+                <div class="item">
+                    <h2>Title 1</h2>
+                    <div class="box">
+                    <img src="image1.jpg" alt="Image 1">
+                    </div>
+                    <div class="box">
+                    <img src="image2.jpg" alt="Image 2">
+                    </div>
+                    <div class="box">
+                    <img src="image3.jpg" alt="Image 3">
+                    </div>
+                </div>
+                <!-- Add more items with the same structure -->
+            </div>
+
+            <div class="large-box">
+                    <img src="" alt="Large Image" id="largeImage">
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+  $(".slider").owlCarousel({
+    items: 1, // Show one item at a time
+    nav: true, // Show navigation arrows
+    loop: true, // Enable looping
+    onChanged: updateLargeImage // Custom function for updating the large image
+  });
+});
+
+function updateLargeImage(event){
+  var currentIndex = event.item.index;
+  var currentTitle = $(event.target).find(".item").eq(currentIndex).find("h2").text();
+  var currentImages = $(event.target).find(".item").eq(currentIndex).find(".box img");
+
+  // Update large image and title
+  $("#largeImage").attr("src", currentImages.eq(0).attr("src"));
+  // You can also update the title as per your design
+
+  // Add click event to box images
+  currentImages.click(function(){
+    var imageUrl = $(this).attr("src");
+    $("#largeImage").attr("src", imageUrl);
+  });
+}
+
+</script>

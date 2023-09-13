@@ -8911,7 +8911,7 @@ img.mobile-image {
 
 }
 
-.title-banner-green {
+title-banner-green {
     background: #33CA94 !important;
 }
 
@@ -8941,27 +8941,38 @@ img.mobile-image {
 .global-engagement .title-eng {
     color: #FFF;
     text-align: center;
-    font-family: "Merriweather";
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 63px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .global-engagement .group-cards {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 26px 1fr 26px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 26px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    max-width: 922px;
+    margin: auto;
 }
 
 .group-cards .card-eng {
     border-radius: 50px;
     background: #FFF;
     padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
     flex-flow: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     grid-gap: 20px;
     -webkit-border-radius: 50px;
@@ -8974,6 +8985,63 @@ img.mobile-image {
     color: #242F65;
     font-family: "Poppins";
     font-size: 18px;
-    font-weight: 700;
     line-height: 24px;
+    text-align: center;
+
 }
+
+.ExploringAbroadSection {
+    background: #F3F3F3;
+    padding: 30px 0;
+}
+
+.ExploringAbroadSection p {
+    color: #2C3041;
+    text-align: center;
+}
+
+.p_18 {
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.p_12 {
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+/* Add your own CSS styles for the slider and large image box here */
+
+/* Example styles for the slider */
+.slider {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .slider .item {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .slider .item  .box {
+    margin: 10px;
+  }
+  
+  /* Example styles for the large image box */
+  .large-box {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #largeImage {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  
