@@ -1968,4 +1968,12 @@
     .owl-school-tour .owl-next {
         right: 0;
     }
+    .title-banner-green h2 {
+      
+        font-size: 28px;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 15px;
+        text-align: center;
+    }
 }

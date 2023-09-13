@@ -64,7 +64,7 @@
         <div class="row">
             <div class="cold-md-12">
                 <p class="p_18">Embark on a Journey of Discovery: BESA School Tours Unveil the World of Study Abroad</p>
-                <p class="p_12">At BESA, we believe that studying abroad is an unparalleled opportunity forpersonal and intellectual growth. We understand the importance of immersingoneself in different cultures</p>
+                <p class="p_12">At BESA, we believe that studying abroad is an unparalleled opportunity forpersonal and intellectual growth. <br> We understand the importance of immersingoneself in different cultures</p>
             </div>
         </div>
     </div>
