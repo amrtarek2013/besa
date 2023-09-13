@@ -9035,7 +9035,7 @@ title-banner-green {
     border-radius: 29px;
     border: 6px solid #FFF;
     overflow: hidden;
-    min-height: 180px;
+    height: 180px;
 
 }
 
@@ -9071,14 +9071,14 @@ title-banner-green {
 }
 
 .school-tour-slider .slider {
-    max-width: 1075px;
+    max-width: 1070px;
     margin: 0 auto;
 }
 
 .owl-school-tour .owl-next,
 .owl-school-tour .owl-prev {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -9087,10 +9087,10 @@ title-banner-green {
 }
 
 .owl-school-tour .owl-prev {
-    left: 0;
+    left: -60px;
 
 }
 
 .owl-school-tour .owl-next {
-    right: 0;
+    right: -60px;
 }
