@@ -9035,7 +9035,14 @@ title-banner-green {
     border-radius: 29px;
     border: 6px solid #FFF;
     overflow: hidden;
+    max-height: 180px;
 
+}
+.school-tour-slider .owl-item img {
+ 
+    object-fit: cover;
+    height: 100%;
+    background-position: center;
 }
 .school-tour-slider  h2{
     margin-bottom: 41px;

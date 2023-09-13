@@ -108,6 +108,11 @@
                 </div>
                 <!-- Repeat this structure for each slider item -->
             </div>
+            <!-- Custom navigation buttons -->
+<div class="custom-navigation">
+    <button class="custom-prev">Previous</button>
+    <button class="custom-next">Next</button>
+</div>
         </div>  
         </div>
     </div>
@@ -127,27 +132,27 @@
 <script>
 // script.js
 $(document).ready(function () {
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-    });
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+        });
 
-    // Handle image clicks
-    $('.image-box img').click(function () {
-        var imageUrl = $(this).attr('src');
-        $('#largeImage').attr('src', imageUrl);
-    });
+        // Handle image clicks
+        $('.image-box img').click(function () {
+            var imageUrl = $(this).attr('src');
+            $('#largeImage').attr('src', imageUrl);
+        });
 
-    // Handle scroll arrows
-    $('.owl-next').click(function () {
-        owl.trigger('next.owl.carousel');
-    });
+        // Handle custom navigation buttons
+        $('.custom-next').click(function () {
+            owl.trigger('next.owl.carousel');
+        });
 
-    $('.owl-prev').click(function () {
-        owl.trigger('prev.owl.carousel');
+        $('.custom-prev').click(function () {
+            owl.trigger('prev.owl.carousel');
+        });
     });
-});
 
 </script>
