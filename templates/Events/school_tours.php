@@ -78,7 +78,7 @@
             <div class="slider">
             <div class="owl-carousel">
                 <div class="slider-item">
-                    <h2>Title 1</h2>
+                    <h2 class="title_28">GHIS School Tour</h2>
                     <div class="grid-boxes">
                         <div class="image-box">
                             <img src="/img/sliders-serv2.png" alt="Image 1">
@@ -108,15 +108,20 @@
                 </div>
                 <!-- Repeat this structure for each slider item -->
             </div>
-        </div>
-        <div class="large-image">
-            <img id="largeImage" src="" alt="Large Image">
-        </div>
-
-
+        </div>  
         </div>
     </div>
   </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="large-image">
+                <img id="largeImage" src="" alt="Large Image">
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -126,6 +131,7 @@ $(document).ready(function () {
     owl.owlCarousel({
         items: 1,
         loop: true,
+        nav: true,
     });
 
     // Handle image clicks

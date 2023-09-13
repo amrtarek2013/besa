@@ -9025,20 +9025,32 @@ title-banner-green {
 .school-tour-slider .grid-boxes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 26px;
 }
 
 .school-tour-slider .image-box {
     display: inline-block;
     cursor: pointer;
+    border-radius: 29px;
+    border: 6px solid #FFF;
 }
 
 .large-image {
     text-align: center;
     margin-top: 20px;
+    border-radius: 29px;
+    border: 6px solid #FFF;
 }
 
 #largeImage {
     max-width: 100%;
     max-height: 400px;
+}
+
+.title_28 {
+    color: #FFF;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: normal;
 }
