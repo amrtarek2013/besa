@@ -45,7 +45,7 @@ $(document).ready(function () {
   var customeSlider = $(".custome-slider");
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
-  var owlSchoolTour = $('.owl-school-tour');
+  var owlSchoolTour = $(".owl-school-tour");
 
   mainSlider.owlCarousel({
     items: 1,
@@ -120,25 +120,26 @@ $(document).ready(function () {
     loop: true,
     nav: true,
     navText: [
-        "<img src='./img/chevron-right-gray.svg'>",
-        "<img src='./img/chevron-left-gray.svg'>",
-        ],
-});
+      "<img src='../img/chevron-right-gray.svg'>",
+      "<img src='../img/chevron-left-gray.svg'>",
+    ],
+  });
 
-// Handle image clicks
-$('.image-box img').click(function () {
-    var imageUrl = $(this).attr('src');
-    $('#largeImage').attr('src', imageUrl);
-});
+  // Handle image clicks
+  $(".image-box img").click(function () {
+    var imageUrl = $(this).attr("src");
+    $("#largeImage").attr("src", imageUrl);
+  });
 
-// Handle custom navigation buttons
-$('.custom-next').click(function () {
-    owl.trigger('next.owl.carousel');
-});
+  /*
+  // Handle custom navigation buttons
+  $(".custom-next").click(function () {
+    owl.trigger("next.owl.carousel");
+  });
 
-$('.custom-prev').click(function () {
-    owl.trigger('prev.owl.carousel');
-});
+  $(".custom-prev").click(function () {
+    owl.trigger("prev.owl.carousel");
+  });*/
 
   // jQuery animated number counter from zero to value
   var counterAbout = $(".about-us");
@@ -232,35 +233,35 @@ $('.custom-prev').click(function () {
     })
     .trigger("scroll");
 
-//   // Triger  timeline slider
-//   $(".custome-timeline").Timeline({
-//     itemClass: "timeline-item",
-//     dotsPosition: "top",
-//     autoplaySpeed: 20,
-//   });
-//   var $cols = $(".timeline-horizontal .timeline-dots li");
-//   var numberOfCols = $cols.length;
-//   $cols.css("width", 100 / numberOfCols + "%");
+  //   // Triger  timeline slider
+  //   $(".custome-timeline").Timeline({
+  //     itemClass: "timeline-item",
+  //     dotsPosition: "top",
+  //     autoplaySpeed: 20,
+  //   });
+  //   var $cols = $(".timeline-horizontal .timeline-dots li");
+  //   var numberOfCols = $cols.length;
+  //   $cols.css("width", 100 / numberOfCols + "%");
 
-//   // On next click, if the slide-next element exists, trigger the click event on it
-//   $(".nav-timeline .next").click(function (e) {
-//     e.preventDefault();
-//     if ($(".slide-next").length) {
-//       $(".slide-next").trigger("click");
-//     }
-//   });
+  //   // On next click, if the slide-next element exists, trigger the click event on it
+  //   $(".nav-timeline .next").click(function (e) {
+  //     e.preventDefault();
+  //     if ($(".slide-next").length) {
+  //       $(".slide-next").trigger("click");
+  //     }
+  //   });
 
-//   // Attach a click event listener to elements with the class "nav-timeline" and "prev"
-//   $(".nav-timeline .prev").click(function (e) {
-//     // Prevent the default behavior of the click event (i.e. following a link, submitting a form, etc.)
-//     e.preventDefault();
+  //   // Attach a click event listener to elements with the class "nav-timeline" and "prev"
+  //   $(".nav-timeline .prev").click(function (e) {
+  //     // Prevent the default behavior of the click event (i.e. following a link, submitting a form, etc.)
+  //     e.preventDefault();
 
-//     // Check if there is an element on the page with the class "slide-prev"
-//     if ($(".slide-prev").length) {
-//       // If such an element exists, trigger a click event on it
-//       $(".slide-prev").trigger("click");
-//     }
-//   });
+  //     // Check if there is an element on the page with the class "slide-prev"
+  //     if ($(".slide-prev").length) {
+  //       // If such an element exists, trigger a click event on it
+  //       $(".slide-prev").trigger("click");
+  //     }
+  //   });
 });
 
 function togglePasswordVisibility(inputId) {
@@ -278,24 +279,23 @@ function togglePasswordVisibility(inputId) {
   }
 }
 
-
 var buttons = document.querySelectorAll('form button:not([type="submit"])');
 for (i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function (e) {
+  buttons[i].addEventListener("click", function (e) {
     e.preventDefault();
   });
 }
-$('form').on('click', 'button:not([type="submit"])', function (e) {
+$("form").on("click", 'button:not([type="submit"])', function (e) {
   e.preventDefault();
-})
+});
 
-$('.increment, .decrement').on('click', function (e) {
-  const isNegative = $(e.target).closest('.decrement').is('.decrement');
-  const input = $(e.target).closest('.input-group').find('input');
-  if (input.is('input')) {
-    input[0][isNegative ? 'stepDown' : 'stepUp']()
+$(".increment, .decrement").on("click", function (e) {
+  const isNegative = $(e.target).closest(".decrement").is(".decrement");
+  const input = $(e.target).closest(".input-group").find("input");
+  if (input.is("input")) {
+    input[0][isNegative ? "stepDown" : "stepUp"]();
   }
-})
+});
 // Get the search input element
 // const searchInput = document.querySelector(".search");
 

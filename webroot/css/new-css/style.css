@@ -9066,3 +9066,23 @@ title-banner-green {
     font-weight: 900;
     line-height: normal;
 }
+
+.owl-school-tour .owl-next
+.owl-school-tour .owl-prev{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.owl-school-tour .owl-prev{
+    left: 0;
+
+}
+
+.owl-school-tour .owl-next{
+    right: 0;
+}

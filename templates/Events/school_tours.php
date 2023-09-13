@@ -108,11 +108,11 @@
                 </div>
                 <!-- Repeat this structure for each slider item -->
             </div>
-            <!-- Custom navigation buttons -->
-<div class="custom-navigation">
-    <button class="custom-prev">Previous</button>
-    <button class="custom-next">Next</button>
-</div>
+            <!-- Custom navigation buttons 
+            <div class="custom-navigation">
+                <button class="custom-prev">Previous</button>
+                <button class="custom-next">Next</button>
+            </div>-->
         </div>  
         </div>
     </div>
