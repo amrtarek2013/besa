@@ -9130,15 +9130,16 @@ img.mobile-image {
     letter-spacing: 0.2px;
 }
 
-.milestone {}
+.milestone {
+    padding: 30px 0;
+}
 
 .milestone .col-md-12>h2 {
     color: #2C3041;
     font-family: "Merriweather";
     font-size: 48px;
     font-weight: 900;
-    line-height: 63px;
-    margin-bottom: 10px;
+    line-height: normal;
 }
 
 .milestone .gridContainer-counter {
@@ -9156,7 +9157,6 @@ img.mobile-image {
     align-items: center;
     flex-flow: column;
     justify-content: center;
-    grid-gap: 25px;
 }
 
 .gridContainer-counter .blue-dark {
@@ -9183,7 +9183,7 @@ img.mobile-image {
     line-height: 79px;
 }
 
-.milestone .gridContainer-counter .number:first-child p {
+.milestone .gridContainer-counter .green {
     color: #33CA94;
 
 }
@@ -9209,7 +9209,7 @@ img.mobile-image {
 .total-gain .d-flex {
     grid-gap: 20px 134px;
     justify-content: center;
-
+    align-items: center;
 }
 
 .total-gain .total {}

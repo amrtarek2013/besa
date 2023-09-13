@@ -1,4 +1,4 @@
-<section class="main-banner register-banner Create-account-banner">
+<section class="main-banner register-banner Create-account-banner" style="padding-bottom:0">
 
     <div class="container-fluid">
         <div class="row">
