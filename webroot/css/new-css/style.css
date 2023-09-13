@@ -9035,18 +9035,21 @@ title-banner-green {
     border-radius: 29px;
     border: 6px solid #FFF;
     overflow: hidden;
-    max-height: 180px;
+    min-height: 180px;
 
 }
+
 .school-tour-slider .owl-item img {
- 
+
     object-fit: cover;
     height: 100%;
     background-position: center;
 }
-.school-tour-slider  h2{
+
+.school-tour-slider h2 {
     margin-bottom: 41px;
 }
+
 .large-image {
     text-align: center;
     margin-top: 20px;
@@ -9067,8 +9070,13 @@ title-banner-green {
     line-height: normal;
 }
 
+.school-tour-slider .slider {
+    max-width: 1075px;
+    margin: 0 auto;
+}
+
 .owl-school-tour .owl-next,
-.owl-school-tour .owl-prev{
+.owl-school-tour .owl-prev {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -9078,11 +9086,11 @@ title-banner-green {
     -o-transform: translateY(-50%);
 }
 
-.owl-school-tour .owl-prev{
+.owl-school-tour .owl-prev {
     left: 0;
 
 }
 
-.owl-school-tour .owl-next{
+.owl-school-tour .owl-next {
     right: 0;
 }
