@@ -8938,7 +8938,7 @@ img.mobile-image {
     padding: 25px 0;
 }
 
-.global-engagement .title-en {
+.global-engagement .title-eng {
     color: #FFF;
     text-align: center;
     font-family: "Merriweather";
@@ -8955,7 +8955,7 @@ img.mobile-image {
     justify-content: center;
 }
 
-.group-cards .card {
+.group-cards .card-eng {
     border-radius: 50px;
     background: #FFF;
     padding: 20px;
@@ -8964,9 +8964,13 @@ img.mobile-image {
     justify-content: center;
     align-items: center;
     grid-gap: 20px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
 }
 
-.group-cards .card h4 {
+.group-cards .card-eng h4 {
     color: #242F65;
     font-family: "Poppins";
     font-size: 18px;
