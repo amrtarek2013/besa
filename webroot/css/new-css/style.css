@@ -8932,3 +8932,44 @@ img.mobile-image {
     line-height: 24px;
     text-align: center !important;
 }
+
+.global-engagement {
+    background: #2575FC;
+    padding: 25px 0;
+}
+
+.global-engagement .title-en {
+    color: #FFF;
+    text-align: center;
+    font-family: "Merriweather";
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 63px;
+    margin-bottom: 25px;
+}
+
+.global-engagement .group-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 26px;
+    justify-content: center;
+}
+
+.group-cards .card {
+    border-radius: 50px;
+    background: #FFF;
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+.group-cards .card h4 {
+    color: #242F65;
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}

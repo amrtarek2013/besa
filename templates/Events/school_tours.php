@@ -35,3 +35,28 @@
 </section>
 
 
+<div class="global-engagement">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title-eng">Here is why</h2>
+                <div class="group-cards">
+                    <div class="card-eng">
+                        <img src="/img/icon/global-connection.png" loading="lazy" alt="Icon Global connection ">
+                        <h4>Global Recognition with a Local Touch</h4>
+                    </div>
+                    <div class="card-eng">
+                    <img src="/img/icon/languages.png" loading="lazy" alt="Icon languages ">
+                        <h4>Language Proficiency and Cultural Empowerment</h4>
+                    </div>
+                    <div class="card-eng">
+                    <img src="/img/icon/dream.png" loading="lazy" alt="Icon dream ">
+                        <h4>Subject Depth for Diverse Dreams</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
