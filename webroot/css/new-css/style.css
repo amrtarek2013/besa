@@ -9067,7 +9067,7 @@ title-banner-green {
     line-height: normal;
 }
 
-.owl-school-tour .owl-next
+.owl-school-tour .owl-next,
 .owl-school-tour .owl-prev{
     position: absolute;
     top: 50%;
