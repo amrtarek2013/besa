@@ -9052,7 +9052,7 @@ img.mobile-image {
 
 .large-image {
     text-align: center;
-    margin-top: 20px;
+    margin: 40px 0;
     border-radius: 29px;
     border: 6px solid #FFF;
 }
