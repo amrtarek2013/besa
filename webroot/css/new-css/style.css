@@ -9132,11 +9132,21 @@ img.mobile-image {
 
 .milestone {}
 
+.milestone .col-md-12>h2 {
+    color: #2C3041;
+    font-family: "Merriweather";
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 63px;
+    margin-bottom: 10px;
+}
+
 .milestone .gridContainer-counter {
     grid-gap: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 45px 0;
 }
 
 .milestone .gridContainer-counter .number {
@@ -9173,8 +9183,12 @@ img.mobile-image {
     line-height: 79px;
 }
 
-.milestone .gridContainer-counter .number p {
+.milestone .gridContainer-counter .number:first-child p {
     color: #33CA94;
+
+}
+
+.milestone .gridContainer-counter .number p {
     text-align: center;
     font-family: "Poppins";
     font-size: 24px;
@@ -9234,4 +9248,15 @@ img.mobile-image {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.4px;
+}
+
+.grid-container-3col .box-point {
+    text-align: center;
+}
+
+.grid-container-3col .box-point .numb {
+    margin-bottom: 10px;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 63px
 }
