@@ -78,14 +78,31 @@
             <div class="slider">
                 <div class="item">
                     <h2>Title 1</h2>
-                    <div class="box">
-                    <img src="/img/sliders-serv2.png" alt="Image 1">
+                    <div class="grid-boxes">
+                        <div class="box">
+                            <img src="/img/sliders-serv2.png" alt="Image 1">
+                        </div>
+                        <div class="box">
+                            <img src="/img/sliders-serv3.png" alt="Image 2">
+                        </div>
+                        <div class="box">
+                            <img src="/img/sliders-serv4.png" alt="Image 3">
+                        </div>
                     </div>
-                    <div class="box">
-                    <img src="/img/sliders-serv3.png" alt="Image 2">
-                    </div>
-                    <div class="box">
-                    <img src="/img/sliders-serv4.png" alt="Image 3">
+                </div>
+                <div class="slider">
+                <div class="item">
+                    <h2>Title 2</h2>
+                    <div class="grid-boxes">
+                        <div class="box">
+                            <img src="/img/sliders-serv2.png" alt="Image 1">
+                        </div>
+                        <div class="box">
+                            <img src="/img/sliders-serv3.png" alt="Image 2">
+                        </div>
+                        <div class="box">
+                            <img src="/img/sliders-serv4.png" alt="Image 3">
+                        </div>
                     </div>
                 </div>
                 <!-- Add more items with the same structure -->
