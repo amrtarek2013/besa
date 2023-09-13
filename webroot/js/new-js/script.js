@@ -45,6 +45,7 @@ $(document).ready(function () {
   var customeSlider = $(".custome-slider");
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
+  var owlSchoolTour = $('.owl-school-tour');
 
   mainSlider.owlCarousel({
     items: 1,
@@ -114,6 +115,30 @@ $(document).ready(function () {
       },
     },
   });
+  owlSchoolTour.owlCarousel({
+    items: 1,
+    loop: true,
+    nav: true,
+    navText: [
+        "<img src='./img/chevron-right-gray.svg'>",
+        "<img src='./img/chevron-left-gray.svg'>",
+        ],
+});
+
+// Handle image clicks
+$('.image-box img').click(function () {
+    var imageUrl = $(this).attr('src');
+    $('#largeImage').attr('src', imageUrl);
+});
+
+// Handle custom navigation buttons
+$('.custom-next').click(function () {
+    owl.trigger('next.owl.carousel');
+});
+
+$('.custom-prev').click(function () {
+    owl.trigger('prev.owl.carousel');
+});
 
   // jQuery animated number counter from zero to value
   var counterAbout = $(".about-us");

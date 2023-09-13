@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="slider">
-            <div class="owl-carousel">
+            <div class="owl-carousel owl-school-tour">
                 <div class="slider-item">
                     <h2 class="title_28">GHIS School Tour</h2>
                     <div class="grid-boxes">
@@ -129,30 +129,3 @@
     </div>
 </div>
 
-<script>
-// script.js
-$(document).ready(function () {
-        var owl = $('.owl-carousel');
-        owl.owlCarousel({
-            items: 1,
-            loop: true,
-            nav: true,
-        });
-
-        // Handle image clicks
-        $('.image-box img').click(function () {
-            var imageUrl = $(this).attr('src');
-            $('#largeImage').attr('src', imageUrl);
-        });
-
-        // Handle custom navigation buttons
-        $('.custom-next').click(function () {
-            owl.trigger('next.owl.carousel');
-        });
-
-        $('.custom-prev').click(function () {
-            owl.trigger('prev.owl.carousel');
-        });
-    });
-
-</script>
