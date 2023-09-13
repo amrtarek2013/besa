@@ -96,13 +96,13 @@
                     <h2 class="title_28">Title 1</h2>
                     <div class="grid-boxes">
                         <div class="image-box">
-                            <img src="/img/sliders-serv2.png" alt="Image 1">
+                            <img src="/img/pers (1).png" alt="Image 1">
                         </div>
                         <div class="image-box">
-                            <img src="/img/sliders-serv3.png" alt="Image 2">
+                            <img src="/img/pers (1).png" alt="Image 2">
                         </div>
                         <div class="image-box">
-                            <img src="/img/sliders-serv4.png" alt="Image 3">
+                            <img src="/img/pers (1).png" alt="Image 3">
                         </div>
                     </div>
                 </div>
