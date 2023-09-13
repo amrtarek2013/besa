@@ -1763,7 +1763,7 @@ p.descrp {
     margin-bottom: 41px;
 }
 
-.main-banner .gridContainer-counter {
+.gridContainer-counter {
     -ms-grid-columns: 1fr 15px 1fr 15px 1fr 15px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 60px;
@@ -1771,11 +1771,11 @@ p.descrp {
     grid-gap: 150px;
 }
 
-.main-banner .gridContainer-counter .number ::before {
+.gridContainer-counter .number ::before {
     display: none;
 }
 
-.main-banner .gridContainer-counter .number {
+.gridContainer-counter .number {
     color: rgba(0, 0, 0, 0.4);
     width: 100%;
     border-radius: 50%;
@@ -1785,30 +1785,30 @@ p.descrp {
     height: 196px;
 }
 
-.main-banner .gridContainer-counter .number .icon {
+.gridContainer-counter .number .icon {
     height: 78px;
     width: 83px;
     margin: auto;
 }
 
-.main-banner .gridContainer-counter img {
+.gridContainer-counter img {
     display: block;
     margin: auto;
 }
 
-.main-banner .gridContainer-counter .funfact-title {
+.gridContainer-counter .funfact-title {
     color: rgba(0, 0, 0, 0.4);
 }
 
-.main-banner .gridContainer-counter .yellow {
+.gridContainer-counter .yellow {
     border-color: var(--bs-gold);
 }
 
-.main-banner .gridContainer-counter .blue {
+.gridContainer-counter .blue {
     border-color: #51A2FF;
 }
 
-.main-banner .gridContainer-counter .red {
+.gridContainer-counter .red {
     border-color: var(--bs-light-red);
 }
 
@@ -9121,4 +9121,24 @@ img.mobile-image {
     font-weight: 400;
     line-height: 18px;
     letter-spacing: 0.2px;
+}
+
+.milestone {}
+
+.gridContainer-counter .blue-dark {
+    border-color: #242F65;
+    color: #242F65;
+
+}
+
+.gridContainer-counter .yellow {
+    border-color: var(--bs-gold);
+}
+
+.gridContainer-counter .blue {
+    border-color: #51A2FF;
+}
+
+.gridContainer-counter .red {
+    border-color: var(--bs-light-red);
 }

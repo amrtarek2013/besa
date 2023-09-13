@@ -44,7 +44,61 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div class="d-flex">
+                    <div class="total">
+                       <P>Total Gain</P>
+                       <h4 class="price">$500</h4>
+                    </div>
 
+                    <a href="#" class="btn">WITHDRAW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+MILESTONE
+
+<div class="milestone">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="text-align: center">MILESTONE</h2>
+                <p class="desc">Each successful deposit equals 1 POINT</p>
+                <div class="gridContainer-counter">
+                            <div class="box">
+                                <div class="number green">
+                                    <h4>10</h4>
+                                    <p>Points</p>
+                                    							
+                                </div>		
+                            </div>
+                            <div class="box">
+                                <div class="number yellow">
+                                    <h4>20</h4>
+                                    <p>Points</p>							
+                                </div>		
+                            </div>
+                            
+                            <div class="box">
+                                <div class="number red">
+                                    <h4>50</h4>
+                                    <p>Points</p>						
+                                </div>		
+                            </div>
+                            <div class="box">
+                                <div class="number blue">
+                                    <h4>80</h4>
+                                    <p>Points</p>													
+                                </div>		
+                            </div>
+                            <div class="box">
+                                <div class="number blue-dark">
+                                    <h4>100</h4>
+                                    <p>Points</p>													
+                                </div>		
+                            </div>
+                        </div>
             </div>
         </div>
     </div>
