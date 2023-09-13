@@ -9094,3 +9094,30 @@ title-banner-green {
 .owl-school-tour .owl-next {
     right: -60px;
 }
+
+.large-image {
+    position: relative;
+}
+
+.large-image .caption {
+    border-radius: 20px;
+    background: #F3F3F3;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    bottom: 25px;
+}
+
+.large-image .caption p {
+    color: #242F65;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+}

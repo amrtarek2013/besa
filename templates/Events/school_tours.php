@@ -124,6 +124,9 @@
         <div class="col-md-12">
             <div class="large-image">
                 <img id="largeImage" src="/img/school-tour-slider-img-large.png" alt="Large Image">
+                <div class="caption">
+                    <p>Our School Tour at Nefertari International School</p>
+                </div>
             </div>
         </div>
     </div>
