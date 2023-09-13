@@ -50,14 +50,14 @@
                        <h4 class="price">$500</h4>
                     </div>
 
-                    <a href="#" class="btn">WITHDRAW</a>
+                    <a href="#" class="btn btn-withdraw">WITHDRAW</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-MILESTONE
+
 
 <div class="milestone">
     <div class="container">
