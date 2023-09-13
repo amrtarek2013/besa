@@ -101,29 +101,28 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-  $(".slider").owlCarousel({
-    items: 1, // Show one item at a time
-    nav: true, // Show navigation arrows
-    loop: true, // Enable looping
-    onChanged: updateLargeImage // Custom function for updating the large image
-  });
+// script.js
+$(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items: 1,
+        loop: true,
+    });
+
+    // Handle image clicks
+    $('.image-box img').click(function () {
+        var imageUrl = $(this).attr('src');
+        $('#largeImage').attr('src', imageUrl);
+    });
+
+    // Handle scroll arrows
+    $('.owl-next').click(function () {
+        owl.trigger('next.owl.carousel');
+    });
+
+    $('.owl-prev').click(function () {
+        owl.trigger('prev.owl.carousel');
+    });
 });
-
-function updateLargeImage(event){
-  var currentIndex = event.item.index;
-  var currentTitle = $(event.target).find(".item").eq(currentIndex).find("h2").text();
-  var currentImages = $(event.target).find(".item").eq(currentIndex).find(".box img");
-
-  // Update large image and title
-  $("#largeImage").attr("src", currentImages.eq(0).attr("src"));
-  // You can also update the title as per your design
-
-  // Add click event to box images
-  currentImages.click(function(){
-    var imageUrl = $(this).attr("src");
-    $("#largeImage").attr("src", imageUrl);
-  });
-}
 
 </script>
