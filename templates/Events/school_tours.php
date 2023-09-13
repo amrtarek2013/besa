@@ -76,41 +76,43 @@
     <div class="row">
         <div class="col-md-12">
             <div class="slider">
-                <div class="item">
+            <div class="owl-carousel">
+                <div class="slider-item">
                     <h2>Title 1</h2>
                     <div class="grid-boxes">
-                        <div class="box">
+                        <div class="image-box">
                             <img src="/img/sliders-serv2.png" alt="Image 1">
                         </div>
-                        <div class="box">
+                        <div class="image-box">
                             <img src="/img/sliders-serv3.png" alt="Image 2">
                         </div>
-                        <div class="box">
+                        <div class="image-box">
                             <img src="/img/sliders-serv4.png" alt="Image 3">
                         </div>
                     </div>
                 </div>
-                <div class="slider">
-                <div class="item">
-                    <h2>Title 2</h2>
-                    <div class="grid-boxes">
-                        <div class="box">
-                            <img src="/img/sliders-serv2.png" alt="Image 1">
-                        </div>
-                        <div class="box">
-                            <img src="/img/sliders-serv3.png" alt="Image 2">
-                        </div>
-                        <div class="box">
-                            <img src="/img/sliders-serv4.png" alt="Image 3">
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more items with the same structure -->
-            </div>
 
-            <div class="large-box">
-                    <img src="" alt="Large Image" id="largeImage">
+                <div class="slider-item">
+                    <h2>Title 1</h2>
+                    <div class="grid-boxes">
+                        <div class="image-box">
+                            <img src="/img/sliders-serv2.png" alt="Image 1">
+                        </div>
+                        <div class="image-box">
+                            <img src="/img/sliders-serv3.png" alt="Image 2">
+                        </div>
+                        <div class="image-box">
+                            <img src="/img/sliders-serv4.png" alt="Image 3">
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat this structure for each slider item -->
             </div>
+        </div>
+        <div class="large-image">
+            <img id="largeImage" src="" alt="Large Image">
+        </div>
+
 
         </div>
     </div>

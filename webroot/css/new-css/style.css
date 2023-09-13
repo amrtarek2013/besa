@@ -9028,11 +9028,14 @@ title-banner-green {
     grid-gap: 20px;
 }
 
+.school-tour-slider .image-box {
+    display: inline-block;
+    cursor: pointer;
+}
 
-/* Example styles for the large image box */
-.large-box {
-    margin-top: 20px;
+.large-image {
     text-align: center;
+    margin-top: 20px;
 }
 
 #largeImage {
