@@ -1959,21 +1959,34 @@
         grid-gap: 20px;
 
     }
-    .owl-school-tour .owl-next, .owl-school-tour .owl-prev{
+
+    .owl-school-tour .owl-next,
+    .owl-school-tour .owl-prev {
         top: 55%;
     }
+
     .owl-school-tour .owl-prev {
-        left:  0;
+        left: 0;
     }
+
     .owl-school-tour .owl-next {
         right: 0;
     }
+
     .title-banner-green h2 {
-      
+
         font-size: 28px;
         font-weight: 500;
         line-height: normal;
         margin-bottom: 15px;
         text-align: center;
+    }
+    .milestone .gridContainer-counter .number{
+        flex-flow: column;
+
+    }
+    .total-gain .d-flex {
+        grid-gap: 20px;
+        flex-flow: column;
     }
 }
