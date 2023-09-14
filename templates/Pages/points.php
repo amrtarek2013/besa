@@ -34,6 +34,7 @@
                             <p>Points Acquired</p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -66,39 +67,52 @@
                 <h2 style="text-align: center">MILESTONE</h2>
                 <p class="desc">Each successful deposit equals 1 POINT</p>
                 <div class="gridContainer-counter">
-                            <div class="box">
-                                <div class="number green">
-                                    <h4>10</h4>
-                                    <p>Points</p>
-                                    							
-                                </div>		
-                            </div>
-                            <div class="box">
-                                <div class="number yellow">
-                                    <h4>20</h4>
-                                    <p>Points</p>							
-                                </div>		
-                            </div>
-                            
-                            <div class="box">
-                                <div class="number red">
-                                    <h4>50</h4>
-                                    <p>Points</p>						
-                                </div>		
-                            </div>
-                            <div class="box">
-                                <div class="number blue">
-                                    <h4>80</h4>
-                                    <p>Points</p>													
-                                </div>		
-                            </div>
-                            <div class="box">
-                                <div class="number blue-dark">
-                                    <h4>100</h4>
-                                    <p>Points</p>													
-                                </div>		
-                            </div>
-                        </div>
+                    <div class="box">
+                        <div class="number green">
+                            <h4>10</h4>
+                            <p>Points</p>
+                                                        
+                        </div>		
+                    </div>
+                    <div class="box">
+                        <div class="number yellow">
+                            <h4>20</h4>
+                            <p>Points</p>							
+                        </div>		
+                    </div>
+                    
+                    <div class="box">
+                        <div class="number red">
+                            <h4>50</h4>
+                            <p>Points</p>						
+                        </div>		
+                    </div>
+                    <div class="box">
+                        <div class="number blue">
+                            <h4>80</h4>
+                            <p>Points</p>													
+                        </div>		
+                    </div>
+                    <div class="box">
+                        <div class="number blue-dark">
+                            <h4>100</h4>
+                            <p>Points</p>													
+                        </div>		
+                    </div>
+                </div>
+                <div class="mil-text d-flex">
+                    <div class="col-left">
+                        <p>Student Apply</p>
+                        <p>Student Joined</p>
+                        <p>Successful Deposit Equals</p>
+                    </div>
+                    <div class="col-right">
+                        <P>1 Point</P>
+                        <P>2 Point</P>
+                        <P>1 Point</P>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

@@ -9165,6 +9165,46 @@ img.mobile-image {
 
 }
 
+.milestone .mil-text {
+    grid-gap: 52px;
+    position: relative;
+}
+
+.milestone .mil-text div P {
+    color: #2C3041;
+    text-align: right;
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+
+}
+
+.milestone .mil-text div P:last-child {
+    margin: 0;
+}
+
+.milestone .mil-text .col-right P {
+    color: #2575FC;
+
+}
+
+.milestone .mil-text .col-right::before {
+    content: "";
+    width: 1px;
+    height: 123px;
+    background: #000;
+    position: absolute;
+    left: -26px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
 .milestone p.desc {
     color: #2C3041;
     text-align: center;
