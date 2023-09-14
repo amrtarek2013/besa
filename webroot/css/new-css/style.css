@@ -9167,7 +9167,7 @@ img.mobile-image {
 
 .milestone .mil-text {
     grid-gap: 52px;
-    position: relative;
+    justify-content: center;
 }
 
 .milestone .mil-text div P {
@@ -9180,6 +9180,10 @@ img.mobile-image {
     margin-bottom: 10px;
 
 }
+.milestone .mil-text div{
+    min-width: 155px;
+
+}
 
 .milestone .mil-text div P:last-child {
     margin: 0;
@@ -9187,9 +9191,13 @@ img.mobile-image {
 
 .milestone .mil-text .col-right P {
     color: #2575FC;
+    text-align: start;
 
 }
+.milestone .mil-text .col-right{
+    position: relative;
 
+}
 .milestone .mil-text .col-right::before {
     content: "";
     width: 1px;
