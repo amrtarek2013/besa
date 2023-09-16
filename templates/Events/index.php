@@ -112,7 +112,7 @@ if (!empty($eventsList)) {
                                 <div class="text">
                                     <h3><?= $eventsList[1]['title'] ?></h3>
                                     <p><?= $eventsList[1]['sub_title'] ?>, .....</p>
-                                    <a href="/event-details/<?= $eventsList[1]['permalink'] ?>" class="btn discover-more">Discover More</a>
+                                    <a href="/school-tour ?>" class="btn discover-more">Discover More</a>
                                 </div>
                             </div>
 
