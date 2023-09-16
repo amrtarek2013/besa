@@ -56,7 +56,7 @@ if (!empty($eventsList)) {
                         } else {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?= WEBSITE_URL ?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt=" style="width: 367px;height: 367px;">
+                                <img src="<?= WEBSITE_URL ?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt="" style="width: 367px;height: 367px;">
                             </div>
                             <div class="circle-img">
                                 <img src="<?= WEBSITE_URL ?>img/football-tr (1).png" alt="" class="circle-img relative-img-border">
