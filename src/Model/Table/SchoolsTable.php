@@ -73,7 +73,7 @@ class SchoolsTable extends Table
                     ],
                     'image' => [
                         // 'resize' => ['width' => 414, 'height' => 414],
-                        'resize' => ['width' => 1027, 'height' => 401],
+                        'resize' => ['width' => 1030, 'height' => 400],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'width' => 1027, 'height' => 401,

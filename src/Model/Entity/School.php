@@ -50,7 +50,7 @@ class School extends Entity
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . '230x190.png';
+        $no_image_path = DS . 'img' . DS . '1030x400.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'schools' . DS . str_replace(DS, "", $this->image);
             $image_path = str_replace(DS . "" . DS, DS, $image_path);
