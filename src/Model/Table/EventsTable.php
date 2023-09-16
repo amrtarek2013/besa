@@ -69,6 +69,18 @@ class EventsTable extends Table
                             ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
                         ],
                     ],
+                    'image2' => [
+                        'resize' => ['width' => 532, 'height' => 440],
+                        'datePath' => ['path' => ''],
+                        'width' => 532, 'height' => 440,
+                        // 'datePath' => false,
+                        'path' => 'uploads/events',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                        ],
+                    ],
                     // 'video_thumb' => [
                     //     'resize' => ['width' => 767, 'height' => 400],
                     //     'datePath' => ['path' => ''],

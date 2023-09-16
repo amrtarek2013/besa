@@ -41,14 +41,14 @@ if (!empty($eventsList)) {
                         <img src="./img/football-tr (1).png" alt="" class="relative-img-border"> -->
                         <?php
 
-                        if (!empty($eventsList[0]['image_path'])) {
+                        if (!empty($eventsList[0]['event_images']) && sizeof($eventsList[0]['event_images']) >= 2) {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?= $eventsList[0]['image_path'] ?>" alt="">
+                                <img src="<?= $eventsList[0]['event_images'][0]['image_path'] ?>" alt="">
 
                             </div>
                             <div class="circle-img relative-img-border">
-                                <img src="<?= $eventsList[0]['image2_path'] ?>" alt="" class="">
+                                <img src="<?= $eventsList[0]['event_images'][1]['image_path'] ?>" alt="" class="">
 
                             </div>
 
@@ -56,7 +56,7 @@ if (!empty($eventsList)) {
                         } else {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?=WEBSITE_URL?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/football-tr (2).png" alt="">
                             </div>
                             <div class="circle-img relative-img-border">
                                 <img src="<?=WEBSITE_URL?>img/football-tr (1).png" alt="" class="">
@@ -92,10 +92,10 @@ if (!empty($eventsList)) {
                                 <div class="double_img">
                                     <?php
 
-                                    if (!empty($eventsList[1]['image_path'])) {
+                                    if (!empty($eventsList[1]['event_images']) && sizeof($eventsList[1]['event_images']) >= 2) {
                                     ?>
-                                        <img src="<?= $eventsList[1]['image_path'] ?>" alt="" style="width: 382px;height: 323px;">
-                                        <img src="<?= $eventsList[1]['image2_path'] ?>" alt="" class="img-rel"style="width: 238px;height: 210px;">
+                                        <img src="<?= $eventsList[1]['event_images'][0]['image_path'] ?>" alt="" style="width: 382px;height: 323px;">
+                                        <img src="<?= $eventsList[1]['event_images'][1]['image_path'] ?>" alt="" class="img-rel"style="width: 238px;height: 210px;">
                                     <?php
                                     } else {
                                     ?>
@@ -130,10 +130,10 @@ if (!empty($eventsList)) {
                                 <div class="double_img">
                                     <?php
 
-                                    if (!empty($eventsList[2]['image_path'])) {
+                                    if (!empty($eventsList[2]['event_images']) && sizeof($eventsList[2]['event_images']) >= 2) {
                                     ?>
-                                        <img src="<?= $eventsList[2]['image_path'] ?>" alt="">
-                                        <img src="<?= $eventsList[2]['image2_path'] ?>" alt="" class="img-rel">
+                                        <img src="<?= $eventsList[2]['event_images'][0]['image_path'] ?>" alt="">
+                                        <img src="<?= $eventsList[2]['event_images'][1]['image_path'] ?>" alt="" class="img-rel">
                                     <?php
                                     } else {
                                     ?>

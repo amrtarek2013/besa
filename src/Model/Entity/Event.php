@@ -16,7 +16,7 @@ class Event extends Entity
 
     // protected $finalPath = DS . 'files' . DS . 'event_videos' . DS;
 
-    protected $_virtual = ['image_path', 'thumb_image_path', 'video_thumb'/*,'video_path'*/, 'icon_path','image_path', 'thumb_image_path', 'banner_image_path', 'mobile_image_path'];
+    protected $_virtual = ['image_path', 'thumb_image_path', 'image2_path', 'thumb_image2_path', 'video_thumb'/*,'video_path'*/, 'icon_path', 'image_path', 'thumb_image_path', 'banner_image_path', 'mobile_image_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -39,31 +39,61 @@ class Event extends Entity
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'hero-bg11.png';
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'events' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
-                return $no_image_path;
+                return null;
         }
-        return $no_image_path;
+        return null;
     }
 
 
     protected function _getThumbImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'hero-bg11.png';
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'events' . DS . "thumb_" . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
 
-            return null;
+                return null;
         }
-    return null;
+        return null;
+    }
+
+    protected function _getImage2Path()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair_border.png';
+        if (!empty($this->image2)) {
+            $image_path = 'uploads' . DS . 'events' . DS . str_replace(DS, "", $this->image2);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return null;
+        }
+        return null;
+    }
+
+
+    protected function _getThumbImage2Path()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair_border.png';
+        if (!empty($this->image2)) {
+            $image_path = 'uploads' . DS . 'events' . DS . "thumb_" . str_replace(DS, "", $this->image2);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+
+                return null;
+        }
+        return null;
     }
 
 
