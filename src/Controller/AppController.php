@@ -1269,7 +1269,10 @@ class AppController extends Controller
 
     public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
-
+        print_r($data);
+        print_r($type);
+        print_r($enquiryTypes);
+        die;
         return true;
     }
 }
