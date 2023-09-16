@@ -62,7 +62,7 @@ class EnquiriesTable extends Table
         ],
         'visitors-application' => [
             'validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application',
-            'email_template'=>'user.visitors-application-enquiry',
+            'email_template' => 'user.visitors-application-enquiry',
             'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email' => 'Email', 'school_name' => 'School / University name', 'study_level' => 'Level of Study', 'destination_id' => 'Destination interested in', 'fair_venue' => 'Fair Venue']
         ],
         'educational-institution' => [
@@ -81,6 +81,10 @@ class EnquiriesTable extends Table
             'validation' => 'becomeSponsor', 'redirect' => '/become-sponsor', 'title' => 'Become a Sponsor',
             'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile' => 'Mobile', 'email' => 'Email']
         ],
+        'book-appointment-request-school-tour' => [
+            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => '/school-tours', 'title' => 'Book An appointment to request school tour',
+            'fields' => ['name' => 'School Representative Name', 'mobile' => 'Phone Number', 'email' => 'Work Email', 'school_name' => 'School Name', 'address' => 'School Address']
+        ],
 
     ];
     public $enquiryTypesList = [
@@ -93,9 +97,8 @@ class EnquiriesTable extends Table
         'educational-institution' => 'Educational Institution',
         'british-trophy-subscription' => 'The British Trophy Event Subscription',
         'book-appointment' => 'Book An appointment',
-        'become-sponsor' => 'Become a Sponsor'
-
-
+        'become-sponsor' => 'Become a Sponsor',
+        'book-appointment-request-school-tour' => 'Book An appointment to request school tour'
     ];
     public $types = [0 => 'Full Service'];
     /**
@@ -184,6 +187,14 @@ class EnquiriesTable extends Table
         //     ]
         // ]);
 
+        
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
         return $validator;
     }
     public function validationContactus(Validator $validator): Validator
@@ -212,6 +223,14 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
+        
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
 
         return $validator;
     }
@@ -254,16 +273,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        // $validator->notEmptyString('message', 'This field is required.');
-
-
-        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-        //     'checkCaptcha' => [
-        //         'rule' => 'checkCaptcha',
-        //         'provider' => 'table',
-        //         'message' => 'Security Code is not valid',
-        //     ]
-        // ]);
+      
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',
@@ -486,6 +496,28 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+    public function validationBookAppointmentRequestSchoolTour(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('school_name', 'This field is required.');
+        $validator->notEmptyString('address', 'This field is required.');
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',

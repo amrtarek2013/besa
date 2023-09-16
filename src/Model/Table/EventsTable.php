@@ -130,7 +130,7 @@ class EventsTable extends Table
 
         if (
             ($entity->isNew() && empty($entity->permalink))
-            || (!empty($entity->title) && $entity->isDirty('title'))
+            // || (!empty($entity->title) && $entity->isDirty('title'))
         ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }
