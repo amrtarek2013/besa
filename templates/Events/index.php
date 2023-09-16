@@ -25,9 +25,9 @@
 
 use Cake\Routing\Router;
 
-if (!empty($events)) {
-    $events = $events->toArray();
-    // foreach ($events as $key => $event) {
+if (!empty($eventsList)) {
+    $eventsList = $eventsList->toArray();
+    // foreach ($eventsList as $key => $event) {
 
 ?>
 
@@ -41,14 +41,14 @@ if (!empty($events)) {
                         <img src="./img/football-tr (1).png" alt="" class="relative-img-border"> -->
                         <?php
 
-                        if (!empty($events[0]['event_images']) && sizeof($events[0]['event_images']) >= 2) {
+                        if (!empty($eventsList[0]['event_images']) && sizeof($eventsList[0]['event_images']) >= 2) {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?= $events[0]['event_images'][0]['image_path'] ?>" alt="">
+                                <img src="<?= $eventsList[0]['event_images'][0]['image_path'] ?>" alt="">
 
                             </div>
                             <div class="circle-img relative-img-border">
-                                <img src="<?= $events[0]['event_images'][1]['image_path'] ?>" alt="" class="">
+                                <img src="<?= $eventsList[0]['event_images'][1]['image_path'] ?>" alt="" class="">
 
                             </div>
 
@@ -71,9 +71,9 @@ if (!empty($events)) {
                 </div>
                 <div class="col-md-6">
                     <div class="text">
-                        <h3><?= $events[0]['title'] ?></h3>
-                        <p><?= $events[0]['sub_title'] ?>, .....</p>
-                        <a href="/event-details/<?= $events[0]['permalink'] ?>" class="btn discover-more">Discover More</a>
+                        <h3><?= $eventsList[0]['title'] ?></h3>
+                        <p><?= $eventsList[0]['sub_title'] ?>, .....</p>
+                        <a href="/event-details/<?= $eventsList[0]['permalink'] ?>" class="btn discover-more">Discover More</a>
 
                     </div>
                 </div>
@@ -87,15 +87,15 @@ if (!empty($events)) {
             <div class="row">
                 <div class="col-md 12">
                     <div class="container-events">
-                        <?php if (isset($events[1])) { ?>
+                        <?php if (isset($eventsList[1])) { ?>
                             <div class="left-box">
                                 <div class="double_img">
                                     <?php
 
-                                    if (!empty($events[1]['event_images']) && sizeof($events[1]['event_images']) >= 2) {
+                                    if (!empty($eventsList[1]['event_images']) && sizeof($eventsList[1]['event_images']) >= 2) {
                                     ?>
-                                        <img src="<?= $events[1]['event_images'][0]['image_path'] ?>" alt="" style="width: 382px;height: 323px;">
-                                        <img src="<?= $events[1]['event_images'][1]['image_path'] ?>" alt="" class="img-rel"style="width: 238px;height: 210px;">
+                                        <img src="<?= $eventsList[1]['event_images'][0]['image_path'] ?>" alt="" style="width: 382px;height: 323px;">
+                                        <img src="<?= $eventsList[1]['event_images'][1]['image_path'] ?>" alt="" class="img-rel"style="width: 238px;height: 210px;">
                                     <?php
                                     } else {
                                     ?>
@@ -110,9 +110,9 @@ if (!empty($events)) {
                                     <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="dots-rel">
                                 </div>
                                 <div class="text">
-                                    <h3><?= $events[1]['title'] ?></h3>
-                                    <p><?= $events[1]['sub_title'] ?>, .....</p>
-                                    <a href="/event-details/<?= $events[1]['permalink'] ?>" class="btn discover-more">Discover More</a>
+                                    <h3><?= $eventsList[1]['title'] ?></h3>
+                                    <p><?= $eventsList[1]['sub_title'] ?>, .....</p>
+                                    <a href="/event-details/<?= $eventsList[1]['permalink'] ?>" class="btn discover-more">Discover More</a>
                                 </div>
                             </div>
 
@@ -125,15 +125,15 @@ if (!empty($events)) {
 
                         </div>
 
-                        <?php if (isset($events[2])) { ?>
+                        <?php if (isset($eventsList[2])) { ?>
                             <div class="right-box">
                                 <div class="double_img">
                                     <?php
 
-                                    if (!empty($events[2]['event_images']) && sizeof($events[2]['event_images']) >= 2) {
+                                    if (!empty($eventsList[2]['event_images']) && sizeof($eventsList[2]['event_images']) >= 2) {
                                     ?>
-                                        <img src="<?= $events[2]['event_images'][0]['image_path'] ?>" alt="">
-                                        <img src="<?= $events[2]['event_images'][1]['image_path'] ?>" alt="" class="img-rel">
+                                        <img src="<?= $eventsList[2]['event_images'][0]['image_path'] ?>" alt="">
+                                        <img src="<?= $eventsList[2]['event_images'][1]['image_path'] ?>" alt="" class="img-rel">
                                     <?php
                                     } else {
                                     ?>
@@ -145,9 +145,9 @@ if (!empty($events)) {
                                     <img src="<?=WEBSITE_URL?>img/small-dots.png" alt="" class="dots-rel">
                                 </div>
                                 <div class="text">
-                                    <h3><?= $events[2]['title'] ?></h3>
-                                    <p><?= $events[2]['sub_title'] ?>, .....</p>
-                                    <a href="/event-details/<?= $events[2]['permalink'] ?>" class="btn discover-more">Discover More</a>
+                                    <h3><?= $eventsList[2]['title'] ?></h3>
+                                    <p><?= $eventsList[2]['sub_title'] ?>, .....</p>
+                                    <a href="/event-details/<?= $eventsList[2]['permalink'] ?>" class="btn discover-more">Discover More</a>
                                 </div>
                             </div>
 

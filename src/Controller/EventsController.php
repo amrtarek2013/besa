@@ -18,7 +18,7 @@ class EventsController extends AppController
         // debug($events);
 
         $events_page_text = $this->getSnippet('events_page_text');
-        $this->set('events', $events);
+        $this->set('eventsList', $events);
         $this->set('events_page_text', $events_page_text);
     }
 
