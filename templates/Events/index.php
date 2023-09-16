@@ -44,7 +44,7 @@ if (!empty($eventsList)) {
                         if (!empty($eventsList[0]['image_path'])) {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?= $eventsList[0]['image_path'] ?>" alt="">
+                                <img src="<?= $eventsList[0]['image_path'] ?>" alt="" style="width: 367px;">
 
                             </div>
                             <div class="circle-img relative-img-border">
@@ -56,7 +56,7 @@ if (!empty($eventsList)) {
                         } else {
                         ?>
                             <div class="circle-img ">
-                                <img src="<?=WEBSITE_URL?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt="">
+                                <img src="<?=WEBSITE_URL?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt="" style="width: 367px;">
                             </div>
                             <div class="circle-img relative-img-border">
                                 <img src="<?=WEBSITE_URL?>img/football-tr (1).png" alt="" class="">
