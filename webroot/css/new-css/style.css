@@ -9067,6 +9067,8 @@ img.mobile-image {
 #largeImage {
     max-width: 100%;
     max-height: 400px;
+    border-radius: 29px;
+    border: 6px solid #FFF;
 }
 
 .title_28 {
