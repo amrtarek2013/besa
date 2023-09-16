@@ -117,7 +117,7 @@
                             // echo $this->AdminForm->control('right_text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('html2', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('keywords',['type'=>'text']);
-                            echo $this->AdminForm->control('active', ['type' => 'checkbox']);
+                            // echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
                             // echo $this->AdminForm->control('show_on_home', ['type' => 'checkbox']);
 

@@ -45,8 +45,8 @@
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
                             // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
                             // 'dealerships'=>[],
-                            'active' => ['format' => 'bool'],
-                            'show_on_home' => ['format' => 'bool'],
+                            // 'active' => ['format' => 'bool'],
+                            // 'show_on_home' => ['format' => 'bool'],
                         ];
 
                         $multi_select_actions = array(

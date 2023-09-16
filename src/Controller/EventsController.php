@@ -14,7 +14,7 @@ class EventsController extends AppController
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
-        $events = $this->Events->find()->where(['active' => 1])->contain(['EventImages'])->order(['display_order' => 'asc'])->limit(3)->all();
+        $events = $this->Events->find()->contain(['EventImages'])->order(['display_order' => 'asc'])->limit(3)->all();
         // debug($events);
 
         $events_page_text = $this->getSnippet('events_page_text');
