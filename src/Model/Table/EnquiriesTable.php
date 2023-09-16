@@ -81,8 +81,8 @@ class EnquiriesTable extends Table
             'validation' => 'becomeSponsor', 'redirect' => 'become-sponsor', 'title' => 'Become a Sponsor',
             'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile' => 'Mobile', 'email' => 'Email']
         ],
-        'book-appointment-request-school-tour' => [
-            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => 'school-tour', 'title' => 'Book An appointment to request school tour',
+        'request-school-tour' => [
+            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => 'school-tour', 'title' => 'Request a school tour',
             'fields' => ['name' => 'School Representative Name', 'mobile' => 'Phone Number', 'email' => 'Work Email', 'school_name' => 'School Name', 'address' => 'School Address']
         ],
 
@@ -98,7 +98,7 @@ class EnquiriesTable extends Table
         'british-trophy-subscription' => 'The British Trophy Event Subscription',
         'book-appointment' => 'Book An appointment',
         'become-sponsor' => 'Become a Sponsor',
-        'book-appointment-request-school-tour' => 'Book An appointment to request school tour'
+        'request-school-tour' => 'Request a school tour'
     ];
     public $types = [0 => 'Full Service'];
     /**

@@ -159,7 +159,7 @@
             <div class="col-md-12">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
-                <input type="hidden" id="type" name="type" value="book-appointment-request-school-tour">
+                <input type="hidden" id="type" name="type" value="request-school-tour">
                 <p class="light-para">
                     <?= $requestSchoolTourAppointmentSnippet ?>
 
