@@ -82,7 +82,7 @@ class EnquiriesTable extends Table
             'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile' => 'Mobile', 'email' => 'Email']
         ],
         'book-appointment-request-school-tour' => [
-            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => 'school-tours', 'title' => 'Book An appointment to request school tour',
+            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => 'school-tour', 'title' => 'Book An appointment to request school tour',
             'fields' => ['name' => 'School Representative Name', 'mobile' => 'Phone Number', 'email' => 'Work Email', 'school_name' => 'School Name', 'address' => 'School Address']
         ],
 
