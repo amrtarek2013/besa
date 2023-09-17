@@ -37,6 +37,12 @@ return static function (RouteBuilder $routes) {
 
         $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/courses', 'UniversityCourses::results');
+
+        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/apply', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
+
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
         $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1, 'prefix is null'])->cache('dynamic_routes_route')->all();
@@ -98,10 +104,7 @@ return static function (RouteBuilder $routes) {
 
 
         // $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
-
+        
         $builder->connect('/pages/*', 'Pages::display');
         $builder->connect('/pages/*', 'Pages::display');
         // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
