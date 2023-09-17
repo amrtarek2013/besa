@@ -37,9 +37,9 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/courses', 'UniversityCourses::results');
 
-        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'User']);
-        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'User']);
-        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'User']);
+        // $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'User']);
+        // $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'User']);
+        // $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'User']);
         $builder->connect('/apply', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'User']);
 
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
@@ -50,7 +50,10 @@ return static function (RouteBuilder $routes) {
             if ($routePage['has_params'])
                 $routePage['slug'] = $routePage['slug'] . '/*';
 
-            $builder->connect('/' . $routePage['slug'], ['controller' => $routePage['controller'], 'action' => $routePage['action']]);
+            $redirectTo = ['controller' => $routePage['controller'], 'action' => $routePage['action']];
+            if(!empty($routePage['prefix']))
+                $redirectTo['prefix'] = ucwords($routePage['prefix']);
+            $builder->connect('/' . $routePage['slug'], $redirectTo);
         }
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
@@ -76,7 +79,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/british-trophy-subscription', 'Enquiries::britishTrophySubscription');
         $builder->connect('/book-appointment', 'Enquiries::bookAppointment');
         $builder->connect('/about-us', 'Pages::aboutUs');
-        
+
         $builder->connect('/partnership-with-besa', 'Pages::partnershipWithBesa');
 
         $builder->connect('/partner-institutions', 'Pages::partnerInstitutions');
