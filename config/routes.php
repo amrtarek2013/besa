@@ -33,15 +33,14 @@ return static function (RouteBuilder $routes) {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
-        // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
         $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/courses', 'UniversityCourses::results');
 
-        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
-        $builder->connect('/apply', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'user']);
+        $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'User']);
+        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login', 'user' => true, 'prefix' => 'User']);
+        $builder->connect('/register', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'User']);
+        $builder->connect('/apply', ['controller' => 'Users', 'action' => 'register', 'user' => true, 'prefix' => 'User']);
 
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
@@ -77,19 +76,13 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/british-trophy-subscription', 'Enquiries::britishTrophySubscription');
         $builder->connect('/book-appointment', 'Enquiries::bookAppointment');
         $builder->connect('/about-us', 'Pages::aboutUs');
-        // $builder->connect('/pathway-programs', 'Pages::pathwayPrograms');
-        // $builder->connect('/pathway-placement', 'Pages::pathwayPlacement');
-        // $builder->connect('/university-placement', 'Pages::universityPlacement');
-        // $builder->connect('/young-learners', 'Pages::youngLearners');
+        
         $builder->connect('/partnership-with-besa', 'Pages::partnershipWithBesa');
 
         $builder->connect('/partner-institutions', 'Pages::partnerInstitutions');
         $builder->connect('/app-support', 'Pages::appSupport');
         $builder->connect('/career-apply', 'Pages::careerApply');
         $builder->connect('/career-apply/*', 'Pages::careerApply');
-        // $builder->connect('/register', 'Users::register');
-        // $builder->connect('/login', 'Users::login');
-
         $builder->connect('/where-to-study', 'Pages::whereToStudy');
 
         $builder->connect('/service-details', 'Services::serviceDetails');
@@ -99,15 +92,10 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/study', 'UniversityCourses::study');
         $builder->connect('/results', 'UniversityCourses::results');
         $builder->connect('/course-details/*', 'UniversityCourses::details');
-        // $builder->connect('/courses', 'UniversityCourses::index');
         $builder->connect('/courses/*', 'UniversityCourses::index');
 
-
-        // $builder->connect('/user', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
-        
         $builder->connect('/pages/*', 'Pages::display');
         $builder->connect('/pages/*', 'Pages::display');
-        // $builder->connect('/user/profile', ['controller' => 'Users', 'action' => 'profile', 'user' => true, 'prefix' => 'user']);
         /*
          * Connect catchall routes for all controllers.
          *
