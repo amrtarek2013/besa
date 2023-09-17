@@ -55,13 +55,23 @@
                                 ],
                             ])]);
 
-                            echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                            echo $this->AdminForm->control('image', ['label' => 'Image One', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $event,
                                 'field' => 'image',
                                 'info' => [
                                     'width' => $uploadSettings['image']['width'],
                                     'height' => $uploadSettings['image']['height'],
                                     'path' => $uploadSettings['image']['path']
+
+                                ],
+                            ])]);
+                            echo $this->AdminForm->control('image2', ['label' => 'Image Two', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $event,
+                                'field' => 'image2',
+                                'info' => [
+                                    'width' => $uploadSettings['image2']['width'],
+                                    'height' => $uploadSettings['image2']['height'],
+                                    'path' => $uploadSettings['image2']['path']
 
                                 ],
                             ])]);
@@ -117,7 +127,7 @@
                             // echo $this->AdminForm->control('right_text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('html2', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('keywords',['type'=>'text']);
-                            echo $this->AdminForm->control('active', ['type' => 'checkbox']);
+                            // echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
                             // echo $this->AdminForm->control('show_on_home', ['type' => 'checkbox']);
 

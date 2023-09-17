@@ -41,45 +41,49 @@ class EnquiriesTable extends Table
 
     public $enquiryTypes = [
         'home' => [
-            'validation' => 'home', 'redirect' => '/', 'title' => 'Home',
+            'validation' => 'home', 'redirect' => '', 'title' => 'Home',
             'fields' => ['name' => 'Name', 'email' => 'Email', 'message' => 'Message']
         ],
         'contact-us' => [
-            'validation' => 'contactUs', 'redirect' => '/contact-us', 'title' => 'Contact Us',
+            'validation' => 'contactUs', 'redirect' => 'contact-us', 'title' => 'Contact Us',
             'fields' => ['name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'subject' => 'Subject', 'message' => 'Message']
         ],
         'app-support' => [
-            'validation' => 'appSupport', 'redirect' => '/app-support', 'title' => 'App Support',
+            'validation' => 'appSupport', 'redirect' => 'app-support', 'title' => 'App Support',
             'fields' => ['name' => 'Name', 'surname' => 'Surname', 'email' => 'Email', 'message' => 'Message']
         ],
         'career-apply' => [
-            'validation' => 'careerApply', 'redirect' => '/career-apply', 'title' => 'Career Apply',
+            'validation' => 'careerApply', 'redirect' => 'career-apply', 'title' => 'Career Apply',
             'fields' => ['name' => 'Name', 'surname' => 'Surname', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us']
         ],
         'partnership-with-besa' => [
-            'validation' => 'partnershipWithBesa', 'redirect' => '/partnership-with-besa', 'title' => 'Partnership with besa',
+            'validation' => 'partnershipWithBesa', 'redirect' => 'partnership-with-besa', 'title' => 'Partnership with besa',
             'fields' => ['name' => 'Name', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us']
         ],
         'visitors-application' => [
-            'validation' => 'visitorsApplication', 'redirect' => '/visitors-application', 'title' => 'Visitors Application',
-            'email_template'=>'user.visitors-application-enquiry',
+            'validation' => 'visitorsApplication', 'redirect' => 'visitors-application', 'title' => 'Visitors Application',
+            'email_template' => 'user.visitors-application-enquiry',
             'fields' => ['name' => 'First Name', 'surname' => 'Last Name', 'mobile' => 'Mobile', 'email' => 'Email', 'school_name' => 'School / University name', 'study_level' => 'Level of Study', 'destination_id' => 'Destination interested in', 'fair_venue' => 'Fair Venue']
         ],
         'educational-institution' => [
-            'validation' => 'educationalInstitution', 'redirect' => '/educational-institution', 'title' => 'Educational Institution',
+            'validation' => 'educationalInstitution', 'redirect' => 'educational-institution', 'title' => 'Educational Institution',
             'fields' => ['school_name' => 'School Name', 'school_counselor_name' => 'School Counselor Name', 'mobile' => 'Mobile', 'email' => 'Email', 'attending_students_no' => 'Number of attending students', 'certificate' => 'Upload attending students details']
         ],
         'british-trophy-subscription' => [
-            'validation' => 'britishTrophySubscription', 'redirect' => '/british-trophy-subscription', 'title' => 'The British Trophy Event Subscription',
+            'validation' => 'britishTrophySubscription', 'redirect' => 'british-trophy-subscription', 'title' => 'The British Trophy Event Subscription',
             'fields' => ['school_name' => 'School Name', 'name' => 'Contact person name', 'mobile' => 'Mobile', 'email' => 'Email', 'certificate' => 'Upload school team sheet']
         ],
         'book-appointment' => [
-            'validation' => 'bookAppointment', 'redirect' => '/book-appointment', 'title' => 'Book An appointment',
+            'validation' => 'bookAppointment', 'redirect' => 'book-appointment', 'title' => 'Book An appointment',
             'fields' => ['name' => 'Full Name', 'mobile' => 'Mobile', 'email' => 'Email', 'study_level' => 'Study level interested in', 'subject_area_id' => 'Subject area interested in', 'destination_id' => 'Study destination interested in']
         ],
         'become-sponsor' => [
-            'validation' => 'becomeSponsor', 'redirect' => '/become-sponsor', 'title' => 'Become a Sponsor',
+            'validation' => 'becomeSponsor', 'redirect' => 'become-sponsor', 'title' => 'Become a Sponsor',
             'fields' => ['school_name' => 'Institution Name', 'school_counselor_name' => 'Contact Person Name', 'mobile' => 'Mobile', 'email' => 'Email']
+        ],
+        'request-school-tour' => [
+            'validation' => 'bookAppointmentRequestSchoolTour', 'redirect' => 'school-tour', 'title' => 'Request a school tour',
+            'fields' => ['name' => 'School Representative Name', 'mobile' => 'Phone Number', 'email' => 'Work Email', 'school_name' => 'School Name', 'address' => 'School Address']
         ],
 
     ];
@@ -93,9 +97,8 @@ class EnquiriesTable extends Table
         'educational-institution' => 'Educational Institution',
         'british-trophy-subscription' => 'The British Trophy Event Subscription',
         'book-appointment' => 'Book An appointment',
-        'become-sponsor' => 'Become a Sponsor'
-
-
+        'become-sponsor' => 'Become a Sponsor',
+        'request-school-tour' => 'Request a school tour'
     ];
     public $types = [0 => 'Full Service'];
     /**
@@ -184,6 +187,14 @@ class EnquiriesTable extends Table
         //     ]
         // ]);
 
+        
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
         return $validator;
     }
     public function validationContactus(Validator $validator): Validator
@@ -212,6 +223,14 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
+        
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
 
         return $validator;
     }
@@ -254,16 +273,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        // $validator->notEmptyString('message', 'This field is required.');
-
-
-        // $validator->notEmptyString('security_code', 'This field is required.')->add('security_code', [
-        //     'checkCaptcha' => [
-        //         'rule' => 'checkCaptcha',
-        //         'provider' => 'table',
-        //         'message' => 'Security Code is not valid',
-        //     ]
-        // ]);
+      
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',
@@ -486,6 +496,28 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
+        $validator->add('g-recaptcha-response', [
+            'checkCaptchaV3' => [
+                'rule' => 'checkCaptchaV3',
+                'provider' => 'table',
+                'message' => 'Page session expired, please reload the page!!',
+            ]
+        ]);
+
+        return $validator;
+    }
+
+    public function validationBookAppointmentRequestSchoolTour(Validator $validator): Validator
+    {
+
+        $validator->notEmptyString('name', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->email('email', false, 'Please enter a valid email address.')
+            ->notEmptyString('email', 'This field is required.');
+
+        $validator->notEmptyString('school_name', 'This field is required.');
+        $validator->notEmptyString('address', 'This field is required.');
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',

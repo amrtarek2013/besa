@@ -58,15 +58,27 @@ class EventsTable extends Table
                         'file_name' => '{$rand}_{$file_name}'
                     ],
                     'image' => [
-                        'resize' => ['width' => 532, 'height' => 440],
+                        'resize' => ['width' => 400, 'height' => 400],
                         'datePath' => ['path' => ''],
-                        'width' => 532, 'height' => 440,
+                        'width' => 400, 'height' => 400,
                         // 'datePath' => false,
                         'path' => 'uploads/events',
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
+                        ],
+                    ],
+                    'image2' => [
+                        'resize' => ['width' => 270, 'height' => 270],
+                        'datePath' => ['path' => ''],
+                        'width' => 270, 'height' => 270,
+                        // 'datePath' => false,
+                        'path' => 'uploads/events',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
                         ],
                     ],
                     // 'video_thumb' => [
@@ -130,7 +142,7 @@ class EventsTable extends Table
 
         if (
             ($entity->isNew() && empty($entity->permalink))
-            || (!empty($entity->title) && $entity->isDirty('title'))
+            // || (!empty($entity->title) && $entity->isDirty('title'))
         ) {
             $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
         }

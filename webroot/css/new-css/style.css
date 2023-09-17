@@ -3711,6 +3711,11 @@ input[type="checkbox"] {
     position: absolute;
     bottom: 0;
     right: 75px;
+    
+    border-radius: 225px;
+    border: 9px solid var(--bs-gray);
+    width: 267px !important;
+    height: 267px !important;
 }
 
 
@@ -3734,6 +3739,7 @@ input[type="checkbox"] {
     position: absolute;
     left: 0;
     bottom: -60px;
+    border: 9px solid var(--bs-gray); 
 }
 
 .important-events .double_img .dots-rel {
@@ -9067,6 +9073,8 @@ img.mobile-image {
 #largeImage {
     max-width: 100%;
     max-height: 400px;
+    border-radius: 29px;
+    border: 6px solid #FFF;
 }
 
 .title_28 {

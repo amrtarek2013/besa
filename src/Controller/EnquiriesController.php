@@ -36,7 +36,7 @@ class EnquiriesController extends AppController
             $return['title'] = 'Error';
             // debug($enquiry);
             // die;
-            $enquiry_redirect_url = $enquiry['type'];
+            $enquiry_redirect_url = $this->Enquiries->enquiryTypes[$enquiry['type']]['redirect'];
             if ($this->Enquiries->save($enquiry)) {
                 $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
 
@@ -44,7 +44,7 @@ class EnquiriesController extends AppController
                 $return['status']  = 1;
                 $return['title'] = 'Success';
 
-                $enquiryTitle = Inflector::humanize($enquiry['type']);
+                $enquiryTitle = $this->Enquiries->enquiryTypes[$enquiry['type']]['title'];
                 $a_replace = [];
                 $b_replace = [];
                 $u_replace = [];

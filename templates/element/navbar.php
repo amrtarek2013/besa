@@ -65,6 +65,9 @@ use Cake\Routing\Router;
                                         </li>
                                     <?php } ?>
                                     <li>
+                                        <a href="<?= Router::url('/school-tour') ?>"><?= __('School Tour') ?></a>
+                                    </li>
+                                    <li>
                                         <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.visitorsapplication']) ?>"><?= __('Fair Visitors') ?></a>
                                     </li>
 

@@ -44,7 +44,7 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The Event could not be saved. Please, try again.'));
         }
-        $this->_ajaxImageUpload('event_new', 'events', false, false, ['video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
+        // $this->_ajaxImageUpload('event_new', 'events', false, false, ['video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
         $this->set('id', false);
 
         $this->__common();
@@ -71,7 +71,7 @@ class EventsController extends AppController
 
 
         $this->set(compact('event', 'id'));
-        $this->_ajaxImageUpload('event_' . $id, 'events', $id, ['id' => $id], [/*'video',*/'video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
+        // $this->_ajaxImageUpload('event_' . $id, 'events', $id, ['id' => $id], [/*'video',*/'video_thumb', 'icon', 'image', 'banner_image', 'mobile_image']);
         $this->render('add');
     }
 

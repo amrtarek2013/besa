@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Events List') ?></h1>
+                    <h1><?= __('School Images List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Events') ?></li>
+                        <li class="breadcrumb-item active"><?= __('School Images') ?></li>
                     </ol>
                 </div>
             </div>
@@ -26,28 +26,26 @@
                     <div class="card">
                         <?php
                         $session = $this->getRequest()->getSession();
-                        echo $this->List->filter_form($events, $filters, [], [], $parameters, $session) ?>
+                        echo $this->List->filter_form($schoolImages, $filters, [], [], $parameters, $session) ?>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Events List') ?></h3>
-                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/events/add">
+                            <h3 class="card-title"><?= __('School Images List') ?></h3>
+                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= ADMIN_LINK ?>/schoolImages/add">
                                 <?= __('Add new') ?>
                             </a>
                         </div>
                         <?php
 
                         $fields = [
-                            'basicModel' => 'events',
+                            'basicModel' => 'schoolImages',
                             'id' => [],
+                            'school_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $schools]],
                             'title' => [],
-                            'permalink' => [],
-                            'thumb_image_path' => ['title' => 'Image One', 'format' => 'image'],
-                            'thumb_image2_path' => ['title' => 'Image Two', 'format' => 'image'],
-                            // 'banner_image_path' => ['title' => 'Banner Image', 'format' => 'link'],
-                            // 'dealerships'=>[],
-                            // 'active' => ['format' => 'bool'],
-                            // 'show_on_home' => ['format' => 'bool'],
+                            'thumb_image_path' => ['title' => 'Image', 'format' => 'image'],
+                            
+                            'display_order' => [],
+                            'active' => ['format' => 'bool'],
                         ];
 
                         $multi_select_actions = array(
@@ -71,7 +69,7 @@
                         ];
 
 
-                        echo $this->List->adminIndex($fields, $events, $actions, false, $multi_select_actions, $parameters);
+                        echo $this->List->adminIndex($fields, $schoolImages, $actions, true, $multi_select_actions, $parameters);
                         ?>
 
                     </div>
