@@ -7,17 +7,18 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Schools List') ?></h1>
+                    <h1><?= __('Reward Points List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Schools') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Reward Points') ?></li>
                     </ol>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -25,22 +26,22 @@
                     <div class="card">
                         <?php
                         $session = $this->getRequest()->getSession();
-                        echo $this->List->filter_form($schools, $filters, [], [], $parameters, $session) ?>
+                        echo $this->List->filter_form($rewardPoints, $filters, [], [], $parameters, $session) ?>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Schools List') ?></h3>
+                            <h3 class="card-title"><?= __('Reward Points List') ?></h3>
                             <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
                         <?php
 
                         $fields = [
-                            'basicModel' => 'schools',
+                            'basicModel' => 'rewardPoints',
                             'id' => [],
-                            'name' => [],
-                            
-                            'thumb_path' => ['title' => 'Image', 'format' => 'image'],
-                            'highlighted' => ['format' => 'bool'],
+                            'from_student' => [],
+                            'to_student' => [],
+                            'points' => [],
+
                             'active' => ['format' => 'bool'],
                         ];
 
@@ -50,8 +51,6 @@
 
 
                         $actions = [
-                            'images' => $this->Html->link(__('Images'), ['controller' => 'SchoolImages', 'action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-images')),
-
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
@@ -65,24 +64,11 @@
                                 ]
                             )
                         ];
-                        // $actions = $this->element('check_actions', ['actions' => ['edit' => 'schools', 'delete' => 'schools', 'view' => 'schools'], 'permissionList' => $permissionList]);
-                        if (isset($permissionList[strtolower($current_controller) . '.edit'])) {
-                            $actions['edit'] = $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt'));
-                        }
-                        if (isset($permissionList[strtolower($current_controller) . '.delete'])) {
-                            $actions['delete'] = $this->Html->link(
 
-                                __('Delete'),
-                                ['action' => 'delete', '%id%'],
-                                [
-                                    'confirm' => 'Are you sure you wish to delete this?',
-                                    'class' => 'btn btn-danger btn-sm', 'icon' => 'fas fa-trash'
-                                ]
-                            );
-                        }
 
-                        echo $this->List->adminIndex($fields, $schools, $actions, false, $multi_select_actions, $parameters, false);
+                        echo $this->List->adminIndex($fields, $rewardPoints, $actions, false, $multi_select_actions, $parameters);
                         ?>
+
                         <div class="card-footer clearfix">
                             <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>

@@ -98,7 +98,9 @@ class ApplicationsController extends AppController
 
                     if ($application->user_id) {
                         $this->loadModel('Users');
-                        $user = $this->Users->find()->where(['id'=>$application->user_id])->first();
+                        $user = $this->Users->find()->where(['id' => $application->user_id])->first();
+
+                        $this->__saveReward($application, $user);
                         if ($user) {
 
                             $to = $user['email'];
@@ -152,6 +154,77 @@ class ApplicationsController extends AppController
         $applicitionLog->status_text = $app->status_text;
         $applicitionLog->created = $app->status_time;
         $this->ApplicationLogs->save($applicitionLog);
+    }
+
+    private function __saveReward($app, $user)
+    {
+
+        // Joined Successfuly only
+        if ($app->status == 6 && !empty($user['counselor_id'])) {
+
+
+            $this->loadModel('CounselorRewards');
+            //Check if this app saved to rewards before
+            $counselorReward = $this->CounselorRewards->find()->where([
+                'user_id' => $user['id'], 'counselor_id' => $user['counselor_id'], 'application_id' => $app->id
+            ])->first();
+
+            // Check if paid before
+            if (!empty($counselorReward) || $counselorReward['is_paid']) {
+                return true;
+            }
+
+            $reward = $this->CounselorRewards->newEmptyEntity();
+            $reward->application_id = $app->id;
+            $reward->counselor_id = $user['counselor_id'];
+            $reward->user_id = $user['id'];
+            $reward->status = $app->status;
+            //Calculate Points
+            // First count all joined successfuly studnets for this counselor
+            $noOfJoinedStudents = $this->CounselorRewards->find()->where(['counselor_id' => $user['counselor_id'], 'application_id !=' => $app->id])->count();
+            $noOfJoinedStudents = ($noOfJoinedStudents > 0) ? $noOfJoinedStudents : 1;
+            // Then check the reward_points to find the points based on the number of students
+            $this->loadModel('RewardPoints');
+            $rewardPoints = $this->RewardPoints->find()->where(["{$noOfJoinedStudents} Between from_student and to_student"])->first();
+
+            if (!empty($rewardPoints)) {
+
+                $reward->point_id = $rewardPoints->id;
+                $reward->points = $rewardPoints->points;
+                $reward->number_points_dollar = intval($this->g_configs['general']['txt.number_of_points_per_dollar']);
+                $reward->total = intval($rewardPoints->points / $reward->number_points_dollar);
+            }
+            $reward->created = $app->status_time;
+            // debug($noOfJoinedStudents);
+            // debug($reward);
+            // dd($rewardPoints);
+            $this->CounselorRewards->save($reward);
+
+
+            // Update counselor current rewards
+
+            $this->loadModel('Counselors');
+            //Check if this app saved to rewards before
+            $counselor = $this->Counselors->find()->where(['id' => $user['counselor_id']])->first();
+
+            if (!empty($counselor)) {
+
+                $totalPointsMod = $this->CounselorRewards->find();
+                // $totalPointsVal = $totalPointsMod->select(['sum_totals' => $totalPointsMod->func()->sum('CounselorRewards.total')])->where(['counselor_id' => $user['counselor_id'], 'is_paid != 1'])->first();
+
+                $totalPoints = $totalPointsMod->select(['sum_totals' => $totalPointsMod->func()->sum('CounselorRewards.total'), 'sum_points' => $totalPointsMod->func()->sum('CounselorRewards.points')])->where(['counselor_id' => $user['counselor_id'], 'is_paid != 1'])->first();
+                $this->loadModel('Users');
+                $noOfStudents = $this->Users->find()->innerJoinWith('Applications')->where(['counselor_id' => $user['counselor_id']])->count();
+                // dd($noOfStudents);
+                $noOfJoinedStudents = $this->CounselorRewards->find()->where(['counselor_id' => $user['counselor_id'], 'is_paid != 1'])->count();
+                $counselor['total_points_reward'] = $totalPoints['sum_totals'];
+                $counselor['total_points'] = $totalPoints['sum_points'];
+                $counselor['number_of_students'] = $noOfStudents;
+                $counselor['number_joined_students'] = $noOfJoinedStudents;
+
+                $this->Counselors->save($counselor);
+            }
+        }
     }
     public function delete($id = null)
     {
@@ -210,7 +283,7 @@ class ApplicationsController extends AppController
         $statuses = $this->Applications->statuses;
         $statusesBtns = [];
         foreach ($statuses as $key => $status) {
-            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-',$status) . '">' . $status . '</span>';
+            $statusesBtns[$key] = '<span class="btn-status ' . str_replace(' ', '-', $status) . '">' . $status . '</span>';
         }
         $this->set('statusesBtns', $statusesBtns);
         $this->set('statuses', $statuses);

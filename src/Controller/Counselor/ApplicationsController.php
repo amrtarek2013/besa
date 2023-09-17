@@ -62,12 +62,16 @@ class ApplicationsController extends AppController
             $this->redirect('/counselor/logout');
         }
 
+        $this->loadModel('Counselors');
+        $counselor = $this->Counselors->get($counselor['id']);
+        // debug($counselor);
+        $this->set('counselor', $counselor);
         $this->loadModel('Users');
         $conditions = $this->_filter_params();
 
         $conditions['Users.counselor_id'] = $counselor['id'];
 
-        $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*, 'Services'*/]]);
+        $usersApp = $this->paginate($this->Users, ['conditions' => $conditions, 'contain' => ['Countries' => ['fields' => ['country_name']], 'Applications'/*,'CounselorRewards'/*, 'Services'*/]]);
         // dd($usersApp->toArray());
 
         $parameters = $this->request->getAttribute('params');

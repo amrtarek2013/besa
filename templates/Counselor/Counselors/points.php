@@ -1,93 +1,121 @@
-<section class="main-banner register-banner profile-banner school-counselors-profile">
+<section class="main-banner register-banner Create-account-banner" style="padding-bottom:0">
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
-                <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/new-images/Resume-bg2.png" alt="" style="z-index: 2;"  width="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
             <div class="col-md-7">
+                <div class="background-banner-color">
+                    <img src="<?= WEBSITE_URL ?>img/Resume-2 1.png" alt="" width="">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
+                </div>
+            </div>
+            <div class="col-md-5">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">Profile</h1>
-                    <h2 class="title text-left">School Counselors Profile</h2>
+                    <h1 class="relative-text">Points</h1>
+                    <h2 class="title text-left">Counselor<br /> Points</h2>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="grid-container-profile">
-                    <div class="left-box">
-                        <div class="circle-img">
-                            <img src="<?=$auth->user('image_path')?>" alt="">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="padding: 0;">
+                <div class="title-banner-blue  title-banner-green">
+                    <div class="grid-container-3col  ">
+                        <div class="box-point">
+                            <h3 class="numb"><?= $counselor['number_joined_students'] ?></h3>
+                            <p>Joined Successfully</p>
                         </div>
-                        <h2 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h2>
-                        <span class="status online">ONLINE</span>
-                        <a href="#" class="btn clear-blue">START A NEW APPLICATION</a>
-
-                    </div>
-                    <div class="right-box">
-                        <div class="container-formBox blue-border ">
-
-                            <ul class="listOfPage">
-
-                                <?= $this->AdminSideMenu->render($sideMenus, 'counselor', true); ?>
-                                <!-- <li>
-                                    <a href="#">Edit account details</a>
-                                </li>
-                                <li>
-                                    <a href="#">Security</a>
-                                </li>
-                                <li>
-                                    <a href="#">Register to attend the fair</a>
-                                </li>
-                                <li>
-                                    <a href="#">Opt in for newsletter</a>
-                                </li>
-                                <li>
-                                    <a href="#">App support</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact support team</a>
-                                </li>
-                                <li>
-                                    <a href="#">Track & view your application</a>
-                                </li> -->
-                            </ul>
+                        <div class="box-point">
+                            <h3 class="numb"><?= $counselor['number_of_students'] ?></h3>
+                            <p>Applied</p>
+                        </div>
+                        <div class="box-point">
+                            <h3 class="numb"><?= $counselor['total_points'] ?></h3>
+                            <p>Points Acquired</p>
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="counselor-points">
-                    <div class="d-flex">
-                        <div class="box-points">
-                            <div class="item">
-                                <div class="circle-point">5</div>
-                                <h4>Joined Successfully</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point">25</div>
-                                <h4>Applied</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point">55</div>
-                                <h4>Points Acquired</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point text-success">$500</div>
-                                <h4>Total Gain</h4>
-                            </div>
-                        </div>
-
-                        <div class="box-text">
-                            <a href="#">Withdraw</a>
-                            <a href="#">Counselor Points</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="total-gain">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex">
+                    <div class="total">
+                        <P>Total Gain</P>
+                        <h4 class="price">$<?= number_format($counselor['total_points_reward'], 0) ?></h4>
+                    </div>
+
+                    <a href="#" class="btn btn-withdraw">WITHDRAW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?= $counselor_points_page_snippet ?>
+<?php if (false) { ?>
+    <div class="milestone">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="text-align: center">MILESTONE</h2>
+                    <p class="desc">Each successful deposit equals 1 POINT</p>
+                    <div class="gridContainer-counter">
+                        <div class="box">
+                            <div class="number green">
+                                <h4>10</h4>
+                                <p>Points</p>
+
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="number yellow">
+                                <h4>20</h4>
+                                <p>Points</p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="number red">
+                                <h4>50</h4>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="number blue">
+                                <h4>80</h4>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="number blue-dark">
+                                <h4>100</h4>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mil-text d-flex">
+                        <div class="col-left">
+                            <p>Student Apply</p>
+                            <p>Student Joined</p>
+                            <p>Successful Deposit Equals</p>
+                        </div>
+                        <div class="col-right">
+                            <P>1 Point</P>
+                            <P>2 Point</P>
+                            <P>1 Point</P>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>

@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
-use Cake\Cache\Cache;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class DynamicRoutesTable extends Table
+class CounselorRewardsTable extends Table
 {
 
 
@@ -26,21 +25,21 @@ class DynamicRoutesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('dynamic_routes');
+        $this->setTable('counselor_rewards');
         $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
+
+
+        $this->belongsTo('Counselors')->setForeignKey('counselor_id');
+        $this->belongsTo('Users')->setForeignKey('user_id');
+        $this->belongsTo('Applications')->setForeignKey('application_id');
     }
+
+
+
     public function validationDefault(Validator $validator): Validator
     {
 
         return $validator;
-    }
-
-    public function afterSave($event, $entity, $options)
-    {
-        
-        Cache::delete('dynamicroutes', '_dynamicroutes_');
-        Cache::delete('dynamic_routes_route');
-        clearViewCache();
     }
 }
