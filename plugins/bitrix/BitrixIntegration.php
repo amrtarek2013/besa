@@ -56,7 +56,7 @@ class BitrixIntegration{
 		if(empty($name)){
 			return [];
 		}
-		$name_segments = explode($name);
+		$name_segments = explode(' ',$name);
 		if(!empty($name_segments[0])){
 			$return['first_name'] = $name_segments[0];
 		}
