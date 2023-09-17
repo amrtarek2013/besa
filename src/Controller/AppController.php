@@ -1270,6 +1270,7 @@ class AppController extends Controller
     public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
+            echo __DIR__;
             print_r($data);
             print_r($type);
             die;
