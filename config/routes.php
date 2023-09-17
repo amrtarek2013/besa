@@ -149,6 +149,7 @@ return static function (RouteBuilder $routes) {
         $routes->connect('/dashboard', ['controller' => 'Applications', 'action' => 'index']);
         $routes->connect('/users', ['controller' => 'Users', 'action' => 'index']);
         $routes->connect('/profile', ['controller' => 'Counselors', 'action' => 'profile']);
+        $routes->connect('/points', ['controller' => 'Counselors', 'action' => 'points']);
         $routes->connect('/security', ['controller' => 'Counselors', 'action' => 'security']);
         $routes->connect('/login', ['controller' => 'Counselors', 'action' => 'login']);
         $routes->connect('/logout', ['controller' => 'Counselors', 'action' => 'logout']);

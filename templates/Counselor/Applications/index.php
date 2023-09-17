@@ -287,7 +287,7 @@
 
                         <div class="box-text">
                             <a href="#">Withdraw</a>
-                            <a href="#">Counselor Points</a>
+                            <a href="/counselor/points">Counselor Points</a>
                         </div>
                     </div>
                 </div>
