@@ -40,6 +40,7 @@ class DynamicRoutesTable extends Table
     {
         
         Cache::delete('dynamicroutes', '_dynamicroutes_');
+        Cache::delete('dynamic_routes_route');
         clearViewCache();
     }
 }
