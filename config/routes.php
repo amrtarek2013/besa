@@ -44,7 +44,7 @@ return static function (RouteBuilder $routes) {
 
         $DynamicRoutes = TableRegistry::getTableLocator()->get('DynamicRoutes');
 
-        $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1, 'prefix is null'])->cache('dynamic_routes_route')->all();
+        $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1,])->cache('dynamic_routes_route')->all();
 
         foreach ($dynamicRoutes as $routePage) {
             if ($routePage['has_params'])
