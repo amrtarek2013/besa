@@ -51,8 +51,11 @@ return static function (RouteBuilder $routes) {
                 $routePage['slug'] = $routePage['slug'] . '/*';
 
             $redirectTo = ['controller' => $routePage['controller'], 'action' => $routePage['action']];
-            if(!empty($routePage['prefix']))
+            if(!empty($routePage['prefix'])){
                 $redirectTo['prefix'] = ucwords($routePage['prefix']);
+                
+                $redirectTo[$routePage['prefix']] = true;
+            }
             $builder->connect('/' . $routePage['slug'], $redirectTo);
         }
         /*
