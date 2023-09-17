@@ -171,6 +171,7 @@ In Cases 1, 4, 5, and 6, the students are not allowed to make any changes to the
     $this->belongsTo('StudyLevels')->setForeignKey('study_level_id');
     $this->belongsTo('Universities')->setForeignKey('university_id');
     $this->hasMany('ApplicationCourses')->setForeignKey('application_id');
+    $this->hasMany('CounselorRewards')->setForeignKey('application_id');
   }
 
   /**

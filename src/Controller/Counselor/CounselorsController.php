@@ -264,6 +264,38 @@ class CounselorsController extends AppController
         return $this->redirect('/counselor/dashboard');
     }
 
+
+    public function points()
+    {
+        // $this->set('showImageCountries', true);
+        $this->set('bodyClass', 'pageWhereToStudy');
+
+        $counselor = $this->Auth->user();
+        // debug($counselor);
+        try {
+
+            // $counselor = $this->Counselors->get($counselor['id']);
+
+            if (!$counselor) {
+                $this->Flash->error(__('Counselor not Found!!!'));
+                $this->redirect('/counselor/logout');
+            } else if ($counselor['role_id'] != 3) {
+                $this->Flash->error(__('Sorry, you don\'t has permission to access this page!!!'));
+                $this->redirect('/counselor/logout');
+            }
+        } catch (Exception $ex) {
+
+            $this->Flash->error(__('User not Found!!!'));
+            $this->redirect('/counselor/logout');
+        }
+        $counselor = $this->Counselors->get($counselor['id']);
+        $this->set('counselor', $counselor);
+
+
+        $counselor_points_page = $this->getSnippet('counselor_points_page');
+        $this->set('counselor_points_page_snippet', $counselor_points_page);
+    }
+
     public function sendConfirmationEmail($counselor)
     {
         // $counselor = $this->Auth->user();

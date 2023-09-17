@@ -30,8 +30,9 @@ class CounselorRewardsTable extends Table
         $this->addBehavior('Timestamp');
 
 
-        $this->belongsTo('Counselor')->setForeignKey('counselor_id');
-        $this->belongsTo('User')->setForeignKey('user_id');
+        $this->belongsTo('Counselors')->setForeignKey('counselor_id');
+        $this->belongsTo('Users')->setForeignKey('user_id');
+        $this->belongsTo('Applications')->setForeignKey('application_id');
     }
 
 

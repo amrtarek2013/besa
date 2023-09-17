@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Utility\Hash;
 
 /**
  * Counselor Reward Controller
@@ -19,7 +20,7 @@ class CounselorRewardsController extends AppController
 
         $conditions = $this->_filter_params();
 
-        $counselorRewards = $this->paginate($this->CounselorRewards, ['contain' => ['Counselor' => ['fields' => ['first_name']], 'User' => ['fields' => ['first_name']]], 'conditions' => $conditions]);
+        $counselorRewards = $this->paginate($this->CounselorRewards, ['contain' => ['Counselors' => ['fields' => ['first_name']], 'Users' => ['fields' => ['first_name']]], 'conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('counselorRewards', 'parameters'));
     }
@@ -37,7 +38,18 @@ class CounselorRewardsController extends AppController
             $this->Flash->error(__('The Counselor Reward could not be saved. Please, try again.'));
         }
 
-        $this->set(compact('counselorReward'));
+        $this->loadModel('Counselors');
+        $this->loadModel('Users');
+        $this->loadModel('RewardPoints');
+        $counselors = $this->Counselors->find('list', ['keyField' => 'id', 'valueField' => 'first_name']);
+        // $counselors = $this->Counselors->find('list', ['keyField' => 'id', 'valueField' => 'first_name']);
+        $users = $this->Users->find()->where(['counselor_id is not null'])->all()->toArray();
+        $users = Hash::combine($users, '{n}.id', '{n}', '{n}.counselor_id');
+        $RewardPoints = $this->RewardPoints->find()->all()->toArray();
+
+        $rewardPoints = Hash::combine($RewardPoints, '{n}.id', ['Students from %s To %s', '{n}.from_student', '{n}.to_student']);
+        $rewardStudentPoints = Hash::combine($RewardPoints, '{n}.id', '{n}.points');
+        $this->set(compact('counselorReward', 'counselors', 'users', 'rewardPoints', 'rewardStudentPoints'));
     }
 
     public function edit($id = null)
