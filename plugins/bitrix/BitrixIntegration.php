@@ -1,5 +1,6 @@
 <?
 class BitrixIntegration{
+	public $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
 	public function execute($data,$type){
 		switch ($type) {
 			case 'book-appointment':
@@ -33,7 +34,7 @@ class BitrixIntegration{
 		echo '</pre>';die;
 	}
 	function bitrix_process_api($endpoint,$options){
-		require_once (__DIR__.'/crest.php');
+		require_once ($this->main_dir.'/plugins/bitrix/crest.php');
 		$response = CRest::call($endpoint, $options);
 		if ($response['error']) {
 		    return ['status'=>false,'message'=>$response['error_description']];

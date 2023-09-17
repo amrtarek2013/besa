@@ -1273,6 +1273,12 @@ class AppController extends Controller
             echo __DIR__;
             print_r($data);
             print_r($type);
+
+            $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
+            require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');
+            $data = ['name'=>'Karim'];
+            $bitrix = new BitrixIntegration();
+            $bitrix->execute($data,'book-appointment');
             die;
         }
         return true;
