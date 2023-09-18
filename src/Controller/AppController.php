@@ -1283,7 +1283,9 @@ class AppController extends Controller
         $extras['countriesList']=$countriesList;
 
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
-            $extras['bd']=$data['bd']->format('d.m.Y');
+            if(!empty($data['bd'])){
+                $extras['bd']=$data['bd']->format('d.m.Y');
+            }
             // print_r($data);die;
             // print_r($type);die;
             // Configure::write('debug', 2);
