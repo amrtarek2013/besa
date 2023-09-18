@@ -1271,21 +1271,10 @@ class AppController extends Controller
     {
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
             // Configure::write('debug', 2);
-            print_r($data);
-            print_r($type);
-
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
             require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');
-            
-            if (is_object($data)) {
-                $data_arr = (array)$data;
-            } else {
-                $data_arr = $data;
-            }
-            print_r($data_arr);die;
             $bitrix = new \BitrixIntegration();
-            $bitrix->execute($data_arr,'book-appointment');
-            die;
+            $bitrix->execute($data,$type);
         }
         return true;
     }
