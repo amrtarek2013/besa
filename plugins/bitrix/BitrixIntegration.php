@@ -29,9 +29,17 @@ class BitrixIntegration{
 		if(!empty($name_arr['last_name'])){
 			$data_arr['LAST_NAME'] = $name_arr['last_name'];
 		}
+		if(!empty($data['mobile'])){
+			$mobile = '';
+			if(!empty($data['mobile_code'])){
+				$mobile = $data['mobile_code'];
+			}
+			$mobile .= $data['mobile'];
+			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+		}
+
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
-		// $data_arr['PHONE'] = [ [ "VALUE"=> "555888","VALUE_TYPE"=> "WORK" ] ];
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
