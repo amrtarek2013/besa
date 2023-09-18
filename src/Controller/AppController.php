@@ -1279,7 +1279,7 @@ class AppController extends Controller
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
-        ])->where(['active' => 1])->order(['country_name' => 'asc']);
+        ])->where(['active' => 1])->order(['country_name' => 'asc'])->toArray();
         $extras['countriesList']=$countriesList;
 
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
