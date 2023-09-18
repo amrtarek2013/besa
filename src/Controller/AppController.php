@@ -1269,14 +1269,27 @@ class AppController extends Controller
 
     public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
+        $extras = [];
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $extras['subjectAreas']=$subjectAreas;
+
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1])->order(['country_name' => 'asc']);
+        $extras['countriesList']=$countriesList;
+
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
-            print_r($data);
-            print_r($type);die;
+            // print_r($data);
+            // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
             require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');
             $bitrix = new \BitrixIntegration();
-            $bitrix->execute($data,$type);
+            $bitrix->execute($data,$type,$extras);
         }
         return true;
     }
