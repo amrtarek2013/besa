@@ -1270,8 +1270,8 @@ class AppController extends Controller
     public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
-            print_r($data);
-            print_r($type);die;
+            // print_r($data);
+            // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
             require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');

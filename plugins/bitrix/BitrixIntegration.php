@@ -6,6 +6,9 @@ class BitrixIntegration{
 			case 'book-appointment':
 				$this->add_lead_from_book_appointment($data,$type);
 				break;
+			case 'visitors-application':
+				$this->add_lead_from_visitors_application($data,$type);
+				break;
 			
 			default:
 				// code...
@@ -36,6 +39,50 @@ class BitrixIntegration{
 			}
 			$mobile .= $data['mobile'];
 			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+		}
+		if(!empty($data['email'])){
+			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
+		}
+
+		$data_arr['STATUS_ID'] = 'NEW';
+		$data_arr['OPENED'] = 'Y';
+		if(!empty($data_arr['TITLE'])){
+			$options =  ['fields' => $data_arr,];
+
+			$result = $this->bitrix_process_api('crm.lead.add',$options);
+			echo '<pre>';
+			print_r($result);
+			echo '</pre>';die;
+		}
+	}
+	public function add_lead_from_visitors_application($data,$type){
+		$study_levels = [
+			0=>44,1=>44,
+			2=>46,3=>46,4=>46,
+		];
+		$data_arr = [];
+		if(!empty($data['name'])){
+			$data_arr['TITLE'] = $data['name'];
+			$data_arr['NAME'] = $data['name'];
+			if(!empty($data['surname'])){
+				$data_arr['LAST_NAME'] = $data['surname'];
+				$data_arr['TITLE'] .= $data['surname'];
+			}
+		}
+		
+		if(!empty($data['mobile'])){
+			$mobile = '';
+			if(!empty($data['mobile_code'])){
+				$mobile = $data['mobile_code'];
+			}
+			$mobile .= $data['mobile'];
+			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+		}
+		if(!empty($data['email'])){
+			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
+		}
+		if(!empty($data['study_level'])){
+			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['study_level']];
 		}
 
 		$data_arr['STATUS_ID'] = 'NEW';
