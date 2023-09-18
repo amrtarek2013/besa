@@ -1283,7 +1283,8 @@ class AppController extends Controller
         $extras['countriesList']=$countriesList;
 
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com'){
-            // print_r($data);
+            print_r($data['bd']->format('d-m-Y'));
+            print_r($data);die;
             // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';

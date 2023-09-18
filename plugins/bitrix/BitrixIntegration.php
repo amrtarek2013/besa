@@ -125,7 +125,7 @@ class BitrixIntegration{
 		if(!empty($data['email'])){
 			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
 		}
-		if(!empty($data['current_study_level'])){
+		if(isset($data['current_study_level'])){
 			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['current_study_level']];
 		}
 		if(!empty($data['subject_area_id']) && !empty($extras['subjectAreas']) ){
@@ -134,6 +134,14 @@ class BitrixIntegration{
 		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
 			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
 		}
+		if(isset($data['gender']) ){
+			if($data['gender']==1){
+				$data_arr['UF_CRM_1694999663599'] = 'Female';
+			}else{
+				$data_arr['UF_CRM_1694999663599'] = 'Male';
+			}
+		}
+		//age - date of birth -- 29.09.2023
 		
 
 		$data_arr['STATUS_ID'] = 'NEW';
