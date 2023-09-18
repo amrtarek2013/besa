@@ -16,7 +16,7 @@ class Event extends Entity
 
     // protected $finalPath = DS . 'files' . DS . 'event_videos' . DS;
 
-    protected $_virtual = ['image_path', 'thumb_image_path', 'image2_path', 'thumb_image2_path', 'video_thumb'/*,'video_path'*/, 'icon_path', 'image_path', 'thumb_image_path', 'banner_image_path', 'mobile_image_path'];
+    protected $_virtual = ['main_image_path', 'thumb_main_image_path', 'image_path', 'thumb_image_path', 'image2_path', 'thumb_image2_path', 'video_thumb'/*,'video_path'*/, 'icon_path', 'image_path', 'thumb_image_path', 'banner_image_path', 'mobile_image_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -34,6 +34,36 @@ class Event extends Entity
 
     public function initialize(array $config): void
     {
+    }
+
+    protected function _getMainImagePath()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair.png';
+        if (!empty($this->main_image)) {
+            $image_path = 'uploads' . DS . 'events' . DS . str_replace(DS, "", $this->main_image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return null;
+        }
+        return null;
+    }
+
+
+    protected function _getThumbMainImagePath()
+    {
+
+        $no_image_path = DS . 'img' . DS . 'International_Education_Fair.png';
+        if (!empty($this->main_image)) {
+            $image_path = 'uploads' . DS . 'events' . DS . "thumb_" . str_replace(DS, "", $this->main_image);
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+
+                return null;
+        }
+        return null;
     }
 
     protected function _getImagePath()

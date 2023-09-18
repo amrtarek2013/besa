@@ -57,6 +57,18 @@ class EventsTable extends Table
                         'path' => 'uploads/events/icon',
                         'file_name' => '{$rand}_{$file_name}'
                     ],
+                    'main_image' => [
+                        'resize' => [],
+                        'datePath' => ['path' => ''],
+                        'width' => false, 'height' => false,
+                        // 'datePath' => false,
+                        'path' => 'uploads/events',
+                        'file_name' => '{$rand}_{$file_name}',
+
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
+                        ],
+                    ],
                     'image' => [
                         'resize' => ['width' => 400, 'height' => 400],
                         'datePath' => ['path' => ''],

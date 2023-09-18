@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-7" style="padding-left: 0;">
                 <div class="background-banner-color">
-                    <img src="/img/31098 [Converted] 1.png" alt="" style="z-index: 2;" width="">
+                    <img src="<?= $event['main_image_path'] ?>" alt="" style="z-index: 2;" width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>

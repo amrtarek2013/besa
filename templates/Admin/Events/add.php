@@ -55,6 +55,17 @@
                                 ],
                             ])]);
 
+                            echo $this->AdminForm->control('main_image', ['label' => 'Main Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $event,
+                                'field' => 'main_image',
+                                'info' => [
+                                    'width' => $uploadSettings['main_image']['width'],
+                                    'height' => $uploadSettings['main_image']['height'],
+                                    'path' => $uploadSettings['main_image']['path']
+
+                                ],
+                            ])]);
+
                             echo $this->AdminForm->control('image', ['label' => 'Image One', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $event,
                                 'field' => 'image',
