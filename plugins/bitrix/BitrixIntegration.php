@@ -53,9 +53,9 @@ class BitrixIntegration{
 			$options =  ['fields' => $data_arr,];
 
 			$result = $this->bitrix_process_api('crm.lead.add',$options);
-			echo '<pre>';
-			print_r($result);
-			echo '</pre>';die;
+			// echo '<pre>';
+			// print_r($result);
+			// echo '</pre>';die;
 		}
 	}
 	public function add_lead_from_visitors_application($data,$type){
@@ -94,9 +94,9 @@ class BitrixIntegration{
 			$options =  ['fields' => $data_arr,];
 
 			$result = $this->bitrix_process_api('crm.lead.add',$options);
-			echo '<pre>';
-			print_r($result);
-			echo '</pre>';die;
+			// echo '<pre>';
+			// print_r($result);
+			// echo '</pre>';die;
 		}
 	}
 	public function add_lead_from_register($data,$type,$extras){
@@ -156,9 +156,9 @@ class BitrixIntegration{
 			$options =  ['fields' => $data_arr,];
 
 			$result = $this->bitrix_process_api('crm.lead.add',$options);
-			echo '<pre>';
-			print_r($result);
-			echo '</pre>';die;
+			// echo '<pre>';
+			// print_r($result);
+			// echo '</pre>';die;
 		}
 	}
 
