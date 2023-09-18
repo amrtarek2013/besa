@@ -38,6 +38,7 @@ class NewslettersController extends AppController
                 // $newsletter->subscribed = 1;
                 // dd($newsletter);
                 if ($this->Newsletters->save($newsletter)) {
+                    $this->sendToBitrix($newsletter, 'newsletter');
                     $message = __('Your email subscribed to Newsletter Successfully.');
                     $status = 'success';
                 } else {

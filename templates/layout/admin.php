@@ -131,7 +131,11 @@ use Cake\I18n\I18n;
 
             margin-top: -10px !important;
         }
-        
+
+        [class*="sidebar-dark-"] .nav-sidebar>.nav-item>.nav-treeview {
+            background-color: transparent;
+            border-bottom: 1px solid gray;
+        }
     </style>
 </head>
 
