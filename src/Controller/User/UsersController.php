@@ -448,6 +448,8 @@ class UsersController extends AppController
 
                     $user = $this->Users->get($id);
 
+                    $this->sendToBitrix($user, 'register-student');
+
                     $to = $user['email'];
 
                     $from    = $this->g_configs['general']['txt.send_mail_from'];
