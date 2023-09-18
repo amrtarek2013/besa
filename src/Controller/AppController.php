@@ -1282,7 +1282,7 @@ class AppController extends Controller
         ])->where(['active' => 1])->order(['country_name' => 'asc'])->toArray();
         $extras['countriesList']=$countriesList;
 
-        if(!empty($data['email']) /*&& $data['email']=='eng.karimgamal90@gmail.com'*/ ){
+        if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
             $extras['bd']=$data['bd']->format('d.m.Y');
             // print_r($data);die;
             // print_r($type);die;
