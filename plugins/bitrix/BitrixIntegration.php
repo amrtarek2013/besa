@@ -141,7 +141,13 @@ class BitrixIntegration{
 				$data_arr['UF_CRM_1694999663599'] = 'Male';
 			}
 		}
-		//age - date of birth -- 29.09.2023
+		if( !empty($extras['bd']) ){
+			$data_arr['BIRTHDATE'] = $extras['bd'];
+			$age = $this->calculate_age($extras['bd']);
+			if($age){
+				$data_arr['UF_CRM_1688457637'] = $age;
+			}
+		}
 		
 
 		$data_arr['STATUS_ID'] = 'NEW';
@@ -186,6 +192,17 @@ class BitrixIntegration{
 
 		return $return;
 	}
+	function calculate_age($dateOfBirth){
+	    $dob = DateTime::createFromFormat('d.m.Y', $dateOfBirth);
+		if (!$dob) {
+	        return false;
+	    }
+	    $currentDate = new DateTime();
+	    $interval = $dob->diff($currentDate);
+		$age = $interval->y;
+	    return $age;
+	}
+
 }
 //------------------------------------------
 // $data = ['name'=>'Karim'];
