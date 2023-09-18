@@ -41,6 +41,7 @@
                             'type' => ['format' => 'get_from_array', 'options' => ['items_list' => $types]],
                             'name' => [],
 
+                            'mobile_code' => [],
                             'mobile' => [],
                             'email' => [],
                             // 'branch_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $branches->toArray()]],
