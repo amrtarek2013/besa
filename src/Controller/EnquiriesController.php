@@ -38,7 +38,7 @@ class EnquiriesController extends AppController
             //Disable Duplicate enquiries
             $today = date('Y-m-d');
             $time = date("H:i:s");
-            $last_10_minutes = date("Y-m-d H:i:s", strtotime('-2 minutes'));
+            $last_10_minutes = date("Y-m-d H:i:s", strtotime('-1 minutes'));
             // $last_10_minutes = date("Y-m-d H:i:s");
             $oldEnq = $this->Enquiries->find()
                 ->where(['created <= \'' . $last_10_minutes . '\'', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
