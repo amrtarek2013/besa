@@ -190,7 +190,7 @@ class ListHelper extends Helper
 						} else {
 							
 							if($name == 'created'){
-								$cell .= $row[$name]->format('d/m/Y h:i:s a');//i18nFormat('dd/MM/yyyy HH:mm:ss');//
+								$cell .= $row[$name]->format('d/m/Y H:i:s');//i18nFormat('dd/MM/yyyy HH:mm:ss');//
 								// debug($$cell);
 							}else
 								$cell .= (isset($row[$name])) ? (string) $row[$name] : '';
@@ -202,11 +202,12 @@ class ListHelper extends Helper
 					if (in_array($t, array('created', "date"))) {
 						
 						if (is_object($cell)) {
-							$cell = $cell->format('d/m/Y h:i:s a');//$cell->i18nFormat('dd-MM-yyyy HH:mm:ss');//
+							$cell = $cell->format('d/m/Y H:i:s');//$cell->i18nFormat('dd-MM-yyyy HH:mm:ss');//
 
 						} else {
+
 							if (!is_bool(strtotime($cell))) {
-								$cell = date('d/m/Y h:i:s a', strtotime($cell));
+								$cell = date('d/m/Y H:i:s', strtotime($cell));
 							}
 
 							// debug($cell);die;

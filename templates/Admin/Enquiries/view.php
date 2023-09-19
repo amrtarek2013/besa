@@ -73,7 +73,7 @@
 
                                     <tr class="table-header">
                                         <th class="" width=""><a>Date</a></th>
-                                        <td><?php echo (!empty($enquiry->created->format('d/m/Y h:m:i A')) ? $enquiry->created->format('d/m/Y h:i:s A') : '') ?></td>
+                                        <td><?php echo (!empty($enquiry->created->format('d/m/Y H:m:i')) ? $enquiry->created->format('d/m/Y H:i:s') : '') ?></td>
                                     </tr>
                                 </tbody>
                             </table>
