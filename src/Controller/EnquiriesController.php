@@ -24,8 +24,8 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            // Configure::write('debug', 0);
-            // Configure::write('debug', false);
+            Configure::write('debug', 0);
+            Configure::write('debug', false);
             $data = $this->request->getData();
             // dd($data);
             $enquiry = $this->Enquiries->patchEntity(
