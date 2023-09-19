@@ -24,8 +24,8 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            Configure::write('debug', 0);
-            Configure::write('debug', false);
+            // Configure::write('debug', 0);
+            // Configure::write('debug', false);
             $data = $this->request->getData();
             // dd($data);
             $enquiry = $this->Enquiries->patchEntity(
@@ -42,9 +42,10 @@ class EnquiriesController extends AppController
             // $last_10_minutes = date("Y-m-d H:i:s");
             $oldEnq = $this->Enquiries->find()
                 ->where(['created <= \'' . $last_10_minutes . '\'', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
+
                 ->first();
 
-            // dd($oldEnq);
+            dd($oldEnq);
             $return = [];
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
