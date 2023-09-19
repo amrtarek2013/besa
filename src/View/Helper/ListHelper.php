@@ -190,7 +190,7 @@ class ListHelper extends Helper
 						} else {
 							
 							if($name == 'created'){
-								$cell .= $row[$name]->i18nFormat('dd-MM-yyyy HH:mm:ss');//$cell->format('d-m-Y h:i:s');
+								$cell .= $row[$name]->i18nFormat('dd/MM/yyyy HH:mm:ss');//$cell->format('d-m-Y h:i:s');
 								// debug($$cell);
 							}else
 								$cell .= (isset($row[$name])) ? (string) $row[$name] : '';
