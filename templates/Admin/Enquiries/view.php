@@ -62,15 +62,18 @@
                                             }
                                             ?>
                                             <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? '<a target="_blank" href="' . Router::url($enquiry['file_path']) . '">Download</a>' : '---') : $enquiry[$field]) : '') ?></td>
-                                            <!-- <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? $this->Html->link('Download Attachment',Router::url($enquiry['file_path']), ['class'=>'button',  'download' => true, 'title'=>'Download', 'escape' => false]) : '---') : $enquiry[$field]) : '') ?></td> -->
+                                            <!-- <td><?php echo (!empty($enquiry[$field]) ? ($field == 'certificate' ? ($enquiry['file_path'] != '#' ? $this->Html->link('Download Attachment', Router::url($enquiry['file_path']), ['class' => 'button',  'download' => true, 'title' => 'Download', 'escape' => false]) : '---') : $enquiry[$field]) : '') ?></td> -->
                                         </tr>
                                     <?php endforeach; ?>
-
+                                    <?php
+                                    if (isset($_GET['dk']))
+                                        dd($enquiry);
+                                    ?>
 
 
                                     <tr class="table-header">
                                         <th class="" width=""><a>Date</a></th>
-                                        <td><?php echo (!empty($enquiry->created->format('d/m/Y H:m:i A')) ? $enquiry->created->format('d/m/Y H:m:i A') : '') ?></td>
+                                        <td><?php echo (!empty($enquiry->created->format('d/m/Y h:m:i A')) ? $enquiry->created->format('d/m/Y h:i:s A') : '') ?></td>
                                     </tr>
                                 </tbody>
                             </table>
