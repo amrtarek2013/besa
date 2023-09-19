@@ -128,7 +128,7 @@ class UsersTable extends Table
       ->notEmptyString('email', 'This field is required.')
       ->add('email', [
         'isEmailUnique' => [
-          'rule' => 'isEmailUnique',
+          'rule' => [$this, 'isEmailUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
@@ -145,7 +145,7 @@ class UsersTable extends Table
       // ])
       ->add('mobile', [
         'isMobileUnique' => [
-          'rule' => 'isMobileUnique',
+          'rule' => [$this, 'isMobileUnique'],
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
@@ -271,17 +271,6 @@ class UsersTable extends Table
   }
   public function isMobileUnique(
     $value
-    // )
-    // {
-
-    //   if (isset($mobile) && !empty($mobile)) {
-    //     $existed_user = $this->find()->where(["mobile" => $mobile])->first();
-
-    //     if (!empty($existed_user)) {
-    //       return false;
-    //     }
-    //   }
-    //   return true;
     ,
     $context
   ) {

@@ -18,25 +18,40 @@ class EnquiriesController extends AppController
         $this->set('bodyClass', '');
         $this->loadModel('Branches');
 
+        
+        // dd($this->request->getData());
 
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            Configure::write('debug', 0);
-            Configure::write('debug', false);
+            // Configure::write('debug', 0);
+            // Configure::write('debug', false);
             $data = $this->request->getData();
             // dd($data);
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $data, ['validate' => $this->Enquiries->enquiryTypes[$data['type']]['validation']]);
+            $enquiry = $this->Enquiries->patchEntity(
+                $enquiry,
+                $data,
+                ['validate' => $this->Enquiries->enquiryTypes[$data['type']]['validation']]
+            );
 
 
+            //Disable Duplicate enquiries
+            $today = date('Y-m-d');
+            $time = date("H:i:s");
+            $last_10_minutes = date("Y-m-d H:i:s", strtotime('-2 minutes'));
+            // $last_10_minutes = date("Y-m-d H:i:s");
+            $oldEnq = $this->Enquiries->find()
+                ->where(['created <= \'' . $last_10_minutes . '\'', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
+                ->first();
 
+            // dd($oldEnq);
             $return = [];
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
             $return['title'] = 'Error';
-            
+
             $enquiry_redirect_url = $this->Enquiries->enquiryTypes[$enquiry['type']]['redirect'];
-            if ($this->Enquiries->save($enquiry)) {
+            if (empty($oldEnq) && $this->Enquiries->save($enquiry)) {
                 $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
 
                 $return['message'] = 'Success';
@@ -48,7 +63,7 @@ class EnquiriesController extends AppController
                 $b_replace = [];
                 $u_replace = [];
                 $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
-                
+
                 $a_replace = array(
                     '{%name%}' => $enquiry['name'],
                     '{%email%}' => $enquiry['email'],
@@ -60,7 +75,7 @@ class EnquiriesController extends AppController
                 );
 
                 $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
-               
+
                 $to = $enquiry['email'];
                 $from = '';
 
@@ -98,6 +113,18 @@ class EnquiriesController extends AppController
 
                 $this->sendEmail($to, false, $email_template, $u_replace);
                 // 
+                $return['message'] = __('The Enquiry has been saved.');
+
+                if ($this->request->is('ajax')) {
+                    die(json_encode($return));
+                } else {
+                    $this->Flash->success(__('The Enquiry has been saved.'));
+                }
+            } else if (!empty($oldEnq)) {
+
+                $return['message'] = 'Success';
+                $return['status']  = 1;
+                $return['title'] = 'Success';
                 $return['message'] = __('The Enquiry has been saved.');
 
                 if ($this->request->is('ajax')) {
