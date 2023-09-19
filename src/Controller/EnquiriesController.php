@@ -34,8 +34,7 @@ class EnquiriesController extends AppController
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
             $return['title'] = 'Error';
-            // debug($enquiry);
-            // die;
+            
             $enquiry_redirect_url = $this->Enquiries->enquiryTypes[$enquiry['type']]['redirect'];
             if ($this->Enquiries->save($enquiry)) {
                 $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
@@ -48,52 +47,8 @@ class EnquiriesController extends AppController
                 $a_replace = [];
                 $b_replace = [];
                 $u_replace = [];
-                // $url = '<a href="' . Router::url('/admin/enquiries/view/' . $enquiry['id'], true) . '" >View Enquiry</a>';
                 $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
-                /*if (isset($enquiry['branch_id'])) {
-                    $this->loadModel('Branches');
-                    // $branch = $this->Branches->find()->where(['id' => $enquiry['branch_id']])->first();
-
-
-                    $b_replace = array(
-                        '{%name%}' => $enquiry['name'],
-                        '{%email%}' => $enquiry['email'],
-                        '{%phone%}' => $enquiry['mobile'],
-                        '{%subject%}' => $enquiry['subject'],
-                        '{%message%}' => $enquiry['message'],
-                        '{%enquiry_type%}' => $enquiryTitle,
-                    );
-                    
-                    if (!empty($branch)) {
-                        $a_replace = array(
-                            '{%name%}' => $enquiry['name'],
-                            '{%email%}' => $enquiry['email'],
-                            '{%phone%}' => $enquiry['mobile'],
-                            '{%subject%}' => $enquiry['subject'],
-                            '{%message%}' => $enquiry['message'],
-
-                            '{%enquiry_type%}' => $enquiryTitle,
-                            // '{%branch_name%}'  => $branch['name'],
-                            // '{%branch_address%}'  => $branch['address'] . ', ' . $branch['city'] . ', ' . $branch['state'] . ', ' . $branch['postcode'] . ', ' . $branch['country'],
-                            // '{%branch_email%}'  => $branch['email'],
-                            // '{%branch_phone%}'  => $branch['mobile'],
-                            '{%view_link%}'  => $url,
-                        );
-                    } else
-                    $a_replace = array(
-                        '{%name%}' => $enquiry['name'],
-                        '{%email%}' => $enquiry['email'],
-                        '{%phone%}' => $enquiry['mobile'],
-                        '{%subject%}' => $enquiry['subject'],
-                        '{%message%}' => $enquiry['message'],
-                        '{%enquiry_type%}' => $enquiryTitle,
-                        '{%view_link%}'  => $url,
-                    );
-
-                    $this->sendEmail($branch['email'], false, 'branch.contactus_enquiry', $b_replace);
-
-                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
-                } else {*/
+                
                 $a_replace = array(
                     '{%name%}' => $enquiry['name'],
                     '{%email%}' => $enquiry['email'],
@@ -105,11 +60,10 @@ class EnquiriesController extends AppController
                 );
 
                 $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
-                // }
+               
                 $to = $enquiry['email'];
                 $from = '';
 
-                // $url = Router::url('/user/reset-password/' . $hashed_value, true);
                 $u_replace = array(
                     '{%name%}' => $enquiry['name'],
                     '{%email%}' => $enquiry['email'],
@@ -120,10 +74,9 @@ class EnquiriesController extends AppController
                 );
 
                 $email_template = 'user.contactus_thankyou_enquiry';
-                // dd($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template']);
                 if (isset($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'])) {
                     $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'];
-                    // dd($email_template);
+
                     $u_replace = [];
                     $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']]['fields'];
 
@@ -152,8 +105,6 @@ class EnquiriesController extends AppController
                 } else {
                     $this->Flash->success(__('The Enquiry has been saved.'));
                 }
-
-                // return $this->redirect(['action' => 'contact-us']);
             } else {
 
 
@@ -171,9 +122,6 @@ class EnquiriesController extends AppController
 
 
             $this->__redirectToType($enquiry_redirect_url);
-
-
-            // dd($enquiry);
         }
         $this->set(compact('enquiry'));
 
