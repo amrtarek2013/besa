@@ -18,14 +18,14 @@ class EnquiriesController extends AppController
         $this->set('bodyClass', '');
         $this->loadModel('Branches');
 
-        
+
         // dd($this->request->getData());
 
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            // Configure::write('debug', 0);
-            // Configure::write('debug', false);
+            Configure::write('debug', 0);
+            Configure::write('debug', false);
             $data = $this->request->getData();
             // dd($data);
             $enquiry = $this->Enquiries->patchEntity(
@@ -39,13 +39,13 @@ class EnquiriesController extends AppController
             $today = date('Y-m-d');
             $time = date("H:i:s");
             $last_10_minutes = date("Y-m-d H:i:s", strtotime('-1 minutes'));
-            // $last_10_minutes = date("Y-m-d H:i:s");
+            $cii_minutes = date("Y-m-d H:i:s");
             $oldEnq = $this->Enquiries->find()
-                ->where(['created <= \'' . $last_10_minutes . '\'', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
+                ->where(['(created Between  \'' . $last_10_minutes . '\' AND \'' . $cii_minutes . '\')', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
 
-                ->first();
+               ->first();
 
-            dd($oldEnq);
+            // dd($oldEnq);
             $return = [];
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
