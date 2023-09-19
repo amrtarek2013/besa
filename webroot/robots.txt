@@ -14,8 +14,9 @@
 # For syntax checking, see:
 # http://tool.motoricerca.info/robots-checker.phtml
 
+sitemap: https://www.besaeg.com/sitemap.xml
 User-agent: *
-Disallow: /admin/
+sitemap: https://www.besaeg.com/sitemap.xml
 Disallow: /config/
 Disallow: /logs/
 Disallow: /tmp/
