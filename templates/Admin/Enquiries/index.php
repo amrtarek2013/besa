@@ -45,7 +45,7 @@
                             'mobile' => [],
                             'email' => [],
                             // 'branch_id' => ['format' => 'get_from_array', 'options' => ['items_list' => $branches->toArray()]],
-                            'created' => ['date_format' => "d-m-Y H:i:s", 'title' => 'Created']
+                            'created' => [ 'title' => 'Created']
                         ];
 
                         $multi_select_actions = array(
