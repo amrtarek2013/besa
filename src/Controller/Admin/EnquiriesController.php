@@ -26,6 +26,7 @@ class EnquiriesController extends AppController
         $enquiries = $this->paginate($this->Enquiries, ['conditions' => $conditions, 'order' => ['created' => 'DESC']]);
         $parameters = $this->request->getAttribute('params');
 
+        // dd($enquiries);
         // $this->loadModel('Branches');
         // $branches = $this->Branches->find('list');
         // $types = $this->Enquiries->find('list', [

@@ -178,21 +178,32 @@ class ListHelper extends Helper
 							$cell .= '$' . number_format((int) $cell, 2);
 						}
 					}
+					
 					if (!isset($spec['format']) || $spec['format'] != 'expression') {
 
 						//Added by DK 30/06/2020 to print field in another table/relation
+						
 						if (strpos($name, '.')) {
 							$dd = explode('.', $name);
 							if (isset($row[$dd[0]][$dd[1]]))
 								$cell .= (string) $row[$dd[0]][$dd[1]];
 						} else {
-							$cell .= (isset($row[$name])) ? (string) $row[$name] : '';
+							
+							if($name == 'created'){
+								$cell .= $row[$name]->i18nFormat('dd-MM-yyyy HH:mm:ss');//$cell->format('d-m-Y h:i:s');
+								// debug($$cell);
+							}else
+								$cell .= (isset($row[$name])) ? (string) $row[$name] : '';
 						}
+						
+						
 					}
 
 					if (in_array($t, array('created', "date"))) {
+						
 						if (is_object($cell)) {
-							$cell = $cell->format('d-m-Y h:i:s');
+							$cell = $cell->i18nFormat('dd-MM-yyyy HH:mm:ss');//$cell->format('d-m-Y h:i:s');
+
 						} else {
 							if (!is_bool(strtotime($cell))) {
 								$cell = date('d-m-Y h:i:s', strtotime($cell));
@@ -307,6 +318,7 @@ class ListHelper extends Helper
 							$cell = sprintf($spec['format'], $cell);
 						}
 					} elseif (isset($spec['date_format'])) {
+						
 						if (is_string($cell) && $cell != null) {
 							$cell = date($spec['date_format'], strtotime($cell));
 						} elseif ($cell == null) {
