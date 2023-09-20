@@ -1,3 +1,13 @@
+<style>
+    p,
+    h3,
+    h4,
+    h5,
+    span {
+        text-align: justify;
+        line-height: 32px;
+    }
+</style>
 <section class="main-banner  inner-serv unitedKingdom-banner">
     <div class="container-fluid">
         <div class="row">
