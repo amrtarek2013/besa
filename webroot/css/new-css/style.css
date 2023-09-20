@@ -9370,6 +9370,7 @@ img.mobile-image {
 .sec-upcoming .content .grid-3col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 44px;
 }
 
 .sec-upcoming .content .grid-3col h3 {
@@ -9382,7 +9383,6 @@ img.mobile-image {
     line-height: 35px;
 }
 .sec-upcoming  .country{
-    grid-gap: 10px;
 }
 .sec-upcoming  .country img {
     height: max-content;
