@@ -46,9 +46,9 @@ class CareersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 1400, 'height' => 410],
+                        'resize' => ['width' => 1600, 'height' => 440],
                         'datePath' => ['path' => ''],
-                        'width' => 1400, 'height' => 410,
+                        'width' => 1600, 'height' => 440,
                         // 'datePath' => false,
                         'path' => 'uploads/careers',
                         'file_name' => '{$rand}_{$file_name}',

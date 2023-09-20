@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Reward Points') ?></h1>
+                    <h1><?= __('Reward Points Schema') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active"><?= __('Reward Points') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Reward Points Schema') ?></li>
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Reward Point') ?></h3>
+                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Reward Point Schema') ?></h3>
                         </div>
 
                         <?php
