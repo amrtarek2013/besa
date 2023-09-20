@@ -29,7 +29,7 @@ class CareersController extends AppController
     {
         $career = null;
         if ($id)
-            $career = $this->Careers->get($id)->first();
+            $career = $this->Careers->get($id);
         else
             $career = $this->Careers->findByPermalink($permalink)->first();
 
