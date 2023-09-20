@@ -6,9 +6,9 @@
 
                 <img src="<?= $career['image_path'] ?>" alt="">
             </div>
-            <div class="col-md-12" style="padding:30px">
+            <!-- <div class="col-md-12" style="padding:30px">
                 <h1 class="title" style="font-size: 35px;"><?= $career['title'] ?></h1>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="title" style="color: #fff;"><?= $career['short_text'] ?></h3>
+                <h3 class="title" style="color: #fff;"><?= $career['title'] ?></h3>
 
                 <div class="gridTabes">
                     <a class="btn clear-blue foundation" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>">Apply Now</a>
