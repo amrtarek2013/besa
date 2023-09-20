@@ -100,6 +100,7 @@
                 <div class="row user-dashboard">
                     <?php
                     if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
+                        
                     ?>
                         <div class="col-md-3">
 
