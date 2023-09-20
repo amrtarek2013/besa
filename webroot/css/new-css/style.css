@@ -7922,7 +7922,7 @@ input[type="search"]:focus {
 
 
 .user-dashboard .online-status {
-    padding: 0 110px;
+    /* padding: 0 110px; */
     color: #33CA94;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
