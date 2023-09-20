@@ -29,7 +29,7 @@
                         <div class="grid3col">
                             <?php foreach ($careers as $career) : ?>
                                 <div class="item">
-                                    <h5><a href="<?= Cake\Routing\Router::url('/careers/details/' . $career['permalink']) ?>" class=""><?= $career['title'] ?></a></h5>
+                                    <h5><a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink']) ?>" class=""><?= $career['title'] ?></a></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
                                     
                                     <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>

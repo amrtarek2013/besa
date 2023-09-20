@@ -70,6 +70,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/school-tour', 'Events::schoolTour');
         $builder->connect('/education-fairs', 'Events::eventDetails');
         $builder->connect('/event-details/*', 'Events::eventDetails');
+        $builder->connect('/career-details/*', 'Events::details');
         $builder->connect('/blog-details/*', 'Blogs::details');
         $builder->connect('/destinations/*', 'Countries::index');
         $builder->connect('/country-details/*', 'Countries::details');
