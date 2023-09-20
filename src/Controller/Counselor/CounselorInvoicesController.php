@@ -38,6 +38,20 @@ class CounselorInvoicesController extends AppController
 
         $this->loadModel('Counselors');
         $counselor = $this->Counselors->get($user['id']);
+        $this->loadModel('CounselorRewards');
+
+        $counselorRewardConds = [];
+        $counselorRewardConds['counselor_id'] = $user['id'];
+        $counselorRewardConds['is_paid !='] = 1;
+        $counselorRewardConds[] = '(invoice_id is null)';
+        $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])->where($counselorRewardConds)->all()->toArray();
+
+        if (empty($counselorRewards)) {
+
+            $this->Flash->error(__('Sorry, you don\'t have any points. Please, try again.'));
+            $this->redirect('/counselor');
+        } 
+
         $counselorInvoice = $this->CounselorInvoices->newEmptyEntity();
         if ($this->request->is('post')) {
             $counselorInvoice = $this->CounselorInvoices->patchEntity($counselorInvoice, $this->request->getData());
@@ -50,7 +64,7 @@ class CounselorInvoicesController extends AppController
             $counselorRewardConds['counselor_id'] = $counselorInvoice['counselor_id'] = $user['id'];
             $counselorRewardConds['is_paid !='] = 1;
             $counselorRewardConds[] = '(invoice_id is null)';
-            $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])->where($counselorRewardConds)->all()->toArray();
+            // $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])->where($counselorRewardConds)->all()->toArray();
 
 
             // Re-Calculate Points and total
@@ -58,63 +72,68 @@ class CounselorInvoicesController extends AppController
             $totalPoints = $totalPointsMod->select(['sum_totals' => $totalPointsMod->func()->sum('CounselorRewards.total'), 'sum_points' => $totalPointsMod->func()->sum('CounselorRewards.points')])
                 ->where($counselorRewardConds)->first();
 
-            $counselorInvoice['total_points'] = $totalPoints['sum_points'];
-            $counselorInvoice['total'] = $totalPoints['sum_totals'] / intval($this->g_configs['general']['txt.number_of_points_per_dollar']);
-            $counselorInvoice['points_per_dollar'] = intval($this->g_configs['general']['txt.number_of_points_per_dollar']);
+            if (!$totalPoints['sum_points'] || $totalPoints['sum_points'] == 0) {
 
-            if ($this->CounselorInvoices->save($counselorInvoice)) {
+                $this->Flash->error(__('Sorry, you don\'t have any points. Please, try again.'));
+            } else {
+                $counselorInvoice['total_points'] = $totalPoints['sum_points'];
+                $counselorInvoice['total'] = $totalPoints['sum_totals'] / intval($this->g_configs['general']['txt.number_of_points_per_dollar']);
+                $counselorInvoice['points_per_dollar'] = intval($this->g_configs['general']['txt.number_of_points_per_dollar']);
 
-                // Update CounselorRewards invoice_id
-                $this->CounselorRewards->updateAll(
-                    [  // fields
-                        'invoice_id' => $counselorInvoice->id
-                    ],
-                    [  // conditions
-                        'CounselorRewards.id IN' => $counselorRewards
-                    ]
-                );
+                if ($this->CounselorInvoices->save($counselorInvoice)) {
 
-                // Update Counselors 
-                $noOfJoinedStudents = $this->CounselorRewards->find()->where(['counselor_id' => $user['id'], 'is_paid != 1'])->count();
-                $counselor['total_points_reward'] = $totalPoints['sum_totals'];
-                $counselor['total_points'] = $totalPoints['sum_points'];
-                $counselor['number_joined_students'] = $noOfJoinedStudents;
+                    // Update CounselorRewards invoice_id
+                    $this->CounselorRewards->updateAll(
+                        [  // fields
+                            'invoice_id' => $counselorInvoice->id
+                        ],
+                        [  // conditions
+                            'CounselorRewards.id IN' => $counselorRewards
+                        ]
+                    );
 
-                $this->Counselors->save($counselor);
+                    // Update Counselors 
+                    $noOfJoinedStudents = $this->CounselorRewards->find()->where(['counselor_id' => $user['id'], 'is_paid != 1'])->count();
+                    $counselor['total_points_reward'] = $totalPoints['sum_totals'];
+                    $counselor['total_points'] = $totalPoints['sum_points'];
+                    $counselor['number_joined_students'] = $noOfJoinedStudents;
 
-
-                /// Send Admin Email
-                $url = Router::url('/admin/counselor-invoices/view/' . $counselorInvoice->id, true);
-
-                $a_replace = array(
-                    '{%name%}' => $counselor['name'],
-                    '{%email%}' => $counselor['email'],
-                    '{%mobile%}' => $counselor['mobile'],
-                    '{%view_link%}'  => $url,
-                    '{%website_url%}' => WEBSITE_PATH
-                );
-
-                $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.notify_counselor_invoice_request', $a_replace);
-
-                $url = Router::url('/counselor/counselor-invoices/view/' . $counselorInvoice->id, true);
-
-                $u_replace = array(
-                    '{%name%}' => $counselor['name'],
-                    '{%email%}' => $counselor['email'],
-                    '{%mobile%}' => $counselor['mobile'],
-                    '{%view_link%}'  => $url,
-                    '{%website_url%}' => WEBSITE_PATH
-                );
-                $email_template = 'counselor.notify_counselor_invoice_request';
+                    $this->Counselors->save($counselor);
 
 
-                $this->sendEmail($counselor['email'], false, $email_template, $u_replace);
+                    /// Send Admin Email
+                    $url = Router::url('/admin/counselor-invoices/view/' . $counselorInvoice->id, true);
 
-                $this->Flash->success(__('The Withdraw Request has been sent.'));
+                    $a_replace = array(
+                        '{%name%}' => $counselor['name'],
+                        '{%email%}' => $counselor['email'],
+                        '{%mobile%}' => $counselor['mobile'],
+                        '{%view_link%}'  => $url,
+                        '{%website_url%}' => WEBSITE_PATH
+                    );
 
-                return $this->redirect(['action' => 'index']);
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.notify_counselor_invoice_request', $a_replace);
+
+                    $url = Router::url('/counselor/counselor-invoices/view/' . $counselorInvoice->id, true);
+
+                    $u_replace = array(
+                        '{%name%}' => $counselor['name'],
+                        '{%email%}' => $counselor['email'],
+                        '{%mobile%}' => $counselor['mobile'],
+                        '{%view_link%}'  => $url,
+                        '{%website_url%}' => WEBSITE_PATH
+                    );
+                    $email_template = 'counselor.notify_counselor_invoice_request';
+
+
+                    $this->sendEmail($counselor['email'], false, $email_template, $u_replace);
+
+                    $this->Flash->success(__('The Withdraw Request has been sent.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The Withdraw Request could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The Withdraw Request could not be saved. Please, try again.'));
         }
 
         $this->set('paymentMethods', $this->CounselorInvoices->paymentMethods);
