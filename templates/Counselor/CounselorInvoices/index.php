@@ -37,7 +37,7 @@
 
                             'created' => [],
                             'is_paid' => ['format' => 'bool'],
-                            'transaction_time' => ['date_format' => 'd/m/Y H:i:s'],
+                            'comment_time' => ['date_format' => 'd/m/Y H:i:s'],
                         ];
 
                         $multi_select_actions = array(
