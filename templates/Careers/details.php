@@ -30,9 +30,7 @@
             <div class="col-md-12">
                 <p>&nbsp;</p>
 
-                <h1 class="title" style="font-size: 35px; text-align:center;"><?= $career['title'] ?></h1>
-
-                <p><span style="font-size:20px; text-align:center;"><span style="">Location: <?= $career['country'] ?> - <?= $career['state'] ?></span></span></p>
+                <h1 class="title" style="font-size: 35px; text-align:center;"><?= $career['title'] ?> <br />Location: <?= $career['country'] ?> - <?= $career['state'] ?></h1>
 
                 <div class="content">
                     <p>&nbsp;</p>
