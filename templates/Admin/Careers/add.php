@@ -49,7 +49,7 @@
                                 ],
                             ])]);
 
-                            $class = 'editor basicEditor';
+                            $class = 'editor';
                             echo $this->AdminForm->control('text', ['title' => 'Job Description', 'class' => $class . ' addFrontCss']);
                             echo $this->AdminForm->control('requirments', ['title' => 'Job Requirments', 'class' => $class . ' addFrontCss']);
                             // echo $this->AdminForm->control('single');

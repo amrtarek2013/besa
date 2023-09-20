@@ -36,7 +36,7 @@ class Career extends Entity
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'portrait-of-female-un.png';
+        $no_image_path = DS . 'img' . DS . '1600x440.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'careers' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
