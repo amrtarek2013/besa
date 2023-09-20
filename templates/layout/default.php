@@ -93,18 +93,22 @@
 
         <?php
         // debug((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor')  && $this->request->getParam('action') != 'dashboard');
-        if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user' && $this->request->getParam('action') != 'dashboard') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor'  && $this->request->getParam('action') != 'dashboard'&& $this->request->getParam('action') != 'points')) { ?>
+        if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user' && $this->request->getParam('action') != 'dashboard') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor'  && $this->request->getParam('action') != 'dashboard' && $this->request->getParam('action') != 'points')) { ?>
 
 
             <div class="container">
                 <div class="row user-dashboard">
                     <?php
                     if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
-                        
+
+                        $Counselors = Cake\ORM\TableRegistry::getTableLocator()->get('Counselors');
+
+                        $counselor = $Counselors->find()->select(['points', 'total'])->where(['id' => $_SESSION['Auth']['Counselor']['id']])->first();
+
                     ?>
                         <div class="col-md-3">
 
-                            <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead)); ?>
+                            <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead, 'counselor' => $counselor)); ?>
                         </div>
                     <?php } else if (isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') { ?>
 

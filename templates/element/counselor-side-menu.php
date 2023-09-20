@@ -65,14 +65,14 @@
             <!-- <div class="image"> -->
             <div class="left-box">
                 <div class="circle-img circle-img-center">
-                    <img src="<?= $logged_user_info['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
+                    <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
                 <?php /* ?><h4 class="name-profile"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4><?php */
 
                 use Cake\Routing\Router;
 
                 ?>
-                <span class="online-status"><?= $logged_user_info['points'] > 0 ? $logged_user_info['points'] : '0' ?> POINTS</span>
+                <span class="online-status"><?= $counselor['points'] > 0 ? $counselor['points'] : '0' ?> POINTS</span>
 
             </div>
             <!-- </div> -->
