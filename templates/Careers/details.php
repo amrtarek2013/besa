@@ -24,7 +24,7 @@
 
 </section>
 
-<div class="title-header-blue">
+<div class="title-header-blue" style="padding-bottom:5px;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
