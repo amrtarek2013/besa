@@ -9360,24 +9360,24 @@ img.mobile-image {
     margin-bottom: 30px;
 }
 
-.sec-upcoming  .content {
+.sec-upcoming .content {
     border-radius: 20px;
     background: #EAF1F3;
     padding: 20px 35px;
     margin: 30px 0 20px;
 }
 
-.sec-upcoming  .content .grid-3col{
+.sec-upcoming .content .grid-3col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.sec-upcoming  .content .grid-3col h3{
+.sec-upcoming .content .grid-3col h3 {
     color: #2575FC;
 
-font-family: Poppins;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: 35px;
+    font-family: "Poppins";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35px;
 }
