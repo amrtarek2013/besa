@@ -1,44 +1,32 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
-<link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
+<style>
+    .btn {
+        color: blueviolet;
+    }
 
-<div class="content-wrapper">
+    td {
+        padding: 10px;
+        border: 1px solid #33ca9424;
+    }
+</style>
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><?= __('Counselor Rewards List') ?></h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Counselor Rewards') ?></li>
-                    </ol>
-                </div>
+<section class="register-banner">
+
+    <div class="container" style="width:100%">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title text-left title-dash"><?= __('Counselor Rewards Points List') ?></h1>
             </div>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-formBox">
+                    <h4 class="title"><?= __('Counselor Rewards Points List') ?></h4>
+                    <div class="">
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
                         <?php
-                        $session = $this->getRequest()->getSession();
-                        echo $this->List->filter_form($counselorRewards, $filters, [], [], $parameters, $session) ?>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"><?= __('Counselor Rewards List') ?></h3>
-                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
-                        </div>
-                        <?php
-
                         $fields = [
                             'basicModel' => 'counselorRewards',
                             'id' => [],
-                            'counselor.first_name' => ['title' => 'Counselor'],
                             'user.first_name' => ['title' => 'Student'],
                             'points' => [],
                             'number_points_dollar' => ['Number of points per dollar'],
@@ -71,12 +59,9 @@
                         echo $this->List->adminIndex($fields, $counselorRewards, $actions, false, $multi_select_actions, $parameters);
                         ?>
 
-                        <div class="card-footer clearfix">
-                            <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
