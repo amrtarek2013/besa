@@ -4,7 +4,7 @@
 
             <div class="col-md-12">
 
-                <img src="<?= $career['image_path'] ?>" alt="">
+                <img src="<?= $career['image_path'] ?>" alt="" style="width: 100%;">
             </div>
             <!-- <div class="col-md-12" style="padding:30px">
                 <h1 class="title" style="font-size: 35px;"><?= $career['title'] ?></h1>
