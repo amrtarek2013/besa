@@ -137,7 +137,7 @@
                     <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2>
 
                     <div class="slider">
-                        <div class="owl-carousel owl-step-back owl-school-tour">
+                        <div class="owl-carousel owl-step-back ">
                             <div class="item">
                                 <div class="image-box">
                                     <img src="/img/41.png" alt="">
