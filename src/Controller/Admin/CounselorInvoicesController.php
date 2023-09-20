@@ -110,6 +110,12 @@ class CounselorInvoicesController extends AppController
 
                             );
 
+                            if ($counselorInvoice['is_paid']) {
+                                $counselor->total_points = 0;
+                                $counselor->total_points_rewards = 0;
+                                $counselor->number_joined_students = 0;
+                                $this->Counselors->save($counselor);
+                            }
                             $this->sendEmail($to, $from, 'counselor.notify_counselor_invoice_request_updated', $replace);
                         }
                     }
