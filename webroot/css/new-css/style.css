@@ -9403,3 +9403,12 @@ img.mobile-image {
     line-height: normal;
 
 }
+
+.step-back-slider .image-box{
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 29px;
+    border: 6px solid #FFF;
+    overflow: hidden;
+    height: 180px;
+}

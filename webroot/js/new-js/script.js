@@ -124,6 +124,17 @@ $(document).ready(function () {
       "<img src='../img/chevron-left-gray.svg'>",
     ],
   });
+  var owlStepBack = $(".owl-step-back");
+  owlStepBack.owlCarousel({
+    items: 3,
+    loop: true,
+    nav: true,
+    navText: [
+      "<img src='../img/chevron-right-gray.svg'>",
+      "<img src='../img/chevron-left-gray.svg'>",
+    ],
+  });
+
  /*
   // Handle image clicks
   $(".image-box img").click(function () {
