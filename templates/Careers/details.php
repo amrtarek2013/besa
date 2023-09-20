@@ -24,17 +24,13 @@
 
 </section>
 
-<div class="title-header-blue" style="background-color: var(--bs-white);">
+<div class="title-header-blue">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>&nbsp;</p>
+                <h1 class="title" style="font-size: 35px; text-align:center; color:var(--bs-white)"><?= $career['title'] ?> <h1>
+                <h3 class="title" style="font-size: 25px; text-align:center; color:var(--bs-white)"> <?= $career['country'] ?> - <?= $career['state'] ?></h3>
 
-                <h1 class="title" style="font-size: 35px; text-align:center;"><?= $career['title'] ?> <br />Location: <?= $career['country'] ?> - <?= $career['state'] ?></h1>
-
-                <div class="content">
-                    <p>&nbsp;</p>
-                </div>
             </div>
         </div>
     </div>
