@@ -103,7 +103,7 @@
 
                         $Counselors = Cake\ORM\TableRegistry::getTableLocator()->get('Counselors');
 
-                        $counselor = $Counselors->find()->select(['points', 'total'])->where(['id' => $_SESSION['Auth']['Counselor']['id']])->first();
+                        $counselor = $Counselors->find()->select(['total_points', 'total_points_reward'])->where(['id' => $_SESSION['Auth']['Counselor']['id']])->first();
 
                     ?>
                         <div class="col-md-3">

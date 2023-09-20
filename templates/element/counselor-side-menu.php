@@ -72,7 +72,7 @@
                 use Cake\Routing\Router;
 
                 ?>
-                <span class="online-status"><?= $counselor['points'] > 0 ? $counselor['points'] : '0' ?> POINTS</span>
+                <span class="online-status"><?= $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</span>
 
             </div>
             <!-- </div> -->
