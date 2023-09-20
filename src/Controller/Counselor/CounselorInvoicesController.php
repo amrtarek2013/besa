@@ -22,7 +22,7 @@ class CounselorInvoicesController extends AppController
         $conditions = $this->_filter_params();
 
         $user = $this->Auth->user();
-        $conditions['counselor_id'] = $user['id'];
+        $conditions['CounselorRewards.counselor_id'] = $user['id'];
         $counselorInvoices = $this->paginate($this->CounselorInvoices, ['contain' => ['Counselors' => ['fields' => ['first_name']]], 'conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
 
@@ -41,7 +41,7 @@ class CounselorInvoicesController extends AppController
         $this->loadModel('CounselorRewards');
 
         $counselorRewardConds = [];
-        $counselorRewardConds['counselor_id'] = $user['id'];
+        $counselorRewardConds['CounselorRewards.counselor_id'] = $user['id'];
         $counselorRewardConds['is_paid !='] = 1;
         $counselorRewardConds[] = '(invoice_id is null)';
         $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])->where($counselorRewardConds)->all()->toArray();
