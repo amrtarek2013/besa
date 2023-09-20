@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Reward Points') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Reward Points Schema') ?></li>
                     </ol>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Reward Points List') ?></h3>
+                            <h3 class="card-title"><?= __('Reward Points Schema List') ?></h3>
                             <?= $this->element('admin_index_top_bottom_actions', ['permissionList' => $permissionList, 'parameters' => $parameters, 'current_controller' => $current_controller]) ?>
                         </div>
                         <?php
