@@ -9381,3 +9381,7 @@ img.mobile-image {
     font-weight: 400;
     line-height: 35px;
 }
+
+.sec-upcoming  .country img {
+    height: max-content;
+}
