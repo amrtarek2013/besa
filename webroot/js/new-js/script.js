@@ -124,7 +124,7 @@ $(document).ready(function () {
       "<img src='../img/chevron-left-gray.svg'>",
     ],
   });
-  var owlStepBack = $(".  owl-step-back");
+  var owlStepBack = $(".owl-step-back");
   owlStepBack.owlCarousel({
     items: 3,
     loop: true,
