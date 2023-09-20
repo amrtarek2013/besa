@@ -32,6 +32,7 @@
                             'number_points_dollar' => ['Number of points per dollar'],
                             'total' => [],
 
+                            'created' => [],
                             'is_paid' => ['format' => 'bool'],
                         ];
 
