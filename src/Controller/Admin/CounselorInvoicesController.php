@@ -74,7 +74,8 @@ class CounselorInvoicesController extends AppController
                     $counselorRewardConds['counselor_id'] = $counselorInvoice->counselor_id;
                     // $counselorRewardConds['is_paid !='] = 1;
                     $counselorRewardConds['invoice_id'] = $counselorInvoice->id;
-                    $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])->where($counselorRewardConds)->all()->toArray();
+                    $counselorRewards = $this->CounselorRewards->find('list', ['fieldKey' => 'id', 'valueKey' => 'id'])
+                        ->where($counselorRewardConds)->all()->toArray();
                     // Update CounselorRewards is_paid
                     $this->CounselorRewards->updateAll(
                         [  // fields
@@ -114,6 +115,13 @@ class CounselorInvoicesController extends AppController
                                 $counselor->total_points = 0;
                                 $counselor->total_points_rewards = 0;
                                 $counselor->number_joined_students = 0;
+                                $this->Counselors->save($counselor);
+                            } else {
+
+                                $counselor->total_points = $counselorInvoice->total_points;
+                                $counselor->total_points_rewards = $counselorInvoice->total;
+                                $counselor->number_joined_students = count($counselorRewards);
+
                                 $this->Counselors->save($counselor);
                             }
                             $this->sendEmail($to, $from, 'counselor.notify_counselor_invoice_request_updated', $replace);
