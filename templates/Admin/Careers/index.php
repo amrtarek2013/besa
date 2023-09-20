@@ -1,4 +1,4 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" ></script>
+<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
 
 <div class="content-wrapper">
@@ -41,8 +41,12 @@
                             'basicModel' => 'careers',
                             'id' => [],
                             'title' => [],
-                            
+
                             'image_path' => ['title' => 'Image', 'format' => 'link'],
+
+                            'country' => [],
+
+                            'state' => [],
                             'display_order' => [],
                             'active' => ['format' => 'bool'],
                         ];
