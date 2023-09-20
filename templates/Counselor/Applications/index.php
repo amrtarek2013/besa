@@ -169,129 +169,15 @@
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-                                        <!-- <tr id="users_8">
-                                            <td>Giselle</td>
-                                            <td colspan="4">
-                                                <div class="progressbar">
-                                                    <div class="app-not-apply"></div><span class="app-fail-text">Didn't Apply</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="users_8">
-                                            <td>Giselle</td>
-                                            <td colspan="4">
-                                                <div class="progressbar">
-                                                    <div class="app-apply-fail"></div><span class="app-fail-text">Application Failed</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="users_8">
-                                            <td>Giselle</td>
-                                            <td colspan="4">
-                                                <div class="progressbar">
-                                                    <div class="app-apply-pass"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="users_8">
-                                            <td>Giselle</td>
-                                            <td colspan="4">
-                                                <div class="progressbar">
-                                                    <div class="app-uni-offer"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="users_8">
-                                            <td>Giselle</td>
-                                            <td colspan="4">
-                                                <div class="progressbar">
-                                                    <div class="app-completed"></div>
-                                                </div>
-                                            </td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <?php
-
-                        // $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-
-
-                        // // public $statusClasses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
-                        // $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
-                        // $fields = [
-                        //     'basicModel' => 'users',
-                        //     // 'id' => [],
-                        //     // 'email' => [],
-                        //     'first_name' => [],
-                        //     // 'study_level.title' => ['title' => 'Study Level'],
-
-                        //     'status' => ['format' => 'get_from_array', 'options' => ['items_list' => $statuses]],
-                        // ];
-
-                        // $multi_select_actions = array(
-                        //     'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
-                        // );
-
-
-                        // $actions = [
-                        //     'view' => $this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-binoculars')),
-
-                        //     // array(
-                        //     //     'condition' => ' in_array($row["status"],array(2))',
-                        //     //     'value' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
-                        //     // ),
-                        //     'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
-
-                        //     'delete' => $this->Html->link(
-
-                        //         __('Delete'),
-                        //         ['action' => 'delete', '%id%'],
-                        //         [
-                        //             'confirm' => 'Are you sure you wish to delete this?',
-                        //             'class' => 'btn btn-danger btn-sm', 'icon' => 'fas fa-trash'
-                        //         ]
-                        //     )
-                        // ];
-
-
-                        // echo $this->List->adminIndex($fields, $users, $actions, false, $multi_select_actions, $parameters);
-                        ?>
-
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-12">
-                <div class="counselor-points">
-                    <div class="d-flex">
-                        <div class="container-boxsPoints">
-                            <div class="item">
-                                <div class="circle-point"><?= $counselor['number_joined_students'] ?></div>
-                                <h4>Joined Successfully</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point"><?= $counselor['number_of_students'] ?></div>
-                                <h4>Applied</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point"><?= $counselor['total_points'] ?></div>
-                                <h4>Points Acquired</h4>
-                            </div>
-                            <div class="item">
-                                <div class="circle-point text-success">$<?= number_format($counselor['total_points_reward'], 0) ?></div>
-                                <h4>Total Gain</h4>
-                            </div>
-                        </div>
-
-                        <div class="box-text">
-                            <a href="#">Withdraw</a>
-                            <a href="/counselor/points">Counselor Points</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?= $this->element('points', ['counselor' => $counselor]) ?>
         </div>
     </div>
 </section>

@@ -157,6 +157,11 @@ return static function (RouteBuilder $routes) {
         $routes->connect('/forgot-password', ['controller' => 'Counselors', 'action' => 'forgotPassword']);
         $routes->connect('/forgot-password-success', ['controller' => 'Counselors', 'action' => 'forgotPasswordSuccess']);
         $routes->connect('/reset-password/*', ['controller' => 'Counselors', 'action' => 'resetPassword']);
+
+        
+        $routes->connect('/invoices', ['controller' => 'CounselorInvoices', 'action' => 'index']);
+        $routes->connect('/invoices/view/*', ['controller' => 'CounselorInvoices', 'action' => 'view']);
+        $routes->connect('/withdraw', ['controller' => 'CounselorInvoices', 'action' => 'withdraw']);
         $routes->fallbacks(DashedRoute::class);
     });
 

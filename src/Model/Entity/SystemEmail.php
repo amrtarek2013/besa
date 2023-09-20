@@ -54,6 +54,34 @@ class SystemEmail extends Entity
             '{%view_link%}' => 'View Link',
         ),
 
+        'admin.notify_counselor_invoice_request' => array(
+            '{%name%}' => 'Counselor Name',
+            '{%email%}'  => 'Email',
+            '{%mobile%}'  => 'Mobile',
+            '{%view_link%}' => 'View Link',
+        ),
+
+
+        'counselor.notify_counselor_invoice_request' => array(
+
+            '{%name%}' => 'Name',
+            '{%mobile%}'  => 'Mobile',
+            '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
+        ),
+
+        'counselor.notify_counselor_invoice_request_updated' => array(
+            '{%name%}' => 'Name',
+            '{%email%}'  => 'Email',
+            '{%mobile%}'  => 'Mobile',
+            
+            '{%status%}'  => 'Invoice Status',
+            '{%comment%}'  => 'Comment',
+            '{%comment_time%}'  => 'Comment time',
+            '{%view_link%}' => 'View Link',
+            '{%website_url%}' => 'Website Url'
+        ),
+
         'branch.contactus_enquiry' => array(
             '{%name%}' => 'Username',
             '{%email%}'  => 'Email',
@@ -115,6 +143,7 @@ class SystemEmail extends Entity
             '{%view_link%}' => 'View Link',
             '{%website_url%}' => 'Website Url'
         ),
+
         'admin.notify_user_new_apply' => array(
             // '{%username%}' => 'Username',
             '{%name%}' => 'Name',

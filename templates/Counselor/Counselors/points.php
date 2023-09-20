@@ -51,7 +51,7 @@
                         <h4 class="price">$<?= number_format($counselor['total_points_reward'], 0) ?></h4>
                     </div>
 
-                    <a href="#" class="btn btn-withdraw">WITHDRAW</a>
+                    <a href="/counselor/withdraw" class="btn btn-withdraw">WITHDRAW</a>
                 </div>
             </div>
         </div>
