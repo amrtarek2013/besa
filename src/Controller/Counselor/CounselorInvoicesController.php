@@ -48,7 +48,7 @@ class CounselorInvoicesController extends AppController
 
         if (empty($counselorRewards)) {
 
-            $this->Flash->error(__('Sorry, you don\'t have any points. Please, try again.'));
+            $this->Flash->error(__('Sorry, you don\'t have any points Or you already requested the current Points.'));
             $this->redirect('/counselor');
         } 
 
