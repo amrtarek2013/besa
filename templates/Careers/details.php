@@ -1,73 +1,33 @@
-<section class="secondry-banner unitedKingdom" style="background: url(<?= $course['banner_image_path'] ?>) !important">
-    <div class="container">
+<section class="main-banner  inner-serv unitedKingdom-banner">
+    <div class="container-fluid">
         <div class="row">
+
             <div class="col-md-12">
-                <div class="breadcrumb">
-                    <h1 class=""><?= $course['course_name'] ?></h1>
-                </div>
+
+                <img src="<?= $career['image_path'] ?>" alt="">
+            </div>
+            <div class="col-md-12" style="padding:30px">
+                <h1 class="title" style="font-size: 35px;"><?= $career['title'] ?></h1>
             </div>
         </div>
     </div>
-    <div class="extra-bar">
-        <h4 class="title"><?= $course['title'] ?></h4>
-    </div>
-</section>
 
-<section class="just-text">
+</section>
+<section class="tabes british-tabes">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="descrp">
-                    <?= $course['descrption'] ?>
-                </p>
+                <h3 class="title" style="color: #fff;"><?= $career['short_text'] ?></h3>
 
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="whyStudy">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="gridWhyStudy">
-                    <div class="image">
-                        <img src="<?= $course['image_path'] ?>" alt="" class="circle-img">
-                    </div>
-                    <div class="text">
-                        <h4 class="title">
-                            Why Study In The <?= $course['code'] ?>?
-                        </h4>
-
-                        <!-- <?= $course['why_text'] ?> -->
-                        <a href="#" class="btn MainBtn clear-blue ">
-                            Apply Now
-                            <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="tabes">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
                 <div class="gridTabes">
-                    <a href="#" class="btn clear-blue foundation">Foundation</a>
-                    <a href="#" class="btn light-red pre-sessional ">Pre-sessional </a>
-                    <a href="#" class="btn gold-tips bachelor">Bachelor</a>
+                    <a class="btn clear-blue foundation" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>">Apply Now</a>
 
-                    <a href="#" class="btn greenish-teal master">Master</a>
-                    <a href="#" class="btn slate-grey phd">PhD</a>
-                    <a href="#" class="btn white vocational">Vocational</a>
-
+                    <a class="btn gold-tips master" href="#newsletter">Newsletter Sign Up</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<?= $career['text'] ?>
+<?= $career['requirments'] ?>

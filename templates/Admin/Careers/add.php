@@ -33,12 +33,10 @@
                         <div class="card-body">
                             <?php
                             
-                            // echo $this->AdminForm->control('type', ['type' => 'select', 'option' => $types, 'class' => 'INPUT required']);
-
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('country', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('state', ['type' => 'text', 'class' => 'INPUT required']);
-                            echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('short_text', ['type' => 'text', 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
                                 'data' => $career,
@@ -50,8 +48,10 @@
 
                                 ],
                             ])]);
-                           
-                            echo $this->AdminForm->control('text', ['class' => $class .' addFrontCss']);
+
+                            $class = 'editor basicEditor';
+                            echo $this->AdminForm->control('text', ['title' => 'Job Description', 'class' => $class . ' addFrontCss']);
+                            echo $this->AdminForm->control('requirments', ['title' => 'Job Requirments', 'class' => $class . ' addFrontCss']);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
                             echo $this->AdminForm->control('display_order');

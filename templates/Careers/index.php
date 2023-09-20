@@ -31,6 +31,7 @@
                                 <div class="item">
                                     <h5><?= $career['title'] ?></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
+                                    <a href="<?= Cake\Routing\Router::url('/careers/details/' . $career['permalink']) ?>" class="">Details</a>
                                     <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>
                                 </div>
                             <?php endforeach; ?>
