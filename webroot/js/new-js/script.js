@@ -124,6 +124,8 @@ $(document).ready(function () {
       "<img src='../img/chevron-left-gray.svg'>",
     ],
   });
+
+
  /*
   // Handle image clicks
   $(".image-box img").click(function () {
