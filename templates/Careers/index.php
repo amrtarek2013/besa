@@ -31,7 +31,7 @@
                                 <div class="item">
                                     <h5><?= $career['title'] ?></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
-                                    <a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink']) ?>" class="btn">Learn More</a>
+                                    <a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink'] . '/' . $career['id']) ?>" class="btn">Learn More</a>
                                     <?php
                                     if (false) { ?>
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>

@@ -20,14 +20,18 @@ class CareersController extends AppController
         $careerImages = $this->CareerImages->find()->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all();
 
         $this->set('careerImages', $careerImages);
-        
+
         $besa_careers_benefits = $this->getSnippet('besa_careers_benefits');
-        
+
         $this->set('besa_careers_benefits', $besa_careers_benefits);
     }
-    public function details($id = null)
+    public function details($permalink = null, $id = null)
     {
-        $career = $this->Careers->findByPermalink($id)->first();
+        $career = null;
+        if ($id)
+            $career = $this->Careers->get($id)->first();
+        else
+            $career = $this->Careers->findByPermalink($permalink)->first();
 
         // debug($career);
         $this->set('bodyClass', 'pageUnitedKingdom pageServices');
@@ -38,6 +42,5 @@ class CareersController extends AppController
 
         $this->set('career', $career);
         $this->set('permalink', $id);
-
     }
 }
