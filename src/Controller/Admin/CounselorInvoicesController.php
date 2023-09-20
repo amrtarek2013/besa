@@ -110,7 +110,7 @@ class CounselorInvoicesController extends AppController
 
                             );
 
-                            $this->sendEmail($to, $from, 'counselor.notify_counselor_invoice_request', $replace);
+                            $this->sendEmail($to, $from, 'counselor.notify_counselor_invoice_request_updated', $replace);
                         }
                     }
 
