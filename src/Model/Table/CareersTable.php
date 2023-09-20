@@ -17,7 +17,7 @@ class CareersTable extends Table
     public $filters = [
         'title' => 'like',
         // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
-        
+
         // 'continent',
     ];
 
@@ -46,17 +46,18 @@ class CareersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 414, 'height' => 414],
+                        'resize' => ['width' => 1400, 'height' => 410],
                         'datePath' => ['path' => ''],
+                        'width' => 1400, 'height' => 410,
                         // 'datePath' => false,
                         'path' => 'uploads/careers',
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                            ['thumb_prefix' => 'thumb_', 'width' => '120', 'height' => '60']
                         ],
                     ],
-                    
+
                 ]
             ]
         );
@@ -81,8 +82,10 @@ class CareersTable extends Table
     public function beforeSave($event, $entity, $options)
     {
 
-        // if ($entity->isNew() && empty($entity->permalink)) {
-        //     $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
-        // }
+        if (($entity->isNew() && empty($entity->permalink))
+            || (!empty($entity->title)  && $entity->isDirty('title'))
+        ) {
+            $entity->permalink = Inflector::dasherize(strtolower(Text::slug($entity->title, '_')));
+        }
     }
 }
