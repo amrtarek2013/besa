@@ -46,7 +46,7 @@
 
                             'is_paid' => ['format' => 'bool'],
                             'created' => [],
-                            'payment_time' => [],
+                            'transaction_time' => [],
                         ];
 
                         $multi_select_actions = array(
