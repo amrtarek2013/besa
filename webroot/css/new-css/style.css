@@ -3711,7 +3711,7 @@ input[type="checkbox"] {
     position: absolute;
     bottom: 0;
     right: 75px;
-    
+
     border-radius: 225px;
     border: 9px solid var(--bs-gray);
     width: 267px !important;
@@ -3739,7 +3739,7 @@ input[type="checkbox"] {
     position: absolute;
     left: 0;
     bottom: -60px;
-    border: 9px solid var(--bs-gray); 
+    border: 9px solid var(--bs-gray);
 }
 
 .important-events .double_img .dots-rel {
@@ -9188,7 +9188,8 @@ img.mobile-image {
     margin-bottom: 10px;
 
 }
-.milestone .mil-text div{
+
+.milestone .mil-text div {
     min-width: 155px;
 
 }
@@ -9202,10 +9203,12 @@ img.mobile-image {
     text-align: start;
 
 }
-.milestone .mil-text .col-right{
+
+.milestone .mil-text .col-right {
     position: relative;
 
 }
+
 .milestone .mil-text .col-right::before {
     content: "";
     width: 1px;
@@ -9317,7 +9320,64 @@ img.mobile-image {
     line-height: 63px
 }
 
-.lifeBesaSlider .title{
+.lifeBesaSlider .title {
     text-align: center;
 
+}
+
+.sec-upcoming {
+    padding: 40px 0;
+}
+
+.sec-upcoming h4 {
+    color: #33CA94;
+    font-family: "Merriweather";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 63px;
+    margin-bottom: 5px;
+
+}
+
+.sec-upcoming p {
+    color: #696F79;
+    font-family: "Poppins";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.sec-upcoming h5 {
+    color: #2575FC;
+    font-family: "Merriweather";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+
+.sec-upcoming  .content {
+    border-radius: 20px;
+    background: #EAF1F3;
+    padding: 20px 35px;
+    margin: 30px 0 20px;
+}
+
+.sec-upcoming  .content .grid-3col{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sec-upcoming  .content .grid-3col h3{
+    color: #2575FC;
+
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 35px;
 }

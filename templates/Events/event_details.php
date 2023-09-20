@@ -94,7 +94,7 @@
             </div>
             <div class="col-md-4">
                 <div class="image">
-                    <img src="./img/Expo.png" alt="" loading="lazy">
+                    <img src="/img/Expo.png" alt="" loading="lazy">
                 </div>
             </div>
             <div class="col-md-12">
@@ -114,11 +114,11 @@
                         <div class="box">
                             <h3>Attending countries</h3>
                             <div class="country d-flex">
-                                <img src="./img/australia_glossy_round_icon_640.png" alt="">
-                                <img src="./img/united_states_of_america_glossy_round_icon_640.png" alt="">
-                                <img src="./img/lithuania_glossy_round_icon_640.png" alt="">
-                                <img src="./img/hungary_glossy_round_icon_256.png" alt="">
-                                <img src="./img/canada_glossy_round_icon_640.png" alt="">
+                                <img src="/img/australia_glossy_round_icon_640.png" alt="" loading="lazy">
+                                <img src="/img/united_states_of_america_glossy_round_icon_640.png" alt="" loading="lazy">
+                                <img src="/img/lithuania_glossy_round_icon_640.png" alt="" loading="lazy">
+                                <img src="/img/hungary_glossy_round_icon_256.png" alt="" loading="lazy">
+                                <img src="/img/canada_glossy_round_icon_640.png" alt="" loading="lazy">
                             </div>
                         </div>
                     </div>
