@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg47.png" alt=""  width="">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg47.png" alt="" width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -29,10 +29,13 @@
                         <div class="grid3col">
                             <?php foreach ($careers as $career) : ?>
                                 <div class="item">
-                                    <h5><a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink']) ?>" class=""><?= $career['title'] ?></a></h5>
+                                    <h5><?= $career['title'] ?></h5>
                                     <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
-                                    
-                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>
+                                    <a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink']) ?>" class="btn">Learn More</a>
+                                    <?php
+                                    if (false) { ?>
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>
+                                    <?php } ?>
                                 </div>
                             <?php endforeach; ?>
 
