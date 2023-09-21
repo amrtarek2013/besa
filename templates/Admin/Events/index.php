@@ -1,4 +1,4 @@
-<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" ></script>
+<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
 
 <div class="content-wrapper">
@@ -51,23 +51,26 @@
                         ];
 
                         $multi_select_actions = array(
-                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
+                            // 'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
                         );
 
 
                         $actions = [
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
+                            array(
+                                'condition' => '$row["id"]==7',
+                                'value' => $this->Html->link(__('Slider', true), array('controller' => 'event-images', 'action' => 'index', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-arrow-right')),
+                            ),
+                            // 'delete' => $this->Html->link(
 
-                            'delete' => $this->Html->link(
-
-                                __('Delete'),
-                                ['action' => 'delete', '%id%'],
-                                [
-                                    'confirm' => 'Are you sure you wish to delete this?',
-                                    'class' => 'btn btn-danger btn-sm', 'icon' => 'fas fa-trash'
-                                ]
-                            )
+                            //     __('Delete'),
+                            //     ['action' => 'delete', '%id%'],
+                            //     [
+                            //         'confirm' => 'Are you sure you wish to delete this?',
+                            //         'class' => 'btn btn-danger btn-sm', 'icon' => 'fas fa-trash'
+                            //     ]
+                            // )
                         ];
 
 
@@ -77,5 +80,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>

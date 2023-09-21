@@ -9440,22 +9440,20 @@ img.mobile-image {
     top: 50%
 }
 
-/* Apply styles to the section */
-.professional-development {
-  
-    padding: 20px;
-}
+
 
 /* Apply styles to the title */
-.professional-development .title {
-    font-size: 24px;
+.new-professional-development-1 .title {
+    font-size: 24px !important;
+    margin-bottom: 20px !important;
+
 }
 
 
 
-/* Apply styles to list items */
-.responsibilities li,
-.qualifications li {
-    margin-bottom: 10px;
-    font-size: 16px;
+.new-professional-development-1 p {
+    font-size: 16px !; /* Adjust the font size as needed */
+    line-height: 2 !important;
 }
+
+
