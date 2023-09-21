@@ -7,7 +7,7 @@ class BitrixIntegration{
 				$this->add_lead_from_book_appointment($data,$type,$extras);
 				break;
 			case 'visitors-application':
-				$this->add_lead_from_visitors_application($data,$type);
+				$this->add_lead_from_visitors_application($data,$type,$extras);
 				break;
 			case 'register-student':
 				$this->add_lead_from_register($data,$type,$extras);
@@ -111,6 +111,19 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
+
+		$data_arr['SOURCE_ID'] = 'UC_K5MWDQ';
+		if(!empty($data['school_name'])){
+			$data_arr['UF_CRM_1695270017192'] = $data['school_name'];
+		}
+		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1610306282'] = $extras['countriesList'][$data['destination_id']];
+			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
+		}
+		if(!empty($data['fair_venue']) && !empty($extras['fairVenues']) ){
+			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
+		}
+
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
