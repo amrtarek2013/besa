@@ -126,7 +126,12 @@ class BitrixIntegration{
 		}
 		//responsible
 		$data_arr['ASSIGNED_BY_ID'] = 422;
-		
+		if(isset($data['fair_venue'])){
+			if($data['fair_venue']==1){
+				$data_arr['ASSIGNED_BY_ID'] = 9551;
+			}
+		}
+
 		// print_r($data_arr);die("-------------");
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
