@@ -9439,3 +9439,23 @@ img.mobile-image {
 .owl-step-back .owl-prev {
     top: 50%
 }
+
+/* Apply styles to the section */
+.professional-development {
+  
+    padding: 20px;
+}
+
+/* Apply styles to the title */
+.professional-development .title {
+    font-size: 24px;
+}
+
+
+
+/* Apply styles to list items */
+.responsibilities li,
+.qualifications li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
