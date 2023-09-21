@@ -9412,3 +9412,8 @@ img.mobile-image {
     overflow: hidden;
     height: 180px;
 }
+
+.step-back-slider{
+    background: #2575FC;
+    padding: 40px 0;
+}
