@@ -9089,7 +9089,8 @@ img.mobile-image {
     max-width: 1070px;
     margin: 0 auto;
 }
-
+.owl-step-back  .owl-next,
+.owl-step-back  .owl-prev,
 .owl-school-tour .owl-next,
 .owl-school-tour .owl-prev {
     position: absolute;
@@ -9100,12 +9101,13 @@ img.mobile-image {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
 }
+.owl-step-back  .owl-prev,
 
 .owl-school-tour .owl-prev {
     left: -60px;
 
 }
-
+.owl-step-back  .owl-next ,
 .owl-school-tour .owl-next {
     right: -60px;
 }
@@ -9416,4 +9418,7 @@ img.mobile-image {
 .step-back-slider{
     background: #2575FC;
     padding: 40px 0;
+}
+.step-back-slider .title_28{
+    margin-bottom: 20px;
 }

@@ -130,8 +130,8 @@ $(document).ready(function () {
     loop: true,
     nav: true,
     navText: [
-      "<img src='../img/chevron-right-gray.svg'>",
-      "<img src='../img/chevron-left-gray.svg'>",
+      "<img src='../img/chevron-right-white.svg'>",
+      "<img src='../img/chevron-left-white.svg'>",
     ],
   });
 
