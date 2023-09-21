@@ -128,6 +128,8 @@ $(document).ready(function () {
   owlStepBack.owlCarousel({
     items: 3,
     loop: true,
+    margin: 25,
+
     nav: true,
     navText: [
       "<img src='../img/chevron-right-white.svg'>",
