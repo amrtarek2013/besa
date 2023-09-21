@@ -85,83 +85,12 @@
 </section>
 
 <?php if (isset($_GET['test'])) { ?>
-    <div class="sec-upcoming">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h4>Upcoming </h4>
-                    <h5>IDP Study Abroad Expo in Egypt</h5>
-                    <p>Meet the experts from the top universities and ask them about your study options, their admission requirements, tuition fees, partial scholarships, how to register and more. Attend IDP Study Abroad Expo for FREE.</p>
-                </div>
-                <div class="col-md-4">
-                    <div class="image">
-                        <img src="/img/Expo.png" alt="" loading="lazy">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="content">
-                        <div class="grid-3col">
-                            <div class="box">
-                                <h3>Where</h3>
-                                <p>
-                                    Tolip El Narges - 5th Settlement, New Cairo - <br>
-                                    Cinderella Ballroom, Cairo, Egypt.
-                                </p>
-                            </div>
-                            <div class="box">
-                                <h3>When</h3>
-                                <p>16th Oct 2023 03:00 PM - 09:00 PM</p>
-                            </div>
-                            <div class="box">
-                                <h3>Attending countries</h3>
-                                <div class="country d-flex">
-                                    <img src="/img/australia_glossy_round_icon_640.png" alt="">
-                                    <img src="/img/united_states_of_america_glossy_round_icon_640.png" alt="">
-                                    <img src="/img/lithuania_glossy_round_icon_640.png" alt="">
-                                    <img src="/img/hungary_glossy_round_icon_256.png" alt="">
-                                    <img src="/img/canada_glossy_round_icon_640.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-register">Register Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="step-back-slider">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2>
-
-                    <div class="slider">
-                        <div class="owl-carousel owl-step-back ">
-                            <div class="item">
-                                <div class="image-box">
-                                    <img src="/img/41.png" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image-box">
-                                    <img src="/img/41.png" alt="">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image-box">
-                                    <img src="/img/41.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                            
-                      
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <?php
+    if (!empty($event['left_text']))
+        echo $event['left_text'];
+    if (!empty($event['event_images']) && $event['id'] == 7)
+        echo $this->element('event-slider', ['event_images' => $event['event_images']]);
+    ?>
 <?php } ?>
 <?= $event['text'] ?>
 

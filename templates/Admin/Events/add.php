@@ -129,12 +129,15 @@
                             <!-- <div class="related-text">Image Size 768px X 170px</div> -->
 
                             <?php
+                            if (!empty($event) && $event->id == 7) {
+                                echo $this->AdminForm->control('left_text', ['title' => 'Upcoming Top Section', 'type' => 'textarea', 'class' => 'editor']);
+                            }
                             echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);
 
                             echo $this->AdminForm->control('style', array('options' => $centerBoxStyle, 'empty' => 'Choose Center Box Style', 'id' => 'font_color', 'class' => 'INPUT', 'label' => 'Center Box Style'));
                             echo $this->AdminForm->control('text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('video_right_text', ['type' => 'textarea', 'class' => 'editor']);
-                            // echo $this->AdminForm->control('left_text', ['type' => 'textarea', 'class' => 'editor']);
+
                             // echo $this->AdminForm->control('right_text', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('html2', ['type' => 'textarea', 'class' => 'editor']);
                             // echo $this->AdminForm->control('keywords',['type'=>'text']);
@@ -155,7 +158,7 @@
                             );
 
                             echo $this->AdminForm->control('font_color', array('options' => $colors, 'empty' => 'Choose Font Color', 'id' => 'font_color', 'class' => 'INPUT', "style" => "background-color:black;color:" . $event->font_color . " !important; ", 'label' => 'Font Color'));
-                          
+
                             echo $this->AdminForm->control('background_color', array('options' => $colors, 'empty' => 'Choose Background Color', 'id' => 'background_color', 'class' => 'INPUT', "style" => "color:black;background-color:" . $event->background_color . " !important; ", 'label' => 'Background Color'));
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
