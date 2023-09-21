@@ -4,7 +4,7 @@ class BitrixIntegration{
 	public function execute($data,$type,$extras = []){
 		switch ($type) {
 			case 'book-appointment':
-				$this->add_lead_from_book_appointment($data,$type);
+				$this->add_lead_from_book_appointment($data,$type,$extras);
 				break;
 			case 'visitors-application':
 				$this->add_lead_from_visitors_application($data,$type);
@@ -18,7 +18,7 @@ class BitrixIntegration{
 				break;
 		}
 	}
-	public function add_lead_from_book_appointment($data,$type){
+	public function add_lead_from_book_appointment($data,$type,$extras){
 		// $options =  [];
 		// $result = $this->bitrix_process_api('crm.lead.list',$options);
 		$data_arr = [];
@@ -49,6 +49,27 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
+
+		$data_arr['SOURCE_ID'] = 'EMAIL';
+
+		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1610306282'] = $extras['countriesList'][$data['destination_id']];
+			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
+		}
+		if(!empty($data['subject_area_id']) && !empty($extras['subjectAreas']) ){
+			$data_arr['UF_CRM_1694999790491'] = $extras['subjectAreas'][$data['subject_area_id']];
+		}
+		$study_levels = [
+			0=>44,1=>44,
+			2=>46,3=>46,4=>46,
+		];
+		if(!empty($data['study_level'])){
+			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['study_level']];
+		}
+		
+
+		
+
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
