@@ -130,7 +130,7 @@
 
                             <?php
                             if (!empty($event) && $event->id == 7) {
-                                echo $this->AdminForm->control('left_text', ['title' => 'Upcoming Top Section', 'type' => 'textarea', 'class' => 'editor']);
+                                echo $this->AdminForm->control('left_text', ['label' => 'Upcoming Top Section', 'type' => 'textarea', 'class' => 'editor']);
                             }
                             echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);
 
