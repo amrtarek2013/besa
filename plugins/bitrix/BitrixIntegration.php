@@ -90,7 +90,7 @@ class BitrixIntegration{
 			$data_arr['NAME'] = $data['name'];
 			if(!empty($data['surname'])){
 				$data_arr['LAST_NAME'] = $data['surname'];
-				$data_arr['TITLE'] .= $data['surname'];
+				$data_arr['TITLE'] .= ' '.$data['surname'];
 			}
 		}
 		
@@ -113,6 +113,7 @@ class BitrixIntegration{
 		$data_arr['OPENED'] = 'Y';
 
 		$data_arr['SOURCE_ID'] = 'UC_K5MWDQ';
+		$data_arr['UF_CRM_1695270017192'] = 'kkkkkkkkkk';
 		if(!empty($data['school_name'])){
 			$data_arr['UF_CRM_1695270017192'] = $data['school_name'];
 		}
