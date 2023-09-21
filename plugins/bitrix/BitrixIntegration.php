@@ -79,7 +79,7 @@ class BitrixIntegration{
 			// echo '</pre>';die;
 		}
 	}
-	public function add_lead_from_visitors_application($data,$type){
+	public function add_lead_from_visitors_application($data,$type,$extras){
 		$study_levels = [
 			0=>44,1=>44,
 			2=>46,3=>46,4=>46,
@@ -123,7 +123,7 @@ class BitrixIntegration{
 		if(isset($data['fair_venue']) && !empty($extras['fairVenues']) ){
 			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
 		}
-		print_r($data_arr);die("-------------");
+		// print_r($data_arr);die("-------------");
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
