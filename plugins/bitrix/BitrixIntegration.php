@@ -123,7 +123,7 @@ class BitrixIntegration{
 		if(isset($data['fair_venue']) && !empty($extras['fairVenues']) ){
 			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
 		}
-
+		print_r($data_arr);die("-------------");
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
