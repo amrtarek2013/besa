@@ -59,7 +59,7 @@
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
                             array(
-                                'condition' => '$row["id"]==6',
+                                'condition' => '$row["id"]==7',
                                 'value' => $this->Html->link(__('Slider', true), array('controller' => 'event-images', 'action' => 'index', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-arrow-right')),
                             ),
                             // 'delete' => $this->Html->link(
