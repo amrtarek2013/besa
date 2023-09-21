@@ -4,10 +4,10 @@ class BitrixIntegration{
 	public function execute($data,$type,$extras = []){
 		switch ($type) {
 			case 'book-appointment':
-				$this->add_lead_from_book_appointment($data,$type);
+				$this->add_lead_from_book_appointment($data,$type,$extras);
 				break;
 			case 'visitors-application':
-				$this->add_lead_from_visitors_application($data,$type);
+				$this->add_lead_from_visitors_application($data,$type,$extras);
 				break;
 			case 'register-student':
 				$this->add_lead_from_register($data,$type,$extras);
@@ -18,7 +18,7 @@ class BitrixIntegration{
 				break;
 		}
 	}
-	public function add_lead_from_book_appointment($data,$type){
+	public function add_lead_from_book_appointment($data,$type,$extras){
 		// $options =  [];
 		// $result = $this->bitrix_process_api('crm.lead.list',$options);
 		$data_arr = [];
@@ -49,6 +49,27 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
+
+		$data_arr['SOURCE_ID'] = 'EMAIL';
+
+		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1610306282'] = $extras['countriesList'][$data['destination_id']];
+			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
+		}
+		if(!empty($data['subject_area_id']) && !empty($extras['subjectAreas']) ){
+			$data_arr['UF_CRM_1694999790491'] = $extras['subjectAreas'][$data['subject_area_id']];
+		}
+		$study_levels = [
+			0=>44,1=>44,
+			2=>46,3=>46,4=>46,
+		];
+		if(!empty($data['study_level'])){
+			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['study_level']];
+		}
+		
+
+		
+
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
@@ -58,7 +79,7 @@ class BitrixIntegration{
 			// echo '</pre>';die;
 		}
 	}
-	public function add_lead_from_visitors_application($data,$type){
+	public function add_lead_from_visitors_application($data,$type,$extras){
 		$study_levels = [
 			0=>44,1=>44,
 			2=>46,3=>46,4=>46,
@@ -69,7 +90,7 @@ class BitrixIntegration{
 			$data_arr['NAME'] = $data['name'];
 			if(!empty($data['surname'])){
 				$data_arr['LAST_NAME'] = $data['surname'];
-				$data_arr['TITLE'] .= $data['surname'];
+				$data_arr['TITLE'] .= ' '.$data['surname'];
 			}
 		}
 		
@@ -90,6 +111,19 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
+
+		$data_arr['SOURCE_ID'] = 'UC_K5MWDQ';
+		if(!empty($data['school_name'])){
+			$data_arr['UF_CRM_1695270017192'] = $data['school_name'];
+		}
+		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1610306282'] = $extras['countriesList'][$data['destination_id']];
+			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
+		}
+		if(isset($data['fair_venue']) && !empty($extras['fairVenues']) ){
+			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
+		}
+		// print_r($data_arr);die("-------------");
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
 
@@ -110,7 +144,7 @@ class BitrixIntegration{
 			$data_arr['NAME'] = $data['first_name'];
 			if(!empty($data['last_name'])){
 				$data_arr['LAST_NAME'] = $data['last_name'];
-				$data_arr['TITLE'] .= $data['last_name'];
+				$data_arr['TITLE'] .= ' '.$data['last_name'];
 			}
 		}
 		
@@ -149,6 +183,16 @@ class BitrixIntegration{
 			}
 		}
 		
+		if(!empty($data['nationality_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1695279653581'] = $extras['countriesList'][$data['nationality_id']];
+		}
+		if(!empty($data['city']) ){
+			$data_arr['UF_CRM_1695279678041'] = $data['city'];
+		}
+		if(!empty($data['current_status']) ){
+			$data_arr['UF_CRM_1695270017192'] = $data['current_status'];
+		}
+		$data_arr['SOURCE_ID'] = 'CALL';
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';

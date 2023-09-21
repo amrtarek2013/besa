@@ -1281,6 +1281,9 @@ class AppController extends Controller
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc'])->toArray();
         $extras['countriesList']=$countriesList;
+        
+        $this->loadModel('Enquiries');
+        $extras['fairVenues'] = $this->Enquiries->fairVenues;
 
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
             if(!empty($data['bd'])){
