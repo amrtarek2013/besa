@@ -9440,22 +9440,18 @@ img.mobile-image {
     top: 50%
 }
 
-/* Apply styles to the section */
-.professional-development {
-  
-    padding: 20px;
-}
+
 
 /* Apply styles to the title */
 .professional-development .title {
-    font-size: 24px;
+    font-size: 24px !important;
 }
 
 
 
 .new-professional-development-1 p {
-    font-size: 16px; /* Adjust the font size as needed */
-    line-height: 2;
+    font-size: 16px !; /* Adjust the font size as needed */
+    line-height: 2 !important;
 }
 
 
@@ -9463,5 +9459,5 @@ img.mobile-image {
     padding-top: 0;
 }
 .new-professional-development-1 h3{
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
