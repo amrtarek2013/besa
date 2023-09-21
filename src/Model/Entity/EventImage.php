@@ -36,7 +36,7 @@ class EventImage extends Entity
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . 'photoGalley (1).png';
+        $no_image_path = DS . 'img' . DS . '330x180.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'event_images' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))
