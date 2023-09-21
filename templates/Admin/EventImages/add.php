@@ -32,8 +32,8 @@
                         <?= $this->AdminForm->create($eventImage, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            
-                            echo $this->AdminForm->control('event_id', ['type' => 'select', 'option' => $events, 'class' => 'INPUT required']);
+
+                            echo $this->AdminForm->control('event_id', ['label' => 'Event', 'type' => 'select', 'option' => $events, 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('title', ['type' => 'text']);
 
                             echo $this->AdminForm->control('image', ['label' => 'Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
@@ -47,22 +47,22 @@
                                 ],
                             ])]);
 
-                            echo $this->AdminForm->control('description', ['type' => 'textarea', 'class' => 'editor']);
-                            echo $this->AdminForm->control('display_order', []);
-                            echo $this->AdminForm->control('active', ['type' => 'checkbox']);
+                            // echo $this->AdminForm->control('description', ['type' => 'textarea', 'class' => 'editor']);
+                            // echo $this->AdminForm->control('display_order', []);
+                            // echo $this->AdminForm->control('active', ['type' => 'checkbox']);
 
 
                             // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'eventImage_' . $id, $mainAdminToken);
-                            echo $this->AdminForm->enableEditors('.editor');
+                            // echo $this->AdminForm->enableEditors('.editor');
                             ?>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><?= __('Save') ?></button>
                             <?php
-                            if (!$eventImage->isNew()) {
+                            // if (!$eventImage->isNew()) {
 
-                                echo $this->element('save_as_new', array($eventImage));
-                            }
+                            //     echo $this->element('save_as_new', array($eventImage));
+                            // }
                             ?>
                         </div>
                         <?= $this->AdminForm->end() ?>
