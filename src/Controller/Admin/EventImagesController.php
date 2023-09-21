@@ -14,9 +14,15 @@ use App\Controller\AppController;
 class EventImagesController extends AppController
 {
 
-    public function index()
+    public function index($event_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($event_id)) {
+            $conditions['event_id'] = $event_id;
+            $this->Session->write('event_id', $event_id);
+        }
 
         $eventImages = $this->paginate($this->EventImages, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
@@ -24,9 +30,15 @@ class EventImagesController extends AppController
         $this->set(compact('eventImages', 'parameters'));
         $this->__common();
     }
-    public function list()
+    public function list($event_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($event_id)) {
+            $conditions['event_id'] = $event_id;
+            $this->Session->write('event_id', $event_id);
+        }
         $eventImages = $this->paginate($this->EventImages, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
         $this->__common();
@@ -41,7 +53,7 @@ class EventImagesController extends AppController
             if ($this->EventImages->save($eventImage)) {
                 $this->Flash->success(__('The EventImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The EventImage could not be saved. Please, try again.'));
         }
@@ -61,7 +73,7 @@ class EventImagesController extends AppController
             if ($this->EventImages->save($eventImage)) {
                 $this->Flash->success(__('The EventImage has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The EventImage could not be saved. Please, try again.'));
         }
@@ -84,7 +96,7 @@ class EventImagesController extends AppController
             $this->Flash->error(__('The EventImage could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -100,7 +112,7 @@ class EventImagesController extends AppController
             $this->Flash->error(__('The Event Images could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -118,7 +130,16 @@ class EventImagesController extends AppController
         $events = $this->Events->find('list', [
             'keyField' => 'id',
             'valueField' => 'title',
-        ])->where(["active" => 1])->order(['title'=>'ASC'])->toArray();
-        $this->set(compact('uploadSettings','events'));
+        ])->where(["active" => 1])->order(['title' => 'ASC'])->toArray();
+        $this->set(compact('uploadSettings', 'events'));
+    }
+
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('event_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('event_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 }
