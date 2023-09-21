@@ -113,7 +113,6 @@ class BitrixIntegration{
 		$data_arr['OPENED'] = 'Y';
 
 		$data_arr['SOURCE_ID'] = 'UC_K5MWDQ';
-		$data_arr['UF_CRM_1695270017192'] = 'kkkkkkkkkk';
 		if(!empty($data['school_name'])){
 			$data_arr['UF_CRM_1695270017192'] = $data['school_name'];
 		}
