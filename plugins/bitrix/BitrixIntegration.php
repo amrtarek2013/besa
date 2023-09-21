@@ -66,7 +66,8 @@ class BitrixIntegration{
 		if(!empty($data['study_level'])){
 			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['study_level']];
 		}
-		
+		//responsible
+		$data_arr['ASSIGNED_BY_ID'] = 422;
 
 		
 
@@ -123,6 +124,9 @@ class BitrixIntegration{
 		if(isset($data['fair_venue']) && !empty($extras['fairVenues']) ){
 			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
 		}
+		//responsible
+		$data_arr['ASSIGNED_BY_ID'] = 422;
+		
 		// print_r($data_arr);die("-------------");
 		if(!empty($data_arr['TITLE'])){
 			$options =  ['fields' => $data_arr,];
@@ -186,7 +190,13 @@ class BitrixIntegration{
 		if(!empty($data['nationality_id']) && !empty($extras['countriesList']) ){
 			$data_arr['UF_CRM_1695279653581'] = $extras['countriesList'][$data['nationality_id']];
 		}
+		//responsible
+		$data_arr['ASSIGNED_BY_ID'] = 422;
+
 		if(!empty($data['city']) ){
+			if(strpos($data['city'], 'alex')!==false){
+				$data_arr['ASSIGNED_BY_ID'] = 9551;
+			}
 			$data_arr['UF_CRM_1695279678041'] = $data['city'];
 		}
 		if(!empty($data['current_status']) ){
