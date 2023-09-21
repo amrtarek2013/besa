@@ -1281,12 +1281,15 @@ class AppController extends Controller
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc'])->toArray();
         $extras['countriesList']=$countriesList;
+        
+        $this->loadModel('Enquiries');
+        $extras['fairVenues'] = $this->Enquiries->fairVenues;
 
         if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
             if(!empty($data['bd'])){
                 $extras['bd']=$data['bd']->format('d.m.Y');
             }
-            // print_r($data);die;
+            print_r($data);die;
             // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
