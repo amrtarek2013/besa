@@ -183,6 +183,16 @@ class BitrixIntegration{
 			}
 		}
 		
+		if(!empty($data['nationality_id']) && !empty($extras['countriesList']) ){
+			$data_arr['UF_CRM_1695279653581'] = $extras['countriesList'][$data['nationality_id']];
+		}
+		if(!empty($data['city']) ){
+			$data_arr['UF_CRM_1695279678041'] = $data['city'];
+		}
+		if(!empty($data['current_status']) ){
+			$data_arr['UF_CRM_1695270017192'] = $data['current_status'];
+		}
+		$data_arr['SOURCE_ID'] = 'CALL';
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
