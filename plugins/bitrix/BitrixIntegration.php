@@ -120,7 +120,7 @@ class BitrixIntegration{
 			$data_arr['UF_CRM_1610306282'] = $extras['countriesList'][$data['destination_id']];
 			$data_arr['UF_CRM_1694999838223'] = $extras['countriesList'][$data['destination_id']];
 		}
-		if(!empty($data['fair_venue']) && !empty($extras['fairVenues']) ){
+		if(isset($data['fair_venue']) && !empty($extras['fairVenues']) ){
 			$data_arr['UF_CRM_1695270330920'] = $extras['fairVenues'][$data['fair_venue']];
 		}
 

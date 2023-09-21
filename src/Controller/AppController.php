@@ -1289,7 +1289,7 @@ class AppController extends Controller
             if(!empty($data['bd'])){
                 $extras['bd']=$data['bd']->format('d.m.Y');
             }
-            print_r($data);die;
+            // print_r($data);die;
             // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
