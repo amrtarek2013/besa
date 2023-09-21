@@ -144,7 +144,7 @@ class BitrixIntegration{
 			$data_arr['NAME'] = $data['first_name'];
 			if(!empty($data['last_name'])){
 				$data_arr['LAST_NAME'] = $data['last_name'];
-				$data_arr['TITLE'] .= $data['last_name'];
+				$data_arr['TITLE'] .= ' '.$data['last_name'];
 			}
 		}
 		
