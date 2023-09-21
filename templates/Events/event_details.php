@@ -84,14 +84,14 @@
                 <?php } */ ?>
 </section>
 
-<?php if (isset($_GET['test'])) { ?>
+<?php //if (isset($_GET['test'])) { ?>
     <?php
-    if (!empty($event['left_text']))
+    if (!empty($event['left_text']) && $event['id'] == 7)
         echo $event['left_text'];
     if (!empty($event['event_images']) && $event['id'] == 7)
         echo $this->element('event-slider', ['event_images' => $event['event_images']]);
     ?>
-<?php } ?>
+<?php //} ?>
 <?= $event['text'] ?>
 
 <?= $this->element('BecomeSponsorPopUp') ?>
