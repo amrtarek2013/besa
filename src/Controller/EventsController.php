@@ -24,7 +24,7 @@ class EventsController extends AppController
 
     public function eventDetails($id = null)
     {
-        $event = $this->Events->findByPermalink($id)->first();
+        $event = $this->Events->find()->contain(['EventImages'])->where(['permalink' => $id])->first();
 
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -65,9 +65,9 @@ class EventsController extends AppController
         //Load Schools slider
 
         $this->loadModel('Schools');
-        $schoolImages = $this->Schools->find()->contain(['SchoolImages' => ['fields' => ['image', 'title','school_id']]])->where(["Schools.active" => 1])->all()->toArray();
+        $schoolImages = $this->Schools->find()->contain(['SchoolImages' => ['fields' => ['image', 'title', 'school_id']]])->where(["Schools.active" => 1])->all()->toArray();
 
-        $highlighted = $this->Schools->find()->where(["Schools.highlighted" => 1,"Schools.active" => 1])->first();
+        $highlighted = $this->Schools->find()->where(["Schools.highlighted" => 1, "Schools.active" => 1])->first();
 
         // $schoolImages = Hash::combine($schoolImages, '{n}.id', '{n}', '{n}.name');
         // dd($schoolImages);
