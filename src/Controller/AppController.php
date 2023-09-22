@@ -1295,8 +1295,8 @@ class AppController extends Controller
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
             require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');
             $bitrix = new \BitrixIntegration();
-            $bitrix->get_lead_by_mobile();
-            // $bitrix->execute($data,$type,$extras);
+            // $bitrix->get_lead_by_mobile();
+            $bitrix->execute($data,$type,$extras);
         }
         return true;
     }
