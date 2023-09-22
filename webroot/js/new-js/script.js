@@ -129,7 +129,6 @@ $(document).ready(function () {
     items: 3,
     loop: true,
     margin: 25,
-
     nav: true,
     navText: [
       "<img src='../img/chevron-right-white.svg'>",
@@ -148,7 +147,7 @@ $(document).ready(function () {
     },
   });
 
- /*
+  /*
   // Handle image clicks
   $(".image-box img").click(function () {
     var imageUrl = $(this).attr("src");
