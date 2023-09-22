@@ -1,8 +1,6 @@
 <script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js"></script>
 <link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
-
 <div class="content-wrapper">
-
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -18,7 +16,6 @@
             </div>
         </div>
     </section>
-
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -35,9 +32,7 @@
                                 <?= __('Add new') ?>
                             </a>
                         </div>
-                        <?php
-
-                        $fields = [
+                        <?php $fields = [
                             'basicModel' => 'events',
                             'id' => [],
                             'title' => [],
@@ -49,12 +44,9 @@
                             // 'active' => ['format' => 'bool'],
                             // 'show_on_home' => ['format' => 'bool'],
                         ];
-
                         $multi_select_actions = array(
                             // 'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
                         );
-
-
                         $actions = [
                             // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
                             'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
@@ -62,9 +54,7 @@
                                 'condition' => '$row["id"]==7',
                                 'value' => $this->Html->link(__('Slider', true), array('controller' => 'event-images', 'action' => 'index', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-arrow-right')),
                             ),
-                            // 'delete' => $this->Html->link(
-
-                            //     __('Delete'),
+                            // 'delete' => $this->Html->link(                            //     __('Delete'),
                             //     ['action' => 'delete', '%id%'],
                             //     [
                             //         'confirm' => 'Are you sure you wish to delete this?',
@@ -72,11 +62,8 @@
                             //     ]
                             // )
                         ];
-
-
                         echo $this->List->adminIndex($fields, $events, $actions, false, $multi_select_actions, $parameters);
                         ?>
-
                     </div>
                 </div>
             </div>
