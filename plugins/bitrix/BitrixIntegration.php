@@ -94,6 +94,7 @@ class BitrixIntegration{
 			2=>46,3=>46,4=>46,
 		];
 		$data_arr = [];
+		$existed_lead = [];
 		if(!empty($data['name'])){
 			$data_arr['TITLE'] = $data['name'];
 			$data_arr['NAME'] = $data['name'];
@@ -110,6 +111,7 @@ class BitrixIntegration{
 			}
 			$mobile .= $data['mobile'];
 			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+			$existed_lead = $this->get_lead_by_mobile($mobile);
 		}
 		if(!empty($data['email'])){
 			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
@@ -140,14 +142,16 @@ class BitrixIntegration{
 			}
 		}
 
-		// print_r($data_arr);die("-------------");
+		$api_name = 'crm.lead.add';
 		if(!empty($data_arr['TITLE'])){
-			$options =  ['fields' => $data_arr,];
-
-			$result = $this->bitrix_process_api('crm.lead.add',$options);
-			// echo '<pre>';
-			// print_r($result);
-			// echo '</pre>';die;
+			$options =  ['fields' => $data_arr];
+		}
+		if(!empty($existed_lead['data'][0]['ID'])){
+			$options['id'] = $existed_lead['data'][0]['ID'];
+			$api_name = 'crm.lead.update';
+		}
+		if(!empty($options)){
+			$result = $this->bitrix_process_api($api_name,$options);
 		}
 	}
 	public function add_lead_from_register($data,$type,$extras){
@@ -156,6 +160,7 @@ class BitrixIntegration{
 			2=>46,3=>46,4=>46,
 		];
 		$data_arr = [];
+		$existed_lead = [];
 		if(!empty($data['first_name'])){
 			$data_arr['TITLE'] = $data['first_name'];
 			$data_arr['NAME'] = $data['first_name'];
@@ -172,6 +177,7 @@ class BitrixIntegration{
 			}
 			$mobile .= $data['mobile'];
 			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+			$existed_lead = $this->get_lead_by_mobile($mobile);
 		}
 		if(!empty($data['email'])){
 			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
@@ -219,13 +225,17 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
+		
+		$api_name = 'crm.lead.add';
 		if(!empty($data_arr['TITLE'])){
-			$options =  ['fields' => $data_arr,];
-
-			$result = $this->bitrix_process_api('crm.lead.add',$options);
-			// echo '<pre>';
-			// print_r($result);
-			// echo '</pre>';die;
+			$options =  ['fields' => $data_arr];
+		}
+		if(!empty($existed_lead['data'][0]['ID'])){
+			$options['id'] = $existed_lead['data'][0]['ID'];
+			$api_name = 'crm.lead.update';
+		}
+		if(!empty($options)){
+			$result = $this->bitrix_process_api($api_name,$options);
 		}
 	}
 
