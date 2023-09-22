@@ -151,20 +151,19 @@ class BitrixIntegration{
 		}
 
 		$api_name = 'crm.lead.add';
-		if(!empty($data_arr['TITLE'])){
-			$options =  ['fields' => $data_arr];
-		}
+		$options = [];
 		if(!empty($existed_lead['data'][0]['ID'])){
 			$options['id'] = $existed_lead['data'][0]['ID'];
 			$api_name = 'crm.lead.update';
 			if(!empty($existed_lead['data'][0]['STATUS_ID'])){
 				$current_status = $existed_lead['data'][0]['STATUS_ID'];
 				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8']) ){
-					unset($data_arr['ASSIGNED_BY_ID']);
+					$data_arr['ASSIGNED_BY_ID'] = $existed_lead['data'][0]['ASSIGNED_BY_ID'];
 				}
-			}else{
-				unset($data_arr['ASSIGNED_BY_ID']);
 			}
+		}
+		if(!empty($data_arr['TITLE'])){
+			$options['fields'] =  $data_arr;
 		}
 		if(!empty($options)){
 			$result = $this->bitrix_process_api($api_name,$options);
