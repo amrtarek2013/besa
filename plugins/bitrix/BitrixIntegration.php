@@ -224,7 +224,8 @@ class BitrixIntegration{
 	function get_lead_by_mobile(){
 		$options = [
 					// 'filter'=>['NAME'=>'Habiba Magdy Elbana']
-					'filter'=>['PHONE'=>'01094243634']
+			// https://besaeg.bitrix24.com/rest/9599/0v97c3ewjshg6a37/crm.lead.list.json?filter[PHONE]=201143118052
+					'filter'=>['PHONE'=>'201143118052']
 					];
 		$result = $this->bitrix_process_api('crm.lead.list',$options);
 		echo '<pre>';
