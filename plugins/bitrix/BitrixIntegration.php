@@ -22,6 +22,7 @@ class BitrixIntegration{
 		// $options =  [];
 		// $result = $this->bitrix_process_api('crm.lead.list',$options);
 		$data_arr = [];
+		$existed_lead = [];
 		if(!empty($data['name'])){
 			$data_arr['TITLE'] = $data['name'];
 			$name_arr = $this->get_name_info($data['name']);
@@ -42,6 +43,8 @@ class BitrixIntegration{
 			}
 			$mobile .= $data['mobile'];
 			$data_arr['PHONE'] = [ [ "VALUE"=> $mobile,"VALUE_TYPE"=> "WORK" ] ];
+
+			$existed_lead = $this->get_lead_by_mobile($mobile);
 		}
 		if(!empty($data['email'])){
 			$data_arr['EMAIL'] = [ [ "VALUE"=> $data['email'],"VALUE_TYPE"=> "WORK" ] ];
@@ -49,7 +52,6 @@ class BitrixIntegration{
 
 		$data_arr['STATUS_ID'] = 'NEW';
 		$data_arr['OPENED'] = 'Y';
-
 		$data_arr['SOURCE_ID'] = 'EMAIL';
 
 		if(!empty($data['destination_id']) && !empty($extras['countriesList']) ){
@@ -69,12 +71,18 @@ class BitrixIntegration{
 		//responsible
 		$data_arr['ASSIGNED_BY_ID'] = 422;
 
-		
 
+		$api_name = 'crm.lead.add';
 		if(!empty($data_arr['TITLE'])){
-			$options =  ['fields' => $data_arr,];
+			$options =  ['fields' => $data_arr];
+		}
+		if(!empty($existed_lead['data'][0]['ID'])){
+			$options['id'] = $existed_lead['data'][0]['ID'];
+			$api_name = 'crm.lead.update';
+		}
 
-			$result = $this->bitrix_process_api('crm.lead.add',$options);
+		if(!empty($options)){
+			$result = $this->bitrix_process_api($api_name,$options);
 			// echo '<pre>';
 			// print_r($result);
 			// echo '</pre>';die;
@@ -221,16 +229,14 @@ class BitrixIntegration{
 		}
 	}
 
-	function get_lead_by_mobile(){
+	function get_lead_by_mobile($mobile){
 		$options = [
 					// 'filter'=>['NAME'=>'Habiba Magdy Elbana']
 			// https://besaeg.bitrix24.com/rest/9599/0v97c3ewjshg6a37/crm.lead.list.json?filter[PHONE]=201143118052
-					'filter'=>['PHONE'=>'201143118052']
+					'filter'=>['PHONE'=>$mobile]
 					];
 		$result = $this->bitrix_process_api('crm.lead.list',$options);
-		echo '<pre>';
-		print_r($result);
-		echo '</pre>';die;
+		return $result;
 	}
 
 
