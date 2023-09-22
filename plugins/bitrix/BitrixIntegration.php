@@ -221,6 +221,16 @@ class BitrixIntegration{
 		}
 	}
 
+	function get_lead_by_mobile(){
+		$options = [
+					'filter'=>['NAME'=>'Habiba Magdy Elbana']
+					];
+		$result = $this->bitrix_process_api('crm.lead.list',$options);
+		echo '<pre>';
+		print_r($result);
+		echo '</pre>';die;
+	}
+
 
 
 	function bitrix_process_api($endpoint,$options){
