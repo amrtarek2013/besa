@@ -81,7 +81,7 @@ class BitrixIntegration{
 			$api_name = 'crm.lead.update';
 			if(!empty($existed_lead['data'][0]['STATUS_ID'])){
 				$current_status = $existed_lead['data'][0]['STATUS_ID'];
-				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8']){
+				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8'])){
 					unset($data_arr['ASSIGNED_BY_ID']);
 				}
 			}else{
@@ -159,7 +159,7 @@ class BitrixIntegration{
 			$api_name = 'crm.lead.update';
 			if(!empty($existed_lead['data'][0]['STATUS_ID'])){
 				$current_status = $existed_lead['data'][0]['STATUS_ID'];
-				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8']){
+				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8']) ){
 					unset($data_arr['ASSIGNED_BY_ID']);
 				}
 			}else{
@@ -251,7 +251,7 @@ class BitrixIntegration{
 			$api_name = 'crm.lead.update';
 			if(!empty($existed_lead['data'][0]['STATUS_ID'])){
 				$current_status = $existed_lead['data'][0]['STATUS_ID'];
-				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8']){
+				if(!in_array($current_status, ['JUNK','UC_0V372G','UC_UM2CL8'])){
 					unset($data_arr['ASSIGNED_BY_ID']);
 				}
 			}else{
