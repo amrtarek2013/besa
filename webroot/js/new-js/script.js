@@ -135,6 +135,17 @@ $(document).ready(function () {
       "<img src='../img/chevron-right-white.svg'>",
       "<img src='../img/chevron-left-white.svg'>",
     ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 2,
+      },
+      1000: {
+        items: 3,
+      },
+    },
   });
 
  /*

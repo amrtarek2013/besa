@@ -1990,4 +1990,13 @@
         grid-gap: 20px;
         flex-flow: column;
     }
+    .sec-upcoming .content .grid-3col {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+    .sec-upcoming .country img {
+        height: max-content !important;
+        width: 60px !important;
+        margin: 20px 0;
+    }
 }
