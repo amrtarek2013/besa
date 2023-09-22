@@ -1286,7 +1286,8 @@ class AppController extends Controller
         $extras['fairVenues'] = $this->Enquiries->fairVenues;
 
         // if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
-        if(!empty($data['email']) && $data['email']=='romawalid2014@gmail.com' ){
+        // if(!empty($data['email']) && $data['email']=='romawalid2014@gmail.com' ){
+        if(!empty($data['email'])  ){
             if(!empty($data['bd'])){
                 $extras['bd']=$data['bd']->format('d.m.Y');
             }
