@@ -1999,5 +1999,8 @@
         width: 60px !important;
         margin: 20px 0;
     }
+    .sec-upcoming .btn-register{
+        margin: auto;
+    }
     
 }
