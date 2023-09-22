@@ -126,7 +126,6 @@ $(document).ready(function () {
   });
   var owlStepBack = $(".owl-step-back");
   owlStepBack.owlCarousel({
-    items: 3,
     loop: true,
     margin: 25,
     nav: true,
