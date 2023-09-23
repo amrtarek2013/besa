@@ -53,6 +53,9 @@
                             array(
                                 'condition' => '$row["id"]==7',
                                 'value' => $this->Html->link(__('Slider', true), array('controller' => 'event-images', 'action' => 'index', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-arrow-right')),
+                            ),array(
+                                'condition' => '$row["id"]==7',
+                                'value' => $this->Html->link(__('Fair Event', true), array('controller' => 'fair-events', 'action' => 'index', '%id%'), array('class' => 'btn btn-warning btn-sm', 'icon' => 'fas fa-arrow-right')),
                             ),
                             // 'delete' => $this->Html->link(                            //     __('Delete'),
                             //     ['action' => 'delete', '%id%'],

@@ -14,18 +14,30 @@ use App\Controller\AppController;
 class FairEventsController extends AppController
 {
 
-    public function index()
+    public function index($event_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($event_id)) {
+            $conditions['event_id'] = $event_id;
+            $this->Session->write('event_id', $event_id);
+        }
 
         $fairEvents = $this->paginate($this->FairEvents, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
 
         $this->set(compact('fairEvents', 'parameters'));
     }
-    public function list()
+    public function list($event_id = null)
     {
         $conditions = $this->_filter_params();
+
+
+        if (isset($event_id)) {
+            $conditions['event_id'] = $event_id;
+            $this->Session->write('event_id', $event_id);
+        }
         $fairEvents = $this->paginate($this->FairEvents, ['conditions' => $conditions]);
         $parameters = $this->request->getAttribute('params');
 
@@ -40,7 +52,7 @@ class FairEventsController extends AppController
             if ($this->FairEvents->save($fairEvent)) {
                 $this->Flash->success(__('The Fair Event has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Fair Event could not be saved. Please, try again.'));
         }
@@ -56,14 +68,14 @@ class FairEventsController extends AppController
         $fairEvent = $this->FairEvents->get($id);
         $fairEvent['countries'] = !empty($fairEvent['countries']) ? explode(',', $fairEvent['countries']) : [];
         $fairEvent['universities'] = !empty($fairEvent['universities']) ? explode(',', $fairEvent['universities']) : [];
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $fairEvent = $this->FairEvents->patchEntity($fairEvent, $this->request->getData());
             // dd($fairEvent);
             if ($this->FairEvents->save($fairEvent)) {
                 $this->Flash->success(__('The Fair Event has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->__redirectToIndex();
             }
             $this->Flash->error(__('The Fair Event could not be saved. Please, try again.'));
         }
@@ -83,7 +95,7 @@ class FairEventsController extends AppController
             $this->Flash->error(__('The Fair Event could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function deleteMulti()
@@ -99,7 +111,7 @@ class FairEventsController extends AppController
             $this->Flash->error(__('The FairEvents could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->__redirectToIndex();
     }
 
     public function view($id = null)
@@ -138,5 +150,14 @@ class FairEventsController extends AppController
         )->order(['title' => 'asc'])->cache('cached_events')->toArray();
 
         $this->set('eventsList', $eventsList);
+    }
+
+
+    private function __redirectToIndex()
+    {
+        if ($this->Session->check('event_id'))
+            return $this->redirect(['action' => 'index', $this->Session->read('event_id')]);
+        else
+            return $this->redirect(['action' => 'index']);
     }
 }
