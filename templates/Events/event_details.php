@@ -191,7 +191,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                 border-radius: 29px;
             }
         </style>
-        <div class="sec-upcoming">
+        <div class="sec-upcoming" style="padding-top: 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
