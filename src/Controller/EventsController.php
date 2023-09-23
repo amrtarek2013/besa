@@ -63,8 +63,8 @@ class EventsController extends AppController
         }
 
         $this->set('event', $event);
-        $this->set('eventCountires', $eventCountires);
-        $this->set('eventUniversities', $eventUniversities);
+        // $this->set('eventCountires', $eventCountires);
+        // $this->set('eventUniversities', $eventUniversities);
     }
     public function schoolTour($id = 'school-tours')
     {
