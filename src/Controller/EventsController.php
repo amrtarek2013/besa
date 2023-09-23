@@ -24,7 +24,7 @@ class EventsController extends AppController
 
     public function eventDetails($id = null)
     {
-        $event = $this->Events->find()->contain(['EventImages'])->where(['permalink' => $id])->first();
+        $event = $this->Events->find()->contain(['EventImages', 'FairEvents'])->where(['permalink' => $id])->first();
 
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -32,15 +32,39 @@ class EventsController extends AppController
 
             throw new NotFoundException(__('Not found'));
 
-        $this->set('event', $event);
         $this->set('permalink', $id);
 
 
+        $eventCountires = [];
+        $eventUniversities = [];
 
-        $this->loadModel('EventImages');
-        $eventImages = $this->EventImages->find()->where(["active" => 1, "event_id" => $event['id']])->order(['display_order' => 'ASC'])->all()->toArray();
-        // debug($eventImages);
-        $this->set('eventImages', $eventImages);
+        if (!empty($event['fair_events'])) {
+
+
+            foreach ($event['fair_events'] as $i => $fair_event) {
+                if (!empty($fair_event['countries'])) {
+
+                    $this->loadModel('Countries');
+                    $countries = explode(',', $fair_event['countries']);
+                    // dd($countries);
+                    $eventCountires = $this->Countries->find()->select(['active', 'id', 'flag'])->where(["active" => 1, "id IN" => array_values($countries)])->order(['display_order' => 'ASC'])->all()->toArray();
+                    $event['fair_events'][$i]['countries'] = $eventCountires;
+                }
+
+                if (!empty($fair_event['universities'])) {
+
+                    $this->loadModel('Universities');
+
+                    $universities = explode(',', $fair_event['universities']);
+                    $eventUniversities = $this->Universities->find()->select(['active', 'id', 'logo'])->where(["active" => 1, "id IN" => array_values($universities)])->order(['display_order' => 'ASC'])->all()->toArray();
+                    $event['fair_events'][$i]['universities'] = $eventUniversities;
+                }
+            }
+        }
+
+        $this->set('event', $event);
+        $this->set('eventCountires', $eventCountires);
+        $this->set('eventUniversities', $eventUniversities);
     }
     public function schoolTour($id = 'school-tours')
     {

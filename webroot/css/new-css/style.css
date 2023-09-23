@@ -9114,6 +9114,30 @@ img.mobile-image {
 .owl-school-tour .owl-next {
     right: -60px;
 }
+.owl-small-flag-logo .owl-next,
+.owl-small-flag-logo .owl-prev,
+.owl-school-tour .owl-next,
+.owl-school-tour .owl-prev {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.owl-small-flag-logo .owl-prev,
+
+.owl-school-tour .owl-prev {
+    left: -60px;
+
+}
+
+.owl-small-flag-logo .owl-next,
+.owl-school-tour .owl-next {
+    right: -60px;
+}
 
 .large-image {
     position: relative;
@@ -9441,6 +9465,11 @@ img.mobile-image {
 }
 
 
+
+.owl-small-flag-logo .owl-next,
+.owl-small-flag-logo .owl-prev {
+    top: 50%
+}
 
 /* Apply styles to the title */
 .new-professional-development-1 .title {
