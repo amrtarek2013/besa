@@ -60,8 +60,8 @@
                             echo $this->AdminForm->control('locations', ['label' => 'Where', 'type' => 'text']);
                             echo $this->AdminForm->control('dates', ['label' => 'When', 'type' => 'textarea', 'class' => 'editor']);
 
-                            echo $this->AdminForm->control('universities', array('options' => $universitiesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Universities'));
-                            echo $this->AdminForm->control('countries', array('options' => $countriesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Countries'));
+                            echo $this->AdminForm->control('universities', array('label'=>'Attending Universities','options' => $universitiesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Universities'));
+                            echo $this->AdminForm->control('countries', array('label'=>'Attending Countries','options' => $countriesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Countries'));
 
 
                             // echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);
@@ -86,9 +86,9 @@
                                 '#ffa500' => 'orange',
                             );
 
-                            echo $this->AdminForm->control('font_color', array('options' => $colors, 'empty' => 'Choose Font Color', 'id' => 'font_color', 'class' => 'INPUT', "style" => "background-color:black;color:" . $fairEvent->font_color . " !important; ", 'label' => 'Font Color'));
+                            // echo $this->AdminForm->control('font_color', array('options' => $colors, 'empty' => 'Choose Font Color', 'id' => 'font_color', 'class' => 'INPUT', "style" => "background-color:black;color:" . $fairEvent->font_color . " !important; ", 'label' => 'Font Color'));
 
-                            echo $this->AdminForm->control('background_color', array('options' => $colors, 'empty' => 'Choose Background Color', 'id' => 'background_color', 'class' => 'INPUT', "style" => "color:black;background-color:" . $fairEvent->background_color . " !important; ", 'label' => 'Background Color'));
+                            // echo $this->AdminForm->control('background_color', array('options' => $colors, 'empty' => 'Choose Background Color', 'id' => 'background_color', 'class' => 'INPUT', "style" => "color:black;background-color:" . $fairEvent->background_color . " !important; ", 'label' => 'Background Color'));
 
 
                             ?>
