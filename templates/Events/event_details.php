@@ -309,7 +309,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 }
 
 if (!empty($event['event_images'])) {
-    // echo $this->element('event-slider', ['event_images' => $event['event_images']]);
+    echo $this->element('event-slider', ['event_images' => $event['event_images']]);
 }
 ?>
 <?php //} 
