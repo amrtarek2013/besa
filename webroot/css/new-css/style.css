@@ -9777,3 +9777,7 @@ img.mobile-image {
     -ms-flex-pack: center;
     justify-content: center;
 }
+
+.owl-small-flag-logo  .image-box {
+    width: max-content;
+}
