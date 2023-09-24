@@ -98,7 +98,6 @@ $(document).ready(function () {
   });
 
   lifeBesaslider.owlCarousel({
-    items: 3,
     loop: true,
     margin: 40,
     dots: true,
@@ -155,7 +154,8 @@ $(document).ready(function () {
   owlSmallFlag.owlCarousel({
     loop: true,
     margin: 25,
-    nav: false,
+    nav: true,
+    dots:false,
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
@@ -169,7 +169,7 @@ $(document).ready(function () {
         items: 3,
       },
       600: {
-        items: 3,
+        items: 4,
       },
       1000: {
         items: 4,
