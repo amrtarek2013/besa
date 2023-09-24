@@ -2040,5 +2040,5 @@
     .owl-small-flag-logo {
         margin-top: 20px;
     }
-
+    .owl-step-back .owl-nav{display: none;}
 }
