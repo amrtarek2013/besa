@@ -147,7 +147,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                                                     ?>
                                                                         <div class="item">
                                                                             <div class="image-box" style="border:unset; border-radius: unset; height:63px">
-                                                                                <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;height: 60px;width: 60px; ">
+                                                                                <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;height: 55px;width: 55px; ">
                                                                             </div>
                                                                         </div>
                                                                     <?php } ?>
