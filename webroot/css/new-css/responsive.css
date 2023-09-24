@@ -2032,4 +2032,5 @@
     .owl-small-flag-logo{
         margin-top: 20px;
     }
+    .owl-step-back .item{margin: 0 !important;}
 }
