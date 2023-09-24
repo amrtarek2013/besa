@@ -2041,4 +2041,9 @@
         margin-top: 20px;
     }
     .owl-step-back .owl-nav{display: none;}
+
+    .owl-small-flag-logo .owl-carousel .owl-item img {
+        width: max-content;
+        height: 63px;
+    }
 }
