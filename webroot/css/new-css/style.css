@@ -9405,7 +9405,7 @@ img.mobile-image {
 
 .sec-upcoming .content .grid-3col h3 {
     color: #2575FC;
-
+    margin-bottom: 8px;
     font-family: "Poppins";
     font-size: 24px;
     font-style: normal;
