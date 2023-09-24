@@ -2017,4 +2017,13 @@
         right: -45px;
 
     }
+    .owl-step-back .item {
+        text-align: center;
+    }
+    .step-back-slider.logos-slider .image-box, .step-back-slider.logos-slider .image-box img{
+        height: max-content;
+        max-height: unset !important;
+        display: block;
+
+    }
 }
