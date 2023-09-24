@@ -120,8 +120,15 @@ class EnquiriesController extends AppController
 
     public function view($id = null)
     {
-        $enquiry = $this->Enquiries->find()->contain(['Countries' => ['fields' => ['country_name']], 'SubjectAreas' => ['fields' => ['title']]])->where(['Enquiries.id' => $id])->first();
+        $enquiry = $this->Enquiries->find()->contain(
+            [
+                'Countries' => ['fields' => ['country_name']],
+                'Careers' => ['fields' => ['career_title' => "CONCAT(Careers.title,'-', Careers.country, '-', Careers.state)"]],
+                'SubjectAreas' => ['fields' => ['title']]
+            ]
+        )->where(['Enquiries.id' => $id])->first();
 
+        // dd( $enquiry);
         $this->loadModel('StudyLevels');
         $this->set('enquiry', $enquiry);
         $this->set('enquiryType', $this->Enquiries->enquiryTypes[$enquiry['type']]);
@@ -276,7 +283,7 @@ class EnquiriesController extends AppController
             foreach ($enquiries as $enquiry) {
                 $data = [];
                 foreach ($dataFields as $field => $fieldTitle) {
-                    $enquiry[$field] = ($field == 'mobile')?(!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field]: "\t".$enquiry[$field]) : $enquiry[$field];
+                    $enquiry[$field] = ($field == 'mobile') ? (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : "\t" . $enquiry[$field]) : $enquiry[$field];
                     $enquiry[$field] = ($field == 'subject_area_id' && isset($enquiry['subject_area']['title'])) ? $enquiry['subject_area']['title'] : $enquiry[$field];
                     $enquiry[$field] = ($field == 'destination_id' && isset($enquiry['country']['country_name'])) ? $enquiry['country']['country_name'] : $enquiry[$field];
                     $enquiry[$field] = ($field == 'fair_venue' && isset($fairVenues[$enquiry['fair_venue']])) ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
@@ -295,7 +302,7 @@ class EnquiriesController extends AppController
                 $dataToExport[] = [
                     $enquiry->id,
                     $enquiry->name,
-                    (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry['mobile']: "\t".$enquiry['mobile']),
+                    (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry['mobile'] : "\t" . $enquiry['mobile']),
                     $enquiry->email,
                     $enquiry->type,
                 ];

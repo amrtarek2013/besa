@@ -54,7 +54,7 @@ class EnquiriesTable extends Table
         ],
         'career-apply' => [
             'validation' => 'careerApply', 'redirect' => 'career-apply', 'title' => 'Career Apply',
-            'fields' => ['name' => 'Name', 'surname' => 'Surname', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us']
+            'fields' => ['name' => 'Name', 'surname' => 'Surname', 'mobile' => 'Mobile', 'email' => 'Email', 'address' => 'Address', 'certificate' => 'Certificate', 'how_hear_about_us' => 'How Hear About Us', 'career_id' => 'Job']
         ],
         'partnership-with-besa' => [
             'validation' => 'partnershipWithBesa', 'redirect' => 'partnership-with-besa', 'title' => 'Partnership with besa',
@@ -147,6 +147,7 @@ class EnquiriesTable extends Table
         $this->belongsTo('Branches')->setForeignKey('branch_id');
         $this->belongsTo('Countries')->setForeignKey('destination_id');
         $this->belongsTo('SubjectAreas')->setForeignKey('subject_area_id');
+        $this->belongsTo('Careers')->setForeignKey('career_id');
     }
 
 
@@ -187,7 +188,7 @@ class EnquiriesTable extends Table
         //     ]
         // ]);
 
-        
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',
@@ -223,7 +224,7 @@ class EnquiriesTable extends Table
         //         'message' => 'Security Code is not valid',
         //     ]
         // ]);
-        
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',
@@ -273,7 +274,7 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-      
+
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',

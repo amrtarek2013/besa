@@ -35,22 +35,39 @@
         text-align: center;
     }
 </style>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+    {
+    "imports": {
+      "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+    }
+  }
+</script>
 
+<script type="module">
+    import {
+        GLTFLoader
+    } from 'three/addons/loaders/GLTFLoader.js';
+    window.GLTFLoader = GLTFLoader;
+</script>
 <script>
     var myearth;
     var localNewsMarker;
     var news = [];
 
     var markers = [];
-    var airports = <?= json_encode($countriesEarth, true) ?>;
+    var countries = <?= json_encode($countriesEarth, true) ?>;
     var custom_regions_image;
+
+    console.log(countries);
 
     var selected_countries = [];
     var redirectUrl = '<?= $redirectUrl ?>';
     // Earth.addMesh( 'o Pyramid\nv 0.25 0.0 -0.25\nv 0.25 0.0 0.25\nv -0.25 0.0 0.25\nv -0.25 0.0 -0.25\nv -0.0 0.5 0.0\ns off\nf 2 4 1\nf 1 5 2\nf 2 5 3\nf 3 5 4\nf 5 1 4\nf 2 3 4\n' );
-    window.addEventListener("earthjsload", function() {
+    window.addEventListener("load", function() {
 
-        // parse plane mesh from string in airports-and-plane-mesh.js	
+        // parse plane mesh from string in countries-and-plane-mesh.js	
         // Earth.addMesh(airplaneMesh);
 
 
@@ -78,11 +95,10 @@
         // var fading_images = [];
 
 
-
-
         myearth.addEventListener("ready", function() {
 
 
+            var markers = [];
             // window.addEventListener('scroll', syncScroll);
 
             photo_overlay = this.addOverlay({
@@ -93,23 +109,35 @@
                 depthScale: 0.5
             });
 
-            // add airport pins from airports array in airports-and-plane-mesh.js
-            for (var i = 0; i < airports.length; i++) {
+            let loader = null;
+
+            let mesh1 = ["Flag", "Needle"];
+            // add airport pins from countries array in countries-and-plane-mesh.js
+            for (var i = 0; i < countries.length; i++) {
+                // for (var i = 0; i < 1; i++) {
                 // add photo overlay
 
 
+                loader = new window.GLTFLoader();
+
                 // add photo pins
 
-
-                var marker = this.addMarker({
+                if (countries[i]['code'] == "UK")
+                    mesh1 = "";
+                else
+                    // continue;
+                    mesh1 = ["Flag", "Needle"];
+                // console.log(mesh1);
+                var marker = null;
+                marker = this.addMarker({
 
                     // mesh: "Marker",
-                    mesh: ["Flag", "Needle"],
+                    mesh: mesh1,
                     // mesh : "Pyramid",
                     color: '#00A8FF',
                     location: {
-                        lat: airports[i]['latitude'],
-                        lng: airports[i]['longitude']
+                        lat: countries[i]['latitude'],
+                        lng: countries[i]['longitude']
                     },
 
                     scale: 0.01,
@@ -120,62 +148,41 @@
                     hotspotRadius: 0.75,
                     hotspotHeight: 1.3,
 
-                    image: "/img/flags/" + airports[i]['flag'],
+                    image: "/img/flags/" + countries[i]['flag'],
 
-                    airportCode: airports[i]['code'],
-                    airportName: airports[i]['country_name'],
-                    airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
+                    airportCode: countries[i]['code'],
+                    airportName: countries[i]['country_name'],
+                    airportFlag: "<img width='40' src='/img/flags/" + countries[i]['flag'] + "' />",
 
-
-                    // custom property
-                    title: airports[i]['country_name'],
-                    link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
 
                     // custom property
-                    photo_info: "/img/flags/" + airports[i]['flag']
+                    title: countries[i]['country_name'],
+                    link: (redirectUrl == 'destination' ? '/country-details/' + countries[i]['permalink'] : '/universities/' + countries[i]['id'] + '/' + countries[i]['permalink']),
+
+                    // custom property
+                    photo_info: "/img/flags/" + countries[i]['flag']
 
                 });
 
-                // marker.addEventListener('click', function() {
+                if (countries[i]['code'] == "UK")
 
-                //     // alert('sssssssssss');
-                //     window.open(this.link);
-                // });
+                    setTimeout((function() {
+                        loader.load(
+                            '/miniature-earth/thailand.glb',
+                            function(gltf) {
+                                marker.object3d.add(gltf.scene);
+                                gltf.scene.scale.multiplyScalar(.35);
+                            },
+                            // called while loading is progressing
+                            function(xhr) {
+                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                            },
+                            // called when loading has errors
+                            function(error) {
+                                console.log('An error happened');
+                            });
+                    }).bind(marker), 280 * i);
 
-                // marker.addEventListener('click', openPhoto);
-
-                // animate marker
-                // setTimeout((function() {
-                //     this.visible = true;
-                //     this.animate('scale', 0.9, {
-                //         duration: 140
-                //     });
-                //     this.animate('offset', 0, {
-                //         duration: 1100,
-                //         easing: 'bounce'
-                //     });
-                // }).bind(marker), 280 * i);
-
-                // marker.addEventListener('click', function() {
-                //     // rotate earth if needed
-
-                //     myearth.autoRotate = false;
-
-                //     document.getElementById('tip-layer').style.opacity = 0.7;
-                //     document.getElementById('tip-big').innerHTML = '<a src="' + this.link + '" >' + this.airportFlag + '</a>';
-                //     document.getElementById('tip-small').innerHTML = this.airportCode + ' - ' + this.airportName.split(',').join('<br>');
-                //     // this.color = 'red';
-                // });
-
-                // marker.addEventListener('mouseout', function() {
-
-                //     // if (this != startMarker && this != endMarker) {
-                //     // this.color = '#00a8ff';
-                //     // }
-                //     document.getElementById('tip-layer').style.opacity = 0;
-
-                //     myearth.autoRotate = true;
-                // });
 
                 marker.addEventListener('click', openPhoto);
 
@@ -190,7 +197,6 @@
                         easing: 'bounce'
                     });
                 }).bind(marker), 280 * i);
-
             }
 
             // syncScroll();
@@ -274,175 +280,6 @@
         current_marker = false;
 
     }
-    /*marker = this.addSprite({
-
-        // mesh: "Marker",
-        location: {
-            lat: airports[i]['latitude'],
-            lng: airports[i]['longitude']
-        },
-
-        visible: false,
-        hotspot: true,
-        hotspotRadius: 0.5,
-        hotspotHeight: 1,
-        // image: "/img/flags/" + airports[i]['flag'],
-
-        // mesh: ["Pin", "Needle"],
-        // color: 0x30b81f,
-
-        // transparent: true,
-
-        airportCode: airports[i]['code'],
-        airportName: airports[i]['country_name'],
-        airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
-
-        // custom properties
-        title: airports[i]['country_name'],
-        link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
-
-        // custom property
-        photo_info: "/img/flags/" + airports[i]['flag']
-    });
-    marker.addEventListener('click', function() {
-
-        // alert('sssssssssss');
-        window.open(this.link);
-    });
-
-    // this.addOverlay({
-    //     content: 'hotspot: true',
-
-    //     location: {
-    //         lat: airports[i]['latitude'],
-    //         lng: airports[i]['longitude']
-    //     },
-    //     className: 'docs-tip',
-    //     depthScale: 0.5,
-    //     airportCode: airports[i]['country_code'],
-    //     airportName: airports[i]['country_name'],
-
-    //     // custom properties
-    //     // title: markers[i].title,
-    //     link: '/country-details/' + airports[i]['permalink'],
-
-    //     // custom property
-    //     photo_info: "/img/flags/" + airports[i]['flag']
-    // });
-
-    // this.addOverlay({
-    //     content: '<div id="photo"><div id="close-photo" onclick="closePhoto(); event.stopPropagation();"></div></div>',
-    //     visible: true,
-    //     containerScale: 1,
-    //     depthScale: 0.5
-    // });
-
-    // animate marker
-    setTimeout((function() {
-        this.visible = true;
-        this.animate('scale', 0.9, {
-            duration: 140
-        });
-        this.animate('offset', 0, {
-            duration: 1100,
-            easing: 'bounce'
-        });
-    }).bind(marker), 280 * i);
-    // pin events
-
-    marker.addEventListener('mouseover', function() {
-        document.getElementById('tip-layer').style.opacity = 0.7;
-        document.getElementById('tip-big').innerHTML = this.airportFlag;
-        document.getElementById('tip-small').innerHTML = this.airportCode + ' - ' + this.airportName.split(',').join('<br>');
-        // this.color = 'red';
-    });
-
-    marker.addEventListener('mouseout', function() {
-
-        // if (this != startMarker && this != endMarker) {
-        // this.color = '#00a8ff';
-        // }
-        document.getElementById('tip-layer').style.opacity = 0;
-    });
-    markers.push(marker);
-
-    }
-    // restorePins();
-
-
-    });
-
-
-
-    });    */
-
-    /*
-    function getScrollProgress() {
-        if (document.body.scrollTop) {
-            return document.body.scrollTop / (document.body.scrollHeight - window.innerHeight);
-        } else if (document.documentElement.scrollTop) {
-            return document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight);
-        } else {
-            return 0;
-        }
-    }
-
-    function syncScroll() {
-
-        if (getScrollProgress() > 0) document.body.classList.add('scrolled');
-
-        var lng = getScrollProgress() * -320 - 4;
-
-        myearth.location = {
-            lat: 12,
-            lng: lng
-        };
-
-
-        var places = [spain, nyc, california, hawaii, japan, thailand, kenya];
-
-        var newActiveMarker = false;
-
-        for (var i in places) {
-            if (isNear(lng, places[i])) {
-                newActiveMarker = places[i];
-                break;
-            }
-        }
-
-        if (newActiveMarker) {
-            if (newActiveMarker != activeMarker) {
-                if (activeMarker) {
-                    activeMarker.deactivate();
-                }
-                newActiveMarker.activate();
-            }
-        } else if (activeMarker) {
-            activeMarker.deactivate();
-        }
-
-        activeMarker = newActiveMarker;
-
-    }
-
-    function isNear(lng, marker) {
-        if (!marker) return false;
-
-        if (Math.abs(lng - marker.location.lng) > 180) {
-            lng = (lng < 0) ? lng + 360 : lng - 360;
-        }
-
-        return (lng > marker.location.lng - nearDistance && lng < marker.location.lng + nearDistance);
-    }
-
-    function showTip() {
-        this.tip.visible = true;
-    }
-
-    function hideTip() {
-        this.tip.visible = false;
-    }
-    */
 </script>
 <!-- Start choose place-->
 <section class="choose-place">
