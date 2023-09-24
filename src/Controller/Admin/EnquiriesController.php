@@ -123,7 +123,7 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->find()->contain(
             [
                 'Countries' => ['fields' => ['country_name']],
-                'Careers' => ['fields' => ['career_title' => "CONCAT(Careers.title,'-', Careers.country, '-', Careers.state)"]],
+                'Careers' => ['fields' => ['career_title' => "CONCAT(Careers.title,', ', Careers.country, ', ', Careers.state)"]],
                 'SubjectAreas' => ['fields' => ['title']]
             ]
         )->where(['Enquiries.id' => $id])->first();
