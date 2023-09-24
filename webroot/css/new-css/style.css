@@ -9595,3 +9595,9 @@ img.mobile-image {
     transform: translateY(-50%);
 
 }
+
+.logo-slider-large .image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
