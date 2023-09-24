@@ -146,7 +146,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                                                     foreach ($fairEvent['countries'] as $img) {
                                                                     ?>
                                                                         <div class="item">
-                                                                            <div class="image-box" style="border:unset; border-radius: unset; >
+                                                                            <div class="image-box" style="border:unset; border-radius: unset; ">
                                                                                 <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;">
                                                                             </div>
                                                                         </div>
