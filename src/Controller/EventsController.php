@@ -42,7 +42,8 @@ class EventsController extends AppController
 
 
             foreach ($event['fair_events'] as $i => $fair_event) {
-                if (!$fair_event['is_active']){
+                
+                if (!$fair_event['active']){
                     unset($event['$fair_events'][$i]);
                     continue;
                 }
