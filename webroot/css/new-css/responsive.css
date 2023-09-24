@@ -1982,25 +1982,39 @@
         margin-bottom: 15px;
         text-align: center;
     }
-    .milestone .gridContainer-counter .number{
+
+    .milestone .gridContainer-counter .number {
         flex-flow: column;
 
     }
+
     .total-gain .d-flex {
         grid-gap: 20px;
         flex-flow: column;
     }
+
     .sec-upcoming .content .grid-3col {
         grid-template-columns: 1fr;
         grid-gap: 20px;
     }
+
     .sec-upcoming .country img {
         height: max-content !important;
         width: 60px !important;
         margin: 20px 0;
     }
-    .sec-upcoming .btn-register{
+
+    .sec-upcoming .btn-register {
         margin: auto;
     }
-    
+
+    .logo-slider-large .owl-prev {
+        left: -45px;
+
+    }
+
+    .logo-slider-large .owl-next {
+        right: -45px;
+
+    }
 }

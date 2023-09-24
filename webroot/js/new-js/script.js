@@ -130,15 +130,24 @@ $(document).ready(function () {
   });
   var owlStepBack = $(".owl-step-back");
   owlStepBack.owlCarousel({
-    items: 3,
     loop: true,
     margin: 25,
-
     nav: true,
     navText: [
       "<img src='../img/chevron-right-white.svg'>",
       "<img src='../img/chevron-left-white.svg'>",
     ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 3,
+      },
+    },
     
   });
 

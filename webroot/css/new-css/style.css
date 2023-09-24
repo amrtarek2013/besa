@@ -9532,11 +9532,18 @@ img.mobile-image {
 .owl-carousel .owl-dots.disabled {
     display: none !important;
 }
-.logo-slider-large .owl-prev ,
+.logo-slider-large .owl-prev {
+    left: -65px;
+
+}
+.logo-slider-large .owl-next{
+    right: -65px;
+
+}
 .small-slider .owl-prev {
     left: -35px;
 }
-.logo-slider-large .owl-next,
+
 .small-slider .owl-next {
     right: -35px;
 }
