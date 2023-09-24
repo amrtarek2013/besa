@@ -2017,19 +2017,33 @@
         right: -45px;
 
     }
+
     .owl-step-back .item {
         text-align: center;
     }
-    .step-back-slider.logos-slider .image-box, .step-back-slider.logos-slider .image-box img{
+
+    .step-back-slider.logos-slider .image-box,
+    .step-back-slider.logos-slider .image-box img {
         height: max-content;
         max-height: unset !important;
         display: block;
 
     }
-    .logo-slider-large .owl-prev, .logo-slider-large .owl-next, .owl-small-flag-logo .owl-next, .owl-small-flag-logo .owl-prev{
+
+    .logo-slider-large .owl-prev,
+    .logo-slider-large .owl-next,
+    .owl-small-flag-logo .owl-next,
+    .owl-small-flag-logo .owl-prev {
         display: none !important;
     }
-    .owl-small-flag-logo{
+
+    .owl-small-flag-logo {
         margin-top: 20px;
+    }
+    .owl-step-back .owl-nav{display: none;}
+
+    .owl-small-flag-logo .owl-carousel .owl-item img {
+        width: max-content;
+        height: 63px;
     }
 }

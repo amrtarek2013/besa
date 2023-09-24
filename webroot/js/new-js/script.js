@@ -153,7 +153,7 @@ $(document).ready(function () {
 
   owlSmallFlag.owlCarousel({
     loop: true,
-    margin: 25,
+    margin: 20,
     nav: true,
     dots:false,
     autoplay: true,
@@ -169,7 +169,7 @@ $(document).ready(function () {
         items: 3,
       },
       600: {
-        items: 4,
+        items: 3,
       },
       1000: {
         items: 4,
