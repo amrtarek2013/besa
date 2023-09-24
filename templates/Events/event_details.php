@@ -94,7 +94,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
     echo $event['left_text'];
 
 
-    if (isset($_GET['test'])) {
+    // if (isset($_GET['test'])) {
 ?>
 
 
@@ -212,7 +212,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 
 <?php
     }
-}
+// }
 
 if (!empty($event['event_images'])) {
     echo $this->element('event-slider', ['event_images' => $event['event_images']]);
