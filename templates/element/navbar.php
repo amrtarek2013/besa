@@ -208,6 +208,12 @@ use Cake\Routing\Router;
                                                     <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
                                                 </li>
                                             <?php } ?>
+                                            <li>
+                                                <a href="<?= Router::url('/school-tour') ?>"><?= __('School Tour') ?></a>
+                                            </li>
+                                            <li>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.visitorsapplication']) ?>"><?= __('Fair Visitors') ?></a>
+                                            </li>
 
                                         </ul>
                                     </div>
