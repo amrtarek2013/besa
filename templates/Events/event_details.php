@@ -271,7 +271,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                                     <h2 class="title_28">Attending Universities</h2>
 
                                                     <div class="slider">
-                                                        <div class="owl-carousel owl-small-flag-logo">
+                                                        <div class="owl-carousel owl-logos-sliders">
                                                             <?php
 
                                                             foreach ($fairEvent['universities'] as $img) {

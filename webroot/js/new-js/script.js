@@ -49,6 +49,8 @@ $(document).ready(function () {
   var owlSmallFlag = $(".owl-small-flag-logo");
   var owlLogosSlider = $(".owl-logos-slider");
 
+  
+
   mainSlider.owlCarousel({
     items: 1,
     loop: true,
@@ -166,6 +168,7 @@ $(document).ready(function () {
       },
     },
   });
+
   owlLogosSlider.owlCarousel({
     loop: true,
     margin: 25,
@@ -174,7 +177,6 @@ $(document).ready(function () {
       "<img src='../img/chevron-right-white.svg'>",
       "<img src='../img/chevron-left-white.svg'>",
     ],
-
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
@@ -191,6 +193,7 @@ $(document).ready(function () {
       },
     },
   });
+
 
   /*
   // Handle image clicks
