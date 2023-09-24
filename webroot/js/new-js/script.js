@@ -46,6 +46,8 @@ $(document).ready(function () {
   var ukslider = $(".ukslider");
   var lifeBesaslider = $(".owl-lifeBesa");
   var owlSchoolTour = $(".owl-school-tour");
+  var owlSmallFlag = $(".owl-small-flag-logo");
+  var owlLogosSlider = $(".owl-logos-slider");
 
   mainSlider.owlCarousel({
     items: 1,
@@ -138,7 +140,59 @@ $(document).ready(function () {
     
   });
 
- /*
+
+  owlSmallFlag.owlCarousel({
+    loop: true,
+    margin: 25,
+    nav: false,
+    navText: [
+      "<img src='../img/chevron-right-white.svg'>",
+      "<img src='../img/chevron-left-white.svg'>",
+    ],
+
+    autoplay: true,
+    autoPlaySpeed: 2000,
+    autoPlayTimeout: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 4,
+      },
+    },
+  });
+  owlLogosSlider.owlCarousel({
+    loop: true,
+    margin: 25,
+    nav: false,
+    navText: [
+      "<img src='../img/chevron-right-white.svg'>",
+      "<img src='../img/chevron-left-white.svg'>",
+    ],
+
+    autoplay: true,
+    autoPlaySpeed: 2000,
+    autoPlayTimeout: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 4,
+      },
+      1000: {
+        items: 8,
+      },
+    },
+  });
+
+  /*
   // Handle image clicks
   $(".image-box img").click(function () {
     var imageUrl = $(this).attr("src");
