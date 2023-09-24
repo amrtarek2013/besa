@@ -35,22 +35,39 @@
         text-align: center;
     }
 </style>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+    {
+    "imports": {
+      "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+    }
+  }
+</script>
 
+<script type="module">
+    import {
+        GLTFLoader
+    } from 'three/addons/loaders/GLTFLoader.js';
+    window.GLTFLoader = GLTFLoader;
+</script>
 <script>
     var myearth;
     var localNewsMarker;
     var news = [];
 
     var markers = [];
-    var airports = <?= json_encode($countriesEarth, true) ?>;
+    var countries = <?= json_encode($countriesEarth, true) ?>;
     var custom_regions_image;
+
+    console.log(countries);
 
     var selected_countries = [];
     var redirectUrl = '<?= $redirectUrl ?>';
     // Earth.addMesh( 'o Pyramid\nv 0.25 0.0 -0.25\nv 0.25 0.0 0.25\nv -0.25 0.0 0.25\nv -0.25 0.0 -0.25\nv -0.0 0.5 0.0\ns off\nf 2 4 1\nf 1 5 2\nf 2 5 3\nf 3 5 4\nf 5 1 4\nf 2 3 4\n' );
-    window.addEventListener("earthjsload", function() {
+    window.addEventListener("load", function() {
 
-        // parse plane mesh from string in airports-and-plane-mesh.js	
+        // parse plane mesh from string in countries-and-plane-mesh.js	
         // Earth.addMesh(airplaneMesh);
 
 
@@ -78,11 +95,10 @@
         // var fading_images = [];
 
 
-
-
         myearth.addEventListener("ready", function() {
 
 
+            var markers = [];
             // window.addEventListener('scroll', syncScroll);
 
             photo_overlay = this.addOverlay({
@@ -93,23 +109,35 @@
                 depthScale: 0.5
             });
 
-            // add airport pins from airports array in airports-and-plane-mesh.js
-            for (var i = 0; i < airports.length; i++) {
+            let loader = null;
+
+            let mesh1 = ["Flag", "Needle"];
+            // add airport pins from countries array in countries-and-plane-mesh.js
+            for (var i = 0; i < countries.length; i++) {
+                // for (var i = 0; i < 1; i++) {
                 // add photo overlay
 
 
+                loader = new window.GLTFLoader();
+
                 // add photo pins
 
-
-                var marker = this.addMarker({
+                if (countries[i]['code'] == "UK")
+                    mesh1 = "";
+                else
+                    // continue;
+                    mesh1 = ["Flag", "Needle"];
+                // console.log(mesh1);
+                var marker = null;
+                marker = this.addMarker({
 
                     // mesh: "Marker",
-                    mesh: ["Flag", "Needle"],
+                    mesh: mesh1,
                     // mesh : "Pyramid",
                     color: '#00A8FF',
                     location: {
-                        lat: airports[i]['latitude'],
-                        lng: airports[i]['longitude']
+                        lat: countries[i]['latitude'],
+                        lng: countries[i]['longitude']
                     },
 
                     scale: 0.01,
@@ -120,23 +148,42 @@
                     hotspotRadius: 0.75,
                     hotspotHeight: 1.3,
 
-                    image: "/img/flags/" + airports[i]['flag'],
+                    image: "/img/flags/" + countries[i]['flag'],
 
-                    airportCode: airports[i]['code'],
-                    airportName: airports[i]['country_name'],
-                    airportFlag: "<img width='40' src='/img/flags/" + airports[i]['flag'] + "' />",
+                    airportCode: countries[i]['code'],
+                    airportName: countries[i]['country_name'],
+                    airportFlag: "<img width='40' src='/img/flags/" + countries[i]['flag'] + "' />",
 
-
-                    // custom property
-                    title: airports[i]['country_name'],
-                    link: (redirectUrl == 'destination' ? '/country-details/' + airports[i]['permalink'] : '/universities/' + airports[i]['id'] + '/' + airports[i]['permalink']),
 
                     // custom property
-                    photo_info: "/img/flags/" + airports[i]['flag']
+                    title: countries[i]['country_name'],
+                    link: (redirectUrl == 'destination' ? '/country-details/' + countries[i]['permalink'] : '/universities/' + countries[i]['id'] + '/' + countries[i]['permalink']),
+
+                    // custom property
+                    photo_info: "/img/flags/" + countries[i]['flag']
 
                 });
 
-                
+                if (countries[i]['code'] == "UK")
+
+                    setTimeout((function() {
+                        loader.load(
+                            '/miniature-earth/thailand.glb',
+                            function(gltf) {
+                                marker.object3d.add(gltf.scene);
+                                gltf.scene.scale.multiplyScalar(.35);
+                            },
+                            // called while loading is progressing
+                            function(xhr) {
+                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                            },
+                            // called when loading has errors
+                            function(error) {
+                                console.log('An error happened');
+                            });
+                    }).bind(marker), 280 * i);
+
+
                 marker.addEventListener('click', openPhoto);
 
                 // animate marker
@@ -150,7 +197,6 @@
                         easing: 'bounce'
                     });
                 }).bind(marker), 280 * i);
-
             }
 
             // syncScroll();
