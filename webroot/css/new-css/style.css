@@ -9653,10 +9653,6 @@ img.mobile-image {
     max-width: 63px !important;
 }
 
-.small-slider .owl-item,
-.small-slider .image-box img {
-    max-width: 63px !important;
-}
 
 .small-slider {
     padding: 0 !important;
