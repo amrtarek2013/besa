@@ -104,9 +104,10 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                     <div class="col-md-12">
                         <?php foreach ($event['fair_events'] as $fairEvent) { ?>
                             <div class="content">
+                                    <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; " ><?= $fairEvent['title'] ?></h3>
                                 <div class="grid-3col">
                                     <div class="box">
-                                        <h3><span style="font-size:28px;"><strong><?= $fairEvent['title'] ?></strong></span>
+                                        <h3>
                                             Where
                                         </h3>
 
