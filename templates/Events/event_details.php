@@ -97,14 +97,14 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
     if (isset($_GET['test'])) {
 ?>
 
-       
+
         <div class="sec-upcoming" style="padding-top: 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <?php foreach ($event['fair_events'] as $fairEvent) { ?>
                             <div class="content">
-                                    <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; " ><?= $fairEvent['title'] ?></h3>
+                                <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; "><?= $fairEvent['title'] ?></h3>
                                 <div class="grid-3col">
                                     <div class="box">
                                         <h3>
@@ -126,7 +126,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                     ?>
                                     <div class="box">
                                         <h3>
-                                            
+
                                             Attending countries
                                         </h3>
 
@@ -162,7 +162,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                         <?php
                                         }
                                         ?>
-                                        
+
 
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                 <?php
                                 }
                                 ?>
-                                
+
                             </div>
                             <a class="btn btn-register" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
                         <?php
