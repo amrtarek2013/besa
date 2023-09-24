@@ -42,6 +42,11 @@ class EventsController extends AppController
 
 
             foreach ($event['fair_events'] as $i => $fair_event) {
+                if (!$fair_event['is_active']){
+                    unset($event['$fair_events'][$i]);
+                    continue;
+                }
+
                 if (!empty($fair_event['countries'])) {
 
                     $this->loadModel('Countries');
