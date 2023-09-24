@@ -186,8 +186,8 @@ $(document).ready(function () {
       "<img src='../img/chevron-left-white.svg'>",
     ],
     autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
+    autoPlaySpeed: 2100,
+    autoPlayTimeout: 2100,
     autoplayHoverPause: true,
     responsive: {
       0: {
