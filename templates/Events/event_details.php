@@ -106,8 +106,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                             <div class="content">
                                 <div class="grid-3col">
                                     <div class="box">
-                                        <h3><span style="font-size:28px;"><strong><?= $fairEvent['title'] ?></strong></span><br />
-                                            <br />
+                                        <h3><span style="font-size:28px;"><strong><?= $fairEvent['title'] ?></strong></span>
                                             Where
                                         </h3>
 
@@ -115,8 +114,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                     </div>
 
                                     <div class="box">
-                                        <h3><br />
-                                            <br />
+                                        <h3>
                                             When
                                         </h3>
 
@@ -126,8 +124,8 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                     //if (false) { 
                                     ?>
                                     <div class="box">
-                                        <h3><br />
-                                            <br />
+                                        <h3>
+                                            
                                             Attending countries
                                         </h3>
 
@@ -163,7 +161,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                         <?php
                                         }
                                         ?>
-                                        <br /><br />
+                                        
 
                                     </div>
                                 </div>
@@ -199,7 +197,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                 <?php
                                 }
                                 ?>
-                                <br /><br />
+                                
                             </div>
                             <a class="btn btn-register" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
                         <?php
