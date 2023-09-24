@@ -157,13 +157,11 @@ $(document).ready(function () {
     margin: 25,
     nav: false,
     navText: [
-      "<img src='../img/chevron-right-white.svg'>",
-      "<img src='../img/chevron-left-white.svg'>",
+      "<img src='../img/chevron-left-white.svg'>", // Swapped the order of left and right chevrons
+      "<img src='../img/chevron-right-white.svg'>", // Swapped the order of left and right chevrons
     ],
-
     autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
+    autoplayTimeout: 2000, // Changed 'autoPlayTimeout' to 'autoplayTimeout'
     autoplayHoverPause: true,
     responsive: {
       0: {
@@ -177,6 +175,7 @@ $(document).ready(function () {
       },
     },
   });
+  
 
   owlLogosSlider.owlCarousel({
     loop: true,
