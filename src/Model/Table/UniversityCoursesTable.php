@@ -164,7 +164,7 @@ class UniversityCoursesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
 
-        $validator->notEmptyString('course_id', 'This field is required.');
+        // $validator->notEmptyString('course_id', 'This field is required.');
         // $validator->notEmptyString('code', 'This field is required.');
         // $validator->notEmptyString('description', 'This field is required.');
         $validator->notEmptyString('duration', 'This field is required.');

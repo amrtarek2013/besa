@@ -35,7 +35,7 @@
                             // echo $this->AdminForm->create($universityCourse, ['type' => 'file', 'id' => $action . 'Form']);
 
 
-                            echo $this->AdminForm->control('course_id', ['label' => 'Course', 'type' => 'select', 'empty' => 'Select Course', 'options' => $courses, 'class' => 'INPUT required']);
+                            // echo $this->AdminForm->control('course_id', ['label' => 'Course', 'type' => 'select', 'empty' => 'Select Course', 'options' => $courses, 'class' => 'INPUT']);
                             // echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('course_name', ['label' => 'University Course Name', 'class' => 'INPUT required']);
