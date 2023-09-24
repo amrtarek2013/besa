@@ -45,9 +45,9 @@ class Event extends Entity
             if (file_exists(WWW_ROOT . $image_path))
                 return DS . $image_path;
             else
-                return null;
+                return $no_image_path;
         }
-        return null;
+        return $no_image_path;
     }
 
 

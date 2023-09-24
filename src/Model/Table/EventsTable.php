@@ -129,6 +129,7 @@ class EventsTable extends Table
             ]
         );
         $this->hasMany('EventImages')->setForeignKey('event_id');
+        $this->hasMany('FairEvents')->setForeignKey('event_id');
     }
 
 
