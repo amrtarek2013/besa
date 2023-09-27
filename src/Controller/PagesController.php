@@ -426,4 +426,10 @@ class PagesController extends AppController
         $branches = Hash::combine($branches, '{n}.id', '{n}.name', '{n}.country');
         $this->set(compact('branchesList', 'branches'));
     }
+
+    
+    public function earth()
+    {
+        $this->set('bodyClass', 'pageWhereToStudy');
+    }
 }

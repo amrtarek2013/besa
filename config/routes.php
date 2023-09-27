@@ -34,6 +34,7 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'main']);
 
+        $builder->connect('/pages/earth', ['controller' => 'Pages', 'action' => 'earth']);
         $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
         $builder->connect('/courses', 'UniversityCourses::results');
 
@@ -101,8 +102,8 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/course-details/*', 'UniversityCourses::details');
         $builder->connect('/courses/*', 'UniversityCourses::index');
 
-        $builder->connect('/pages/*', 'Pages::display');
-        $builder->connect('/pages/*', 'Pages::display');
+        // $builder->connect('/pages/*', 'Pages::display');
+        // $builder->connect('/pages/*', 'Pages::display');
         /*
          * Connect catchall routes for all controllers.
          *

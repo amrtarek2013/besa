@@ -95,12 +95,8 @@
 
             // add airport pins from airports array in airports-and-plane-mesh.js
             for (var i = 0; i < airports.length; i++) {
-                // add photo overlay
-
 
                 // add photo pins
-
-
                 var marker = this.addMarker({
 
                     // mesh: "Marker",
@@ -266,12 +262,6 @@
 
                         <div id="earth-col">
 
-                            <!-- <div id="tip-layer">
-                                <div>
-                                    <div id="tip-big"></div>
-                                    <div id="tip-small"></div>
-                                </div>
-                            </div> -->
                             <div id="myearth" class="earth-js"></div>
                         </div>
 
