@@ -36,6 +36,21 @@
     }
 </style>
 
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+    }
+  }
+</script>
+<script type="module">
+	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    console.log(true);
+	window.GLTFLoader = GLTFLoader;
+</script>
+
 <script>
     var myearth;
     var localNewsMarker;
@@ -49,6 +64,8 @@
     var redirectUrl = '<?= $redirectUrl ?>';
     // Earth.addMesh( 'o Pyramid\nv 0.25 0.0 -0.25\nv 0.25 0.0 0.25\nv -0.25 0.0 0.25\nv -0.25 0.0 -0.25\nv -0.0 0.5 0.0\ns off\nf 2 4 1\nf 1 5 2\nf 2 5 3\nf 3 5 4\nf 5 1 4\nf 2 3 4\n' );
     window.addEventListener("earthjsload", function() {
+
+        const loader = new window.GLTFLoader();
 
         // parse plane mesh from string in airports-and-plane-mesh.js	
         // Earth.addMesh(airplaneMesh);
@@ -100,7 +117,7 @@
                 var marker = this.addMarker({
 
                     // mesh: "Marker",
-                    mesh: ["Flag", "Needle"],
+                    mesh: "",
                     // mesh : "Pyramid",
                     color: '#00A8FF',
                     location: {
@@ -147,6 +164,12 @@
                     });
                 }).bind(marker), 280 * i);
 
+                loader.load(
+                '/miniature-earth/demo/world-trip/thailand.glb',
+                function ( gltf ) {
+                    marker.object3d.add( gltf.scene );
+                    gltf.scene.scale.multiplyScalar(0.5);
+                });
             }
 
             // syncScroll();
