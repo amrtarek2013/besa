@@ -47,7 +47,6 @@
 </script>
 <script type="module">
 	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-    console.log(true);
 	window.GLTFLoader = GLTFLoader;
 </script>
 
@@ -67,6 +66,14 @@
 
         const loader = new window.GLTFLoader();
 
+        const flags = [];
+
+        loader.load(
+                '/miniature-earth/demo/world-trip/thailand.glb',
+                function ( gltf ) {
+                    gltf.scene.scale.multiplyScalar(0.3);
+                    flags.push(gltf.scene);
+                });
         // parse plane mesh from string in airports-and-plane-mesh.js	
         // Earth.addMesh(airplaneMesh);
 
@@ -163,13 +170,9 @@
                         easing: 'bounce'
                     });
                 }).bind(marker), 280 * i);
-
-                loader.load(
-                '/miniature-earth/demo/world-trip/thailand.glb',
-                function ( gltf ) {
-                    marker.object3d.add( gltf.scene );
-                    gltf.scene.scale.multiplyScalar(0.5);
-                });
+                
+                marker.object3d.add(flags[0].clone());
+                console.log(marker);
             }
 
             // syncScroll();
