@@ -106,11 +106,13 @@ class SnippetsTable extends Table
             $mdl = new self;
 
             $conditions['name'] = $name;
-            $snippet = $mdl->find()->where(['name' => $name])->first();
+            $snippet = $mdl->find()->where(['name' => $name, 'active' => 1])->first();
             if ($snippet) {
                 Cache::write($name, $snippet->content, '_snippets_');
                 return ($snippet->content);
             } else {
+
+                Cache::write($name, '', '_snippets_');
                 return '';
             }
         }
@@ -138,7 +140,7 @@ class SnippetsTable extends Table
 
     public function afterSave($event, $entity, $options)
     {
-        
+
         // Cache::delete('snippets', '_snippets_');
         clearViewCache();
     }

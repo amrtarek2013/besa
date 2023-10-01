@@ -45,11 +45,13 @@
                             } else {
                                 $class = ' ';
                             }
-                            
+
 
                             echo $this->AdminForm->control('title');
                             echo $this->AdminForm->control('category', ['empty' => 'Please select Category', 'options' => $categories]);
                             echo $this->AdminForm->control('content', ['class' => $class]);
+
+                            echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             echo $this->AdminForm->enableEditors('.editor');
 
                             ?>
