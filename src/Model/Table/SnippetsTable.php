@@ -107,6 +107,7 @@ class SnippetsTable extends Table
 
             $conditions['name'] = $name;
             $snippet = $mdl->find()->where(['name' => $name, 'active' => 1])->first();
+            
             if ($snippet) {
                 Cache::write($name, $snippet->content, '_snippets_');
                 return ($snippet->content);
@@ -140,8 +141,7 @@ class SnippetsTable extends Table
 
     public function afterSave($event, $entity, $options)
     {
-
-        Cache::delete('snippets', '_snippets_');
+        $this->updateCache($entity->name);
         clearViewCache();
     }
     public function updateCache($name)
