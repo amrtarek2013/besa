@@ -142,7 +142,7 @@ class SnippetsTable extends Table
     public function afterSave($event, $entity, $options)
     {
         $this->updateCache($entity->name);
-        clearViewCache();
+        clearAllCache();
     }
     public function updateCache($name)
     {
