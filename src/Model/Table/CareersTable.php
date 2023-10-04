@@ -58,7 +58,16 @@ class CareersTable extends Table
                         ],
                     ],
 
-                ]
+                ],
+                'FileUpload' => [
+                    'certificate' => [
+                        'file_name' => '{$rand}_{$file_name}',
+                        'path' => 'uploads/careers',
+
+                        'extensions' => array('pdf'),
+
+                    ]
+                ],
             ]
         );
     }

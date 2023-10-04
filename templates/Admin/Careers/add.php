@@ -32,7 +32,7 @@
                         <?= $this->AdminForm->create($career, ['type' => 'file', 'id' => $action . 'Form']); ?>
                         <div class="card-body">
                             <?php
-                            
+
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('country', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('state', ['type' => 'text', 'class' => 'INPUT required']);
@@ -52,6 +52,17 @@
                             $class = 'editor';
                             echo $this->AdminForm->control('text', ['title' => 'Job Description', 'class' => $class . ' addFrontCss']);
                             echo $this->AdminForm->control('requirments', ['title' => 'Job Requirments', 'class' => $class . ' addFrontCss']);
+
+
+                            echo $this->Form->control('job_details', [
+                                'type' => 'file',
+                                'class' => 'required',
+                                'required' => true,
+                                'templates' => [
+                                    'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
+                                    'label' => '<label {{attrs}}>Upload job details*</label>'
+                                ]
+                            ]);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
                             echo $this->AdminForm->control('display_order');

@@ -98,124 +98,124 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 ?>
 
 
-        <div class="sec-upcoming" style="padding-top: 0;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php foreach ($event['fair_events'] as $fairEvent) { ?>
-                            <div class="content">
-                                <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; "><?= $fairEvent['title'] ?></h3>
-                                <div class="grid-3col">
-                                    <div class="box">
-                                        <h3>
-                                            Where
-                                        </h3>
+    <div class="sec-upcoming" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php foreach ($event['fair_events'] as $fairEvent) { ?>
+                        <div class="content">
+                            <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; "><?= $fairEvent['title'] ?></h3>
+                            <div class="grid-3col">
+                                <div class="box">
+                                    <h3>
+                                        Where
+                                    </h3>
 
-                                        <p><?= $fairEvent['locations'] ?></p>
-                                    </div>
+                                    <p><?= $fairEvent['locations'] ?></p>
+                                </div>
 
-                                    <div class="box">
-                                        <h3>
-                                            When
-                                        </h3>
+                                <div class="box">
+                                    <h3>
+                                        When
+                                    </h3>
 
-                                        <?= $fairEvent['dates'] ?>
-                                    </div>
+                                    <?= $fairEvent['dates'] ?>
+                                </div>
+                                <?php
+                                //if (false) { 
+                                ?>
+                                <div class="box">
+                                    <h3>
+
+                                        Attending countries
+                                    </h3>
+
+
                                     <?php
-                                    //if (false) { 
+                                    if (!empty($fairEvent['countries'])) {
                                     ?>
-                                    <div class="box">
-                                        <h3>
+                                        <div class="step-back-slider small-slider">
+                                            <div class="container" style="width: 300px !important;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <!-- <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2> -->
 
-                                            Attending countries
-                                        </h3>
+                                                        <div class="slider">
+                                                            <div class="owl-carousel owl-small-flag-logo">
+                                                                <?php
 
-
-                                        <?php
-                                        if (!empty($fairEvent['countries'])) {
-                                        ?>
-                                            <div class="step-back-slider small-slider">
-                                                <div class="container" style="width: 300px !important;">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <!-- <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2> -->
-
-                                                            <div class="slider">
-                                                                <div class="owl-carousel owl-small-flag-logo">
-                                                                    <?php
-
-                                                                    foreach ($fairEvent['countries'] as $img) {
-                                                                    ?>
-                                                                        <div class="item">
-                                                                            <div class="image-box" style="border:unset; border-radius: unset; height:63px">
-                                                                                <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;height: 63px;width: 63px; ">
-                                                                            </div>
+                                                                foreach ($fairEvent['countries'] as $img) {
+                                                                ?>
+                                                                    <div class="item">
+                                                                        <div class="image-box" style="border:unset; border-radius: unset; height:63px">
+                                                                            <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;height: 63px;width: 63px; ">
                                                                         </div>
-                                                                    <?php } ?>
-                                                                </div>
+                                                                    </div>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                        <?php
-                                        }
-                                        ?>
+                                    <?php
+                                    }
+                                    ?>
 
 
-                                    </div>
                                 </div>
+                            </div>
 
-                                <?php
-                                if (!empty($fairEvent['universities'])) {
-                                ?>
-                                    <div class=" step-back-slider logos-slider logo-slider-large">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h2 class="title_28">Attending Universities</h2>
+                            <?php
+                            if (!empty($fairEvent['universities'])) {
+                            ?>
+                                <div class=" step-back-slider logos-slider logo-slider-large">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2 class="title_28">Attending Universities</h2>
 
-                                                    <div class="slider">
-                                                        <div class="owl-carousel owl-logos-slider">
-                                                            <?php
+                                                <div class="slider">
+                                                    <div class="owl-carousel owl-logos-slider">
+                                                        <?php
 
-                                                            foreach ($fairEvent['universities'] as $img) {
-                                                            ?>
-                                                                <div class="item">
-                                                                    <div class="image-box">
-                                                                        <img src="<?= $img['logo_path'] ?>" alt="">
-                                                                    </div>
+                                                        foreach ($fairEvent['universities'] as $img) {
+                                                        ?>
+                                                            <div class="item">
+                                                                <div class="image-box">
+                                                                    <img src="<?= $img['logo_path'] ?>" alt="">
                                                                 </div>
-                                                            <?php } ?>
-                                                        </div>
+                                                            </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                <?php
-                                }
-                                ?>
+                            <?php
+                            }
+                            ?>
 
-                            </div>
-                            <a class="btn btn-register" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
-                        <?php
-                        }
-                        ?>
-                    </div>
+                        </div>
+                        <a class="btn btn-register" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
+    </div>
 
 
 <?php
-    }
+}
 // }
 
 if (!empty($event['event_images'])) {
-    echo $this->element('event-slider', ['event_images' => $event['event_images']]);
+    echo $this->element('event-slider', ['slider_title' => $event['slider_title'], 'event_images' => $event['event_images']]);
 }
 ?>
 <?php //} 

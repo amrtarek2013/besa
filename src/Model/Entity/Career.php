@@ -13,7 +13,7 @@ class Career extends Entity
 {
     // use LazyLoadEntityTrait;
 
-    protected $_virtual = ['image_path', 'thumb_image_path'];
+    protected $_virtual = ['image_path', 'thumb_image_path','file_path'];
 
     protected $_accessible = [
         '*' => true,
@@ -31,6 +31,21 @@ class Career extends Entity
 
     public function initialize(array $config): void
     {
+    }
+
+    
+    protected function _getFilePath()
+    {
+
+        if (!empty($this->job_details)) {
+            
+            $file_path = 'uploads' . DS . 'careers' . DS . str_replace(DS, "", $this->job_details);
+            if (file_exists(WWW_ROOT . $file_path))
+                return DS . $file_path;
+            else
+                return '#';
+        }
+        return '#';
     }
 
     protected function _getImagePath()

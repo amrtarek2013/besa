@@ -39,6 +39,7 @@
                             echo $this->AdminForm->control('title', ['type' => 'text']);
                             echo $this->AdminForm->control('sub_title', ['type' => 'text']);
 
+                            echo $this->AdminForm->control('slider_title', ['type' => 'text']);
                             ?>
                             <!-- <select name="st" -->
                             <?php

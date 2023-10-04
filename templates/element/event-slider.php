@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2>
+                <h2 class="title_28"><?=$slider_title?></h2>
 
                 <div class="slider">
                     <div class="owl-carousel owl-step-back ">
