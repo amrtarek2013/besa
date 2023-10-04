@@ -53,16 +53,35 @@
                             echo $this->AdminForm->control('text', ['title' => 'Job Description', 'class' => $class . ' addFrontCss']);
                             echo $this->AdminForm->control('requirments', ['title' => 'Job Requirments', 'class' => $class . ' addFrontCss']);
 
-
-                            echo $this->Form->control('job_details', [
-                                'type' => 'file',
-                                'class' => 'required',
-                                'required' => true,
+                            echo $this->AdminForm->control('job_details', [
+                                'label' => 'Job Details (PDF file)', 'type' => 'file',
+                                'accept' => 'application/pdf',
+                                'class' => '',
+                                'between' => $this->element(
+                                    'file_input_between',
+                                    [
+                                        'data' => $career,
+                                        'field' => 'job_details',
+                                        // 'show_file_name' => false,
+                                        'info' => [
+                                            'path' => 'uploads' . DS . 'enquiries'
+                                        ]
+                                    ]
+                                ),
                                 'templates' => [
-                                    'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
-                                    'label' => '<label {{attrs}}>Upload job details*</label>'
+                                    'inputContainer' => '<div class="form-area">{{content}}</div>'
                                 ]
                             ]);
+
+                            // echo $this->Form->control('job_details', [
+                            //     'type' => 'file',
+                            //     'class' => 'required',
+                            //     'required' => true,
+                            //     'templates' => [
+                            //         'inputContainer' => '<div class="form-area {{required}}">{{content}}</div>',
+                            //         'label' => '<label {{attrs}}>Upload job details*</label>'
+                            //     ]
+                            // ]);
                             // echo $this->AdminForm->control('single');
                             echo $this->AdminForm->control('active');
                             echo $this->AdminForm->control('display_order');
