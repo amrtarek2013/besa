@@ -106,7 +106,7 @@
             if (isset($has_university)) {
                 echo $this->Form->control('university_id', [
                     'placeholder' => 'University', 'type' => 'select', 'empty' => 'Select University',
-                    'options' => $allUniverisites, 'label' => 'Destination',
+                    'options' => $allUniverisites, 'label' => 'University',
                     'value' => (isset($filterParams) && isset($filterParams['university_id']) ? $filterParams['university_id'] : ''),
                     'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                 ]);
