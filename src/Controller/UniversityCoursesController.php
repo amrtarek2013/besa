@@ -75,10 +75,10 @@ class UniversityCoursesController extends AppController
         $universitiesList = $this->Universities->find()->select(['id', 'university_name', 'country_id'])
             ->where(['active' => 1])->order(['university_name' => 'asc']);
 
-        $allUniversities = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.unversity_name');
+        $allUniversities = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.university_name');
         $this->set('allUniversities', $allUniversities);
 
-        $universitiesList = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.unversity_name', '{n}.country_id');
+        $universitiesList = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.university_name', '{n}.country_id');
         $this->set('universitiesList', $universitiesList);
         $this->set('filterParams', $url_params);
 
