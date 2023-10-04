@@ -51,7 +51,7 @@
                             <i class="fab fa-linkedin fa-2x"></i>
                         </a>
                         <a href="#">
-                            <i class="fab fa-twitter fa-2x"></i>
+                            <i class="fab fa-tiktok fa-2x"></i>
                         </a> -->
                         <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
                             <img src="<?= WEBSITE_URL ?>img/icon/social-media/Facebook.svg" alt="facebook">
@@ -68,8 +68,8 @@
                             <img src="<?= WEBSITE_URL ?>img/icon/social-media/Linkedin.svg" alt="Linkedin">
 
                         </a>
-                        <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="Twitter" target="_blank">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Twitter.svg" alt="twitter">
+                        <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
+                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/tiktok.svg" alt="tiktok">
 
                         </a>
 
@@ -119,8 +119,8 @@
             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
                 <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
             </a>
-            <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                <img src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
+            <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
+                <img src="<?= WEBSITE_URL ?>img/icon/tiktok.svg" alt="">
             </a>
         </div>
     </ul>
@@ -340,8 +340,8 @@
     //                     $('.youtube').attr('href', branchDetails['youtube']);
     //                 if (branchDetails['instagram'] != null)
     //                     $('.instagram').attr('href', branchDetails['instagram']);
-    //                 if (branchDetails['twitter'] != null)
-    //                     $('.twitter').attr('href', branchDetails['twitter']);
+    //                 if (branchDetails['tiktok'] != null)
+    //                     $('.tiktok').attr('href', branchDetails['tiktok']);
     //                 if (branchDetails['linkedin'] != null)
     //                     $('.linkedin').attr('href', branchDetails['linkedin']);
 

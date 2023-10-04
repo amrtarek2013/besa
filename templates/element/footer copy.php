@@ -24,8 +24,8 @@ use Cake\Routing\Router;
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
                                 <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
                             </a>
-                            <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                <img src="<?= WEBSITE_URL ?>img/icon/twitter.svg" alt="">
+                            <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
+                                <img src="<?= WEBSITE_URL ?>img/icon/tiktok.svg" alt="">
                             </a>
                         </div>
                     </div>

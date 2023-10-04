@@ -86,8 +86,8 @@
                                 <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
                                     <img src="<?=WEBSITE_URL?>img/icon/linkedin.svg" alt="">
                                 </a>
-                                <a href="<?= $g_configs['social_links']['txt.twitter_link'] ?>" class="twitter" target="_blank">
-                                    <img src="<?=WEBSITE_URL?>img/icon/twitter.svg" alt="">
+                                <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
+                                    <img src="<?=WEBSITE_URL?>img/icon/tiktok.svg" alt="">
                                 </a>
                             </div>
                         </ul>
@@ -213,8 +213,8 @@
                         $('.youtube').attr('href', branchDetails['youtube']);
                     if (branchDetails['instagram'] != null)
                         $('.instagram').attr('href', branchDetails['instagram']);
-                    if (branchDetails['twitter'] != null)
-                        $('.twitter').attr('href', branchDetails['twitter']);
+                    if (branchDetails['tiktok'] != null)
+                        $('.tiktok').attr('href', branchDetails['tiktok']);
                     if (branchDetails['linkedin'] != null)
                         $('.linkedin').attr('href', branchDetails['linkedin']);
 
