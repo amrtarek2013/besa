@@ -56,10 +56,13 @@ class CareersController extends AppController
     {
         $career = $this->Careers->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
+          
            $career = $this->Careers->patchEntity($career, $this->request->getData());
 
             
+        //    debug($career);
             if ($this->Careers->save($career)) {
+                // dd($_FILES);
                 $this->Flash->success(__('The Career has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
