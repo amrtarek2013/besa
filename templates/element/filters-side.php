@@ -101,6 +101,17 @@
                 'value' => (isset($filterParams) && isset($filterParams['country_id']) ? $filterParams['country_id'] : ''),
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+            <?php
+
+            // if (isset($has_university)) {
+            //     echo $this->Form->control('university_id', [
+            //         'placeholder' => 'University', 'type' => 'select', 'empty' => 'Select University',
+            //         'options' => $univerisitesList, 'label' => 'Destination',
+            //         'value' => (isset($filterParams) && isset($filterParams['university_id']) ? $filterParams['university_id'] : ''),
+            //         'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            //     ]);
+            // }
+            ?>
             <?= $this->Form->control('study_level_id', [
                 'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study',
                 'options' => $studyLevels, 'label' => 'Level of study',

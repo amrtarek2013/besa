@@ -13,7 +13,7 @@
                     <h1 class="relative-text">Courses</h1>
                     <h2 class="title text-left">
                         <!-- <span class=" green-small"><?= $courses[0]['course']['course_name'] ?></span> -->
-                        <span class="blue-para"><?= sizeof($courses) ?> international courses
+                        <span class="blue-para"><?= $this->Paginator->counter(__('{{count}}')) ?> international courses
                             found</span>
                     </h2>
                 </div>
@@ -25,9 +25,17 @@
     </div>
 </section>
 
-<?php
+<div class="container">
+    <div class="row user-dashboard">
 
+        <div class="col-md-3">
+            <?php echo $this->element('filters-side', ['filterParams' => $filterParams, 'has_university' => 1]); ?>
+        </div>
+        <div class="col-md-9">
 
-// if (isset($_GET['dk']))
-//     dd($wishLists);
-echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'pagging' => 1, 'gridContainerCols' => 3]); ?>
+            <?php echo $this->element('courses_list', ['courses' => $courses, 'pagging' => 1, 'gridContainerCols' => 2]); ?>
+
+        </div>
+
+    </div>
+</div>

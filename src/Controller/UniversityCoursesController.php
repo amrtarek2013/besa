@@ -14,21 +14,73 @@ class UniversityCoursesController extends AppController
     {
         $this->set('bodyClass', 'pageAbout pageServices');
 
+        $conditions = $this->__prepConditions();
 
-        // $universities = $this->Universities->find()->where($conditions)->order(['university_name' => 'asc'])->limit(10)->all();
+        if (!$this->Session->check('Auth.User'))
+            $this->Session->write('search_url', $_SERVER["REQUEST_URI"]);
 
-        $conditions = $this->_filter_params();
-        $conditions = ['UniversityCourses.active' => 1];
+        $conditions['UniversityCourses.active'] = 1;
+
+
+        $this->loadModel('Countries');
+        $countriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'is_destination' => 1])->order(['country_name' => 'asc']);
+        $this->set('countriesList', $countriesList);
+
+
+
+        // $this->loadModel('Services');
+        // $servicesSearchList = $this->Services->find('all')->where(['active' => 1, 'show_in_search' => 1])
+        //     ->order([/*'display_order' => 'asc',*/'search_degree_options' => 'ASC'])->all()->toArray();
+        // // debug($servicesSearchList);
+        // $this->set('servicesSearchList', $servicesSearchList);
+        // $this->set('searchDegreeOptions', $this->Services->searchDegreeOptions);
+
+        $this->loadModel('StudyLevels');
+        $studyLevels = $this->StudyLevels->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('studyLevels', $studyLevels);
+        // dd($studyLevels);
+
+
+        $this->loadModel("SubjectAreas");
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
+
+
+        $url_params = $this->request->getQuery();
+        // print_r($url_params);
+        // debug($url_params);
+        unset($url_params['url'], $url_params['page'], $url_params['sort'], $url_params['direction']);
+
+        // $conditions = $this->_filter_params();
         if (isset($country) && $type == 1) {
 
             // $c_id = explode('-', $country);
             // if (isset($c_id[0]) && is_numeric($c_id[0]))
             $conditions['UniversityCourses.country_id'] = $country;
+            $url_params['country_id'] = $country;
         } else if ($type == 2) {
 
             $conditions['UniversityCourses.university_id'] = $country;
+            $url_params['university_id'] = $country;
         }
 
+
+        $this->loadModel('Universities');
+        $universitiesList = $this->Universities->find()->select(['id', 'university_name', 'country_id'])
+            ->where(['active' => 1])->order(['university_name' => 'asc']);
+
+        $allUniversities = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.unversity_name');
+        $this->set('allUniversities', $allUniversities);
+
+        $universitiesList = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.unversity_name', '{n}.country_id');
+        $this->set('universitiesList', $universitiesList);
+        $this->set('filterParams', $url_params);
 
         // $courses = $this->UniversityCourses->find()->contain([
         //     'Majors' => ['fields' => ['title']], 'Courses' => ['fields' => ['course_name']],
@@ -40,39 +92,35 @@ class UniversityCoursesController extends AppController
 
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
-                // 'Majors' => ['fields' => ['title']],
-                // 'Courses' => ['fields' => ['course_name']],
+                'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
-                // 'Services' => ['fields' => ['title']], 
                 'StudyLevels' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']]
             ],
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
         ]);
 
+        // $courses = $this->paginate($this->UniversityCourses, [
+        //     'contain' => [
+        //         // 'Majors' => ['fields' => ['title']],
+        //         // 'Courses' => ['fields' => ['course_name']],
+        //         'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
+        //         'Universities' => ['fields' => ['university_name', 'rank']],
+        //         // 'Services' => ['fields' => ['title']], 
+        //         'StudyLevels' => ['fields' => ['title']],
+        //         'SubjectAreas' => ['fields' => ['title']]
+        //     ],
+        //     'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
+        // ]);
+
         $coursesDetails = Hash::combine($courses->toArray(), '{n}.id', '{n}');
         $this->set('courses', $courses->toArray());
 
-
         $this->set('coursesDetails', $coursesDetails);
-
         $this->set('wishLists', $this->getWishLists());
-
         $this->set('appCourses', $this->getAppCourses());
-
-        // $this->loadModel('Majors');
         $this->set('wishLists', $this->getWishLists());
-
-        // $courseMajors = $this->Majors->find('list')->where(['active' => 1])->order(['display_order' => 'asc']);
-
-        // $this->set('courseMajors', $courseMajors);
-        // $this->loadModel('Countries');
-        // $countriesList = $this->Countries->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'country_name'
-        // ])->where(['active' => 1, 'is_destination'=>1])->order(['country_name' => 'asc']);
-
-        // $this->set('countriesList', $countriesList);
     }
 
     public function study()
