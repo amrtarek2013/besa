@@ -52,6 +52,8 @@ if (false) {
 if (isset($show_pdf)) {
 ?>
     <embed src="<?= $career['file_path'] ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="800px" />
+    
+    <object data="<?= $career['file_path'] ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="800px"></object>
 
 <?php } else { ?>
     <?= $career['text'] ?>
