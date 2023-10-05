@@ -25,7 +25,7 @@ class CareersController extends AppController
 
         $this->set('besa_careers_benefits', $besa_careers_benefits);
     }
-    public function details($permalink = null, $id = null)
+    public function details($permalink = null, $id = null, $show_pdf = false)
     {
         $career = null;
         if ($id)
@@ -42,5 +42,9 @@ class CareersController extends AppController
 
         $this->set('career', $career);
         $this->set('permalink', $id);
+        $this->set('id', $career->id);
+
+        if ($show_pdf)
+            $this->set('show_pdf', $show_pdf);
     }
 }
