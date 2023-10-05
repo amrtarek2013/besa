@@ -52,10 +52,10 @@ if (false) {
 if (isset($show_pdf)) {
 ?>
     <embed src="<?= $career['file_path'] ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="800px" />
-    
+<!--     
     <object data="<?= $career['file_path'] ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="800px"></object>
 
-    <iframe src="<?= $career['file_path'] ?>" width="800" height="500"></iframe>
+    <iframe src="<?= $career['file_path'] ?>" width="800" height="500"></iframe> -->
 
 <?php } else { ?>
     <?= $career['text'] ?>
