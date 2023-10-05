@@ -34,9 +34,9 @@
 
                         if (!isset($show_pdf)) {
                         ?>
-                            <h3>
-                                <a href="<?= Cake\Routing\Router::Url('/career-details/' . $permalink . '/' . $id . '/1') ?>" target="_blank" style="color: var(--bs-main);"> View Job Full Requirments</a>
-                        </h3>
+                            <h3 style="text-align: center;">
+                                <a href="<?= Cake\Routing\Router::Url('/career-details/' . $permalink . '/' . $id . '/1') ?>" target="_blank" style="color: var(--bs-main);"><i class="fa-solid fa-file-pdf"></i> View Job Full Requirments</a>
+                            </h3>
                         <?php } ?>
 
             </div>
