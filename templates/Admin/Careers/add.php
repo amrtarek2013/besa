@@ -64,7 +64,7 @@
                                         'field' => 'job_details',
                                         // 'show_file_name' => false,
                                         'info' => [
-                                            'path' => 'uploads' . DS . 'enquiries'
+                                            'path' => 'uploads' . DS . 'careers'
                                         ]
                                     ]
                                 ),

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Careers Controller
@@ -18,7 +19,7 @@ class CareersController extends AppController
     {
         $conditions = $this->_filter_params();
 
-        $careers = $this->paginate($this->Careers, ['conditions' => $conditions, 'order'=>['continent'=>'ASC']]);
+        $careers = $this->paginate($this->Careers, ['conditions' => $conditions, 'order' => ['continent' => 'ASC']]);
         $parameters = $this->request->getAttribute('params');
         $continents = $this->Careers->continents;
         $this->set(compact('careers', 'parameters', 'continents'));
@@ -54,18 +55,27 @@ class CareersController extends AppController
 
     public function edit($id = null)
     {
+        // Configure::write('debug', false);
         $career = $this->Careers->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
-          
-           $career = $this->Careers->patchEntity($career, $this->request->getData());
 
-            
-        //    debug($career);
-            if ($this->Careers->save($career)) {
-                // dd($_FILES);
-                $this->Flash->success(__('The Career has been saved.'));
+            $career = $this->Careers->patchEntity($career, $this->request->getData());
+            $uploadPath = WWW_ROOT . 'uploads/careers';
+            // debug($uploadPath);
+            $upResult = UploadFiles($_FILES, ['jon_details' => []], $uploadPath, 'pdf');
 
-                return $this->redirect(['action' => 'index']);
+            if (empty($upResult['errors'])) {
+                foreach ($upResult['names'] as $fieldName => $value) {
+                    $career[$fieldName] = $value;
+                }
+
+                // debug($career);
+                if ($this->Careers->save($career)) {
+                    // dd($_FILES);
+                    $this->Flash->success(__('The Career has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
             }
             $this->Flash->error(__('The Career could not be saved. Please, try again.'));
         }
