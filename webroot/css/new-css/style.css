@@ -9774,7 +9774,7 @@ img.mobile-image {
     justify-content: center;
 }
 
-.owl-small-flag-logo  .image-box {
+.owl-small-flag-logo .image-box {
     height: max-content;
 }
 
@@ -9783,3 +9783,7 @@ img.mobile-image {
     height: 60px;
 }
 
+.iti__country-list li {
+    display: block !important;
+
+}
