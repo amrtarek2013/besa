@@ -9783,6 +9783,6 @@ img.mobile-image {
     height: 60px;
 }
 
-.iti__country-list li {
-    display: block !important;
+.iti__country{
+    display: flex !important;
 }
