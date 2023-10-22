@@ -9787,11 +9787,3 @@ img.mobile-image {
     display: flex !important;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    .iti__flag {
-
-        background-image: url(../img/flags.png?1) !important;
-    }
-  
-}
