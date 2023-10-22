@@ -9783,6 +9783,16 @@ img.mobile-image {
     height: 60px;
 }
 
-.iti__country{
+.iti__country {
     display: flex !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .iti__flag {
+
+        background-image: unset;
+    }
+
+
 }
