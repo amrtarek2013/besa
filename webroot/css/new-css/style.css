@@ -9791,9 +9791,7 @@ img.mobile-image {
 (min-resolution: 192dpi) {
     .iti__flag {
 
-        background-image: unset;
+        background-image: url(../img/flags.png?1) !important;
     }
-    .eeeeeeeee1111NNNNN{
-
-    }
+  
 }
