@@ -8747,9 +8747,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .iti {
-    left: 10px;
-    position: absolute !important;
-    bottom: 32px;
+    left: 5px;
+    bottom: 47px;
 }
 
 .form-area input[type="tel"] {

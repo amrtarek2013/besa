@@ -1249,9 +1249,12 @@
     }
 
     .iti.iti--allow-dropdown.iti--separate-dial-code.iti--show-flags {
-        bottom: 32px;
+        bottom: 47px;
     }
+    .iti__country-list{
+        min-width: 280px;
 
+    }
     .main-banner {
         padding-top: 0;
         padding-bottom: 0;
