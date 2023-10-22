@@ -8744,9 +8744,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-.iti__country {
-    display: block;
-}
+
 
 .iti {
     left: 10px;
@@ -9784,7 +9782,6 @@ img.mobile-image {
 }
 
 .iti__country {
-    display: flex !important;
+    display: block !important;
 }
 
-.form-area .tel {position: relative;}
