@@ -135,14 +135,15 @@ class UsersTable extends Table
       ]);
     // ->equalToField('email', 'email_confirm', 'Email must be same as the confirm email field');
 
+
     $validator->notEmptyString('mobile', 'This field is required.')
-      // ->add('mobile', [
-      //   'validMobileNumber' => [
-      //     'rule' => 'validMobileNumber',
-      //     'provider' => 'table',
-      //     'message' => 'Valid mobile number required',
-      //   ]
-      // ])
+      ->add('mobile', [
+        'isValidUSPhoneFormat' => [
+          'rule' => [$this, 'isValidUSPhoneFormat'],
+          'provider' => 'table',
+          'message' => 'Valid mobile number required',
+        ]
+      ])
       ->add('mobile', [
         'isMobileUnique' => [
           'rule' => [$this, 'isMobileUnique'],
@@ -166,6 +167,27 @@ class UsersTable extends Table
 
     return $validator;
   }
+  
+
+ /*isValidUSPhoneFormat() - Custom method to validate US Phone Number
+ * @params Int $phone
+ */
+ function isValidUSPhoneFormat($phone_no, array $context)
+{
+    $errors = array();
+     if(empty($phone_no)) {
+         $errors [] = "Please enter Phone Number";
+     }
+     else if (!preg_match('/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s.]{0,1}[0-9]{3}[-\s.]{0,1}[0-9]{4}$/', $phone_no)) {
+         $errors [] = "Please enter valid Mobile Number";
+     } 
+ 
+     if (!empty($errors))
+     return implode("\n", $errors);
+ 
+     return true;
+ }
+
   public function validationProfile(Validator $validator): Validator
   {
 
@@ -292,18 +314,18 @@ class UsersTable extends Table
 
   function validMobileNumber($check, array $context)
   {
-    // $MobileValidator = new MobileValidator();
-    // $check = str_replace(' ', '', $check);
-    // // if ($check == '0011223344') {
-    // if (strpos($check, '0011') !== false || $check == '0011223344') {
-    //   return true;
-    // }
-    // if ($MobileValidator->IsBlocked($check))
-    //   return false;
-    // if (preg_match('/^04\d{8}$/', $check))
-    //   return true;
-    // else
-    //   return false;
+    $MobileValidator = new MobileValidator();
+    $check = str_replace(' ', '', $check);
+    // if ($check == '0011223344') {
+    if (strpos($check, '0011') !== false || $check == '0011223344') {
+      return true;
+    }
+    if ($MobileValidator->IsBlocked($check))
+      return false;
+    if (preg_match('/^04\d{8}$/', $check))
+      return true;
+    else
+      return false;
   }
 
 

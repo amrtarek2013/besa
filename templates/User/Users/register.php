@@ -85,13 +85,13 @@
             ]) ?>
 
 
-            <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-
             <?= $this->Form->control('country_id', [
               'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
               'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
+            <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+
 
 
             <?= $this->Form->control('city', [
@@ -130,6 +130,7 @@
 
 
             <?= $this->Form->control('email', [
+              'type' => 'email',
               'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
@@ -215,5 +216,81 @@
       $('#subject-area').val('');
     } else
       $('#subject-area').show();
+  });
+</script>
+<script src="/js/new-js/jquery.validate.js" async></script>
+
+<script type="text/javascript">
+  var request_busy = false;
+  $(function() {
+    // setInterval(function() {
+    //     reLoadCaptchaV3();
+    // }, 2 * 60 * 1000);
+
+    $('#FormRegister').validate({
+      rules: {
+
+        'first_name': {
+          required: true,
+        },
+        'last_name': {
+          required: true,
+        },
+        'mobile': {
+          required: true,
+          minlength: 10,
+          maxlength: 13
+        },
+        'email': {
+          required: true,
+          email: true
+        },
+        'password': {
+          required: true,
+        },
+        'passwd': {
+          required: true,
+        },
+        'nationality_id': {
+          required: true
+        },
+        'country_id': {
+          required: true,
+        },
+        'mobile': {
+          required: true,
+        },
+        'mobile_code': {
+          required: true,
+        },
+        'current_status': {
+          required: true,
+        },
+        'current_study_level': {
+          required: true,
+        },
+        'destination_id': {
+          required: true,
+        },
+        'subject_area_id': {
+          required: true,
+        },
+        'city': {
+          required: true,
+        },
+      },
+      messages: {
+
+      },
+      errorClass: "error-message",
+      errorElement: "div",
+      errorPlacement: function(error, element) {
+        error.insertAfter(element, false);
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
   });
 </script>

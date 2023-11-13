@@ -248,12 +248,19 @@ class AppController extends Controller
             ->cache('countries_app_data')->order(['country_name' => 'asc'])->all();
         $countriesData = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
 
+        $countriesCodes = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'code'
+        ])->where(['active' => 1])
+            ->cache('countries_codes_app_data');
+
         // $countryEarth = Hash::combine($countries->toArray(), '{n}.id', '{n}', '{n}.continent');
         // debug($countries);
 
         $this->set('countries', $countriesData);
         $this->set('countriesEarth', $countries->toArray());
         $this->set('continents', $this->Countries->continents);
+        $this->set('countriesCodes', $countriesCodes->toArray());
+        // dd($countriesCodes->toArray());
 
         // $this->loadModel('Services');
         // $this->set('serviceTypes', $this->Services->types);
@@ -1274,31 +1281,31 @@ class AppController extends Controller
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
-        $extras['subjectAreas']=$subjectAreas;
+        $extras['subjectAreas'] = $subjectAreas;
 
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'
         ])->where(['active' => 1])->order(['country_name' => 'asc'])->toArray();
-        $extras['countriesList']=$countriesList;
-        
+        $extras['countriesList'] = $countriesList;
+
         $this->loadModel('Enquiries');
         $extras['fairVenues'] = $this->Enquiries->fairVenues;
 
         // if(!empty($data['email']) && $data['email']=='eng.karimgamal90@gmail.com' ){
         // if(!empty($data['email']) && $data['email']=='romawalid2014@gmail.com' ){
-        if(!empty($data['email'])  ){
-            if(!empty($data['bd'])){
-                $extras['bd']=$data['bd']->format('d.m.Y');
+        if (!empty($data['email'])) {
+            if (!empty($data['bd'])) {
+                $extras['bd'] = $data['bd']->format('d.m.Y');
             }
             // print_r($data);die;
             // print_r($type);die;
             // Configure::write('debug', 2);
             $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
-            require_once ($main_dir.'/plugins/bitrix/BitrixIntegration.php');
+            require_once($main_dir . '/plugins/bitrix/BitrixIntegration.php');
             $bitrix = new \BitrixIntegration();
             // $bitrix->get_lead_by_mobile();
-            $bitrix->execute($data,$type,$extras);
+            $bitrix->execute($data, $type, $extras);
         }
         return true;
     }

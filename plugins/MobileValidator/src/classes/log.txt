@@ -1,0 +1,5 @@
+2008-07-19 11:12:51 SmsmInterface::readResponseCode - Extracted Code:400 Message: Server error
+
+2008-07-19 11:13:10 SmsmInterface::readResponseCode - Extracted Code:100 Message: OK 49999 credits remaining
+
+2011-05-19 16:27:47 SmsInterface::connect - HTTP connection is NULL

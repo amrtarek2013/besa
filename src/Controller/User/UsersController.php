@@ -512,6 +512,7 @@ class UsersController extends AppController
 
 
         $this->set('user', $userEntity);
+        // dd($userEntity);
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'

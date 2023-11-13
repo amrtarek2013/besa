@@ -113,3 +113,6 @@ define('UPLOAD_LINK', WEBSITE_PATH . '/webroot/uploads');
 
 define('USER_ASSETS', WEBSITE_PATH);
 define('USER_LINK', Router::url('/user'));
+
+
+define('PLUGINS', ROOT . DS . 'plugins' . DS);
