@@ -44,7 +44,7 @@ $modileCodeId = 'mobile_code' . rand();
 <script>
     var countriesCodes = <?= json_encode($countriesCodes) ?>;
 
-    console.log(window.allCountriesDialCodes);
+    
     var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {
         // show dial codes too
@@ -76,10 +76,10 @@ $modileCodeId = 'mobile_code' . rand();
                 
                 var selectedCountry = '.iti__country[data-country-code="' + countryCode + '"]';
 
-                $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + allCountriesDialCodes[countryCode] + '</div><div class="iti__arrow"></div>');
+                $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + window.allCountriesDialCodes[countryCode] + '</div><div class="iti__arrow"></div>');
                 
                 // $('.iti__selected-dial-code').html($(selectedCountry + " .iti__dial-code").html());
-                $("#" + "<?= $modileCodeId ?>").val(allCountriesDialCodes[countryCode]);
+                $("#" + "<?= $modileCodeId ?>").val(window.allCountriesDialCodes[countryCode]);
             }
         });
     });
