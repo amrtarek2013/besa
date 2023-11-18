@@ -39,10 +39,12 @@ $modileCodeId = 'mobile_code' . rand();
 <script src="<?= Router::url('/intlTelInput/js/intlTelInput.js?v=' . time()) ?>"></script>
 
 <script src="<?= Router::url('/intlTelInput/js/utils.js?v=' . time()) ?>"></script>
+<script src="<?= Router::url('/intlTelInput/js/data.js?v=' . time()) ?>"></script>
 
 <script>
     var countriesCodes = <?= json_encode($countriesCodes) ?>;
-    // console.log(countriesCodes);
+
+    console.log(window.allCountriesDialCodes);
     var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {
         // show dial codes too
@@ -65,18 +67,19 @@ $modileCodeId = 'mobile_code' . rand();
             var codeid = $(this).val();
             if (codeid != '' && codeid != undefined) {
                 countryCode = countriesCodes[codeid].toLowerCase();
-                // console.log(countryCode);
-                
+
+
                 if (countryCode == 'the us')
                     countryCode = 'us';
                 if (countryCode == 'uk')
                     countryCode = 'gb';
-
-                var selectedCountry = '.iti__country[data-country-code="' + countryCode + '"]';
                 
-                $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + $(selectedCountry).data('dial-code') + '</div><div class="iti__arrow"></div>');
+                var selectedCountry = '.iti__country[data-country-code="' + countryCode + '"]';
+
+                $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + allCountriesDialCodes[countryCode] + '</div><div class="iti__arrow"></div>');
+                
                 // $('.iti__selected-dial-code').html($(selectedCountry + " .iti__dial-code").html());
-                $("#" + "<?= $modileCodeId ?>").val($(selectedCountry).data('dial-code'));
+                $("#" + "<?= $modileCodeId ?>").val(allCountriesDialCodes[countryCode]);
             }
         });
     });
@@ -84,6 +87,6 @@ $modileCodeId = 'mobile_code' . rand();
 
         $('.iti__selected-flag').html('<div class="iti__flag iti__' + $(this).data('country-code') + '"></div><div class="iti__selected-dial-code">+' + $(this).data('dial-code') + '</div><div class="iti__arrow"></div>');
         $("#" + "<?= $modileCodeId ?>").val($(this).data('dial-code'));
-        
+
     });
 </script>
