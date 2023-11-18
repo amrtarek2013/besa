@@ -218,7 +218,7 @@
       $('#subject-area').show();
   });
 </script>
-<script src="/besa/js/new-js/jquery.validate.js" async></script>
+<script src="<?=Router::url('/js/new-js/jquery.validate.js')?>" async></script>
 
 <script type="text/javascript">
   var request_busy = false;
