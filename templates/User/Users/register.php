@@ -1,13 +1,8 @@
 <style>
   div.error-message {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 12px;
-  /* position: absolute; */
-  /* z-index: 1000; */
   font-size: 12px;
+  padding: 5px;
   color: red;
-  border: 1px solid #e9eee7;
   margin-top: 2px;
 }
 .input.tel div.error-message {
