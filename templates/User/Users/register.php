@@ -15,7 +15,7 @@
         </div>
       </div>
 
-
+      <?php $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
       <div class="col-md-8 mr">
         <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
 
@@ -45,7 +45,7 @@
 
                   for ($i = 1; $i <= 31; $i++) {
                     $d = $i; //date('M', strtotime("last day of +$i month"));
-                    echo "<option value='$d'>$d</option>";
+                    echo "<option value='$d' ".((isset($bd[2]) && $bd[2]==$d)?'selected':'').">$d</option>";
                   }
                   ?>
 
@@ -55,7 +55,7 @@
                   <?php
                   for ($i = 1; $i <= 12; $i++) {
                     $month = $i; // date('M', strtotime("last day of +$i month"));
-                    echo "<option value='$month'>$month</option>";
+                    echo "<option value='$month' ".((isset($bd[1]) && $bd[1]==$month)?'selected':'').">$month</option>";
                   }
                   ?>
                 </select>
@@ -64,7 +64,7 @@
                   <?php
                   for ($i = 1980; $i <= 2015; $i++) {
                     $year = $i; //date('Y', strtotime("last day of +$i year"));
-                    echo "<option value='$year'>$year</option>";
+                    echo "<option value='$year' ".((isset($bd[0]) && $bd[0]==$year)?'selected':'').">$year</option>";
                   }
                   ?>
                 </select>
@@ -152,7 +152,7 @@
             ]) ?>
 
 
-            <?= $this->element('security_code', ['show_label' => 1]) ?>
+            <?= $this->element('security_code', ['show_label' => 1, 'showCaptchCountriesList' => $showCaptchCountriesList]) ?>
           </div>
           <p class="light-para">For the purpose of applying regulation, your details are required.</p>
 
@@ -218,7 +218,7 @@
       $('#subject-area').show();
   });
 </script>
-<script src="<?=Router::url('/js/new-js/jquery.validate.js')?>" async></script>
+<script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
 
 <script type="text/javascript">
   var request_busy = false;

@@ -19,6 +19,9 @@ $modileCodeId = 'mobile_code' . rand();
     #phone-code {
         display: none !important;
     }
+    .error-message{
+        position: absolute;
+    }
 </style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
@@ -31,7 +34,8 @@ $modileCodeId = 'mobile_code' . rand();
         'type' => 'text',
         'id' => $modileCodeId,
         // 'pattern' => "[0-9]{5}[-][0-9]{7}[-][0-9]{1}",
-        'value' => (isset($mobileCodeValue) ? '+' . $mobileCodeValue : '')
+        'value' => (isset($mobileCodeValue) ? '+' . $mobileCodeValue : ''),
+        "style"=>"height: 0px;"
     ]) ?>
 
 </div>
@@ -44,7 +48,7 @@ $modileCodeId = 'mobile_code' . rand();
 <script>
     var countriesCodes = <?= json_encode($countriesCodes) ?>;
 
-    
+
     var input = document.querySelector("#" + "<?= $modileCodeId ?>");
     window.intlTelInput(input, {
         // show dial codes too
@@ -63,8 +67,8 @@ $modileCodeId = 'mobile_code' . rand();
     $(document).ready(function() {
 
         $("#" + "<?= $modileCodeId ?>").val($('.iti__selected-dial-code').html().replace('+', ''));
-        $('#country-id').on('change', function() {
-            var codeid = $(this).val();
+        var codeid = $('#country-id').val();
+        if (codeid != '') {
             if (codeid != '' && codeid != undefined) {
                 countryCode = countriesCodes[codeid].toLowerCase();
 
@@ -73,11 +77,30 @@ $modileCodeId = 'mobile_code' . rand();
                     countryCode = 'us';
                 if (countryCode == 'uk')
                     countryCode = 'gb';
-                
+
                 var selectedCountry = '.iti__country[data-country-code="' + countryCode + '"]';
 
                 $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + window.allCountriesDialCodes[countryCode] + '</div><div class="iti__arrow"></div>');
-                
+
+                // $('.iti__selected-dial-code').html($(selectedCountry + " .iti__dial-code").html());
+                $("#" + "<?= $modileCodeId ?>").val(window.allCountriesDialCodes[countryCode]);
+            }
+        }
+        $('#country-id').on('change', function() {
+            codeid = $(this).val();
+            if (codeid != '' && codeid != undefined) {
+                countryCode = countriesCodes[codeid].toLowerCase();
+
+
+                if (countryCode == 'the us')
+                    countryCode = 'us';
+                if (countryCode == 'uk')
+                    countryCode = 'gb';
+
+                var selectedCountry = '.iti__country[data-country-code="' + countryCode + '"]';
+
+                $('.iti__selected-flag').html('<div class="iti__flag iti__' + countryCode + '"></div><div class="iti__selected-dial-code">+' + window.allCountriesDialCodes[countryCode] + '</div><div class="iti__arrow"></div>');
+
                 // $('.iti__selected-dial-code').html($(selectedCountry + " .iti__dial-code").html());
                 $("#" + "<?= $modileCodeId ?>").val(window.allCountriesDialCodes[countryCode]);
             }

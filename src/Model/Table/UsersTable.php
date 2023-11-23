@@ -138,8 +138,8 @@ class UsersTable extends Table
 
     $validator->notEmptyString('mobile', 'This field is required.')
       ->add('mobile', [
-        'isValidUSPhoneFormat' => [
-          'rule' => [$this, 'isValidUSPhoneFormat'],
+        'isValidPhoneFormat' => [
+          'rule' => [$this, 'isValidPhoneFormat'],
           'provider' => 'table',
           'message' => 'Valid mobile number required',
         ]
@@ -150,7 +150,7 @@ class UsersTable extends Table
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
-      ]);
+      ])->minLength('password', 8, 'Mobile length must be greater than 8 numbers.');
 
     // $validator->notEmptyString('username', 'This field is required.');
     // $validator->notEmptyString('postcode', 'This field is required.');
@@ -169,16 +169,16 @@ class UsersTable extends Table
   }
   
 
- /*isValidUSPhoneFormat() - Custom method to validate US Phone Number
+ /*isValidPhoneFormat() - Custom method to validate US Phone Number
  * @params Int $phone
  */
- function isValidUSPhoneFormat($phone_no, array $context)
+ function isValidPhoneFormat($phone_no, array $context)
 {
     $errors = array();
      if(empty($phone_no)) {
          $errors [] = "Please enter Phone Number";
      }
-     else if (!preg_match('/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s.]{0,1}[0-9]{3}[-\s.]{0,1}[0-9]{4}$/', $phone_no)) {
+     else if (!preg_match('/^[0-9]+$/', $phone_no)) {
          $errors [] = "Please enter valid Mobile Number";
      } 
  

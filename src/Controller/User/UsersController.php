@@ -519,6 +519,10 @@ class UsersController extends AppController
         ])->where(['active' => 1])->order(['country_name' => 'asc']);
         $this->set('countriesList', $countriesList);
 
+        $showCaptchCountriesList = $this->Countries->find('list', [
+            'keyField' => 'id', 'valueField' => 'country_name'
+        ])->where(['active' => 1, 'show_captcha'])->order(['country_name' => 'asc']);
+        $this->set('showCaptchCountriesList', $showCaptchCountriesList);
 
         $destinationsList = $this->Countries->find('list', [
             'keyField' => 'id', 'valueField' => 'country_name'

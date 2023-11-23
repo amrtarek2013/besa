@@ -94,6 +94,7 @@
                             echo $this->AdminForm->control('top_text', ['type' => 'textarea', 'Label' => 'Content', 'class' => 'editor AddFrontCss']);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             echo $this->AdminForm->control('is_destination', ['type' => 'checkbox']);
+                            echo $this->AdminForm->control('show_captch', ['type' => 'checkbox']);
                             echo $this->AdminForm->control('display_order', []);
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
                             // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'country_' . $id, $mainAdminToken);
