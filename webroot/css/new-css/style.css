@@ -9785,5 +9785,5 @@ img.mobile-image {
 }
 
 .form-area .error-message+i {
-    top: calc(50% + -2px) !important;
+    top: calc(50% + -6px) !important;
 }
