@@ -1,3 +1,19 @@
+<style>
+  div.error-message {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  /* position: absolute; */
+  /* z-index: 1000; */
+  font-size: 12px;
+  color: red;
+  border: 1px solid #e9eee7;
+  margin-top: 2px;
+}
+.input.tel div.error-message {
+  position: absolute;
+}
+</style>
 <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
@@ -238,7 +254,7 @@
         },
         'mobile': {
           required: true,
-          minlength: 10,
+          minlength: 7,
           maxlength: 13
         },
         'email': {

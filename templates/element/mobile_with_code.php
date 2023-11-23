@@ -19,9 +19,6 @@ $modileCodeId = 'mobile_code' . rand();
     #phone-code {
         display: none !important;
     }
-    .error-message{
-        position: absolute;
-    }
 </style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
