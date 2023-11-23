@@ -9784,6 +9784,6 @@ img.mobile-image {
     display: block !important;
 }
 
-.error-message+i {
-    top: calc(50% + 10px);
+.form-area .error-message+i {
+    top: calc(50% + -2px) !important;
 }
