@@ -218,3 +218,49 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#FormBookAppointment').validate({
+            rules: {
+
+                'name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                
+                'address': {
+                    required: true,
+                    minlength: 10,
+                },
+                'school_name': {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

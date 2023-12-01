@@ -83,3 +83,43 @@
 
 
 <!-- <?= $app_support_section ?> -->
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#contactusForm').validate({
+            rules: {
+
+                'name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'surname': {
+                    required: true,
+                    minlength: 3,
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+
+                'message': {
+                    required: true
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

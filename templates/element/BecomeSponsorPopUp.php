@@ -55,7 +55,7 @@
 
 
 <?php //echo $this->Html->script('new-js/jquery.validate'); ?>
-<script src="/js/new-js/jquery.validate.js" async></script>
+<!-- <script src="/js/new-js/jquery.validate.js" async></script> -->
 
 <script type="text/javascript">
     var request_busy = false;
@@ -67,6 +67,7 @@
             rules: {
                 'school_name': {
                     required: true,
+                    minlength: 3,
                 },
                 'mobile': {
                     required: true,
@@ -79,6 +80,7 @@
                 },
                 'school_counselor_name': {
                     required: true,
+                    minlength: 3,
                 },
             },
             messages: {
@@ -91,7 +93,7 @@
             },
             submitHandler: function(form) {
                 // form.submit();
-                sponsorSubmitForm(form, true);
+                enquirySubmitForm(form, true);
             }
         });
 
