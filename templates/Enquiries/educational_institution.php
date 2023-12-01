@@ -37,26 +37,6 @@
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('phone', 'Mobile*') ?>
-                            <?= $this->Form->control('phone', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('phone_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                                'type' => 'select', 'options' => $countriesCodesList
-                            ]) ?>
-                        </div> -->
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('phone', 'Mobile*') ?>
-                            <?= $this->Form->control('phone', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('phone_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-                                'type' => 'select',
-                            ]) ?>
-                        </div> -->
 
 
                         <!-- <?= $this->element('mobile_with_code', ['phone_name' => 'phone', 'phone_label' => 'Mobile', 'phone_code' => 'phone_code']) ?> -->
@@ -152,5 +132,51 @@
 <script>
     $('.tooltip').on('hover', function() {
         $('.tooltip').show();
+    });
+</script>
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#FormEducationalInstitution').validate({
+            rules: {
+
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                'school_counselor_name': {
+                    required: true,
+                },
+                'school_name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'attending_students_no': {
+                    required: true,
+                },
+                'certificate': {
+                    required: true
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+                
+                enquirySubmitForm(form, true);
+            }
+        });
     });
 </script>

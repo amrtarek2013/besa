@@ -39,13 +39,13 @@
                     ]);
 
 
-
                     echo $this->Form->control('email', [
                         'placeholder' => 'Email Address', 'type' => 'email',
                         'class' => 'required', 'label' => false, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
 
+                    echo  $this->element('mobile_with_code', ['phone_label' => 'Mobile']);
 
                     echo $this->Form->control('message', [
                         'placeholder' => 'Your Message', 'type' => 'textarea',
@@ -83,3 +83,46 @@
 
     </div>
 </section>
+
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#contactusForm').validate({
+            rules: {
+
+                'name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 13,
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+
+                'message': {
+                    required: true,
+                    minlength: 5
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

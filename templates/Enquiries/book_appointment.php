@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt=""  width="">
+                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt="" width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <input type="hidden" id="type" name="type" value="book-appointment">
                 <p class="light-para">
                     <?= $bookAppointmentSnippet ?>
-                    
+
                 </p>
 
                 <div class="container-formBox">
@@ -41,17 +41,6 @@
                             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('mobile', 'Mobile*') ?>
-                            <?= $this->Form->control('mobile', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('mobile_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                                'type' => 'select', 'options' => $countriesCodesList
-                            ]) ?>
-                        </div> -->
 
 
                         <?= $this->element('mobile_with_code') ?>
@@ -101,3 +90,50 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#FormBookAppointment').validate({
+            rules: {
+
+                'name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                
+                'destination_id': {
+                    required: true,
+                },
+                'subject_area_id': {
+                    required: true,
+                },
+                'study_level': {
+                    required: true
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

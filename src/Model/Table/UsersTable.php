@@ -150,7 +150,7 @@ class UsersTable extends Table
           'provider' => 'table',
           'message' => 'This field already exsist!',
         ]
-      ])->minLength('password', 8, 'Mobile length must be greater than 8 numbers.');
+      ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
 
     // $validator->notEmptyString('username', 'This field is required.');
     // $validator->notEmptyString('postcode', 'This field is required.');

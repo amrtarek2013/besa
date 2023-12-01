@@ -175,7 +175,15 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        // $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         // $validator->notEmptyString('subject', 'This field is required.');
         $validator->notEmptyString('message', 'This field is required.');
 
@@ -212,7 +220,15 @@ class EnquiriesTable extends Table
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->notEmptyString('subject', 'This field is required.');
         $validator->notEmptyString('message', 'This field is required.');
 
@@ -269,7 +285,15 @@ class EnquiriesTable extends Table
     {
 
         $validator->notEmptyString('name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->notEmptyString('certificate', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
@@ -295,7 +319,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('certificate', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -327,7 +359,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -359,7 +399,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('surname', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -390,7 +438,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('attending_students_no', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -420,7 +476,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('school_counselor_name', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -451,7 +515,15 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('name', 'This field is required.');
 
         $validator->notEmptyString('school_name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -480,7 +552,15 @@ class EnquiriesTable extends Table
     {
 
         $validator->notEmptyString('name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -512,7 +592,15 @@ class EnquiriesTable extends Table
     {
 
         $validator->notEmptyString('name', 'This field is required.');
-        $validator->notEmptyString('mobile', 'This field is required.');
+        $validator->notEmptyString('mobile', 'This field is required.')
+            ->add('mobile', [
+                'isValidPhoneFormat' => [
+                    'rule' => [$this, 'isValidPhoneFormat'],
+                    'provider' => 'table',
+                    'message' => 'Valid mobile number required',
+                ]
+            ])->minLength('mobile', 8, 'Mobile length must be greater than 8 numbers.');
+
         $validator->email('email', false, 'Please enter a valid email address.')
             ->notEmptyString('email', 'This field is required.');
 
@@ -564,5 +652,22 @@ class EnquiriesTable extends Table
         // if (empty($entity->banner_image)) {
         //     $entity->banner_image = str_replace('\\','',$entity->banner_image);
         // }
+    }
+    /*isValidPhoneFormat() - Custom method to validate US Phone Number
+ * @params Int $phone
+ */
+    function isValidPhoneFormat($phone_no, array $context)
+    {
+        $errors = array();
+        if (empty($phone_no)) {
+            $errors[] = "Please enter Phone Number";
+        } else if (!preg_match('/^[0-9]+$/', $phone_no)) {
+            $errors[] = "Please enter valid Mobile Number";
+        }
+
+        if (!empty($errors))
+            return implode("\n", $errors);
+
+        return true;
     }
 }

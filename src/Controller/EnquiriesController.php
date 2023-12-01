@@ -35,103 +35,120 @@ class EnquiriesController extends AppController
             );
 
 
-            //Disable Duplicate enquiries
-            $today = date('Y-m-d');
-            $time = date("H:i:s");
-            $last_10_minutes = date("Y-m-d H:i:s", strtotime('-1 minutes'));
-            $cii_minutes = date("Y-m-d H:i:s");
-            $oldEnq = $this->Enquiries->find()
-                ->where(['(created Between  \'' . $last_10_minutes . '\' AND \'' . $cii_minutes . '\')', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
-
-               ->first();
-
-            // dd($oldEnq);
             $return = [];
             $return['message'] = 'Sorry, try again';
             $return['status']  = 0;
             $return['title'] = 'Error';
 
             $enquiry_redirect_url = $this->Enquiries->enquiryTypes[$enquiry['type']]['redirect'];
-            if (empty($oldEnq) && $this->Enquiries->save($enquiry)) {
-                $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
+            // dd($enquiry['type']);
+            if (empty($enquiry->getErrors())) {
 
-                $return['message'] = 'Success';
-                $return['status']  = 1;
-                $return['title'] = 'Success';
 
-                $enquiryTitle = $this->Enquiries->enquiryTypes[$enquiry['type']]['title'];
-                $a_replace = [];
-                $b_replace = [];
-                $u_replace = [];
-                $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
+                //Disable Duplicate enquiries
+                $today = date('Y-m-d');
+                $time = date("H:i:s");
+                $last_10_minutes = date("Y-m-d H:i:s", strtotime('-1 minutes'));
+                $cii_minutes = date("Y-m-d H:i:s");
+                $oldEnq = $this->Enquiries->find()
+                    ->where(['(created Between  \'' . $last_10_minutes . '\' AND \'' . $cii_minutes . '\')', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
 
-                $a_replace = array(
-                    '{%name%}' => $enquiry['name'],
-                    '{%email%}' => $enquiry['email'],
-                    '{%phone%}' => $enquiry['mobile'],
-                    '{%subject%}' => $enquiry['subject'],
-                    '{%message%}' => $enquiry['message'],
-                    '{%enquiry_type%}' => $enquiryTitle,
-                    '{%view_link%}'  => $url,
-                );
+                    ->first();
 
-                $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
+                // dd($oldEnq);
 
-                $to = $enquiry['email'];
-                $from = '';
+                if (empty($oldEnq) && $this->Enquiries->save($enquiry)) {
+                    $this->sendToBitrix($enquiry, $enquiry['type'], $this->Enquiries->enquiryTypes);
 
-                $u_replace = array(
-                    '{%name%}' => $enquiry['name'],
-                    '{%email%}' => $enquiry['email'],
-                    '{%phone%}' => $enquiry['mobile'],
-                    '{%subject%}' => $enquiry['subject'],
-                    '{%message%}' => $enquiry['message'],
-                    '{%enquiry_type%}' => $enquiryTitle
-                );
+                    $return['message'] = 'Success';
+                    $return['status']  = 1;
+                    $return['title'] = 'Success';
 
-                $email_template = 'user.contactus_thankyou_enquiry';
-                if (isset($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'])) {
-                    $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'];
-
+                    $enquiryTitle = $this->Enquiries->enquiryTypes[$enquiry['type']]['title'];
+                    $a_replace = [];
+                    $b_replace = [];
                     $u_replace = [];
-                    $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']]['fields'];
+                    $url = Router::url('/admin/enquiries/view/' . $enquiry['id'], true);
 
-                    foreach ($dataFields as $field => $fieldTitle) {
-                        $enquiry[$field] = ($field == 'mobile') ? (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : "\t" . $enquiry[$field]) : $enquiry[$field];
-                        $enquiry[$field] = ($field == 'subject_area_id' && isset($enquiry['subject_area']['title'])) ? $enquiry['subject_area']['title'] : $enquiry[$field];
-                        $enquiry[$field] = ($field == 'destination_id' && isset($enquiry['country']['country_name'])) ? $enquiry['country']['country_name'] : $enquiry[$field];
-                        $enquiry[$field] = ($field == 'fair_venue' && isset($fairVenues[$enquiry['fair_venue']])) ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
-                        if ($enquiry['type'] == 'book-appointment') {
-                            $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels[$enquiry[$field]])) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
-                        } else if ($enquiry['type'] == 'visitors-application') {
-                            $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels[$enquiry[$field]])) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                    $a_replace = array(
+                        '{%name%}' => $enquiry['name'],
+                        '{%email%}' => $enquiry['email'],
+                        '{%phone%}' => $enquiry['mobile'],
+                        '{%subject%}' => $enquiry['subject'],
+                        '{%message%}' => $enquiry['message'],
+                        '{%enquiry_type%}' => $enquiryTitle,
+                        '{%view_link%}'  => $url,
+                    );
+
+                    $this->sendEmail($this->g_configs['general']['txt.admin_email'], false, 'admin.contactus_enquiry', $a_replace);
+
+                    $to = $enquiry['email'];
+                    $from = '';
+
+                    $u_replace = array(
+                        '{%name%}' => $enquiry['name'],
+                        '{%email%}' => $enquiry['email'],
+                        '{%phone%}' => $enquiry['mobile'],
+                        '{%subject%}' => $enquiry['subject'],
+                        '{%message%}' => $enquiry['message'],
+                        '{%enquiry_type%}' => $enquiryTitle
+                    );
+
+                    $email_template = 'user.contactus_thankyou_enquiry';
+                    if (isset($this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'])) {
+                        $email_template = $this->Enquiries->enquiryTypes[$enquiry['type']]['email_template'];
+
+                        $u_replace = [];
+                        $dataFields = $this->Enquiries->enquiryTypes[$enquiry['type']]['fields'];
+
+                        foreach ($dataFields as $field => $fieldTitle) {
+                            $enquiry[$field] = ($field == 'mobile') ? (!empty($enquiry['mobile_code']) ? '(+' . $enquiry['mobile_code'] . ') ' . $enquiry[$field] : "\t" . $enquiry[$field]) : $enquiry[$field];
+                            $enquiry[$field] = ($field == 'subject_area_id' && isset($enquiry['subject_area']['title'])) ? $enquiry['subject_area']['title'] : $enquiry[$field];
+                            $enquiry[$field] = ($field == 'destination_id' && isset($enquiry['country']['country_name'])) ? $enquiry['country']['country_name'] : $enquiry[$field];
+                            $enquiry[$field] = ($field == 'fair_venue' && isset($fairVenues[$enquiry['fair_venue']])) ? $fairVenues[$enquiry['fair_venue']] : $enquiry[$field];
+                            if ($enquiry['type'] == 'book-appointment') {
+                                $enquiry[$field] = ($field == 'study_level' && isset($interestedStudyLevels[$enquiry[$field]])) ? $interestedStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                            } else if ($enquiry['type'] == 'visitors-application') {
+                                $enquiry[$field] = ($field == 'study_level' && isset($mainStudyLevels[$enquiry[$field]])) ? $mainStudyLevels[$enquiry[$field]] : $enquiry[$field];
+                            }
+
+                            $fieldName = str_replace('_id', '', $field);
+                            $u_replace['{%' . $fieldName . '%}'] = $enquiry[$field];
                         }
-
-                        $fieldName = str_replace('_id', '', $field);
-                        $u_replace['{%' . $fieldName . '%}'] = $enquiry[$field];
                     }
-                }
 
-                $this->sendEmail($to, false, $email_template, $u_replace);
-                // 
-                $return['message'] = __('The Enquiry has been saved.');
+                    $this->sendEmail($to, false, $email_template, $u_replace);
+                    // 
+                    $return['message'] = __('The Enquiry has been saved.');
 
-                if ($this->request->is('ajax')) {
-                    die(json_encode($return));
+                    if ($this->request->is('ajax')) {
+                        die(json_encode($return));
+                    } else {
+                        $this->Flash->success(__('The Enquiry has been saved.'));
+                    }
+                } else if (!empty($oldEnq)) {
+
+                    $return['message'] = 'Success';
+                    $return['status']  = 1;
+                    $return['title'] = 'Success';
+                    $return['message'] = __('The Enquiry has been saved.');
+
+                    if ($this->request->is('ajax')) {
+                        $return['validationErrors'] = $enquiry->getErrors();
+                        die(json_encode($return));
+                    } else {
+                        $this->Flash->success(__('The Enquiry has been saved.'));
+                    }
                 } else {
-                    $this->Flash->success(__('The Enquiry has been saved.'));
-                }
-            } else if (!empty($oldEnq)) {
 
-                $return['message'] = 'Success';
-                $return['status']  = 1;
-                $return['title'] = 'Success';
-                $return['message'] = __('The Enquiry has been saved.');
 
-                if ($this->request->is('ajax')) {
-                    die(json_encode($return));
-                } else {
-                    $this->Flash->success(__('The Enquiry has been saved.'));
+                    if ($this->request->is('ajax')) {
+
+                        $return['message'] = __('The Enquiry could not be sent. Please, try again.');
+                        die(json_encode($return));
+                    } else {
+                        $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
+                    }
                 }
             } else {
 
@@ -139,6 +156,7 @@ class EnquiriesController extends AppController
                 if ($this->request->is('ajax')) {
 
                     $return['message'] = __('The Enquiry could not be sent. Please, try again.');
+                    $return['validationErrors'] = $enquiry->getErrors();
                     die(json_encode($return));
                 } else {
                     $this->Flash->error(__('The Enquiry could not be sent. Please, try again.'));
@@ -172,6 +190,8 @@ class EnquiriesController extends AppController
     private function __redirectToType($type = 'contact-us')
     {
 
+        if ($type = 'contact-us')
+            return true;
         switch ($type) {
             case 'home':
                 return $this->redirect('/');

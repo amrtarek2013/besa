@@ -19,13 +19,12 @@
     }
 </style>
 
-
 <section class="main-banner contact-banner">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt=""  width="">
+                    <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt="" width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -38,21 +37,6 @@
             <div class="col-md-12" style="padding: 0">
                 <div class="title-banner-blue">
                     <div class="icons">
-                        <!-- <a href="#">
-                            <i class="fab fa-facebook fa-2x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-instagram fa-2x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-youtube fa-2x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-tiktok fa-2x"></i>
-                        </a> -->
                         <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
                             <img src="<?= WEBSITE_URL ?>img/icon/social-media/Facebook.svg" alt="facebook">
                         </a>
@@ -351,34 +335,13 @@
     // });
 </script>
 <script>
-    function onSubmit(token) {
-        document.getElementById("contactusForm").submit();
-    }
+    // function onSubmit(token) {
+    //     document.getElementById("contactusForm").submit();
+    // }
 </script>
 
-<?php //echo $this->Html->script('new-js/jquery.validate'); 
-?>
 <script src="/js/new-js/jquery.validate.js" async></script>
 
-<!-- <script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
-<script>
-    var number = 0;
-
-    function reLoadCaptchaV3() {
-
-        grecaptcha.execute('<?php echo CAPTCHA_SITE_KEY; ?>', {
-                action: 'homepage'
-            })
-            .then(function(token) {
-                //console.log(token);
-                $('#g-recaptcha-response').val(token);
-            });
-        // });
-    }
-    grecaptcha.ready(function() {
-        reLoadCaptchaV3();
-    });
-</script> -->
 
 <script type="text/javascript">
     var request_busy = false;
@@ -397,7 +360,7 @@
                 'name': {
                     required: true,
                 },
-                'phone': {
+                'mobile': {
                     required: true,
                     minlength: 10,
                     maxlength: 13
@@ -406,9 +369,6 @@
                     required: true,
                     email: true
                 },
-                // 'email_confirm': {
-                //     required: true,
-                //s },
                 'subject': {
                     required: true,
                 },
@@ -425,8 +385,8 @@
                 error.insertAfter(element, false);
             },
             submitHandler: function(form) {
-                form.submit();
-                // contactusSubmitForm(form, true);
+                // form.submit();
+                enquirySubmitForm(form, true);
             }
         });
 
@@ -434,10 +394,10 @@
 
             if (!request_busy) {
 
-                // $('body').LoadingOverlay("show");
+                $('body').LoadingOverlay("show");
 
                 request_busy = true;
-                // $('#registerbox .modal').append("<div class='remodal-loading'></div>");
+                // $('#registerbox .modalMsg').append("<div class='remodal-loading'></div>");
                 $.ajax({
                     type: "POST",
                     url: $(form).prop('action'),
@@ -450,7 +410,7 @@
                     if (data.status) {
 
 
-                        notification('success', data.message, data.title);
+                        // notification('success', data.message, data.title);
 
 
                         $('.error-message').remove();
@@ -460,11 +420,12 @@
 
                     } else {
 
-                        // $('body').LoadingOverlay("hide");
+                        $('body').LoadingOverlay("hide");
 
-                        notification('error', data.message, data.title);
+                        // notification('error', data.message, data.title);
 
-                        var rmodal_id = 'modal';
+
+                        var rmodal_id = 'modalMsg';
 
                         reLoadCaptchaV3();
                         $('.error-message').remove();
@@ -482,18 +443,15 @@
                         }
 
                     }
+
+                    $('.modalMsg #msgText').html(data.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
                 });
 
-                // $('body').LoadingOverlay("hide");
+                $('body').LoadingOverlay("hide");
             }
         }
-        // var elem = $('#' + window.location.hash.replace('#', ''));
-        // if (elem) {
-        //     setTimeout(function() {
-        //         $('html, body').animate({
-        //             scrollTop: elem.offset().top - 50
-        //         }, 2000);
-        //     }, 2000);
-        // }
+
     });
 </script>

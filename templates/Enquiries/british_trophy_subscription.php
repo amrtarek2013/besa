@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="background-banner-color">
 
-                    <img src="<?= WEBSITE_URL ?>img/customer-support-flat.png" alt="customer support"  width="">
+                    <img src="<?= WEBSITE_URL ?>img/customer-support-flat.png" alt="customer support" width="">
                     <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div>
@@ -34,29 +34,6 @@
                             'placeholder' => 'Contact person name*', 'label' => 'Contact person name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
-
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('mobile', 'Mobile*') ?>
-                            <?= $this->Form->control('mobile', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('mobile_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                                'type' => 'select', 'options' => $countriesCodesList
-                            ]) ?>
-                        </div> -->
-
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('phone', 'Mobile*') ?>
-                            <?= $this->Form->control('phone', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('phone_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code mobile_code', 'label' => false, 'required' => true,
-                                'type' => 'select',
-                            ]) ?>
-                        </div> -->
-
 
                         <?= $this->element('mobile_with_code') ?>
 
@@ -101,7 +78,7 @@
 </section>
 <?php if ($this->request->is('mobile')) { ?>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
 
             let text = $('.title .text-left').html();
             text = text.replace('<br/>', ' ');
@@ -109,3 +86,49 @@
         });
     </script>
 <?php } ?>
+
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        $('#FormBritishTrophySubscription').validate({
+            rules: {
+
+                'first_name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'last_name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+
+                'certificate': {
+                    required: true,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

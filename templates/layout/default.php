@@ -29,6 +29,7 @@
         '/js/new-js/jquery-3.6.3.min.js',
         '/js/new-js/fontawesome.min.js',
         '/js/new-js/remodal.js',
+        '/js/new-js/overlay.js',
         '/js/new-js/owl.carousel.min.js',
         // '/js/new-js/pana-accordion.js',
         // '/js/new-js/timeline.js',

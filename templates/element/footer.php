@@ -107,3 +107,65 @@ use Cake\Routing\Router;
         h.parentNode.insertBefore(s, h);
     })(window, document, 'https://cdn.bitrix24.com/b16120715/crm/site_button/loader_3_d2o61u.js');
 </script>
+
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        enquirySubmitForm = function(form, register) {
+
+            console.log('enquirySubmitForm');
+            if (!request_busy) {
+
+                $('body').LoadingOverlay("show");
+
+                request_busy = true;
+                // $('#registerbox .modalMsg').append("<div class='remodal-loading'></div>");
+                $.ajax({
+                    type: "POST",
+                    url: $(form).prop('action'),
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                }).done(function(data) {
+                    request_busy = false;
+                    $('.remodal-loading').remove();
+                    
+                    if (data.status) {
+
+                        $('.error-message').remove();
+                        $(form)[0].reset();
+
+                        reLoadCaptchaV3();
+
+                    } else {
+
+                        $('body').LoadingOverlay("hide");
+                        var rmodal_id = 'modalMsg';
+
+                        reLoadCaptchaV3();
+                        $('.error-message').remove();
+                        if (data['validationErrors']) {
+                            for (i in data.validationErrors) {
+                                if (typeof(data.validationErrors[i]) === 'object') {
+                                    var errors_array = data.validationErrors[i];
+                                    for (j in errors_array) {
+                                        $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
+                                    }
+                                } else {
+                                    $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
+                                }
+                            }
+                        }
+
+                    }
+
+                    $('.modalMsg #msgText').html(data.message);
+                    var inst = $('[data-remodal-id=modalMsg]').remodal();
+                    inst.open();
+                });
+
+                $('body').LoadingOverlay("hide");
+            }
+        }
+    });
+</script>

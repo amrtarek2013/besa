@@ -1,13 +1,14 @@
 <style>
   div.error-message {
-  font-size: 12px;
-  padding: 5px;
-  color: red;
-  margin-top: 2px;
-}
-.input.tel div.error-message {
-  position: absolute;
-}
+    font-size: 12px;
+    padding: 5px;
+    color: red;
+    margin-top: 2px;
+  }
+
+  .input.tel div.error-message {
+    position: absolute;
+  }
 </style>
 <section class="main-banner register-banner Create-account-banner">
 
@@ -56,7 +57,7 @@
 
                   for ($i = 1; $i <= 31; $i++) {
                     $d = $i; //date('M', strtotime("last day of +$i month"));
-                    echo "<option value='$d' ".((isset($bd[2]) && $bd[2]==$d)?'selected':'').">$d</option>";
+                    echo "<option value='$d' " . ((isset($bd[2]) && $bd[2] == $d) ? 'selected' : '') . ">$d</option>";
                   }
                   ?>
 
@@ -66,7 +67,7 @@
                   <?php
                   for ($i = 1; $i <= 12; $i++) {
                     $month = $i; // date('M', strtotime("last day of +$i month"));
-                    echo "<option value='$month' ".((isset($bd[1]) && $bd[1]==$month)?'selected':'').">$month</option>";
+                    echo "<option value='$month' " . ((isset($bd[1]) && $bd[1] == $month) ? 'selected' : '') . ">$month</option>";
                   }
                   ?>
                 </select>
@@ -75,7 +76,7 @@
                   <?php
                   for ($i = 1980; $i <= 2015; $i++) {
                     $year = $i; //date('Y', strtotime("last day of +$i year"));
-                    echo "<option value='$year' ".((isset($bd[0]) && $bd[0]==$year)?'selected':'').">$year</option>";
+                    echo "<option value='$year' " . ((isset($bd[0]) && $bd[0] == $year) ? 'selected' : '') . ">$year</option>";
                   }
                   ?>
                 </select>
@@ -234,9 +235,9 @@
 <script type="text/javascript">
   var request_busy = false;
   $(function() {
-    // setInterval(function() {
-    //     reLoadCaptchaV3();
-    // }, 2 * 60 * 1000);
+    setInterval(function() {
+      reLoadCaptchaV3();
+    }, 2 * 60 * 1000);
 
     $('#FormRegister').validate({
       rules: {
@@ -300,8 +301,72 @@
       },
       submitHandler: function(form) {
         form.submit();
+        // enquiriesSubmitForm(form)
       }
     });
+
+    // enquiriesSubmitForm = function(form, register) {
+
+    //   if (!request_busy) {
+
+    //     $('body').LoadingOverlay("show");
+
+    //     request_busy = true;
+    //     // $('#registerbox .modalMsg').append("<div class='remodal-loading'></div>");
+    //     $.ajax({
+    //       type: "POST",
+    //       url: $(form).prop('action'),
+    //       data: $(form).serialize(),
+    //       dataType: 'json',
+    //     }).done(function(data) {
+    //       request_busy = false;
+    //       $('.remodal-loading').remove();
+    //       console.log(data.status);
+    //       if (data.status) {
+
+
+    //         // notification('success', data.message, data.title);
+
+
+    //         $('.error-message').remove();
+    //         $(form)[0].reset();
+
+    //         reLoadCaptchaV3();
+
+    //       } else {
+
+    //         $('body').LoadingOverlay("hide");
+
+    //         // notification('error', data.message, data.title);
+
+
+    //         var rmodal_id = 'modalMsg';
+
+    //         reLoadCaptchaV3();
+    //         $('.error-message').remove();
+    //         if (data['validationErrors']) {
+    //           for (i in data.validationErrors) {
+    //             if (typeof(data.validationErrors[i]) === 'object') {
+    //               var errors_array = data.validationErrors[i];
+    //               for (j in errors_array) {
+    //                 $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
+    //               }
+    //             } else {
+    //               $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
+    //             }
+    //           }
+    //         }
+
+    //       }
+
+    //       $('.modalMsg #msgText').html(data.message);
+    //       var inst = $('[data-remodal-id=modalMsg]').remodal();
+    //       inst.open();
+    //     });
+
+    //     $('body').LoadingOverlay("hide");
+    //   }
+    // }
 
   });
 </script>

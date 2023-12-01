@@ -1642,9 +1642,9 @@ textarea {
     margin-bottom: 50px;
 }
 
-.contact-us .text {
+/* .contact-us .text {
     padding-left: 36px;
-}
+} */
 
 .contact-us .text p {
     font-family: 'Poppins';
@@ -8762,7 +8762,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-
 }
 
 .iti__country-list {
@@ -9786,4 +9785,15 @@ img.mobile-image {
 
 .form-area .error-message+i {
     top: calc(50% + -6px) !important;
+}
+
+div.error-message {
+    font-size: 12px;
+    padding: 5px;
+    color: red;
+    margin-top: 2px;
+}
+
+.input.tel div.error-message {
+    position: absolute;
 }

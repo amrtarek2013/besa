@@ -59,7 +59,7 @@
                         ]) ?>
                         <?= $this->Form->control('fair_venue', [
                             'placeholder' => 'Fair Venue*', 'type' => 'select', 'empty' => 'Select Fair Venue*',
-                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue)?$selected_fair_venue:''),
+                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue) ? $selected_fair_venue : ''),
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
@@ -92,3 +92,61 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var request_busy = false;
+    $(function() {
+        setInterval(function() {
+            reLoadCaptchaV3();
+        }, 2 * 60 * 1000);
+        $('#FormVisitorApp').validate({
+            rules: {
+
+                'name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'surname': {
+                    required: true,
+                    minlength: 3,
+                },
+                'mobile': {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 13
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                'study_level': {
+                    required: true,
+                },
+                'school_name': {
+                    required: true,
+                    minlength: 3,
+                },
+                'destination_id': {
+                    required: true,
+                },
+                'fair_venue': {
+                    required: true
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
+                // form.submit();
+
+                console.log('enquirySubmitForm2222');
+                enquirySubmitForm(form, true);
+            }
+        });
+    });
+</script>

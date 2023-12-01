@@ -1276,6 +1276,18 @@ class AppController extends Controller
 
     public function sendToBitrix($data, $type, $enquiryTypes = [])
     {
+
+        $local = array(
+            '127.0.0.1',
+            '::1',
+            'http://besa.intimedev.com',
+            'https://besa.intimedev.com'
+        );
+
+        if (empty($_SERVER["HTTPS"]) || !(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
+
+            return true;
+        }
         $extras = [];
         $this->loadModel('SubjectAreas');
         $subjectAreas = $this->SubjectAreas->find('list', [
