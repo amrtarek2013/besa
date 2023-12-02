@@ -44,14 +44,18 @@ class EnquiriesController extends AppController
             // dd($enquiry['type']);
             if (empty($enquiry->getErrors())) {
 
-
                 //Disable Duplicate enquiries
                 $today = date('Y-m-d');
                 $time = date("H:i:s");
                 $last_10_minutes = date("Y-m-d H:i:s", strtotime('-1 minutes'));
                 $cii_minutes = date("Y-m-d H:i:s");
+                
+                $oldConds = ['(created Between  \'' . $last_10_minutes . '\' AND \'' . $cii_minutes . '\')', 'type' => $enquiry->type, 'LOWER(email)' => strtolower($enquiry->email)];
+                if (isset($enquiry['mobile']))
+                    $oldConds['mobile'] = $enquiry->mobile;
+
                 $oldEnq = $this->Enquiries->find()
-                    ->where(['(created Between  \'' . $last_10_minutes . '\' AND \'' . $cii_minutes . '\')', 'type' => $enquiry->type, 'mobile' => $enquiry->mobile, 'LOWER(email)' => strtolower($enquiry->email)])
+                    ->where($oldConds)
 
                     ->first();
 
