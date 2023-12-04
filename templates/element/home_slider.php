@@ -48,7 +48,7 @@
                                             $class = !empty($slider['thumb_image_path']) ? 'desktop-image' : '';
 
                                             // Use inline CSS to set the background-image.
-                                            echo '<div class="' . $class . '" style="background-image: url(\'' . $slider['image_path'] . '\');"></div>';
+                                            echo '<div class=" background-image-slider ' . $class . '" style="background-image: url(\'' . $slider['image_path'] . '\');"></div>';
 
                                             // If there's a thumbnail image, create another div for the mobile image.
                                             if (!empty($slider['thumb_image_path'])) {
