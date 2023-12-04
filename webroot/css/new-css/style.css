@@ -993,6 +993,8 @@ textarea {
 .header .main-slider .item {
    
 }
+.header .main-slider .item  .image > div,
+.header .main-slider .item  .image,
 .header .main-slider .item  .background-image-slider > div,
 .header .main-slider .item  .background-image-slider{
     height: 688px;
