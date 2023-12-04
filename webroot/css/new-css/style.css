@@ -991,7 +991,8 @@ textarea {
 /*Start Header */
 
 .header .main-slider .item {
-   
+    position: relative;
+
 }
 .header .main-slider .item  .image > div,
 .header .main-slider .item  .image,
