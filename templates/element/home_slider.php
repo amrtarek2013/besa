@@ -13,7 +13,34 @@
 
                     ?>
                             <div class="item">
+                                <div class="text ">
+                                    <div class="fadeInUp">
+                                        <h1 class="title"><?= $slider['title'] ?></h1>
+                                        <p class=""><?= $slider['text'] ?></p>
+                                    </div>
+                                    <div class="buttons fadeInUp">
+                                        <?php if (isset($slider['url'])) { ?>
+                                            <a href="<?= $slider['url'] ?>" class="btn MainBtn apply-now">
+                                                <?= $slider['url_label'] ?>
+                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
+                                                Apply Now
+                                                <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
+                                            </a>
+                                        <?php } ?>
 
+
+                                        <?php if (isset($slider['right_url']) && !empty($slider['right_url_label'])) { ?>
+                                            <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
+
+                                        <?php } else { ?>
+                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn contact-us">Contact Us</a>
+
+                                        <?php } ?>
+                                    </div>
+                                </div>
                                 <div class="image ">
                                     <?php
                                         if (isset($slider['image_path'])) {
@@ -32,34 +59,6 @@
                                             echo '<div style="background-image: url(\'' . WEBSITE_URL . 'img/background-header.png\');"></div>';
                                         }
                                     ?>
-                                    <div class="text ">
-                                        <div class="fadeInUp">
-                                            <h1 class="title"><?= $slider['title'] ?></h1>
-                                            <p class=""><?= $slider['text'] ?></p>
-                                        </div>
-                                        <div class="buttons fadeInUp">
-                                            <?php if (isset($slider['url'])) { ?>
-                                                <a href="<?= $slider['url'] ?>" class="btn MainBtn apply-now">
-                                                    <?= $slider['url_label'] ?>
-                                                    <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-                                                </a>
-                                            <?php } else { ?>
-                                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $slider['permalink'] ?>" class="btn MainBtn apply-now">
-                                                    Apply Now
-                                                    <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
-                                                </a>
-                                            <?php } ?>
-
-
-                                            <?php if (isset($slider['right_url']) && !empty($slider['right_url_label'])) { ?>
-                                                <a href="<?= $slider['right_url'] ?>" class="btn MainBtn contact-us"><?= $slider['right_url_label'] ?></a>
-
-                                            <?php } else { ?>
-                                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn contact-us">Contact Us</a>
-
-                                            <?php } ?>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                     <?php
