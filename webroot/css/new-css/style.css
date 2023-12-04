@@ -999,7 +999,12 @@ textarea {
     position: relative;
 }
 .arrow-bottomGoSection {
-    margin-top: 80px;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 .header .main-slider .item .text {
