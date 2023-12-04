@@ -993,18 +993,24 @@ textarea {
 .header .main-slider .item {
    
 }
-
+.header .main-slider .item  .background-image-slider > div,
+.header .main-slider .item  .background-image-slider{
+    height: 688px;
+    position: relative;
+}
 .arrow-bottomGoSection {
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    margin-top: 80px;
 }
 
 .header .main-slider .item .text {
-    padding-left: 60px;
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
 }
 
 .header .main-slider .item .text h1 {

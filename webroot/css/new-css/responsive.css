@@ -1251,10 +1251,12 @@
     .iti.iti--allow-dropdown.iti--separate-dial-code.iti--show-flags {
         bottom: 47px;
     }
-    .iti__country-list{
+
+    .iti__country-list {
         min-width: 280px;
 
     }
+
     .main-banner {
         padding-top: 0;
         padding-bottom: 0;
@@ -2049,5 +2051,13 @@
 
     .owl-logos-slider .owl-dots {
         display: none;
+    }
+
+
+    .header .main-slider .item .background-image-slider>div,
+
+    .header .main-slider .item .background-image-slider {
+        height: 300px;
+        /* Height for mobile screens */
     }
 }
