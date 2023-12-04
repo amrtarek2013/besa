@@ -994,13 +994,15 @@ textarea {
     position: relative;
 
 }
-.header .main-slider .item  .image > div,
-.header .main-slider .item  .image,
-.header .main-slider .item  .background-image-slider > div,
-.header .main-slider .item  .background-image-slider{
+
+.header .main-slider .item .image>div,
+.header .main-slider .item .image,
+.header .main-slider .item .background-image-slider>div,
+.header .main-slider .item .background-image-slider {
     height: 688px;
     position: relative;
 }
+
 .arrow-bottomGoSection {
     position: absolute;
     bottom: -60px;
@@ -1026,10 +1028,9 @@ textarea {
     font-family: "Poppins";
     font-weight: 600;
     font-size: 72px;
-    line-height: normal;
+    line-height: 72px;
     color: #FFF;
     text-align: left;
-    margin-bottom: 30px;
 }
 
 .header .main-slider .item .text p {
@@ -1047,14 +1048,19 @@ textarea {
     -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
     padding: 10px 0;
+    margin-top: 80px;
 }
 
 .header .main-slider .item .text .buttons a {
-    border-radius: 30px;
-    width: 167px;
-    height: 45px;
-    margin-right: 27px;
+    max-width: 260px;
+    height: 40px;
     font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 12px;
+    background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    color: #FBFBFB;
+    font-family: "Poppins";
+    font-size: 16px;
 }
 
 .header .main-slider .item .text .buttons a img {
