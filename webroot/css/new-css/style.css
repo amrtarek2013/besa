@@ -1014,40 +1014,36 @@ textarea {
     position: absolute;
     top: 50%;
     left: 70px;
-    transform: translateX(50%);
-    -webkit-transform: translateX(50%);
-    -moz-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    -o-transform: translateX(50%);
+    transform: translatey(-50%);
+    z-index: 9;
+    -webkit-transform: translatey(-50%);
+    -moz-transform: translatey(-50%);
+    -ms-transform: translatey(-50%);
+    -o-transform: translatey(-50%);
 }
 
 .header .main-slider .item .text h1 {
-    line-height: 79px;
-    color: var(--bs-blue);
-    margin-bottom: 54px;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 72px;
+    line-height: normal;
+    color: #FFF;
     text-align: left;
+    margin-bottom: 30px;
 }
 
 .header .main-slider .item .text p {
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 24px;
-    line-height: 35px;
-    color: var(--bs-Grey);
-    padding-right: 90px;
+    line-height: normal;
+    color: #FFF;
 }
 
 .header .main-slider .item .text .buttons {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: absolute;
-    bottom: 0;
-    transform: translatey(-15px);
-    -webkit-transform: translatey(-15px);
-    -moz-transform: translatey(-15px);
-    -ms-transform: translatey(-15px);
-    -o-transform: translatey(-15px);
     -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
     padding: 10px 0;
@@ -8393,10 +8389,7 @@ input[type="search"]:focus {
     width: 50%;
 }
 
-.header .main-slider .item .text h1 {
-    line-height: 55px;
-    font-size: 42px;
-}
+
 
 .main-sidebar select {
 
