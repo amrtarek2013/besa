@@ -991,10 +991,7 @@ textarea {
 /*Start Header */
 
 .header .main-slider .item {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+   
 }
 
 .arrow-bottomGoSection {

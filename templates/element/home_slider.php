@@ -43,17 +43,22 @@
                                 </div>
                                 <div class="image fadeInDown">
                                     <?php
-                                    if (isset($slider['image_path'])) {
+                                        if (isset($slider['image_path'])) {
+                                            // Define a class for the div. You can add more classes as needed.
+                                            $class = !empty($slider['thumb_image_path']) ? 'desktop-image' : '';
+
+                                            // Use inline CSS to set the background-image.
+                                            echo '<div class="' . $class . '" style="background-image: url(\'' . $slider['image_path'] . '\');"></div>';
+
+                                            // If there's a thumbnail image, create another div for the mobile image.
+                                            if (!empty($slider['thumb_image_path'])) {
+                                                echo '<div class="mobile-image" style="background-image: url(\'' . $slider['thumb_image_path'] . '\');"></div>';
+                                            }
+                                        } else {
+                                            // Fallback background image
+                                            echo '<div style="background-image: url(\'' . WEBSITE_URL . 'img/background-header.png\');"></div>';
+                                        }
                                     ?>
-                                        <img <?= !empty($slider['thumb_image_path']) ? 'class="desktop-image"' : '' ?> src="<?= $slider['image_path'] ?>" alt="" width="">
-                                        <?= !empty($slider['thumb_image_path']) ? '<img src="' . $slider['thumb_image_path'] . '" class="mobile-image" alt="" width="">' : '' ?>
-
-                                    <?php } else { ?>
-
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-1.png" alt="" width="" class="box-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/bg-popup-2.png" alt=""  width="" class="icon-message bounceIn">
-                                        <img src="<?= WEBSITE_URL ?>img/background-header.png" width="" alt="">
-                                    <?php } ?>
                                 </div>
                             </div>
                     <?php
