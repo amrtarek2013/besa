@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="main-slider  owl-carousel owl-theme animateddiv">
+                <div class="main-slider owl-carousel owl-theme animateddiv">
                     <?php
 
                     use Cake\Routing\Router;
@@ -14,7 +14,7 @@
                     ?>
                             <div class="item">
 
-                                <div class="background-image-slider">
+                                <div class="background-image-slider s">
                                     <?php
                                         if (isset($slider['image_path'])) {
                                             // Define a class for the div. You can add more classes as needed.
