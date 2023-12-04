@@ -41,7 +41,7 @@
                                         <?php } ?>
                                     </div>
                                 </div>
-                                <div class="image ">
+                                <div class="image fadeInDown">
                                     <?php
                                         if (isset($slider['image_path'])) {
                                             // Define a class for the div. You can add more classes as needed.
