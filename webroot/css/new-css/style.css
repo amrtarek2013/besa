@@ -4913,7 +4913,7 @@ input.search {
     color: var(--bs-white);
     margin: 18px auto;
 }
-
+/*
 .contaienr-conditions {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4924,7 +4924,6 @@ input.search {
 }
 
 .contaienr-conditions .box {
-    /* background: var(--bs-white); */
     background: var(--bs-gray);
     border-radius: 10px;
     padding: 40px 18px 40px 15px;
@@ -4991,8 +4990,7 @@ input.search {
 }
 
 .contaienr-conditions .box:not(:first-child)::before {
-    /*CSSrulesforalldivsexceptthefirstone*/
-    /*content: url(../img/new-images/arrow-right-gray.svg);*/
+
     content: '';
     position: absolute;
     top: 50%;
@@ -5011,7 +5009,7 @@ input.search {
     height: 35px;
     
     border-right: 8px solid var(--bs-gray);
-    border-top: 8px solid var(--bs-gray); */
+    border-top: 8px solid var(--bs-gray); 
     -webkit-transform: translateY(-50%) rotate(45deg);
     -ms-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
@@ -5026,8 +5024,7 @@ input.search {
     display: inline-block;
     width: 25px;
     height: 25px;
-    /* border-right: 12px solid var(--bs-white);
-    border-top: 12px solid var(--bs-white); */
+
     border-right: 8px solid var(--bs-green);
     border-top: 8px solid var(--bs-green);
     -webkit-transform: translateY(-50%) rotate(45deg);
@@ -5055,7 +5052,75 @@ input.search {
     color: var(--bs-white);
     z-index: 10;
 }
+*/
 
+.contaienr-conditions {
+    display: flex;
+    height: 456px;
+  }
+  .contaienr-conditions .box h2 {
+    font-family: "Poppins";
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 150%; /* 48px */
+    background: var(
+      --Gradient01,
+      linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+
+  .contaienr-conditions .circle-red {
+    color: #fff;
+    font-family: "Poppins";
+    font-size: 20.235px;
+    font-weight: 500;
+    line-height: 150%;
+    display: flex;
+    width: 43px;
+    height: 43px;
+    padding: 6.324px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    border-radius: 316.176px;
+    background: linear-gradient(112deg, #d71921 40.47%, #faba1b 277.41%);
+  }
+  .contaienr-conditions .circle-gradient {
+    background: var(
+      --Gradient01,
+      linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%)
+    );
+    background: var(--Gradient01) ;
+    border-radius: 50%;
+    width: 194px;
+    height: 194px;
+    padding: 24px;
+    position: relative;
+  }
+  .contaienr-conditions .circle-gradient .container-circle {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ededed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contaienr-conditions .circle-gradient .container-circle p {
+    color: #fbfbfb;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+  }
 /*End study broad guidance*/
 
 
