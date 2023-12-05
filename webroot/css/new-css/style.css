@@ -243,7 +243,7 @@ p {
     font-family: 'Poppins';
     font-size: 18px;
     font-weight: 400;
-    line-height: 150%; 
+    line-height: 150%;
     color: #546E7A;
 }
 
@@ -4876,9 +4876,9 @@ input.search {
 
 }
 
-.study-broad-guidance .col-md-12 > p {
+.study-broad-guidance .col-md-12>p {
     font-size: 24px;
-    color:#546E7A;
+    color: #546E7A;
     font-family: "Poppins";
     font-size: 20px;
     margin: 0 12vw;
@@ -4908,7 +4908,7 @@ input.search {
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.02em;
-    width: 180px;
+    width: max-content;
     height: 45px;
     color: var(--bs-white);
     margin: 18px auto;
@@ -5060,13 +5060,12 @@ input.search {
 
 
 /* Start why besa 2*/
-
+/*
 .why_besa2 {
-    /* background: #2C3041; */
     background: #012475;
     padding: 20px 0;
 }
-
+*/
 .why_besa2 h2 {
     color: var(--bs-white);
     font-size: 48px;
@@ -5082,14 +5081,13 @@ input.search {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.container-icons .icon-box h4 {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    color: var(--bs-white);
-    margin-bottom: 15px;
+.why_besa2 .container-icons .icon-box h4 {
+    color: #263238;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
 
 }
 
@@ -5098,7 +5096,7 @@ input.search {
     margin-left: auto;
 }
 
-.container-icons .icon-box {
+.why_besa2 .container-icons .icon-box {
     padding: 24px 15px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5110,6 +5108,9 @@ input.search {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    border: none !important;
+    flex-flow: column-reverse;
+
 }
 
 .container-icons .icon-box:nth-child(1) {
