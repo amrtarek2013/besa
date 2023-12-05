@@ -286,7 +286,7 @@ p {
 }
 
 section {
-    padding: 60px 0;
+    padding: 40px 0;
     position: relative;
 }
 
@@ -4858,9 +4858,7 @@ input.search {
 
 /*Start study broad guidance*/
 .study-broad-guidance {
-    /* background: -o-linear-gradient(top, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%);
-    background: -webkit-gradient(linear, left top, left bottom, from(#DEDEDE), color-stop(47.92%, rgba(217, 217, 217, 0.3)));
-    background: linear-gradient(180deg, #DEDEDE 0%, rgba(217, 217, 217, 0.3) 47.92%); */
+    padding: 40px 0;
     background: var(--bs-white);
 }
 
@@ -7930,7 +7928,7 @@ input[type="search"]:focus {
 }
 
 .header {
-    padding-bottom: 80px;
+    padding: 40px 0;
     background: var(--bs-main);
 }
 
