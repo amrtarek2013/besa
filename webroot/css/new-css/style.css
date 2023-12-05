@@ -163,7 +163,10 @@ body {
 }
 
 .title {
-    color: var(--Gradient01);
+    background: linear-gradient(105deg, #0B4C97 0.2%, #68B8E8 169.24%);
+    -webkit-background-clip: text;
+    color: transparent;
+    background-clip: text;
     text-align: left;
     margin-bottom: 25px;
 }
@@ -238,13 +241,10 @@ p {
 
 .description {
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
     font-size: 18px;
-    line-height: 27px;
-    /* text-align: center; */
-    text-align: left;
-    color: var(--bs-light-grey);
+    font-weight: 400;
+    line-height: 150%; 
+    color: #546E7A;
 }
 
 .clear {
@@ -1004,11 +1004,13 @@ textarea {
     height: 688px;
     position: relative;
 }
-.header .main-slider .item .background-image-slider>div:first-child{
+
+.header .main-slider .item .background-image-slider>div:first-child {
     background-size: cover;
     background-repeat: no-repeat;
 
 }
+
 .arrow-bottomGoSection {
     position: absolute;
     bottom: -60px;
@@ -1112,17 +1114,22 @@ textarea {
     -ms-transform: translateY(-50px);
     transform: translateY(-50px);
 }
-.main-slider .owl-nav button.owl-next, .main-slider .owl-nav button.owl-prev{
+
+.main-slider .owl-nav button.owl-next,
+.main-slider .owl-nav button.owl-prev {
     position: absolute;
     bottom: 30px;
 
 }
-.main-slider .owl-nav button.owl-next{
+
+.main-slider .owl-nav button.owl-next {
     right: 20px;
 }
+
 .main-slider .owl-nav button.owl-prev {
     left: 20px;
 }
+
 .main-slider .owl-dots .owl-dot {
     display: block;
     zoom: 1;
@@ -4865,30 +4872,31 @@ input.search {
 .study-broad-guidance .title {
     margin-bottom: 10px;
     text-align: center;
-    margin: 0 10vw;
+    margin: 0 12vw;
 
 }
 
 .study-broad-guidance p {
     font-size: 24px;
-    color: var(--bs-black);
+    color:#546E7A;
+    font-family: Poppins;
+    font-size: 20px;
+    margin: 0 12vw;
+
 }
 
 .study-broad-guidance .title-green {
     margin-bottom: 15px;
-
+    color: #263238;
+    text-align: center;
 }
 
 .title-green {
-    font-family: 'Merriweather';
+    font-family: "Poppins";
+    font-size: 32px;
     font-style: normal;
-    font-weight: 900;
-    font-size: 28px;
-    line-height: 35px;
-    text-align: left;
-    /* text-align: center; */
-    /* color: var(--bs-green); */
-    color: var(--bs-green);
+    font-weight: 500;
+    line-height: 150%
 }
 
 .study-broad-guidance .btn {
@@ -6476,7 +6484,7 @@ input[type="search"]:focus {
 .navbar .links {
     display: flex;
     justify-content: start;
-   
+
 }
 
 @media (max-width: 767px) {
@@ -7928,7 +7936,7 @@ input[type="search"]:focus {
 }
 
 .header {
-    padding:  0;
+    padding: 0;
     padding-bottom: 40px;
     background: var(--bs-main);
 }
