@@ -4,7 +4,7 @@
     --bs-gray: #F3F3F3;
     --bs-main: #ffffff;
     --bs-white: #FFFFFF;
-    --bs-red: #e22222;
+    --Gradient01: #e22222;
     --bs-black: #000000;
     /* --bs-blue: #242F65; */
     --bs-Grey: #4B4F58;
@@ -15,7 +15,7 @@
     --bs-yellow: #ffcc02;
     --bs-light-red: #FF5151;
     --bs-gold: #E3B505;
-
+    --Gradient01: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%)
 }
 
 .clear-blue {
@@ -330,9 +330,9 @@ button {
 }
 
 .btn {
-    height: 50px;
-    padding: 13px 14px;
-    border-radius: 5px;
+    height: 44px;
+    padding: 16px 40px;
+    border-radius: 12px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -344,6 +344,8 @@ button {
     justify-content: center;
     font-family: 'Poppins';
     color: var(--bs-white);
+    font-size: 16px;
+
 }
 
 .btn-blue {
@@ -400,7 +402,7 @@ textarea {
 }
 
 .MainBtn {
-    background: var(--bs-red);
+    background: var(--Gradient01);
     color: var(--bs-white) !important;
 }
 
@@ -739,7 +741,7 @@ textarea {
 }
 
 .navbar .links li.active a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
 }
 
 .navbar .links li.buttons a {
@@ -923,12 +925,12 @@ textarea {
 }
 
 .navbar .toggle i {
-    color: var(--bs-red);
+    color: var(--Gradient01);
 }
 
 .navbar .sidenav {
     background: var(--bs-white);
-    color: var(--bs-red);
+    color: var(--Gradient01);
     width: 100%;
     position: absolute;
     height: 100vh;
@@ -961,14 +963,14 @@ textarea {
 }
 
 /* .navbar .sidenav ul li a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
 } */
 
 /* .navbar .sidenav ul li:hover {
-    background: var(--bs-red);
+    background: var(--Gradient01);
 }
 
 .navbar .sidenav ul li:hover a {
@@ -995,9 +997,8 @@ textarea {
 
 }
 
-.header .main-slider .item .image>div,
-.header .main-slider .item .image,
-.header .main-slider .item .background-image-slider>div,
+
+.header .main-slider .item .background-image-slider>div:first-child,
 .header .main-slider .item .background-image-slider {
     height: 688px;
     position: relative;
@@ -1061,6 +1062,10 @@ textarea {
     color: #FBFBFB;
     font-family: "Poppins";
     font-size: 16px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
 }
 
 .header .main-slider .item .text .buttons a img {
@@ -1909,7 +1914,7 @@ p.descrp {
 }
 
 .sectionTimeline .nav-timeline button:hover {
-    background: var(--bs-red);
+    background: var(--Gradient01);
 }
 
 .container-item-data .text h4.title {
@@ -2780,7 +2785,7 @@ input[type="checkbox"] {
 }
 
 .background-red {
-    background: var(--bs-red);
+    background: var(--Gradient01);
     background-image: url(../img/students-footscray-campus-outside3.png);
 }
 
@@ -6480,7 +6485,7 @@ input[type="search"]:focus {
 }
 
 /* .navbar .navbar-mobile  li:hover .toggle i a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
 } */
 
 .navbar-mobile .mobile-menu-dropdown {
@@ -6517,7 +6522,7 @@ input[type="search"]:focus {
 }
 
 .navbar .navbar-mobile .sidenav ul li a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
@@ -6525,7 +6530,7 @@ input[type="search"]:focus {
 
 
 .navbar .navbar-mobile .sidenav ul li a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
     font-family: "Poppins";
     font-weight: 600;
     font-size: 18px !important;
@@ -6537,7 +6542,7 @@ input[type="search"]:focus {
 }
 
 .navbar .navbar-mobile .sidenav ul li.buttons a {
-    color: var(--bs-red);
+    color: var(--Gradient01);
     font-size: 20px;
     font-family: "Poppins";
     font-weight: 600;
@@ -6551,7 +6556,7 @@ input[type="search"]:focus {
 } */
 
 /* .navbar .navbar-mobile .sidenav ul li a:hover {
-    background: var(--bs-red) !important;
+    background: var(--Gradient01) !important;
     color: var(--bs-white) !important;
 } */
 
@@ -6957,7 +6962,7 @@ input[type="search"]:focus {
 }
 
 .our-uk .link {
-    color: var(--bs-red);
+    color: var(--Gradient01);
     text-align: center;
     display: block;
     font-size: 13.5px;
@@ -7081,7 +7086,7 @@ input[type="search"]:focus {
     text-align: center;
     /* Paragraph */
     font-size: 18px;
-    font-family: Poppins;
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     line-height: normal;
