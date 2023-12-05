@@ -331,7 +331,7 @@ button {
 
 .btn {
     height: 44px;
-    padding: 16px 40px;
+    padding: 16px 25px;
     border-radius: 12px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -998,12 +998,16 @@ textarea {
 }
 
 
-.header .main-slider .item .background-image-slider>div:first-child,
+
 .header .main-slider .item .background-image-slider {
     height: 688px;
     position: relative;
 }
+.header .main-slider .item .background-image-slider>div:first-child{
+    background-size: cover;
+    background-repeat: no-repeat;
 
+}
 .arrow-bottomGoSection {
     position: absolute;
     bottom: -60px;
@@ -6340,9 +6344,7 @@ input.search {
 }
 
 
-.apply-now-btn-header {
-    margin-left: auto;
-}
+
 
 #shadow-host-companion {
     padding: 0;
@@ -6350,7 +6352,7 @@ input.search {
 
 input[type="search"] {
     height: 48px;
-    width: min(320px, 100%);
+    width: 320px;
     background: #ECEFF1;
     border: none;
     border-radius: 16px;
@@ -6376,8 +6378,10 @@ input[type="search"]:focus {
 
 .apply-now-btn-header {
     display: flex;
-    grid-gap: 23px;
+    grid-gap: 20px;
     align-items: center;
+    justify-content: space-between;
+    width: 49%;
 }
 
 .apply-now-btn-header .SecondaryBtn {
@@ -6460,8 +6464,8 @@ input[type="search"]:focus {
 
 .navbar .links {
     display: flex;
-    justify-content: space-around;
-    width: 41%;
+    justify-content: start;
+   
 }
 
 @media (max-width: 767px) {
