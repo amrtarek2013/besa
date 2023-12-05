@@ -5088,7 +5088,7 @@ input.search {
     font-size: 16px;
     font-weight: 500;
     line-height: 150%;
-
+    min-height: 50px;
 }
 
 .container-icons .icon-box img {
