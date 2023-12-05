@@ -4913,6 +4913,7 @@ input.search {
     color: var(--bs-white);
     margin: 18px auto;
 }
+
 /*
 .contaienr-conditions {
     display: -webkit-box;
@@ -5053,27 +5054,38 @@ input.search {
     z-index: 10;
 }
 */
+.container-conditions .box {
+    height: max-content;
+}
+
+.container-conditions .box:nth-child(2),
+.container-conditions .box:nth-child(4) {
+    margin-top: auto;
+}
 
 .contaienr-conditions {
     display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
     height: 456px;
-  }
-  .contaienr-conditions .box h2 {
+}
+
+.contaienr-conditions .box h2 {
     font-family: "Poppins";
     font-size: 32px;
     font-weight: 500;
-    line-height: 150%; /* 48px */
-    background: var(
-      --Gradient01,
-      linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%)
-    );
+    line-height: 150%;
+    background:
+        linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-  }
+    margin-bottom: 25px;
 
-  .contaienr-conditions .circle-red {
+}
+
+.contaienr-conditions .circle-red {
     color: #fff;
     font-family: "Poppins";
     font-size: 20.235px;
@@ -5091,36 +5103,40 @@ input.search {
     transform: translateX(-50%);
     border-radius: 316.176px;
     background: linear-gradient(112deg, #d71921 40.47%, #faba1b 277.41%);
-  }
-  .contaienr-conditions .circle-gradient {
-    background: var(
-      --Gradient01,
-      linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%)
-    );
-    background: var(--Gradient01) ;
+}
+
+.contaienr-conditions .circle-gradient {
+    background: var(--Gradient01,
+            linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%));
+    background: var(--Gradient01);
     border-radius: 50%;
-    width: 194px;
-    height: 194px;
-    padding: 24px;
+    width: 205px;
+    height: 205px;
+    padding: 10px;
     position: relative;
-  }
-  .contaienr-conditions .circle-gradient .container-circle {
+}
+
+.contaienr-conditions .circle-gradient .container-circle {
     width: 100%;
     height: 100%;
     border: 2px solid #ededed;
+    padding: 24px;
+
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .contaienr-conditions .circle-gradient .container-circle p {
+}
+
+.contaienr-conditions .circle-gradient .container-circle p {
     color: #fbfbfb;
     text-align: center;
     font-family: "Poppins";
     font-size: 14px;
     font-weight: 400;
     line-height: 150%;
-  }
+}
+
 /*End study broad guidance*/
 
 
