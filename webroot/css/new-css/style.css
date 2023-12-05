@@ -998,7 +998,7 @@ textarea {
 }
 
 
-
+.header .main-slider .item .background-image-slider>div:first-child,
 .header .main-slider .item .background-image-slider {
     height: 688px;
     position: relative;
