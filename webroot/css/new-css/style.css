@@ -4882,11 +4882,11 @@ input.search {
     font-family: "Poppins";
     font-size: 20px;
     margin: 0 12vw;
+    text-align: center;
 
 }
 
 .study-broad-guidance .title-green {
-    margin-bottom: 15px;
     color: #263238;
     text-align: center;
 }
