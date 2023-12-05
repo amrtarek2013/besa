@@ -58,8 +58,8 @@ $(document).ready(function () {
     dots: false,
     nav: true,
     navText: [
-      "<img src='./img/icon/arrow_right.png'>",
       "<img src='./img/icon/arrow_left.png'>",
+      "<img src='./img/icon/arrow_right.png'>"
     ],
     autoplay: true,
     autoPlaySpeed: 2000,

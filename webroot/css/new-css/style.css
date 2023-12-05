@@ -1059,7 +1059,6 @@ textarea {
 }
 
 .header .main-slider .item .text .buttons a {
-    max-width: 260px;
     height: 56px;
     font-weight: 600;
     padding: 16px 25px;
@@ -1114,7 +1113,17 @@ textarea {
     -ms-transform: translateY(-50px);
     transform: translateY(-50px);
 }
+.main-slider .owl-nav button.owl-next, .main-slider .owl-nav button.owl-prev{
+    position: absolute;
+    bottom: 60px;
 
+}
+.main-slider .owl-nav button.owl-next{
+    right: 20px;
+}
+.main-slider .owl-nav button.owl-prev {
+    left: 20px;
+}
 .main-slider .owl-dots .owl-dot {
     display: block;
     zoom: 1;
