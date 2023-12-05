@@ -994,6 +994,8 @@ textarea {
 
 .header .main-slider .item {
     position: relative;
+    border-radius: 16px;
+    overflow: hidden;
 
 }
 
@@ -1058,9 +1060,9 @@ textarea {
 
 .header .main-slider .item .text .buttons a {
     max-width: 260px;
-    height: 40px;
+    height: 56px;
     font-weight: 600;
-    padding: 16px 40px;
+    padding: 16px 25px;
     border-radius: 12px;
     background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
     color: #FBFBFB;
