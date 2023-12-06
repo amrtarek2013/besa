@@ -9,9 +9,6 @@
 
 <?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
 
-<?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
-
-
 <!--Start Blogs Section-->
 <?php if (!empty($homeBlogs)) : ?>
     <div class="home-blogs">
@@ -36,6 +33,9 @@
 
 <?php endif; ?>
 <!--End Blogs Section-->
+
+<?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
+
 <section class="contact-us">
     <div class="top-dots-img">
         <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
