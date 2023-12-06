@@ -10022,9 +10022,10 @@ div.error-message {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    display: flex;
     align-items: center;
     grid-gap: 5px;
+    padding-left: 0;
+    justify-content: start;
 }
 
 .timline-eve p {
@@ -10037,7 +10038,8 @@ div.error-message {
     display: flex;
     align-items: center;
     grid-gap: 5px;
-
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .timline-eve p img {
@@ -10045,13 +10047,14 @@ div.error-message {
 }
 
 .timline-eve p img::after {
-    content: "";
+    content: url("/img/new-desgin/line-timline.svg");
     width: 1px;
     height: 20px;
-    background: url('/img/new-desgin/timer.svg');
 
 }
-
+.timline-eve p:last-child{
+    margin: 0;
+}
 .timline-eve p:last-child img::after {
     display: none;
 }
