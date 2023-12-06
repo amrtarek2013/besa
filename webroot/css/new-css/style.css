@@ -15,7 +15,7 @@
     --bs-yellow: #ffcc02;
     --bs-light-red: #FF5151;
     --bs-gold: #E3B505;
-    --Gradient01: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%)
+    --text-color: ##0B4C97;
 }
 
 .clear-blue {
@@ -163,10 +163,7 @@ body {
 }
 
 .title {
-    background: linear-gradient(105deg, #0B4C97 0.2%, #68B8E8 169.24%);
-    -webkit-background-clip: text;
-    color: transparent;
-    background-clip: text;
+    color: var(--text-color);
     text-align: left;
     margin-bottom: 25px;
 }
@@ -5075,11 +5072,7 @@ input.search {
     font-size: 32px;
     font-weight: 500;
     line-height: 150%;
-    background:
-        linear-gradient(107deg, #0b4c97 6.38%, #68b8e8 147.19%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-color);
     text-align: center;
     margin-bottom: 25px;
 
@@ -6552,9 +6545,8 @@ input[type="search"]:focus {
 
 .navbar .links li:hover a,
 
-
 .navbar .links li:hover .toggle i {
-    color: rgba(229, 37, 34, 1);
+    color: var(--text-color);
 }
 
 .gridContainer-navbar {
@@ -9918,3 +9910,20 @@ div.error-message {
 .input.tel div.error-message {
     position: absolute;
 }
+
+  /* Start Home Assessment*/
+  .home_assessment {
+    text-align: center;
+  }
+  .home_assessment .title {
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    margin-bottom: 40px;
+  }
+  .home_assessment .description {
+  }
+  /* End Home Assessment*/
