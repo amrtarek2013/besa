@@ -9995,7 +9995,7 @@ div.error-message {
     grid-gap: 0;
     background-color: #fff;
     max-width: 362px;
-    min-height: 700px;
+    height: 700px;
 }
 .home-events .container-events .box-blog:nth-child(2){
     margin-top: 124px;
