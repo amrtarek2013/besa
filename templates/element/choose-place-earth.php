@@ -274,7 +274,6 @@
         <div class="row">
                 <div class="col-md-12">
                     <h2 class="title-choose-place">Choose Where To Study</h2>
-                    <a href="#" class="btn btn-aqua">EXPLORE STUDYING <br> ABROAD</a>
                 </div>
             <div class="col-md-12">
                 <div class="background-earth">
@@ -283,6 +282,8 @@
                             <div id="myearth" class="earth-js"></div>
                         </div>
                     </div>
+                    <a href="#" class="btn btn-aqua MainBtn">Explore Studying Abroad</a>
+
                 </div>
             </div>
         </div>
