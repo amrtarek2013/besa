@@ -72,6 +72,8 @@ $(document).ready(function () {
       margin: 10,
       dots: false,
       nav: true,
+      autoWidth:true,
+
       navText: [
           "<img src='./img/new-desgin/prev-arrow.png'>",
           "<img src='./img/new-desgin/next-arrow.png'>",
