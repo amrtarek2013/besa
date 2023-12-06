@@ -9973,15 +9973,18 @@ div.error-message {
 
 .home-events .top-text {
     text-align: center;
-    padding: 0 5vw;
-}
+    padding: 0 20vw;
+    margin-bottom: 40px;}
 
 .home-events .top-text .title {
+    font-family: "Poppins";
+
     text-align: center;
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: 135%;
+    margin: 0;
 }
 
 .home-events .top-text .description {
