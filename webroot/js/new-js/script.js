@@ -81,7 +81,10 @@ $(document).ready(function () {
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
   });
-
+  var items = $('.owl-blogs .item');
+  var middleIndex = Math.floor(items.length / 2);
+  items.eq(middleIndex).addClass('middle-item');
+  /**/ 
   sliderTestimonials.owlCarousel({
     items: 1,
     loop: true,

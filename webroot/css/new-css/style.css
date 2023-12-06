@@ -10141,3 +10141,8 @@ div.error-message {
     line-height: 150%;
     text-align: left;
 }
+
+.owl-blogs .middle-item {
+    transform: scale(1.5);
+    border: 5px solid #000; /* New border color */
+}
