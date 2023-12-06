@@ -9934,13 +9934,35 @@ div.error-message {
 /* End Home Assessment*/
 
 .choose-place-2 {
-    background-image: url(../img/new-desgin/background-choose-place.png);
+    background-image: url(/img/new-desgin/background-choose-place.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 52px 0;
+    position: relative;
+    min-height: 477px;
+
+}
+
+.choose-place-2 .title-choose-place {
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+    width: unset
 }
 
 .choose-place-2 .background-earth {
     width: 680px;
     margin: auto;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
 }
+
+.choose-place-2 .background-earth {}
