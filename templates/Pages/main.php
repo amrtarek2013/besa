@@ -32,7 +32,7 @@
     </div>
 
 <?php endif; ?>
-<!--End Blogs Section-->
+<!--End Events Section-->
 <!--Start Blogs Section-->
 <?php if (!empty($homeBlogs)) : ?>
     <div class="home-blogs">
