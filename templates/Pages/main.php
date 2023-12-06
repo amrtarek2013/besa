@@ -11,6 +11,31 @@
 
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
+
+<!--Start Blogs Section-->
+<?php if (!empty($homeBlogs)) : ?>
+    <div class="home-blogs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="display-flex">
+                        <?php foreach ($homeBlogs as $blog) : ?>
+                            <div class="box-blog display-flex">
+                                <div class="content-blog">
+                                    <p><a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a></p>
+                                    <p><?= $blog['short_text'] ?></p>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php endif; ?>
+<!--End Blogs Section-->
 <section class="contact-us">
     <div class="top-dots-img">
         <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">

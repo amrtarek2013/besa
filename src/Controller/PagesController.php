@@ -110,6 +110,20 @@ class PagesController extends AppController
         $home_study_journey = $this->getSnippet('home_study_journey');
         $homeEvents = $this->getSnippet('home_events');
         $home_assessment_section = $this->getSnippet('home_assessment');
+
+        $this->loadModel('Blogs');
+        $blogs = $this->Blogs->find()->select(['title', 'short_text', 'image'])->where(['active' => 1])
+            ->cache('home_blogs')->order(['display_order' => 'asc'])->limit(10)->all()->toArray();
+
+        // dd($blogs);
+        $this->set('homeBlogs', $blogs);
+
+        // $this->loadModel('Events');
+        // $blogs = $this->Blogs->find()->select(['title', 'short_text', 'image'])->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all()
+        // ->cache('home_blogs');
+
+        $this->set('homeBlogs', $blogs);
+
         $this->set(compact('home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey', 'home_assessment_section'));
     }
     private function _get_total_uploaded_files($os = '')
@@ -428,7 +442,7 @@ class PagesController extends AppController
         $this->set(compact('branchesList', 'branches'));
     }
 
-    
+
     public function earth()
     {
         $this->set('bodyClass', 'pageWhereToStudy');
