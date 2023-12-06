@@ -11,16 +11,21 @@
 
 <!--Start Events Section-->
 <?php if (!empty($homeBlogs)) : ?>
-    <div class="home-blogs">
+    <div class="home-blogs home-events">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="display-flex">
+                    <div class="container-events display-flex">
                         <?php foreach ($home_main_events as $event) : ?>
                             <div class="box-blog display-flex">
+                                <div class="card-img-top">
+                                    <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
+                                </div>
                                 <div class="content-blog">
-                                    <p><a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a></p>
-                                    <p><?= $event['sub_title'] ?></p>
+                                    <h4 class="title-blog">
+                                        <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
+                                    </h4>
+                                    <p class="description-blog"><?= $event['sub_title'] ?></p>
                                 </div>
                             </div>
 

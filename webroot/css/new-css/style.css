@@ -9940,8 +9940,7 @@ div.error-message {
     padding: 52px 0;
     position: relative;
     min-height: 477px;
-    margin-bottom: 250px;
-
+    margin-bottom: 400px;
 }
 
 .choose-place-2 .title-choose-place {
@@ -9956,7 +9955,7 @@ div.error-message {
 }
 
 .choose-place-2 .background-earth {
-    max-width: 680px;
+    width: 680px;
     margin: auto;
     position: absolute;
     top: 25%;
@@ -9967,7 +9966,20 @@ div.error-message {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
 }
+.choose-place-2 .btn-aqua{
+    margin: 0 auto;
+}
+.home-events{
+    background-image: url(/img/new-desgin/background-choose-place.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
-.choose-place-2 .background-earth {
+.home-events .container-events{
+
+}
+
+.home-events .container-events .box-blog{
+    border-radius: 24px;
 
 }
