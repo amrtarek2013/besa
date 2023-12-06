@@ -10229,7 +10229,7 @@ div.error-message {
 .left-pos {
     background: #ccc;
     opacity: 1;
-    margin-left: -17em !important;
+    margin-left: -11em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);
     -moz-transform: scale(.75);
@@ -10243,11 +10243,13 @@ div.error-message {
     -webkit-transform: scale(.5);
     -moz-transform: scale(.5);
     transform: scale(.5);
+    border: 5px solid  transparent;
+
 }
 
 .right-pos {
     opacity: 1;
-    margin-left: 21em !important;
+    margin-left: 27em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);
     -moz-transform: scale(.75);
