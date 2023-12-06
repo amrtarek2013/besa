@@ -5,7 +5,7 @@
 
 <?= $home_why_besa2 ?>
 
-<?= $home_assessment_section ?>
+<?= $home_assessment ?>
 
 <?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
 
