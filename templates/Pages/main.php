@@ -68,45 +68,21 @@
                         <div id="wrap">
                             <section class="carousel-wrap">
                                 <ul class="carousel">
-                                    <li class="items main-pos" id="1">
-                                        <div class="review-card review-card--option-4 text-center">
-                                            <div class="review-card-img">&nbsp;</div>
-                                            <div class="review-author">
-                                                <span class="ra-author">Oscar Owens</span>
-                                                <ul class="ra-rating-star">
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE839;</i></li>
-                                                </ul>
+                                    <?php foreach ($homeBlogs as $blog) : ?>
+                                        <li class="items main-pos" id="1">
+                                            <div class="card">
+                                                <h4 class="title">
+                                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
+                                                </h4>
+                                                <p class="description">
+                                                    <?= $blog['short_text'] ?>
+                                                </p>
                                             </div>
-                                            <div class="review-content">
-                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
-                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    <?php endforeach; ?>
+
                                     <li class="items right-pos" id="2">
-                                        <div class="review-card review-card--option-4 text-center">
-                                            <div class="review-card-img">&nbsp;</div>
-                                            <div class="review-author">
-                                                <span class="ra-author">Helena Baker</span>
-                                                <ul class="ra-rating-star">
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE838;</i></li>
-                                                    <li><i class="material-icons">&#xE839;</i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-content">
-                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
-                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                            </div>
-                                        </div>
+                                       
                                     </li>
                                     <li class="items back-pos" id="3">
                                         <div class="review-card review-card--option-4 text-center">
