@@ -10112,7 +10112,7 @@ div.error-message {
 .blogs-en > .title{
     margin-bottom: 50px;
 }
-.owl-blogs .item  {
+.owl-blogs .item .card {
     padding: 24px;
     border-radius: 34.421px;
     border: 5px solid  transparent;
@@ -10141,9 +10141,223 @@ div.error-message {
     line-height: 150%;
     text-align: left;
 }
+/**/
 
-.owl-blogs .item {
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    backface-visibility: hidden;
-    perspective: 1000px;
+
+#wrap {
+    padding: 30px 0;
 }
+
+.review-card--option-1 {
+    border: 1px solid #D8D8D8;
+    padding: 25px;
+}
+
+.review-card--option-2 {
+    padding: 0 15px;
+}
+
+.review-card--option-3 {
+    padding: 0 200px;
+}
+
+.review-card--option-4,
+.review-card--option-4 .review-card-img {
+    border: 1px solid #D8D8D8;
+    padding: 30px;
+}
+
+.review-card-img {
+    width: 100px;
+    height: 70px;
+    background-image: url('https://unsplash.it/200');
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto 15px;
+}
+
+.review-author .ra-author {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.review-author .ra-rating-star {
+    margin: 0 0 15px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.review-author .ra-rating-star li {
+    display: inline-block;
+    margin: 0 -2px;
+}
+
+.carousel-wrap {
+    width: 635px;
+    height: 323px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-wrap .carousel>li {
+    width: 500px;
+    height: 325px;
+    background: #fff;
+    display: inline-block;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.items {
+    position: absolute;
+}
+
+.main-pos {
+    margin-left: 2em !important;
+    z-index: 3000;
+}
+
+.left-pos {
+    background: #ccc;
+    opacity: .5;
+    margin-left: -17em !important;
+    z-index: 1000;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    transform: scale(.75);
+}
+
+.back-pos {
+    opacity: .05;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    transform: scale(.5);
+}
+
+.right-pos {
+    opacity: .5;
+    margin-left: 21em !important;
+    z-index: 1000;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    transform: scale(.75);
+}
+
+.slider {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.slider a {
+    color: #999;
+}
+
+.slider i {
+    font-size: 45px;
+}
+
+.slider #prev,
+.slider #next {
+    position: absolute;
+}
+
+.slider #prev {
+    left: -214px;
+}
+
+.slider #next {
+    right: -214px;
+}
+
+@media (max-width: 480px) {
+    .carousel-wrap {
+        width: 240px;
+        height: 408px;
+    }
+
+    .carousel-wrap .carousel>li {
+        width: 240px;
+        height: 408px;
+    }
+
+    .left-pos {
+        margin-left: -145px !important;
+    }
+
+    .right-pos {
+        margin-left: 62px !important;
+    }
+
+    .slider {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-wrap {
+        width: 350px;
+        height: 345px;
+    }
+
+    .carousel-wrap .carousel>li {
+        width: 350px;
+        height: 345px;
+    }
+
+    .left-pos {
+        margin-left: -113px !important;
+    }
+
+    .right-pos {
+        margin-left: 30px !important;
+    }
+
+    .slider #prev {
+        left: -70px;
+    }
+
+    .slider #next {
+        right: -70px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel-wrap {
+        width: 400px;
+    }
+
+    .carousel-wrap .carousel>li {
+        width: 400px;
+    }
+
+    .main-pos {
+        margin-left: -40px !important;
+    }
+
+    .left-pos {
+        margin-left: -220px !important;
+    }
+
+    .right-pos {
+        margin-left: 140px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .slider #prev {
+        left: -180px;
+    }
+
+    .slider #next {
+        right: -180px;
+    }
+}
+
+/* Additional media queries for md-d and lg breakpoints can be added similarly */

@@ -64,7 +64,163 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="title">Blogs</h4>
-                    <div class="owl-blogs owl-carousel owl-theme">
+                    <div class="owl-blogs">
+                        <div id="wrap">
+                            <section class="carousel-wrap">
+                                <ul class="carousel">
+                                    <li class="items main-pos" id="1">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Oscar Owens</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="items right-pos" id="2">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Helena Baker</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="items back-pos" id="3">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Mark Holden</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="items back-pos" id="4">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Frederick Greer</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="items back-pos" id="5">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Jonathan Richards</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="items back-pos" id="6">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Emma Frazier</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="items left-pos" id="7">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Oscar Owens</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, cssonsectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                </ul>
+                                <span class="slider">
+                                <a href="javascript:void(0);" value="Prev" id="prev"><i class="material-icons">&#xE314;</i></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><i class="material-icons">&#xE315;</i></a>
+                                
+                                </span>
+                            </section>
+                            </div>
                         <?php foreach ($homeBlogs as $blog) : ?>
                             <div class="item">
                                 <div class="card">
