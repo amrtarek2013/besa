@@ -12,41 +12,48 @@
 <!--Start Events Section-->
 <?php if (!empty($homeBlogs)) : ?>
     <div class="home-blogs home-events">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="container-events display-flex">
-                        <?php foreach ($home_main_events as $event) : ?>
-                            <div class="box-blog display-flex">
-                                <div class="card-img-top">
-                                    <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
-                                </div>
-                                <div class="content-blog">
-                                    <h4 class="title-blog">
-                                        <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
-                                    </h4>
-                                    <p class="description-blog"><?= $event['sub_title'] ?></p>
-                                    <div class="timline-eve">
-                                        <div class="item">
-                                            <img src="/img/new-desgin/timer.svg" alt=""> 
-                                            <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer"> 
-                                            <p> 21  Oct 2023</p>              
-                                        </div>
-                                        <div class="item">
-                                            <img src="/img/new-desgin/timer.svg" alt="">  
-                                            <p>09 Dec 2023</p> 
-                                        </div>
+        <div class="top-text">
+            <h4 class="title">Events</h4>
+            <p class="description">Explore a world of opportunities with our events, crafted to enrich your educational journey. </p>
+        </div>
+        <div class="top-events">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="container-events display-flex">
+                            <?php foreach ($home_main_events as $event) : ?>
+                                <div class="box-blog display-flex">
+                                    <div class="card-img-top">
+                                        <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
                                     </div>
-                                    <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
+                                    <div class="content-blog">
+                                        <h4 class="title-blog">
+                                            <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
+                                        </h4>
+                                        <p class="description-blog"><?= $event['sub_title'] ?></p>
+                                        <div class="timline-eve">
+                                            <div class="item">
+                                                <img src="/img/new-desgin/timer.svg" alt=""> 
+                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer"> 
+                                                <p> 21  Oct 2023</p>              
+                                            </div>
+                                            <div class="item">
+                                                <img src="/img/new-desgin/timer.svg" alt="">  
+                                                <p>09 Dec 2023</p> 
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 <?php endif; ?>
 <!--End Events Section-->

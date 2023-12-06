@@ -9971,7 +9971,30 @@ div.error-message {
     margin: 0 auto;
 }
 
-.home-events {
+.home-events .top-text {
+    text-align: center;
+    padding: 0 5vw;
+}
+
+.home-events .top-text .title {
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.home-events .top-text .description {
+    color: #546E7A;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%
+}
+
+.home-events .top-events {
     background-image: url(/img/new-desgin/background-choose-place.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -9997,9 +10020,11 @@ div.error-message {
     max-width: 362px;
     height: 700px;
 }
-.home-events .container-events .box-blog:nth-child(2){
+
+.home-events .container-events .box-blog:nth-child(2) {
     margin-top: 124px;
 }
+
 .home-events .container-events .box-blog .content-blog {
     padding: 15px;
 }
@@ -10048,7 +10073,8 @@ div.error-message {
     margin-bottom: 20px;
     position: relative;
 }
-.timline-eve .item p{
+
+.timline-eve .item p {
     color: #37474F;
     font-family: "Poppins";
     font-size: 14px;
@@ -10056,16 +10082,18 @@ div.error-message {
     font-weight: 500;
     line-height: normal;
 }
+
 .timline-eve p img {
     position: relative;
 }
 
 
-.timline-eve .item:last-child{
+.timline-eve .item:last-child {
     margin: 0;
-    
+
 }
-.line-timer{
+
+.line-timer {
     position: absolute;
     left: 10px;
     bottom: -20px;
