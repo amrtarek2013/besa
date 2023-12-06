@@ -118,13 +118,12 @@ class PagesController extends AppController
         // dd($blogs);
         $this->set('homeBlogs', $blogs);
 
-        // $this->loadModel('Events');
-        // $blogs = $this->Blogs->find()->select(['title', 'short_text', 'image'])->where(['active' => 1])->order(['display_order' => 'asc'])->limit(10)->all()
-        // ->cache('home_blogs');
+        $this->loadModel('Events');
+        $home_main_events = $this->Events->find()->select(['title', 'sub_title', 'image'])->where(['active' => 1])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
 
         $this->set('homeBlogs', $blogs);
 
-        $this->set(compact('home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey', 'home_assessment_section'));
+        $this->set(compact('home_main_events','home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey', 'home_assessment_section'));
     }
     private function _get_total_uploaded_files($os = '')
     {
