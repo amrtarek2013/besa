@@ -9934,12 +9934,18 @@ div.error-message {
 /* End Home Assessment*/
 
 .choose-place-2 {
-    background-image: url(../img/new-desgin/background-choose-place.png);
+    background-image: url(/img/new-desgin/background-choose-place.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 52px 0;
 }
-
+.choose-place-2 .title-choose-place {
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%
+}
 .choose-place-2 .background-earth {
     width: 680px;
     margin: auto;
