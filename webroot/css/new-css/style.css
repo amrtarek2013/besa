@@ -9984,8 +9984,14 @@ div.error-message {
     flex-flow: column;
     overflow: hidden;
     box-shadow: 1.855px 3.711px 18.553px 0px rgba(0, 0, 0, 0.10);
+    grid-gap: 0;
+    background-color: #fff;
+    max-width: 362px;
+    padding-bottom: 10vw;
 }
-
+.home-events .container-events .box-blog .content-blog{
+    padding: 15px;
+}
 .home-events .container-events .box-blog .content-blog .title-blog {
     font-family: "Poppins";
     font-size: 32px;
