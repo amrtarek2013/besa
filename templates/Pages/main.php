@@ -9,6 +9,30 @@
 
 <?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
 
+<!--Start Events Section-->
+<?php if (!empty($homeBlogs)) : ?>
+    <div class="home-blogs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="display-flex">
+                        <?php foreach ($home_main_events as $event) : ?>
+                            <div class="box-blog display-flex">
+                                <div class="content-blog">
+                                    <p><a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a></p>
+                                    <p><?= $event['sub_title'] ?></p>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php endif; ?>
+<!--End Blogs Section-->
 <!--Start Blogs Section-->
 <?php if (!empty($homeBlogs)) : ?>
     <div class="home-blogs">
