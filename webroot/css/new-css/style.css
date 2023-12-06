@@ -325,7 +325,7 @@ button {
 }
 
 .btn {
-    height: 44px;
+    height: 50px;
     padding: 16px 25px;
     border-radius: 12px;
     display: -webkit-box;
@@ -1232,7 +1232,7 @@ textarea {
 }
 
 .about-us .gridContainer-about .text .buttons .btn {
-    height: 59px;
+    height: 50px;
     width: 167px;
     border-radius: 50px;
     font-family: 'Poppins';
@@ -9924,5 +9924,7 @@ div.error-message {
     margin-bottom: 40px;
   }
   .home_assessment .description {
+    margin: 0 13vw 30px;
+    font-size: 24px;
   }
   /* End Home Assessment*/
