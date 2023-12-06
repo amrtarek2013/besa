@@ -232,8 +232,9 @@
     }
 </script>
 <!-- Start choose place-->
-<section class="choose-place">
+<section class="choose-place choose-place-2">
     <div class="container">
+        <!--
         <div class="row">
             <?php if (isset($left_html)) {
                 echo $left_html;  ?>
@@ -265,6 +266,22 @@
                             <div id="myearth" class="earth-js"></div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+        <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title-choose-place">Choose Where To Study</h2>
+                    <a href="#" class="btn btn-aqua">EXPLORE STUDYING <br> ABROAD</a>
+                </div>
+            <div class="col-md-12">
+                <div class="background-earth">
+                    <div id="wrapper">
+                        <div id="earth-col">
+                            <div id="myearth" class="earth-js"></div>
+                        </div>
                     </div>
                 </div>
             </div>
