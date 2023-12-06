@@ -9977,10 +9977,14 @@ div.error-message {
     background-repeat: no-repeat;
     padding: 86px 0;
     position: relative;
+    height: 344px;
+    margin-bottom: 400px;
 }
 
 .home-events .container-events {
-position: relative;
+    position: absolute;
+    z-index: 3;
+
 }
 
 .home-events .container-events .box-blog {
