@@ -27,8 +27,8 @@
                                     </h4>
                                     <p class="description-blog"><?= $event['sub_title'] ?></p>
                                     <div class="timline-eve">
-                                        <p>21  Oct 2023</p>
-                                        <p>09 Dec 2023</p>
+                                        <p><img src="/img/new-desgin/timer.svg" alt="">  21  Oct 2023</p>
+                                        <p><img src="/img/new-desgin/timer.svg" alt="">  09 Dec 2023</p>
                                     </div>
                                     <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
                                 </div>
