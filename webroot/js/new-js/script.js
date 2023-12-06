@@ -49,8 +49,6 @@ $(document).ready(function () {
   var owlSmallFlag = $(".owl-small-flag-logo");
   var owlLogosSlider = $(".owl-logos-slider");
 
-  
-
   mainSlider.owlCarousel({
     items: 1,
     loop: true,
@@ -59,7 +57,24 @@ $(document).ready(function () {
     nav: true,
     navText: [
       "<img src='./img/icon/arrow_left.png'>",
-      "<img src='./img/icon/arrow_right.png'>"
+      "<img src='./img/icon/arrow_right.png'>",
+    ],
+    autoplay: true,
+    autoPlaySpeed: 2000,
+    autoPlayTimeout: 2000,
+    autoplayHoverPause: true,
+  });
+
+  var owlBlogs = $(".owl-blogs");
+  owlBlogs.owlCarousel({
+    items: 3,
+    loop: true,
+    margin: 10,
+    dots: false,
+    nav: true,
+    navText: [
+      "<img src='./img/new-desgin/prev-arrow.png'>",
+      "<img src='./img/new-desgin/next-arrow.png'>",
     ],
     autoplay: true,
     autoPlaySpeed: 2000,
@@ -136,7 +151,7 @@ $(document).ready(function () {
     loop: true,
     margin: 25,
     nav: true,
-    
+
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
@@ -156,15 +171,13 @@ $(document).ready(function () {
         items: 3,
       },
     },
-    
   });
-
 
   owlSmallFlag.owlCarousel({
     loop: true,
     margin: 20,
     nav: true,
-    dots:false,
+    dots: false,
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
@@ -210,7 +223,6 @@ $(document).ready(function () {
       },
     },
   });
-
 
   /*
   // Handle image clicks

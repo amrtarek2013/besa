@@ -1,0 +1,11 @@
+<svg width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Arrow / Caret_Circle_Right">
+<path id="Vector" d="M30.3333 35.4775L23.3333 28.4775L30.3333 21.4775M7 28.4775C7 40.0755 16.402 49.4775 28 49.4775C39.598 49.4775 49 40.0755 49 28.4775C49 16.8796 39.598 7.47754 28 7.47754C16.402 7.47754 7 16.8796 7 28.4775Z" stroke="url(#paint0_linear_954_17681)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_954_17681" x1="45.0662" y1="45.641" x2="7.26059" y2="-1.86959" gradientUnits="userSpaceOnUse">
+<stop stop-color="#007BC4"/>
+<stop offset="1" stop-color="#0B4C97"/>
+</linearGradient>
+</defs>
+</svg>
