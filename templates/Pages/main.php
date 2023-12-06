@@ -59,7 +59,7 @@
 <!--End Events Section-->
 <!--Start Blogs Section-->
 <?php if (!empty($homeBlogs)) : ?>
-    <div class="home-blogs">
+    <div class="home-blogs blogs-en">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
