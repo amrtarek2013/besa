@@ -87,7 +87,7 @@ $(document).ready(function () {
   });
 */
   //slideshow style interval
-  var autoSwap = setInterval(swap, 7000);
+  var autoSwap = setInterval(swap, 22000);
 
   //pause slideshow and reinstantiate on mouseout
   $(".carousel, .slider").hover(

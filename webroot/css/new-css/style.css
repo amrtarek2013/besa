@@ -10228,7 +10228,7 @@ div.error-message {
 
 .left-pos {
     background: #ccc;
-    opacity: .5;
+    opacity: 1;
     margin-left: -17em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);
@@ -10239,14 +10239,14 @@ div.error-message {
 }
 
 .back-pos {
-    opacity: .05;
+    opacity: 1;
     -webkit-transform: scale(.5);
     -moz-transform: scale(.5);
     transform: scale(.5);
 }
 
 .right-pos {
-    opacity: .5;
+    opacity: 1;
     margin-left: 21em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);

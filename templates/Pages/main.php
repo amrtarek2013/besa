@@ -68,17 +68,17 @@
                         <div id="wrap">
                             <section class="carousel-wrap">
                                 <ul class="carousel">
-                                    <?php foreach ($homeBlogs as $blog) : ?>
-                                        <li class="items main-pos" id="1">
-                                            <div class="card">
-                                                <h4 class="title">
-                                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
-                                                </h4>
-                                                <p class="description">
-                                                    <?= $blog['short_text'] ?>
-                                                </p>
-                                            </div>
-                                        </li>
+                                <?php foreach ($homeBlogs as $blog) : ?>
+                                    <li class="items main-pos" id="1">
+                                        <div class="card">
+                                            <h4 class="title">
+                                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
+                                            </h4>
+                                            <p class="description">
+                                                <?= $blog['short_text'] ?>
+                                            </p>
+                                        </div>
+                                    </li>
                                     <?php endforeach; ?>
 
                                     <li class="items right-pos" id="2">
