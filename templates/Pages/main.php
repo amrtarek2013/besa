@@ -65,15 +65,8 @@
                 <div class="col-md-12">
                     <h4 class="title">Blogs</h4>
                     <div class="owl-blogs owl-carousel owl-theme">
-                        <?php
-                            $totalBlogs = count($homeBlogs); // Count total number of blogs
-                            $middleIndex = floor($totalBlogs / 2); // Calculate middle index
-
-                            foreach ($homeBlogs as $index => $blog) :
-                                // Check if current index is the middle index
-                                $isMiddleItem = ($index === $middleIndex);
-                        ?>
-                            <div class="item <?php echo $isMiddleItem ? 'middle-item' : '' ?>">
+                        <?php foreach ($homeBlogs as $blog) : ?>
+                            <div class="item">
                                 <div class="card">
                                     <h4 class="title">
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
@@ -82,9 +75,9 @@
                                         <?= $blog['short_text'] ?>
                                     </p>
                                 </div>
+
                             </div>
                         <?php endforeach; ?>
-
 
                     </div>
                     <div class="display-flex">

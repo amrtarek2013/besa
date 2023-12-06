@@ -10142,7 +10142,8 @@ div.error-message {
     text-align: left;
 }
 
-.owl-blogs .middle-item {
-    transform: scale(1.5);
-    border: 5px solid #000; /* New border color */
+.owl-blogs .item {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }

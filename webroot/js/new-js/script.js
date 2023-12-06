@@ -67,23 +67,33 @@ $(document).ready(function () {
 
   var owlBlogs = $(".owl-blogs");
   owlBlogs.owlCarousel({
-    items: 3,
-    loop: true,
-    margin: 10,
-    dots: false,
-    nav: true,
-    navText: [
-      "<img src='./img/new-desgin/prev-arrow.png'>",
-      "<img src='./img/new-desgin/next-arrow.png'>",
-    ],
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
+      items: 3,
+      loop: true,
+      margin: 10,
+      dots: false,
+      nav: true,
+      navText: [
+          "<img src='./img/new-desgin/prev-arrow.png'>",
+          "<img src='./img/new-desgin/next-arrow.png'>",
+      ],
+      autoplay: true,
+      autoPlaySpeed: 2000,
+      autoPlayTimeout: 2000,
+      autoplayHoverPause: true,
+      onInitialized: resizeMiddleItem,
+      onTranslated: resizeMiddleItem
   });
-  var items = $('.owl-blogs .item');
-  var middleIndex = Math.floor(items.length / 2);
-  items.eq(middleIndex).addClass('middle-item');
+
+  function resizeMiddleItem(event) {
+      // Reset styles for all items
+      $('.owl-item').css({'transform': '', 'border-color': 'transparent'});
+
+      // Find the middle item
+      var middleItem = $('.owl-item.active').eq(1);
+
+      // Apply styles to middle item
+      middleItem.css({'transform': 'scale(1.5)', 'border-color': '#000'});
+  }
   /**/ 
   sliderTestimonials.owlCarousel({
     items: 1,
