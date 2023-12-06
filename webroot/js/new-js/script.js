@@ -89,7 +89,7 @@ $(document).ready(function () {
       $('.owl-item').css({'width': '', 'height': '', 'border-color': 'transparent'});
 
       // Find the middle item
-      var middleItem = $('.owl-item.active').eq(2);
+      var middleItem = $('.owl-item.active').eq(1);
 
       // Calculate new width and height
       var originalWidth = middleItem.width();
