@@ -9975,9 +9975,13 @@ div.error-message {
     background-image: url(/img/new-desgin/background-choose-place.png);
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 86px 0;
+    position: relative;
 }
 
-.home-events .container-events {}
+.home-events .container-events {
+position: relative;
+}
 
 .home-events .container-events .box-blog {
     border-radius: 24px;
@@ -9989,7 +9993,9 @@ div.error-message {
     max-width: 362px;
     padding-bottom: 10vw;
 }
-
+.home-events .container-events .box-blog:nth-child(2){
+    margin-top: 124px;
+}
 .home-events .container-events .box-blog .content-blog {
     padding: 15px;
 }
@@ -10026,6 +10032,7 @@ div.error-message {
     grid-gap: 5px;
     padding-left: 0;
     justify-content: start;
+    margin-top: 20px;
 }
 
 .timline-eve .item {
@@ -10034,7 +10041,7 @@ div.error-message {
     align-items: center;
     grid-gap: 5px;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     position: relative;
 }
 .timline-eve .item p{
@@ -10056,8 +10063,8 @@ div.error-message {
 }
 .line-timer{
     position: absolute;
-    left: 50%;
-    bottom: 0;
+    left: 10px;
+    bottom: -20px;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
