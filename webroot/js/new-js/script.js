@@ -86,13 +86,19 @@ $(document).ready(function () {
 
   function resizeMiddleItem(event) {
       // Reset styles for all items
-      $('.owl-item').css({'transform': '', 'border-color': 'transparent'});
+      $('.owl-item').css({'width': '', 'height': '', 'border-color': 'transparent'});
 
       // Find the middle item
-      var middleItem = $('.owl-item.active').eq(1);
+      var middleItem = $('.owl-item.active').eq(2);
 
-      // Apply styles to middle item
-      middleItem.css({'transform': 'scale(1.5)', 'border-color': '#000'});
+      // Calculate new width and height
+      var originalWidth = middleItem.width();
+      var originalHeight = middleItem.height();
+      var newWidth = originalWidth * 1.5;
+      var newHeight = originalHeight * 1.5;
+
+      // Apply new width, height, and border color to the middle item
+      middleItem.css({'width': newWidth + 'px', 'height': newHeight + 'px', 'border-color': '#000'});
   }
   /**/ 
   sliderTestimonials.owlCarousel({
