@@ -10034,6 +10034,10 @@ div.error-message {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+
 }
 
 .timline-eve p img {
@@ -10041,10 +10045,11 @@ div.error-message {
 }
 
 .timline-eve p img::after {
-    content: '<img src="/img/new-desgin/timer.svg" alt="">';
+    content: "";
     width: 1px;
     height: 20px;
-    
+    background: url('/img/new-desgin/timer.svg');
+
 }
 
 .timline-eve p:last-child img::after {
