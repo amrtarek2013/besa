@@ -10028,33 +10028,39 @@ div.error-message {
     justify-content: start;
 }
 
-.timline-eve p {
+.timline-eve .item {
+
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.timline-eve .item p{
     color: #37474F;
     font-family: "Poppins";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    display: flex;
-    align-items: center;
-    grid-gap: 5px;
-    margin-top: 20px;
-    margin-bottom: 15px;
 }
-
 .timline-eve p img {
     position: relative;
 }
 
-.timline-eve p img::after {
-    content: url("/img/new-desgin/line-timline.svg");
-    width: 1px;
-    height: 20px;
 
-}
-.timline-eve p:last-child{
+.timline-eve .item:last-child{
     margin: 0;
+    
 }
-.timline-eve p:last-child img::after {
-    display: none;
+.line-timer{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
