@@ -9912,6 +9912,7 @@ div.error-message {
 
   /* Start Home Assessment*/
   .home_assessment {
+    padding: 100px 0;
     text-align: center;
   }
   .home_assessment .title {
