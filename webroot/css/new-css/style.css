@@ -9971,13 +9971,47 @@ div.error-message {
     margin: 0 auto;
 }
 
-.home-events {
+.home-events .top-text {
+    text-align: center;
+    padding: 0 20vw;
+    margin-bottom: 40px;
+}
+
+.home-blogs .title {
+    font-family: "Poppins";
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    margin: 0;
+}
+
+.home-events .top-text .description {
+    color: #546E7A;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%
+}
+
+.home-events .top-events {
     background-image: url(/img/new-desgin/background-choose-place.png);
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 86px 0;
+    position: relative;
+    height: 344px;
+    margin-bottom: 600px;
 }
 
-.home-events .container-events {}
+.home-events .container-events {
+    position: absolute;
+    z-index: 3;
+
+}
 
 .home-events .container-events .box-blog {
     border-radius: 24px;
@@ -9987,7 +10021,11 @@ div.error-message {
     grid-gap: 0;
     background-color: #fff;
     max-width: 362px;
-    padding-bottom: 10vw;
+    height: 700px;
+}
+
+.home-events .container-events .box-blog:nth-child(2) {
+    margin-top: 124px;
 }
 
 .home-events .container-events .box-blog .content-blog {
@@ -10022,12 +10060,24 @@ div.error-message {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    align-items: center;
+    grid-gap: 5px;
+    padding-left: 0;
+    justify-content: start;
+    margin-top: 20px;
+}
+
+.timline-eve .item {
+
     display: flex;
     align-items: center;
     grid-gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-.timline-eve p {
+.timline-eve .item p {
     color: #37474F;
     font-family: "Poppins";
     font-size: 14px;
@@ -10040,13 +10090,241 @@ div.error-message {
     position: relative;
 }
 
-.timline-eve p img::after {
-    content: '<img src="/img/new-desgin/timer.svg" alt="">';
-    width: 1px;
-    height: 20px;
-    
+
+.timline-eve .item:last-child {
+    margin: 0;
+
 }
 
-.timline-eve p:last-child img::after {
-    display: none;
+.line-timer {
+    position: absolute;
+    left: 10px;
+    bottom: -20px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
+.blogs-en {
+    padding: 100px 0;
+}
+.blogs-en > .title{
+    margin-bottom: 50px;
+}
+.owl-blogs .item .card {
+    padding: 24px;
+    border-radius: 34.421px;
+    border: 5px solid  transparent;
+    background: #F8F8F8;
+    box-shadow: 0px 4px 30px 0px rgba(0, 109, 182, 0.40);
+    padding-bottom: 10vw;
+}
+
+.owl-blogs .item .card .title {
+    font-family: "Poppins";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%;
+    color: var(--text-color);
+    margin: 0 0;
+    text-align: left;
+}
+
+.owl-blogs .item .card  .description {
+    color: #546E7A;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+}
+/**/
+
+
+.owl-blogs #wrap {
+    padding: 30px 0;
+}
+
+
+.owl-blogs .carousel-wrap {
+    width: 485px;
+    height: 545px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.owl-blogs  .carousel-wrap .carousel>li {
+    width: 426px;
+    height: 527.789px;
+    padding: 24px;
+    border-radius: 34.421px;
+    border: 5px solid #0B4C97;
+    background: #F8F8F8;
+    box-shadow: 0px 4px 30px 0px rgba(0, 109, 182, 0.40);
+    padding-bottom: 10vw;
+    display: inline-block;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.owl-blogs  .items {
+    position: absolute;
+}
+
+.owl-blogs  .main-pos {
+    margin-left: 2em !important;
+    z-index: 3000;
+}
+
+.owl-blogs  .left-pos {
+    background: #ccc;
+    opacity: 1;
+    margin-left: -25em !important;
+    z-index: 1000;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    transform: scale(.75);
+    border: 5px solid  transparent !important;
+
+}
+
+.owl-blogs  .back-pos {
+    opacity: 1;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    transform: scale(.5);
+    border: 5px solid  transparent !important;
+
+}
+
+.owl-blogs  .right-pos {
+    opacity: 1;
+    margin-left: 27em !important;
+    z-index: 1000;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    transform: scale(.75);
+    border: 5px solid  transparent;
+
+}
+
+.owl-blogs  .slider {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.owl-blogs  .slider a {
+    color: #999;
+}
+
+.owl-blogs  .slider i {
+    font-size: 45px;
+}
+
+.owl-blogs  .slider #prev,
+.owl-blogs  .slider #next {
+    position: absolute;
+}
+
+.owl-blogs  .slider #prev {
+    left: -420px;
+}
+
+.owl-blogs  .slider #next {
+    right: -420px;
+}
+
+@media (max-width: 480px) {
+    .owl-blogs  .carousel-wrap {
+        width: 240px;
+        height: 408px;
+    }
+
+    .owl-blogs  .carousel-wrap .carousel>li {
+        width: 240px;
+        height: 408px;
+    }
+
+    .owl-blogs   .left-pos {
+        margin-left: -145px !important;
+    }
+
+    .owl-blogs  .right-pos {
+        margin-left: 62px !important;
+    }
+
+    .owl-blogs  .slider {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .owl-blogs  .carousel-wrap {
+        width: 350px;
+        height: 345px;
+    }
+
+    .owl-blogs  .carousel-wrap .carousel>li {
+        width: 350px;
+        height: 345px;
+    }
+
+    .owl-blogs  .left-pos {
+        margin-left: -113px !important;
+    }
+
+    .owl-blogs  .right-pos {
+        margin-left: 30px !important;
+    }
+
+    .owl-blogs  .slider #prev {
+        left: -70px;
+    }
+
+    .owl-blogs  .slider #next {
+        right: -70px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .owl-blogs  .carousel-wrap {
+        width: 400px;
+    }
+
+    .owl-blogs  .carousel-wrap .carousel>li {
+        width: 400px;
+    }
+
+    .owl-blogs   .main-pos {
+        margin-left: -40px !important;
+    }
+
+    .owl-blogs  .left-pos {
+        margin-left: -220px !important;
+    }
+
+    .owl-blogs  .right-pos {
+        margin-left: 140px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .owl-blogs .slider #prev {
+        left: -180px;
+    }
+
+    .owl-blogs  .slider #next {
+        right: -180px;
+    }
+}
+
+/* Additional media queries for md-d and lg breakpoints can be added similarly */

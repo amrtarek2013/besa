@@ -12,43 +12,141 @@
 <!--Start Events Section-->
 <?php if (!empty($homeBlogs)) : ?>
     <div class="home-blogs home-events">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="container-events display-flex">
-                        <?php foreach ($home_main_events as $event) : ?>
-                            <div class="box-blog display-flex">
-                                <div class="card-img-top">
-                                    <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
-                                </div>
-                                <div class="content-blog">
-                                    <h4 class="title-blog">
-                                        <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
-                                    </h4>
-                                    <p class="description-blog"><?= $event['sub_title'] ?></p>
-                                    <div class="timline-eve">
-                                        <p><img src="/img/new-desgin/timer.svg" alt="">  21  Oct 2023</p>
-                                        <p><img src="/img/new-desgin/timer.svg" alt="">  09 Dec 2023</p>
+        <div class="top-text">
+            <h4 class="title">Events</h4>
+            <p class="description">Explore a world of opportunities with our events, crafted to enrich your educational journey. </p>
+        </div>
+        <div class="top-events">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="container-events display-flex">
+                            <?php foreach ($home_main_events as $event) : ?>
+                                <div class="box-blog display-flex">
+                                    <div class="card-img-top">
+                                        <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
                                     </div>
-                                    <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
+                                    <div class="content-blog">
+                                        <h4 class="title-blog">
+                                            <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
+                                        </h4>
+                                        <p class="description-blog"><?= $event['sub_title'] ?></p>
+                                        <div class="timline-eve">
+                                            <div class="item">
+                                                <img src="/img/new-desgin/timer.svg" alt=""> 
+                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer"> 
+                                                <p> 21  Oct 2023</p>              
+                                            </div>
+                                            <div class="item">
+                                                <img src="/img/new-desgin/timer.svg" alt="">  
+                                                <p>09 Dec 2023</p> 
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 <?php endif; ?>
 <!--End Events Section-->
 <!--Start Blogs Section-->
 <?php if (!empty($homeBlogs)) : ?>
-    <div class="home-blogs">
+    <div class="home-blogs blogs-en">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <h4 class="title">Blogs</h4>
+                    <div class="owl-blogs">
+                        <div id="wrap">
+                            <section class="carousel-wrap">
+                                <ul class="carousel">
+                                <?php foreach ($homeBlogs as $blog) : ?>
+                                    <li class="items main-pos" id="1">
+                                        <div class="card">
+                                            <h4 class="title">
+                                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
+                                            </h4>
+                                            <p class="description">
+                                                <?= $blog['short_text'] ?>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <?php endforeach; ?>
+
+                                    <li class="items right-pos" id="2">
+                                       
+                                    </li>
+                                    <li class="items back-pos" id="3">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Mark Holden</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="items back-pos" id="4">
+                                        <div class="review-card review-card--option-4 text-center">
+                                            <div class="review-card-img">&nbsp;</div>
+                                            <div class="review-author">
+                                                <span class="ra-author">Frederick Greer</span>
+                                                <ul class="ra-rating-star">
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE838;</i></li>
+                                                    <li><i class="material-icons">&#xE839;</i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut
+                                                    lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    
+                                </ul>
+                                <span class="slider">
+                                <a href="javascript:void(0);" value="Prev" id="prev"><img src='./img/new-desgin/prev-arrow.png'></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src='./img/new-desgin/next-arrow.png'></a>
+                                
+                                </span>
+                            </section>
+                            </div>
+                            <?php foreach ($homeBlogs as $blog) : ?>
+                                <div class="card">
+                                    <h4 class="title">
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
+                                    </h4>
+                                    <p class="description">
+                                        <?= $blog['short_text'] ?>
+                                    </p>
+                                </div>
+                            <?php endforeach; ?>
+
+                    </div>
                     <div class="display-flex">
                         <?php foreach ($homeBlogs as $blog) : ?>
                             <div class="box-blog display-flex">
