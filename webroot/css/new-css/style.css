@@ -9980,9 +9980,9 @@ div.error-message {
 .home-blogs .title {
     font-family: "Poppins";
     text-align: center;
-    font-size: 48px;
+    font-size: 22px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 135%;
     margin: 0;
 }
@@ -9991,7 +9991,7 @@ div.error-message {
     color: #546E7A;
     text-align: center;
     font-family: "Poppins";
-    font-size: 24px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%

@@ -107,7 +107,7 @@
                                     <li class="items back-pos" id="4">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">4</a>
+                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
                                             </h4>
                                             <p class="description">
                                                 Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
@@ -120,8 +120,8 @@
                                     
                                 </ul>
                                 <span class="slider">
-                                <a href="javascript:void(0);" value="Prev" id="prev"><img src='/img/new-desgin/prev-arrow.png'></a>
-                                <a href="javascript:void(0);" value="Next" id="next"><img src='/img/new-desgin/next-arrow.png'></a>
+                                <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg'></a>
                                 </span>
                             </section>
                             </div>
