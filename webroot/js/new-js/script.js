@@ -87,189 +87,129 @@ $(document).ready(function () {
   });
 */
 
-// Slider class definition
-function Slider(carouselSelector, intervalTime) {
-  this.carousel = $(carouselSelector);
-  this.itemCount = this.carousel.children('li').length;
-  this.startItem = 1;
-  this.position = 0;
-  this.leftpos = this.itemCount;
-  this.resetCount = this.itemCount;
-  this.autoSwap = setInterval(this.swap.bind(this, ''), intervalTime);
+  // Function to initialize each slider
+  function initSlider(slider) {
+    var autoSwap = setInterval(function () { swap(slider, 'clockwise'); }, 22000);
 
-  // Hover event to pause and resume the slider
-  this.carousel.hover(
-    () => clearInterval(this.autoSwap),
-    () => (this.autoSwap = setInterval(this.swap.bind(this, ''), intervalTime))
-  );
+    // Pause and restart the slideshow on hover
+    slider.hover(
+      function () {
+        clearInterval(autoSwap);
+      },
+      function () {
+        autoSwap = setInterval(function () { swap(slider, 'clockwise'); }, 7000);
+      }
+    );
 
-  // Binding navigation buttons
-  this.carousel.parent().find(".next").click(() => this.swap('clockwise'));
-  this.carousel.parent().find(".prev").click(() => this.swap('counter-clockwise'));
+    // Swap function
+    function swap(slider, action) {
+      var carouselItems = slider.find("li");
+      var itemCount = carouselItems.length;
+      var startItem = slider.data('startItem') || 1;
+      var position = slider.data('position') || 0;
 
-  // Click event on items
-  this.carousel.find('li').click((event) => {
-    if ($(event.currentTarget).hasClass("left-pos")) {
-      this.swap('counter-clockwise');
-    } else {
-      this.swap('clockwise');
+      // ... [Rest of your swap logic here, adapted to use `carouselItems` and `itemCount`]
+      function swap(action) {
+        var direction = action;
+    
+        //moving carousel backwards
+        if (direction == "counter-clockwise") {
+          var leftitem = $(".left-pos").attr("id") - 1;
+          if (leftitem == 0) {
+            leftitem = itemCount;
+          }
+    
+          $(".right-pos").removeClass("right-pos").addClass("back-pos");
+          $(".main-pos").removeClass("main-pos").addClass("right-pos");
+          $(".left-pos").removeClass("left-pos").addClass("main-pos");
+          $("#" + leftitem + "")
+            .removeClass("back-pos")
+            .addClass("left-pos");
+    
+          startItem--;
+          if (startItem < 1) {
+            startItem = itemCount;
+          }
+        }
+    
+        //moving carousel forward
+        if (direction == "clockwise" || direction == "" || direction == null) {
+          function pos(positionvalue) {
+            if (positionvalue != "leftposition") {
+              //increment image list id
+              position++;
+    
+              //if final result is greater than image count, reset position.
+              if (startItem + position > resetCount) {
+                position = 1 - startItem;
+              }
+            }
+    
+            //setting the left positioned item
+            if (positionvalue == "leftposition") {
+              //left positioned image should always be one left than main positioned image.
+              position = startItem - 1;
+    
+              //reset last image in list to left position if first image is in main position
+              if (position < 1) {
+                position = itemCount;
+              }
+            }
+    
+            return position;
+          }
+    
+          $("#" + startItem + "")
+            .removeClass("main-pos")
+            .addClass("left-pos");
+          $("#" + (startItem + pos()) + "")
+            .removeClass("right-pos")
+            .addClass("main-pos");
+          $("#" + (startItem + pos()) + "")
+            .removeClass("back-pos")
+            .addClass("right-pos");
+          $("#" + pos("leftposition") + "")
+            .removeClass("left-pos")
+            .addClass("back-pos");
+    
+          startItem++;
+          position = 0;
+          if (startItem > itemCount) {
+            startItem = 1;
+          }
+        }
+      }
+
+      // Update the startItem and position
+      slider.data('startItem', startItem);
+      slider.data('position', position);
     }
+
+    // Button click handlers
+    slider.parent().find("#next").click(function () {
+      swap(slider, "clockwise");
+    });
+
+    slider.parent().find("#prev").click(function () {
+      swap(slider, "counter-clockwise");
+    });
+
+    slider.find("li").click(function () {
+      if ($(this).hasClass("left-pos")) {
+        swap(slider, "counter-clockwise");
+      } else {
+        swap(slider, "clockwise");
+      }
+    });
+  }
+
+  // Initialize each carousel on the page
+  $(".carousel").each(function () {
+    initSlider($(this));
   });
-}
-
-// Swap function inside the Slider class
-Slider.prototype.swap = function(action) {
-  var direction = action;
-
-  // Logic for moving the carousel forward
-  if (direction === "clockwise" || direction === "" || direction === null) {
-    var nextItem = (this.startItem % this.itemCount) + 1;
-
-    this.carousel.find('.main-pos').removeClass('main-pos').addClass('left-pos');
-    this.carousel.find('#item' + nextItem).removeClass('right-pos').addClass('main-pos');
-    this.carousel.find('.right-pos').removeClass('right-pos').addClass('back-pos');
-    this.carousel.find('.left-pos').not('.main-pos').removeClass('left-pos').addClass('right-pos');
-
-    this.startItem = nextItem;
-  }
-
-  // Logic for moving the carousel backwards
-  if (direction === "counter-clockwise") {
-    var prevItem = this.startItem - 1;
-    if (prevItem < 1) {
-      prevItem = this.itemCount;
-    }
-
-    this.carousel.find('.main-pos').removeClass('main-pos').addClass('right-pos');
-    this.carousel.find('#item' + prevItem).removeClass('left-pos').addClass('main-pos');
-    this.carousel.find('.right-pos').removeClass('right-pos').addClass('back-pos');
-    this.carousel.find('.left-pos').not('.main-pos').removeClass('left-pos').addClass('left-pos');
-
-    this.startItem = prevItem;
-  }
-};
-
-// Initialize sliders
-var slider1 = new Slider("#carousel1", 22000);
-var slider2 = new Slider("#carousel2", 15000);
 // More sliders can be initialized similarly
 
-  //slideshow style interval
-  var autoSwap = setInterval(swap, 22000);
-
-  //pause slideshow and reinstantiate on mouseout
-  $(".carousel, .slider").hover(
-    function () {
-      clearInterval(autoSwap);
-    },
-    function () {
-      autoSwap = setInterval(swap, 7000);
-    }
-  );
-
-  //global variables
-  var items = [];
-  var startItem = 1;
-  var position = 0;
-  var itemCount = $(".carousel>li").length;
-  var leftpos = itemCount;
-  var resetCount = itemCount;
-
-  //unused: gather text inside items class
-  $(".carousel>li").each(function (index) {
-    items[index] = $(this).text();
-  });
-
-  //swap images function
-  function swap(action) {
-    var direction = action;
-
-    //moving carousel backwards
-    if (direction == "counter-clockwise") {
-      var leftitem = $(".left-pos").attr("id") - 1;
-      if (leftitem == 0) {
-        leftitem = itemCount;
-      }
-
-      $(".right-pos").removeClass("right-pos").addClass("back-pos");
-      $(".main-pos").removeClass("main-pos").addClass("right-pos");
-      $(".left-pos").removeClass("left-pos").addClass("main-pos");
-      $("#" + leftitem + "")
-        .removeClass("back-pos")
-        .addClass("left-pos");
-
-      startItem--;
-      if (startItem < 1) {
-        startItem = itemCount;
-      }
-    }
-
-    //moving carousel forward
-    if (direction == "clockwise" || direction == "" || direction == null) {
-      function pos(positionvalue) {
-        if (positionvalue != "leftposition") {
-          //increment image list id
-          position++;
-
-          //if final result is greater than image count, reset position.
-          if (startItem + position > resetCount) {
-            position = 1 - startItem;
-          }
-        }
-
-        //setting the left positioned item
-        if (positionvalue == "leftposition") {
-          //left positioned image should always be one left than main positioned image.
-          position = startItem - 1;
-
-          //reset last image in list to left position if first image is in main position
-          if (position < 1) {
-            position = itemCount;
-          }
-        }
-
-        return position;
-      }
-
-      $("#" + startItem + "")
-        .removeClass("main-pos")
-        .addClass("left-pos");
-      $("#" + (startItem + pos()) + "")
-        .removeClass("right-pos")
-        .addClass("main-pos");
-      $("#" + (startItem + pos()) + "")
-        .removeClass("back-pos")
-        .addClass("right-pos");
-      $("#" + pos("leftposition") + "")
-        .removeClass("left-pos")
-        .addClass("back-pos");
-
-      startItem++;
-      position = 0;
-      if (startItem > itemCount) {
-        startItem = 1;
-      }
-    }
-  }
-
-  //next button click function
-  $("#next").click(function () {
-    swap("clockwise");
-  });
-
-  //prev button click function
-  $("#prev").click(function () {
-    swap("counter-clockwise");
-  });
-
-  //if any visible items are clicked
-  $(".items").click(function () {
-    if ($(this).attr("class") == "items left-pos") {
-      swap("counter-clockwise");
-    } else {
-      swap("clockwise");
-    }
-  });
+  
   /**/
   sliderTestimonials.owlCarousel({
     items: 1,
