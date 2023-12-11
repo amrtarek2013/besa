@@ -109,75 +109,52 @@ $(document).ready(function () {
       var position = slider.data('position') || 0;
 
       // ... [Rest of your swap logic here, adapted to use `carouselItems` and `itemCount`]
-      function swap(action) {
-        var direction = action;
-    
-        //moving carousel backwards
-        if (direction == "counter-clockwise") {
-          var leftitem = $(".left-pos").attr("id") - 1;
-          if (leftitem == 0) {
-            leftitem = itemCount;
+      // Swap function
+      function swap(slider, action) {
+        var carouselItems = slider.find("li");
+        var itemCount = carouselItems.length;
+        var startItem = slider.data('startItem') || 1;
+        var position = slider.data('position') || 0;
+
+        // Moving carousel backwards
+        if (action == "counter-clockwise") {
+          var leftItem = startItem - 1;
+          if (leftItem < 1) {
+            leftItem = itemCount;
           }
-    
-          $(".right-pos").removeClass("right-pos").addClass("back-pos");
-          $(".main-pos").removeClass("main-pos").addClass("right-pos");
-          $(".left-pos").removeClass("left-pos").addClass("main-pos");
-          $("#" + leftitem + "")
-            .removeClass("back-pos")
-            .addClass("left-pos");
-    
+
+          carouselItems.removeClass("right-pos").addClass("back-pos");
+          carouselItems.removeClass("main-pos").addClass("right-pos");
+          carouselItems.removeClass("left-pos").addClass("main-pos");
+          slider.find("#" + leftItem).removeClass("back-pos").addClass("left-pos");
+
           startItem--;
           if (startItem < 1) {
             startItem = itemCount;
           }
         }
-    
-        //moving carousel forward
-        if (direction == "clockwise" || direction == "" || direction == null) {
-          function pos(positionvalue) {
-            if (positionvalue != "leftposition") {
-              //increment image list id
-              position++;
-    
-              //if final result is greater than image count, reset position.
-              if (startItem + position > resetCount) {
-                position = 1 - startItem;
-              }
-            }
-    
-            //setting the left positioned item
-            if (positionvalue == "leftposition") {
-              //left positioned image should always be one left than main positioned image.
-              position = startItem - 1;
-    
-              //reset last image in list to left position if first image is in main position
-              if (position < 1) {
-                position = itemCount;
-              }
-            }
-    
-            return position;
+
+        // Moving carousel forward
+        if (action == "clockwise" || action == "" || action == null) {
+          var rightItem = startItem + 1;
+          if (rightItem > itemCount) {
+            rightItem = 1;
           }
-    
-          $("#" + startItem + "")
-            .removeClass("main-pos")
-            .addClass("left-pos");
-          $("#" + (startItem + pos()) + "")
-            .removeClass("right-pos")
-            .addClass("main-pos");
-          $("#" + (startItem + pos()) + "")
-            .removeClass("back-pos")
-            .addClass("right-pos");
-          $("#" + pos("leftposition") + "")
-            .removeClass("left-pos")
-            .addClass("back-pos");
-    
+
+          carouselItems.removeClass("main-pos").addClass("left-pos");
+          slider.find("#" + rightItem).removeClass("right-pos").addClass("main-pos");
+          slider.find("#" + rightItem).removeClass("back-pos").addClass("right-pos");
+          slider.find("#" + (rightItem + 1 > itemCount ? 1 : rightItem + 1)).removeClass("left-pos").addClass("back-pos");
+
           startItem++;
-          position = 0;
           if (startItem > itemCount) {
             startItem = 1;
           }
         }
+
+        // Update the startItem and position
+        slider.data('startItem', startItem);
+        slider.data('position', position);
       }
 
       // Update the startItem and position
