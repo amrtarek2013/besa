@@ -71,7 +71,7 @@
                                     <li class="items main-pos" id="1">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">1</a>
+                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
                                             </h4>
                                             <p class="description">
                                                 Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
@@ -94,7 +94,7 @@
                                     <li class="items back-pos" id="3">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">3</a>
+                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
                                             </h4>
                                             <p class="description">
                                                 Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
@@ -120,9 +120,8 @@
                                     
                                 </ul>
                                 <span class="slider">
-                                <a href="javascript:void(0);" value="Prev" id="prev"><img src='./img/new-desgin/prev-arrow.png'></a>
-                                <a href="javascript:void(0);" value="Next" id="next"><img src='./img/new-desgin/next-arrow.png'></a>
-                                
+                                <a href="javascript:void(0);" value="Prev" id="prev"><img src='/img/new-desgin/prev-arrow.png'></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src='/img/new-desgin/next-arrow.png'></a>
                                 </span>
                             </section>
                             </div>
