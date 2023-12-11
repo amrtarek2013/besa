@@ -199,12 +199,14 @@ function initSlider(slider) {
 }
 
 // Initialize each carousel on the page
-$(".carousel").each(function () {
+$(".carousel-blogs").each(function () {
   initSlider($(this));
 });
 
 
-
+$(".carousel-blogs3").each(function () {
+  initSlider($(this));
+});
 // More sliders can be initialized similarly
 
   
