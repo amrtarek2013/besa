@@ -68,7 +68,7 @@
                         <div id="wrap">
                             <section class="carousel-wrap">
                                 <ul class="carousel">
-                                    <li class="items main-pos" id="1">
+                                    <li class="items left-pos" id="1">
                                         <div class="card">
                                             <h4 class="title">
                                                 <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
@@ -81,7 +81,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="items right-pos" id="2">
+                                    <li class="items main-pos " id="2">
                                         <h4 class="title">
                                                 <a href="#" class="read-anchor">Global Recognition with a Local Touch</a>
                                             </h4>
@@ -91,7 +91,7 @@
                                                 top universities in the UK and abroad.
                                             </p>
                                     </li>
-                                    <li class="items back-pos" id="3">
+                                    <li class="items right-pos" id="3">
                                         <div class="card">
                                             <h4 class="title">
                                                 <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
