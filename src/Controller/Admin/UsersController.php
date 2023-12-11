@@ -180,29 +180,37 @@ class UsersController extends AppController
 
         $this->autoLayout = $this->autoRender = false;
         $conditions = $this->_filter_params();
-        $users = $this->Users->find('all')->where($conditions)->toArray();
+        $users = $this->Users->find('all')->contain(['Countries', 'Destinations', 'Nationalities', 'SubjectAreas'])->where($conditions)->toArray();
 
+        // dd($users);
         $dataToExport[] = array(
             'User ID' => 'User ID',
             'name' => 'Name',
-            // 'job_title' => 'Job Title',
             'email' => 'Email',
-            'address' => 'Address',
-            // 'barcode_number' => 'Barcode Number',
-            'password' => 'Password',
-            'active' => 'Active',
+            'mobile' => 'Mobile',
+
+            'country_id' => 'Country of residence',
+            'nationality_id' => 'Nationally',
+            'current_status' => 'Current School / Uni',
+            'current_study_level' => 'Current/last Level of study',
+            'subject_area_id' => 'Major of Study',
+            'destination_id' => 'Country you study at',
         );
+        $this->loadModel('StudyLevels');
 
         foreach ($users as $user) {
             $dataToExport[] = [
                 $user->id,
-                $user->name,
-                // $user->job_title,
+                $user->first_name . ' ' . $user->last_name,
                 $user->email,
-                $user->address,
-                // $user->barcode_number,
-                '',
-                ($user->active) ? 'Yes' : 'No',
+                '(+' . $user->mobile_code . ') ' . $user->mobile,
+
+                isset($user->country) ? $user->country->country_name : '',
+                isset($user->nationality) ? $user->nationality->country_name : '',
+                $user->current_status,
+                isset($this->StudyLevels->mainStudyLevels[$user->current_study_level]) ? $this->StudyLevels->mainStudyLevels[$user->current_study_level] : '',
+                isset($user->subject_area) ? $user->subject_area->title : '',
+                isset($user->destination) ? $user->destination->country_name : '',
             ];
         }
 
