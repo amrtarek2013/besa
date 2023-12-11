@@ -68,10 +68,28 @@
                         <div id="wrap">
                             <!-- First Carousel -->
                             <section class="carousel-wrap">
-                                <ul class="carousel" id="carousel1">
-                                    <!-- Carousel items for the first carousel -->
-                                    <li class="items left-pos" id="item1">
-                                        <!-- Content for item 1 -->
+        <ul class="carousel" id="carousel1">
+            <li class="items left-pos" id="item1">
+                <!-- Content for item 1 -->
+            </li>
+            <li class="items main-pos" id="item2">
+                <!-- Content for item 2 -->
+            </li>
+            <li class="items right-pos" id="item3">
+                <!-- Content for item 3 -->
+            </li>
+            <li class="items back-pos" id="item4">
+                <!-- Content for item 4 -->
+            </li>
+        </ul>
+        <div class="slider-controls">
+            <a href="javascript:void(0);" class="prev"><img src="prev-arrow.svg"></a>
+            <a href="javascript:void(0);" class="next"><img src="next-arrow.svg"></a>
+        </div>
+    </section>
+                            <section class="carousel-wrap">
+                                <ul class="carousel" >
+                                    <li class="items left-pos" id="1">
                                         <div class="card">
                                             <h4 class="title">
                                                 <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
@@ -83,11 +101,21 @@
                                             </p>
                                         </div>
                                     </li>
-                                    <li class="items main-pos" id="item2">
-                                        <!-- Content for item 2 -->
+
+                                    <li class="items main-pos " id="2">
+                                        <h4 class="title">
+                                                <a href="#" class="read-anchor">Global Recognition with a Local Touch</a>
+                                            </h4>
+                                            <p class="description">
+                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
+                                                you're equipped with an internationally accepted qualification that's recognized by 
+                                                top universities in the UK and abroad.
+                                            </p>
+                                    </li>
+                                    <li class="items right-pos" id="3">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
+                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
                                             </h4>
                                             <p class="description">
                                                 Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
@@ -95,12 +123,12 @@
                                                 top universities in the UK and abroad.
                                             </p>
                                         </div>
+                                        
                                     </li>
-                                    <li class="items right-pos" id="item3">
-                                        <!-- Content for item 2 -->
+                                    <li class="items back-pos" id="4">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
+                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
                                             </h4>
                                             <p class="description">
                                                 Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
@@ -108,29 +136,16 @@
                                                 top universities in the UK and abroad.
                                             </p>
                                         </div>
+                                        
                                     </li>
-                                    <li class="items back-pos" id="item4">
-                                        <!-- Content for item 2 -->
-                                        <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <!-- Add more items as needed -->
+                                    
                                 </ul>
-                                <div class="slider-controls">
-                                    <a href="javascript:void(0);" class="prev"><img src="prev-arrow.svg"></a>
-                                    <a href="javascript:void(0);" class="next"><img src="next-arrow.svg"></a>
-                                </div>
+                                <span class="slider">
+                                <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg'></a>
+                                </span>
                             </section>
-                            
-                        </div>
+                            </div>
                           
 
                     </div>
