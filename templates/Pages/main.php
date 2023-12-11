@@ -66,27 +66,6 @@
                     <h4 class="title">Blogs</h4>
                     <div class="owl-blogs">
                         <div id="wrap">
-                            <!-- First Carousel -->
-                            <section class="carousel-wrap">
-        <ul class="carousel" id="carousel1">
-            <li class="items left-pos" id="item1">
-                <!-- Content for item 1 -->
-            </li>
-            <li class="items main-pos" id="item2">
-                <!-- Content for item 2 -->
-            </li>
-            <li class="items right-pos" id="item3">
-                <!-- Content for item 3 -->
-            </li>
-            <li class="items back-pos" id="item4">
-                <!-- Content for item 4 -->
-            </li>
-        </ul>
-        <div class="slider-controls">
-            <a href="javascript:void(0);" class="prev"><img src="prev-arrow.svg"></a>
-            <a href="javascript:void(0);" class="next"><img src="next-arrow.svg"></a>
-        </div>
-    </section>
                             <section class="carousel-wrap">
                                 <ul class="carousel" >
                                     <li class="items left-pos" id="1">
@@ -145,7 +124,7 @@
                                 <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg'></a>
                                 </span>
                             </section>
-                            </div>
+                        </div>
                           
 
                     </div>
