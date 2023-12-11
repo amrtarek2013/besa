@@ -6220,7 +6220,7 @@ input.search {
     font-weight: 700;
     font-size: 40px;
     line-height: 60px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 
 }
 
@@ -9984,7 +9984,6 @@ div.error-message {
     font-style: normal;
     font-weight: 600;
     line-height: 135%;
-    margin: 0;
 }
 
 .home-events .top-text .description {
