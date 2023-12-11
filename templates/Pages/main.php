@@ -67,7 +67,7 @@
                     <div class="owl-blogs">
                         <div id="wrap">
                             <section class="carousel-wrap">
-                                <ul class="carousel">
+                                <ul class="carousel" id="carousel1">
                                     <li class="items left-pos" id="1">
                                         <div class="card">
                                             <h4 class="title">
