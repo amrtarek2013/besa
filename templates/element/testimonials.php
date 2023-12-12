@@ -68,6 +68,7 @@
                                             </div>
                                             <p class="description">
                                                 <?= $testimonial['text'] ?>
+                                                <p></p>
                                             </p>
                                         </div>
                                     </li>
