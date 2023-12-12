@@ -34,7 +34,7 @@
                     <div class="owl-blogs">
                         <div id="wrap2">
                             <div class="carousel-wrap">
-                                <ul class="carousel carousel-testimonials" >
+                                <ul class="carousel carousel-testimonials">
                                     <?php 
                                     $counter = 1;
                                     foreach ($testimonials as $testimonial) {
@@ -71,26 +71,22 @@
                                             </div>
                                             <p class="description">
                                                 <?= $testimonial['text'] ?>
-                                                <p></p>
                                             </p>
                                         </div>
                                     </li>
                                     <?php 
                                         $counter++;
-                                        // Reset counter to loop through classes again
-                                        if ($counter > 5) {
-                                            $counter = 1;
-                                        }
                                     }
                                     ?>                    
                                 </ul>
                                 <span class="slider">
-                                <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
-                                <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg'></a>
+                                    <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
+                                    <a href="javascript:void(0);" value="Next" id="next"><img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg"></a>
                                 </span>
-                             </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
