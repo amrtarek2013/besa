@@ -31,60 +31,54 @@
                         } ?>
 
                     </div>
-                    <div class="owl-blogs s">
+                    <div class="owl-blogs">
                         <div id="wrap">
                             <div class="carousel-wrap">
                                 <ul class="carousel carousel-testimonials" >
-                                    <li class="items left-pos" id="1">
+                                    <?php 
+                                    $counter = 1;
+                                    foreach ($testimonials as $testimonial) {
+                                        // Assign a class based on the counter
+                                        $positionClass = '';
+                                        switch ($counter) {
+                                            case 1:
+                                                $positionClass = 'left-pos';
+                                                break;
+                                            case 2:
+                                                $positionClass = 'main-pos';
+                                                break;
+                                            case 3:
+                                                $positionClass = 'right-pos';
+                                                break;
+                                            default:
+                                                $positionClass = 'back-pos';
+                                                break;
+                                        }
+                                    ?>
+                                    <li class="items <?= $positionClass ?>" id="<?= $counter ?>">
                                         <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
-                                            </h4>
+                                            <div class="personal-data">
+                                                <div class="circle-img">
+                                                    <img src="<?= $testimonial['image_path'] ?>" width="" alt="" loading="lazy">
+                                                </div>
+                                                <div class="text">
+                                                    <p><?= $testimonial['client_name'] ?></p>
+                                                    <p><?= $testimonial['university'] ?></p>
+                                                </div>
+                                            </div>
                                             <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
+                                                <?= $testimonial['text'] ?>
                                             </p>
                                         </div>
                                     </li>
-
-                                    <li class="items main-pos " id="2">
-                                        <h4 class="title">
-                                                <a href="#" class="read-anchor">Global Recognition with a Local Touch</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                    </li>
-                                    <li class="items right-pos" id="3">
-                                        <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                        </div>
-                                        
-                                    </li>
-                                    <li class="items back-pos" id="4">
-                                        <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                        </div>
-                                        
-                                    </li>
-                                    
+                                    <?php 
+                                        $counter++;
+                                        // Reset counter to loop through classes again
+                                        if ($counter > 4) {
+                                            $counter = 1;
+                                        }
+                                    }
+                                    ?>                    
                                 </ul>
                                 <span class="slider">
                                 <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
