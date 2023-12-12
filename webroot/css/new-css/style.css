@@ -1707,19 +1707,8 @@ textarea {
     -o-border-radius: 16px;
 }
 
-.contact-us .title-form {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 28px;
-    line-height: 35px;
-    color: #0F001A;
-    margin-bottom: 50px;
-}
 
-/* .contact-us .text {
-    padding-left: 36px;
-} */
+
 
 .contact-us .text p {
     font-family: 'Poppins';
