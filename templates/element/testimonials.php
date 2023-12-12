@@ -75,7 +75,7 @@
                                     <?php 
                                         $counter++;
                                         // Reset counter to loop through classes again
-                                        if ($counter > 4) {
+                                        if ($counter > 5) {
                                             $counter = 1;
                                         }
                                     }
