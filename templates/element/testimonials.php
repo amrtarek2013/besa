@@ -50,6 +50,9 @@
                                             case 3:
                                                 $positionClass = 'right-pos';
                                                 break;
+                                            case 4:
+                                                $positionClass = 'back-pos';
+                                                break;
                                             default:
                                                 $positionClass = 'back-pos';
                                                 break;
