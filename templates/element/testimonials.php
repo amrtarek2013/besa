@@ -4,37 +4,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="title"><?= isset($testiTitle) ? $testiTitle : "Students' Testimonials" ?></h2>
-                    <div class="slider-testimonials owl-carousel owl-theme" id="slider-testimonials">
-
-                        <?php
-
-                        if (!empty($testimonials)) {
-                            foreach ($testimonials as $key => $testimonial) {
-
-                        ?>
-                                <div class="item">
-                                    <p class="description">
-                                        <?= $testimonial['text'] ?>
-                                    </p>
-                                    <div class="personal-data">
-                                        <div class="circle-img">
-                                            <img src="<?= $testimonial['image_path'] ?>" width="" alt="" loading="lazy">
-                                        </div>
-                                        <div class="text">
-                                            <p><?= $testimonial['client_name'] ?></p>
-                                            <p><?= $testimonial['university'] ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        } ?>
-
-                    </div>
                     <div class="owl-blogs">
                         <div id="wrap2">
                             <div class="carousel-wrap">
-                                <ul class="carousel carousel-testimonials">
+                                <ul class="carousel carousel-testimonials" >
                                     <?php 
                                     $counter = 1;
                                     foreach ($testimonials as $testimonial) {
@@ -71,22 +44,26 @@
                                             </div>
                                             <p class="description">
                                                 <?= $testimonial['text'] ?>
+                                                <p></p>
                                             </p>
                                         </div>
                                     </li>
                                     <?php 
                                         $counter++;
+                                        // Reset counter to loop through classes again
+                                        if ($counter > 5) {
+                                            $counter = 1;
+                                        }
                                     }
                                     ?>                    
                                 </ul>
                                 <span class="slider">
-                                    <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
-                                    <a href="javascript:void(0);" value="Next" id="next"><img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg"></a>
+                                <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow-white.svg"></a>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow-white.svg'></a>
                                 </span>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
