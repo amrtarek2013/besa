@@ -2637,11 +2637,12 @@ input[type="checkbox"] {
     -ms-flex-align: center;
     align-items: center;
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
 }
 
 .footer .gridContainer-footer ul li {
     display: block;
+    margin-bottom: 14px;
 }
 
 .footer .gridContainer-footer ul li a {
