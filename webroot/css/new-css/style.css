@@ -1688,10 +1688,10 @@ textarea {
     font-weight: 600;
     line-height: normal;
     display: flex;
- align-items: center;
- justify-content: center;
- height: 84px;
- margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 84px;
+    margin: auto;
 }
 
 .contact-us label {
@@ -2629,16 +2629,15 @@ input[type="checkbox"] {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 18px;
+    line-height: 150%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    letter-spacing: 0.2px;
-    color: var(--bs-black);
-    margin-bottom: 15px;
+    color: #fff;
+    margin-bottom: 24px;
 }
 
 .footer .gridContainer-footer ul li {
@@ -2649,9 +2648,9 @@ input[type="checkbox"] {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 13.5px;
-    line-height: 208.5%;
-    color: var(--bs-light-grey);
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
 }
 
 .footer .gridContainer-footer ul li a.bold {
@@ -2662,8 +2661,8 @@ input[type="checkbox"] {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 13.5px;
-    line-height: 208.5%;
+    font-size: 14px;
+    line-height: 150%;
     text-align: center;
     background: var(--bs-light-grey);
     color: var(--bs-white);

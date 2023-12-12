@@ -13,20 +13,20 @@ use Cake\Routing\Router;
                         <img loading="lazy" src="<?= $g_configs['general']['file.main_logo'] ?>" alt="main_logo" width="165">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/facebook.svg" width="" alt="facebook">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/la_facebook.svg" width="" alt="facebook">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/instagram.svg" width="" alt="instagram" target="_blank">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/bi_instagram.svg" width="" alt="instagram" target="_blank">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/youtube.svg" width="" alt="youtube">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_youtube-outlined.svg" width="" alt="youtube">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" width="" alt="linkedin">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_linkedin-outlined.svg" width="" alt="linkedin">
                             </a>
-                            <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/tiktok.svg" width="" alt="tiktok">
-                            </a>
+                           <!-- <a href="<?php /* $g_configs['social_links']['txt.tiktok_link'] */?>" class="tiktok" target="_blank">
+                                <img loading="lazy" src="<?php /* WEBSITE_URL */?>img/new-desgin/tiktok.svg" width="" alt="tiktok">
+                            </a> -->
                         </div>
                     </div>
 
