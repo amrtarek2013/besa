@@ -1569,7 +1569,14 @@ textarea {
     right: 0;
     bottom: 105px;
 }
-
+.testimonials {
+    background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+}
+.testimonials  .title{
+    color: #fff;
+    font-size: 48px;
+text-align: center;
+}
 .testimonials .personal-data .circle-img {
     overflow: hidden;
     width: 120px;
