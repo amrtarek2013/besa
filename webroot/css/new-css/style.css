@@ -9979,12 +9979,12 @@ div.error-message {
 
 .home-blogs .title {
     font-family: "Poppins";
-    text-align: left;
-    font-size: 22px;
+    text-align: center;
+    font-size: 48px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 135%;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .home-events .top-text .description {
@@ -10106,6 +10106,8 @@ div.error-message {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
 }
+
+
 .blogs-en {
     padding: 100px 0;
 }
