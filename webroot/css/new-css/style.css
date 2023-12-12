@@ -1582,8 +1582,8 @@ textarea {
 
 .testimonials .personal-data .circle-img {
     overflow: hidden;
-    width: 120px;
-    height: 120px;
+    width: 97px;
+    height: 97px;
 }
 
 .testimonials .personal-data {
@@ -1596,22 +1596,36 @@ textarea {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    flex-flow: column;
     grid-gap: 14px;
     margin-top: 20px;
 }
 
 .testimonials .personal-data p {
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
+    color: #263238;
+    text-align: center;
     font-size: 24px;
-    line-height: 15px;
-    color: var(--bs-light-grey);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%;
 }
 
 .testimonials .personal-data p:last-child {
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 20px;
+    color: #455A64;
+    font-weight: 500;
+
+}
+
+.carousel-testimonials .description {
+    color: #546E7A;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 }
 
 .slider-testimonials .owl-nav button.owl-next,
