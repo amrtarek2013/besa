@@ -204,7 +204,7 @@ $(".carousel-blogs").each(function () {
 });
 
 
-$(".carousel-blogs3").each(function () {
+$(".carousel-testimonials").each(function () {
   initSlider($(this));
 });
 // More sliders can be initialized similarly
