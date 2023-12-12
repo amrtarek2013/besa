@@ -1691,6 +1691,7 @@ textarea {
  align-items: center;
  justify-content: center;
  height: 84px;
+ margin: auto;
 }
 
 .contact-us label {
@@ -2574,6 +2575,7 @@ input[type="checkbox"] {
 .footer {
     padding-bottom: 0;
     background: #E7E7E9;
+    background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
 }
 
 .footer .gridContainer-footer {
