@@ -32,7 +32,7 @@
 
                     </div>
                     <div class="owl-blogs">
-                        <div id="wrap">
+                        <div id="wrap2">
                             <div class="carousel-wrap">
                                 <ul class="carousel carousel-testimonials" >
                                     <?php 

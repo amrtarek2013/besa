@@ -1597,8 +1597,7 @@ textarea {
     -ms-flex-pack: center;
     justify-content: center;
     flex-flow: column;
-    grid-gap: 14px;
-    margin-top: 20px;
+    grid-gap: 10px;
 }
 
 .testimonials .personal-data p {
@@ -10201,7 +10200,7 @@ div.error-message {
     text-align: left;
 }
 
-
+.owl-blogs #wrap2,
 .owl-blogs #wrap {
     padding: 30px 0;
 }
@@ -10398,3 +10397,31 @@ div.error-message {
 }
 
 /* Additional media queries for md-d and lg breakpoints can be added similarly */
+
+
+.carousel-testimonials .carousel-wrap .carousel>li .description {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.carousel-testimonials .main-pos .description {
+    font-size: 16px;
+}
+
+.carousel-testimonials .carousel-wrap .carousel>.main-pos .personal-data p {
+    font-size: 21.818px;
+
+}
+
+.carousel-testimonials .carousel-wrap .carousel>.main-pos .personal-data p:last-child {
+    font-size: 18.182px;
+
+}
+
+
+
+.carousel-testimonials .carousel-wrap .carousel>li {
+    width: 380px;
+    height: 559px;
+    overflow: hidden;
+}
