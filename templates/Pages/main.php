@@ -143,20 +143,20 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2 class="title">Need any help?</h2>
-                <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
+                <h3 class="title-form">Drop us a message and one of our Advisor <br> and Study Abroad Experts will respond to you</h3>
 
             </div>
             <div class="col-md-10 col-md-offset-1 ">
                 <div class="form">
 
                     <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
-
+                        
                     <input type="hidden" id="type" name="type" value="home">
 
                     <?php
 
                     echo $this->Form->control('name', [
-                        'placeholder' => 'Your name', 'type' => 'text', 'label' => false,
+                        'placeholder' => 'Your name', 'type' => 'text', 'label' => true,
                         'class' => 'required', 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
@@ -164,7 +164,7 @@
 
                     echo $this->Form->control('email', [
                         'placeholder' => 'Email Address', 'type' => 'email',
-                        'class' => 'required', 'label' => false, 'required' => true,
+                        'class' => 'required', 'label' => true, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
 
@@ -172,7 +172,7 @@
 
                     echo $this->Form->control('message', [
                         'placeholder' => 'Your Message', 'type' => 'textarea',
-                        'class' => 'required', 'label' => false, 'required' => true,
+                        'class' => 'required', 'label' => true, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
                     ?>
