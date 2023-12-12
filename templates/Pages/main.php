@@ -156,7 +156,7 @@
                     <?php
 
                     echo $this->Form->control('name', [
-                        'placeholder' => 'Your name', 'type' => 'text', 'label' => true,
+                        'placeholder' => 'Your name', 'type' => 'text', 'label' => false,
                         'class' => 'required', 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
@@ -164,7 +164,7 @@
 
                     echo $this->Form->control('email', [
                         'placeholder' => 'Email Address', 'type' => 'email',
-                        'class' => 'required', 'label' => true, 'required' => true,
+                        'class' => 'required', 'label' => false, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
 
@@ -172,7 +172,7 @@
 
                     echo $this->Form->control('message', [
                         'placeholder' => 'Your Message', 'type' => 'textarea',
-                        'class' => 'required', 'label' => true, 'required' => true,
+                        'class' => 'required', 'label' => false, 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                     ]);
                     ?>
