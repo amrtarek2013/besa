@@ -66,70 +66,59 @@
                     <h4 class="title">Blogs</h4>
                     <div class="owl-blogs">
                         <div id="wrap">
-                            <section class="carousel-wrap">
-                                <ul class="carousel carousel-blogs" >
-                                    <li class="items left-pos" id="1">
+                        <section class="carousel-wrap">
+                            <ul class="carousel carousel-blogs">
+                                <?php 
+                                $counter = 1;
+                                foreach ($homeBlogs as $blog) {
+                                    // Assign a class based on the counter
+                                    $positionClass = '';
+                                    switch ($counter) {
+                                        case 1:
+                                            $positionClass = 'left-pos';
+                                            break;
+                                        case 2:
+                                            $positionClass = 'main-pos';
+                                            break;
+                                        case 3:
+                                            $positionClass = 'right-pos';
+                                            break;
+                                        default:
+                                            $positionClass = 'back-pos';
+                                            break;
+                                    }
+                                ?>
+                                    <li class="items <?= $positionClass ?>" id="<?= $counter ?>">
                                         <div class="card">
                                             <h4 class="title">
-                                                <a href="#" class="read-anchor">Subject Depth for Diverse Dreams</a>
+                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
                                             </h4>
                                             <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
+                                                <?= $blog['short_text'] ?>
                                             </p>
                                         </div>
                                     </li>
-
-                                    <li class="items main-pos " id="2">
-                                        <h4 class="title">
-                                                <a href="#" class="read-anchor">Global Recognition with a Local Touch</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                    </li>
-                                    <li class="items right-pos" id="3">
-                                        <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                        </div>
-                                        
-                                    </li>
-                                    <li class="items back-pos" id="4">
-                                        <div class="card">
-                                            <h4 class="title">
-                                                <a href="#" class="read-anchor">Language Proficiency and Cultural Empowerment</a>
-                                            </h4>
-                                            <p class="description">
-                                                Your IGCSE qualification is your ticket to global recognition. With IGCSE, 
-                                                you're equipped with an internationally accepted qualification that's recognized by 
-                                                top universities in the UK and abroad.
-                                            </p>
-                                        </div>
-                                        
-                                    </li>
-                                    
-                                </ul>
-                                <span class="slider">
+                                <?php 
+                                    $counter++;
+                                    // Reset counter to loop through classes again
+                                    if ($counter > 4) {
+                                        $counter = 1;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                            <span class="slider">
                                 <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
-                                <a href="javascript:void(0);" value="Next" id="next"><img src='<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg'></a>
-                                </span>
-                            </section>
+                                <a href="javascript:void(0);" value="Next" id="next"><img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg"></a>
+                            </span>
+                        </section>
+
                         </div>
                           
 
                     </div>
                     <div class="display-flex">
-                        <?php foreach ($homeBlogs as $blog) : ?>
+                        <?php /* foreach ($homeBlogs as $blog) : ?>
                             <div class="box-blog display-flex">
                                 <div class="content-blog">
                                     <p><a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a></p>
@@ -137,7 +126,7 @@
                                 </div>
                             </div>
 
-                        <?php endforeach; ?>
+                        <?php endforeach;*/ ?>
                     </div>
                 </div>
             </div>
