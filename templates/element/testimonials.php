@@ -31,7 +31,7 @@
                         } ?>
 
                     </div>
-                    <div class="owl-blogs">
+                    <div class="owl-blogs s">
                         <div id="wrap">
                             <div class="carousel-wrap">
                                 <ul class="carousel carousel-testimonials" >
