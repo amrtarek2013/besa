@@ -1678,8 +1678,15 @@ textarea {
 }
 
 .contact-us .submit {
-    background: var(--bs-light-red);
-    border-radius: 10px;
+    background: transparent;
+    border-radius: 12px;
+    border: 2px solid #FFF;
+    max-width: 455px;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 .contact-us label {
@@ -2443,17 +2450,16 @@ p.descrp {
 .form-area textarea,
 .form-area select,
 .form-area input {
-    border: 1px solid var(--bs-green);
-    border-radius: 6px;
+    border-radius: 8px;
     height: 64px;
     width: 100%;
-    padding: 17px 30px;
-    color: #8692A6;
-    font-family: 'Inter';
+    padding: 24px;
+    color: #90A4AE;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 13.5px;
+    font-size: 20px;
+    background: #F8F8F8;
 }
 
 .container-formBox .form-area textarea {
@@ -7583,17 +7589,17 @@ input[type="search"]:focus {
 .form-area textarea,
 .form-area input,
 .form-area file {
-    border-radius: 4px;
-    border: 1.2px solid #B4BEC8;
-    border: 1.2px solid var(--bs-green);
+    border-radius: 8px;
     color: #878787;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.32px;
-    /* background: transparent; */
-    background: var(--bs-white);
+
+    background: #F8F8F8;
     position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
 
 .form-area select {
