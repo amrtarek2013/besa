@@ -1569,14 +1569,17 @@ textarea {
     right: 0;
     bottom: 105px;
 }
+
 .testimonials {
-    background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
 }
-.testimonials  .title{
+
+.testimonials .title {
     color: #fff;
     font-size: 48px;
-text-align: center;
+    text-align: center;
 }
+
 .testimonials .personal-data .circle-img {
     overflow: hidden;
     width: 120px;
@@ -1652,6 +1655,25 @@ text-align: center;
     background: var(--bs-white);
 }
 
+.contact-us .title {
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+}
+
+.contact-us .title-form {
+    color: #546E7A;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
 .contact-us .submit {
     background: var(--bs-light-red);
     border-radius: 10px;
@@ -1674,7 +1696,15 @@ text-align: center;
 }
 
 .contact-us .form {
-    padding: 0 40px 0 18px;
+    padding: 48px;
+    border-radius: 16px;
+    border-top: 8px solid #CFD8DC;
+    background: linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
 }
 
 .contact-us .title-form {

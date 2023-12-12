@@ -139,19 +139,14 @@
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
 <section class="contact-us">
-    <div class="top-dots-img">
-        <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
-    </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h2 class="title">Need any help?</h2>
+                <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
 
             </div>
-            <div class="col-md-12">
-                <h3 class="title-form">Drop us a message and one of our Advisor and Study Abroad Experts will respond to you</h3>
-            </div>
-            <div class="col-md-5 col-md-offset-1 ">
+            <div class="col-md-10 col-md-offset-1 ">
                 <div class="form">
 
                     <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
@@ -206,10 +201,7 @@
 
         </div>
     </div>
-    <div class="bottom-dots-img">
-        <img loading="lazy" src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
-
-    </div>
+ 
 </section>
 
 
