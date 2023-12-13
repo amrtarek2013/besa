@@ -163,8 +163,9 @@ body {
 
 .title {
     color: var(--text-color);
-    text-align: left;
+    text-align: center;
     margin-bottom: 25px;
+    font-size: 48px;
 }
 
 .text-left {
@@ -9801,7 +9802,7 @@ img.mobile-image {
 
 
 .new-professional-development-1 p {
-    font-size: 16px !;
+    font-size: 16px ;
     /* Adjust the font size as needed */
     line-height: 2 !important;
 }
