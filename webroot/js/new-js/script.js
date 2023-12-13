@@ -56,22 +56,7 @@ $(document).ready(function () {
     ],
   });
 
-  var mainSlider = $(".main-slider");
-  mainSlider.owlCarousel({
-    items: 1,
-    loop: true,
-    margin: 10,
-    dots: false,
-    nav: true,
-    navText: [
-      "<img src='./img/icon/arrow_left.png'>",
-      "<img src='./img/icon/arrow_right.png'>",
-    ],
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
-  });*/
+
   /*
   var owlBlogs = $(".owl-blogs");
   owlBlogs.owlCarousel({
@@ -230,7 +215,22 @@ $(document).ready(function () {
     initSlider($(this));
   });
   // More sliders can be initialized similarly
-
+  var mainSlider = $(".main-slider");
+  mainSlider.owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 10,
+    dots: false,
+    nav: true,
+    navText: [
+      "<img src='./img/icon/arrow_left.png'>",
+      "<img src='./img/icon/arrow_right.png'>",
+    ],
+    autoplay: true,
+    autoPlaySpeed: 2000,
+    autoPlayTimeout: 2000,
+    autoplayHoverPause: true,
+  });
   var customeSlider = $(".custome-slider");
   customeSlider.owlCarousel({
     loop: true,
@@ -364,25 +364,25 @@ $(document).ready(function () {
       },
     },
   });
-  
+
   var owlTopUniversities = $(".owl-top-universities");
   owlTopUniversities.owlCarousel({
     stagePadding: 60,
-    loop:true,
-    margin:20,
-    nav:fals,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:3
-        }
-    }
-})
+    loop: true,
+    margin: 20,
+    nav: fals,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+  });
 
   /*
   // Handle image clicks
