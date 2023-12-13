@@ -147,7 +147,7 @@
             </div>
         </div>
     </div>
-    <div class="owl-carousel owl-theme owl-top-universities">
+    <div class="owl-carousel owl-theme owl-topUni">
         <div class="item">
             <img src="<?= WEBSITE_URL ?>img/new-desgin/img-unk.png" loading="lazy" alt="image United Kingdom">
             <div class="title-box">

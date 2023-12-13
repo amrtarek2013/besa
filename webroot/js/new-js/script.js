@@ -365,12 +365,18 @@ $(document).ready(function () {
     },
   });
 
-  var owlTopUniversities = $(".owl-top-universities");
+
+
+  var owlTopUniversities = $("owl-topUni");
   owlTopUniversities.owlCarousel({
-    stagePadding: 60,
     loop: true,
-    margin: 20,
-    nav: fals,
+    margin: 25,
+    nav: false,
+    stagePadding: 60,
+    autoplay: true,
+    autoPlaySpeed: 2100,
+    autoPlayTimeout: 2100,
+    autoplayHoverPause: true,
     responsive: {
       0: {
         items: 1,
@@ -379,11 +385,10 @@ $(document).ready(function () {
         items: 3,
       },
       1000: {
-        items: 3,
+        items: 4,
       },
     },
   });
-
   /*
   // Handle image clicks
   $(".image-box img").click(function () {
