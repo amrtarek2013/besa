@@ -367,7 +367,7 @@ $(document).ready(function () {
 
 
 
-  var owlTopUniversities = $("owl-topUni");
+  var owlTopUniversities = $(".owl-topUni");
   owlTopUniversities.owlCarousel({
     loop: true,
     margin: 25,
