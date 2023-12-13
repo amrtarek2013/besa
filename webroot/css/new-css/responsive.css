@@ -2093,7 +2093,7 @@
         font-size: 20px;
     }
 
-    .contaienr-conditions .box h2 {
+    .contaienr-conditions .circle-red {
         font-size: 14px;
         width: 30px;
         height: 30px;
@@ -2117,9 +2117,31 @@
         margin: 0 0 20px;
         font-size: 16px;
     }
+    .choose-place-2 .background-earth{
+        width: 280px;
+    }
     .choose-place-2{
         padding: 30px 0;
         min-height: 125px;
         margin-bottom: 280px;
+    }
+    .home-events .container-events{
+        flex-flow: column;
+        position: unset;
+        width: 95%;
+
+    }
+    .home-events .top-events{
+        margin-bottom: 2100px;
+    }
+    .home-blogs .title{
+        font-size: 20px;
+
+    }
+    .owl-blogs .main-pos .title{
+        font-size: 16px;
+    }
+    .owl-blogs .main-pos .description{
+        font-size: 12px;
     }
 }
