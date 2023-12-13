@@ -101,13 +101,13 @@
     /*Start Global */
     h1 {
         line-height: unset;
-        font-size: 32px;
+        font-size: 24px;
         line-height: 1.6;
 
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 20px;
         line-height: 1.6;
     }
 
@@ -1541,6 +1541,7 @@
     .contaienr-conditions .circle-gradient {
         width: 150px;
         height: 150px;
+        padding: 7px;
     }
 
     .contaienr-conditions .circle-gradient .container-circle p {
@@ -1549,10 +1550,7 @@
 
     }
 
-    .contaienr-conditions .box {
-        max-width: 80%;
-    }
-
+  
     .contaienr-conditions .box:not(:first-child)::before {
         left: -3.89%;
     }
@@ -1591,7 +1589,7 @@
     .choose-place .title-choose-place {
         text-align: center;
         width: auto;
-        font-size: 40px;
+        font-size: 20px;
         line-height: normal;
     }
 
@@ -2089,5 +2087,39 @@
     .contaienr-conditions .circle-gradient .container-circle {
 
         padding: 20px 10px;
+    }
+
+    .contaienr-conditions .box h2 {
+        font-size: 20px;
+    }
+
+    .contaienr-conditions .box h2 {
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+    }
+    .contaienr-conditions .circle-gradient .container-circle{
+        padding: 15px 10px;
+
+    }
+    .contaienr-conditions .box:nth-child(2), .contaienr-conditions .box:nth-child(4){
+        position: relative;
+        bottom: -95px;
+    }
+    .home_assessment .title{
+        font-size: 20px;
+    }
+    .home_assessment .description {
+        margin: 0 0 20px;
+        font-size: 16px;
+    }
+    .home_assessment .description {
+        margin: 0 0 20px;
+        font-size: 16px;
+    }
+    .choose-place-2{
+        padding: 30px 0;
+        min-height: 125px;
+        margin-bottom: 280px;
     }
 }

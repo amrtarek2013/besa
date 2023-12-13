@@ -1572,6 +1572,7 @@ textarea {
 }
 
 .testimonials {
+    margin: 100px 0;
     background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
 }
 
@@ -4916,7 +4917,7 @@ input.search {
 
 /*Start study broad guidance*/
 .study-broad-guidance {
-    padding: 40px 0;
+    padding: 40px 0 100px;
     background: var(--bs-white);
 }
 
@@ -5188,15 +5189,13 @@ input.search {
 
 
 /* Start why besa 2*/
-/*
+
 .why_besa2 {
-    background: #012475;
-    padding: 20px 0;
-}
-*/
+    padding: 100px 0;}
+
 .why_besa2 h2 {
-    color: var(--bs-white);
     font-size: 48px;
+    font-family: 'Poppins';
     margin: 0;
     margin-bottom: 10px;
     text-align: center;
@@ -5280,11 +5279,13 @@ input.search {
 
 
 .choose-place .title-choose-place {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 900;
+    text-align: center;
+    font-family: 'Poppins';
     font-size: 48px;
-    line-height: 63px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+
     color: var(--bs-blue);
     width: max-content;
     padding-top: 80px;
@@ -10044,7 +10045,7 @@ div.error-message {
 
 .home-events .top-text .description {
     color: #546E7A;
-    text-align: left;
+    text-align: center;
     font-family: "Poppins";
     font-size: 14px;
     font-style: normal;
@@ -10484,3 +10485,6 @@ div.error-message {
 .owl-topUni .item .title-box p img {
     width: unset;
 }
+
+.home-blogs{
+padding: 100px 0; }
