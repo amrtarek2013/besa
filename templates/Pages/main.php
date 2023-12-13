@@ -139,14 +139,8 @@
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
 <scetion class="top-universities">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="title title-top">Top Universities</h2>
-                <p class="description">We work wih best universities in the world</p>
-            </div>
-        </div>
-    </div>
+    <h2 class="title title-top">Top Universities</h2>
+    <p class="description">We work wih best universities in the world</p>
     <div class="owl-carousel owl-theme owl-topUni">
         <div class="item">
             <img src="<?= WEBSITE_URL ?>img/new-desgin/img-unk.png" loading="lazy" alt="image United Kingdom">
