@@ -138,6 +138,50 @@
 
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
+<scetion class="top-universities">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title title-top">Top Universities</h2>
+                <p class="description">We work wih best universities in the world</p>
+            </div>
+        </div>
+    </div>
+    <div class="owl-carousel owl-theme owl-top-universities">
+        <div class="item">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/img-unk.png" loading="lazy" alt="image United Kingdom">
+            <div class="title-box">
+                <h4>University of Manchester</h4>
+                <p class="flag">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-unk.png"  alt="flag United Kingdom">
+                    <span>United Kingdom</span>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/img-spain.png" loading="lazy" alt="image spain ">
+            <div class="title-box">
+                <h4>University of Mardid</h4>
+                <p class="flag">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-spain.png"  alt="flag spain ">
+                    <span>Spain </span>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/img-usk.png" loading="lazy" alt="image spain ">
+            <div class="title-box">
+                <h4>University of Washingnton</h4>
+                <p class="flag">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-usk.png"  alt="flag United States ">
+                    <span>United States</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</scetion>
+
+
 <section class="contact-us">
     <div class="container">
         <div class="row">

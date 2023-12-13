@@ -10425,3 +10425,43 @@ div.error-message {
     height: 559px;
     overflow: hidden;
 }
+
+.owl-top-universities .item {
+    border-radius: 16px;
+    position: relative;
+}
+
+.owl-top-universities .item img {
+    width: 100%;
+}
+
+.owl-top-universities .item .title-box {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 28px;
+}
+
+.owl-top-universities .item .title-box h4 {
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%;
+}
+
+.owl-top-universities .item .title-box p {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.owl-top-universities .item .title-box p span {
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+}

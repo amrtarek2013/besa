@@ -40,15 +40,23 @@ $(document).ready(function () {
   window.addEventListener("scroll", reveal);
 
   // opstions owl slider
-  var mainSlider = $(".main-slider");
-  var sliderTestimonials = $(".slider-testimonials");
-  var customeSlider = $(".custome-slider");
-  var ukslider = $(".ukslider");
-  var lifeBesaslider = $(".owl-lifeBesa");
-  var owlSchoolTour = $(".owl-school-tour");
-  var owlSmallFlag = $(".owl-small-flag-logo");
-  var owlLogosSlider = $(".owl-logos-slider");
 
+  /*
+  sliderTestimonials.owlCarousel({
+    items: 1,
+    loop: true,
+    nav: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoPlaySpeed: 3000,
+    autoplayHoverPause: true,
+    navText: [
+      "<i class='fa-solid fa-chevron-left'></i>",
+      "<i class='fa-solid fa-chevron-right'></i>",
+    ],
+  });
+
+  var mainSlider = $(".main-slider");
   mainSlider.owlCarousel({
     items: 1,
     loop: true,
@@ -63,7 +71,7 @@ $(document).ready(function () {
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
-  });
+  });*/
   /*
   var owlBlogs = $(".owl-blogs");
   owlBlogs.owlCarousel({
@@ -88,143 +96,142 @@ $(document).ready(function () {
 */
 
   // Function to initialize each slider
-function initSlider(slider) {
-  // Local variables for this slider
-  var autoSwap = setInterval(function () { swap(slider, 'clockwise'); }, 22000);
-  var startItem = 1;
-  var position = 0;
-  var itemCount = slider.find(">li").length;
-  var leftpos = itemCount;
-  var resetCount = itemCount;
+  function initSlider(slider) {
+    // Local variables for this slider
+    var autoSwap = setInterval(function () {
+      swap(slider, "clockwise");
+    }, 22000);
+    var startItem = 1;
+    var position = 0;
+    var itemCount = slider.find(">li").length;
+    var leftpos = itemCount;
+    var resetCount = itemCount;
 
-  // Swap function specific to a slider
-  function swap(slider, action) {
-    var direction = action;
-    var carouselItems = slider.find(">li");
-    var itemCount = carouselItems.length;
+    // Swap function specific to a slider
+    function swap(slider, action) {
+      var direction = action;
+      var carouselItems = slider.find(">li");
+      var itemCount = carouselItems.length;
 
-    // Moving carousel backwards
-    if (direction == "counter-clockwise") {
-      var leftitem = slider.find(".left-pos").attr("id") - 1;
-      if (leftitem == 0) {
-        leftitem = itemCount;
+      // Moving carousel backwards
+      if (direction == "counter-clockwise") {
+        var leftitem = slider.find(".left-pos").attr("id") - 1;
+        if (leftitem == 0) {
+          leftitem = itemCount;
+        }
+
+        slider.find(".right-pos").removeClass("right-pos").addClass("back-pos");
+        slider.find(".main-pos").removeClass("main-pos").addClass("right-pos");
+        slider.find(".left-pos").removeClass("left-pos").addClass("main-pos");
+        slider
+          .find("#" + leftitem)
+          .removeClass("back-pos")
+          .addClass("left-pos");
+
+        startItem--;
+        if (startItem < 1) {
+          startItem = itemCount;
+        }
       }
 
-      slider.find(".right-pos").removeClass("right-pos").addClass("back-pos");
-      slider.find(".main-pos").removeClass("main-pos").addClass("right-pos");
-      slider.find(".left-pos").removeClass("left-pos").addClass("main-pos");
-      slider.find("#" + leftitem)
-        .removeClass("back-pos")
-        .addClass("left-pos");
+      // Moving carousel forward
+      if (direction == "clockwise" || direction == "" || direction == null) {
+        function pos(positionvalue) {
+          if (positionvalue != "leftposition") {
+            //increment image list id
+            position++;
 
-      startItem--;
-      if (startItem < 1) {
-        startItem = itemCount;
+            //if final result is greater than image count, reset position.
+            if (startItem + position > resetCount) {
+              position = 1 - startItem;
+            }
+          }
+
+          //setting the left positioned item
+          if (positionvalue == "leftposition") {
+            //left positioned image should always be one left than main positioned image.
+            position = startItem - 1;
+
+            //reset last image in list to left position if first image is in main position
+            if (position < 1) {
+              position = itemCount;
+            }
+          }
+
+          return position;
+        }
+
+        slider
+          .find("#" + startItem)
+          .removeClass("main-pos")
+          .addClass("left-pos");
+        slider
+          .find("#" + (startItem + pos()))
+          .removeClass("right-pos")
+          .addClass("main-pos");
+        slider
+          .find("#" + (startItem + pos()))
+          .removeClass("back-pos")
+          .addClass("right-pos");
+        slider
+          .find("#" + pos("leftposition"))
+          .removeClass("left-pos")
+          .addClass("back-pos");
+
+        startItem++;
+        position = 0;
+        if (startItem > itemCount) {
+          startItem = 1;
+        }
       }
     }
 
-    // Moving carousel forward
-    if (direction == "clockwise" || direction == "" || direction == null) {
-      function pos(positionvalue) {
-        if (positionvalue != "leftposition") {
-          //increment image list id
-          position++;
-
-          //if final result is greater than image count, reset position.
-          if (startItem + position > resetCount) {
-            position = 1 - startItem;
-          }
-        }
-
-        //setting the left positioned item
-        if (positionvalue == "leftposition") {
-          //left positioned image should always be one left than main positioned image.
-          position = startItem - 1;
-
-          //reset last image in list to left position if first image is in main position
-          if (position < 1) {
-            position = itemCount;
-          }
-        }
-
-        return position;
+    // Event handlers for this slider
+    slider.hover(
+      function () {
+        clearInterval(autoSwap);
+      },
+      function () {
+        autoSwap = setInterval(function () {
+          swap(slider, "clockwise");
+        }, 7000);
       }
+    );
 
-      slider.find("#" + startItem)
-        .removeClass("main-pos")
-        .addClass("left-pos");
-      slider.find("#" + (startItem + pos()))
-        .removeClass("right-pos")
-        .addClass("main-pos");
-      slider.find("#" + (startItem + pos()))
-        .removeClass("back-pos")
-        .addClass("right-pos");
-      slider.find("#" + pos("leftposition"))
-        .removeClass("left-pos")
-        .addClass("back-pos");
+    slider
+      .parent()
+      .find("#next")
+      .click(function () {
+        swap(slider, "clockwise");
+      });
 
-      startItem++;
-      position = 0;
-      if (startItem > itemCount) {
-        startItem = 1;
+    slider
+      .parent()
+      .find("#prev")
+      .click(function () {
+        swap(slider, "counter-clockwise");
+      });
+
+    slider.find(">li").click(function () {
+      if ($(this).hasClass("left-pos")) {
+        swap(slider, "counter-clockwise");
+      } else {
+        swap(slider, "clockwise");
       }
-    }
+    });
   }
 
-  // Event handlers for this slider
-  slider.hover(
-    function () {
-      clearInterval(autoSwap);
-    },
-    function () {
-      autoSwap = setInterval(function () { swap(slider, 'clockwise'); }, 7000);
-    }
-  );
-
-  slider.parent().find("#next").click(function () {
-    swap(slider, "clockwise");
+  // Initialize each carousel on the page
+  $(".carousel-blogs").each(function () {
+    initSlider($(this));
   });
 
-  slider.parent().find("#prev").click(function () {
-    swap(slider, "counter-clockwise");
+  $(".carousel-testimonials").each(function () {
+    initSlider($(this));
   });
+  // More sliders can be initialized similarly
 
-  slider.find(">li").click(function () {
-    if ($(this).hasClass("left-pos")) {
-      swap(slider, "counter-clockwise");
-    } else {
-      swap(slider, "clockwise");
-    }
-  });
-}
-
-// Initialize each carousel on the page
-$(".carousel-blogs").each(function () {
-  initSlider($(this));
-});
-
-
-$(".carousel-testimonials").each(function () {
-  initSlider($(this));
-});
-// More sliders can be initialized similarly
-
-  
-  /**/
-  sliderTestimonials.owlCarousel({
-    items: 1,
-    loop: true,
-    nav: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoPlaySpeed: 3000,
-    autoplayHoverPause: true,
-    navText: [
-      "<i class='fa-solid fa-chevron-left'></i>",
-      "<i class='fa-solid fa-chevron-right'></i>",
-    ],
-  });
-
+  var customeSlider = $(".custome-slider");
   customeSlider.owlCarousel({
     loop: true,
     margin: 10,
@@ -233,6 +240,7 @@ $(".carousel-testimonials").each(function () {
     items: 1,
   });
 
+  var ukslider = $(".ukslider");
   ukslider.owlCarousel({
     items: 1,
     loop: true,
@@ -244,6 +252,7 @@ $(".carousel-testimonials").each(function () {
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
   });
+  var lifeBesaslider = $(".owl-lifeBesa");
 
   lifeBesaslider.owlCarousel({
     loop: true,
@@ -266,6 +275,8 @@ $(".carousel-testimonials").each(function () {
       },
     },
   });
+  var owlSchoolTour = $(".owl-school-tour");
+
   owlSchoolTour.owlCarousel({
     items: 1,
     loop: true,
@@ -275,6 +286,7 @@ $(".carousel-testimonials").each(function () {
       "<img src='../img/chevron-left-gray.svg'>",
     ],
   });
+
   var owlStepBack = $(".owl-step-back");
   owlStepBack.owlCarousel({
     loop: true,
@@ -301,7 +313,7 @@ $(".carousel-testimonials").each(function () {
       },
     },
   });
-
+  var owlSmallFlag = $(".owl-small-flag-logo");
   owlSmallFlag.owlCarousel({
     loop: true,
     margin: 20,
@@ -327,7 +339,7 @@ $(".carousel-testimonials").each(function () {
       },
     },
   });
-
+  var owlLogosSlider = $(".owl-logos-slider");
   owlLogosSlider.owlCarousel({
     loop: true,
     margin: 25,
@@ -352,6 +364,25 @@ $(".carousel-testimonials").each(function () {
       },
     },
   });
+  
+  var owlTopUniversities = $(".owl-top-universities");
+  owlTopUniversities.owlCarousel({
+    stagePadding: 60,
+    loop:true,
+    margin:20,
+    nav:fals,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:3
+        }
+    }
+})
 
   /*
   // Handle image clicks
