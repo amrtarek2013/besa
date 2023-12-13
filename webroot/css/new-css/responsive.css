@@ -2136,6 +2136,7 @@
     }
     .home-blogs .title{
         font-size: 20px;
+        margin-bottom: 10px;
 
     }
     .owl-blogs .main-pos .title{
@@ -2144,6 +2145,15 @@
     .owl-blogs .main-pos .description{
         font-size: 12px;
     }.owl-blogs .carousel-wrap .carousel>li{
-        height: unset;
+        height: 266px;
+        width: 85%;
+
+    }
+    .owl-blogs .left-pos{
+        margin-left: -260px !important;
+
+    }
+    .owl-blogs .right-pos {
+        margin-left: 350px !important;
     }
 }

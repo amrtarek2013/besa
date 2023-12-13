@@ -10042,7 +10042,10 @@ div.error-message {
     line-height: 135%;
     margin-bottom: 0;
 }
+.owl-blogs .main-pos .title{
+    text-align: left;
 
+}
 .home-events .top-text .description {
     color: #546E7A;
     text-align: center;
