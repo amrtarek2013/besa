@@ -9802,7 +9802,7 @@ img.mobile-image {
 
 
 .new-professional-development-1 p {
-    font-size: 16px ;
+    font-size: 16px;
     /* Adjust the font size as needed */
     line-height: 2 !important;
 }
@@ -10427,23 +10427,37 @@ div.error-message {
     overflow: hidden;
 }
 
-.owl-top-universities .item {
+
+/**/
+.top-universities {
+    padding: 100px 0;
+}
+
+.top-universities .title {
+    margin: 0;
+}
+
+.top-universities .description {
+    text-align: center;
+}
+
+.owl-topUni .item {
     border-radius: 16px;
     position: relative;
 }
 
-.owl-top-universities .item img {
+.owl-topUni .item img {
     width: 100%;
 }
 
-.owl-top-universities .item .title-box {
+.owl-topUni .item .title-box {
     position: absolute;
     width: 100%;
     bottom: 0;
     padding: 28px;
 }
 
-.owl-top-universities .item .title-box h4 {
+.owl-topUni .item .title-box h4 {
     color: #FFF;
     font-family: 'Poppins';
     font-size: 24px;
@@ -10452,17 +10466,21 @@ div.error-message {
     line-height: 135%;
 }
 
-.owl-top-universities .item .title-box p {
+.owl-topUni .item .title-box p {
     display: flex;
     align-items: center;
     grid-gap: 10px;
 }
 
-.owl-top-universities .item .title-box p span {
+.owl-topUni .item .title-box p span {
     color: #FFF;
     font-family: 'Poppins';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 135%;
+}
+
+.owl-topUni .item .title-box p img {
+    width: unset;
 }
