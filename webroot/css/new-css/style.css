@@ -3298,7 +3298,11 @@ input[type="checkbox"] {
 .why_besa .gridContainer3col .box-grid:hover p {
     text-decoration: none;
 }
+.banner-about-us {
+    background: url(../img/new-desgin/background-hero.png);
+    background: url(https://besaeg.com/img/new-desgin/background-hero.png)
 
+}
 .banner-about-us .content {
     margin-top: 35px;
 }

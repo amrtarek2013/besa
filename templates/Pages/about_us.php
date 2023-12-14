@@ -4,16 +4,14 @@
 <section class="main-banner banner-about-us aboutUs2-banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-7">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg1.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
+            <div class="col-md-5">
+                <div class="">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="hero about us">
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="relative-box-about ">
-                    <h1 class="relative-text">About</h1>
-                    <h2 class="title text-left">About Us</h2>
+                    <h1 class="relative-text">About Us</h1>
                 </div>
             </div>
             <?= $aboutusSnippet ?>
