@@ -1,19 +1,84 @@
 <?= $this->Html->css([
     '/css/new-css/timeline.css'
 ]) ?>
+
+<div class="hero-section hero-about-us">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="hero about us">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">About Us</h1>
+        </div>
+    </div>
+
+</div>
 <section class="main-banner banner-about-us aboutUs2-banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
-                <div class="">
-                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="hero about us">
+            <div class="col-md-12" style="padding:0;">
+                <div class="title-bottom-hero">
+                    <h4>BESA <span> ( British Educational Service Group  ) </span></h4>
+                    <p class="description">
+                        is an international organization with branches in egypt, sudan,kuwait and the UK its 
+                        deliciated to is an international organization with branches in egypt, sudan,kuwait and the UK its deliciated to    
+                    </p>
                 </div>
             </div>
-            <div class="col-md-7">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">About Us</h1>
+
+            <div class="leading-study">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="title ">BESA is the leading study abroad agency</h2>
+                            <div class="cards d-flex">
+                                <div class="card">
+                                    <div class="img-top">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>+11 Years of Empowering Students to Study in Over 9 Countries Globally</h4>
+                                        <a href="/apply" class="btn">Apply Now 
+                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="img-top">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>Student’s choice to facilitate their study abroad journey</h4>
+                                        <a href="/apply" class="btn">Apply Now 
+                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="img-top">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>We specialize in finding the right school & program for students aged from 7+</h4>
+                                        <a href="/apply" class="btn">Apply Now 
+                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                         
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            
             <?= $aboutusSnippet ?>
         </div>
     </div>
