@@ -5774,29 +5774,21 @@ input.search {
 
 /* Start leading-study*/
 .leading-study {
-    background: #B4BEC8;
-    padding: 45px 0;
+    padding: 180px 0;
 }
 
 .leading-study .title {
     font-weight: 700;
-    font-size: 40px;
-    line-height: 60px;
-    color: var(--bs-white);
-    margin-bottom: 30px;
+    font-size: 48px;
+    line-height: 135%;
+    color: var(--bs-blue);
+    margin-bottom: 60px;
 
 }
 
 .leading-study .grid-contaienr {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     margin-bottom: 55px;
 
@@ -6209,23 +6201,22 @@ input.search {
 /**/
 
 .leading-study .grid-contaienr .feature {
-    border: 8px solid #8692A6;
-    border-radius: 40px;
+    border-radius: 16px;
     padding: 20px;
-    width: 310px;
-    min-height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    box-shadow: 1.855px 3.711px 24px 0px rgba(0, 0, 0, 0.05), 1.855px 3.711px 24px 0px rgba(0, 0, 0, 0.05);
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
 }
 
 .leading-study .grid-contaienr .feature .title {
+    font-family: 'Poppins';
     font-size: 28px;
-    font-weight: 900;
-    color: var(--bs-white);
-    line-height: 35.2px;
-    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%;
+    text-align: left;
     margin: 0;
 }
 
@@ -7202,25 +7193,9 @@ input[type="search"]:focus {
     background: var(--bs-white);
 }
 
-.leading-study .title-background {
-    border-radius: 20px;
-    background: var(--bs-blue);
-    padding: 15px;
-    font-size: 28px;
-    font-weight: 900;
-    line-height: normal;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    width: 88%;
-    margin: 0px auto 45px;
-}
 
-.leading-study .grid-contaienr .feature-blue {
-    border: 8px solid #8692A6;
-    background: #8692A6;
-}
+
+
 
 .leading-study .grid-contaienr .feature .title {
     color: #2C3041;
@@ -7230,9 +7205,7 @@ input[type="search"]:focus {
     font-weight: 400;
 }
 
-.leading-study .grid-contaienr .feature-blue .title {
-    color: var(--bs-white);
-}
+
 
 .leading-study .buttons .btn {
 
@@ -10534,8 +10507,14 @@ div.error-message {
     font-weight: 500;
     line-height: 150%;
     color: #263238;
+    text-align: center;
+    width: 70%;
+    margin: auto;
 }
-
+.bottom-hero-section  .description{
+    font-size: 20px;
+}
 .bottom-hero-section .title-bottom-hero span{
-    
+    color: #242F65;
+
 }
