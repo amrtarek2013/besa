@@ -2017,8 +2017,8 @@ p.descrp {
     font-size: 40px;
     line-height: 40px;
     text-align: center;
-    color: #242F65;
     margin-bottom: 20px;
+    color: var(--text-color) ;
 }
 
 /* End Section Timeline */
@@ -9310,7 +9310,7 @@ img.mobile-image {
 }
 
 .group-cards .card-eng h4 {
-    color: #242F65;
+    color: var(--text-color) ;
     font-family: "Poppins";
     font-size: 18px;
     line-height: 24px;
@@ -9478,7 +9478,7 @@ img.mobile-image {
 }
 
 .large-image .caption p {
-    color: #242F65;
+    color: var(--text-color) ;
     text-align: center;
     font-family: "Poppins";
     font-size: 16px;
@@ -9533,7 +9533,7 @@ img.mobile-image {
 
 .gridContainer-counter .blue-dark {
     border-color: #242F65;
-    color: #242F65;
+    color: var(--text-color) ;
 
 }
 
@@ -10578,6 +10578,6 @@ div.error-message {
 }
 
 .bottom-hero-section .title-bottom-hero span {
-    color: #242F65;
+    color: var(--text-color) ;
 
 }
