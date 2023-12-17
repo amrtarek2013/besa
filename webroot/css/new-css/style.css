@@ -10526,3 +10526,16 @@ div.error-message {
     z-index: 2;
 
 }
+
+.bottom-hero-section .title-bottom-hero{
+    font-family: 'Poppins';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    color: #263238;
+}
+
+.bottom-hero-section .title-bottom-hero span{
+    
+}

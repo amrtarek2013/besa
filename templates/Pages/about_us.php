@@ -15,7 +15,7 @@
     </div>
 
 </div>
-<section class="main-banner banner-about-us aboutUs2-banner">
+<section class="bottom-hero-section ">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12" style="padding:0;">
@@ -36,37 +36,37 @@
                             <div class="cards d-flex">
                                 <div class="card">
                                     <div class="img-top">
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/smiling-students-with-backpacks1.png" alt="">
 
                                     </div>
                                     <div class="card-body">
                                         <h4>+11 Years of Empowering Students to Study in Over 9 Countries Globally</h4>
                                         <a href="/apply" class="btn">Apply Now 
-                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                            <img src="/webroot/filebrowser/upload/images/arrow%20right.svg" alt="">
 
                                         </a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="img-top">
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/smiling-students-with-backpacks2.png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <h4>Student’s choice to facilitate their study abroad journey</h4>
                                         <a href="/apply" class="btn">Apply Now 
-                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                            <img src="/webroot/filebrowser/upload/images/arrow%20right.svg" alt="">
 
                                         </a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="img-top">
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/smiling-students-with-backpacks3.png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <h4>We specialize in finding the right school & program for students aged from 7+</h4>
                                         <a href="/apply" class="btn">Apply Now 
-                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="">
+                                            <img src="/webroot/filebrowser/upload/images/arrow%20right.svg" alt="">
                                         </a>
                                     </div>
                                 </div>
