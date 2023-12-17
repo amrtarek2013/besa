@@ -5777,7 +5777,7 @@ input.search {
     padding: 180px 0;
 }
 
-.leading-study .title {
+.leading-study .card .card-body h4 {
     font-weight: 700;
     font-size: 48px;
     line-height: 135%;
@@ -5785,8 +5785,24 @@ input.search {
     margin-bottom: 60px;
 
 }
+.leading-study .card  {
+    box-shadow: 1.855px 3.711px 24px 0px rgba(0, 0, 0, 0.05), 1.855px 3.711px 24px 0px rgba(0, 0, 0, 0.05);
 
-.leading-study .grid-contaienr {
+
+}
+.leading-study .card .card-body .btn{
+    border-radius: 12px;
+    border: 2px solid  #0B4C97;
+    padding: 16px 40px;
+    color: var(--bs-blue);
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.leading-study .cards  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
