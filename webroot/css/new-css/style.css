@@ -5776,7 +5776,15 @@ input.search {
 .leading-study {
     padding: 180px 0;
 }
-
+.leading-study .title{
+    text-align: center;
+font-family: 'Poppins';
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 135%;
+margin-bottom: 80px;
+}
 .leading-study .card .card-body h4 {
     font-weight: 600;
     font-size: 28px;
@@ -5792,6 +5800,8 @@ input.search {
     -moz-border-radius: 16px ;
     -ms-border-radius: 16px ;
     -o-border-radius: 16px ;
+    width: 33.333%;
+
 }
 .leading-study .card  .top-img img{
     width: 100%;
@@ -5807,14 +5817,13 @@ input.search {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    width: 50%;
+    width: 60%;
 }
 .leading-study .cards  {
     display: flex;
     grid-gap: 20px;
     margin-bottom: 200px;
     max-height: 590px;
-    width: 33.333%;
 
 }
 .leading-study .cards .card:nth-child(2){
