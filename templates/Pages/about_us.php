@@ -40,6 +40,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <h2 class="title">We have a great  journey through many years of experience</h2>
                 <div class="timeline-container timeline-theme-1">
                     <div class="timeline js-timeline custome-timeline">
 
