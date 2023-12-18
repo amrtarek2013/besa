@@ -2191,4 +2191,24 @@
         text-align: center;
         margin-bottom: 20px;
     }
+    .leading-study {
+        padding: 70px 0;
+    }
+    .leading-study .title{
+        font-size: 20px;
+        margin: 0 30px 30px;
+
+    }
+    .leading-study .cards {
+     
+        margin-bottom: 0;
+        max-height: unset;
+        flex-flow: column;
+    }
+    .leading-study .card{width: 100%;}
+
+    .leading-study .card .card-body h4{
+        font-size: 24px;
+
+    }
 }
