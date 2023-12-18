@@ -5817,9 +5817,9 @@ input.search {
 
 .leading-study .card .card-body .btn {
     border-radius: 12px;
-    border: 2px solid #0B4C97;
+    border: 2px solid var(--text-color);;
     padding: 16px 40px;
-    color: var(--bs-blue);
+    color: var(--text-color);
     background-color: transparent;
     font-family: 'Poppins';
     font-size: 16px;

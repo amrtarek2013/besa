@@ -2200,7 +2200,7 @@
 
     }
     .leading-study .cards {
-     
+        grid-gap: 40px;
         margin-bottom: 0;
         max-height: unset;
         flex-flow: column;
@@ -2210,5 +2210,12 @@
     .leading-study .card .card-body h4{
         font-size: 24px;
 
+    }
+    .leading-study .cards .card:nth-child(2) {
+        margin-top: 0;
+        height: unset;
+    }
+    .sectionTimeline .title{
+        font-size: 20px;
     }
 }
