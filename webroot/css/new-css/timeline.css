@@ -125,7 +125,7 @@
 }
 
 .timeline-horizontal .timeline-dots button {
-  background: url("../img/new-desgin/icon-timeline.svg") bottom no-repeat;
+  background: url("../img/date-icon.png") bottom no-repeat;
   padding-bottom: 15px;
 }
 
@@ -189,7 +189,7 @@
 }
 
 .timeline-horizontal .timeline-dots .slide-active button {
-  background: url(../img/new-desgin/icon-timeline-active.svg) bottom no-repeat;
+  background: url(../img/date-icon-active.png) bottom no-repeat;
 
 }
 
