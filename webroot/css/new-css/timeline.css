@@ -52,7 +52,7 @@
 
 .timeline-horizontal .timeline-dots-wrap {
   width: 100%;
-  height: 70px;
+  height: 50px;
 }
 
 .timeline-vertical .timeline-dots-wrap {
@@ -87,7 +87,7 @@
 }
 
 .timeline-horizontal .timeline-dots {
-  background: url("../img/timeline-bg.png") bottom repeat-x;
+  background: url("../img/timeline-bg.png") center  repeat-x;
 }
 
 .timeline-vertical .timeline-dots {
@@ -125,8 +125,7 @@
 }
 
 .timeline-horizontal .timeline-dots button {
-  background: url("../img/date-icon.png") bottom no-repeat;
-  padding-bottom: 15px;
+  background: url("../img/date-icon.png") top no-repeat;
 }
 
 .timeline-vertical .timeline-dots button {
@@ -175,7 +174,7 @@
 }
 
 .timeline-dots li.slide-active button {
-  color: #242F65;
+  color: #1174b5;
   font-size: 40px;
 
 }
@@ -185,11 +184,12 @@
 }
 
 .timeline-horizontal .timeline-dots button {
-  padding-bottom: 40px;
+  padding-top: 70px;
 }
 
 .timeline-horizontal .timeline-dots .slide-active button {
-  background: url(../img/date-icon-active.png) bottom no-repeat;
+  background: url(../img/date-icon-active.png) top  no-repeat;
+  padding-top: 950px;
 
 }
 

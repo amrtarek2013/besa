@@ -2156,4 +2156,39 @@
     .owl-blogs .right-pos {
         margin-left: 350px !important;
     }
+    .hero-section .col-md-6 >.title-hero{
+        font-size: 32px;
+        line-height: 140%;
+
+    }
+    .hero-section {
+        position: relative;
+        padding: 30px 0 100px;
+        margin-bottom: 50px;
+    }
+
+    .hero-section .title-hero {
+        width: 140px;
+        margin-left: 54px;
+        font-size: 30px;
+        left: 130px;
+    }
+    .hero-section .img-hero {
+        left: 30px;
+        top: 0px;
+        width: 256px;
+    }
+    .bottom-hero-section .title-bottom-hero{
+        width: 100%;
+
+    }
+    .bottom-hero-section .title-bottom-hero h4{
+        font-size: 20px;
+
+    }
+    .bottom-hero-section .title-bottom-hero .description {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }

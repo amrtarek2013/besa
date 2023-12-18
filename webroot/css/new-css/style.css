@@ -10549,8 +10549,11 @@ div.error-message {
     z-index: 2;
 
 }
-
-.bottom-hero-section .title-bottom-hero {
+.bottom-hero-section .title-bottom-hero{
+    width: 70%;
+    margin: auto;
+}
+.bottom-hero-section .title-bottom-hero h4 {
     font-family: 'Poppins';
     font-size: 32px;
     font-style: normal;
@@ -10558,11 +10561,10 @@ div.error-message {
     line-height: 150%;
     color: #263238;
     text-align: center;
-    width: 70%;
-    margin: auto;
+   
 }
 
-.bottom-hero-section .description {
+.bottom-hero-section  .title-bottom-hero .description {
     font-size: 20px;
 }
 
