@@ -1972,14 +1972,9 @@ p.descrp {
 }
 
 .sectionTimeline .nav-timeline button {
-    background: rgba(28, 46, 69, 0.6);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    background: transparent;
+    width: 50px;
+    height: 50px;
 }
 
 .sectionTimeline .nav-timeline button.next {
@@ -1990,9 +1985,6 @@ p.descrp {
     color: var(--bs-white);
 }
 
-.sectionTimeline .nav-timeline button:hover {
-    background: var(--Gradient01);
-}
 
 .container-item-data .text h4.title {
     color: var(--bs-light-grey);
@@ -2018,7 +2010,7 @@ p.descrp {
     line-height: 40px;
     text-align: center;
     margin-bottom: 20px;
-    color: var(--text-color) ;
+    color: var(--text-color);
 }
 
 /* End Section Timeline */
@@ -6531,7 +6523,7 @@ input.search {
 }
 
 .sectionTimeline .container-item-data {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
 }
 
 .sectionTimeline .container-item-data .text {}
@@ -6543,9 +6535,6 @@ input.search {
 .timeline-item {
     height: unset;
 }
-
-
-
 
 #shadow-host-companion {
     padding: 0;
@@ -9310,7 +9299,7 @@ img.mobile-image {
 }
 
 .group-cards .card-eng h4 {
-    color: var(--text-color) ;
+    color: var(--text-color);
     font-family: "Poppins";
     font-size: 18px;
     line-height: 24px;
@@ -9478,7 +9467,7 @@ img.mobile-image {
 }
 
 .large-image .caption p {
-    color: var(--text-color) ;
+    color: var(--text-color);
     text-align: center;
     font-family: "Poppins";
     font-size: 16px;
@@ -9533,7 +9522,7 @@ img.mobile-image {
 
 .gridContainer-counter .blue-dark {
     border-color: #242F65;
-    color: var(--text-color) ;
+    color: var(--text-color);
 
 }
 
@@ -10578,6 +10567,49 @@ div.error-message {
 }
 
 .bottom-hero-section .title-bottom-hero span {
-    color: var(--text-color) ;
+    color: var(--text-color);
 
+}
+
+.sectionTimeline .title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+    max-width: 80%;
+    margin: 0 auto 20px;
+}
+
+.container-item-data .text h4.title {
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.sectionTimeline .descrp {
+    color: #546E7A;
+    font-size: 20px;
+}
+
+.nav-timeline {
+    bottom: 120px;
+    position: unset;
+}
+
+.nav-timeline button {
+    position: absolute;
+    bottom: 120px;
+}
+
+.nav-timeline .prev {
+    left: 10px;
+
+}
+
+.nav-timeline .next {
+    right: 10px;
+}
+
+.timeline-horizontal .timeline-dots button{
+    
 }

@@ -70,10 +70,10 @@
             <div class="col-md-12 col-nav">
                 <div class="nav-timeline">
                     <button class="prev" id="prevTimeline">
-                        <i class="fa-solid fa-chevron-left"></i>
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg" alt="">
                     </button>
                     <button class="next" id="nextTimeline">
-                        <i class="fa-solid fa-chevron-right"></i>
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg" alt="">
                     </button>
                 </div>
             </div>
