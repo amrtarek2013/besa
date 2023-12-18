@@ -10584,6 +10584,8 @@ div.error-message {
     font-size: 40px;
     font-weight: 700;
     margin: 0 0 20px 0;
+    line-height: 135%;
+
 }
 
 .sectionTimeline .descrp {
@@ -10598,7 +10600,7 @@ div.error-message {
 
 .nav-timeline button {
     position: absolute;
-    bottom: 120px;
+    bottom: 260px;
 }
 
 .nav-timeline .prev {
@@ -10611,5 +10613,5 @@ div.error-message {
 }
 
 .timeline-horizontal .timeline-dots button{
-    
+
 }

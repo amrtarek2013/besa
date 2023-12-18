@@ -136,7 +136,7 @@
 
 .timeline-container {
   width: 100%;
-  margin: 50px auto 100px;
+  margin: 50px auto 180px;
 }
 
 .timeline-list {
@@ -195,5 +195,5 @@
 
 .timeline-dots-wrap.top {
   top: unset;
-  bottom: -100;
+  bottom: -85px;
 }
