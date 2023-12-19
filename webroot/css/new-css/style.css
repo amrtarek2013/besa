@@ -10716,3 +10716,26 @@ div.error-message {
     width: 35%;
     margin: auto;
 }
+
+.hero-learners{
+    padding: 250px 0;
+
+}
+
+.hero-learners .title-hero {
+    font: normal 700 80px/100% 'Poppins';
+    text-align: start;
+    max-width: 900px;
+    position: relative;
+    margin-left: 0;
+    position: relative;
+    top: -140px;
+    left: -90px;
+}
+
+.hero-learners .img-hero {
+    position: absolute;
+    left: 430px;
+    top: 10px;
+    z-index: 2;
+}
