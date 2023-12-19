@@ -14,21 +14,21 @@
 </div>
 
 
-<section class=" servicesSec">
+<!-- <section class=" servicesSec" >
     <div class="container">
         <div class="row">
           
 
-            <!-- <div class="col-md-12">
+             <div class="col-md-12">
                 <div class="page_texts text-Services">
 
-                    <?= $services_page_text ?>
+                    <?php // $services_page_text ?>
                     
                 </div>
-            </div> -->
+            </div> 
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="services-rendered">
     <!-- <div class="line-ellipse line-ellipse3col">

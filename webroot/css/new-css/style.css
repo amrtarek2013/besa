@@ -6731,7 +6731,7 @@ input[type="search"]:focus {
 /********* End mobile sub menu********/
 
 .services-rendered .gridServices {
-    grid-template-columns: 40% 40%;
+    grid-template-columns: 35% 35%;
     grid-gap: 40px;
     padding: 0;
     text-align: center;
@@ -10686,6 +10686,6 @@ div.error-message {
 .gridServices .box-icon:nth-child(10) {
     grid-column: 1 / span 2;
     /* First item spans two columns */
-    width: 50%;
+    width: 35%;
     margin: auto;
 }
