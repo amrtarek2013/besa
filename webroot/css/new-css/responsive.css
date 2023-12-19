@@ -2218,4 +2218,7 @@
     .sectionTimeline .title{
         font-size: 20px;
     }
+    .gridServices .box-icon:nth-child(1), .gridServices .box-icon:nth-child(4), .gridServices .box-icon:nth-child(7), .gridServices .box-icon:nth-child(10) {
+        width: 100%;
+    }
 }

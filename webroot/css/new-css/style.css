@@ -10239,7 +10239,7 @@ div.error-message {
 .owl-blogs .main-pos {
     margin-left: 2em !important;
     z-index: 3000;
-    border: 5px solid #0B4C97;
+    border: 5px solid #0B4C97 !important;
 
 }
 
