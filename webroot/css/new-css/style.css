@@ -6816,10 +6816,12 @@ input[type="search"]:focus {
     flex-flow: column;
     grid-gap: 32px;
 }
-.free-meating .grid-meating .btn{
+
+.free-meating .grid-meating .btn {
     height: 40px;
     padding: 16px 40px;
 }
+
 .free-meating .grid-meating h2 {
     color: #263238;
     text-align: center;
@@ -7289,13 +7291,16 @@ input[type="search"]:focus {
     border-radius: 24px 0px 0px 24px;
     max-width: 830px;
     overflow: hidden;
-grid-gap: 0;
+    grid-gap: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 }
-.FoundationProgramFAQs .itemFAQs .box-item .content-blog{
+
+.FoundationProgramFAQs .itemFAQs .box-item .content-blog {
     padding: 16px;
 }
-.FoundationProgramFAQs .itemFAQs h4{
+
+.FoundationProgramFAQs .itemFAQs h4 {
     color: var(--text-color);
     font-family: 'Poppins';
     font-size: 32px;
@@ -7316,17 +7321,14 @@ grid-gap: 0;
     display: list-item;
     text-overflow: ellipsis;
     list-style: disc;
-    color:  #546E7A;
+    color: #546E7A;
     font-family: 'Poppins';
     font-size: 20px;
     font-weight: 400;
     line-height: 135%;
 }
 
-.FoundationProgramFAQs:nth-child(odd) {
-    background: #EAF1F3;
 
-}
 
 .university-Placement-banner {
     padding-bottom: 0;
