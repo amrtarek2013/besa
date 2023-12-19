@@ -30,7 +30,7 @@
 }
 
 .greenish-teal {
-    background: var(--bs-green) !important;
+    background: var(--Gradient01) !important;
 }
 
 .slate-grey {
@@ -6808,25 +6808,27 @@ input[type="search"]:focus {
     display: flex;
 }
 
-.free-meating .image,
-.free-meating .text {
-    width: 50%;
-}
+
 
 .free-meating .grid-meating {
     display: flex;
     align-items: center;
+    flex-flow: column;
+    grid-gap: 32px;
 }
 
-.free-meating .text h2 {
-    color: var(--bs-light-grey);
-    font-size: 40px;
-    font-family: "Poppins";
-    font-weight: 700;
+.free-meating .grid-meating h2 {
+    color: #263238;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
 }
 
-.free-meating .text h2 span {
-    color: rgba(51, 202, 148, 1);
+.free-meating .grid-meating h2 span {
+    color: var(--text-color);
 }
 
 .free-meating .text a {
