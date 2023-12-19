@@ -6816,7 +6816,10 @@ input[type="search"]:focus {
     flex-flow: column;
     grid-gap: 32px;
 }
-
+.free-meating .grid-meating .btn{
+    height: 40px;
+    padding: 12px 40px;
+}
 .free-meating .grid-meating h2 {
     color: #263238;
     text-align: center;
