@@ -1,18 +1,23 @@
-<section class="main-banner servicesSec">
+
+<div class="hero-section hero-services">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-services.png" alt="hero services">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Services </h1>
+        </div>
+    </div>
+
+</div>
+
+
+<section class=" servicesSec">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg2.png" alt="" width="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Services</h1>
-                    <h2 class="title text-left">Services</h2>
-                </div>
-            </div>
+          
 
             <!-- <div class="col-md-12">
                 <div class="page_texts text-Services">
@@ -36,7 +41,6 @@
             <div class="col-md-12">
                 <div class="gridServices">
 
-                    <div class="left-line line-ellipse-en">
                         <?php
 
                         use Cake\Routing\Router;
@@ -77,7 +81,6 @@
                             }
                         } ?>
 
-                    </div>
                 </div>
             </div>
         </div>

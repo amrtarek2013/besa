@@ -3394,13 +3394,6 @@ input[type="checkbox"] {
     background: var(--bs-main);
 }
 
-.services-rendered .gridServices {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 4fr 55px 4fr 55px 4fr;
-    grid-template-columns: 4fr 4fr 4fr;
-    grid-gap: 55px;
-}
 
 .services-rendered .box-icon {
     display: -webkit-box;
@@ -3432,13 +3425,12 @@ input[type="checkbox"] {
 }
 
 .services-rendered .box-icon h4 {
+    color: #263238;
+    text-align: center;
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    color: var(--bs-light-grey);
-    margin-left: 14px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
 }
 
 .services-rendered .line-ellipse {
@@ -5817,7 +5809,8 @@ input.search {
 
 .leading-study .card .card-body .btn {
     border-radius: 12px;
-    border: 2px solid var(--text-color);;
+    border: 2px solid var(--text-color);
+    ;
     padding: 16px 40px;
     color: var(--text-color);
     background-color: transparent;
@@ -6756,11 +6749,11 @@ input[type="search"]:focus {
 /********* End mobile sub menu********/
 
 .services-rendered .gridServices {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0;
-    padding: 0 50px;
-
-
+    grid-template-columns: 40% 40%;
+    grid-gap: 40px;
+    padding: 0;
+    text-align: center;
+    place-content: space-between;
 }
 
 .services-rendered .box-icon {
@@ -6790,23 +6783,22 @@ input[type="search"]:focus {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    place-self: self-start;
+    place-self: center;
     z-index: 9;
+    flex-flow: column;
+    grid-gap: 5px;
+    margin-bottom: 5px;
 }
 
 .services-rendered .box-icon {
     flex-flow: column;
-    height: 260px;
-
 }
 
 .services-rendered .icon-circle {
     background: var(--bs-main);
 }
 
-.services-rendered .box-icon .descrip {
-    padding: 0px 0 0 70px;
-}
+
 
 .services-rendered .box-icon .descrip p strong {
     color: var(--bs-blue);
@@ -6815,11 +6807,11 @@ input[type="search"]:focus {
 }
 
 .services-rendered .box-icon .descrip p {
-    color: var(--bs-light-grey);
-    font-size: 18px;
-    font-family: "Poppins";
+    color: #263238;
+    font-family: 'Poppins';
+    font-size: 16px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 150%;
 }
 
 .p-0 {
@@ -10520,7 +10512,7 @@ div.error-message {
 }
 
 .hero-section {
-    background: url('../../img/background-hero.png') no-repeat center/cover;
+    background: url('../../img/background-hero.png') no-repeat bottom/cover;
     position: relative;
     padding: 140px;
     margin-bottom: 150px;
@@ -10549,10 +10541,12 @@ div.error-message {
     z-index: 2;
 
 }
-.bottom-hero-section .title-bottom-hero{
+
+.bottom-hero-section .title-bottom-hero {
     width: 70%;
     margin: auto;
 }
+
 .bottom-hero-section .title-bottom-hero h4 {
     font-family: 'Poppins';
     font-size: 32px;
@@ -10561,10 +10555,10 @@ div.error-message {
     line-height: 150%;
     color: #263238;
     text-align: center;
-   
+
 }
 
-.bottom-hero-section  .title-bottom-hero .description {
+.bottom-hero-section .title-bottom-hero .description {
     font-size: 20px;
 }
 
@@ -10602,18 +10596,114 @@ div.error-message {
 
 .nav-timeline button {
     position: absolute;
-    bottom: 260px;
+    bottom: 340px;
 }
 
 .nav-timeline .prev {
-    left: 10px;
+    left: -60px;
 
 }
 
 .nav-timeline .next {
-    right: 10px;
+    right: -60px;
 }
 
-.timeline-horizontal .timeline-dots button{
+.hero-partner {
+    padding: 180px 0 260px;
+    margin-bottom: 100px;
 
+
+}
+
+.hero-partner .title-hero {
+    margin-left: 0;
+    line-height: 70%;
+    top: -50px;
+    text-align: center;
+
+}
+
+.hero-partner .title-hero span {
+    font-size: 100px;
+}
+
+.hero-partner .img-hero {
+    left: 120px;
+    top: 35px;
+
+}
+
+.frames .item-frame {
+    display: flex;
+    align-items: center;
+    /* Aligns items vertically in the center */
+    justify-content: center;
+    /* Centers items horizontally, optional based on your design */
+}
+
+.frames .item-frame .text,
+.frames .item-frame .image {
+    flex: 1;
+    /* Adjusts the flex-grow property to allow both text and image to share available space */
+}
+
+.frames .item-frame .text {
+    text-align: center;
+    /* Centers the text inside the text div */
+}
+
+.frames .item-frame .text h4 {
+    font-family: 'Poppins';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.hero-services {
+    padding: 300px 0 300px;
+    margin-bottom: 50px;
+}
+
+.hero-services .title-hero {
+    font-size: 128px !important;
+}
+
+.hero-services .title-hero {
+    color: #FFF;
+    font: normal 700 160px/100% 'Poppins';
+    text-align: end;
+    max-width: 500px;
+    position: relative;
+    margin-left: 25px;
+    top: -125px;
+}
+
+.hero-services .img-hero {
+    left: 140px;
+    top: 75px;
+
+}
+
+.gridServices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Defines two columns of equal width */
+    grid-template-rows: auto auto auto;
+    /* Adjusts row height automatically */
+    grid-gap: 20px;
+    /* Adjust the gap as needed */
+    padding: 0 50px;
+}
+
+.gridServices .box-icon:nth-child(1),
+.gridServices .box-icon:nth-child(4),
+.gridServices .box-icon:nth-child(7),
+.gridServices .box-icon:nth-child(10) {
+    grid-column: 1 / span 2;
+    /* First item spans two columns */
+    width: 50%;
+    margin: auto;
 }
