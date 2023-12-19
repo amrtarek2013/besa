@@ -7278,21 +7278,28 @@ input[type="search"]:focus {
 
 
 .FoundationProgramFAQs {
+    max-width: 90%;
+    margin: auto;
 }
 
 .FoundationProgramFAQs .itemFAQs .box-item {
-    padding: 40px;
+    border-radius: 24px 0px 0px 24px;
+    max-width: 830px;
+
 
 }
-
-.FoundationProgramFAQs .itemFAQs p {
-    color: var(--bs-light-grey);
-    font-size: 18px;
-    font-family: "Poppins";
+.FoundationProgramFAQs .itemFAQs .box-item .content-blog{
+    padding: 16px;
+}
+.FoundationProgramFAQs .itemFAQs h4{
+    color: var(--text-color);
+    font-family: 'Poppins';
+    font-size: 32px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
+    font-weight: 600;
+    line-height: 135%;
     margin-bottom: 5px;
+
 }
 
 .FoundationProgramFAQs .itemFAQs ul {
@@ -7303,14 +7310,13 @@ input[type="search"]:focus {
 
 .FoundationProgramFAQs .itemFAQs ul li {
     display: list-item;
-    color: var(--bs-blue);
     text-overflow: ellipsis;
-    font-size: 18px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     list-style: disc;
+    color:  #546E7A;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 135%;
 }
 
 .FoundationProgramFAQs:nth-child(odd) {

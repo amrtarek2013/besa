@@ -9,7 +9,7 @@ if (!empty($placementList)) : ?>
                     <div class="box-item display-flex">
                         <img src="<?= $placementItem['image_path'] ?>" alt="<?= $placementItem['title'] ?>" loading="lazy">
                         <div class="content-blog">
-                            <p><?= $placementItem['title'] ?></p>
+                            <h4><?= $placementItem['title'] ?></h4>
                             <?= $placementItem['short_text'] ?>
                         </div>       
                     </div>
