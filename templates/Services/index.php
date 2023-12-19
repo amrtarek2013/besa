@@ -74,10 +74,7 @@
                                     </div>
                                 </div>
                         <?php
-                                if ($counter == $mid) {
-                                    $counter = 0;
-                                    echo '</div><div class="right-line line-ellipse-en">';
-                                }
+                                
                             }
                         } ?>
 
