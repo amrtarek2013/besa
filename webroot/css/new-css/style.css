@@ -7280,12 +7280,16 @@ input[type="search"]:focus {
 .FoundationProgramFAQs {
     max-width: 90%;
     margin: auto;
+    display: flex;
+    flex-flow: column;
+    grid-gap: 40px;
 }
 
 .FoundationProgramFAQs .itemFAQs .box-item {
     border-radius: 24px 0px 0px 24px;
     max-width: 830px;
-
+    overflow: hidden;
+grid-gap: 0;
 
 }
 .FoundationProgramFAQs .itemFAQs .box-item .content-blog{
