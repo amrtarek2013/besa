@@ -7280,7 +7280,7 @@ input[type="search"]:focus {
 
 
 .FoundationProgramFAQs {
-    max-width: 90%;
+    max-width: 70%;
     margin: auto;
     display: flex;
     flex-flow: column;
@@ -7288,12 +7288,15 @@ input[type="search"]:focus {
 }
 
 .FoundationProgramFAQs .itemFAQs .box-item {
-    border-radius: 24px 0px 0px 24px;
-    max-width: 830px;
+    border-radius: 24px ;
+    max-width: 871px;
     overflow: hidden;
     grid-gap: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
+    -webkit-border-radius: 24px ;
+    -moz-border-radius: 24px ;
+    -ms-border-radius: 24px ;
+    -o-border-radius: 24px ;
 }
 
 .FoundationProgramFAQs .itemFAQs .box-item .content-blog {
@@ -7313,7 +7316,7 @@ input[type="search"]:focus {
 
 .FoundationProgramFAQs .itemFAQs ul {
     display: block;
-    padding-left: 30px;
+    padding-left: 25px;
 
 }
 
@@ -7327,9 +7330,14 @@ input[type="search"]:focus {
     font-weight: 400;
     line-height: 135%;
 }
+.FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item{
+    margin: auto;
+}
+.FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item
+{
+    margin-left: auto;
 
-
-
+}
 .university-Placement-banner {
     padding-bottom: 0;
 }
