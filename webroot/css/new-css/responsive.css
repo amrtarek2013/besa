@@ -1502,10 +1502,13 @@
     }
 
     .FoundationProgramFAQs .itemFAQs .box-item {
-        padding: 40px 20px;
         flex-flow: column;
     }
-
+    .FoundationProgramFAQs {
+        max-width: 90%;
+    
+        padding: 60px 0;
+    }
     .university-Placement-banner .relative-box-about {
         left: 20px;
 
@@ -2172,6 +2175,7 @@
         margin-left: 54px;
         font-size: 30px;
         left: 130px;
+        top: 0;
     }
     .hero-section .img-hero {
         left: 30px;
