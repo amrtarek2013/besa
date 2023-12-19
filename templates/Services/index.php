@@ -59,7 +59,7 @@
                                         <div class="icon-circle">
                                             <img src="<?= $service['icon_path'] ?>" alt="">
                                         </div>
-                                        <h4 class="title-icon"><?= strtoupper($service['title']) ?></h4>
+                                         <h4 class="title-icon"><?= strtoupper($service['title']) ?></h4>
                                         <!-- <h4 class="title-icon"><?= str_replace(' ', ' <br />', strtoupper($service['title'])) ?></h4> -->
 
                                     </header>
