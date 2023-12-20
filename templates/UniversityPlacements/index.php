@@ -11,6 +11,8 @@
     </div>
 </div>
 
-<?=$this->element('placement_list', ['placementList' => $universityPlacements]); ?>
+<div class="list-placement">
+    <?=$this->element('placement_list', ['placementList' => $universityPlacements]); ?>
+</div>
 
 <?= $book_free_meeting ?>

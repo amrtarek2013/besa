@@ -10760,3 +10760,20 @@ div.error-message {
     left: 170px;
     top: 33px;
 }
+.list-placement .FoundationProgramFAQs{
+    flex-flow: row;
+}
+.list-placement .FoundationProgramFAQs .itemFAQs .box-item{
+    flex-flow: column;
+}
+
+.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item{
+    margin-top: 150px;
+}
+.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item{
+    margin-top: 250px;
+}
+
+.list-placement .FoundationProgramFAQs .itemFAQs h4{
+    font-size: 28px;
+}
