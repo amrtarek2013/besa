@@ -1,21 +1,20 @@
-<section class="main-banner banner-about-us university-Placement-banner">
+<div class="hero-section hero-placement Pathway-Programs">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6" style="position: relative;">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">PATHWAY <br> PROGRAMS</h1>
-                    <h2 class="title text-left" s>PATHWAY <br> PROGRAMS</h2>
-                </div>
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-Pathway-Programs.png" alt="hero Young learners">
             </div>
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?=WEBSITE_URL?>img/hero-bg44.png" alt="" width="">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Pathway  <span>Programs</span> </h1>
         </div>
     </div>
+</div>
+
+<div class="list-Pathway-Programs">
     <?= $this->element('placement_list', ['placementList' => $pathwayPrograms]); ?>
-</section>
+
+</div>
+
+
 <?= $book_free_meeting ?>
