@@ -1,4 +1,4 @@
-<div class="hero-section hero-placement Pathway-Programs">
+<div class="hero-section hero-placement hero-pathway-Programs">
     <div class="container-fluid">
         <div class="col-md-6">
             <div class="img-hero">
@@ -17,11 +17,16 @@
     // print_r($placementList);
     if (!empty($pathwayPrograms)) : ?>
         <div class="FoundationProgramFAQs list-Pathway-Programs">
-            <?php foreach ($pathwayPrograms as $placementItem) :
+            <?php
+            //$i=0;
+             foreach ($pathwayPrograms as $placementItem) :
+                //$i++;
             ?>
                     <div class="itemFAQs">
                         <div class="box-item ">
-                             <!-- <img src="<?php // $placementItem['image_path'] ?>" alt="<?php// $placementItem['title'] ?>" loading="lazy"> -->
+                        <!-- <img src="<?php //WEBSITE_URL ?>img/new-desgin/<?php //echo $iconFlag."e" ?>.png" alt=""> -->
+
+                            <img src="<?php  $placementItem['image_path'] ?>" alt="<?php $placementItem['title'] ?>" loading="lazy"> 
                             <div class="content-blog">
                                 <div class="title-box">
                                     <h4><?= $placementItem['title'] ?></h4>
