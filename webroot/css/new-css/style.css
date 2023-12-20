@@ -10908,3 +10908,7 @@ div.error-message {
     left: -70px;
     top: -110px;
 }
+
+.flag-screenM{
+    display: none;
+}

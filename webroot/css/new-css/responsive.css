@@ -2247,4 +2247,11 @@
     
         min-height: auto;
     }
+    
+.flag-screenM{
+    display: block;
+}
+.list-Pathway-Programs{
+    flex-flow: column;
+}
 }
