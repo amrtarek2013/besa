@@ -10739,3 +10739,24 @@ div.error-message {
     top: 10px;
     z-index: 2;
 }
+
+
+.hero-placement .title-hero {
+    font: normal 700 120px/100% 'Poppins';
+    text-align: end;
+    max-width: 600px;
+    margin-left: 0;
+    position: relative;
+    left: 40px;
+    top: -150px;}
+
+.hero-placement .title-hero span{
+    font-size: 88px;
+}
+
+
+
+.hero-placement .img-hero {
+    left: 170px;
+    top: 33px;
+}
