@@ -10777,3 +10777,8 @@ div.error-message {
 .list-placement .FoundationProgramFAQs .itemFAQs h4{
     font-size: 28px;
 }
+
+.list-placement  .FoundationProgramFAQs .itemFAQs ul li{
+    font-size: 16px;
+    line-height: 170%;
+}
