@@ -10740,7 +10740,10 @@ div.error-message {
     z-index: 2;
 }
 
-
+.hero-placement{
+    padding: 250px 0;
+    margin-bottom: 100px;
+}
 .hero-placement .title-hero {
     font: normal 700 120px/100% 'Poppins';
     text-align: end;
@@ -10763,8 +10766,13 @@ div.error-message {
 .list-placement .FoundationProgramFAQs{
     flex-flow: row;
 }
+.list-placement .FoundationProgramFAQs .itemFAQs{
+    width: 33.333%;
+}
 .list-placement .FoundationProgramFAQs .itemFAQs .box-item{
     flex-flow: column;
+    max-width: 100%;
+    min-height: 700px;
 }
 
 .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item{
@@ -10782,3 +10790,4 @@ div.error-message {
     font-size: 16px;
     line-height: 170%;
 }
+
