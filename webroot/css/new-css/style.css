@@ -10818,6 +10818,7 @@ div.error-message {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
+    overflow: visible;
 }
 
 .list-Pathway-Programs .itemFAQs .box-item h4 {

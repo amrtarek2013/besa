@@ -2250,8 +2250,14 @@
     
 .flag-screenM{
     display: block;
+    height: 200px;
+    width: auto;
+    margin-left: auto;
 }
 .list-Pathway-Programs{
     flex-flow: column;
+}
+.list-Pathway-Programs .itemFAQs .box-item{
+    margin: 0;
 }
 }
