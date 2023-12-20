@@ -161,7 +161,7 @@
 
     .navbar .colse {
         padding: 20px 30px;
-        background: var(--bs-red);
+        background: var(--bs-Gradient);
         margin-bottom: 50px;
     }
 
@@ -2224,5 +2224,27 @@
     }
     .gridServices .box-icon:nth-child(1), .gridServices .box-icon:nth-child(4), .gridServices .box-icon:nth-child(7), .gridServices .box-icon:nth-child(10) {
         width: 100%;
+    }
+    .list-placement .FoundationProgramFAQs {
+        flex-flow: column;
+    }
+    .list-placement .FoundationProgramFAQs .itemFAQs {
+        width: 100%;
+    }
+    .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item ,
+    .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item {
+        margin-top: 0;
+    }
+    .hero-placement .title-hero span {
+        font-size: 32px;
+    }
+    .hero-placement .img-hero {
+        left: 0px;
+        top: 20px;
+        width: 240px;
+    }
+    .list-placement .FoundationProgramFAQs .itemFAQs .box-item {
+    
+        min-height: auto;
     }
 }
