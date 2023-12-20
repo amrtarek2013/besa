@@ -26,7 +26,7 @@
                         <div class="box-item ">
                         <!-- <img src="<?php //WEBSITE_URL ?>img/new-desgin/<?php //echo $iconFlag."e" ?>.png" alt=""> -->
 
-                            <img src="<?php  $placementItem['image_path'] ?>" alt="<?php $placementItem['title'] ?>" loading="lazy"> 
+                            <img src="<?= $placementItem['image_path'] ?>" alt="<?= $placementItem['title'] ?>" loading="lazy">
                             <div class="content-blog">
                                 <div class="title-box">
                                     <h4><?= $placementItem['title'] ?></h4>
