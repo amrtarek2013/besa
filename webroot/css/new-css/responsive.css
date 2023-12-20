@@ -1504,11 +1504,13 @@
     .FoundationProgramFAQs .itemFAQs .box-item {
         flex-flow: column;
     }
+
     .FoundationProgramFAQs {
         max-width: 90%;
-    
+
         padding: 60px 0;
     }
+
     .university-Placement-banner .relative-box-about {
         left: 20px;
 
@@ -1553,7 +1555,7 @@
 
     }
 
-  
+
     .contaienr-conditions .box:not(:first-child)::before {
         left: -3.89%;
     }
@@ -2101,69 +2103,88 @@
         width: 30px;
         height: 30px;
     }
-    .contaienr-conditions .circle-gradient .container-circle{
+
+    .contaienr-conditions .circle-gradient .container-circle {
         padding: 15px 10px;
 
     }
-    .contaienr-conditions .box:nth-child(2), .contaienr-conditions .box:nth-child(4){
+
+    .contaienr-conditions .box:nth-child(2),
+    .contaienr-conditions .box:nth-child(4) {
         position: relative;
         bottom: -95px;
     }
-    .home_assessment .title{
+
+    .home_assessment .title {
         font-size: 20px;
     }
+
     .home_assessment .description {
         margin: 0 0 20px;
         font-size: 16px;
     }
+
     .home_assessment .description {
         margin: 0 0 20px;
         font-size: 16px;
     }
-    .choose-place-2 .background-earth{
+
+    .choose-place-2 .background-earth {
         width: 280px;
     }
-    .choose-place-2{
+
+    .choose-place-2 {
         padding: 30px 0;
         min-height: 125px;
         margin-bottom: 280px;
     }
-    .home-events .container-events{
+
+    .home-events .container-events {
         flex-flow: column;
         position: unset;
         width: 95%;
 
     }
-    .home-events .top-events{
+
+    .home-events .top-events {
         margin-bottom: 2100px;
     }
-    .home-blogs .title{
+
+    .home-blogs .title {
         font-size: 20px;
         margin-bottom: 10px;
 
     }
-    .owl-blogs .main-pos .title{
+
+    .owl-blogs .main-pos .title {
         font-size: 16px;
     }
-    .owl-blogs .main-pos .description{
+
+    .owl-blogs .main-pos .description {
         font-size: 12px;
-    }.owl-blogs .carousel-wrap .carousel>li{
+    }
+
+    .owl-blogs .carousel-wrap .carousel>li {
         height: 266px;
         width: 85%;
 
     }
-    .owl-blogs .left-pos{
+
+    .owl-blogs .left-pos {
         margin-left: -260px !important;
 
     }
+
     .owl-blogs .right-pos {
         margin-left: 350px !important;
     }
-    .hero-section .col-md-6 >.title-hero{
+
+    .hero-section .col-md-6>.title-hero {
         font-size: 32px;
         line-height: 140%;
 
     }
+
     .hero-section {
         position: relative;
         padding: 30px 0 100px;
@@ -2177,87 +2198,115 @@
         left: 130px;
         top: 0;
     }
+
     .hero-section .img-hero {
         left: 30px;
         top: 0px;
         width: 256px;
     }
-    .bottom-hero-section .title-bottom-hero{
+
+    .bottom-hero-section .title-bottom-hero {
         width: 100%;
 
     }
-    .bottom-hero-section .title-bottom-hero h4{
+
+    .bottom-hero-section .title-bottom-hero h4 {
         font-size: 20px;
 
     }
+
     .bottom-hero-section .title-bottom-hero .description {
         font-size: 16px;
         text-align: center;
         margin-bottom: 20px;
     }
+
     .leading-study {
         padding: 70px 0;
     }
-    .leading-study .title{
+
+    .leading-study .title {
         font-size: 20px;
         margin: 0 30px 30px;
 
     }
+
     .leading-study .cards {
         grid-gap: 40px;
         margin-bottom: 0;
         max-height: unset;
         flex-flow: column;
     }
-    .leading-study .card{width: 100%;}
 
-    .leading-study .card .card-body h4{
+    .leading-study .card {
+        width: 100%;
+    }
+
+    .leading-study .card .card-body h4 {
         font-size: 24px;
 
     }
+
     .leading-study .cards .card:nth-child(2) {
         margin-top: 0;
         height: unset;
     }
-    .sectionTimeline .title{
+
+    .sectionTimeline .title {
         font-size: 20px;
     }
-    .gridServices .box-icon:nth-child(1), .gridServices .box-icon:nth-child(4), .gridServices .box-icon:nth-child(7), .gridServices .box-icon:nth-child(10) {
+
+    .gridServices .box-icon:nth-child(1),
+    .gridServices .box-icon:nth-child(4),
+    .gridServices .box-icon:nth-child(7),
+    .gridServices .box-icon:nth-child(10) {
         width: 100%;
     }
+
     .list-placement .FoundationProgramFAQs {
         flex-flow: column;
     }
+
     .list-placement .FoundationProgramFAQs .itemFAQs {
         width: 100%;
     }
-    .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item ,
+
+    .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item,
     .list-placement .FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item {
         margin-top: 0;
     }
+
     .hero-placement .title-hero span {
         font-size: 32px;
     }
+
     .hero-placement .img-hero {
         left: 0px;
         top: 20px;
         width: 240px;
     }
+
     .list-placement .FoundationProgramFAQs .itemFAQs .box-item {
-    
+
         min-height: auto;
     }
-    
-.flag-screenM{
-    display: block;
-    height: 200px;
-    width: auto;
-    margin-left: auto;
-}
-.list-Pathway-Programs{
-    flex-flow: column;
-}
-.list-Pathway-Programs .itemFAQs .box-item{
-    margin: 0;
-}
+
+    .flag-screenM {
+        display: block;
+        height: 200px;
+        width: auto;
+        margin-left: auto;
+    }
+
+    .list-Pathway-Programs {
+        flex-flow: column;
+    }
+
+    .list-Pathway-Programs .itemFAQs .box-item {
+        margin: 0 !important;
+    }
+    .list-Pathway-Programs .itemFAQs:nth-child(2) .box-item{
+        margin: 0 !important;
+
+    }
 }
