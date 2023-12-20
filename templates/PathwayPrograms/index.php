@@ -11,10 +11,36 @@
     </div>
 </div>
 
-<div class="list-Pathway-Programs">
-    <?= $this->element('placement_list', ['placementList' => $pathwayPrograms]); ?>
+    <?php //$this->element('placement_list', ['placementList' => $pathwayPrograms]); ?>
+    <?php
 
-</div>
+    // print_r($placementList);
+    if (!empty($pathwayPrograms)) : ?>
+        <div class="FoundationProgramFAQs list-Pathway-Programs">
+            <?php foreach ($pathwayPrograms as $placementItem) :
+            ?>
+                    <div class="itemFAQs">
+                        <div class="box-item ">
+                             <!-- <img src="<?php // $placementItem['image_path'] ?>" alt="<?php// $placementItem['title'] ?>" loading="lazy"> -->
+                            <div class="content-blog">
+                                <div class="title-box">
+                                    <h4><?= $placementItem['title'] ?></h4>
+                                </div>
+                                <?= $placementItem['short_text'] ?>
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/pre_yellow.png" alt="">
+                            </div>       
+                        </div>
+                    </div>
+
+
+            <?php endforeach; ?>
+            
+            </div>
+
+        </div>
+    
+    <?php endif; ?>
+
 
 
 <?= $book_free_meeting ?>

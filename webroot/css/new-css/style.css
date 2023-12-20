@@ -7289,15 +7289,15 @@ input[type="search"]:focus {
 }
 
 .FoundationProgramFAQs .itemFAQs .box-item {
-    border-radius: 24px ;
+    border-radius: 24px;
     max-width: 876px;
     overflow: hidden;
     grid-gap: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 24px ;
-    -moz-border-radius: 24px ;
-    -ms-border-radius: 24px ;
-    -o-border-radius: 24px ;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
     min-height: 215px;
 }
 
@@ -7321,14 +7321,16 @@ input[type="search"]:focus {
     padding-left: 25px;
 
 }
-.FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item{
+
+.FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item {
     margin: auto;
 }
-.FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item
-{
+
+.FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item {
     margin-left: auto;
 
 }
+
 .FoundationProgramFAQs .itemFAQs ul li {
     display: list-item;
     text-overflow: ellipsis;
@@ -10717,7 +10719,7 @@ div.error-message {
     margin: auto;
 }
 
-.hero-learners{
+.hero-learners {
     padding: 250px 0;
 
 }
@@ -10740,10 +10742,11 @@ div.error-message {
     z-index: 2;
 }
 
-.hero-placement{
+.hero-placement {
     padding: 250px 0;
     margin-bottom: 100px;
 }
+
 .hero-placement .title-hero {
     font: normal 700 120px/100% 'Poppins';
     text-align: end;
@@ -10751,9 +10754,10 @@ div.error-message {
     margin-left: 0;
     position: relative;
     left: 40px;
-    top: -150px;}
+    top: -150px;
+}
 
-.hero-placement .title-hero span{
+.hero-placement .title-hero span {
     font-size: 88px;
 }
 
@@ -10763,31 +10767,125 @@ div.error-message {
     left: 170px;
     top: 33px;
 }
-.list-placement .FoundationProgramFAQs{
+
+.list-placement .FoundationProgramFAQs {
     flex-flow: row;
 }
-.list-placement .FoundationProgramFAQs .itemFAQs{
+
+.list-placement .FoundationProgramFAQs .itemFAQs {
     width: 33.333%;
 }
-.list-placement .FoundationProgramFAQs .itemFAQs .box-item{
+
+.list-placement .FoundationProgramFAQs .itemFAQs .box-item {
     flex-flow: column;
     max-width: 100%;
     min-height: 700px;
 }
 
-.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item{
+.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(2) .box-item {
     margin-top: 120px;
 }
-.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item{
+
+.list-placement .FoundationProgramFAQs .itemFAQs:nth-child(3) .box-item {
     margin-top: 255px;
 }
 
-.list-placement .FoundationProgramFAQs .itemFAQs h4{
+.list-placement .FoundationProgramFAQs .itemFAQs h4 {
     font-size: 28px;
 }
 
-.list-placement  .FoundationProgramFAQs .itemFAQs ul li{
+.list-placement .FoundationProgramFAQs .itemFAQs ul li {
     font-size: 16px;
     line-height: 170%;
 }
 
+.list-Pathway-Programs {
+    flex-flow: row;
+    max-width: 100%;
+    padding: 0 10% 640px ;
+    background-image: url(../img/new-desgin/way.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+}
+
+.list-Pathway-Programs .itemFAQs .box-item {
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.list-Pathway-Programs .itemFAQs .box-item h4 {
+    position: relative;
+    font-size: 28px;
+}
+.list-Pathway-Programs .itemFAQs ul li{
+    font-size: 16px;
+}
+.list-Pathway-Programs .itemFAQs .box-item h4::before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 56px;
+    background-image: url(../img/new-desgin/icon-play-yellow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -4px;
+    top: -10px;
+    z-index: -1;
+
+}
+
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item h4::before {
+    background-image: url(../img/new-desgin/icon-play-green.svg);
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item h4::before {
+    background-image: url(../img/new-desgin/icon-play-red.svg);
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item h4::before {
+    background-image: url(../img/new-desgin/icon-play-blue.svg);
+
+}
+
+.list-Pathway-Programs .itemFAQs .box-item .content-blog {
+    border-bottom: 4px solid #F9C21E;
+    padding: 0 0 20px;
+}
+
+
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item .content-blog  {
+    border-bottom: 4px solid #5FBB47;
+}
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item .content-blog  {
+    border-bottom: 4px solid #E70707;
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item .content-blog  {
+    border-bottom: 4px solid #1C75BC;
+
+}
+
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item   {
+   margin-top: 150px;
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item   {
+    margin-top: 250px;
+ 
+ }
+ .list-Pathway-Programs .itemFAQs:nth-child(1) .box-item   {
+    margin-top: 680px;
+ 
+ }
+
+ .list-Pathway-Programs img{
+    position: relative;
+ }
