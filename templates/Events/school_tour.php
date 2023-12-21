@@ -13,22 +13,22 @@
 
 <section class="bottom-hero-section  bottom-school-tour">
     <?php if (false) : ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" style="">
-                <div class="title-bottom-hero">
-                    <h4>Bringing a Glimpse of University Life Abroad to Your School</h4>
-                    <p class="description">
-                        At BESA, we're committed to connecting students with exciting opportunities for studying abroad. 
-                        Our School Tours bring this experience directly to your school, introducing you to the world of 
-                        international education.
-                    </p>
-                </div>
-            </div> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="">
+                    <div class="title-bottom-hero">
+                        <h4>Bringing a Glimpse of University Life Abroad to Your School</h4>
+                        <p class="description">
+                            At BESA, we're committed to connecting students with exciting opportunities for studying abroad. 
+                            Our School Tours bring this experience directly to your school, introducing you to the world of 
+                            international education.
+                        </p>
+                    </div>
+                </div> 
+            </div>
         </div>
-    </div>
     <?php endif; ?>
-    <?PHP  $event['text'] ?>
+    <?=  $event['text'] ?>
 </section>
 
 
@@ -55,7 +55,7 @@
 
 
 <?= $event['center_text'] ?>
-<?php if (true) : ?>
+<?php if (false) : ?>
     <div class="global-engagement">
         <div class="container">
             <div class="row">
