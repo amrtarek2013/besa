@@ -11041,16 +11041,20 @@ div.error-message {
 .remote-school-tour-counseling {
     padding: 80px 0;
 }
+
 .remote-school-tour-counseling .d-flex .school-tour-image {
     width: 48%;
 
 }
+
 .remote-school-tour-counseling .d-flex .school-tour-content {
     width: 52%;
 }
+
 .remote-school-tour-counseling .d-flex {
     grid-gap: 0;
 }
+
 .remote-school-tour-counseling .school-tour-header {
     font-size: 40px;
     font-weight: 700;
@@ -11062,13 +11066,73 @@ div.error-message {
 }
 
 .remote-school-tour-counseling .school-tour-content p {
-    color:  #546E7A;
-font-size: 20px;
-font-weight: 400;
-line-height: 150%;
-margin-bottom: 20px;
+    color: #546E7A;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 20px;
 }
 
-.remote-school-tour-counseling .school-tour-content p:last-child{
+.remote-school-tour-counseling .school-tour-content p:last-child {
     margin: 0;
+}
+
+.book-appointment .container-formBox {
+    border-radius: 16px;
+    border-top: 8px solid #CFD8DC;
+    background: linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+}
+
+.container-formBox .form-area label,
+.container-formBox .input label,
+.container-formBox .security_code .input label {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.form-area textarea,
+.form-area select,
+.form-area input {
+    border-radius: 8px;
+    background: #F8F8F8;
+    color: #90A4AE;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 130%;
+    height: 74px;
+
+}
+
+.book-appointment .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr;
+}
+
+.book-appointment .container-formBox button[type="submit"] {
+    border-radius: 12px;
+    border: 2px solid #FFF;
+    height: 84px;
+    background: transparent !important;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    color: #FFF;
+}
+
+.hero-school-tour .img-hero {
+    left: 175px;
+    top: 100px;
+}
+.hero-school-tour .title-hero{
+    font: normal 700 160px/100% 'Poppins';
+    left: -160px;
+    top: -130px;
+    line-height: 100px;
+
+}
+
+.hero-school-tour .title-hero span{
+    font-size: 100px;
 }

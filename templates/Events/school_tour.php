@@ -37,17 +37,16 @@
 
 <?= $event['center_text'] ?>
 <?php if (false) : ?>
-    <div class="c">
+    <div class="global-engagement">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="title-eng">Here is why</h2>
                     <div class="group-cards">
-
                         <div class="card-eng">
                             <div class="circle-gradient">
                                 <div class="container-circle">
-                                    
+                                   
                                     <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg"  alt="Icon Global connection " loading="lazy">
                                 </div>
                             </div>
@@ -188,49 +187,37 @@
 
 
 <?php if (!empty($highlighted)) : ?>
-    <div class="banner-ourSchool">
+    <!-- <div class="banner-ourSchool">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="large-image">
-                        <img id="largeImage" src="<?= $highlighted['image_path'] ?>" alt="Large Image">
+                        <img id="largeImage" src="<?php // $highlighted['image_path'] ?>" alt="Large Image">
                         <div class="caption">
-                            <p>Our School Tour at <?= $highlighted['name'] ?></p>
+                            <p>Our School Tour at <?php // $highlighted['name'] ?></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 <?php endif; ?>
 
 <section class="main-banner Create-account-banner  visitors-application book-appointment">
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt=""  width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Book </h1>
-                    <h2 class="title text-left">Request <br />a School Tour</h2>
-                </div>
-            </div>
+        
             <div class="col-md-12">
-                <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
+                <?php  $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="request-school-tour">
                 <p class="light-para">
-                    <?= $requestSchoolTourAppointmentSnippet ?>
+                    <?php //$requestSchoolTourAppointmentSnippet ?>
 
                 </p>
 
                 <div class="container-formBox">
-                    <p class="light-para">For the purpose of applying regulation, your details are required.</p>
                     <div class="grid-container">
 
                         <?= $this->Form->control('name', [

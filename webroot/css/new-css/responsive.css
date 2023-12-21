@@ -2315,4 +2315,15 @@
     .list-Pathway-Programs .flag-screenD{
         display: none;
     }
+    .remote-school-tour-counseling .d-flex{
+        flex-flow: column;
+    }
+    .remote-school-tour-counseling .d-flex div{
+        width: 100%;
+    }
+    .remote-school-tour-counseling .school-tour-header{
+        width: 100%;
+        font-size: 20px;
+
+    }
 }
