@@ -18,21 +18,26 @@
     if (!empty($pathwayPrograms)) : ?>
         <div class="FoundationProgramFAQs list-Pathway-Programs">
             <?php
-            //$i=0;
+            $i=0;
+            
              foreach ($pathwayPrograms as $placementItem) :
-                //$i++;
+                $i++;
             ?>
                     <div class="itemFAQs">
                         <div class="box-item ">
-                        <!-- <img src="<?php //WEBSITE_URL ?>img/new-desgin/<?php //echo $iconFlag."e" ?>.png" alt=""> -->
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/<?php echo $i."icon_flag" ?>.png" alt="" class="flag-screenM">
 
-                            <img  class="flag-screenM" src="<?= $placementItem['image_path'] ?>" alt="<?= $placementItem['title'] ?>" loading="lazy">
+                             <!-- <img  class="flag-screenM" 
+                             src="<?php// $placementItem['image_path'] ?>" 
+                             alt="<?php// $placementItem['title'] ?>" loading="lazy"> -->
+
                             <div class="content-blog">
                                 <div class="title-box">
                                     <h4><?= $placementItem['title'] ?></h4>
                                 </div>
                                 <?= $placementItem['short_text'] ?>
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/pre_yellow.png" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/<?php echo $i."icon_flag_desktop" ?>.png" alt="" class="flag-screenD">
+
                             </div>       
                         </div>
                     </div>

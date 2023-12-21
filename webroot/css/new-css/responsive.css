@@ -2309,4 +2309,10 @@
         margin: 0 !important;
 
     }
+    .list-Pathway-Programs{
+        background: transparent;
+    }
+    .list-Pathway-Programs .flag-screenD{
+        display: none;
+    }
 }

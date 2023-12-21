@@ -10883,12 +10883,18 @@ div.error-message {
  
  }
  .list-Pathway-Programs .itemFAQs:nth-child(1) .box-item   {
-    margin-top: 680px;
+    margin-top: 550px;
+    margin-bottom: 25px;
  
  }
-
- .list-Pathway-Programs img{
+ .list-Pathway-Programs .itemFAQs .box-item{
     position: relative;
+ }
+ .list-Pathway-Programs .flag-screenD{
+    position: absolute;
+    bottom: -445px;
+    left: 50%;
+    transform: translateX(-50%);
  }
 
  .hero-pathway-Programs{
@@ -10912,4 +10918,20 @@ div.error-message {
 
 .flag-screenM{
     display: none;
+}
+
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item  .flag-screenD  {
+    bottom: -320px;
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item  .flag-screenD  {
+    bottom: -268px;
+
+
+}
+.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item  .flag-screenD  {
+    bottom: -254px 
+
+    
+
 }

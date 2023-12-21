@@ -1,3 +1,8 @@
+
+
+
+
+
 <section class="main-banner british-banner fair-banner <?= $event['style'] ?>" style="padding-bottom:0 !important;">
     <div class="container-fluid">
         <div class="row">
