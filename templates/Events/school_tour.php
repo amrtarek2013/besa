@@ -1,29 +1,38 @@
-
-
-
-
-
-<section class="main-banner british-banner fair-banner <?= $event['style'] ?>" style="padding-bottom:0 !important;">
+<div class="hero-section hero-placement hero-school-tour">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7" style="padding-left: 0;">
-                <div class="background-banner-color">
-                    <img src="<?= $event['main_image_path'] ?>" alt="" style="z-index: 2;" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="relative-box-about ">
-
-                    <?php $tt = explode(' ', trim($event['title'])) ?>
-                    <h1 class="relative-text"><?= substr($tt[0], 0, 6) ?></h1>
-                    <h2 class="title text-left"><?= $event['title'] ?></h2>
-
-                </div>
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-school-tour.png" alt="hero Young learners">
             </div>
         </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">School   <span>Tours</span> </h1>
+        </div>
     </div>
-    <?php if (false) : ?>
+</div>
+
+<section class="bottom-hero-section  bottom-school-tour">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="">
+                <div class="title-bottom-hero">
+                    <h4>Bringing a Glimpse of University Life Abroad to Your School</h4>
+                    <p class="description">
+                        At BESA, we're committed to connecting students with exciting opportunities for studying abroad. 
+                        Our School Tours bring this experience directly to your school, introducing you to the world of 
+                        international education.
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="main-banner british-banner fair-banner <?PHP// $event['style'] ?>" style="padding-bottom:0 !important;">
+    
+    <?php //if (false) : ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12" style="padding: 0;">
@@ -38,9 +47,10 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
-    <?= $event['text'] ?>
-</section>
+    <?php //endif; ?>
+    <?PHP // $event['text'] ?>
+</section> -->
+
 <?= $event['center_text'] ?>
 <?php if (false) : ?>
     <div class="global-engagement">
@@ -49,8 +59,13 @@
                 <div class="col-md-12">
                     <h2 class="title-eng">Here is why</h2>
                     <div class="group-cards">
+
                         <div class="card-eng">
-                            <img src="/img/icon/global-connection.png" loading="lazy" alt="Icon Global connection ">
+                            <div class="circle-gradient">
+                                <div class="container-circle">
+                                    <img src="/img/icon/global-connection.png" loading="lazy" alt="Icon Global connection ">
+                                </div>
+                            </div>
                             <h4>Global Recognition with a Local Touch</h4>
                         </div>
                         <div class="card-eng">

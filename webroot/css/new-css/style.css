@@ -9254,7 +9254,6 @@ img.mobile-image {
 }
 
 .global-engagement {
-    background: #2575FC;
     padding: 25px 0;
 }
 
@@ -10571,6 +10570,7 @@ div.error-message {
 
 .bottom-hero-section .title-bottom-hero .description {
     font-size: 20px;
+    text-align: center;
 }
 
 .bottom-hero-section .title-bottom-hero span {
@@ -10934,4 +10934,14 @@ div.error-message {
 
     
 
+}
+
+.bottom-school-tour h4{
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    color: var(--text-color);
 }
