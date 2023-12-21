@@ -2319,11 +2319,32 @@
         flex-flow: column;
     }
     .remote-school-tour-counseling .d-flex div{
-        width: 100%;
+        width: 100% !important;
     }
     .remote-school-tour-counseling .school-tour-header{
         width: 100%;
         font-size: 20px;
 
     }
+    .journey-discovery-besa-tours .d-flex h4,
+    .global-engagement .group-cards .card-eng h4{
+        font-size: 20px;
+    }
+    .remote-school-tour-counseling .school-tour-content p,
+    .journey-discovery-besa-tours .d-flex p,
+    .global-engagement .group-cards .card-eng p{
+        font-size: 14px;
+    }
+
+    .container-formBox .form-area label, .container-formBox .input label, .container-formBox .security_code .input label{
+        font-size: 16px;
+
+    }
+    .form-area textarea, .form-area select, .form-area input{
+        height: 56px;
+    }
+    .book-appointment .container-formBox button[type="submit"]{
+        height: 48px;
+    }
+
 }
