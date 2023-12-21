@@ -32,31 +32,12 @@
 </section>
 
 
-<!-- <section class="main-banner british-banner fair-banner <?PHP// $event['style'] ?>" style="padding-bottom:0 !important;">
-    
-    <?php //if (false) : ?>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12" style="padding: 0;">
-                    <div class="title-banner-blue  title-banner-green">
-                        <h2>Dreaming of studying abroad?</h2>
-                        <p>
-                            The journey from the MENA region to international
-                            universities is an exciting one, and the International General Certificate of Secondary
-                            Education (IGCSE) can be your passport to this adventure.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php //endif; ?>
-    <?PHP // $event['text'] ?>
-</section> -->
+
 
 
 <?= $event['center_text'] ?>
 <?php if (false) : ?>
-    <div class="global-engagement">
+    <div class="c">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -107,6 +88,56 @@
     </div>
 <?php endif; ?>
 
+<section class="journey-discovery-besa-tours">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/5264880.png" alt="journey discovery besa tours" loading="lazy">
+                    <h4 class="title">Embark on a <span>Journey of Discovery: </span> <br> BESA School Tours Unveil the World of Study Abroad</h4>
+                    <p class="description">At BESA, we believe that studying abroad is an unparalleled opportunity forpersonal and intellectual growth.We understand the importance of immersingoneself in different cultures</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="remote-school-tour-counseling">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <h2 class="school-tour-header">Request a School Tour</h2>
+                <div class="d-flex">
+                    <div class="school-tour-image">
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/1171274969.png" alt="Request a School Tour" loading="lazy">
+                    </div>
+                    <div class="school-tour-content">
+                        <p>
+                            Access study abroad counseling conveniently from any location and at your own pace. 
+                            If you're seeking guidance on studying abroad but prefer to avoid in-person 
+                            meetings or face challenges like traffic
+
+                        </p>
+                        <p>
+                            we have the perfect solution for you. Reach out to us to schedule a remote counseling
+                             session with IDP's knowledgeable education counselors. They will provide comprehensive 
+                             support to help you reach your dream destination. From analyzing your study options
+                        </p>
+                        <p>
+                            and selecting the ideal destination, university, and course, 
+                            to assisting with application submissions, visa guidance, accommodation 
+                        </p>
+                        <p>
+                            services, and more – all of this can be conveniently accessed online. 
+                            Don't let barriers hold you back; take advantage of our remote counseling services today
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php if (!empty($schools)) : ?>
     <div class="school-tour-slider">
