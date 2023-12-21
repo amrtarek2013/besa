@@ -12,7 +12,7 @@
 </div>
 
 <section class="bottom-hero-section  bottom-school-tour">
-    
+    <?php if (false) : ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="">
@@ -27,6 +27,8 @@
             </div> 
         </div>
     </div>
+    <?php endif; ?>
+    <?PHP  $event['text'] ?>
 </section>
 
 
@@ -51,8 +53,9 @@
     <?PHP // $event['text'] ?>
 </section> -->
 
+
 <?= $event['center_text'] ?>
-<?php if (false) : ?>
+<?php if (true) : ?>
     <div class="global-engagement">
         <div class="container">
             <div class="row">
@@ -63,19 +66,29 @@
                         <div class="card-eng">
                             <div class="circle-gradient">
                                 <div class="container-circle">
-                                    <img src="/img/icon/global-connection.png" loading="lazy" alt="Icon Global connection ">
+                                    
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg"  alt="Icon Global connection " loading="lazy">
                                 </div>
                             </div>
                             <h4>Global Recognition with a Local Touch</h4>
                         </div>
                         <div class="card-eng">
-                            <img src="/img/icon/languages.png" loading="lazy" alt="Icon languages ">
+                            <div class="circle-gradient">
+                                <div class="container-circle">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_2.svg"  alt="Icon Language " loading="lazy">
+                                </div>
+                            </div>
                             <h4>Language Proficiency and Cultural Empowerment</h4>
                         </div>
                         <div class="card-eng">
-                            <img src="/img/icon/dream.png" loading="lazy" alt="Icon dream ">
+                            <div class="circle-gradient">
+                                <div class="container-circle">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_3.svg"  alt="Icon Dreams " loading="lazy">
+                                </div>
+                            </div>
                             <h4>Subject Depth for Diverse Dreams</h4>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -9272,14 +9272,11 @@ img.mobile-image {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    max-width: 922px;
-    margin: auto;
+  
 }
 
 .group-cards .card-eng {
-    border-radius: 50px;
     background: #FFF;
-    padding: 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -9293,11 +9290,8 @@ img.mobile-image {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    grid-gap: 20px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
+    grid-gap: 10px;
+
 }
 
 .group-cards .card-eng h4 {
@@ -10802,7 +10796,7 @@ div.error-message {
 .list-Pathway-Programs {
     flex-flow: row;
     max-width: 100%;
-    padding: 0 10% 640px ;
+    padding: 0 10% 640px;
     background-image: url(../img/new-desgin/way.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -10825,9 +10819,11 @@ div.error-message {
     position: relative;
     font-size: 28px;
 }
-.list-Pathway-Programs .itemFAQs ul li{
+
+.list-Pathway-Programs .itemFAQs ul li {
     font-size: 16px;
 }
+
 .list-Pathway-Programs .itemFAQs .box-item h4::before {
     content: "";
     display: block;
@@ -10847,10 +10843,12 @@ div.error-message {
     background-image: url(../img/new-desgin/icon-play-green.svg);
 
 }
+
 .list-Pathway-Programs .itemFAQs:nth-child(3) .box-item h4::before {
     background-image: url(../img/new-desgin/icon-play-red.svg);
 
 }
+
 .list-Pathway-Programs .itemFAQs:nth-child(4) .box-item h4::before {
     background-image: url(../img/new-desgin/icon-play-blue.svg);
 
@@ -10862,45 +10860,52 @@ div.error-message {
 }
 
 
-.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item .content-blog  {
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item .content-blog {
     border-bottom: 4px solid #5FBB47;
 }
-.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item .content-blog  {
+
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item .content-blog {
     border-bottom: 4px solid #E70707;
 
 }
-.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item .content-blog  {
+
+.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item .content-blog {
     border-bottom: 4px solid #1C75BC;
 
 }
 
-.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item   {
-   margin-top: 150px;
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item {
+    margin-top: 150px;
 
 }
-.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item   {
+
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item {
     margin-top: 250px;
- 
- }
- .list-Pathway-Programs .itemFAQs:nth-child(1) .box-item   {
+
+}
+
+.list-Pathway-Programs .itemFAQs:nth-child(1) .box-item {
     margin-top: 550px;
     margin-bottom: 25px;
- 
- }
- .list-Pathway-Programs .itemFAQs .box-item{
+
+}
+
+.list-Pathway-Programs .itemFAQs .box-item {
     position: relative;
- }
- .list-Pathway-Programs .flag-screenD{
+}
+
+.list-Pathway-Programs .flag-screenD {
     position: absolute;
     bottom: -445px;
     left: 50%;
     transform: translateX(-50%);
- }
+}
 
- .hero-pathway-Programs{
+.hero-pathway-Programs {
     padding: 210px 0;
 
 }
+
 .hero-pathway-Programs .img-hero {
     left: 160px;
     top: 105px;
@@ -10916,27 +10921,26 @@ div.error-message {
     top: -110px;
 }
 
-.flag-screenM{
+.flag-screenM {
     display: none;
 }
 
-.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item  .flag-screenD  {
+.list-Pathway-Programs .itemFAQs:nth-child(2) .box-item .flag-screenD {
     bottom: -320px;
 
 }
-.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item  .flag-screenD  {
+
+.list-Pathway-Programs .itemFAQs:nth-child(3) .box-item .flag-screenD {
     bottom: -268px;
 
 
 }
-.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item  .flag-screenD  {
-    bottom: -254px 
 
-    
-
+.list-Pathway-Programs .itemFAQs:nth-child(4) .box-item .flag-screenD {
+    bottom: -254px
 }
 
-.bottom-school-tour h4{
+.bottom-school-tour h4 {
     text-align: center;
     font-family: 'Poppins';
     font-size: 48px;
@@ -10944,4 +10948,52 @@ div.error-message {
     font-weight: 700;
     line-height: 135%;
     color: var(--text-color);
+}
+
+.global-engagement .circle-gradient {
+    background: var(--bs-Gradient);
+    border-radius: 50%;
+    width: 205px;
+    height: 205px;
+    padding: 10px;
+    position: relative;
+}
+
+.global-engagement .circle-gradient .container-circle {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ededed;
+    padding: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.global-engagement .group-cards .card-eng h4 {
+    color: #263238;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.global-engagement .group-cards .card-eng p {
+    color: #263238;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.bottom-school-tour .title-bottom-hero h4{
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    color:var(--text-color);
 }
