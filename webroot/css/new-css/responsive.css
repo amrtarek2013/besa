@@ -2345,6 +2345,8 @@
     }
     .book-appointment .container-formBox button[type="submit"]{
         height: 48px;
+        font-size: 14px;
+
     }
 
 }
