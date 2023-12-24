@@ -146,30 +146,19 @@
                     <div class="slider">
                         <div class="owl-carousel owl-school-tour">
                             <?php foreach ($schools as $school) : ?>
-                                <?php $counter = 0; ?>
-
                                 <?php if (!empty($school['school_images'])) : ?>
-
-                                    <div class="slider-item">
+                                    <div class="item">
                                         <h2 class="title_28"><?= $school['name'] ?></h2>
-                                        <div class="grid-boxes">
-
-                                            <?php foreach ($school['school_images'] as $simage) : ?>
-
-                                                <?php $counter++; ?>
-                                                <div class="image-box">
-                                                    <img src="<?= $simage['image_path'] ?>" alt="<?= $simage['title'] ?>">
-                                                </div>
-
-
-                                                <?php if ($counter == 3) break; ?>
-                                            <?php endforeach; ?>
-                                        </div>
+                                            <?php 
+                                            // Get the first image from the array
+                                            $simage = reset($school['school_images']); 
+                                            ?>
+                                            <div class="image-box">
+                                                <img src="<?= $simage['image_path'] ?>" alt="<?= $simage['title'] ?>">
+                                            </div>
                                     </div>
-
                                 <?php endif; ?>
                             <?php endforeach; ?>
-
                             <!-- Repeat this structure for each slider item -->
                         </div>
                         <!-- Custom navigation buttons 
@@ -182,8 +171,8 @@
             </div>
         </div>
     </div>
-
 <?php endif; ?>
+
 
 
 <?php if (!empty($highlighted)) : ?>

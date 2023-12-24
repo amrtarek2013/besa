@@ -9337,7 +9337,6 @@ img.mobile-image {
 
 
 .school-tour-slider {
-    background: #767B92;
     padding: 44px 0;
 }
 
@@ -9350,26 +9349,21 @@ img.mobile-image {
 }
 
 .school-tour-slider .image-box {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 29px;
-    border: 6px solid #FFF;
-    overflow: hidden;
-    height: 180px;
+    border-radius: 20px;
+        padding: 0px 45px;
 
 }
 
-.school-tour-slider .owl-item img {
 
-    -o-object-fit: cover;
-
-    object-fit: cover;
-    height: 100%;
-    background-position: center;
-}
 
 .school-tour-slider h2 {
-    margin-bottom: 41px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    color: var(--text-color);
 }
 
 .large-image {
