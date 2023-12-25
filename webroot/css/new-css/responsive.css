@@ -1839,7 +1839,7 @@
     }
 
     .whyStudy .gridWhyStudy ul li {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 5px;
     }
 
@@ -1860,9 +1860,8 @@
     }
 
     .benefits h2 {
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 40px;
     }
 
     .benefits {
@@ -2351,5 +2350,60 @@
     .title-countries{
         font-size: 20px;
 
+    }
+    .hero-country .image-container{
+        height: 205px;
+    }
+    .hero-country .text-container h3{
+        font-size: 24px;
+
+    }
+    .study-section .text-container h4,
+    .whyStudy .gridWhyStudy .title{
+        font-size: 20px;
+
+    }
+    .study-section .d-flex{
+        flex-flow: column;
+        margin-bottom: 50px;
+
+    }
+
+    .study-section .d-flex>div{
+        width: 100%;
+    }
+    .study-section .text-container p{
+        font-size: 14px;
+    }
+    .study-duration-info{
+        flex-flow: column-reverse;
+
+    }
+    .tuition-section {
+        padding: 80px 0;
+    }
+    .benefits .gridTabes .card .card-body h4,
+    .tuition-section .text-container .title{
+        font-size: 20px;
+    }
+    .tuition-section p{
+        padding: 0;
+        font-size: 14px;
+    }
+    .container-universities>.header-box .title-left h4{
+        font-size: 16px;
+        margin-top: 5px;
+
+    }.grid-universities{
+        grid-template-columns: 1fr;
+        margin-top: 24px;
+    }
+    .benefits .gridTabes .card .card-body p{
+        font-size: 14px;
+
+    }
+    .benefits .gridTabes .card{
+        min-height: max-content !important;
+        margin-top: 0 !important;
     }
 }
