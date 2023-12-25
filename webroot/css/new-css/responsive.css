@@ -1650,13 +1650,10 @@
     .our-partner h2,
     .our-uk h2,
     .questions h2 {
-        font-size: 22px;
-        line-height: normal;
+        font-size: 20px;
+        margin-bottom: 30px;
     }
 
-    .questions .faq-item {
-        padding: 20px;
-    }
 
     .our-uk .gridOuruk {
         grid-template-columns: 1fr 1fr;
@@ -2405,5 +2402,15 @@
     .benefits .gridTabes .card{
         min-height: max-content !important;
         margin-top: 0 !important;
+    }
+    .questions .faq-item .faq-question h3{
+        font-size: 16px;
+        line-height: 150%;
+        grid-gap: 10px;
+
+    }
+    .questions .faq-item .faq-answer{
+        font-size: 16px;
+        line-height: 150%;
     }
 }
