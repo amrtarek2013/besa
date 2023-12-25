@@ -226,6 +226,7 @@ if(false) { ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
+                    <a class="btn MainBtn explore-now" href="#" style="width: max-content;margin: 30px auto ;">Explore Studying in canda <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
                 <?php endif; ?>
                 <a class="detalis" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">CONTACT ADVISOR FOR MORE DETAILS</a>
             </div>
