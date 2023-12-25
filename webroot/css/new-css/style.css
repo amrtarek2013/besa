@@ -7004,122 +7004,135 @@ input[type="search"]:focus {
 }
 
 .benefits {
-    background: linear-gradient(180deg, #2C3041 0%, var(--bs-blue) 100%);
-    padding: 45px 0;
+    padding: 150px 0 0;
+    background: transparent;
 }
 
 .benefits h2 {
-    color: #66D8FF;
+    color: var(--text-color);
     font-size: 48px;
-    font-family: "Merriweather";
-    font-style: normal;
-    font-weight: 900;
-    line-height: 63px;
-    margin-bottom: 30px;
     text-align: center;
+    font-family: 'Poppins';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    margin-bottom: 120px;
 }
 
 .benefits .gridTabes {
     min-width: unset;
     max-width: unset;
-    grid-gap: 40px;
+    grid-gap: 20px;
 
 }
 
 .benefits .gridTabes .card {
-    border-radius: 40px;
+    border-radius: 16px;
     background: var(--bs-white);
-    box-shadow: 4px 7px 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.07);
     overflow: hidden;
     min-height: 319px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    height: max-content;
+    min-height: 698px;
 
+}
+
+.benefits .gridTabes .card:nth-child(2) {
+    margin-top: 122px;
+}
+
+.benefits .gridTabes .card:nth-child(3) {
+    margin-top: 257px;
+}
+
+.benefits .gridTabes .card:nth-child(5) {
+    margin-top: 122px;
+
+}
+
+.benefits .gridTabes .card:nth-child(6) {
+    margin-top: 257px;
 }
 
 .benefits .gridTabes .card .card-head img {
-    height: 100%;
+    width: 100%;
 }
 
-.benefits .gridTabes .card .card-head {
-    height: 217px;
 
-}
 
 .benefits .gridTabes .card .card-body {
-    padding: 18px 35px;
+    padding: 24px;
 }
 
 .benefits .gridTabes .card .card-body h4 {
-    color: var(--bs-Grey);
-    font-size: 18px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 135%;
+    margin-bottom: 10px;
 }
 
 .benefits .gridTabes .card .card-body p {
-    color: var(--bs-Grey);
-    font-size: 12px;
-    font-family: "Poppins";
-    font-style: normal;
+    color: #546E7A;
+    font-size: 16px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 170%
 }
 
-.questions {
-    background: linear-gradient(180deg, var(--bs-green) 0%, #0BBD7D 100%);
-}
+.questions {}
 
 .questions h2 {
-    color: var(--bs-white);
-    font-size: 48px;
-    font-family: "Merriweather";
-    font-style: normal;
-    font-weight: 900;
-    line-height: 63px;
-    margin-bottom: 30px;
+    color: var(--text-color);
     text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+    margin-bottom: 60px;
+
 }
 
 .questions .faq-item {
-    padding: 20px 60px;
-    border-radius: 20px;
-    background: var(--bs-white);
-    box-shadow: 4px 7px 4px 1px rgba(0, 0, 0, 0.25);
-    margin-bottom: 16px;
-    cursor: pointer;
+
+    margin-bottom: 24px;
 
 }
 
 .questions .faq-item .faq-question {
-    color: var(--bs-Grey);
+    padding: 24px;
+    border-radius: 16px;
+    background: #F6F6F6;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
 
+.questions .faq-item .faq-question h3 {
+    color: #2A3545;
     font-size: 24px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35px;
+    font-weight: 500;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+
 }
 
 .questions .faq-item .faq-answer {
-    color: var(--bs-Grey);
-    font-size: 12px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    padding: 24px;
+    border-radius: 16px;
+    background: #CFD8DC;
+    color: #2A3545;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    display: none;
 }
 
-.questions .faq-item .faq-answer.show {
-    /* max-height: 200px; */
-    max-height: 100%;
-    /* Adjust this value based on your content height */
-    opacity: 1;
-}
+
 
 .questions .detalis {
     color: var(--bs-white);
@@ -11221,12 +11234,12 @@ div.error-message {
 .hero-country .image-container {
     border-radius: 24px;
     overflow: hidden;
-    height: 584px;
+    height: 550px;
 }
 
 .hero-country .image-container img {
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 
@@ -11239,7 +11252,12 @@ div.error-message {
     position: absolute;
     z-index: 9;
     right: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translatey(-50%);
+    -webkit-transform: translatey(-50%);
+    -moz-transform: translatey(-50%);
+    -ms-transform: translatey(-50%);
+    -o-transform: translatey(-50%);
 }
 
 .hero-country .text-container h3 {
@@ -11248,4 +11266,117 @@ div.error-message {
     font-size: 84px;
     font-weight: 700;
     line-height: 130%;
+}
+
+
+.tuition-section {
+    padding: 150px 0;
+}
+
+.tuition-section .text-container {}
+
+.tuition-section p {
+    color: #546E7A;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 20px;
+    padding: 0 120px;
+}
+
+.tuition-section p:last-child {
+    margin-bottom: 0;
+}
+
+.container-universities>.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-universities>.header-box .link-see-more,
+.container-universities>.header-box .title-left {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.container-universities>.header-box .title-left h4 {
+    color: #263238;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    margin-top: 1px;
+}
+
+.container-universities>.header-box .link-see-more {
+    font-family: 'Poppins';
+    font-size: 16px;
+
+    font-weight: 600;
+    line-height: normal;
+    color: var(--text-color);
+}
+
+.grid-universities {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 22px;
+    margin: 35px 0;
+}
+
+.grid-universities .university {
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.07);
+    padding: 16px;
+}
+
+.grid-universities .university .header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid-universities .university .header-box .logo {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.grid-universities .university .header-box .logo h5 {
+    color: #263238;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.icon-favorite i {
+    color: var(--text-color);
+}
+
+.grid-universities .university .university-info {
+    padding: 24px 0;
+}
+
+.grid-universities .university .university-info p {
+    color: #546E7A;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.grid-universities .university .btn {
+    border-radius: 12px;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    display: flex;
+    height: 44px;
+    padding: 16px 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    width: max-content;
 }

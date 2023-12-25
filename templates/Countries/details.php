@@ -47,7 +47,7 @@ use Cake\Routing\Router;
     </div>
 </section>
 
-
+<?= $country['top_text'] ?>
 <?php
 if(false) { ?>
     <div class="study-section">
@@ -113,10 +113,68 @@ if(false) { ?>
 </div>
 <?php } ?> 
 
+<div class="tuition-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-container">
+                    <h2 class="title">What is the average tuition fee for international students studying in Canada?</h2>
+                    <p>
+                        Students can work on and off-campus while studying, with on-campus jobs conveniently available within the university or college. Off-campus work permits allow them to work up to 20 hours per week during regular academic sessions and full-time during breaks.
+                    </p>
+                    <p>
+                        Co-op and internship programs offer practical work experience, enhancing employability. After graduation, students may be eligible for a Post-Graduation Work Permit (PGWP), allowing them to work in Canada and gain valuable Canadian work experience for up to three years.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
-<?= $country['top_text'] ?>
+<div class="universities-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
+
+                            <h4>Universities in Canada</h4>
+                        </div>
+                        <a href="#" class="link-see-more">
+                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
+                        </a>
+                    </div>
+                    <div class="grid-universities">
+                        <?php for ($i = 0; $i < 6; $i++): ?>
+                            <div class="university">
+                                <div class="header-box">
+                                    <div class="logo">
+                                        <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="University of Essex Logo">
+                                        <h5>University of Essex</h5>
+                                    </div>
+                                    <div class="icon-favorite">
+                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="university-info">
+                                    <p>United Kingdom</p>
+                                </div>
+                                <a href="#" class=" btn apply-now-btn">Apply now</a>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <?php if (!empty($countryBenefits->toArray())) { ?>
@@ -148,34 +206,37 @@ if(false) { ?>
     </section>
 
 <?php } ?>
+
 <?php if (!empty($countryQuestions->toArray())) { ?>
     <section class="questions">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>FAQS</h2>
 
-                    <?php if (!empty($countryQuestions->toArray())) : ?>
-                        <?php foreach ($countryQuestions as $countryQuestion) : ?>
-                            <div class="faq-item">
-                                <h3 class="faq-question"><?= $countryQuestion['question'] ?></h3>
-
-                                <div class="faq-answer">
-                                    <p><?= $countryQuestion['answer'] ?></p>
-                                </div>
+                <?php if (!empty($countryQuestions->toArray())) : ?>
+                    <?php foreach ($countryQuestions as $countryQuestion) : ?>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3> <img class="faq-icon" width="24px" src="<?= WEBSITE_URL ?>img/new-desgin/plus-icon.svg" alt="icon plus"> <?= $countryQuestion['question'] ?></h3>
                             </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                    <a class="detalis" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">CONTACT ADVISOR FOR MORE DETAILS</a>
-                </div>
+
+                            <div class="faq-answer">
+                                <p><?= $countryQuestion['answer'] ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <a class="detalis" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">CONTACT ADVISOR FOR MORE DETAILS</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 <?php } ?>
 
 
 <?php if (!empty($countryPartners)) : ?>
-<section class="our-uk">
+<!-- <section class="our-uk">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -183,19 +244,19 @@ if(false) { ?>
 
                 <div class="gridOuruk">
 
-                    <?php if (!empty($countryPartners)) : ?>
-                        <?php foreach ($countryPartners as $countryPartner) : ?>
-                            <img alt="<?= $countryPartner['title'] ?>" src="<?= $countryPartner['logo_path'] ?>" />
+                    <?php //if (!empty($countryPartners)) : ?>
+                        <?php// foreach ($countryPartners as $countryPartner) : ?>
+                            <img alt="<?php // $countryPartner['title'] ?>" src="<?= $countryPartner['logo_path'] ?>" />
 
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                    <!-- <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (2).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (1).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (6).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (5).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (4).png" /> -->
+                        <?php //endforeach; ?>
+                    <?php //endif; ?>
+                   <img alt="" src="<?php// WEBSITE_URL ?>img/part-logo (2).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (1).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (6).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (5).png" /> <img alt="" src="<?= WEBSITE_URL ?>img/part-logo (4).png" /> 
                 </div>
-                <a class="link" href="<?= Router::url('/' . $g_dynamic_routes['universities.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE UNIVERSITIES IN <?= strtoupper($country['country_code']) ?></a>
+                <a class="link" href="<?php // Router::url('/' . $g_dynamic_routes['universities.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE UNIVERSITIES IN <?= strtoupper($country['country_code']) ?></a>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <?php endif; ?>
 
@@ -227,19 +288,19 @@ if(false) { ?>
 </section> -->
 
 <?= $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) ?>
-
+<!-- 
 <section class="tabes tabes2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="gridTabes">
 
-                    <?php if (!isset($_SESSION['Auth.User'])) : ?>
+                    <?php // if (!isset($_SESSION['Auth.User'])) : ?>
                         <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
-                    <?php endif; ?>
-                    <a class="btn greenish-teal master" href="<?= Router::url('/' . $g_dynamic_routes['universitycourses.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= strtoupper($country['country_code']) ?></a>
+                    <?php//endif; ?>
+                    <a class="btn greenish-teal master" href="<?php // Router::url('/' . $g_dynamic_routes['universitycourses.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>">EXPLORE STUDYING IN <?= strtoupper($country['country_code']) ?></a>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
