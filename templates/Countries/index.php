@@ -1,28 +1,22 @@
-<section class="main-banner  whereToStudy-banner destinations-banner">
+<div class="hero-section hero-placement hero-destinations">
     <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Destinations</h1>
-                    <h2 class="title text-left">Destinations</h2>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/Destinations 1.png" alt=""  width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-destinations.png" alt="hero destinations">
             </div>
         </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Destinations </h1>
+        </div>
     </div>
-</section>
+</div>
+
 
 
 
 <?= $this->element('countries', ['showImageCountries' => true]) ?>
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
+<?php // $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
 
 <!-- <section class="countries-inner">
     <div class="container">

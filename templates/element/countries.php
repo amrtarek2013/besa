@@ -2,7 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title-countries">EXPLORE STUDYING ABROAD</h2>
+                <h2 class="title-countries">Choose <span>where</span> to study</h2>
+                <?php if (isset($showImageCountries)) { ?>
+                    <div class="image-contry">
+                        <img src="<?=WEBSITE_URL?>img/new-desgin/earth-2.png" alt="">
+                    </div>
+                <?php } ?>
 
                 <?php if (isset($serviceTitleList)) { ?>
                     <h2 class="title">COUNTRIES THAT OFFER <span class="green"><?= strtoupper($serviceTitleList[0]) ?></span>
@@ -14,10 +19,10 @@
 
                 <?php } ?>
                 <div class="containerCountry">
-                    <?php
+                    <?php 
                     foreach ($continents as $key => $typeValue) {
 
-                        if ($key == 'uk' || $key == 'na') {
+                        if (1||$key == 'uk' || $key == 'na') {
 
                             $countryList = isset($countries[$key]) ? $countries[$key] : [];
                             if (!empty($countryList)) {
@@ -25,7 +30,7 @@
                     ?>
                                     <div class="box-country">
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
-                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
+                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>
                                     </div>
@@ -37,6 +42,7 @@
                     }
                     ?>
                 </div>
+                <?php if(false){?>
                 <div class="containerCountry grid5country ">
                     <?php
                     foreach ($continents as $key => $typeValue) {
@@ -49,7 +55,7 @@
                         ?>
                                     <div class="box-country">
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
-                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
+                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>
                                     </div>
@@ -73,7 +79,7 @@
                     ?>
                                     <div class="box-country">
                                         <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['countries.details']) ?>/<?= $countryValue['permalink'] ?>">
-                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="width: 92px !important; height:92px !important;border-radius: 50%; -webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;">
+                                            <img src="<?= $countryValue['flag_path'] ?>" alt="" style="">
                                             <h4><?= $countryValue['country_name'] ?></h4>
                                         </a>
                                     </div>
@@ -84,11 +90,8 @@
                     }
                     ?>
                 </div>
-                <?php if (isset($showImageCountries)) { ?>
-                    <div class="image-contry">
-                        <img src="<?=WEBSITE_URL?>img/1603.m00.i125.n038.S.c12 1.png" alt="">
-                    </div>
-                <?php } ?>
+               
+                <?php  }?>
 
             </div>
         </div>

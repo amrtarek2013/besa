@@ -3529,14 +3529,26 @@ input[type="checkbox"] {
 /* Start Section Countries  */
 
 .countries-inner .containerCountry {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+
+    display: grid;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    grid-gap: 85px;
-    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 100px 145px;
+    margin-top: 100px;
+}
+
+.countries-inner .containerCountry .box-country {
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 40px 0px rgba(0, 109, 182, 0.12);
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    overflow: hidden;
+
 }
 
 .countries-inner .grid5country {
@@ -3567,6 +3579,7 @@ input[type="checkbox"] {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    flex-flow: column;
 }
 
 .countries-inner .containerCountry .box-country a img {
@@ -3575,24 +3588,20 @@ input[type="checkbox"] {
 
 .countries-inner .containerCountry .box-country h4 {
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 135%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    letter-spacing: 0.2px;
-    color: #2C3041;
-    margin-left: 14px;
+    padding: 8px;
+    color: var(--text-color);
 }
 
-.countries-inner .containerCountry .box-country {
-    width: 240px;
-}
+
 
 .countries-inner {
     background: none;
@@ -8070,14 +8079,23 @@ input[type="search"]:focus {
 }
 
 .title-countries {
-    color: var(--bs-green);
+    color: #174478;
     text-align: center;
-    font-family: "Merriweather";
-    font-size: 28px;
+    font-family: 'Poppins';
+    font-size: 48px;
     font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    margin-bottom: 50px;
+    font-weight: 700;
+    line-height: 135%;
+    margin-bottom: 30px;
+}
+
+.image-contry {
+    text-align: center;
+}
+
+.title-countries span {
+    color: #68B8E8;
+
 }
 
 .countries-inner {
@@ -9350,14 +9368,14 @@ img.mobile-image {
 
 .school-tour-slider .image-box {
     border-radius: 20px;
-        padding: 0px 45px;
+    padding: 0px 45px;
 
 }
 
 
 
 .school-tour-slider h2 {
-    margin-bottom: 40px;
+    margin: 0 95px 40px;
     text-align: center;
     font-size: 48px;
     font-style: normal;
@@ -10532,8 +10550,8 @@ div.error-message {
     text-align: end;
     max-width: 500px;
     position: relative;
-    margin-left: -60px;
-
+    top: -100px;
+    left: -60px
 }
 
 
@@ -11119,7 +11137,8 @@ div.error-message {
     left: 175px;
     top: 100px;
 }
-.hero-school-tour .title-hero{
+
+.hero-school-tour .title-hero {
     font: normal 700 160px/100% 'Poppins';
     left: -160px;
     top: -130px;
@@ -11127,10 +11146,21 @@ div.error-message {
 
 }
 
-.hero-school-tour .title-hero span{
+.hero-school-tour .title-hero span {
     font-size: 100px;
 }
 
-.copyright{
+.copyright {
     display: none;
+}
+
+.hero-destinations .title-hero {
+    font-size: 97.613px;
+    left: -15px;
+    top: -135px;
+}
+
+.hero-destinations .img-hero {
+    left: 210px;
+    top: 0px;
 }
