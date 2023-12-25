@@ -57,13 +57,14 @@ use Cake\Routing\Router;
         <div class="row">
             <div class="col-md-12">
                 <div class="gridWhyStudy">
-                    <div class="image">
-                        <img src="<?= $country['image_path'] ?>" alt="" class="circle-img">
-                    </div>
+                   
                     <div class="text">
                         <h4 class="title"><?= $country['text_header'] ?></h4>
                         <?= $country['why_text'] ?>
 
+                    </div>
+                    <div class="image">
+                        <img src="<?= $country['image_path'] ?>" alt="" class="">
                     </div>
                 </div>
             </div>
@@ -72,7 +73,77 @@ use Cake\Routing\Router;
 </section>
 
 
+<?php
+if(false) { ?>
+    <div class="study-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex work-life-info">
+                    <div class="image-container">
+                        <img src="path-to-graduation-image.jpg" alt="Student celebrating graduation" class="graduation-image" loading="lazy">
+                    </div>
+                    <div class="text-container">
+                        <h4>WORK LIFE</h4>
+                        <p>
+                            Students can work on and off-campus while studying, with on-campus jobs conveniently available within the 
+                            university or college. Off-campus work permits allow them to work up to 20 hours per week during regular 
+                            academic sessions and full-time during breaks. Co-op and internship programs offer practical work experience, 
+                            enhancing employability. 
+                        </p>
+                        <p>
+                            After graduation, students may be eligible for a Post-Graduation Work Permit (PGWP), 
+                            allowing them to work in Canada and gain valuable Canadian work experience for up to three years.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="d-flex study-duration-info">
+                    <div class="text-container">
+                        <h4>STUDY LENGTH IN CANADA</h4>
+                        <p>
+                            The study length for international students varies based on the level of education. 
+                            Bachelor's degrees typically take 3 to 4 years, master's degrees require 1 to 2 years, 
+                            and doctoral programs generally last 4 to 6 years. However, the actual duration may depend 
+                            on the specific program and the student's progress.
+                        </p>
+                    </div>
+                    <div class="image-container">
+                        <img src="path-to-academic-image.jpg" alt="Academic institution in Canada" class="academic-image" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="d-flex explore-culture-info">
+                    <div class="image-container">
+                        <img src="path-to-culture-image.jpg" alt="Canadian cultural elements" class="culture-image" loading="lazy">
+                    </div>
+                    <div class="text-container">
+                        <h4>EXPLORE A VIBRANT LIFE & CULTURE</h4>
+                        <p>
+                            Canada provides international students with a vibrant and diverse cultural experience. 
+                            The country's inclusive environment offers various cultural events and festivals to participate in. 
+                            Thriving cities with vibrant art, music, and entertainment scenes, 
+                        </p>
+                        <p>
+                            coupled with breathtaking natural landscapes, create a balanced and exciting lifestyle. 
+                            Canadians' friendly and welcoming nature makes it easy for international 
+                            students to make friends and form connections.
+                        </p>
+                    </div>
+                </div>
+                <a class="btn MainBtn explore-now" href="#" style="width: max-content;margin: 0 auto 20px;" >Explore Studying in canda <img alt=""  src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
+            </div>         
+        </div>
+    </div>
+</div>
+<?php } ?> 
+
+
+
+
 <?= $country['top_text'] ?>
+
+
 <?php if (!empty($countryBenefits->toArray())) { ?>
     <section class="tabes benefits ">
         <div class="container">

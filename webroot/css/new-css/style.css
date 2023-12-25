@@ -2269,9 +2269,9 @@ p.descrp {
 .whyStudy .gridWhyStudy {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 85px 1.5fr;
-    grid-template-columns: 1fr 1.5fr;
-    grid-gap: 85px;
+    -ms-grid-columns: 1fr 85px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 90px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -2279,6 +2279,10 @@ p.descrp {
 
 .whyStudy .gridWhyStudy .title {
     margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 135%;
+    color: var(--text-color);
 }
 
 .whyStudy .gridWhyStudy ul {
@@ -2286,16 +2290,17 @@ p.descrp {
 }
 
 .whyStudy .gridWhyStudy ul li {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
+    color: #546E7A;
     font-size: 18px;
-    line-height: 27px;
-    color: var(--bs-light-grey);
+    font-weight: 500;
+    line-height: 150%;
     list-style: disc;
     display: list-item;
 }
-
+.whyStudy .gridWhyStudy .image img{
+    border-radius: 16px;
+    border-top: 8px solid  #0B4C97;
+}
 .tabes {
     background: url(../img/tabes-background2.jpg);
     background-size: cover;
@@ -11163,4 +11168,41 @@ div.error-message {
 .hero-destinations .img-hero {
     left: 210px;
     top: 0px;
+}
+.study-section .d-flex{
+    grid-gap: 40px 90px;
+    margin-bottom: 90px;
+}
+
+.study-section .d-flex > div{
+    width: 50%;
+}
+.study-section .text-container h4{
+    font-family: 'Poppins';
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 135%;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.study-section .text-container p{
+    color:  #546E7A;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 20px;
+
+}
+
+.study-section p:last-child{
+    margin: 0;
+}
+.image-container img{
+    border-radius: 16px;
+    border-top: 8px solid #0B4C97;
+}
+
+.study-section .btn{
+
 }
