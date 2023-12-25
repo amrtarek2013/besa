@@ -2,55 +2,30 @@
 
 use Cake\Routing\Router;
 ?>
-<section class="main-banner  inner-serv unitedKingdom-banner">
-    <div class="container-fluid">
+<section class="hero-country">
+    <div class="container">
         <div class="row">
-
-            <?php if (!empty($countryImages->toArray())) { ?>
-                <div class="col-md-12">
-                    <div class="ukslider owl-carousel owl-theme">
-                        <?php
-
-                        if (sizeof($countryImages->toArray()) > 0) : ?>
-                            <?php foreach ($countryImages as $countryImage) : ?>
-                                <div class="item">
-                                    <img src="<?= $countryImage['image_path'] ?>" alt="">
-                                    <!-- <div class="blue-qoute">
-                                    <h4><?= $countryImage['title'] ?></h4>
-                                    <p>
-                                        <?= $countryImage['short_text'] ?>
-                                    </p>
-                                </div> -->
-                                </div>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            <div class="item">
-                                <img src="<?= WEBSITE_URL ?>img/banner-45.png" alt="">
-                                <!-- <div class="blue-qoute">
-                                <h4>The <?= $country['country_name'] ?></h4>
-                                <p>
-                                    The <?= $country['country_name'] ?> of Great Britain and Northern Ireland,
-                                    commonly known as the <?= $country['country_name'] ?> (<?= strtoupper($country['country_code']) ?>) or Britain is a country in Western Europe,
-                                    off the north-western coast of the continental mainland. It comprises England, Scotland,
-                                    Wales and Northern Ireland.
-                                </p>
-                            </div> -->
-                            </div>
-                        <?php endif; ?>
-
+            <div class="col-md-12">
+                <div class="image-container">
+                    <?php if (!empty($countryImages->toArray())) : ?>
+                        <!-- If there are images, display the first one -->
+                        <?php $firstImage = $countryImages->first(); ?>
+                        <img src="<?= $firstImage['image_path'] ?>" alt="<?= $firstImage['title'] ?>">
+                    <?php else : ?>
+                        <!-- Default image if there are no country images -->
+                        <img src="<?= WEBSITE_URL ?>img/banner-45.png" alt="Default banner">
+                    <?php endif; ?>
+                    <div class="text-container">
+                        <a class="" href="<?= Router::url('/user/register') ?>">
+                            <h3><?= isset($country['green_section']) ? $country['green_section'] : '' ?></h3>
+                        </a>
                     </div>
                 </div>
-
-
-            <?php } ?>
-            <div class="col-md-12">
-                <a class="title-banner-blue greenish-teal" href="<?= Router::url('/user/register') ?>">
-                    <h3><?= isset($country['green_section']) ? $country['green_section'] : '' ?></h3>
-                </a>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="whyStudy">
     <div class="container">

@@ -2297,10 +2297,12 @@ p.descrp {
     list-style: disc;
     display: list-item;
 }
-.whyStudy .gridWhyStudy .image img{
+
+.whyStudy .gridWhyStudy .image img {
     border-radius: 16px;
-    border-top: 8px solid  #0B4C97;
+    border-top: 8px solid #0B4C97;
 }
+
 .tabes {
     background: url(../img/tabes-background2.jpg);
     background-size: cover;
@@ -11169,15 +11171,21 @@ div.error-message {
     left: 210px;
     top: 0px;
 }
-.study-section .d-flex{
+
+.study-section {
+    margin-top: 90px;
+}
+
+.study-section .d-flex {
     grid-gap: 40px 90px;
     margin-bottom: 90px;
 }
 
-.study-section .d-flex > div{
+.study-section .d-flex>div {
     width: 50%;
 }
-.study-section .text-container h4{
+
+.study-section .text-container h4 {
     font-family: 'Poppins';
     font-size: 40px;
     font-weight: 600;
@@ -11186,8 +11194,8 @@ div.error-message {
     margin-bottom: 20px;
 }
 
-.study-section .text-container p{
-    color:  #546E7A;
+.study-section .text-container p {
+    color: #546E7A;
     font-size: 18px;
     font-weight: 500;
     line-height: 150%;
@@ -11195,14 +11203,49 @@ div.error-message {
 
 }
 
-.study-section p:last-child{
+.study-section p:last-child {
     margin: 0;
 }
-.image-container img{
+
+.study-section .image-container img {
     border-radius: 16px;
     border-top: 8px solid #0B4C97;
 }
 
-.study-section .btn{
+.study-section .btn {}
 
+.hero-country {
+    padding-top: 0;
+}
+
+.hero-country .image-container {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 584px;
+}
+
+.hero-country .image-container img {
+    height: 100%;
+    object-fit: fill;
+}
+
+
+.hero-country .image-container {
+    position: relative;
+}
+
+.hero-country .text-container {
+    max-width: 700px;
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    bottom: 0;
+}
+
+.hero-country .text-container h3 {
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 130%;
 }
