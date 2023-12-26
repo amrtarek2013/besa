@@ -11233,11 +11233,14 @@ div.error-message {
 
 .hero-country .image-container {
     border-radius: 24px;
+    overflow: hidden;
+    height: 550px;
 }
 
 .hero-country .image-container img {
+    height: 100%;
     width: 100px;
- 
+    object-fit: cover;
 }
 
 
@@ -11420,6 +11423,6 @@ div.error-message {
     bottom: 20px
 }
 .hero-Universities  .image-container img {
-    width: 100px;
+    width: 100%;
     height: max-content;
 }
