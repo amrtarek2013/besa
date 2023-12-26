@@ -11234,7 +11234,6 @@ div.error-message {
 .hero-country .image-container {
     border-radius: 24px;
     overflow: hidden;
-    height: 550px;
 }
 
 .hero-country .image-container img {
@@ -11429,3 +11428,86 @@ div.error-message {
     width: 100%;
     height: max-content;
 }
+
+.trending-subject{
+    margin-top: 50px;
+}
+.country-container {
+    margin-top: 80px;
+   
+  }
+  .country-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 100%; /* Adjust based on your design */
+    margin: 34px 0;
+  }
+  .country-tag {
+    padding: 10px 16px ;
+    text-align: center;
+    border-radius: 50px;
+    background:  #FFF;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #263238; /* Adjust the font color as needed */
+  }
+  .country-tag:hover {
+    background: #E1E1E1; /* Slightly darker on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .facilities{
+    padding: 30px 0;
+  }
+  .facilities .tabs-container{
+    margin: 60px 0;
+  }
+
+  .facilities .tab-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 80px;
+  }
+  .facilities .tab-button {
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 50px;
+    background:  #FFF;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #263238;
+    
+  }
+  .facilities .tab-button.active, .tab-button:hover {
+    background: linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%);
+    color: #fff;
+  }
+  .facilities .tab-content {
+    display: none;
+  }
+  .facilities .tab-content  p{
+    color:  #546E7A;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  .facilities .tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }

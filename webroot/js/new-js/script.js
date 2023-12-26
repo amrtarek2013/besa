@@ -26,6 +26,16 @@ $(document).ready(function () {
     }
 });
 
+$('.tab-button').click(function() {
+  var $this = $(this);
+  var $target = $($this.data('tab-target'));
+  
+  $('.tab-button').removeClass('active');
+  $('.tab-content').removeClass('active');
+  
+  $this.addClass('active');
+  $target.addClass('active');
+});
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
 
