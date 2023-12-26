@@ -11264,11 +11264,14 @@ div.error-message {
     color: #FFF;
     font-family: 'Poppins';
     font-size: 84px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 130%;
 }
 
+.hero-country .text-container h3 span{
+    font-weight: 700;
 
+}
 .tuition-section {
     padding: 150px 0;
 }

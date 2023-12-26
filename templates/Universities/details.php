@@ -6,7 +6,7 @@
                     <img src="<?= $university['banner_image_path'] ?>" alt="hero Universities">
                     <div class="text-container">
                         <a class="" href="<?php // Router::url('/user/register') ?>">
-                            <h3> <?= $university['university_name'] ?></h3>
+                            <h3> <span> name </span> <?= $university['university_name']  ?></h3>
                         </a>
                     </div>
                 </div>
