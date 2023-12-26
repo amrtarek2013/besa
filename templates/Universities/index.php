@@ -1,21 +1,63 @@
-<section class="main-banner banner-about-us blogs-banner">
-    <div class="container-fluid">
+<section class="hero-country hero-Universities">
+    <div class="container">
         <div class="row">
-            <div class="col-md-7">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg45.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
+            <div class="col-md-12">
+                <div class="image-container">
+                    <img src="<?= WEBSITE_URL ?>img/new-desgin/ottawa-parliament-hill-building.png" alt="hero Universities">
+                    <div class="text-container">
+                        <a class="" href="<?php // Router::url('/user/register') ?>">
+                            <h3> <span>Universities </span> in Canada</h3>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-5">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Univers</h1>
-                    <h2 class="title text-left">Universities</h2>
-                </div>
-            </div>
-
         </div>
     </div>
+</section>
+
+<div class="universities-section absolute">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
+
+                            <h4>Universities in Canada</h4>
+                        </div>
+                        <a href="#" class="link-see-more">
+                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
+                        </a>
+                    </div>
+                    <div class="grid-universities">
+                        <?php foreach ($universities as $university) : ?>
+                            <div class="university">
+                                <div class="header-box">
+                                    <div class="logo">
+                                        <img src="<?= $university['logo_path'] ?>" alt="This Is University Img 1" loading="lazy">
+
+                                        <h5><?= $university['university_name'] ?></h5>
+                                    </div>
+                                    <div class="icon-favorite">
+                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="university-info">
+                                    <p><?= $university['short_description'] ?></p>
+                                </div>
+                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?>/<?= $university['id'] ?>/<?= $university['permalink'] ?>/2" class="btn apply-now-btn">Apply now</a>
+
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class=" blogs-banner">
 
     <div class="blogs">
         <div class="container">
