@@ -11422,3 +11422,7 @@ div.error-message {
     position: absolute;
     bottom: 20px
 }
+.hero-universities .image-container img {
+    width: 100px;
+    height: max-content;
+}
