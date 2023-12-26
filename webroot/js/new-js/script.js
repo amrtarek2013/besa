@@ -13,14 +13,18 @@ $(document).ready(function () {
   //
 
   // Add click event listener to each question
-  const faqItems = document.querySelectorAll(".faq-item");
-  faqItems.forEach((item) => {
-    item.addEventListener("click", toggleAnswer);
-  });
+  $('.faq-question').click(function(){
+    // This toggles the faq-answer slide up/down
+    $(this).next('.faq-answer').slideToggle('slow');
 
-  function toggleAnswer() {
-    this.querySelector(".faq-answer").classList.toggle("show");
-  }
+    // This changes the image from plus to minus and vice versa
+    var imgSrc = $(this).find('.faq-icon').attr('src');
+    if (imgSrc.includes('plus-icon')) {
+        $(this).find('.faq-icon').attr('src', imgSrc.replace('img/new-desgin/plus-icon.svg', 'img/new-desgin/minus-icon.svg'));
+    } else {
+        $(this).find('.faq-icon').attr('src', imgSrc.replace('img/new-desgin/minus-icon.svg', 'img/new-desgin/plus-icon.svg'));
+    }
+});
 
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");

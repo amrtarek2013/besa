@@ -851,7 +851,7 @@
     }
 
     .countries-inner .containerCountry {
-        display: block;
+        grid-template-columns: 1fr;
 
     }
 
@@ -861,9 +861,9 @@
         padding: 0 !important;
     }
 
-    .countries-inner .containerCountry .box-country {
-        width: 240px;
-        margin: 0 auto 40px;
+    .countries-inner .containerCountry .box-country{
+        width: max-content;
+        margin: auto;
     }
 
     .countries-inner .containerCountry .box-country a {
@@ -873,7 +873,7 @@
     }
 
     .countries-inner .containerCountry .box-country h4 {
-        margin: 14px 0 0;
+        font-size: 20px;
     }
 
     .inner-serv .background-banner-color {
@@ -1650,13 +1650,10 @@
     .our-partner h2,
     .our-uk h2,
     .questions h2 {
-        font-size: 22px;
-        line-height: normal;
+        font-size: 20px;
+        margin-bottom: 30px;
     }
 
-    .questions .faq-item {
-        padding: 20px;
-    }
 
     .our-uk .gridOuruk {
         grid-template-columns: 1fr 1fr;
@@ -1839,7 +1836,7 @@
     }
 
     .whyStudy .gridWhyStudy ul li {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 5px;
     }
 
@@ -1860,9 +1857,8 @@
     }
 
     .benefits h2 {
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 40px;
     }
 
     .benefits {
@@ -2348,5 +2344,73 @@
         font-size: 14px;
 
     }
+    .title-countries{
+        font-size: 20px;
 
+    }
+    .hero-country .image-container{
+        height: 205px;
+    }
+    .hero-country .text-container h3{
+        font-size: 24px;
+
+    }
+    .study-section .text-container h4,
+    .whyStudy .gridWhyStudy .title{
+        font-size: 20px;
+
+    }
+    .study-section .d-flex{
+        flex-flow: column;
+        margin-bottom: 50px;
+
+    }
+
+    .study-section .d-flex>div{
+        width: 100%;
+    }
+    .study-section .text-container p{
+        font-size: 14px;
+    }
+    .study-duration-info{
+        flex-flow: column-reverse;
+
+    }
+    .tuition-section {
+        padding: 80px 0;
+    }
+    .benefits .gridTabes .card .card-body h4,
+    .tuition-section .text-container .title{
+        font-size: 20px;
+    }
+    .tuition-section p{
+        padding: 0;
+        font-size: 14px;
+    }
+    .container-universities>.header-box .title-left h4{
+        font-size: 16px;
+        margin-top: 5px;
+
+    }.grid-universities{
+        grid-template-columns: 1fr;
+        margin-top: 24px;
+    }
+    .benefits .gridTabes .card .card-body p{
+        font-size: 14px;
+
+    }
+    .benefits .gridTabes .card{
+        min-height: max-content !important;
+        margin-top: 0 !important;
+    }
+    .questions .faq-item .faq-question h3{
+        font-size: 16px;
+        line-height: 150%;
+        grid-gap: 10px;
+
+    }
+    .questions .faq-item .faq-answer{
+        font-size: 16px;
+        line-height: 150%;
+    }
 }
