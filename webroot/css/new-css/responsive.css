@@ -2424,4 +2424,56 @@
         left: 70%;
         bottom: 40px;
     }
+    .acadia-university .content p{
+        font-size: 16px;
+    }
+    .container-universities>.header-box .right-rank span,
+    .container-universities>.header-box .right-rank,
+    .container-universities>.header-box .title-left h4 span{
+        font-size: 14px;
+    }
+    .acadia-university .content{
+        margin-top: 20px;
+    }
+    .acadia-university{
+        margin-bottom: 45px;
+    }
+    .country-list {
+        display: grid;
+        align-items: center;
+        grid-gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        margin: 20px 0;
+        grid-template-columns: 1fr 1fr;
+    }
+    .facilities .tab-buttons {
+        display: grid;
+        grid-gap: 10px;
+        margin-bottom: 60px;
+        grid-template-columns: 1fr 1fr;
+    }
+    .city-life .content-container .content p, .facilities .tab-content p{
+        font-size: 16px;
+    }
+    .gallary .title-gallary{
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    #owl_gallary .owl-prev {
+        left: -50px;
+        width: 44px;
+    }
+    #owl_gallary .owl-next {
+        right: -50px;
+        width: 44px;
+    }.gallary {
+        padding: 70px 0;
+    }
+   
+    #owl_gallary {
+        width: 70%;}
+        .gallary .btn{
+            font-size: 14px;
+        }
 }

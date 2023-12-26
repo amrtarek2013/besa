@@ -11238,7 +11238,7 @@ div.error-message {
 
 .hero-country .image-container img {
     height: 100%;
-    width: 100px;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -11332,6 +11332,7 @@ div.error-message {
     padding: 16px;
     position: relative;
 }
+
 .grid-universities .university .header-box {
     display: flex;
     align-items: center;
@@ -11382,20 +11383,21 @@ div.error-message {
 
 }
 
-.hero-Universities h3{
+.hero-Universities h3 {
     color: #FFF;
     font-size: 84px;
     font-weight: 700;
     line-height: 130%;
 }
-.hero-Universities h3 span{
+
+.hero-Universities h3 span {
     text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
     font-size: 64px;
     font-weight: 500;
     line-height: 130%;
 }
 
-.hero-Universities .text-container{
+.hero-Universities .text-container {
     max-width: 100%;
     width: max-content;
     left: 50%;
@@ -11408,7 +11410,7 @@ div.error-message {
     top: unset;
 }
 
-.grid-universities .university .header-box .logo img{
+.grid-universities .university .header-box .logo img {
     height: 32px;
     width: 32px;
     border-radius: 50%;
@@ -11417,64 +11419,76 @@ div.error-message {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.universities-section.absolute  .grid-universities  .university{
+
+.universities-section.absolute .grid-universities .university {
     min-height: 320px;
 }
-.universities-section.absolute  .grid-universities  .university .btn{
+
+.universities-section.absolute .grid-universities .university .btn {
     position: absolute;
     bottom: 20px
 }
-.hero-Universities  .image-container img {
+
+.hero-Universities .image-container img {
     width: 100%;
     height: max-content;
 }
 
-.trending-subject{
+.trending-subject {
     margin-top: 50px;
 }
+
 .country-container {
     margin-top: 80px;
-   
-  }
-  .country-list{
+
+}
+
+.country-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 90%;
-    max-width: 100%; /* Adjust based on your design */
+    max-width: 100%;
+    /* Adjust based on your design */
     margin: 34px 0;
-  }
-  .country-tag {
-    padding: 10px 16px ;
+}
+
+.country-tag {
+    padding: 10px 16px;
     text-align: center;
     border-radius: 50px;
-    background:  #FFF;
+    background: #FFF;
     box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: all 0.2s;
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
-    color: #263238; /* Adjust the font color as needed */
-  }
-  .country-tag:hover {
-    background: #E1E1E1; /* Slightly darker on hover */
+    color: #263238;
+    /* Adjust the font color as needed */
+}
+
+.country-tag:hover {
+    background: #E1E1E1;
+    /* Slightly darker on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .facilities{
+.facilities {
     padding: 30px 0;
-  }
-  .facilities .tabs-container{
-    margin: 60px 0;
-  }
+}
 
-  .facilities .tab-buttons {
+.facilities .tabs-container {
+    margin: 60px 0;
+}
+
+.facilities .tab-buttons {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 80px;
-  }
-  .facilities .tab-button {
+}
+
+.facilities .tab-button {
     padding: 10px 16px;
     border: none;
     cursor: pointer;
@@ -11482,32 +11496,155 @@ div.error-message {
     margin-right: 10px;
     outline: none;
     border-radius: 50px;
-    background:  #FFF;
+    background: #FFF;
     box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.15);
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
     color: #263238;
-    
-  }
-  .facilities .tab-button.active, .tab-button:hover {
+
+}
+
+.facilities .tab-button.active,
+.tab-button:hover {
     background: linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%);
     color: #fff;
-  }
-  .facilities .tab-content {
+}
+
+.facilities .tab-content {
     display: none;
-  }
-  .facilities .tab-content  p{
-    color:  #546E7A;
+}
+
+.city-life .content-container .content,
+.facilities .tab-content .content {
+    padding: 16px;
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.07);
+}
+
+.city-life .content-container .content p,
+.facilities .tab-content p {
+    color: #546E7A;
     font-size: 18px;
     font-weight: 500;
     line-height: 150%;
-  }
-  .facilities .tab-content.active {
+    margin-bottom: 40px;
+}
+
+.facilities .tab-content.active {
     display: block;
     animation: fadeIn 0.3s ease-in;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.city-life .content-container {
+    margin-top: 50px;
+}
+
+.gallary {
+    padding: 130px 0;
+}
+
+#owl_gallary .owl-prev,
+#owl_gallary .owl-next {
+    top: 50% !important;
+}
+
+#owl_gallary .owl-prev {
+    left: -100px;
+}
+
+#owl_gallary .owl-next {
+    right: -100px;
+}
+
+.gallary .title-gallary {
+    color: #263238;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: 60px;
+}
+
+#owl_gallary {
+    width: 80%;
+    margin: auto;
+}
+#owl_gallary .owl-dot{display: none;}
+.gallary .btn {
+    margin: 30px auto;
+    width: max-content;
+    font-size: 20px;
+}
+
+.acadia-university {
+    margin-bottom: 80px;
+}
+
+.acadia-university .content {
+    margin-top: 50px;
+
+}
+
+.acadia-university .content p {
+    color: #546E7A;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.container-universities>.header-box .title-left h4 span {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    /* 24px */
+    display: block;
+}
+
+.acadia-university .container-universities>.header-box .title-left {
+    align-items: start !important;
+}
+
+.container-universities>.header-box .right-rank {
+    flex-flow: column;
+}
+
+.container-universities>.header-box .right-rank {
+    font-size: 20px;
+    color: #263238;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.container-universities>.header-box .right-rank span {
+    display: block;
+    font-weight: 500;
+
+    font-size: 16px;
+}
+
+.hero-acadia-university .text-container h3{
+    font-size: 64px;
+}
+
+.hero-acadia-university .text-container{
+    top: unset;
+    bottom: 38px;
+    left: 34px;
+    transform: translatex(0);
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -ms-transform: translatex(0);
+    -o-transform: translatex(0);
+}

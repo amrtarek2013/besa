@@ -1,4 +1,4 @@
-<section class="hero-country hero-Universities">
+<section class="hero-country hero-acadia-university">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -15,6 +15,37 @@
     </div>
 </section>
 
+<div class="universities-section acadia-university">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
+
+                            <h4>Acadia University <span> Canada</span></h4>
+                            
+                        </div>
+                        <div class="right-rank">
+                            Rank
+                            <span>281</span>
+                        </div>
+                        
+                    </div>
+                    <div class="content-container">
+                        <div class="content">
+                            <p>
+                            Acadia University is known for its small class sizes, strong academic reputation, and vibrant campus life. 
+                            It offers programs in a variety of disciplines, including arts, sciences, business, education, and nursing
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="universities-section">
     <div class="container">
@@ -128,13 +159,22 @@
                             <button class="tab-button" data-tab-target="#campus_life">Campus Life</button>
                         </div>
                         <div id="overview" class="tab-content ">
-                            <p>Overview content...</p>
+                            <div class="content">
+                                <p>Overview content...</p>
+                            </div>
+
                         </div>
                         <div id="accommodation" class="tab-content active">
-                            <p>Students can work on and off-campus while studying, with on-campus jobs conveniently available within the university or college. Off-campus work permits allow them to work up to 20 hours per week during regular academic sessions and full-time during breaks. Co-op and internship programs offer practical work experience, enhancing employability. After graduation, students may be eligible for a Post-Graduation Work Permit (PGWP), allowing them to work in Canada and gain valuable Canadian work experience for up to three years.</p>
+                            <div class="content">
+                                <p>Students can work on and off-campus while studying, with on-campus jobs conveniently available within the university or college. Off-campus work permits allow them to work up to 20 hours per week during regular academic sessions and full-time during breaks. Co-op and internship programs offer practical work experience, enhancing employability. After graduation, students may be eligible for a Post-Graduation Work Permit (PGWP), allowing them to work in Canada and gain valuable Canadian work experience for up to three years.</p>
+
+                            </div>
                         </div>
                         <div id="campus_life" class="tab-content">
-                            <p>Campus Life content...</p>
+                            <div class="content">
+                                <p>Campus Life content...</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -142,63 +182,61 @@
         </div>
     </div>
 </div>
-<section class="just-text">
+
+<div class="universities-section city-life">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
 
-                <?= $university['top_text'] ?>
-                <p class="descrp">
-
-                </p>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="whyStudy">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="gridWhyStudy">
-                    <div class="image">
-                        <img src="<?= $university['image_path'] ?>" alt="" class="circle-img">
+                            <h4>City Life</h4>
+                        </div>
+                        
                     </div>
-                    <div class="text">
-                        <h4 class="title">
-                            Why Study In The <?= $university['university_code'] ?>?
-                        </h4>
-
-                        <?= $university['why_text'] ?>
-                        <a href="#" class="btn MainBtn clear-blue ">
-                            Apply Now
-                            <img src="<?=WEBSITE_URL?>img/icon/arrow-right.svg" alt="">
-                        </a>
+                    <div class="content-container">
+                        <div class="content">
+                            <p>
+                                Students can work on and off-campus while studying, 
+                                with on-campus jobs conveniently available within the university or college. 
+                                Off-campus work permits allow them to work up to 20 hours per week during regular 
+                                academic sessions and full-time during breaks. Co-op and internship programs offer practical
+                                 work experience, enhancing employability. After graduation, students may be 
+                                 eligible for a Post-Graduation Work Permit (PGWP), 
+                                 allowing them to work in Canada and gain valuable Canadian work 
+                                 experience for up to three years.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 
-<section class="tabes">
+
+<div class="gallary">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="gridTabes">
-                    <a href="#" class="btn clear-blue foundation">Foundation</a>
-                    <a href="#" class="btn light-red pre-sessional ">Pre-sessional </a>
-                    <a href="#" class="btn gold-tips bachelor">Bachelor</a>
+                <h2 class="title-gallary">Gallary</h2>
+                <div class=" owl-school-tour owl-carousel owl-theme" id="owl_gallary">
+                    <?php for ($i = 0; $i < 3; $i++): ?>
 
-                    <a href="#" class="btn greenish-teal master">Master</a>
-                    <a href="#" class="btn slate-grey phd">PhD</a>
-                    <a href="#" class="btn white vocational">Vocational</a>
+                    <div class="item">
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/gallary1.png" alt="First Image In Gallary">
+
+                    </div>
+
+                    <?php endfor ?>
 
                 </div>
+
+                <a href="#" class="btn MainBtn">View all course <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
             </div>
         </div>
     </div>
-</section>
+</div>
