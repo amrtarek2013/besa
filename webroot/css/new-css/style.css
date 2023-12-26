@@ -11233,14 +11233,11 @@ div.error-message {
 
 .hero-country .image-container {
     border-radius: 24px;
-    overflow: hidden;
-    height: 550px;
 }
 
 .hero-country .image-container img {
-    height: 100%;
     width: 100px;
-    object-fit: cover;
+ 
 }
 
 
