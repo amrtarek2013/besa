@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="col-md-6">
             <div class="img-hero">
-                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="hero about us">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-events.png" alt="hero about us">
             </div>
         </div>
         <div class="col-md-6">
@@ -12,13 +12,14 @@
 
 </div>
 
-<section class="bottom-hero-section ">
+<section class="bottom-hero-section bottom-events ">
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="">
                 <div class="title-bottom-hero">
                     <p>
                         <?= $events_page_text ?>
+                      
                     </p>
                 </div>
             </div>

@@ -1539,12 +1539,12 @@ textarea {
     font-weight: 600;
     font-size: 16px;
     text-align: center;
-    padding: 16px 40px ;
+    padding: 16px 40px;
     border-radius: 12px;
     text-decoration: none;
-    margin-top: 30px ;
+    margin-top: 30px;
     width: max-content;
-    
+
 }
 
 
@@ -3763,20 +3763,21 @@ input[type="checkbox"] {
 
 .tournament {
     padding: 100px 0;
-    margin-bottom: 50px;}
+    margin-bottom: 50px;
+}
 
 .tournament .text h3 {
     color: var(--text-color);
     font-size: 40px;
     font-weight: 600;
-    line-height: 135%; 
+    line-height: 135%;
     margin-bottom: 10px;
 }
 
 .tournament .text p {
 
     margin-bottom: 30px;
-    color:  #546E7A;
+    color: #546E7A;
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
@@ -3787,31 +3788,39 @@ input[type="checkbox"] {
 .tournament .double_img {
     position: relative;
 }
-.tournament  .container-events{
+
+.tournament .container-events {
     justify-content: space-between;
     max-width: 1032px;
-    margin:  0 auto 200px;
+    margin: 0 auto 200px;
 }
-.tournament  .container-events>div{
-}
-.tournament  .container-events .text {
+
+.tournament .container-events>div {}
+
+.tournament .container-events .text {
     max-width: 480px;
 }
-.tournament  .container-events:nth-child(even){
+
+.tournament .container-events:nth-child(even) {
     flex-flow: row-reverse;
 }
+
 .tournament .relative-img-border {
     position: absolute;
     bottom: -60px;
     left: 125px;
 
 }
-.tournament .double_img img{
+
+.tournament .double_img img {
     border-radius: 16px;
     border-top: 5px solid #007BC4;
 }
-.tournament .row:last-child{margin-bottom: 0 !important;
+
+.tournament .row:last-child {
+    margin-bottom: 0 !important;
 }
+
 /* End Section Tournament */
 
 
@@ -11272,10 +11281,11 @@ div.error-message {
     line-height: 130%;
 }
 
-.hero-country .text-container h3 .bold-name{
+.hero-country .text-container h3 .bold-name {
     font-weight: 700;
 
 }
+
 .tuition-section {
     padding: 150px 0;
 }
@@ -11587,7 +11597,11 @@ div.error-message {
     width: 80%;
     margin: auto;
 }
-#owl_gallary .owl-dot{display: none;}
+
+#owl_gallary .owl-dot {
+    display: none;
+}
+
 .gallary .btn {
     margin: 30px auto;
     width: max-content;
@@ -11641,11 +11655,11 @@ div.error-message {
     font-size: 16px;
 }
 
-.hero-acadia-university .text-container h3{
+.hero-acadia-university .text-container h3 {
     font-size: 64px;
 }
 
-.hero-acadia-university .text-container{
+.hero-acadia-university .text-container {
     top: unset;
     bottom: 38px;
     left: 34px;
@@ -11654,4 +11668,30 @@ div.error-message {
     -moz-transform: translatex(0);
     -ms-transform: translatex(0);
     -o-transform: translatex(0);
+}
+
+.bottom-events .title-bottom-hero p {
+    font-size: 32px;
+    color: #263238;
+
+}
+
+.bottom-events .title-bottom-hero {
+    width: 85%;
+    text-align: center;
+}
+
+.hero-events {
+    padding: 220px 0;
+    margin-bottom: 90px;
+}
+
+.hero-events .img-hero {
+    left: 100px;
+    top: 0;
+
+}
+
+.hero-events .title-hero {
+    left: 0;
 }
