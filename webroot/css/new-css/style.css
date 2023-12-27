@@ -1536,22 +1536,15 @@ textarea {
 }
 
 .discover-more {
-    font-family: 'Poppins';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    line-height: 24px;
     text-align: center;
-    letter-spacing: 0.02em;
-    color: var(--bs-white);
-    padding: 10px 20px 11px;
-    background-color: var(--bs-white);
-    border: 2px solid var(--bs-gold);
-    border-radius: 10px;
+    padding: 16px 40px ;
+    border-radius: 12px;
     text-decoration: none;
-    width: 167px;
-    height: 45px;
-    margin: auto;
+    margin-top: 30px ;
+    width: max-content;
+    
 }
 
 
@@ -3769,29 +3762,27 @@ input[type="checkbox"] {
 /* Start Section Tournament */
 
 .tournament {
-    padding: 50px 0;
-}
+    padding: 100px 0;
+    margin-bottom: 50px;}
 
 .tournament .text h3 {
-    color: #2C3041;
-    margin-bottom: 22px;
-    margin-top: 30px;
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 135%; 
+    margin-bottom: 10px;
 }
 
 .tournament .text p {
-    color: #2C3041;
-    font-family: 'Poppins';
-    font-style: normal;
+
+    margin-bottom: 30px;
+    color:  #546E7A;
+    font-size: 16px;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    margin-bottom: 50px;
+    line-height: 150%;
 }
 
-.tournament .text a {
-    margin: unset;
-    color: #2C3041;
-}
+
 
 .tournament .double_img {
     position: relative;
@@ -3799,16 +3790,16 @@ input[type="checkbox"] {
 
 .tournament .relative-img-border {
     position: absolute;
-    bottom: 0;
-    right: 75px;
+    bottom: -60px;
+    left: 125px;
 
-    border-radius: 225px;
-    border: 9px solid var(--bs-gray);
-    width: 267px !important;
-    height: 267px !important;
 }
-
-
+.tournament .double_img img{
+    border-radius: 16px;
+    border-top: 5px solid #007BC4;
+}
+.tournament .row:last-child{margin-bottom: 0 !important;
+}
 /* End Section Tournament */
 
 
@@ -10201,6 +10192,7 @@ div.error-message {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    margin-bottom: 0;
 }
 
 .timline-eve p img {
@@ -11268,7 +11260,7 @@ div.error-message {
     line-height: 130%;
 }
 
-.hero-country .text-container h3 span{
+.hero-country .text-container h3 .bold-name{
     font-weight: 700;
 
 }

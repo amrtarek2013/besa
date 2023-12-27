@@ -1,25 +1,31 @@
-<section class="main-banner events-banner">
+<div class="hero-section hero-events">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-aboutus.png" alt="hero about us">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Events</h1>
+        </div>
+    </div>
+
+</div>
+
+<section class="bottom-hero-section ">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg7.png" alt="" style="z-index: 2;" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Events</h1>
-                    <h2 class="title text-left">Events</h2>
-                    <p class="relative-textP">
+            <div class="col-md-12" style="">
+                <div class="title-bottom-hero">
+                    <p>
                         <?= $events_page_text ?>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
+
 
 <?php
 
@@ -30,133 +36,47 @@ if (!empty($eventsList)) {
     // foreach ($eventsList as $key => $event) {
 
 ?>
-
-
-    <section class="tournament">
-        <div class="container">
-            <div class="row">
+<section class="tournament">
+    <div class="container">
+        <?php foreach ($eventsList as $event) : ?>
+            <div class="row" style="margin-bottom: 200px;">
                 <div class="col-md-6">
                     <div class="double_img">
-                        <!-- <img src="./img/football-tr (2).png" alt="">
-                        <img src="./img/football-tr (1).png" alt="" class="relative-img-border"> -->
-                        <?php
-
-                        if (!empty($eventsList[0]['image_path'])) {
-                        ?>
-                            <div class="circle-img ">
-                                <img class="circle-img " src="<?= $eventsList[0]['image_path'] ?>" alt="" style="width: 367px;height: 367px;">
-
-                            </div>
-                            <div class="circle-img">
-                                <img src="<?= $eventsList[0]['image2_path'] ?>" alt="" class="circle-img relative-img-border">
-
-                            </div>
-
-                        <?php
-                        } else {
-                        ?>
-                            <div class="circle-img ">
-                                <img src="<?= WEBSITE_URL ?>img/portrait-of-female-university-student-working-in-PWV893Q-1200W-1 2.png" alt="" style="width: 367px;height: 367px;">
-                            </div>
-                            <div class="circle-img">
-                                <img src="<?= WEBSITE_URL ?>img/football-tr (1).png" alt="" class="circle-img relative-img-border">
-                            </div>
-
-                        <?php
-
-
-                        }
-                        ?>
+                        <?php if (!empty($event['image_path'])) : ?>
+                            <img class="" src="<?= $event['image_path'] ?>" alt="" >
+                            <img src="<?= $event['image2_path'] ?>" alt="" class="relative-img-border">
+                        <?php else : ?>
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/500x350.png" alt="">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/250x200.png" alt="" class="relative-img-border">
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text">
-                        <h3><?= $eventsList[0]['title'] ?></h3>
-                        <p><?= $eventsList[0]['sub_title'] ?>, .....</p>
-                        <a href="/event-details/<?= $eventsList[0]['permalink'] ?>" class="btn discover-more">Discover More</a>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="important-events">
-        <div class="container">
-            <div class="row">
-                <div class="col-md 12">
-                    <div class="container-events">
-                        <?php if (isset($eventsList[1])) { ?>
-                            <div class="left-box">
-                                <div class="double_img">
-                                    <?php
-
-                                    if (!empty($eventsList[1]['image_path'])) {
-                                    ?>
-                                        <img src="<?= $eventsList[1]['image_path'] ?>" alt="" style="width: 382px;height: 323px;">
-                                        <img src="<?= $eventsList[1]['image2_path'] ?>" alt="" class="img-rel" style="width: 238px;height: 210px;">
-                                    <?php
-                                    } else {
-                                    ?>
-
-                                        <img src="<?= WEBSITE_URL ?>img/International_Education_Fair.png" alt="" style="width: 382px;height: 323px;">
-                                        <img src="<?= WEBSITE_URL ?>img/International_Education_Fair_border.png" alt="" class="img-rel" style="width: 238px;height: 210px;">
-                                    <?php
-
-
-                                    }
-                                    ?>
-                                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="dots-rel">
-                                </div>
-                                <div class="text">
-                                    <h3><?= $eventsList[1]['title'] ?></h3>
-                                    <p><?= $eventsList[1]['sub_title'] ?>, .....</p>
-                                    <a href="/school-tour" class="btn discover-more">Discover More</a>
-                                </div>
+                        <h3><?= $event['title'] ?></h3>
+                        <p><?= $event['sub_title'] ?>, .....</p>
+                        <div class="timline-eve">
+                            <div class="item">
+                                <img src="/img/new-desgin/timer.svg" alt=""> 
+                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer"> 
+                                <p> 21  Oct 2023</p>              
                             </div>
-
-                        <?php } ?>
-                        <div class="vertical-line-ellipse">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
+                            <div class="item">
+                                <img src="/img/new-desgin/timer.svg" alt="">  
+                                <p>09 Dec 2023</p> 
+                            </div>
                         </div>
-
-                        <?php if (isset($eventsList[2])) { ?>
-                            <div class="right-box">
-                                <div class="double_img">
-                                    <?php
-
-                                    if (!empty($eventsList[2]['image_path'])) {
-                                    ?>
-                                        <img src="<?= $eventsList[2]['image_path'] ?>" alt="">
-                                        <img src="<?= $eventsList[2]['image2_path'] ?>" alt="" class="img-rel">
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <img src="<?= WEBSITE_URL ?>img/Studying_Abroad.png" alt="">
-                                        <img src="<?= WEBSITE_URL ?>img/Studying_Abroad_border.png" alt="" class="img-rel">
-                                    <?php
-                                    }
-                                    ?>
-                                    <img src="<?= WEBSITE_URL ?>img/small-dots.png" alt="" class="dots-rel">
-                                </div>
-                                <div class="text">
-                                    <h3><?= $eventsList[2]['title'] ?></h3>
-                                    <p><?= $eventsList[2]['sub_title'] ?>, .....</p>
-                                    <a href="/event-details/<?= $eventsList[2]['permalink'] ?>" class="btn discover-more">Discover More</a>
-                                </div>
-                            </div>
-
-                        <?php } ?>
+                        <a href="/event-details/<?= $event['permalink'] ?>" class="btn discover-more MainBtn">Discover More</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+
+
+   
 <?php
     // }
 } ?>

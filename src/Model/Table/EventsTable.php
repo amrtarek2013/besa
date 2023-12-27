@@ -70,9 +70,9 @@ class EventsTable extends Table
                         ],
                     ],
                     'image' => [
-                        'resize' => ['width' => 400, 'height' => 400],
+                        'resize' => ['width' => 500, 'height' => 350],
                         'datePath' => ['path' => ''],
-                        'width' => 400, 'height' => 400,
+                        'width' => 500, 'height' => 350,
                         // 'datePath' => false,
                         'path' => 'uploads/events',
                         'file_name' => '{$rand}_{$file_name}',
@@ -82,9 +82,9 @@ class EventsTable extends Table
                         ],
                     ],
                     'image2' => [
-                        'resize' => ['width' => 270, 'height' => 270],
+                        'resize' => ['width' => 250, 'height' => 200],
                         'datePath' => ['path' => ''],
-                        'width' => 270, 'height' => 270,
+                        'width' => 250, 'height' => 200,
                         // 'datePath' => false,
                         'path' => 'uploads/events',
                         'file_name' => '{$rand}_{$file_name}',
