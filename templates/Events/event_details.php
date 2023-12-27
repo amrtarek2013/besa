@@ -35,6 +35,30 @@ use Cake\Routing\Router;
     </div>
 </section>
 
+<?php if(false) { ?>
+<div class="sec-upcoming">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Upcoming</h4>
+                <h5>BESA Study Abroad Expo in Egypt</h5>
+                <div class="text">
+                    <p>Engage with university from diverse countries to learn more about study abroad  <br> 
+                        inquiries, including admission requirements, partial scholarships, and registration <br>  
+                        steps from A to Z!
+                    </p>
+                    <p style="font-weight: 500; font-size: 32px; margin-top:170px; color: #263238" > 
+                        <span style="color: var(--text-color)">Entry is free!</span> 
+                        Join us and pave the way <br> 
+                        for your international education!
+                    </p>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+<?php }?>
 
 
 
@@ -67,64 +91,46 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 ?>
 
 
-    <div class="sec-upcoming" style="padding-top: 0;">
+    <div class="sec-upcoming" >
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <?php foreach ($event['fair_events'] as $fairEvent) { ?>
                         <div class="content">
-                            <h3 style="font-family: 'Poppins'; font-size: 24px; font-style: normal;font-weight: bold;line-height: 35px;    color: #2575FC; "><?= $fairEvent['title'] ?></h3>
-                            <div class="grid-3col">
-                                <div class="box">
-                                    <h3>
-                                        Where
-                                    </h3>
-
-                                    <p><?= $fairEvent['locations'] ?></p>
-                                </div>
-
-                                <div class="box">
-                                    <h3>
-                                        When
-                                    </h3>
-
+                            <h3 style=""><?php// $fairEvent['title'] ?></h3>
+                            <h4 class="location-center">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/location.svg" alt="">
+                                 <?= $fairEvent['locations'] ?></h4>
+                            <div class="grid-3col">                            
+                                <div class="box date-time">
                                     <?= $fairEvent['dates'] ?>
                                 </div>
                                 <?php
                                 //if (false) { 
                                 ?>
                                 <div class="box">
-                                    <h3>
-
-                                        Attending countries
-                                    </h3>
+                                    <h3>Attending countries</h3>
 
 
                                     <?php
                                     if (!empty($fairEvent['countries'])) {
                                     ?>
                                         <div class="step-back-slider small-slider">
-                                            <div class="container" style="width: 300px !important;">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <!-- <h2 class="title_28">Step Back in Time: Our Unforgettable Fair Memories!</h2> -->
-
-                                                        <div class="slider">
-                                                            <div class="owl-carousel owl-small-flag-logo">
-                                                                <?php
-
-                                                                foreach ($fairEvent['countries'] as $img) {
-                                                                ?>
-                                                                    <div class="item">
-                                                                        <div class="image-box" style="border:unset; border-radius: unset; height:63px">
-                                                                            <img src="<?= $img['flag_path'] ?>" alt="" style="border-radius:50%;height: 63px;width: 63px; ">
-                                                                        </div>
-                                                                    </div>
-                                                                <?php } ?>
-                                                            </div>
-                                                        </div>
+                                            <div class="image-gallery">
+                                                <?php foreach ($fairEvent['countries'] as $img) { ?>
+                                                    <div class="image-box" style="display: inline-block; margin: 5px; border: unset; border-radius: unset; height: 63px;">
+                                                        <img src="<?= $img['flag_path'] ?>" alt="" style="width: 41.469px;height: 25.613px;">
                                                     </div>
+                                                <?php } ?>
+                                                <h3>Attending countries</h3>
+                                                <div class="grid-logos">
+                                                <?php for ($i = 20; $i < 30; $i++) { ?>
+                                                    <img src="<?php WEBSITE_URL ?>img/new-desgin/logos/logo-1.png" alt="">
+                                                <?php } ?>
+
+
                                                 </div>
+
                                             </div>
                                         </div>
 

@@ -9751,17 +9751,31 @@ img.mobile-image {
 
 }
 
+.sec-upcoming .location-center {
+    color: #263238;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    justify-content: center;
+}
+
 .sec-upcoming p {
-    color: #546E7A;
-    font-family: "Poppins";
+    color: #263238;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%;
     text-align: center;
 
 }
-
+.sec-upcoming .grid-logos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 25px 40px;
+}
 .sec-upcoming h5 {
     color: #263238;
     font-size: 32px;
@@ -9769,31 +9783,38 @@ img.mobile-image {
     line-height: 150%;
     margin-bottom: 20px;
     text-align: center;
+}.sec-upcoming .content{
+    margin-bottom: 70px;
 }
-
-.sec-upcoming .content {
-    border-radius: 20px;
-    background: #EAF1F3;
-    padding: 20px 35px;
-    margin: 30px 0 20px;
+.sec-upcoming .content:last-child{
+    margin: 0;
+}
+.sec-upcoming .content .date-time {
+    border-radius: 16px;
+    border-top: 5px solid #007BC4;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+    padding: 32px;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
 }
 
 .sec-upcoming .content .grid-3col {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 44px 1fr 44px 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 44px;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 45px;
 }
 
 .sec-upcoming .content .grid-3col h3 {
-    color: #2575FC;
-    margin-bottom: 8px;
-    font-family: "Poppins";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35px;
+    color: #263238;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 20px;
 }
 
 .sec-upcoming .country {}
@@ -11732,7 +11753,9 @@ div.error-message {
     width: 80%;
 }
 
-.bottom-education-fair .text {padding: 0 5vw;}
+.bottom-education-fair .text {
+    padding: 0 5vw;
+}
 
 .bottom-education-fair .text p {
     color: #546E7A;
