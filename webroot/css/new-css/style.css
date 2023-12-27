@@ -9741,34 +9741,34 @@ img.mobile-image {
 }
 
 .sec-upcoming h4 {
-    color: #33CA94;
-    font-family: "Merriweather";
+    color: var(--text-color);
     font-size: 48px;
     font-style: normal;
-    font-weight: 900;
-    line-height: 63px;
-    margin-bottom: 5px;
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: 40px;
+    text-align: center;
 
 }
 
 .sec-upcoming p {
-    color: #696F79;
+    color: #546E7A;
     font-family: "Poppins";
-    font-size: 18px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 150%;
+    text-align: center;
 
 }
 
 .sec-upcoming h5 {
-    color: #2575FC;
-    font-family: "Merriweather";
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    margin-bottom: 30px;
+    color: #263238;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .sec-upcoming .content {
