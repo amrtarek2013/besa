@@ -861,7 +861,7 @@
         padding: 0 !important;
     }
 
-    .countries-inner .containerCountry .box-country{
+    .countries-inner .containerCountry .box-country {
         width: max-content;
         margin: auto;
     }
@@ -929,19 +929,14 @@
     }
 
     .tournament .relative-img-border {
-        bottom: -20px;
-        right: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
     }
 
-    .tournament .double_img img {
-        max-width: 300px;
-        max-height: 300px;
-    }
-
-    .tournament .text h3 {
-
-        margin-top: 50px;
-    }
 
     .events-banner .relative-textP {
 
@@ -2301,143 +2296,182 @@
     .list-Pathway-Programs .itemFAQs .box-item {
         margin: 0 !important;
     }
-    .list-Pathway-Programs .itemFAQs:nth-child(2) .box-item{
+
+    .list-Pathway-Programs .itemFAQs:nth-child(2) .box-item {
         margin: 0 !important;
 
     }
-    .list-Pathway-Programs{
+
+    .list-Pathway-Programs {
         background: transparent;
     }
-    .list-Pathway-Programs .flag-screenD{
+
+    .list-Pathway-Programs .flag-screenD {
         display: none;
     }
-    .remote-school-tour-counseling .d-flex{
+
+    .remote-school-tour-counseling .d-flex {
         flex-flow: column;
     }
-    .remote-school-tour-counseling .d-flex div{
+
+    .remote-school-tour-counseling .d-flex div {
         width: 100% !important;
     }
-    .remote-school-tour-counseling .school-tour-header{
+
+    .remote-school-tour-counseling .school-tour-header {
         width: 100%;
         font-size: 20px;
 
     }
+
     .journey-discovery-besa-tours .d-flex h4,
-    .global-engagement .group-cards .card-eng h4{
+    .global-engagement .group-cards .card-eng h4 {
         font-size: 20px;
     }
+
     .remote-school-tour-counseling .school-tour-content p,
     .journey-discovery-besa-tours .d-flex p,
-    .global-engagement .group-cards .card-eng p{
+    .global-engagement .group-cards .card-eng p {
         font-size: 14px;
     }
 
-    .container-formBox .form-area label, .container-formBox .input label, .container-formBox .security_code .input label{
+    .container-formBox .form-area label,
+    .container-formBox .input label,
+    .container-formBox .security_code .input label {
         font-size: 16px;
 
     }
-    .form-area textarea, .form-area select, .form-area input{
+
+    .form-area textarea,
+    .form-area select,
+    .form-area input {
         height: 56px;
     }
-    .book-appointment .container-formBox button[type="submit"]{
+
+    .book-appointment .container-formBox button[type="submit"] {
         height: 48px;
         font-size: 14px;
 
     }
-    .title-countries{
+
+    .title-countries {
         font-size: 20px;
 
     }
-    .hero-country .image-container{
+
+    .hero-country .image-container {
         height: 205px;
     }
-    .hero-country .text-container h3{
+
+    .hero-country .text-container h3 {
         font-size: 24px;
 
     }
+
     .study-section .text-container h4,
-    .whyStudy .gridWhyStudy .title{
+    .whyStudy .gridWhyStudy .title {
         font-size: 20px;
 
     }
-    .study-section .d-flex{
+
+    .study-section .d-flex {
         flex-flow: column;
         margin-bottom: 50px;
 
     }
 
-    .study-section .d-flex>div{
+    .study-section .d-flex>div {
         width: 100%;
     }
-    .study-section .text-container p{
+
+    .study-section .text-container p {
         font-size: 14px;
     }
-    .study-duration-info{
+
+    .study-duration-info {
         flex-flow: column-reverse;
 
     }
+
     .tuition-section {
         padding: 80px 0;
     }
+
     .benefits .gridTabes .card .card-body h4,
-    .tuition-section .text-container .title{
+    .tuition-section .text-container .title {
         font-size: 20px;
     }
-    .tuition-section p{
+
+    .tuition-section p {
         padding: 0;
         font-size: 14px;
     }
-    .container-universities>.header-box .title-left h4{
+
+    .container-universities>.header-box .title-left h4 {
         font-size: 16px;
         margin-top: 5px;
 
-    }.grid-universities{
+    }
+
+    .grid-universities {
         grid-template-columns: 1fr;
         margin-top: 24px;
     }
-    .benefits .gridTabes .card .card-body p{
+
+    .benefits .gridTabes .card .card-body p {
         font-size: 14px;
 
     }
-    .benefits .gridTabes .card{
+
+    .benefits .gridTabes .card {
         min-height: max-content !important;
         margin-top: 0 !important;
     }
-    .questions .faq-item .faq-question h3{
+
+    .questions .faq-item .faq-question h3 {
         font-size: 16px;
         line-height: 150%;
         grid-gap: 10px;
 
     }
-    .questions .faq-item .faq-answer{
+
+    .questions .faq-item .faq-answer {
         font-size: 16px;
         line-height: 150%;
     }
-    .hero-Universities .text-container h3{
+
+    .hero-Universities .text-container h3 {
         font-size: 32px;
     }
-    .hero-Universities .text-container h3 span{
+
+    .hero-Universities .text-container h3 span {
         font-size: 24px;
     }
+
     .hero-Universities .text-container {
         max-width: 49%;
         left: 70%;
         bottom: 40px;
     }
-    .acadia-university .content p{
+
+    .acadia-university .content p {
         font-size: 16px;
     }
+
     .container-universities>.header-box .right-rank span,
     .container-universities>.header-box .right-rank,
-    .container-universities>.header-box .title-left h4 span{
+    .container-universities>.header-box .title-left h4 span {
         font-size: 14px;
     }
-    .acadia-university .content{
+
+    .acadia-university .content {
         margin-top: 20px;
     }
-    .acadia-university{
+
+    .acadia-university {
         margin-bottom: 45px;
     }
+
     .country-list {
         display: grid;
         align-items: center;
@@ -2447,33 +2481,70 @@
         margin: 20px 0;
         grid-template-columns: 1fr 1fr;
     }
+
     .facilities .tab-buttons {
         display: grid;
         grid-gap: 10px;
         margin-bottom: 60px;
         grid-template-columns: 1fr 1fr;
     }
-    .city-life .content-container .content p, .facilities .tab-content p{
+
+    .city-life .content-container .content p,
+    .facilities .tab-content p {
         font-size: 16px;
     }
-    .gallary .title-gallary{
+
+    .gallary .title-gallary {
         font-size: 24px;
         margin-bottom: 40px;
     }
+
     #owl_gallary .owl-prev {
         left: -50px;
         width: 44px;
     }
+
     #owl_gallary .owl-next {
         right: -50px;
         width: 44px;
-    }.gallary {
+    }
+
+    .gallary {
         padding: 70px 0;
     }
-   
+
     #owl_gallary {
-        width: 70%;}
-        .gallary .btn{
-            font-size: 14px;
-        }
+        width: 70%;
+    }
+
+    .gallary .btn {
+        font-size: 14px;
+    }
+
+    .bottom-events .title-bottom-hero p {
+        font-size: 20px;
+    }
+
+    .tournament .container-events {
+        max-width: 100%;
+        flex-flow: column;
+        grid-gap: 90px;
+        margin: 0 auto 64px;
+    }
+
+    .tournament .container-events:nth-child(even) {
+        flex-flow: column;
+
+    }
+
+    .tournament .text h3 {
+
+        font-size: 24px;
+    }
+    .discover-more,
+    .tournament .text p {
+        font-size: 14px;
+        padding: 10px 24px;
+
+    }
 }
