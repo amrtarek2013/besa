@@ -3787,7 +3787,19 @@ input[type="checkbox"] {
 .tournament .double_img {
     position: relative;
 }
-
+.tournament  .container-events{
+    justify-content: space-between;
+    max-width: 1032px;
+    margin:  0 auto 200px;
+}
+.tournament  .container-events>div{
+}
+.tournament  .container-events .text {
+    max-width: 480px;
+}
+.tournament  .container-events:nth-child(even){
+    flex-flow: row-reverse;
+}
 .tournament .relative-img-border {
     position: absolute;
     bottom: -60px;

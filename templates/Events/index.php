@@ -38,21 +38,20 @@ if (!empty($eventsList)) {
 ?>
 <section class="tournament">
     <div class="container">
-        <?php foreach ($eventsList as $event) : ?>
-            <div class="row" style="margin-bottom: 200px;">
-                <div class="col-md-6">
-                    <div class="double_img">
-                        <?php if (!empty($event['image_path'])) : ?>
-                            <img class="" src="<?= $event['image_path'] ?>" alt="" >
-                            <img src="<?= $event['image2_path'] ?>" alt="" class="relative-img-border">
-                        <?php else : ?>
-                            <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/500x350.png" alt="">
-                            <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/250x200.png" alt="" class="relative-img-border">
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text">
+        <div class="row" >
+            <div class="col-md-12">
+                <?php foreach ($eventsList as $event) : ?>
+                <div class="d-flex container-events">
+                        <div class="double_img">
+                            <?php if (!empty($event['image_path'])) : ?>
+                                <img class="" src="<?= $event['image_path'] ?>" alt="" >
+                                <img src="<?= $event['image2_path'] ?>" alt="" class="relative-img-border">
+                            <?php else : ?>
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/500x350.png" alt="">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin\dummy_image/250x200.png" alt="" class="relative-img-border">
+                            <?php endif; ?>
+                        </div>
+                        <div class="text">
                         <h3><?= $event['title'] ?></h3>
                         <p><?= $event['sub_title'] ?>, .....</p>
                         <div class="timline-eve">
@@ -69,8 +68,9 @@ if (!empty($eventsList)) {
                         <a href="/event-details/<?= $event['permalink'] ?>" class="btn discover-more MainBtn">Discover More</a>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </div>
     </div>
 </section>
 
