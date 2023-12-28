@@ -264,7 +264,7 @@ class ApplicationsController extends AppController
                 }
 
                 if ($this->Applications->save($application)) {
-
+                    //$this->bitrixSendApplicationFiles($application->id);
                     if (isset($data['save']) && $user_id) {
                         $this->loadModel('Users');
                         $user = $this->Users->get($user_id);
