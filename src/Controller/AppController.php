@@ -1270,7 +1270,7 @@ class AppController extends Controller
 
     /**********************
      * 
-     * Bitrix Function
+     * Bitrix Functions
      * ************************** */
 
 
@@ -1320,5 +1320,54 @@ class AppController extends Controller
             $bitrix->execute($data, $type, $extras);
         }
         return true;
+    }
+    public function bitrixSendApplicationFiles($application_id=null){
+        if(empty($application_id)){
+            return false;
+        }
+        $main_dir = str_replace('/src/Controller', '', __DIR__);
+        $applications_folder = $main_dir.'/webroot/uploads/files/applications/';
+        $application_files_fields = [
+            'passport',
+            'high_school_certificate',
+            'personal_statement',
+            'academic_recommendation_letter',
+            'ielts_elt',
+            'university_transcript',
+            'recommendation_letter',
+            'updated_cv',
+            'professional_recommendation_letter',
+            'research_proposal'
+        ];
+
+        $this->loadModel('Applications');
+        $application = $this->Applications->get($application_id);
+        $this->loadModel('Users');
+        $user = $this->Users->get($application->user_id);
+        
+        $mobile = '';
+        if(!empty($user->mobile)){
+            if(!empty($user->mobile_code)){
+                $mobile = $user->mobile_code;
+            }
+            $mobile .= $user->mobile;
+        }
+        if (empty($mobile)) {
+            return false;
+        }
+        $data['mobile'] = $mobile;
+
+        foreach($application_files_fields as $application_files_field){
+            if(!empty($application->{$application_files_field}) && file_exists($applications_folder.$application->{$application_files_field}) ){
+                $data['files'][] = $applications_folder.$application->{$application_files_field};
+            }
+        }
+        if (empty($data['files'])) {
+            return false;
+        }
+
+        require_once($main_dir . '/plugins/bitrix/BitrixIntegration.php');
+        $bitrix = new \BitrixIntegration();
+        $bitrix->sendApplicationFiles($data);
     }
 }

@@ -1,6 +1,70 @@
 <?
 class BitrixIntegration{
 	public $main_dir = '/home/u975649297/domains/besaeg.com/public_html';
+
+	public function sendApplicationFiles($data){
+		if(empty($data['mobile']) || empty($data['files']) ){
+			return false;
+		}
+		
+		$mobile = $data['mobile'];
+		$files = $data['files'];
+		$existed_lead = $this->get_lead_by_mobile($mobile);
+		if(!empty($existed_lead['data'][0]['ID'])){
+			$lead_id = $existed_lead['data'][0]['ID'];
+		}
+		
+		$files_arr = [];
+		foreach ($files as $file) {
+			$file_content = file_get_contents($file);
+			$files_arr[]=[
+						'fileData' => [
+            							basename($file),
+            							base64_encode($file_content)
+          							]
+  						];
+		}
+
+		//=============
+
+		if(!empty($lead_id) && !empty($files_arr)){
+			$options = [];
+			$api_name = 'crm.lead.update';
+			$options['id'] = $lead_id;
+			$data_arr['UF_CRM_1610308772'] = $files_arr;
+			$options['fields'] =  $data_arr;
+			if(!empty($options)){
+				$result = $this->bitrix_process_api($api_name,$options);
+				// print_r($result);
+				// $existed_lead = $this->get_lead_by_id(88785);
+				// print_r($existed_lead);die;
+			}
+		}
+
+		
+	}
+	public function upload_file_to_disk($filePath){
+		// $filePath = '/home/u975649297/domains/besaeg.com/public_html/webroot/uploads/sliders/64c800089de6b_web-illustrations-final-trails-02.png';
+		$options = [];
+		$api_name = 'disk.storage.uploadfile';
+		$options['id'] = 9599;
+		// $options['data'] = json_encode(['NAME' => basename($filePath)]);
+		$options['data'] = ['NAME' => basename($filePath)];
+		// $fileData = new CURLFile($filePath);
+		// $options['fileContent'] = $fileData;
+		// $options['fileContent'] = 'R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+		
+	 	$file_content = file_get_contents($filePath);
+    	$options['fileContent'] = base64_encode($file_content);
+		if(!empty($options)){
+			$result = $this->bitrix_process_api($api_name,$options);
+			if($result['status']==1){
+				return $result['data']['ID'];
+			}
+		}
+		return false;
+	}
+	
 	public function execute($data,$type,$extras = []){
 		switch ($type) {
 			case 'book-appointment':
