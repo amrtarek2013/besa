@@ -9761,6 +9761,8 @@ img.mobile-image {
     align-items: center;
     grid-gap: 5px;
     justify-content: center;
+    margin-bottom: 80px;
+    margin-top: 100px;
 }
 
 .sec-upcoming p {
@@ -9775,6 +9777,7 @@ img.mobile-image {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 25px 40px;
+        align-items: center;
 }
 .sec-upcoming h5 {
     color: #263238;
@@ -9800,6 +9803,8 @@ img.mobile-image {
     align-items: center;
     justify-content: center;
     flex-flow: column;
+    max-height: 280px;
+
 }
 
 .sec-upcoming .content .grid-3col {
@@ -9826,29 +9831,15 @@ img.mobile-image {
 }
 
 .sec-upcoming .btn-register {
-    border-radius: 10px;
-    background: #2575FC;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    padding: 6px 72px 7px 70px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    max-width: 300px;
     color: #FFF;
     text-align: center;
-    font-family: "Merriweather";
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
+    font-size: 16px;
+    font-weight: 600;
     margin: auto;
+    padding: 16px 40px;
+    border-radius: 12px;
+
 }
 
 .step-back-slider .image-box {

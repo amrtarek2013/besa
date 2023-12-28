@@ -124,10 +124,26 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                                 <?php } ?>
                                                 <h3>Attending countries</h3>
                                                 <div class="grid-logos">
-                                                <?php for ($i = 20; $i < 30; $i++) { ?>
-                                                    <img src="<?php WEBSITE_URL ?>img/new-desgin/logos/logo-1.png" alt="">
-                                                <?php } ?>
-
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
 
                                                 </div>
 
@@ -175,7 +191,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                             ?>
 
                         </div>
-                        <a class="btn btn-register" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
+                        <a class="btn btn-register MainBtn" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
                     <?php
                     }
                     ?>
