@@ -118,11 +118,14 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                         <div class="step-back-slider small-slider">
                                             <div class="image-gallery">
                                                 <?php foreach ($fairEvent['countries'] as $img) { ?>
-                                                    <div class="image-box" style="display: inline-block; margin: 5px; border: unset; border-radius: unset; height: 63px;">
+                                                    <div class="image-box" style="display: inline-block; margin: 5px; ">
                                                         <img src="<?= $img['flag_path'] ?>" alt="" style="width: 41.469px;height: 25.613px;">
                                                     </div>
                                                 <?php } ?>
-                                                <h3>Attending countries</h3>
+                                              
+
+                                            </div>
+                                            <h3>Attending countries</h3>
                                                 <div class="grid-logos">
                                                     <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
                                                     <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
@@ -146,8 +149,6 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
                                                     <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
 
                                                 </div>
-
-                                            </div>
                                         </div>
 
                                     <?php

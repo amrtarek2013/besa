@@ -2541,10 +2541,46 @@
 
         font-size: 24px;
     }
+
     .discover-more,
     .tournament .text p {
         font-size: 14px;
         padding: 10px 24px;
 
+    }
+
+    .hero-education-fair .col-md-6>.title-hero {
+        font-size: 24px;
+    }
+    .sec-upcoming h4,
+    .bottom-education-fair h2,
+    .hero-education-fair .title-hero span {
+        font-size: 20px;
+    }
+
+    .hero-education-fair .img-hero {
+        left: 0;
+        top: 15px;
+        width: 235px;
+    }
+
+    .hero-education-fair .title-hero {
+        width: 200px;
+        left: 125px;
+
+    }
+    .sec-upcoming h5,
+    .sec-upcoming p,
+    .bottom-education-fair .text {
+        padding: 0;
+        font-size: 16px;
+    }
+    .sec-upcoming  .text p:last-child{
+        font-size: 20px !important;
+        margin-bottom: 30px !important;
+    }
+    .sec-upcoming .location-center{
+        margin: 0;
+        font-size: 20px;
     }
 }
