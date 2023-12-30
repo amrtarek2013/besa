@@ -209,6 +209,11 @@ if (!empty($event['event_images'])) {
     echo $this->element('event-slider', ['slider_title' => $event['slider_title'], 'event_images' => $event['event_images']]);
 }
 ?>
+
+
+
+
+
 <?php //} 
 ?>
 <?= $event['text'] ?>

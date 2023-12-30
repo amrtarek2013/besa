@@ -303,29 +303,18 @@ $('.tab-button').click(function() {
 
   var owlStepBack = $(".owl-step-back");
   owlStepBack.owlCarousel({
+    items: 1,
     loop: true,
-    margin: 25,
     nav: true,
-
     autoplay: true,
     autoPlaySpeed: 2000,
     autoPlayTimeout: 2000,
     autoplayHoverPause: true,
     navText: [
-      "<img src='../img/chevron-right-white.svg'>",
-      "<img src='../img/chevron-left-white.svg'>",
+      "<img src='../img/new-desgin/prev-arrow.svg'>",
+      "<img src='../img/new-desgin/next-arrow.svg'>",
     ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 3,
-      },
-    },
+    
   });
   var owlSmallFlag = $(".owl-small-flag-logo");
   owlSmallFlag.owlCarousel({
