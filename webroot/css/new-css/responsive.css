@@ -1884,12 +1884,13 @@
     .servFair .grid-3col {
         grid-template-columns: 1fr;
         padding: 0;
+        width: 70%;
+        grid-gap: 88px;
     }
 
     .bannar-green .btn-green,
     .bannar-blue .btn-blue {
         font-size: 22px;
-
         height: unset;
         padding: 15px 30px;
         margin: auto;
@@ -2013,6 +2014,7 @@
 
     .sec-upcoming .btn-register {
         margin: auto;
+        margin-bottom: 30px;
     }
 
     .logo-slider-large .owl-prev {
@@ -2042,9 +2044,7 @@
         margin-top: 20px;
     }
 
-    .owl-step-back .owl-nav {
-        display: none;
-    }
+
 
     .owl-small-flag-logo .owl-item img {
         width: max-content;
@@ -2552,10 +2552,13 @@
     .hero-education-fair .col-md-6>.title-hero {
         font-size: 24px;
     }
+
+    .step-back-slider .title_28,
     .sec-upcoming h4,
     .bottom-education-fair h2,
     .hero-education-fair .title-hero span {
         font-size: 20px;
+        width: 100%;
     }
 
     .hero-education-fair .img-hero {
@@ -2569,18 +2572,40 @@
         left: 125px;
 
     }
+
     .sec-upcoming h5,
     .sec-upcoming p,
     .bottom-education-fair .text {
         padding: 0;
         font-size: 16px;
     }
-    .sec-upcoming  .text p:last-child{
+
+    .sec-upcoming .text p:last-child {
         font-size: 20px !important;
-        margin-bottom: 30px !important;
+        margin-bottom: 0 !important;
     }
-    .sec-upcoming .location-center{
-        margin: 0;
+
+    .sec-upcoming .location-center {
+        margin-top: 0;
         font-size: 20px;
+    }
+
+    .sec-upcoming .grid-logos {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .step-back-slider .owl-step-back {
+        width: 70%;
+    }
+
+    .owl-step-back .owl-prev,
+    .owl-school-tour .owl-prev {
+        left: -60px;
+    }
+
+    .owl-step-back .owl-next,
+    .owl-school-tour .owl-next {
+        right: -0px;
     }
 }
