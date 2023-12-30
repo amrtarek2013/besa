@@ -7941,7 +7941,7 @@ input[type="search"]:focus {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 50px 110px;
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
@@ -9836,7 +9836,7 @@ img.mobile-image {
 }
 
 .step-back-slider .owl-step-back {
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
