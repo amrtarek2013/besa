@@ -4,8 +4,10 @@
 // debug($event);
 
 // debug(file_exists(WWW_ROOT . $image_path));
-
 use Cake\Routing\Router;
+if($permalink=='education-fairs'){
+
+
 
 ?>
 
@@ -215,8 +217,23 @@ if (!empty($event['event_images'])) {
 
 
 
-<?php //} 
-?>
+<?php
+ 
+}
+if($permalink=='the-british-trophy'){ ?>
+
+
+
+
+
+
+
+<?php
+ 
+}?>
+
 <?= $event['text'] ?>
 
 <?= $this->element('BecomeSponsorPopUp') ?>
+
+
