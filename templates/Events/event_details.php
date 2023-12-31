@@ -222,7 +222,55 @@ if (!empty($event['event_images'])) {
 }
 if($permalink=='the-british-trophy'){ ?>
 
+<div class="hero-section hero-british-trophy">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-british-trophy.png" alt="hero british trophy">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">The British <span>Trophy</span> </h1>
+        </div>
+    </div>
 
+</div>
+
+<section class="bottom-hero-section bottom-british-trophy ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="">
+                <div class="title-bottom-hero">
+                    <h5 class="title-bottom">
+                    The British Trophy is an <span class="blue">  annual football championship  </span>  <br> 
+                    organised by BESA exclusively for <span class="blue">international schools</span> in Egypt. <br> Established in 2014
+                    </h5>
+                    <p class="description">this tournament has gained significance over the years and has become a tradition.</p>
+                    <a href="#" class="btn MainBtn">Subscribe in event</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="football-education-section">
+    <div class="content">
+        
+                <p>Football teams from various international schools compete against each other  <br>
+                     under the supervision of a designated school representative, usually the Physical <br> Education instructor.</p>
+                <p>Each team consists of 7-9 players. Over the course of four days, 
+                    <br> <br> multiple matches are played to secure advancement to subsequent rounds. The  <br> ultimate prize for the winning team is a week-long trip to the United Kingdom.</p>
+                
+                <div class="images-container">
+                    <img src="https://dummyimage.com/1792x1024/d9d9d9/000000.png" alt="Students with trophy">
+                    <img src="https://dummyimage.com/1792x1024/d9d9d9/000000.png" alt="Trophy">
+                </div>
+                
+                <p>The primary objective of the British Trophy is to provide a gateway for Egyptian students to experience international educational opportunities and to promote the integration of physical education into the Egyptian school system.</p>
+                <p>It offers a unique opportunity for senior students aged 15 to 18 to explore British universities and their campuses as part of the UK tour.</p>
+         
+    </div>
+</section>
 
 
 

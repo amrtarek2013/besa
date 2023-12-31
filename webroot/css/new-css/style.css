@@ -11957,3 +11957,102 @@ div.error-message {
     margin-top: 25px;
 
 }
+
+.hero-british-trophy {
+    padding: 220px;
+    margin-bottom: 80px;
+
+}
+
+.hero-british-trophy .title-hero {
+    font: normal 700 130px/100% 'Poppins';
+    max-width: unset;
+    top: -120px;
+    left: -230px;
+    width: 750px;
+}
+
+.hero-british-trophy .img-hero {
+    left: 170px;
+
+}
+
+.football-education-section {
+    background: #FCFCFC;
+    text-align: center;
+    padding: 95px 0;
+}
+
+.football-education-section .content {
+    max-width: 841px;
+    margin: auto;
+}
+
+.football-education-section h2 {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.football-education-section p {
+    color: #546E7A;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.football-education-section .images-container {
+    display: flex;
+    justify-content: center;
+    margin: 56px 0;
+    padding-right: 45px;
+
+}
+
+.football-education-section .images-container img {
+    max-width: 436px;
+    height: max-content;
+    border-radius: 16px;
+
+}
+
+.football-education-section .images-container img:last-child {
+    margin: 45px -45px 0px;
+
+}
+.bottom-british-trophy .title-bottom-hero{
+    width: 90%;
+}
+.bottom-british-trophy .title-bottom {
+    color: #263238;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.bottom-british-trophy p {
+    color: #546E7A;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
+.bottom-british-trophy .btn{
+    max-width: 300px;
+    margin: 40px auto;
+}
+@media (max-width: 800px) {
+    .images-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images-container img {
+        margin-bottom: 15px;
+    }
+}
