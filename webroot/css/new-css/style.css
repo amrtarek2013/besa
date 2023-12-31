@@ -2399,13 +2399,8 @@ p.descrp {
 .container-formBox .input label,
 .container-formBox .security_code .input label {
     font-family: 'Poppins';
-    font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 18px;
-    letter-spacing: 0.2px;
-    /* color: #696F79; */
-    color: var(--bs-black);
     display: block;
     margin-bottom: 10px;
     display: flex;
@@ -8668,9 +8663,11 @@ input[type="search"]:focus {
 }
 
 .visitors-application .container-formBox {
-    max-width: 830px;
-    margin: auto;
-    padding: 40px 45px;
+    border-radius: 16px;
+    border-top: 8px solid var(--Netural00-100, #CFD8DC);
+    background: linear-gradient(145deg, #007BC4 9.23%, #0B4C97 99.04%);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+    margin-top: -250px;
 
 }
 
@@ -8689,7 +8686,14 @@ input[type="search"]:focus {
 }
 
 .visitors-application .container-formBox h4 {
-    display: none;
+    color: var(--White, #FFF);
+    font-family: 'Poppins';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 40px;
+
 }
 
 .visitors-application .container-formBox .checkboxes {
@@ -8700,8 +8704,12 @@ input[type="search"]:focus {
     width: 100%;
 }
 
+.visitors-application .container-submit .checkboxes div label,
 .visitors-application .container-submit .checkboxes div label a {
-    color: var(--bs-green);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
 }
 
 .container-icons .icon-box {
@@ -8999,21 +9007,14 @@ input[type=number]::-webkit-outer-spin-button {
     display: none;
 }
 
-.book-appointment .container-formBox,
-.book-appointment .light-para {
-    max-width: 1106px;
 
-}
 
 .book-appointment .light-para {
     line-height: normal;
     margin-bottom: 88px;
 }
 
-.book-appointment .container-formBox {
-    border-top: 14px solid var(--bs-gold);
 
-}
 
 .book-appointment .input select,
 .book-appointment .input textarea,
@@ -11149,6 +11150,12 @@ div.error-message {
     border-top: 8px solid #CFD8DC;
     background: linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%);
     box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+    margin: auto;
+}
+
+.book-appointment .container-formBox,
+.book-appointment .light-para {
+    max-width: 1106px;
 }
 
 .container-formBox .form-area label,
@@ -11177,7 +11184,7 @@ div.error-message {
     grid-template-columns: 1fr 1fr;
 }
 
-.book-appointment .container-formBox button[type="submit"] {
+.container-formBox button[type="submit"] {
     border-radius: 12px;
     border: 2px solid #FFF;
     height: 84px;
@@ -11186,6 +11193,8 @@ div.error-message {
     font-weight: 600;
     line-height: normal;
     color: #FFF;
+    max-width: 455px;
+    margin: auto;
 }
 
 .hero-school-tour .img-hero {
@@ -11771,4 +11780,180 @@ div.error-message {
 
 .bottom-education-fair .text p:last-child {
     margin: 0;
+}
+
+.hero-visitors {
+    position: relative;
+}
+
+.hero-visitors img {
+    width: 100%;
+}
+
+.hero-visitors .text-hero {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.hero-visitors .text-hero .title-hero {
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.hero-visitors .text-hero .title-hero span {
+    color: #3994EB;
+}
+
+.hero-visitors .text-hero p {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.hero-visitors .text-hero .link-blue {
+    color: #3994EB;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.university-representatives-banner p {
+    color: #263238;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 45px;
+}
+
+.university-representatives-banner .logos-part {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 61px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fair-attendance-benefits {}
+
+.benefits-list li {
+    color: #546E7A;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 170%;
+    margin-bottom: 30px;
+}
+
+.benefits-list li .benefit-title {
+    font-weight: 700;
+    color: #263238;
+
+}
+
+.benefits-list li p {
+    display: inline;
+}
+
+.content-benefits {
+    grid-gap: 90px;
+}
+
+.content-benefits .image {
+    width: 30%;
+}
+
+.content-benefits .text {
+    width: 70%;
+}
+
+.study-abroad-section .title,
+.fair-attendance-benefits .title {
+    margin-bottom: 50px;
+}
+
+.university-representatives-banner,
+.study-abroad-section,
+.fair-attendance-benefits {
+    padding: 65px 0;
+}
+
+.location-center {
+    display: flex;
+    align-items: center;
+    color: #263238;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.date-box {
+    border-radius: 16px;
+    border-top: 5px solid #007BC4;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.date-box h5 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    color: var(--text-color);
+}
+
+.date-box p {
+    color: #263238;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%
+}
+
+.date-box p span {
+    display: block;
+}
+
+.fair-locations-schedule {
+    padding-bottom: 180px;
+}
+
+.fair-locations-schedule .d-flex {
+    display: flex;
+    grid-gap: 180px;
+    justify-content: center;
+}
+
+.fair-locations-schedule .map-container img {
+    border-radius: 16px;
+    border-top: 8px solid var(--Gradient-blue, #007BC4);
+}
+
+.fair-locations-schedule .map-container {
+    margin-top: 45px;
+}
+
+.fair-locations-schedule .btn {
+    max-width: 300px;
+    margin: auto;
+    margin-top: 25px;
+
 }

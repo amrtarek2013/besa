@@ -565,6 +565,7 @@
     .visitors-application .container-formBox {
         padding: 20px;
         margin-bottom: 20px;
+        margin-top: -150px;
     }
 
     .container-formBox {
@@ -2608,4 +2609,92 @@
     .owl-school-tour .owl-next {
         right: -60px;
     }
+
+    .hero-visitors .text-hero .link-blue,
+    .hero-visitors .text-hero .title-hero {
+        font-size: 28px;
+    }
+
+    .hero-visitors .text-hero p {
+        font-size: 14px;
+    }
+
+    .hero-visitors {
+        height: 433px;
+
+    }
+
+    .hero-visitors img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-visitors .text-hero{
+        width: 100%;
+    }
+    .visitors-application .container-formBox h4{
+        font-size: 20px;
+        margin-bottom: 24px;
+
+    }
+    .visitors-application .container-formBox .grid-container {
+        -ms-grid-columns: 1fr ;
+        grid-template-columns: 1fr;
+    }
+    .visitors-application .container-submit .checkboxes div label, .visitors-application .container-submit .checkboxes div label a {
+        font-size: 14px;
+  
+    }
+    .visitors-application .container-formBox button[type="submit"] {
+        height: 48px;
+        font-size: 14px;
+    }
+    .title {
+   
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    .location-center,
+    .university-representatives-banner p{
+        font-size: 16px;
+
+    }
+    
+    .benefits-list li{
+        font-size: 14px;
+
+    }
+.university-representatives-banner .logos-part {
+    grid-template-columns: 1fr;
+    grid-gap: 48px;
+  
+}
+.university-representatives-banner .logos-part img{
+    margin: auto;
+}
+.content-benefits{
+    flex-flow: column;
+}
+.content-benefits {
+    grid-gap: 16px;
+    flex-flow: column;
+}
+.fair-locations-schedule .d-flex{
+    flex-flow: column;
+    grid-gap: 40px;
+}
+.date-box{
+    width: max-content;
+    margin: auto;
+}
+.content-benefits .text,
+.content-benefits .image{
+    width: 100%;
+}
+.study-abroad-section .content-benefits {
+    flex-flow: column-reverse;
+}
+.study-abroad-section .title, .fair-attendance-benefits .title {
+    margin-bottom: 20px;
+}
 }
