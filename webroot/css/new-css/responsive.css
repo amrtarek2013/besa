@@ -1460,10 +1460,11 @@
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         align-items: start;
+        grid-gap: 80px;
     }
 
     .servTrophy .container-icons .icon-box {
-        border: none !important;
+        max-width: 220px;
     }
 
     .professional-development .d-flex {
@@ -1879,7 +1880,7 @@
     }
 
     .why_besa2 .container-icons {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr ;
     }
 
     .servFair .grid-3col {
@@ -2629,72 +2630,146 @@
         height: 100%;
         object-fit: cover;
     }
-    .hero-visitors .text-hero{
+
+    .hero-visitors .text-hero {
         width: 100%;
     }
-    .visitors-application .container-formBox h4{
+
+    .visitors-application .container-formBox h4 {
         font-size: 20px;
         margin-bottom: 24px;
 
     }
+
     .visitors-application .container-formBox .grid-container {
-        -ms-grid-columns: 1fr ;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     }
-    .visitors-application .container-submit .checkboxes div label, .visitors-application .container-submit .checkboxes div label a {
+
+    .visitors-application .container-submit .checkboxes div label,
+    .visitors-application .container-submit .checkboxes div label a {
         font-size: 14px;
-  
+
     }
+
     .visitors-application .container-formBox button[type="submit"] {
         height: 48px;
         font-size: 14px;
     }
+
     .title {
-   
+
         margin-bottom: 15px;
         font-size: 20px;
     }
+
     .location-center,
-    .university-representatives-banner p{
+    .university-representatives-banner p {
         font-size: 16px;
 
     }
-    
-    .benefits-list li{
+
+    .benefits-list li {
         font-size: 14px;
 
     }
-.university-representatives-banner .logos-part {
-    grid-template-columns: 1fr;
-    grid-gap: 48px;
-  
-}
-.university-representatives-banner .logos-part img{
-    margin: auto;
-}
-.content-benefits{
-    flex-flow: column;
-}
-.content-benefits {
-    grid-gap: 16px;
-    flex-flow: column;
-}
-.fair-locations-schedule .d-flex{
-    flex-flow: column;
-    grid-gap: 40px;
-}
-.date-box{
-    width: max-content;
-    margin: auto;
-}
-.content-benefits .text,
-.content-benefits .image{
-    width: 100%;
-}
-.study-abroad-section .content-benefits {
-    flex-flow: column-reverse;
-}
-.study-abroad-section .title, .fair-attendance-benefits .title {
-    margin-bottom: 20px;
-}
+
+    .university-representatives-banner .logos-part {
+        grid-template-columns: 1fr;
+        grid-gap: 48px;
+
+    }
+
+    .university-representatives-banner .logos-part img {
+        margin: auto;
+    }
+
+    .content-benefits {
+        flex-flow: column;
+    }
+
+    .content-benefits {
+        grid-gap: 16px;
+        flex-flow: column;
+    }
+
+    .fair-locations-schedule .d-flex {
+        flex-flow: column;
+        grid-gap: 40px;
+    }
+
+    .date-box {
+        width: max-content;
+        margin: auto;
+    }
+
+    .content-benefits .text,
+    .content-benefits .image {
+        width: 100%;
+    }
+
+    .study-abroad-section .content-benefits {
+        flex-flow: column-reverse;
+    }
+
+    .study-abroad-section .title,
+    .fair-attendance-benefits .title {
+        margin-bottom: 20px;
+    }
+
+    .hero-british-trophy .img-hero {
+        left: 0;
+        top: 10px;
+        width: 240px;
+    }
+
+    .hero-british-trophy .title-hero {
+
+        text-align: start;
+        width: 180px;
+        margin-left: 20px;
+    }
+
+    .bottom-british-trophy .title-bottom {
+        font-size: 20px;
+    }
+
+    .football-education-section p {
+        font-size: 16px;
+
+    }
+
+    .football-education-section .images-container {
+        flex-flow: row;
+    }
+
+    .football-education-section .images-container img {
+        max-width: 175.976px;
+
+    }
+
+    .football-education-section .images-container img:last-child {
+        margin: 25px -25px 0px;
+    }
+    .football-education-section {
+     
+        padding: 55px 0;
+    }
+    .british-trophy-info h3,
+    .servTrophy h2{
+        font-size: 20px;
+
+    }
+    .british-trophy-info .buttons{
+        flex-flow: column;
+    }
+    .btn-secondary{
+        font-size: 14px;
+        
+    }
+    .MainBtn{
+        max-width: 300px;
+        font-size: 14px;
+    
+    }
 }

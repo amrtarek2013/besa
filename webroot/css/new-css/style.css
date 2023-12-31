@@ -346,7 +346,7 @@ button {
 
 .btn-secondary {
     border-radius: 12px;
-    border: 2px solid #0B4C97;
+    border: 2px solid var(--text-color);
     max-width: 300px;
     color: var(--text-color);
     height: 56px;
@@ -2296,7 +2296,7 @@ p.descrp {
 
 .whyStudy .gridWhyStudy .image img {
     border-radius: 16px;
-    border-top: 8px solid #0B4C97;
+    border-top: 8px solid var(--text-color);
 }
 
 .tabes {
@@ -5232,7 +5232,7 @@ input.search {
 
 .container-icons .icon-box img {
     display: block;
-    margin-left: auto;
+    margin-left: 0 auto;
 }
 
 .why_besa2 .container-icons .icon-box {
@@ -7752,29 +7752,6 @@ input[type="search"]:focus {
 
 
 
-.servTrophy .container-icons .icon-box:nth-child(1) {
-    border-bottom: 7px solid var(--bs-green);
-
-}
-
-.servTrophy .container-icons .icon-box:nth-child(2) {
-    border-bottom: 7px solid var(--bs-light-red);
-
-}
-
-.servTrophy .container-icons .icon-box:nth-child(3) {
-    border-bottom: 7px solid var(--bs-light-blue);
-
-}
-
-.servTrophy .container-icons .icon-box:nth-child(4) {
-    border-bottom: 7px solid var(--bs-gold);
-}
-
-.servTrophy .container-icons .icon-box h4 {
-    color: #8692A6;
-    margin-bottom: 0;
-}
 
 .servTrophy .container-icons .icon-box .img-icon {
     margin: unset;
@@ -10345,7 +10322,7 @@ div.error-message {
 .owl-blogs .main-pos {
     margin-left: 2em !important;
     z-index: 3000;
-    border: 5px solid #0B4C97 !important;
+    border: 5px solid var(--text-color) !important;
 
 }
 
@@ -11277,7 +11254,7 @@ div.error-message {
 
 .study-section .image-container img {
     border-radius: 16px;
-    border-top: 8px solid #0B4C97;
+    border-top: 8px solid var(--text-color);
 }
 
 .study-section .btn {}
@@ -12078,7 +12055,7 @@ div.error-message {
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
-    padding: 40px;
+    padding: 40px 20px 100px;
     text-align: center;
     flex-flow: column;
 }
