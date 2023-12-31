@@ -5214,6 +5214,7 @@ input.search {
     display: grid;
     -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 120px;
 }
 
 .why_besa2 .container-icons .icon-box h4 {
@@ -5232,7 +5233,6 @@ input.search {
 }
 
 .why_besa2 .container-icons .icon-box {
-    padding: 24px 15px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5244,7 +5244,7 @@ input.search {
     -ms-flex-pack: justify;
     justify-content: space-between;
     border: none !important;
-    flex-flow: column-reverse;
+    flex-flow: column;
 
 }
 
@@ -7865,11 +7865,17 @@ input[type="search"]:focus {
 }
 
 .servTrophy h2 {
-    color: var(--bs-blue);
+    color: var(--text-color);
     text-align: center;
-    font-size: 28px;
+    font-size: 48px;
 }
+.animation-football{
+    display: block;
+    margin: auto;
+    width: max-content;
+    margin-bottom: 80px;
 
+}
 .professional-development {
     padding: 35px 0;
     background: #2C3041;
