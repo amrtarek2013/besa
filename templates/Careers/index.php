@@ -59,40 +59,7 @@
 </div>
 <?= $besa_careers_benefits ?>
 
-<section class="main-banner banner-about-us careers-banner">
 
-
-    <div class="careers">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <h4>JOIN OUR <span> BESA TEAM </span> AND EMPOWER <br> STUDENTS AROUND THE WORLD</h4>
-
-                    <?php if (!empty($careers)) : ?>
-                        <?php $counter = 0; ?>
-                        <div class="grid3col">
-                            <?php foreach ($careers as $career) : ?>
-                                <div class="item">
-                                    <h5><?= $career['title'] ?></h5>
-                                    <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
-                                    <a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink'] . '/' . $career['id'].'/1') ?>" class="btn">Learn More</a>
-                                    <?php
-                                    if (false) { ?>
-                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn">Apply Now</a>
-                                    <?php } ?>
-                                </div>
-                            <?php endforeach; ?>
-
-                        </div>
-                    <?php endif; ?>
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <?php if (!empty($careerImages->toArray())) : ?>
     <section class="lifeBesaSlider">
