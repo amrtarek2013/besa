@@ -2515,7 +2515,9 @@ input[type="checkbox"] {
     background: #C4C4C4;
     border-radius: 4px;
     margin-right: 10px;
-    accent-color: #1565D8;
+    accent-color: var(--text-color);
+    border-radius: 4px;
+    border: 2px solid var(--text-color);
 }
 
 .container-submit {
@@ -8357,9 +8359,14 @@ input[type="search"]:focus {
 }
 
 .btn-primary {
-    background: #0B5ED7;
+    border-radius: 12px;
+    background: var(--Gradient01, linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%));
     color: var(--bs-white);
-    padding: 5px 10px;
+    padding: 16px 40px;
+    max-width: 455px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: auto;
 }
 
 .btn-sm {
@@ -11157,7 +11164,9 @@ div.error-message {
 
 .form-area textarea,
 .form-area select,
-.form-area input {
+.form-area input[type="text"],
+.form-area input[type="email"],
+.form-area input[type="file"] {
     border-radius: 8px;
     background: #F8F8F8;
     color: #90A4AE;
@@ -12079,10 +12088,14 @@ div.error-message {
     justify-content: center;
     grid-gap: 25px;
 }
+
 .british-trophy-info .buttons a {
     padding: 10px 40px;
-
     transition: background-color 0.3s ease;
+    -webkit-transition:;
+    -moz-transition:;
+    -ms-transition:;
+    -o-transition:;
 }
 
 
@@ -12106,42 +12119,113 @@ div.error-message {
     }
 }
 
+.british-trophy-subscription-modal .remodal-close {
+    top: 48px;
+    left: 48px;
+    color: var(--text-color);
+}
+.british-trophy-subscription-modal .remodal-close::before{display: none;}
+/* Additional styles to match the image */
+.british-trophy-subscription-modal {
+    border-radius: 16px 16px 0px 0px;
+    background: #FFF;
+    padding: 48px;
+    max-width: 1200px;
+}
 
-  /* Additional styles to match the image */
-  .british-trophy-subscription-modal {
-    /* Define styles based on the image provided */
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-  }
-  .british-trophy-subscription-modal h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  .british-trophy-subscription-modal input[type="text"],
-  .british-trophy-subscription-modal input[type="email"],
-  .british-trophy-subscription-modal input[type="file"] {
-    /* Define input styles */
-    margin-bottom: 10px;
+.british-trophy-subscription-modal h2 {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 135%;
+    margin: 48px 0;
+}
+
+.british-trophy-subscription-modal input[type="text"],
+.british-trophy-subscription-modal input[type="email"],
+.british-trophy-subscription-modal input[type="file"] {
+    margin-bottom: 0;
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .british-trophy-subscription-modal .checkbox {
+    padding: 24px 16px;
+    border: 1px solid #F8F8F8;
+    border-radius: 8px;
+    background: #F8F8F8;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 130%;
+    height: 70px;
+
+}
+
+.subscription-form .form-area {
+    margin: 0;
+}
+
+.subscription-form .form-area>label {
+    text-align: start;
+    color: #263238;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.british-trophy-subscription-modal .checkbox {
     /* Define checkbox styles */
     margin-bottom: 10px;
-  }
-  .british-trophy-subscription-modal .btn {
-    /* Define button styles */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+}
+
+.subscription-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px;
+}
+
+
+
+.subscription-form .checkbox label {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    color: #263238;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.subscription-form .btn {
+    grid-column: 1 / -1;
     cursor: pointer;
-  }
-  .british-trophy-subscription-modal .btn:hover {
-    background-color: #0056b3;
-  }
+    width: 455px;
+height: 84px
+}
+
+.subscription-form input[type="checkbox"] {
+    margin: 0;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .subscription-form {
+        grid-template-columns: 1fr;
+    }
+
+    .subscription-form .file-input-container,
+    .subscription-form .checkbox,
+    .subscription-form .btn {
+        grid-column: 1;
+    }
+}
+
+
+.british-trophy-subscription-modal .checkbox:last-child {
+    margin: 0;
+}
+
+form .btn {
+    width: 455px;
+    height: 84px;
+}

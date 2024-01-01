@@ -273,31 +273,81 @@ if($permalink=='the-british-trophy'){ ?>
 </section>
 
 
-<!-- Remodal HTML structure with a specific data-remodal-id -->
 <div class="remodal british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
-  <button data-remodal-action="close" class="remodal-close"></button>
+  <button data-remodal-action="close" class="remodal-close">
+  <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
+
+  </button>
   <h2>The British Trophy Event Subscription</h2>
-  <form>
-    <!-- Form content -->
-    <input type="text" placeholder="School name" required>
-    <input type="email" placeholder="Work Email" required>
-    <input type="text" placeholder="Phone number" required>
-    <input type="email" placeholder="Email" required>
-    <input type="file" required>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" required> I agree to terms & conditions
-      </label>
+  <form class="subscription-form">
+    <div class="form-area">
+      <label for="school-name">School name</label>
+      <input type="text" id="school-name" placeholder="Enter school name" required>
     </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> I'd like being informed about latest news and tips
-      </label>
+    <div class="form-area">
+      <label for="work-email">Work Email</label>
+      <input type="email" id="work-email" placeholder="Enter work email" required>
     </div>
-    <button type="submit" class="btn">Submit</button>
+    <div class="form-area">
+      <label for="phone-number">Phone number</label>
+      <input type="tel" id="phone-number" placeholder="Enter phone number" required>
+    </div>
+    <div class="form-area">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter email" required>
+    </div>
+    <div class="form-area">
+      <label for="file-upload">Upload attending students details</label>
+      <input type="file" id="file-upload" required>
+    </div>
+    <div class="form-area ">
+        <label for="" style="color:transparent;">`</label>
+        <div class="checkbox-container">
+            <div class="checkbox terms">
+                <label for="terms-conditions">
+                <input type="checkbox" id="terms-conditions" required> I agree to terms & conditions
+                </label>
+            </div>
+            <div class="checkbox news">
+                <label for="latest-news">
+                <input type="checkbox" id="latest-news"> I'd like being informed about latest news and tips
+                </label>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
+
+<!-- Remodal HTML structure for sponsor form -->
+<div class="remodal british-trophy-sponsor-modal" data-remodal-id="british-trophy-sponsor">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <h2>Become a sponsor</h2>
+  <form class="sponsor-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="institution-name">Institution Name</label>
+        <input type="text" id="institution-name" placeholder="Enter Institution Name" required>
+      </div>
+      <div class="form-group">
+        <label for="contact-person-name">Contact Person Name</label>
+        <input type="text" id="contact-person-name" placeholder="Enter Contact Person Name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone-number">Phone number</label>
+        <input type="tel" id="phone-number" placeholder="Your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-submit">Submit</button>
+  </form>
+</div>
 
 
 <?php
