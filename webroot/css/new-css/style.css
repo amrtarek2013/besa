@@ -12093,10 +12093,10 @@ div.error-message {
 .british-trophy-info .buttons a {
     padding: 10px 40px;
     transition: background-color 0.3s ease;
-    -webkit-transition:;
-    -moz-transition:;
-    -ms-transition:;
-    -o-transition:;
+    -webkit-transition: ;
+    -moz-transition: ;
+    -ms-transition: ;
+    -o-transition: ;
 }
 
 
@@ -12120,21 +12120,25 @@ div.error-message {
     }
 }
 
-.remodal-form  .remodal-close {
+.remodal-form .remodal-close {
     top: 48px;
     left: 48px;
     color: var(--text-color);
 }
-.remodal-form  .remodal-close::before{display: none;}
+
+.remodal-form .remodal-close::before {
+    display: none;
+}
+
 /* Additional styles to match the image */
-.remodal-form  {
+.remodal-form {
     border-radius: 16px 16px 0px 0px;
     background: #FFF;
     padding: 48px;
     max-width: 1200px;
 }
 
-.remodal-form  h2 {
+.remodal-form h2 {
     color: var(--text-color);
     text-align: center;
     font-size: 40px;
@@ -12143,10 +12147,10 @@ div.error-message {
     margin: 48px 0;
 }
 
-.remodal-form  input[type="text"],
-.remodal-form  input[type="email"],
-.remodal-form  input[type="file"],
-.remodal-form  input[type="tel"] {
+.remodal-form input[type="text"],
+.remodal-form input[type="email"],
+.remodal-form input[type="file"],
+.remodal-form input[type="tel"] {
     margin-bottom: 0;
     width: 100%;
     padding: 24px 16px;
@@ -12174,7 +12178,7 @@ div.error-message {
     margin-bottom: 6px;
 }
 
-.remodal-form  .checkbox {
+.remodal-form .checkbox {
     /* Define checkbox styles */
     margin-bottom: 10px;
 }
@@ -12201,7 +12205,7 @@ div.error-message {
     grid-column: 1 / -1;
     cursor: pointer;
     width: 455px;
-height: 84px
+    height: 84px
 }
 
 .subscription-form input[type="checkbox"] {
@@ -12223,11 +12227,153 @@ height: 84px
 }
 
 
-.remodal-form  .checkbox:last-child {
+.remodal-form .checkbox:last-child {
     margin: 0;
 }
 
 form .btn {
     width: 455px;
     height: 84px;
+}
+
+.besa-careers-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.besa-careers-section h2 {
+    color: var(--text-color);
+    /* Adjust the heading color as needed */
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 150%;
+    margin-bottom: 10px;
+}
+
+.besa-careers-section p {
+    color: #263238;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 8cqw;
+}
+
+.job-cards {
+    display: flex;
+    justify-content: center;
+    gap: 130px;
+    /* Adjust the gap as needed */
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    height: 350px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    width: 415px;
+    background-image: url(../img//new-desgin/rectangle-back.png);
+    background-position: center;
+    background-size: cover;
+    /* transform: skew(-10deg);*/
+    background-image: url(../img//new-desgin/rectangle-back.png);
+    position: relative;
+}
+
+.job-card * {
+    /* transform: skew(10deg);*/
+    /* Counter-skew child elements */
+}
+
+.job-card h3 {
+    color: #263238;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    min-height: 75px;
+}
+
+.job-card p {
+    color: #5A6063;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.job-card .btn {
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    bottom: 5px;
+    right: 25px;
+    width: 252px;
+
+}
+
+.career-opportunity-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 110px;
+}
+
+.opportunity-content {
+    max-width: 450px;
+}
+
+.opportunity-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 135%;
+    color: var(--text-color);
+    margin-bottom: 90px;
+}
+
+
+
+.opportunity-content .btn {
+    width: 287px;
+    height: 71px;
+    margin: 0;
+}
+
+
+
+.benefits-section {}
+
+.benefits-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px 172px;
+}
+
+.benefits-section h2 {
+    margin-bottom: 90px;
+
+
+}
+
+.benefits-container .benefit  {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    grid-gap: 5px;
+ 
+}
+
+
+
+.benefit p {
+    color: #263238;
+
+text-align: center;
+font-size: 16px;
+font-weight: 500;
+line-height: 150%;
 }

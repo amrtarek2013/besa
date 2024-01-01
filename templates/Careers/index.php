@@ -1,21 +1,92 @@
-<section class="main-banner banner-about-us careers-banner">
+<div class="hero-section hero-careers">
     <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-careers.png" alt="hero careers ">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Careers </h1>
+        </div>
+    </div>
+
+</div>
+<section class="besa-careers-section">
+    <div class="container">
         <div class="row">
-            <div class="col-md-7">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg47.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
+            <div class="col-md-12">
+                <h2>Join our BESA team</h2>
+                <p>and empower students around the world</p>
+                <?php if (!empty($careers)) : ?>
+                        <?php $counter = 0; ?>
+                    <div class="job-cards">
+                        <?php foreach ($careers as $career) : ?>
+                            <div class="job-card">
+                                <h3><?= $career['title'] ?></h3>
+                                <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
+                                <a href="<?= Cake\Routing\Router::url('/career-details/' . $career['permalink'] . '/' . $career['id'].'/1') ?>" class="btn btn-primary">Learn More</a>
+                                <?php
+                                    if (false) { ?>
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn btn-primary">Apply Now</a>
+                                    <?php } ?>
+                            </div>
+                        <?php endforeach; ?>
+
+                    
+                    </div>
+                <?php endif; ?>
+
             </div>
-            <div class="col-md-5">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Careers</h1>
-                    <h2 class="title text-left">Careers</h2>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="career-opportunity-section">
+                <div class="opportunity-image">
+                    <img src="https://dummyimage.com/1024x1024/d9d9d9/000000.png" alt="Happy person holding a book">
                 </div>
-            </div>
+                <div class="opportunity-content">
+                    <h2>We have great opportunities for you <br> you can join us now</h2>
+                    <a href="#" class="btn btn-primary">Join with us</a>
+                </div>   
+            </section>
+        </div>
+        <div class="col-md-12">
+            <section class="benefits-section">
+            <h2 class="title">Benefits</h2>
+
+                <div class="benefits-container">
+                    <div class="benefit">
+                    <div class="icon ">
+                            <img alt="" src="/img/men-22.png" />
+                        </div>
+                        <p>Professional development</p>
+                    </div>
+                    <div class="benefit">
+                    <div class="icon ">
+                            <img alt="" src="/img/men-22.png" />
+                        </div>
+                        <p>Performance bonuses</p>
+                    </div>
+                    <div class="benefit">
+                        <div class="icon ">
+                            <img alt="" src="/img/men-22.png" />
+                        </div>
+                        <p>Exceptional in house training and support</p>
+                    </div>
+                </div>
+            </section>
 
         </div>
     </div>
+</div>
+
+
+<section class="main-banner banner-about-us careers-banner">
+
 
     <div class="careers">
         <div class="container">
