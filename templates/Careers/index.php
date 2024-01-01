@@ -54,36 +54,10 @@
                 </div>   
             </section>
         </div>
-        <div class="col-md-12">
-            <section class="benefits-section">
-            <h2 class="title">Benefits</h2>
-
-                <div class="benefits-container">
-                    <div class="benefit">
-                    <div class="icon ">
-                            <img alt="" src="/img/men-22.png" />
-                        </div>
-                        <p>Professional development</p>
-                    </div>
-                    <div class="benefit">
-                    <div class="icon ">
-                            <img alt="" src="/img/men-22.png" />
-                        </div>
-                        <p>Performance bonuses</p>
-                    </div>
-                    <div class="benefit">
-                        <div class="icon ">
-                            <img alt="" src="/img/men-22.png" />
-                        </div>
-                        <p>Exceptional in house training and support</p>
-                    </div>
-                </div>
-            </section>
-
-        </div>
+        
     </div>
 </div>
-
+<?= $besa_careers_benefits ?>
 
 <section class="main-banner banner-about-us careers-banner">
 
@@ -113,7 +87,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <?= $besa_careers_benefits ?>
+                    
                 </div>
             </div>
         </div>
