@@ -246,7 +246,7 @@ if($permalink=='the-british-trophy'){ ?>
                     organised by BESA exclusively for <span class="blue">international schools</span> in Egypt. <br> Established in 2014
                     </h5>
                     <p class="description">this tournament has gained significance over the years and has become a tradition.</p>
-                    <a href="#" class="btn MainBtn">Subscribe in event</a>
+                    <a href="#british-trophy-event-subscription" class="btn MainBtn">Subscribe in event</a>
                 </div>
             </div>
         </div>
@@ -273,7 +273,30 @@ if($permalink=='the-british-trophy'){ ?>
 </section>
 
 
-
+<!-- Remodal HTML structure with a specific data-remodal-id -->
+<div class="remodal british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <h2>The British Trophy Event Subscription</h2>
+  <form>
+    <!-- Form content -->
+    <input type="text" placeholder="School name" required>
+    <input type="email" placeholder="Work Email" required>
+    <input type="text" placeholder="Phone number" required>
+    <input type="email" placeholder="Email" required>
+    <input type="file" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" required> I agree to terms & conditions
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> I'd like being informed about latest news and tips
+      </label>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>
 
 
 

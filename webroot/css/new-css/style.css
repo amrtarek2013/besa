@@ -12105,3 +12105,43 @@ div.error-message {
         margin-top: 20px;
     }
 }
+
+
+  /* Additional styles to match the image */
+  .british-trophy-subscription-modal {
+    /* Define styles based on the image provided */
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .british-trophy-subscription-modal h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .british-trophy-subscription-modal input[type="text"],
+  .british-trophy-subscription-modal input[type="email"],
+  .british-trophy-subscription-modal input[type="file"] {
+    /* Define input styles */
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .british-trophy-subscription-modal .checkbox {
+    /* Define checkbox styles */
+    margin-bottom: 10px;
+  }
+  .british-trophy-subscription-modal .btn {
+    /* Define button styles */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .british-trophy-subscription-modal .btn:hover {
+    background-color: #0056b3;
+  }
