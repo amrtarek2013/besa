@@ -322,9 +322,12 @@ if($permalink=='the-british-trophy'){ ?>
 
 <!-- Remodal HTML structure for sponsor form -->
 <div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="british-trophy-sponsor">
-  <button data-remodal-action="close" class="remodal-close"></button>
+  <button data-remodal-action="close" class="remodal-close">
+    <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
+
+  </button>
   <h2>Become a sponsor</h2>
-  <form class="sponsor-form">
+  <form class="subscription-form">
     <div class="form-row">
       <div class="form-group">
         <label for="institution-name">Institution Name</label>
@@ -345,7 +348,7 @@ if($permalink=='the-british-trophy'){ ?>
         <input type="email" id="email" placeholder="Enter your email" required>
       </div>
     </div>
-    <button type="submit" class="btn btn-submit">Submit</button>
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
   </form>
 </div>
 
