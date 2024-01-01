@@ -301,7 +301,7 @@ if($permalink=='the-british-trophy'){ ?>
       <input type="file" id="file-upload" required>
     </div>
     <div class="form-area ">
-        <label for="" style="color:transparent;">`</label>
+        <label for="" style="color:transparent;" class="hidden-mobile">`</label>
         <div class="checkbox-container">
             <div class="checkbox terms">
                 <label for="terms-conditions">

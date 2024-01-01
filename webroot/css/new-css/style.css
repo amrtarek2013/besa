@@ -11166,7 +11166,8 @@ div.error-message {
 .form-area select,
 .form-area input[type="text"],
 .form-area input[type="email"],
-.form-area input[type="file"] {
+.form-area input[type="file"],
+.form-area input[type="tel"] {
     border-radius: 8px;
     background: #F8F8F8;
     color: #90A4AE;
@@ -12144,7 +12145,8 @@ div.error-message {
 
 .remodal-form  input[type="text"],
 .remodal-form  input[type="email"],
-.remodal-form  input[type="file"] {
+.remodal-form  input[type="file"],
+.remodal-form  input[type="tel"] {
     margin-bottom: 0;
     width: 100%;
     padding: 24px 16px;
