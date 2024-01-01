@@ -273,7 +273,7 @@ if($permalink=='the-british-trophy'){ ?>
 </section>
 
 
-<div class="remodal british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
+<div class="remodal remodal-form british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
   <button data-remodal-action="close" class="remodal-close">
   <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
 
@@ -321,7 +321,7 @@ if($permalink=='the-british-trophy'){ ?>
 
 
 <!-- Remodal HTML structure for sponsor form -->
-<div class="remodal british-trophy-sponsor-modal" data-remodal-id="british-trophy-sponsor">
+<div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="british-trophy-sponsor">
   <button data-remodal-action="close" class="remodal-close"></button>
   <h2>Become a sponsor</h2>
   <form class="sponsor-form">
