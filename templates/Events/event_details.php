@@ -328,26 +328,22 @@ if($permalink=='the-british-trophy'){ ?>
   </button>
   <h2>Become a sponsor</h2>
   <form class="subscription-form">
-    <div class="form-row">
-      <div class="form-group">
+      <div class="form-area">
         <label for="institution-name">Institution Name</label>
         <input type="text" id="institution-name" placeholder="Enter Institution Name" required>
       </div>
-      <div class="form-group">
+      <div class="form-area">
         <label for="contact-person-name">Contact Person Name</label>
         <input type="text" id="contact-person-name" placeholder="Enter Contact Person Name" required>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
+      <div class="form-area">
         <label for="phone-number">Phone number</label>
         <input type="tel" id="phone-number" placeholder="Your phone number" required>
       </div>
-      <div class="form-group">
+      <div class="form-area">
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="Enter your email" required>
       </div>
-    </div>
     <button type="submit" class="btn btn-primary btn-submit">Submit</button>
   </form>
 </div>
