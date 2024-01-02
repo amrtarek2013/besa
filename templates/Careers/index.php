@@ -9,8 +9,8 @@
             <h1 class="title-hero">Careers </h1>
         </div>
     </div>
-
 </div>
+
 <section class="besa-careers-section">
     <div class="container">
         <div class="row">

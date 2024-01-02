@@ -45,7 +45,7 @@ class BlogsTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 230, 'height' => 190],
+                        'resize' => ['width' => 420, 'height' => 260],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/blogs',

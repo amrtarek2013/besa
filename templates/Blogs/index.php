@@ -1,48 +1,36 @@
-<section class="main-banner banner-about-us blogs-banner">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg45.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Blogs</h1>
-                    <h2 class="title text-left">Blogs</h2>
-                </div>
-            </div>
 
+<div class="hero-section hero-blogs">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero icon-pencil-note">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-blogs.png" alt="hero blogs ">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Blogs </h1>
         </div>
     </div>
+</div>
 
-    <div class="blogs">
+<div class="blogs">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
-
-                    <?php
+                <?php
                     if (!empty($blogs)) : ?>
                         <?php $counter = 0; ?>
-
-                        <div class="display-flex">
-                            <?php foreach ($blogs as $blog) : ?>
+                    <div class="grid-blogs-container">
+                    <?php foreach ($blogs as $blog) : ?>
                                 <?php $counter++; ?>
                                 <div class="box-blog display-flex">
                                     <img src="<?= $blog['image_path'] ?>" alt="This Is Blog Img 1" loading="lazy">
                                     <div class="content-blog">
-                                        <p><?= $blog['title'] ?></p>
-                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor">READ MORE</a>
+                                        <h4><?= $blog['title'] ?></h4>
+                                        <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="btn btn-secondary read-anchor">READ MORE</a>
                                     </div>
                                 </div>
 
-                                <?php
-                                if ($counter % 2 == 0) {
-                                    echo '</div><div class="display-flex">';
-                                }
-                                ?>
+                               
 
                             <?php endforeach; ?>
 
@@ -51,7 +39,11 @@
                                 echo '<div class="box-blog display-flex"></div>';
                             }
                             ?>
-                        </div>
+                    </div>
+
+                    
+
+                     
 
                         <?php if (sizeof($universities) == 20) : ?>
                             <div class="paginator">
@@ -70,4 +62,3 @@
             </div>
         </div>
     </div>
-</section>
