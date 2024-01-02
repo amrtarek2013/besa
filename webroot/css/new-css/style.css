@@ -12393,3 +12393,9 @@ margin-bottom: 90px;
     left: 340px ;
     
 }
+
+.blogs .grid-blogs-container{
+    display: grid;
+    
+    grid-gap: 240px;
+}

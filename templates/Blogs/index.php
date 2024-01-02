@@ -34,11 +34,7 @@
 
                             <?php endforeach; ?>
 
-                            <?php
-                            if ($counter % 2 != 0) {
-                                echo '<div class="box-blog display-flex"></div>';
-                            }
-                            ?>
+                           
                     </div>
 
                     
