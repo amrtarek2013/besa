@@ -6319,7 +6319,8 @@ input.search {
 
 /* Start Blogs */
 .blogs {
-    padding: 45px 0;
+    padding: 45px 0 175px;
+
     background: var(--bs-white);
 }
 
@@ -12396,6 +12397,8 @@ margin-bottom: 90px;
 
 .blogs .grid-blogs-container{
     display: grid;
-    
+    justify-content: center;
     grid-gap: 240px;
+    max-width: 923px;
+    margin: auto;
 }
