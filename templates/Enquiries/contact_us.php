@@ -18,51 +18,37 @@
         height: 76px;
     }
 </style>
-
-<section class="main-banner contact-banner">
+<div class="hero-section hero-contact">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg10.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
+        <div class="col-md-6">
+            <div class="img-hero icon-pencil-note">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-contact.png" alt="hero contact us ">
             </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Contact</h1>
-                    <h2 class="title text-left">Contact Us</h2>
-                </div>
-            </div>
-            <div class="col-md-12" style="padding: 0">
-                <div class="title-banner-blue">
-                    <div class="icons">
-                        <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Facebook.svg" alt="facebook">
-                        </a>
-                        <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Instagram.svg" alt="Instagram">
-
-                        </a>
-                        <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/YouTube.svg" alt="YouTube">
-
-                        </a>
-                        <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/Linkedin.svg" alt="Linkedin">
-
-                        </a>
-                        <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
-                            <img src="<?= WEBSITE_URL ?>img/icon/social-media/tiktok.svg" alt="tiktok">
-
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Contact Us </h1>
         </div>
     </div>
+</div>
+<div class="social-media">
+    <div class="icons">
+        <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/social-media/la_facebook.svg" alt="facebook">
+        </a>
+        <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/social-media/bi_instagram.svg" alt="Instagram">
+        </a>
+        <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/social-media/ant-design_youtube-outlined.svg" alt="YouTube">
+        </a>
+        <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
+            <img src="<?= WEBSITE_URL ?>img/new-desgin/social-media/ant-design_linkedin-outlined.svg" alt="Linkedin">
+        </a>
+      
+    </div>
+</div>
+<section class="main-banner contact-banner">
+    
     <!-- <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -155,7 +141,7 @@
                                 <p class="phone"><?= $branch['other_phone'] ?></p>
                                 <p class="phone"><?= $branch['mobile'] ?></p>
                                 <p class="email"><?= $branch['email'] ?></p>
-                                <p class="time-red">
+                                <p class="time-blue">
                                     <?= $branch['working_time'] ?>
                                 </p>
                             </div>
@@ -184,30 +170,22 @@
 <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
 <input type="hidden" id="type" name="type" value="contact-us">
 <section class="contact-us pageContact">
-    <div class="top-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
-    </div>
+   
     <div class="container">
         <div class="row">
-            <!--<div class="col-md-12">
-                    <h2 class="title">Contact</h2>
-                    
-                </div>-->
-            <div class="col-md-11 col-md-offset-1">
-                <div class="form">
-
-                </div>
-            </div>
             <div class="col-md-12">
-                <div class="container-form">
-                    <h3 class="title-form">Send an Email</h3>
-                    <!-- <form action=""> -->
+                <h2 class="title-form">If you have any 
+                    <span class="blue">questions</span> 
+                    or want to <span class="blue">communicate with</span> 
+                    us, <br> write to us via the following form
+                </h2>                <!-- <form action=""> -->
 
-                    <?php //= $this->Form->create($enquiry, ['url'=>'/enquiries/contactUs','id' => 'contactusForm']) 
-                    ?>
-                    <div class="gridFormContact ">
-                        <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
-                        <div class="form-left form">
+                <?php //= $this->Form->create($enquiry, ['url'=>'/enquiries/contactUs','id' => 'contactusForm']) 
+                ?>
+                <input type="hidden" id="brnachID" value="" name="branch_id" placeholder="your name">
+
+                <div class="container-formBox">
+                    <div class="grid-container ">
                             <?php
 
                             echo $this->Form->control('name', [
@@ -215,13 +193,14 @@
                                 'class' => 'required', 'required' => true,
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
-
-
-                            // echo $this->Form->control('phone', [
-                            //     'placeholder' => 'Your Phone', 'type' => 'text',
-                            //     'class' => 'required', 'required' => true,
-                            //     'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            // ]);
+                            
+                            echo $this->Form->control('surname', [
+                                'placeholder' => 'Last Name ', 'type' => 'text',
+                                'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+                            ]);
+                                    
+                         
                             echo  $this->element('mobile_with_code', ['phone_label' => 'Mobile']);
 
                             echo $this->Form->control('email', [
@@ -232,24 +211,9 @@
                             ?>
                             <?= $this->element('security_code') ?>
 
-                        </div>
-                        <div class="form-right form">
-                            <!-- <div class="form-area">
-                                <label for="name">Subject</label>
-                                <input type="text" id="Subject" name="subject" placeholder="Email Subject">
-                            </div>
-                            <div class="form-area">
-                                <label for="name">Message</label>
-                                <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                            </div> -->
-
                             <?php
 
-                            echo $this->Form->control('subject', [
-                                'placeholder' => 'Email subject', 'type' => 'text',
-                                'class' => 'required', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-                            ]);
+
                             echo $this->Form->control('message', [
                                 'placeholder' => 'Your Message', 'type' => 'textarea',
                                 'class' => 'required', 'required' => true,
@@ -257,23 +221,20 @@
                                 'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                             ]);
                             ?>
-                            <div class="form-area">
-                                <input type="submit" value="Send" class="btn MainBtn submit">
-                            </div>
+                         
                             <!-- <button type="submit" class="g-recaptcha btn MainBtn submit" data-sitekey="6Lemf1EkAAAAAMnwcS1hUX3mEjXNKfFfIVTMrDGl" data-callback='onSubmit' data-action='submit'>Send</button> -->
 
-                        </div>
                     </div>
-
+                        <div class="form-area">
+                            <input type="submit" value="Send" class="btn MainBtn submit">
+                        </div>
                 </div>
+                    
             </div>
 
         </div>
     </div>
-    <div class="bottom-dots-img">
-        <img src="<?= WEBSITE_URL ?>img/icon/dots-bakground.svg" alt="">
 
-    </div>
 </section>
 
 <?= $this->Form->end() ?>

@@ -1680,16 +1680,16 @@ textarea {
 }
 
 .contact-us .title-form {
-    color: #546E7A;
+    color:  #263238;
     text-align: center;
-    font-family: "Poppins";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 32px;
+    font-weight: 500;
     line-height: 150%;
     margin-bottom: 50px;
 }
-
+.contact-us .title-form .blue{
+    color: var(--text-color);
+}
 .contact-us .submit {
     background: transparent;
     border-radius: 12px;
@@ -1707,21 +1707,6 @@ textarea {
     margin: auto;
 }
 
-.contact-us label {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #0F001A;
-    opacity: 0.8;
-    position: absolute;
-    left: 15px;
-    top: -12px;
-    z-index: 3;
-    padding: 0 4px;
-    background: var(--bs-white);
-}
 
 .contact-us .form {
     padding: 48px;
@@ -2383,7 +2368,7 @@ p.descrp {
     display: -ms-grid;
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
-    grid-gap: 32px ;
+    grid-gap: 32px;
 }
 
 /* .container-formBox .grid-container .form-area:nth-child(10) {
@@ -3061,9 +3046,7 @@ input[type="checkbox"] {
     padding: 73px 0 134px;
 }
 
-.pageContact .submit {
-    height: 76px;
-}
+
 
 .pageContact .container-form {
     max-width: 871px;
@@ -7611,18 +7594,18 @@ input[type="search"]:focus {
 }
 
 .contact-en {
-    background: #D0E1E7;
     padding: 55px 0;
 }
 
 .contact-en .grid3col {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 25px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
 }
 
 .contact-en .grid3col .item img {
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .contact-en .grid3col .item .content {
@@ -7631,46 +7614,42 @@ input[type="search"]:focus {
 
 .contact-en .grid3col .item .content:first-of-type {
     margin: 0;
-    padding-right: 140px;
 
 }
 
 .contact-en .grid3col .item .content h4 {
-    color: var(--bs-blue);
+    color: var(--text-color);
+    text-align: center;
     font-size: 28px;
-    font-family: "Merriweather";
     font-style: normal;
-    font-weight: 900;
-    line-height: normal;
+    font-weight: 700;
+    line-height: 130%;
 }
 
 .contact-en .grid3col .item .content p {
-    color: #0F001A;
-    font-size: 18px;
-    font-family: "Poppins";
+    color: #263238;
+    text-align: center;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 150%
 }
 
-.contact-en .grid3col .item .content p.email {
-    margin-top: 10px;
-}
 
-.contact-en .grid3col .item .content p.address {
-    margin: 10px 0;
+.contact-en .grid3col .item .content p.time-blue {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
 }
-
 .contact-en .grid3col .item .content p.time-red {
-    color: var(--bs-light-red);
-    font-size: 18px;
-    font-family: "Poppins";
-    font-style: normal;
+    color: #D71921 ;
+    text-align: center;
+    font-size: 16px;
     font-weight: 400;
-    line-height: normal;
-    margin-top: 10px;
+    line-height: 150%;
 }
-
 .form-area textarea,
 .form-area input,
 .form-area file {
@@ -7699,12 +7678,6 @@ input[type="search"]:focus {
     height: 152px;
 }
 
-.contact-us label {
-    opacity: 0.800000011920929;
-    color: #0F001A;
-    left: 10px;
-    padding: 0px 2px;
-}
 
 .british-banner .relative-box-about {
     left: -20px;
@@ -12463,16 +12436,20 @@ form .btn {
     font-weight: 400;
     line-height: 150%;
 }
+
 .form-blog {
     margin: 100px 0;
 }
+
 .form-blog .container-formBox .grid-container {
     grid-template-columns: 1fr 1fr;
     grid-gap: 24px 32px;
 }
-.form-blog .container-formBox  {
+
+.form-blog .container-formBox {
     padding: 24px 48px 48px;
 }
+
 .form-blog .container-formBox h4 {
     margin: 0;
     text-align: start;
@@ -12487,18 +12464,41 @@ form .btn {
     line-height: 150%;
 }
 
-.form-blog .container-formBox p span{
+.form-blog .container-formBox p span {
     font-weight: 600;
 }
-
-.form-blog .form-area{
+.contact-us .grid-container .form-area,
+.form-blog .form-area {
     margin: 0;
 
 }
-.form-blog .grid-container  .form-area:last-child{
+.contact-us .grid-container .form-area:last-child,
+.form-blog .grid-container .form-area:last-child {
     grid-column: 3 / 1;
 
 }
-.form-blog .container-formBox button[type="submit"]{
-    margin: 24px 0;
+
+.form-blog .container-formBox button[type="submit"] {
+    margin: 24px auto;
 }
+
+.social-media .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.social-media {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.hero-contact {
+    margin-bottom: 0;
+}
+
+.contact-us .grid-container{
+    grid-template-columns: 1fr 1fr;
+}
+.container-formBox .submit{margin: 10px auto;}
