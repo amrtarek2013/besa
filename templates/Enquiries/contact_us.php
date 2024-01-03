@@ -1,23 +1,5 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<style>
-    button.submit {
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.02em;
-        border: 1.2px solid #B4BEC8;
-        border-radius: 4px;
-        width: 100%;
-        height: 50px;
-        padding: 13px 14px;
-        background: #FF5151;
-        border-radius: 10px;
-        height: 76px;
-    }
-</style>
 <div class="hero-section hero-contact">
     <div class="container-fluid">
         <div class="col-md-6">
@@ -26,7 +8,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="title-hero">Contact Us </h1>
+            <h1 class="title-hero">Contact <span>Us</span> </h1>
         </div>
     </div>
 </div>
@@ -47,61 +29,8 @@
       
     </div>
 </div>
-<section class="main-banner contact-banner">
-    
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content-en">
-                    <div class="formSelect">
-                        <h2 class="title">Select Country</h2>
-    <div class="container-select">
-        <select name="country" id="country">
 
-            <option value="">Select Country</option>
-            <?php
-            foreach ($countries as $country) {
-            ?>
-                <option value="<?= $country ?>"><?= $country ?></option>
-            <?php
-            }
-            ?>
 
-        </select>
-        <select name="city" id="city" style="display: block;">
-            <option value="">Select Branch</option>
-        </select>
-    </div>
-
-    <h3 class=" title" id="branch-name"></h3>
-    <ul id="branch-details">
-        
-        <div class="icons">
-            <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                <img src="<?= WEBSITE_URL ?>img/icon/facebook.svg" alt="">
-            </a>
-            <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                <img src="<?= WEBSITE_URL ?>img/icon/instagram.svg" alt="" target="_blank">
-            </a>
-            <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                <img src="<?= WEBSITE_URL ?>img/icon/youtube.svg" alt="">
-            </a>
-            <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                <img src="<?= WEBSITE_URL ?>img/icon/linkedin.svg" alt="">
-            </a>
-            <a href="<?= $g_configs['social_links']['txt.tiktok_link'] ?>" class="tiktok" target="_blank">
-                <img src="<?= WEBSITE_URL ?>img/icon/tiktok.svg" alt="">
-            </a>
-        </div>
-    </ul>
-    </div>
-
-    </div>
-    </div>
-    </div>
-    </div> -->
-
-</section>
 <?= $book_free_meeting ?>
 
 <!-- <section class="free-meating " style="background: #fff;">
