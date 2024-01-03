@@ -103,6 +103,67 @@
 
 </div> 
 
+<div class="form-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormVisitorApp', 'class' => 'register')); ?>
+                <input type="hidden" id="type" name="type" value="visitors-application">
+                <div class="container-formBox">
+                    <h4 class="title">Interested in studying abroad?</h4>
+                    <p><span>BESA</span> can help – fill in your details and we’ll call you back.</p>
+                    <div class="grid-container">
+
+                        <?= $this->Form->control('name', [
+                            'placeholder' => 'Full Name',
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Full Name*', 'required' => true
+                        ]) ?>
+
+                        <?= $this->Form->control('email', [
+                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+
+
+                        <?= $this->element('mobile_with_code') ?>
+
+                        <?= $this->Form->control('surname', [
+                            'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>            
+
+                        <?= $this->Form->control('school_name', [
+                            'type' => 'text', 'placeholder' => 'School / University name', 'label' => 'School / University name*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <?= $this->Form->control('study_level', [
+                            'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
+                            'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                     
+                        <?= $this->Form->control('fair_venue', [
+                            'placeholder' => 'Fair Venue*', 'type' => 'select', 'empty' => 'Select Fair Venue*',
+                            'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue) ? $selected_fair_venue : ''),
+                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
+
+                        <?= $this->element('security_code', ['show_label' => true]) ?>
+
+                    </div>
+
+                    <button type="submit" class="btn greenish-teal">Submit</button>
+
+                </div>
+                <?= $this->Form->end() ?>
+            </div>
+         </div>
+    </div>
+</div>
+
 
 
 

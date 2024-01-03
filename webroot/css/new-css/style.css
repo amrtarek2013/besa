@@ -2364,32 +2364,26 @@ p.descrp {
 }
 
 .container-formBox {
-    /* background: var(--bs-white); */
-    background: var(--bs-gray);
-    border-radius: 30px;
-    padding: 40px 23px;
-    /* border: 1px solid var(--bs-green); */
-    border-top: 14px solid var(--bs-green);
+    border-radius: 16px;
+    border-top: 8px solid var(--Netural00-100, #CFD8DC);
+    background: linear-gradient(145deg, #007BC4 9.23%, #0B4C97 99.04%);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+    padding: 48px;
 }
 
 .container-formBox h4 {
-    font-family: 'Poppins';
-
-    font-style: normal;
-    font-weight: 900;
-    font-size: 28px;
-    line-height: 35px;
-    text-align: left;
-    color: var(--bs-black);
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: start;
 }
 
 .container-formBox .grid-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 3fr 24px 3fr 24px 3fr;
     grid-template-columns: 3fr 3fr 3fr;
-    grid-gap: 18px 24px;
-    padding: 0 20px;
+    grid-gap: 32px ;
 }
 
 /* .container-formBox .grid-container .form-area:nth-child(10) {
@@ -12458,7 +12452,7 @@ form .btn {
     margin-bottom: 0;
 }
 
-.global-list .global-list-title  {
+.global-list .global-list-title {
     color: #263238;
     font-size: 24px;
     font-weight: 600;
@@ -12466,9 +12460,44 @@ form .btn {
     display: block;
 }
 
-.global-list  p {
+.global-list p {
     color: #546E7A;
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
+}
+.form-blog {
+    margin: 100px 0;
+}
+.form-blog .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px 32px;
+}
+.form-blog .container-formBox h4 {
+    margin: 0;
+    text-align: start;
+}
+
+.form-blog .container-formBox p {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.form-blog .container-formBox p span{
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.form-blog .form-area{
+    margin: 0;
+
+}
+.form-blog .form-area:last-child{
+    grid-column: 3 / 1;
+
+}
+.form-blog .container-formBox button[type="submit"]{
+    margin-top: 24px;
 }
