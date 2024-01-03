@@ -2832,6 +2832,22 @@
     .hero-blogs .title-hero {
         margin-left: 6px;
     }
-    .blogs .box-blog img{width: 100%;}.blogs .box-blog .content-blog h4 {
-        font-size: 20px; text-align: start;}
+
+    .blogs .box-blog img {
+        width: 100%;
+    }
+
+    .blogs .box-blog .content-blog h4 {
+        font-size: 20px;
+        text-align: start;
+    }
+
+    .blogs .box-blog:nth-child(even) {
+        flex-flow: column;
+    }
+
+    .blogs .grid-blogs-container {
+
+        grid-gap: 150px;
+    }
 }
