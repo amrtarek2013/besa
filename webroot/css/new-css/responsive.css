@@ -1880,7 +1880,7 @@
     }
 
     .why_besa2 .container-icons {
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
     }
 
     .servFair .grid-3col {
@@ -2751,59 +2751,87 @@
     .football-education-section .images-container img:last-child {
         margin: 25px -25px 0px;
     }
+
     .football-education-section {
-     
+
         padding: 55px 0;
     }
+
     .british-trophy-info h3,
-    .servTrophy h2{
+    .servTrophy h2 {
         font-size: 20px;
 
     }
-    .british-trophy-info .buttons{
+
+    .british-trophy-info .buttons {
         flex-flow: column;
     }
-    .btn-secondary{
+
+    .btn-secondary {
         font-size: 14px;
-        
+
     }
-    .MainBtn{
+
+    .MainBtn {
         max-width: 300px;
         font-size: 14px;
-    
+
     }
-    .british-trophy-subscription-modal{
+
+    .british-trophy-subscription-modal {
         padding: 24px;
     }
-    .remodal-form h2{
+
+    .remodal-form h2 {
         font-size: 20px;
         text-align: start;
         margin: 0 0 24px;
     }
+
     .remodal-form .remodal-close {
         top: 24px;
         left: unset;
         right: 15px;
     }
-    .subscription-form .form-area>label{
+
+    .subscription-form .form-area>label {
         font-size: 16px;
     }
-    .remodal-form input[type="text"], .remodal-form input[type="email"], .remodal-form input[type="file"], .remodal-form input[type="tel"]{
+
+    .remodal-form input[type="text"],
+    .remodal-form input[type="email"],
+    .remodal-form input[type="file"],
+    .remodal-form input[type="tel"] {
         height: 56px;
         padding: 12px 16px;
 
     }
-    .subscription-form .btn{
+
+    .subscription-form .btn {
         height: 48px;
         width: 100%;
         font-size: 14px;
 
     }
-    .subscription-form .checkbox label{
+
+    .subscription-form .checkbox label {
         font-size: 16px;
     }
+
     .hidden-mobile,
-    .subscription-form .checkbox-container{
+    .subscription-form .checkbox-container {
         display: none;
     }
+
+    .hero-blogs .img-hero {
+        left: 30px;
+        top: 15px;
+        width: 200px;
+    }
+
+    .hero-blogs .title-hero {
+        margin-left: 6px;
+    }
+    .blogs .box-blog img{width: 100%;}.blogs .box-blog .content-blog h4 {
+        font-size: 20px; text-align: start;}
 }

@@ -12399,3 +12399,6 @@ margin-bottom: 90px;
     max-width: 923px;
     margin: auto;
 }
+.blogs .box-blog:nth-child(even){
+    flex-flow: row-reverse;
+}
