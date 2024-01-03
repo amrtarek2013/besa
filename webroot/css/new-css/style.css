@@ -12494,7 +12494,7 @@ form .btn {
     margin: 0;
 
 }
-.form-blog .form-area:last-child{
+.form-blog .grid-container  .form-area:last-child{
     grid-column: 3 / 1;
 
 }
