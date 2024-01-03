@@ -2469,7 +2469,7 @@ p.descrp {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    background: #F8F8F8;
+    background-color: #F8F8F8;
 }
 
 .container-formBox .form-area textarea {
@@ -7688,14 +7688,11 @@ input[type="search"]:focus {
 }
 
 .form-area select {
-    border-radius: 4px;
-    border: 1.2px solid #B4BEC8;
-    border: 1.2px solid var(--bs-green);
-    color: #878787;
-    font-size: 16px;
+    border-radius: 8px;
+    color: #90A4AE;
+    font-size: 20px;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.32px;
+    line-height: 130%;
 }
 
 .form-area textarea {
@@ -11158,7 +11155,7 @@ div.error-message {
 .form-area input[type="file"],
 .form-area input[type="tel"] {
     border-radius: 8px;
-    background: #F8F8F8;
+    background-color: #F8F8F8;
     color: #90A4AE;
     font-size: 20px;
     font-weight: 400;
@@ -12473,6 +12470,9 @@ form .btn {
     grid-template-columns: 1fr 1fr;
     grid-gap: 24px 32px;
 }
+.form-blog .container-formBox  {
+    padding: 24px 48px 48px;
+}
 .form-blog .container-formBox h4 {
     margin: 0;
     text-align: start;
@@ -12482,12 +12482,13 @@ form .btn {
     color: #FFF;
     font-size: 24px;
     font-weight: 400;
+    margin-bottom: 24px;
+
     line-height: 150%;
 }
 
 .form-blog .container-formBox p span{
     font-weight: 600;
-    margin-bottom: 24px;
 }
 
 .form-blog .form-area{
@@ -12499,5 +12500,5 @@ form .btn {
 
 }
 .form-blog .container-formBox button[type="submit"]{
-    margin-top: 24px;
+    margin: 24px 0;
 }
