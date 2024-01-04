@@ -7820,7 +7820,7 @@ input[type="search"]:focus {
 }
 
 .professional-development {
-    padding:  0;
+    padding:  200px 0 100px;
   
 }
 
@@ -12526,7 +12526,7 @@ form .btn {
 }
 .hero-B2B{
     margin-bottom: 0;
-    padding: 220px 0;
+    padding: 240px 0;
 }
 .special-b2b  .container-events{
     margin: 0 auto;
@@ -12534,16 +12534,15 @@ form .btn {
 
 
 .hero-B2B .title-hero{
+    font-size: 120px;
     top: -120px;
-    left: 40px;
+    left: 65px;
     text-align: start;
-    line-height: .7;
-
 }
 .hero-B2B .title-hero span{
     font-size: 102px;
 }
 .hero-B2B .img-hero {
-    left: 235px;
+    left: 330px;
     top: 75px;
 }
