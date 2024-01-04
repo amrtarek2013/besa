@@ -7779,10 +7779,7 @@ input[type="search"]:focus {
     right: -540px;
 }
 
-.title-header-blue {
-    background: var(--bs-light-blue);
-    padding: 33px 0;
-}
+
 
 .title-header-blue .containerb2b {
     -webkit-box-align: center;
@@ -7816,6 +7813,7 @@ input[type="search"]:focus {
     color: var(--text-color);
     text-align: center;
     font-size: 48px;
+    margin-bottom: 30px;
 }
 
 .animation-football {
@@ -7827,54 +7825,56 @@ input[type="search"]:focus {
 }
 
 .professional-development {
-    padding: 35px 0;
-    background: #2C3041;
+    padding:  0;
+  
 }
 
 .professional-development .title {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
 
 .professional-development p {
-    color: var(--bs-white);
+    color:  #546E7A;
     text-align: center;
-    font-size: 18px;
-    font-family: "Poppins";
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    margin-bottom: 40px;
-    padding: 0 40px;
+    line-height: 150%;
+    margin-bottom: 200px;
 
 }
 
 .professional-development .d-flex {
     grid-gap: 50px;
 }
-
-.professional-development .card {
-    border-radius: 40px;
-    background: -webkit-gradient(linear, left bottom, left top, color-stop(6.77%, rgba(0, 0, 0, 0.00)), to(var(--bs-black)));
-    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.00) 6.77%, var(--bs-black) 100%);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 6.77%, var(--bs-black) 100%);
-    padding: 35px 38px 70px;
+.professional-development .d-flex >div{
+    width: 50%;
 }
 
-.professional-development .card h4 {
-    color: #00B9BF;
-    font-size: 28px;
-    font-family: "Merriweather";
+.professional-development .text h3{
+    color: var(--text-color);
+    font-family: Poppins;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 900;
-    line-height: normal;
+    font-weight: 600;
+    line-height: 135%;
     margin-bottom: 15px;
-}
+    text-align: start;
 
-.professional-development .card p {
-    color: #E7E7E9;
-    text-align: left;
-    margin: 0;
-    padding: 0;
+}
+.container-development{
+    margin-bottom: 100px;
+}
+.container-development:last-child{
+    margin-bottom: 0;
+}
+.professional-development .text p {
+    color: #546E7A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    text-align: start;
 }
 
 
@@ -12523,4 +12523,32 @@ form .btn {
 .hero-contact .title-hero span {
     font-size: 102px;
 
+}
+
+ .special-b2b .double_img img {
+    border-radius: 16px;
+    border: none;
+}
+.hero-B2B{
+    margin-bottom: 0;
+    padding: 220px 0;
+}
+.special-b2b  .container-events{
+    margin: 0 auto;
+}
+
+
+.hero-B2B .title-hero{
+    top: -120px;
+    left: 40px;
+    text-align: start;
+    line-height: .7;
+
+}
+.hero-B2B .title-hero span{
+    font-size: 102px;
+}
+.hero-B2B .img-hero {
+    left: 235px;
+    top: 75px;
 }
