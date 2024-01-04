@@ -3787,7 +3787,8 @@ input[type="checkbox"] {
 .tournament .relative-img-border {
     position: absolute;
     bottom: -60px;
-    left: 125px;
+    left: 50%;
+    transform: translatex(-50%);
 
 }
 
@@ -7721,13 +7722,7 @@ input[type="search"]:focus {
 
 
 
-.servTrophy .container-icons .icon-box .img-icon {
-    margin: unset;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .servTrophy .container-icons {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
