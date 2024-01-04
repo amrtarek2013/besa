@@ -1469,7 +1469,9 @@
 
     .professional-development .d-flex {
         flex-flow: column;
-
+   
+        grid-gap: 24px;
+    
     }
 
     .professional-development .card,
@@ -2849,5 +2851,52 @@
     .blogs .grid-blogs-container {
 
         grid-gap: 150px;
+    }
+
+    .hero-B2B {
+        margin: 0;
+    }
+
+    .hero-B2B .img-hero {
+        left: 0;
+        top: 30px;
+        width: 220px;
+    }
+
+    .hero-B2B .title-hero span {
+        font-size: 32px;
+    }
+
+    .containerb2b p {
+        padding: 0;
+    }
+
+    .tournament {
+        padding: 100px 0 50px;
+        margin-bottom: 0;
+    }
+
+    .servTrophy {
+        padding: 50px 0;
+    }
+
+    .professional-development {
+        padding: 50px 0;
+    }
+
+    .professional-development p {
+        margin-bottom: 100px;
+    }
+
+    .container-developmen div {
+        width: 100%;
+    }
+
+    .professional-development .text h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .professional-development .d-flex:first-child{
+        flex-flow: column-reverse;
     }
 }
