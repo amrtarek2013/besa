@@ -1469,9 +1469,9 @@
 
     .professional-development .d-flex {
         flex-flow: column;
-   
+
         grid-gap: 24px;
-    
+
     }
 
     .professional-development .card,
@@ -2896,7 +2896,45 @@
         font-size: 24px;
         margin-bottom: 10px;
     }
-    .professional-development .d-flex:first-child{
+
+    .professional-development .d-flex:first-child {
         flex-flow: column-reverse;
+    }
+
+    .section-content-and-form .d-flex {
+        flex-flow: column;
+
+    }
+
+    .section-content-and-form .content,
+    .section-content-and-form .sideform {
+        width: 100%;
+    }
+    .section-content-and-form .sideform{margin-bottom: 50px;}
+    .bottom-hero-section .bold-descrp {
+        font-size: 16px;
+    }
+
+    .hero-counselors .title-hero span {
+        font-size: 30px;
+        font-weight: 500;
+        display: block;
+        text-align: end;
+    }
+
+    .hero-counselors .img-hero {
+        left: 0;
+        top: 0;
+        width: 230px;
+    }
+
+    .hero-counselors .col-md-6>.title-hero {
+        font-size: 32px;
+        line-height: 140%;
+        text-align: start;
+        top: -22px;
+        margin-left: 40px;
+        width: 170px;
+
     }
 }
