@@ -4,38 +4,58 @@ $(document).ready(function () {
   // open sidenave in mobile
   $(".navbar-mobile .toggle").on("click", function () {
     $(".sidenav").toggleClass("open");
+    $(".overlay").toggleClass("visible");
   });
   // colse sidenave in mobile
   $(".sidenav .colse").on("click", function () {
     $(".sidenav").toggleClass("open");
+    $(".overlay").toggleClass("visible");
   });
 
-  //
+  $(".toggle-search").on("click", function() {
+    $(".li-search").toggleClass("show");
+});
 
   // Add click event listener to each question
-  $('.faq-question').click(function(){
+  $(".faq-question").click(function () {
     // This toggles the faq-answer slide up/down
-    $(this).next('.faq-answer').slideToggle('slow');
+    $(this).next(".faq-answer").slideToggle("slow");
 
     // This changes the image from plus to minus and vice versa
-    var imgSrc = $(this).find('.faq-icon').attr('src');
-    if (imgSrc.includes('plus-icon')) {
-        $(this).find('.faq-icon').attr('src', imgSrc.replace('img/new-desgin/plus-icon.svg', 'img/new-desgin/minus-icon.svg'));
+    var imgSrc = $(this).find(".faq-icon").attr("src");
+    if (imgSrc.includes("plus-icon")) {
+      $(this)
+        .find(".faq-icon")
+        .attr(
+          "src",
+          imgSrc.replace(
+            "img/new-desgin/plus-icon.svg",
+            "img/new-desgin/minus-icon.svg"
+          )
+        );
     } else {
-        $(this).find('.faq-icon').attr('src', imgSrc.replace('img/new-desgin/minus-icon.svg', 'img/new-desgin/plus-icon.svg'));
+      $(this)
+        .find(".faq-icon")
+        .attr(
+          "src",
+          imgSrc.replace(
+            "img/new-desgin/minus-icon.svg",
+            "img/new-desgin/plus-icon.svg"
+          )
+        );
     }
-});
+  });
 
-$('.tab-button').click(function() {
-  var $this = $(this);
-  var $target = $($this.data('tab-target'));
-  
-  $('.tab-button').removeClass('active');
-  $('.tab-content').removeClass('active');
-  
-  $this.addClass('active');
-  $target.addClass('active');
-});
+  $(".tab-button").click(function () {
+    var $this = $(this);
+    var $target = $($this.data("tab-target"));
+
+    $(".tab-button").removeClass("active");
+    $(".tab-content").removeClass("active");
+
+    $this.addClass("active");
+    $target.addClass("active");
+  });
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
 
@@ -314,7 +334,6 @@ $('.tab-button').click(function() {
       "<img src='../img/new-desgin/prev-arrow.svg'>",
       "<img src='../img/new-desgin/next-arrow.svg'>",
     ],
-    
   });
   var owlSmallFlag = $(".owl-small-flag-logo");
   owlSmallFlag.owlCarousel({
@@ -367,8 +386,6 @@ $('.tab-button').click(function() {
       },
     },
   });
-
-
 
   var owlTopUniversities = $(".owl-topUni");
   owlTopUniversities.owlCarousel({

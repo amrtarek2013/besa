@@ -82,6 +82,7 @@
 </script>
 
 <body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
+<div class="overlay"></div>
 
     <?= $this->element('UserPopUp'); ?>
     <?php //= $header 

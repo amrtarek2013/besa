@@ -17,131 +17,7 @@ use Cake\Routing\Router;
         <div class="row">
             <div class="col-md-12">
                 <div class="gridContainer-navbar">
-                    <div class="logo">
-                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo" width=""></a>
-                    </div>
-                    <ul class="links">
-
-                        <li>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <i class="fa-solid fa-chevron-down"></i> </a>
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
-                                    </li>
-                                    <li <?= (strtolower($current_controller) == 'destinations') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations </a>
-                                    </li>
-                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pathwayprograms.index']) ?>">Pathway Programs </a>
-                                    </li>
-                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'universityplacements') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['universityplacements.index']) ?>">University Placement </a>
-                                    </li>
-                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'younglearners') ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['younglearners.index']) ?>">Young Learners </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events  <i class="fa-solid fa-chevron-down"></i></a>
-
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <?php
-                                    foreach ($eventsMenuList as $key => $eventValue) {
-                                    ?>
-                                        <li>
-                                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
-                                        </li>
-                                    <?php } ?>
-                                    <li>
-                                        <a href="<?= Router::url('/school-tour') ?>"><?= __('School Tour') ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.visitorsapplication']) ?>"><?= __('Fair Visitors') ?></a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li >
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About BESA <i class="fa-solid fa-chevron-down"></i> </a>
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
-                                    </li>
-                                    <li <?= strtolower($current_controller) == 'blogs' ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>">Blog</a>
-                                    </li>
-                                    <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>">Careers</a>
-                                    </li>
-
-                                    <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
-                                    </li>
-                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
-                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
-
-                        </li>
-                        
-
-                        
-                    </ul>
-
-                    <div class="buttons apply-now-btn-header">
-
-                        <div class="button li-search">
-                            <!-- <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn">Apply Now</a> -->
-
-                            <div class="search">
-                                <input type="search" name="search" class="searchInput" id="searchInput" placeholder="Search">
-                                <div class="search-list">
-                                    <ul class="search-list-result">
-                                        <li>
-                                            <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
-                                            <a href="#">search list</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php if (isset($_SESSION['Auth']['User'])) { ?>
-
-
-                            <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                            </a>
-
-                            <a href="/user" class="btn MainBtn">Profile</a>
-                        <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
-
-
-                            <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                            </a>
-
-                            <a href="/counselor/profile" class="btn MainBtn">Profile</a>
-                        <?php } else { ?>
-                            <a href="/user/login" class="btn btn-secondary login">Log in</a>
-                            <a href="/user/register" class="btn MainBtn">Apply Now</a>
-
-                        <?php } ?>
-
-
-                    </div>
-                    <div class="navbar-mobile">
+                <div class="navbar-mobile">
                         <div class="toggle">
                             <i class="fa-solid fa-bars fa-2x"></i>
                         </div>
@@ -149,9 +25,31 @@ use Cake\Routing\Router;
                             <div class="colse">
                                 <i class="fa-solid fa-xmark fa-2x"></i>
                             </div>
+                            <div class="buttons apply-now-btn-header">              
+                                <?php if (isset($_SESSION['Auth']['User'])) { ?>
+
+                                    <a href="/user/logout" class="btn SecondaryBtn logout">Logout
+                                        <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
+                                    </a>
+
+                                    <a href="/user" class="btn MainBtn">Profile</a>
+                                <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
+
+
+                                    <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
+                                        <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
+                                    </a>
+
+                                    <a href="/counselor/profile" class="btn MainBtn">Profile</a>
+                                <?php } else { ?>
+                                    <a href="/user/login" class="btn btn-secondary login">Log in</a>
+                                    <a href="/user/register" class="btn MainBtn">Sign Up </a>
+                                    
+                                <?php } ?>
+
+
+                                </div>
                             <ul class="">
-
-
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'main' ? 'class="active"' : '' ?>>
                                     <a href="/">Home</a>
                                 </li>
@@ -277,25 +175,139 @@ use Cake\Routing\Router;
                                 <?php } ?>
 
 
-                                <li class="buttons">
-                                    <?php if (isset($_SESSION['Auth']['User'])) { ?>
-
-
-                                        <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                            <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                                        </a>
-
-                                        <a href="/user" class="btn MainBtn">Profile</a>
-                                    <?php } else { ?>
-                                        <a href="/user/register" class="btn MainBtn">Apply Now</a>
-
-                                    <?php } ?>
-                                </li>
+                            
 
                             </ul>
                         </div>
 
                     </div>
+                    <div class="logo">
+                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.main']) ?>"><img src="<?= $g_configs['general']['file.main_logo'] ?>" alt="Logo" width=""></a>
+                    </div>
+                    <ul class="links">
+
+                        <li>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <i class="fa-solid fa-chevron-down"></i> </a>
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
+                                    </li>
+                                    <li <?= (strtolower($current_controller) == 'destinations') ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['countries.index']) ?>">Destinations </a>
+                                    </li>
+                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'pathwayprograms') ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pathwayprograms.index']) ?>">Pathway Programs </a>
+                                    </li>
+                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'universityplacements') ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['universityplacements.index']) ?>">University Placement </a>
+                                    </li>
+                                    <li <?= (strtolower($current_controller) == 'pages' && strtolower($current_action) != 'younglearners') ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['younglearners.index']) ?>">Young Learners </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events  <i class="fa-solid fa-chevron-down"></i></a>
+
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <?php
+                                    foreach ($eventsMenuList as $key => $eventValue) {
+                                    ?>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <li>
+                                        <a href="<?= Router::url('/school-tour') ?>"><?= __('School Tour') ?></a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.visitorsapplication']) ?>"><?= __('Fair Visitors') ?></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li >
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About BESA <i class="fa-solid fa-chevron-down"></i> </a>
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About us</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'blogs' ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>">Blog</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'careers' ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>">Careers</a>
+                                    </li>
+
+                                    <li <?= strtolower($current_controller) == 'services' && strtolower($current_action) == 'b2bservices' ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['services.b2bservices']) ?>">B2B Services</a>
+                                    </li>
+                                    <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'contactus' ? 'class="active"' : '' ?>>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">Contact Us</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
+
+                        </li>
+                        
+
+                        
+                    </ul>
+
+                    <div class="buttons apply-now-btn-header">
+
+                        <div class="button li-search">
+                            <!-- <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>" class="btn MainBtn">Apply Now</a> -->
+
+                            <div class="search">
+                                <input type="search" name="search" class="searchInput" id="searchInput" placeholder="Search">
+                                <div class="search-list">
+                                    <ul class="search-list-result">
+                                        <li>
+                                            <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
+                                            <a href="#">search list</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php if (isset($_SESSION['Auth']['User'])) { ?>
+
+
+                            <a href="/user/logout" class="btn SecondaryBtn logout">Logout
+                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
+                            </a>
+
+                            <a href="/user" class="btn MainBtn">Profile</a>
+                        <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
+
+
+                            <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
+                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
+                            </a>
+
+                            <a href="/counselor/profile" class="btn MainBtn">Profile</a>
+                        <?php } else { ?>
+                            <a href="/user/login" class="btn btn-secondary login">Log in</a>
+                            <a href="/user/register" class="btn MainBtn">Sign Up</a>
+                            <div class="toggle-search">
+                                        <img src="<?= WEBSITE_URL ?>img/search-icon.svg" alt="">
+                                    </div>
+                        <?php } ?>
+
+
+                    </div>
+                    
 
 
 
