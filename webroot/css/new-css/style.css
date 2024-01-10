@@ -6494,7 +6494,7 @@ input.search {
 
 input[type="search"] {
     height: 48px;
-    width: 250px;
+    width: 280px;
     background: #ECEFF1;
     border: none;
     border-radius: 16px;
@@ -6523,7 +6523,7 @@ input[type="search"]:focus {
     grid-gap: 15px;
     align-items: center;
     justify-content: flex-end;
-    width: 45%;
+    width: 50%;
 }
 
 .navbar .buttons .btn {
