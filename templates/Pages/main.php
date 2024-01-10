@@ -94,7 +94,7 @@
                                             <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
                                             </h4>
                                             <p class="description">
-                                                <?= substr($blog['short_text'], 0, 200) ?>
+                                                <?= substr($blog['short_text'], 0, 200).'...' ?>
                                             </p>
 
                                         </div>
