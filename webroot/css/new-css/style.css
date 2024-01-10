@@ -2579,13 +2579,14 @@ input[type="checkbox"] {
 .footer .gridContainer-footer {
     display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
-    grid-gap: 30px;
-    grid-template-columns: 30% 10% 16% 20%;
-    grid-gap: 8%;
-    grid-template-columns: 25% 10% 20% 15%;
-    grid-gap: 10%;
-    padding: 0px 105px;
+    grid-template-columns: 20% 60%;
+    grid-gap: 220px;
+}
+
+.footer .gridContainer-footer .container-lists .tow-col,
+.footer .gridContainer-footer .container-lists {
+    display: flex;
+    grid-gap: 140px
 }
 
 .footer .gridContainer-footer .logo {
@@ -2614,12 +2615,8 @@ input[type="checkbox"] {
     margin: 0;
 }
 
-.footer .gridContainer-footer .list-des {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 40px 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
+.footer .gridContainer-footer .list2 {
+    width: max-content;
 }
 
 .footer .gridContainer-footer .titleFootar {
@@ -11142,6 +11139,7 @@ div.error-message {
     grid-template-columns: 1fr 1fr;
 }
 
+.container-formBox input[type="submit"],
 .container-formBox button[type="submit"] {
     border-radius: 12px;
     border: 2px solid #FFF;
@@ -12567,7 +12565,7 @@ form .btn {
 
 .hero-counselors {
     margin-bottom: 0;
-    padding: 220px 0;
+    padding: 240px 0;
 }
 
 .hero-counselors .title-hero {
@@ -12580,7 +12578,7 @@ form .btn {
 
 
 .hero-counselors .img-hero {
-    left: 210px;
+    left: 290px;
     top: -80px;
 }
 
@@ -12634,4 +12632,45 @@ form .btn {
     font-weight: 400;
     line-height: 150%;
     margin-bottom: 20px;
+}
+
+.hero-section2 {
+    background: linear-gradient(145deg, #007BC4 9.23%, #0B4C97 99.04%);
+    height: 190px;
+    margin-bottom: 230px;
+
+}
+
+.hero-section2 .text-hero {
+    position: relative;
+    z-index: 2;
+    margin-top: 180px;
+}
+
+.hero-section2 .title-hero {
+
+    color: var(--text-color);
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    margin-bottom: 20px;
+
+}
+
+.hero-section2 .img-hero {
+    position: relative;
+    z-index: 2;
+}
+
+.app-support .container-formBox .grid-container {
+    grid-template-columns: 1fr 1fr;
+}
+
+.container-formBox input[type="submit"] {
+    margin-top: 20px;
+}
+
+.app-support {
+    padding: 80px 0;
 }

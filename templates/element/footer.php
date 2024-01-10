@@ -10,7 +10,7 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-footer">
                     <div class="logo">
-                        <img loading="lazy" src="<?= $g_configs['general']['file.main_logo'] ?>" alt="main_logo" width="165">
+                        <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
                                 <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/la_facebook.svg" width="" alt="facebook">
@@ -31,56 +31,59 @@ use Cake\Routing\Router;
                     </div>
 
 
-                    <div class="list1">
-                        <h4 class="titleFootar">RESOURCES</h4>
-                        <div class="list-des">
-                            <ul>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>"> Blogs</a>
-                                </li>
+                    <div class="container-lists">
+                        <div class="list1">
+                            <h4 class="titleFootar">RESOURCES</h4>
+                            <div class="list-des">
+                                <ul>
+                                    <li>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['blogs.index']) ?>"> Blogs</a>
+                                    </li>
 
-                                <li>
-                                    <a href="#newsletter"> Newsletter</a>
-                                </li>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.appsupport']) ?>"> App Support</a>
-                                </li>
-                            </ul>
+                                    <li>
+                                        <a href="#newsletter"> Newsletter</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= Router::url('/' . $g_dynamic_routes['pages.appsupport']) ?>"> App Support</a>
+                                    </li>
+                                </ul>
 
+                            </div>
                         </div>
-                    </div>
+                        <div class="tow-col">
+                            <div class="list2">
+                                <h4 class="titleFootar">CONNECT WITH BESA</h4>
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.bookappointment']) ?>"><?= __('Book an appointment') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>"><?= __('Contact us') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= Router::url('/counselor') ?>"><?= __('School counselors portal') ?></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                    <div class="list2">
-                        <h4 class="titleFootar">CONNECT WITH BESA</h4>
-                        <div class="list">
-                            <ul>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.bookappointment']) ?>"><?= __('Book an appointment') ?></a>
-                                </li>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>"><?= __('Contact us') ?></a>
-                                </li>
-                                <li>
-                                    <a href="<?= Router::url('/counselor') ?>"><?= __('School counselors portal') ?></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="list2">
-                        <h4 class="titleFootar">ABOUT</h4>
-                        <div class="list">
-                            <ul>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>"><?= __('About Us') ?></a>
-                                </li>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnershipwithbesa']) ?>"><?= __('Partnerships') ?></a>
-                                </li>
-                                <li>
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>"><?= __('Careers') ?></a>
-                                </li>
-                            </ul>
+                            <div class="list3">
+                                <h4 class="titleFootar">ABOUT</h4>
+                                <div class="list">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>"><?= __('About Us') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnershipwithbesa']) ?>"><?= __('Partnerships') ?></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= Router::url('/' . $g_dynamic_routes['careers.index']) ?>"><?= __('Careers') ?></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

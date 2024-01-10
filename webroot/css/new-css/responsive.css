@@ -538,14 +538,13 @@
     }
 
     .gridContainer-footer>div {
-        width: 60%;
-        text-align: center;
+        text-align: start;
     }
 
     .footer .gridContainer-footer .titleFootar {
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: start;
     }
 
     .copyright {}
@@ -2572,7 +2571,7 @@
     }
 
     .hero-education-fair .title-hero {
-        width: 200px;
+        width: 150px;
         left: 125px;
 
     }
@@ -2910,7 +2909,11 @@
     .section-content-and-form .sideform {
         width: 100%;
     }
-    .section-content-and-form .sideform{margin-bottom: 50px;}
+
+    .section-content-and-form .sideform {
+        margin-bottom: 50px;
+    }
+
     .bottom-hero-section .bold-descrp {
         font-size: 16px;
     }
@@ -2936,5 +2939,110 @@
         margin-left: 40px;
         width: 170px;
 
+    }
+
+    .hero-section2 {
+        height: 75px;
+        margin-bottom: 130px;
+
+    }
+
+    .hero-section2 .text-hero {
+        margin-top: 0;
+
+    }
+
+    .hero-section2 .img-hero {
+
+        width: 130px;
+    }
+
+    .hero-section2 .title-hero {
+        font-size: 40px;
+
+    }
+
+    .app-support .container-formBox .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-formBox input[type="submit"] {
+        font-size: 14px;
+        height: 50px;
+    }
+
+    .form-area textarea,
+    .form-area select,
+    .form-area input[type="text"],
+    .form-area input[type="email"],
+    .form-area input[type="file"],
+    .form-area input[type="tel"] {
+        height: 56px;
+    }
+
+    .footer .gridContainer-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer .logo,
+    .footer .list1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+        align-items: start;
+
+    }
+
+    .footer .logo {
+        align-items: center;
+    }
+
+    .footer .list2 {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+
+    }
+
+    .footer .list3 {
+        width: 35%;
+    }
+
+    /* Ensure the images inside the .logo div take full width */
+    .footer .logo img {
+        width: 100%;
+        max-width: 200px;
+        /* adjust as needed */
+    }
+
+    .footer .icons a {
+        display: inline-block;
+        margin-right: 10px;
+        /* adjust as needed */
+    }
+
+    .footer .gridContainer-footer .container-lists {
+        grid-gap: 20px 60px;
+        flex-flow: column-reverse;
+        width: 100%;
+
+    }
+    .footer .gridContainer-footer .container-lists .tow-col{
+        grid-gap: 60px;
+
+    }
+    .footer .list3 {
+        width: 30%;
+    }
+    .footer{
+        background: url(../img/new-desgin/Footer-mobile.png);
+        padding: 48px 0;
+
+        
     }
 }
