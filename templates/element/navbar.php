@@ -23,7 +23,7 @@ use Cake\Routing\Router;
                     <ul class="links">
 
                         <li>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <img src="<?= WEBSITE_URL ?>img/icon/arrow-down-nav.png" alt=""> </a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <i class="fa-solid fa-chevron-down"></i> </a>
                             <div class="menu-dropdown">
                                 <ul>
                                     <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
@@ -45,7 +45,7 @@ use Cake\Routing\Router;
                             </div>
                         </li>
                         <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events  <img src="<?= WEBSITE_URL ?>img/icon/arrow-down-nav.png" alt=""></a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events  <i class="fa-solid fa-chevron-down"></i></a>
 
                             <div class="menu-dropdown">
                                 <ul>
@@ -67,7 +67,7 @@ use Cake\Routing\Router;
                             </div>
                         </li>
                         <li >
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About BESA <img src="<?= WEBSITE_URL ?>img/icon/arrow-down-nav.png" alt=""> </a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About BESA <i class="fa-solid fa-chevron-down"></i> </a>
                             <div class="menu-dropdown">
                                 <ul>
                                     <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'view' ? 'class="active"' : '' ?>>
@@ -134,6 +134,7 @@ use Cake\Routing\Router;
 
                             <a href="/counselor/profile" class="btn MainBtn">Profile</a>
                         <?php } else { ?>
+                            <a href="/user/login" class="btn btn-secondary login">Log in</a>
                             <a href="/user/register" class="btn MainBtn">Apply Now</a>
 
                         <?php } ?>

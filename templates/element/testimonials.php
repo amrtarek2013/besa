@@ -43,9 +43,9 @@
                                                 </div>
                                             </div>
                                             <p class="description">
-                                                <?= $testimonial['text'] ?>
-                                                <p></p>
+                                                <?= substr($testimonial['text'], 0, 382) ?>
                                             </p>
+
                                         </div>
                                     </li>
                                     <?php 

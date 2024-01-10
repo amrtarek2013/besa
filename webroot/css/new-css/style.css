@@ -688,41 +688,30 @@ textarea {
 
 }
 
-.gridContainer-navbar {
+.navbar .gridContainer-navbar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    grid-gap: 30px;
-    -webkit-box-pack: space-between;
-    -ms-flex-pack: space-between;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    grid-gap: 20px;
+    justify-content: flex-start;
     align-items: center;
-    padding: 30px 0 33px;
+    padding: 24px 0;
 }
 
-.gridContainer-navbar .logo img {
-    /* max-width: 160px; */
-    max-width: 250px;
+.navbar .gridContainer-navbar .logo img {
+    max-width: 140px;
 }
 
 .navbar .links {
     display: inherit;
 }
 
-.navbar .links li {
-    font-family: "Poppins";
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-    letter-spacing: 0.20000000298023224px;
-    padding: 20px 10px;
+.navbar .links>li {
+    padding: 12px;
+
 }
 
-.navbar .links li:last-child {
-    padding-right: 0;
-}
+
 
 
 .navbar .links li a {
@@ -735,11 +724,14 @@ textarea {
     height: 100%;
     grid-gap: 5px;
     color: #263238;
+    font-size: 16px;
+    font-style: normal;
     font-weight: 500;
+    line-height: 130%;
 }
 
-.navbar .links li.active a {
-    color: var(--bs-Gradient);
+.navbar .links>li.active>a {
+    color: var(--text-color);
 }
 
 .navbar .links li.buttons a {
@@ -779,15 +771,14 @@ textarea {
     -webkit-box-shadow: 0px 10px 25px 0px rgb(0 0 0 / 10%);
     box-shadow: 0px 10px 25px 0px rgb(0 0 0 / 10%);
     padding: 40px 0;
-    /* z-index: 2; */
     border-radius: 30px 30px 30px 30px;
     display: none;
     z-index: 10000;
 }
 
-.navbar .links li a i {
-    font-size: 11px;
-    margin-left: 5px;
+.navbar .links>li>a i {
+    font-size: 15px;
+    color: #546E7A;
 }
 
 .navbar .links li .sub-menu ul li {
@@ -807,13 +798,10 @@ textarea {
     margin-bottom: 15px;
 }
 
-.navbar .links li .sub-menu ul li:hover a {
-    color: #5D86FF;
-}
+
 
 .sub-menu ul li i {
     margin-right: 15px;
-    color: #5D86FF;
     font-size: 20px;
 }
 
@@ -830,13 +818,10 @@ textarea {
     align-items: center;
 }
 
-.sub-menu .box-links h4:hover {
-    color: #5D86FF;
-}
+.sub-menu .box-links h4:hover {}
 
 .sub-menu .box-links h4 svg {
     margin-right: 8px;
-    color: #5D86FF;
     font-size: 25px;
 }
 
@@ -960,20 +945,7 @@ textarea {
     margin-bottom: 10px;
 }
 
-/* .navbar .sidenav ul li a {
-    color: var(--bs-Gradient);
-    font-size: 20px;
-    font-family: "Poppins";
-    font-weight: 600;
-} */
 
-/* .navbar .sidenav ul li:hover {
-    background: var(--bs-Gradient);
-}
-
-.navbar .sidenav ul li:hover a {
-    color: var(--bs-white);
-} */
 
 .navbar .colse {
     text-align: right;
@@ -1613,7 +1585,7 @@ textarea {
     font-size: 20px;
     color: #455A64;
     font-weight: 500;
-
+    margin-bottom: 10px;
 }
 
 .carousel-testimonials .description {
@@ -5182,12 +5154,13 @@ input.search {
     padding: 100px 0;
 }
 
-.why_besa2 h2 {
+.why_besa2 h2.title {
     font-size: 48px;
     font-family: 'Poppins';
     margin: 0;
     margin-bottom: 10px;
     text-align: center;
+    margin-bottom: 80px;
 }
 
 .container-icons {
@@ -5225,7 +5198,7 @@ input.search {
     -ms-flex-pack: justify;
     justify-content: space-between;
     border: none !important;
-    flex-flow: column;
+    flex-flow: column-reverse;
 
 }
 
@@ -5258,6 +5231,15 @@ input.search {
     border: none !important;
 }
 
+.why_besa2 .container-icons {
+    grid-gap: 65px;
+    margin-bottom: 50px;
+}
+
+.why_besa2 .btn {
+    font-size: 14px;
+}
+
 /* End why besa 2*/
 
 /*Start choose place*/
@@ -5284,23 +5266,11 @@ input.search {
     color: #66D8FF;
 }
 
-.choose-place .btn-aqua {
-    background: #66D8FF;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
+.choose-place .btn {
+    margin: auto;
+    max-width: 300px;
     font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: var(--bs-white);
-    padding: 10px 14px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    height: 62px;
-    margin-top: 35px;
+    height: 56px;
 }
 
 /*End choose place*/
@@ -6524,7 +6494,7 @@ input.search {
 
 input[type="search"] {
     height: 48px;
-    width: 320px;
+    width: 250px;
     background: #ECEFF1;
     border: none;
     border-radius: 16px;
@@ -6537,7 +6507,7 @@ input[type="search"] {
     padding: 10px 16px;
     background-image: url(../img/icon/search-gray.svg);
     background-repeat: no-repeat;
-    background-position: 97% center;
+    background-position: 95% center;
 }
 
 input[type="search"]:focus {
@@ -6550,10 +6520,17 @@ input[type="search"]:focus {
 
 .apply-now-btn-header {
     display: flex;
-    grid-gap: 20px;
+    grid-gap: 15px;
     align-items: center;
-    justify-content: space-between;
-    width: 49%;
+    justify-content: flex-end;
+    width: 45%;
+}
+
+.navbar .buttons .btn {
+    padding: 15px 20px;
+    height: 45px;
+    width: 125px;
+
 }
 
 .apply-now-btn-header .SecondaryBtn {
@@ -6583,35 +6560,43 @@ input[type="search"]:focus {
 
     display: none;
     position: absolute;
-    background: rgba(231, 231, 233, 1);
-    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
     min-width: 121px;
     z-index: 99;
-    top: 75px;
+    top: 45px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+    padding: 16px;
 }
 
 .menu-dropdown li {
-    padding: 5px 20px 5px 10px !important;
+    padding: 0 !important;
     width: 100%;
 
 }
 
 .menu-dropdown li a {
-    color: rgba(118, 123, 146, 1) !important;
-    font-size: 13.5px !important;
-    border-bottom: 1px solid rgba(197, 197, 197, 1);
+    color: #263238;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
     width: 100%;
-    padding: 5px 0;
+    padding: 12px 16px;
+    text-wrap: nowrap;
 }
 
-.menu-dropdown li:last-child a {
-    border: none;
+.menu-dropdown li:hover a {
+    border-radius: 4px;
+    background: #ECEFF1;
+    color: #263238;
+
 }
+
 
 .navbar .links li {
     position: relative;
@@ -6621,9 +6606,8 @@ input[type="search"]:focus {
     display: block;
 }
 
-.navbar .links li:hover a,
-
-.navbar .links li:hover .toggle i {
+.navbar .links>li:hover>a,
+.navbar .links>li:hover i {
     color: var(--text-color);
 }
 
@@ -10034,12 +10018,12 @@ div.error-message {
 /* End Home Assessment*/
 
 .choose-place-2 {
-    background-image: url(/img/new-desgin/background-choose-place.png);
+    background-image: url('../img/new-desgin/backgroud-choose.png');
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 52px 0;
+    padding: 100px 0;
     position: relative;
-    min-height: 477px;
+    min-height: 615px;
     margin-bottom: 400px;
 }
 
@@ -10096,14 +10080,14 @@ div.error-message {
     color: #546E7A;
     text-align: center;
     font-family: "Poppins";
-    font-size: 14px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%
 }
 
 .home-events .top-events {
-    background-image: url(/img/new-desgin/background-choose-place.png);
+    background-image: url('../img/new-desgin/background-events.png');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 86px 0;
@@ -10260,20 +10244,26 @@ div.error-message {
 
 .owl-blogs .carousel-wrap {
     width: 485px;
-    height: 545px;
     margin: 0 auto;
     position: relative;
 }
 
+.owl-blogs {
+    margin: 210px 0;
+}
+
+.carousel-blogs {
+    display: flex;
+    align-items: center;
+}
+
 .owl-blogs .carousel-wrap .carousel>li {
-    width: 426px;
-    height: 527.789px;
+    width: 320px;
+    height: 345px;
     padding: 24px;
     border-radius: 34.421px;
     border: 5px solid transparent;
     background: #F8F8F8;
-    box-shadow: 0px 4px 30px 0px rgba(0, 109, 182, 0.40);
-    padding-bottom: 10vw;
     display: inline-block;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -10288,11 +10278,36 @@ div.error-message {
     margin-left: 2em !important;
     z-index: 3000;
     border: 5px solid var(--text-color) !important;
+    box-shadow: 0px 4px 30px 0px rgba(0, 109, 182, 0.40);
+    height: 530px !important;
+    width: 430px !important;
+}
+
+.carousel-blogs .title {
+    font-size: 22px;
+    text-align: left;
+    font-weight: 600;
+
+}
+
+.owl-blogs {
+    margin: 270px 0;
+}
+
+.carousel-blogs {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-blogs .description {
+    font-size: 14px;
+    font-weight: 400;
 
 }
 
 .owl-blogs .main-pos .title {
     font-size: 32px;
+    font-weight: 600;
 
 }
 
@@ -10304,7 +10319,7 @@ div.error-message {
 .owl-blogs .left-pos {
     background: #ccc;
     opacity: 1;
-    margin-left: -25em !important;
+    margin-left: -17em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);
     -moz-transform: scale(.75);
@@ -10324,7 +10339,7 @@ div.error-message {
 
 .owl-blogs .right-pos {
     opacity: 1;
-    margin-left: 27em !important;
+    margin-left: 28em !important;
     z-index: 1000;
     -webkit-transform: scale(.75);
     -moz-transform: scale(.75);
@@ -10357,11 +10372,11 @@ div.error-message {
 }
 
 .owl-blogs .slider #prev {
-    left: -420px;
+    left: -320px;
 }
 
 .owl-blogs .slider #next {
-    right: -420px;
+    right: -330px;
 }
 
 @media (max-width: 480px) {
@@ -12673,4 +12688,40 @@ form .btn {
 
 .app-support {
     padding: 80px 0;
+}
+
+.carousel-testimonials {
+    display: flex;
+    align-items: center;
+}
+.testimonials .owl-blogs .carousel-wrap .carousel>li{
+    width: 350px;
+    height: 455px;
+    overflow: hidden;
+
+}
+.testimonials .owl-blogs .main-pos{
+    width: 380px !important;
+    margin-left: 4.5em !important;
+
+} 
+
+.contact-us-home{
+    padding: 200px 0;
+}
+
+.contact-us-home .title-form{
+    color:#546E7A;
+text-align: center;
+font-size: 16px;
+font-weight: 400;
+line-height: 150%;
+}
+
+.contact-us-home  .form-area{
+    margin-bottom: 24px;
+}
+
+.form-area textarea{
+    height: 260px;
 }
