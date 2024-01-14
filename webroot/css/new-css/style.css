@@ -5890,22 +5890,27 @@ input.search {
     text-align: left;
 
 }
-#step2  .title-small{
+
+#step2 .title-small {
     color: #263238;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%; 
+    line-height: 150%;
 }
-.search-step{margin: 32px 0;}
-.search-step input[type="search"]{
+
+.search-step {
+    margin: 32px 0;
+}
+
+.search-step input[type="search"] {
     width: 100%;
     border-radius: 16px;
-    background-color:  #ECEFF1;
+    background-color: #ECEFF1;
     background-image: url(../img/icon/search-gray.svg);
     background-repeat: no-repeat;
     background-position: 95% center;
-    color:  #78909C;
+    color: #78909C;
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
@@ -5913,6 +5918,7 @@ input.search {
     padding: 10px 16px;
 
 }
+
 .steps-en .timeline {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5988,13 +5994,13 @@ input.search {
 }
 
 .steps-en .form-area select {
-    background-color: var(--bs-white);
-    border-radius: 6px;
-    max-width: 350px;
+    border-radius: 8px;
+    background: var(--Netural00-30, #F8F8F8);
+    width: 100%;
     -moz-appearance: none;
-    /* Firefox */
     -webkit-appearance: none;
-    /* Safari and Chrome */
+    height: 56px;
+    padding: 16px;
     appearance: none;
     background-image: url("../img/icon/arrow-select.svg");
     background-repeat: no-repeat;
@@ -12789,6 +12795,7 @@ form .btn {
     padding: 40px 150px;
 
 }
+
 .steps-en #prevBtn,
 .back-link {
     display: flex !important;
@@ -12803,10 +12810,12 @@ form .btn {
     width: max-content;
 
 }
-.steps-en #prevBtn:hover{
+
+.steps-en #prevBtn:hover {
     width: max-content;
     background: unset;
 }
+
 .title-step {
     color: var(--text-color);
     font-size: 36px;
@@ -12912,13 +12921,14 @@ form .btn {
 }
 
 
-.subjects-container > h4 {
+.subjects-container>h4 {
     color: #818181;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%; 
+    line-height: 150%;
 }
+
 .subjects-container .grid-subjects {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12976,6 +12986,9 @@ form .btn {
     font-size: 20px;
     font-weight: 400;
     line-height: 130%;
+    display: block;
+    text-align: left;
+
 }
 
 .sign-up {
@@ -12990,4 +13003,14 @@ form .btn {
     margin: 160px auto 0;
     position: relative;
     z-index: 2;
+}
+
+.step .grid-2col{
+    grid-gap:32px;
+}
+
+.step  select.blue-border{
+    border-radius: 18px;
+    border: 2px solid #164699;
+    background: #FFF;
 }

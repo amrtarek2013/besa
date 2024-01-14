@@ -101,7 +101,7 @@
                                     <?php if (!empty($subjectAreas)) { ?>
                                     <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
                                         <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
-                                            <h4><?= $subjectArea ?></h4>
+                                            <?= $subjectArea ?>
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
@@ -153,7 +153,36 @@
                     <div id="step3" class="step">
                         <!-- Step 3 content here -->
                         <div class="common-services services-2 services-4">
-                            <h2 class="title">WHERE DO YOU WANT TO STUDY?</h2>
+                            <h2 class="title">Which countries do you want <br> to study in?</h2>
+                            <div class="selectors-container">
+                            <div class="form-area">
+                            <label for="">Option 1</label>
+                            <select name="" id="">
+                                <?php foreach ($countriesList as $country_key => $country_value) { ?>
+                                    <option value="<?= $country_value ?>"><?= $country_value ?></option>
+                                <?php } ?>
+                            </select>
+                            </div>
+                            <div class="form-area">
+                            <label for="">Option 2</label>
+                            <select name="" id="">
+                                <option value="Option">Option 1</option>
+                            </select>
+                            </div>
+                            <div class="form-area">
+                            <label for="">Option 3</label>
+                            <select name="" id="">
+                                <option value="Option">Option 1</option>
+
+                            </select>
+                            </div>
+                            <div class="form-area">
+                            <label for="">Option 4</label>
+                            <select name="" id="">
+                                <option value="Option">Option 1</option>
+                            </select>
+                            </div>
+                        </div>
                             <div class="grid-contaienr contaienr-checkbox">
                                 <?php foreach ($countriesList as $country_key => $country_value) { ?>
                                     <div class="checkbox-green">
@@ -177,7 +206,15 @@
 
                     <div id="step4" class="step">
                         <!-- Step 4 content here -->
-                        <h2 class="title">WHAT’S YOUR BUDGET?</h2>
+                        <h2 class="title">Budget?</h2>
+                        <div class="selectors-container">
+                            <div class="form-area">
+                                <label for="">Budget </label>
+                                <select name="" id="">
+                                    <option value="Option">5000 - 10,000 $</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="range-wrapper">
                             <div class="output-range">
                                 <span id="slider-value">$1000 </span>
@@ -244,6 +281,24 @@
                         </div>
 
                     </div>
+
+                    <div id="step5" class="step">
+                        <h2 class="title">Which year do you want <br>to study abroad ?</h2>
+                        <p class="title-small">Select your preferred year.</p>
+                        <div class="grid-2col">
+                            <div class="form-area ">
+                                <select name="" id="" class="border-blue">
+                                    <option value="Option">2022</option>
+                                </select>
+                            </div>
+                            <div class="form-area">
+                                <select name="" id=""  class="border-blue">
+                                    <option value="Option">November</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
                     <!-- Buttons to navigate between steps -->
                     <div id="buttons">
                         <button id="prevBtn" class="back-link"><img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt="">Back</button>
@@ -252,6 +307,8 @@
                 </div>
                 <div class="timeline">
                     <div class="timeline-item active">
+                    </div>
+                    <div class="timeline-item">
                     </div>
                     <div class="timeline-item">
                     </div>
