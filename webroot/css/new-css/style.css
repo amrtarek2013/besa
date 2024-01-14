@@ -12702,10 +12702,16 @@ form .btn {
 
 .testimonials .owl-blogs .main-pos {
     width: 380px !important;
-    margin-left: 4.5em !important;
+    margin-left: 4em !important;
 
 }
+.testimonials .owl-blogs .right-pos{
+    margin-left: 27em !important;
 
+}
+.testimonials  .owl-blogs .slider #next {
+    right: -340px;
+}
 .contact-us-home {
     padding: 200px 0;
 }
