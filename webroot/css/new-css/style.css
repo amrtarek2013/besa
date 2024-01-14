@@ -951,6 +951,7 @@ textarea {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+
     z-index: 2;
     text-align: center;
     visibility: hidden;
@@ -12771,9 +12772,19 @@ form .btn {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    background-image: url('../img/new-desgin/background-signup.png');
+    background-size: cover;
+    background-position: center;
     z-index: 1;
     text-align: center;
     visibility: visible;
+
+}
+
+.overlay-img .logo {
+    width: max-content;
+    padding: 40px 150px;
+
 }
 
 .back-link {
@@ -12874,6 +12885,7 @@ form .btn {
 .btn-agree-step {
     height: 64px !important;
 }
+
 .third-step .title-step,
 .second-step .title-step {
     font-size: 32px;
@@ -12888,51 +12900,94 @@ form .btn {
     margin-bottom: 32px;
 }
 
-.form-step .search input[type="search"]{
+.form-step .search input[type="search"] {
     width: 100%;
 
     padding: 10px 16px;
 
 }
 
-.form-step .search input[type="search"]:focus{
-    background-image:none
+.form-step .search input[type="search"]:focus {
+    background-image: none
 }
 
 
-.subjects-container h4{
+.subjects-container h4 {
     color: #818181;
     font-size: 22px;
     font-weight: 500;
-    line-height: 150%; 
-  }
-  .subjects-container  .grid-subjects{
+    line-height: 150%;
+}
+
+.subjects-container .grid-subjects {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 32px 0;
     grid-gap: 32px;
     place-items: stretch;
-  }
+}
 
-  .subjects-container  .grid-subjects .subject {
+.subjects-container .grid-subjects .subject {
     padding: 10px 20px;
     border: none;
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);    
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     text-align: center;
     color: #6F6F6F;
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
-  }
-  .subjects-container  .grid-subjects .subject.active,
-  .subjects-container  .grid-subjects .subject:hover {
+}
+
+.subjects-container .grid-subjects .subject.active,
+.subjects-container .grid-subjects .subject:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background: var(--Gradient01, linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%));
     color: #fff;
-  }
-  .third-step .subjects-container h4{
+}
+
+.third-step .subjects-container h4 {
     font-size: 20px;
-  }
+}
+
+.form-step select {
+    height: 56px;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+    padding: 16px;
+    color: #90A4AE;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%
+}
+
+.selectors-container {
+    display: flex;
+    flex-flow: column;
+    grid-gap: 32px;
+    padding: 12px 0 0;
+
+}
+
+.selectors-container label {
+    color: #263238;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.sign-up {
+    border-radius: 16px;
+    background: #fff;
+    display: flex;
+    width: 940px;
+    padding: 48px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: 160px auto 0;
+    position: relative;
+    z-index: 2;
+}

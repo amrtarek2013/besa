@@ -43,6 +43,11 @@ use Cake\Routing\Router;
                                     <a href="/counselor/profile" class="btn MainBtn">Profile</a>
                                 <?php } else { ?>
                                     <a href="/user/login" class="btn btn-secondary login">Log in</a>
+                                    <!-- Trigger Button -->
+                                    <a href="#loginModal" class="btn btn-secondary login">Log in</a>
+
+
+
                                     <a href="/user/register" class="btn MainBtn">Sign Up </a>
                                     
                                 <?php } ?>
