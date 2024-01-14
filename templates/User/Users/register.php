@@ -10,22 +10,123 @@
     position: absolute;
   }
 </style>
+
+<div class="overlay-img">
+
+</div>
+<!-- Multi Step Form -->
+<?php $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
+
+<?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
+  <div id="multiStepForm">
+    <!-- Step 1 -->
+    <div class="form-step">
+      <a href="#" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
+      <h4 class="title-step">Welcome to BESA</h4>
+      <h5 class="title-small">Finish signing up</h5>
+      <div class="grid-container">
+          <?= $this->Form->control('first_name', [
+              'placeholder' => 'Name',
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+            ]) 
+          ?>
+
+          <?= $this->Form->control('last_name', [
+              'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) 
+          ?>
+          <?= $this->Form->control('country_id', [
+                'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
+                'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+              ]) 
+          ?>
+          <?= $this->Form->control('email', [
+                'type' => 'email',
+                'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+              ]) 
+          ?>
+          <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+          <?= $this->Form->control('current_status', [
+              'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) 
+          ?>
+          <?= $this->Form->control('password', [
+              'type' => 'password',
+              'placeholder' => 'Password',
+              'label' => 'Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+              ]) 
+          ?>
+          <?= $this->Form->control('passwd', [
+              'type' => 'password',
+              'placeholder' => 'Confirm Password',
+              'label' => 'Confirm Password*',
+              'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+             ]) 
+
+          ?>
+          
+          
+      </div>
+      <div class="container-checkboxes">
+            <div class="checkboxes">
+              <div class="terms-conditions">
+                <input type="checkbox" name="terms" id="terms" required="required">
+                <label for="">I agree to <a href="#">terms & conditions</a> </label>
+              </div>
+              <div>
+                <input type="checkbox" name="is_subscribed" id="is_subscribed">
+                <label for="">Tick box to stay updated through BESA’s newsletter</label>
+              </div>
+            </div>
+      </div>
+      <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step"> Agree and continue</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-step" style="display: none">
+      <button type="button" onclick="prevStep()" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back</button>
+
+      <select id="subject">
+        <option value="business">Business</option>
+        <option value="ai">Artificial Intelligence</option>
+        <option value="cs">Computer Science</option>
+        <!-- Add more options as needed -->
+      </select>
+      <!-- Add more inputs/selects as needed -->
+      <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
+    </div>
+
+    <!-- Additional steps as needed -->
+
+    <!-- Final Step -->
+    <div class="form-step" style="display: none">
+      <p>You have reached the final step.</p>
+      <button type="button" onclick="prevStep()">Back</button>
+      <button type="submit">Submit</button>
+    </div>
+    <!-- Dots Navigation -->
+    <div class="dots-navigation">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <!-- Add more dots as needed -->
+    </div>
+  </div>
+<?= $this->Form->end() ?>
+
+
+
 <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="background-banner-color">
-          <img src="<?= WEBSITE_URL ?>img/hero-bg3.png" alt="" style="z-index: 2;" width="">
-          <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="relative-box-about ">
-          <h1 class="relative-text">Create</h1>
-          <h2 class="title text-left">Create an account</h2>
-        </div>
-      </div>
+    <div class="row">  
 
       <?php $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
       <div class="col-md-8 mr">
@@ -44,7 +145,7 @@
               'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-
+            
             <div class=" form-area">
               <label for="">Date of Birth*</label>
               <div class="grid-3col">
@@ -231,6 +332,7 @@
   });
 </script>
 <script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
+<script src="<?= Router::url('/js/new-js/multi-step.js') ?>" async></script>
 
 <script type="text/javascript">
   var request_busy = false;

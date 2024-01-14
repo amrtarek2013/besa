@@ -367,29 +367,20 @@ input:not([type="radio"],
     [type="checkbox"],
     [type="range"]) {
     font-family: 'Poppins';
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.02em;
-    border: 1.2px solid #B4BEC8;
-
-    border-radius: 4px;
+    line-height: 130%;
+    border-radius: 8px;
+    background-color: #F8F8F8;
     width: 100%;
-    height: 50px;
-    padding: 13px 14px;
+    height: 56px;
+    padding: 24px 16px;
+    border: transparent;
+    color: #90A4AE;
 }
 
-.input select,
-.input textarea,
-.file file,
-.input input:not([type="radio"],
-    [type="checkbox"],
-    [type="range"]) {
-    border: 1px solid var(--bs-green);
-    border-radius: 6px;
 
-}
 
 .fix-overlapping {
     margin-top: -19px;
@@ -907,9 +898,11 @@ textarea {
 .navbar .toggle i {
     color: var(--bs-Gradient);
 }
-.toggle-search{
+
+.toggle-search {
     margin-inline-start: auto;
     padding: 10px;
+    display: none;
 }
 
 .navbar .sidenav {
@@ -9784,10 +9777,7 @@ img.mobile-image {
     padding: 90px 0;
 }
 
-.step-back-slider .image-box {
-    overflow: hidden;
-    border-radius: 20.506px;
-}
+.step-back-slider .image-box {}
 
 .step-back-slider .owl-step-back {
     width: 90%;
@@ -10395,7 +10385,7 @@ div.error-message {
         margin-left: 62px !important;
     }
 
-  
+
 }
 
 @media (max-width: 767px) {
@@ -12724,4 +12714,158 @@ form .btn {
 
 .form-area textarea {
     height: 260px;
+}
+
+
+#multiStepForm {
+    border-radius: 16px;
+    background: #fff;
+    display: flex;
+    width: max-content;
+    padding: 48px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: 160px auto 0;
+    position: relative;
+    z-index: 2;
+
+}
+
+#multiStepForm .form-step {
+    display: none;
+    width: 100%;
+}
+
+#multiStepForm .form-step.active {
+    display: block;
+}
+
+/* Dots Navigation Styles */
+#multiStepForm .dots-navigation {
+    text-align: center;
+    margin: 32px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 6px;
+}
+
+#multiStepForm .dot {
+    width: 18px;
+    height: 8px;
+    background-color: #D9D9D9;
+    border-radius: 12px;
+}
+
+#multiStepForm .dot.active {
+    width: 44px;
+    height: 10px;
+    background: linear-gradient(180deg, #0E4F99 0%, #3F88C4 100%);
+}
+
+.overlay-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    text-align: center;
+    visibility: visible;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 600;
+    line-height: normal;
+    padding: 16px 0;
+    background: transparent;
+
+}
+
+.title-step {
+    color: var(--text-color);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 150%;
+    margin: 8px 0;
+}
+
+.title-small {
+    color: #263238;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 8px;
+
+}
+
+.form-step .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+
+}
+
+.form-step label {
+    color: #263238;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-step .grid-container input:not([type="radio"],
+    [type="checkbox"],
+    [type="range"]),
+.form-step .grid-container select {
+    height: 56px !important;
+    padding: 16px !important;
+}
+
+.container-checkboxes .checkboxes {
+    display: flex;
+    flex-flow: column;
+    grid-gap: 24px;
+    margin: 8px 0;
+}
+
+.container-checkboxes .checkboxes div {
+    margin: 0;
+}
+
+.container-checkboxes .checkboxes div label a,
+.container-checkboxes .checkboxes div label {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--text-color);
+}
+
+.container-checkboxes .checkboxes div label a{
+    text-decoration: none;
+    margin-left: 0;
+}
+.container-checkboxes .checkboxes input[type="checkbox"]{
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px var(--text-color);
+    -webkit-border-radius: 4px var(--text-color);
+    -moz-border-radius: 4px var(--text-color);
+    -ms-border-radius: 4px var(--text-color);
+    -o-border-radius: 4px var(--text-color);
+}
+
+.btn-agree-step{
+    height: 64px;
 }

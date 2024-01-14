@@ -2178,13 +2178,15 @@
         margin: auto;
 
     }
-
+    .home-events .container-events .box-blog{
+        height: max-content;
+    }
     .home-events .container-events .box-blog:nth-child(2) {
         margin-top: 0;
     }
 
     .home-events .top-events {
-        margin-bottom: 1850px;
+        margin-bottom: 1550px;
     }
 
     .home-blogs .title {
@@ -3118,8 +3120,10 @@
     .owl-blogs .carousel-wrap .carousel>li {
         width: 220px;
     }
-
-    .owl-blogs .main-pos {
+    .toggle-search{
+        display: block;
+    }
+   .blogs-en .owl-blogs .main-pos {
         width: 220px !important;
         height: 290px !important;
         margin-left: 4.5em !important;
