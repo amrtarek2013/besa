@@ -6,25 +6,12 @@
     <div class="container">
         <div class="col-md-12">
             <div class="steps-background">
-                <div class="timeline">
-                    <div class="timeline-item active">
-                        <span>LEVEL</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span>COURSE</span>
 
-                    </div>
-                    <div class="timeline-item">
-                        <span>WHERE</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span>BUDGET</span>
-                    </div>
-                </div>
                 <div class="step-container">
                     <div id="step1" class="step active">
                         <!-- Step 1 content here -->
-                        <h2 class="title">WHAT TO STUDY?</h2>
+                        <h2 class="title">What study level do you <br> wish to apply for ?</h2>
+                        
                         <div class="form-area">
                             <?php  /*if (!empty($servicesSearchList)){ ?>
                             <select name="service_id" id="service_id">
@@ -34,14 +21,66 @@
                             <?php } ?>
                             </select>                                
                         <?php }*/ ?>
+                            <!-- Hidden Dropdown for Selecting Study Levels -->
                             <?php if (!empty($studyLevels)) { ?>
-                                <select name="study_level_id" id="study_level_id">
+                                <select hidden name="study_level_id" id="study_level_id">
                                     <option value="">Select an option</option>
                                     <?php foreach ($studyLevels as $studyLevel) { ?>
                                         <option value="<?= $studyLevel['id'] ?>" data-degree="1"><?= $studyLevel['title'] ?></option>
                                     <?php } ?>
                                 </select>
                             <?php } ?>
+
+                            <!-- Grid Format for Displaying Study Levels -->
+                            <?php if (!empty($studyLevels)) { ?>
+                                <div class="subjects-container">
+                                    <p class="title-small">Select your preferred study level.</p>
+                                    <div class="grid-subjects">
+                                        <?php foreach ($studyLevels as $studyLevel) { ?>
+                                            <div class="subject" onclick="selectStudyLevel(<?= $studyLevel['id'] ?>, this)" data-selected="false" id="subject-<?= $studyLevel['id'] ?>">
+                                                <?= $studyLevel['title'] ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
+                            <script>
+                                function selectStudyLevel(id, element) {
+                                    // Clear previous selections in the grid
+                                    var subjects = document.getElementsByClassName('subject');
+                                    for(var i = 0; i < subjects.length; i++) {
+                                        subjects[i].setAttribute('data-selected', 'false');
+                                    }
+
+                                    // Highlight the selected element
+                                    element.setAttribute('data-selected', 'true');
+
+                                    // Update the hidden select element with the selected study level id
+                                    document.getElementById('study_level_id').value = id;
+                                }
+                            </script>
+
+
+                            <script>
+                                // JavaScript function to handle selection of study levels
+                                function selectStudyLevel(id, element) {
+                                    // Clear previous selections
+                                    var subjects = document.getElementsByClassName('subject');
+                                    for(var i = 0; i < subjects.length; i++) {
+                                        subjects[i].setAttribute('data-selected', 'false');
+                                    }
+
+                                    // Set the clicked element as selected
+                                    element.setAttribute('data-selected', 'true');
+
+                                    // Update a hidden input field to store the selected study level id
+                                    document.getElementById('study_level_id').value = id;
+                                }
+                            </script>
+
+                            <!-- Hidden input to store the selected study level id -->
+                            <input type="hidden" name="study_level_id" id="study_level_id" value="">
                         </div>
                     </div>
 
@@ -49,26 +88,35 @@
 
                     <div id="step2" class="step">
                         <div class="common-services services-2 services-4">
-                            <h2 class="title">WHAT COURSE DO YOU WANT TO STUDY?</h2>
-                            <div class="form-area">
-
-                                <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
-                                <div class="search">
-                                    <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject Area" style="width: 40%;height: 64px; background-image: url(../img/icon-search.png);
-background-repeat: no-repeat;
-background-position-x: 7px;
-background-position-y: 50%;;" />
-                                </div>
+                            <h2 class="title">What do you want to study?</h2>
+                            <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
+                            <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
+                            <div class="search search-step">
+                                <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject"/>
                             </div>
-                            <div class="grid-contaienr SubjectAreas">
-                                <?php if (!empty($subjectAreas)) { ?>
+                            <div class="subjects-container">
+                                <h4>Popular Subject</h4>
+                                <div class="grid-subjects">
+                                    <div class="subject">Business</div>
+                                    <?php if (!empty($subjectAreas)) { ?>
                                     <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
-                                        <div class="box course-box studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
+                                        <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
                                             <h4><?= $subjectArea ?></h4>
                                         </div>
                                     <?php } ?>
                                 <?php } ?>
+                                </div>
+
                             </div>
+                            <!-- <div class="grid-contaienr SubjectAreas">
+                                <?php //if (!empty($subjectAreas)) { ?>
+                                    <?php// foreach ($subjectAreas as $key => $subjectArea) { ?>
+                                        <div class="box course-box studyLevel-<php $key ?>" title='< $subjectArea ?>' data-course='< $key ?>'>
+                                            <h4><?php// $subjectArea ?></h4>
+                                        </div>
+                                    <?php// } ?>
+                                <?php //} ?>
+                            </div> -->
                             <!-- <input type="hidden" name="course_id" id="course_id" value=''> -->
                             <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
                         </div>
@@ -198,8 +246,18 @@ background-position-y: 50%;;" />
                     </div>
                     <!-- Buttons to navigate between steps -->
                     <div id="buttons">
-                        <button id="prevBtn">Previous</button>
-                        <button id="nextBtn">Next <img src="<?= WEBSITE_URL ?>img/new-images/chevron-left.png" alt=""> </button>
+                        <button id="prevBtn" class="back-link"><img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt="">Back</button>
+                        <button id="nextBtn">Next  </button>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item active">
+                    </div>
+                    <div class="timeline-item">
+                    </div>
+                    <div class="timeline-item">
+                    </div>
+                    <div class="timeline-item">
                     </div>
                 </div>
             </div>
