@@ -12830,6 +12830,10 @@ form .btn {
     padding: 16px !important;
 }
 
+.form-step .grid-container input[type="tel"] {
+    padding-left: 95px !important;
+}
+
 .container-checkboxes .checkboxes {
     display: flex;
     flex-flow: column;
@@ -12849,11 +12853,12 @@ form .btn {
     color: var(--text-color);
 }
 
-.container-checkboxes .checkboxes div label a{
+.container-checkboxes .checkboxes div label a {
     text-decoration: none;
     margin-left: 0;
 }
-.container-checkboxes .checkboxes input[type="checkbox"]{
+
+.container-checkboxes .checkboxes input[type="checkbox"] {
     display: flex;
     width: 24px;
     height: 24px;
@@ -12866,6 +12871,68 @@ form .btn {
     -o-border-radius: 4px var(--text-color);
 }
 
-.btn-agree-step{
-    height: 64px;
+.btn-agree-step {
+    height: 64px !important;
 }
+.third-step .title-step,
+.second-step .title-step {
+    font-size: 32px;
+}
+
+.second-step .title-small {
+    font-size: 20px;
+}
+
+.form-step .search {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.form-step .search input[type="search"]{
+    width: 100%;
+
+    padding: 10px 16px;
+
+}
+
+.form-step .search input[type="search"]:focus{
+    background-image:none
+}
+
+
+.subjects-container h4{
+    color: #818181;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 150%; 
+  }
+  .subjects-container  .grid-subjects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 32px 0;
+    grid-gap: 32px;
+    place-items: stretch;
+  }
+
+  .subjects-container  .grid-subjects .subject {
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);    
+    cursor: pointer;
+    text-align: center;
+    color: #6F6F6F;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .subjects-container  .grid-subjects .subject.active,
+  .subjects-container  .grid-subjects .subject:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: var(--Gradient01, linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%));
+    color: #fff;
+  }
+  .third-step .subjects-container h4{
+    font-size: 20px;
+  }

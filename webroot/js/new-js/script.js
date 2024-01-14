@@ -16,6 +16,12 @@ $(document).ready(function () {
     $(".li-search").toggleClass("show");
 });
 
+
+$(".grid-subjects .subject").on("click", function () {
+  $(this).addClass("active").siblings().removeClass("active");
+});
+
+
   // Add click event listener to each question
   $(".faq-question").click(function () {
     // This toggles the faq-answer slide up/down

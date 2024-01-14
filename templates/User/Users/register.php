@@ -90,33 +90,72 @@
     </div>
 
     <!-- Step 2 -->
-    <div class="form-step" style="display: none">
-      <button type="button" onclick="prevStep()" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back</button>
+    <div class="form-step second-step" style="display: none">
+        <button type="button" onclick="prevStep()" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back</button>
+        <h4 class="title-step">What do you want to study?</h4>
+        <h5 class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</h5>
+        <div class="search">
+            <input type="search" name="search" class="searchInput" id="" placeholder="Search for Subject">
+            <div class="search-list">
+                <ul class="search-list-result">
+                    <li>
+                        <img src="<?= WEBSITE_URL ?>img/icon/search-blue.svg" alt="">
+                        <a href="#">search list</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="subjects-container">
+          <h4>Popular Subject</h4>
+          <div class="grid-subjects">
+            <div class="subject">Business</div>
+            <div class="subject">Computer Science</div>
+            <div class="subject">Artificial Intelligence</div>
+            <div class="subject">Health care</div>
+            <div class="subject">Economics</div>
+            <div class="subject">Engineering and Technology</div>
+          </div>
+          
+        </div>
 
-      <select id="subject">
-        <option value="business">Business</option>
-        <option value="ai">Artificial Intelligence</option>
-        <option value="cs">Computer Science</option>
-        <!-- Add more options as needed -->
-      </select>
-      <!-- Add more inputs/selects as needed -->
-      <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
+        <!-- Add more inputs/selects as needed -->
+        <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
     </div>
 
     <!-- Additional steps as needed -->
 
-    <!-- Final Step -->
-    <div class="form-step" style="display: none">
-      <p>You have reached the final step.</p>
-      <button type="button" onclick="prevStep()">Back</button>
-      <button type="submit">Submit</button>
+    <div class="form-step third-step" style="display: none">
+      <button type="button" onclick="prevStep()" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back</button>
+      <h4 class="title-step">What study level do you <br> wish to apply for ?</h4>
+      <div class="subjects-container">
+          <h4>Select your preferred study level.</h4>
+          <div class="grid-subjects">
+            <div class="subject">Foundation</div>
+            <div class="subject">Undergraduate</div>
+            <div class="subject">Postgraduate </div>
+            <div class="subject">Doctorate</div>
+          </div>
+          
+        </div>
+        <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
+
+    </div>
+    <div class="form-step fourth-step" style="display: none">
+      <button type="button" onclick="prevStep()" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back</button>
+      <h4 class="title-step"> Which countries do you want<br>to study in?</h4>
+      <div class="selectors-container">
+         
+      </div>
+      <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
+
     </div>
     <!-- Dots Navigation -->
     <div class="dots-navigation">
       <span class="dot active"></span>
       <span class="dot"></span>
       <span class="dot"></span>
-      <!-- Add more dots as needed -->
+      <span class="dot"></span>
+
     </div>
   </div>
 <?= $this->Form->end() ?>
