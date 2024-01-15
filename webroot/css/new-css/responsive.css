@@ -3231,4 +3231,10 @@
     }.login-tab{
         padding: 24px;
     }
+
+
+    .background-forgot-password-page .description{
+        font-size: 14px;
+
+    }
 }

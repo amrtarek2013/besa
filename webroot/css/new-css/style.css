@@ -13041,7 +13041,7 @@ form .btn {
 
 .background-login-page .logo {
     width: max-content;
-    padding: 0  18px;
+    padding: 0 18px;
 
 }
 
@@ -13081,9 +13081,11 @@ form .btn {
     margin-bottom: 8px;
 
 }
-.login-tab h4{
+
+.login-tab h4 {
     font-size: 36px;
     color: var(--text-color);
+    margin-bottom: 24px;
 
 }
 
@@ -13096,15 +13098,31 @@ form .btn {
     margin-top: 16px;
 }
 
-.login-tab input[type="submit"], .login-tab button[type="submit"]{
+.login-tab input[type="submit"],
+.login-tab button[type="submit"] {
     width: 100%;
     background: var(--Gradient-blue, linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%)) !important;
     color: #fff;
+    height: 72px;
 }
 
 .login-box-links a {
-font-size: 20px;
-font-weight: 400;
-line-height: 150%; 
-color: var(--text-color);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--text-color);
+}
+
+.background-forgot-password-page h4.title {
+    margin-bottom: 8px;
+}
+
+.background-forgot-password-page .description {
+    color: #263238;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 24px;
+    text-align: left;
 }
