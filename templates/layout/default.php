@@ -104,15 +104,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                        <div class="profile-card">
-                            <div class="profile-picture">
-                                <img src="path-to-avatar-image.jpg" alt="User Avatar">
+                            <div class="profile-card">
+                                <div class="profile-picture">
+                                    <img src="path-to-avatar-image.jpg" alt="User Avatar">
+                                </div>
+                                <div class="profile-info">
+                                    <h3 class="user-name">Ahmed Mohamed</h3>
+                                    <div class="user-points">40 Points</div>
+                                </div>
                             </div>
-                            <div class="profile-info">
-                                <h3 class="user-name">Ahmed Mohamed</h3>
-                                <div class="user-points">40 Points</div>
-                            </div>
-                        </div>
 
 
                         </div>
@@ -134,6 +134,7 @@
 
                             <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead, 'counselor' => $counselor)); ?>
                         </div>
+
                     <?php } else if (isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') { ?>
 
                         <div class="col-md-3">
@@ -146,7 +147,15 @@
 
                         <?= $this->Flash->render() ?>
                         <?= $this->fetch('content') ?>
+
+
                     </div>
+
+                    <?php if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
+                        if ($this->request->getParam('action') == 'index' && $this->request->getParam('controller') == 'Applications') : ?>
+                            <?php echo $this->element('counselor/students-app-stats', array('counselor' => $counselor)); ?>
+                        <?php endif; ?>
+                    <?php } ?>
 
                 </div>
             </div>
