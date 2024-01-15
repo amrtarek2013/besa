@@ -13126,3 +13126,13 @@ form .btn {
     margin-bottom: 24px;
     text-align: left;
 }
+
+.hero-counselor{
+    background-image: url('../img/new-desgin/background-events.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 86px 0;
+    position: relative;
+    height: 344px;
+    margin-bottom: 600px;
+}

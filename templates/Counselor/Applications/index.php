@@ -106,6 +106,16 @@
 // $statuses = [0 => 'Pendeing', 1 => 'Under-Review', 2 => 'Replied', 3 => 'Rejected', 4 => 'Approved'];
 // $statusLabel = ['Pendeing' => 0, 'Under-Review' => 1, 'Replied' => 2, 'Rejected' => 3, 'Approved' => 4];
 ?>
+
+<div class="hero-counselor">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+    </div>
+</div>
 <section class="register-banner">
 
     <div class="container" style="width:100%">

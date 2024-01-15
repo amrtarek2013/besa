@@ -22,36 +22,3 @@
 
 
 
-<section class="main-banner register-banner">
-
-  <div class="container">
- 
-
-    <div class="row">
-      <?= $this->Form->create(null, array('id' => 'FormForgot')); ?>
-    
-        <div class="container-formBox">
-          <h4 class="title">Reset Password</h4>
-          <div class="grid-container" style="display: block;">
-
-            <?= $this->Form->control('email', ['placeholder' => 'Email address', 'class' => 'form-control', 'label' => 'Email address*', 'required' => true]) ?>
-          </div>
-          <div class="container-submit">
-            <div class="checkboxes">
-              <div>
-
-                <a href="<?= $this->Url->Build('/user/register') ?>"> Register?</a>
-              </div>
-              <div>
-
-                <a href="<?= $this->Url->Build('/user/register') ?>"> Login</a>
-              </div>
-            </div>
-
-            <button type="submit" class="btn clear-blue">Reset</button>
-          </div>
-        </div>
-      <?= $this->Form->end() ?>
-    </div>
-  </div>
-</section>
