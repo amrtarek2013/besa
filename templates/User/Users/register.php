@@ -205,7 +205,7 @@
             <div class="subject">Doctorate</div>
           </div>
           
-      </div>
+        </div>
         <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step">Continue</button>
 
     </div>

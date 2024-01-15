@@ -8,7 +8,10 @@
             <div class="steps-background">
 
                 <div class="step-container">
-                    <div id="step1" class="step active">
+                    <div id="step1" class="step">
+                        1111
+                    </div>
+                    <div id="step2" class="step active">
                         <!-- Step 1 content here -->
                         <h2 class="title">What study level do you <br> wish to apply for ?</h2>
                         
@@ -86,7 +89,7 @@
 
                     <input type="hidden" name="degree" id="degree" value="1">
 
-                    <div id="step2" class="step">
+                    <div id="step3" class="step">
                         <div class="common-services services-2 services-4">
                             <h2 class="title">What do you want to study?</h2>
                             <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
@@ -150,7 +153,7 @@
                     </div>
 
 
-                    <div id="step3" class="step">
+                    <div id="step4" class="step">
                         <!-- Step 3 content here -->
                         <div class="common-services services-2 services-4">
                             <h2 class="title">Which countries do you want <br> to study in?</h2>
@@ -204,7 +207,7 @@
                         </div>
                     </div>
 
-                    <div id="step4" class="step">
+                    <div id="step5" class="step">
                         <!-- Step 4 content here -->
                         <h2 class="title">Budget?</h2>
                         <div class="selectors-container">
@@ -282,7 +285,7 @@
 
                     </div>
 
-                    <div id="step5" class="step">
+                    <div id="step6" class="step">
                         <h2 class="title">Which year do you want <br>to study abroad ?</h2>
                         <p class="title-small">Select your preferred year.</p>
                         <div class="grid-2col">
@@ -299,6 +302,8 @@
                         </div>
 
                     </div>
+                    
+
                     <!-- Buttons to navigate between steps -->
                     <div id="buttons">
                         <button id="prevBtn" class="back-link"><img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt="">Back</button>

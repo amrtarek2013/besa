@@ -12705,13 +12705,16 @@ form .btn {
     margin-left: 4em !important;
 
 }
-.testimonials .owl-blogs .right-pos{
+
+.testimonials .owl-blogs .right-pos {
     margin-left: 27em !important;
 
 }
-.testimonials  .owl-blogs .slider #next {
+
+.testimonials .owl-blogs .slider #next {
     right: -340px;
 }
+
 .contact-us-home {
     padding: 200px 0;
 }
@@ -13011,12 +13014,98 @@ form .btn {
     z-index: 2;
 }
 
-.step .grid-2col{
-    grid-gap:32px;
+.step .grid-2col {
+    grid-gap: 32px;
 }
 
-.step  select.blue-border{
+.step select.blue-border {
     border-radius: 18px;
     border: 2px solid #164699;
     background: #FFF;
+}
+
+
+.background-login-page {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/new-desgin/background-signup.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    text-align: center;
+    padding: 48px;
+
+}
+
+.background-login-page .logo {
+    width: max-content;
+    padding: 40px 150px;
+
+}
+
+.login-tab {
+    border-radius: 16px;
+    background: #FFF;
+    max-width: 502px;
+    margin: 100px auto;
+    border-top: none;
+}
+
+
+.login-tab .form-area textarea,
+.login-tab .form-area select,
+.login-tab .form-area input[type="text"],
+.login-tab .form-area input[type="email"],
+.login-tab .form-area input[type="file"],
+.login-tab .form-area input[type="tel"] {
+    border-radius: 8px;
+    background: #F8F8F8;
+    height: 56px;
+    color: #90A4AE;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+    padding: 24px 16px;
+
+}
+
+.login-tab .form-area label,
+.login-tab .input label,
+.login-tab .security_code .input label {
+    color: #263238;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 8px;
+
+}
+.login-tab h4{
+    font-size: 36px;
+    color: var(--text-color);
+
+}
+
+.login-tab .container-submit {
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    grid-gap: 32px;
+    align-items: start;
+    margin-top: 16px;
+}
+
+.login-tab input[type="submit"], .login-tab button[type="submit"]{
+    width: 100%;
+    background: var(--Gradient-blue, linear-gradient(141deg, #007BC4 9.24%, #0B4C97 112.12%)) !important;
+    color: #fff;
+}
+
+.login-box-links a {
+font-size: 20px;
+font-weight: 400;
+line-height: 150%; 
+color: var(--text-color);
 }
