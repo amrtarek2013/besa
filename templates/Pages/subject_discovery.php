@@ -22,7 +22,7 @@
                 <div class="title-bottom-hero">
                     <h4>BESA <span> ( British Educational Service Group  ) </span></h4>
                     <p class="description">
-                        is an international organization with branches in egypt, sudan,kuwait and the UK its 
+                        is an international organization with branches in egypt, sudan,kuwait and the UKits 
                         deliciated to is an international organization with branches in egypt, sudan,kuwait and the UK its deliciated to    
                     </p>
                 </div>

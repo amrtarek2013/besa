@@ -191,7 +191,7 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 
                             <?php
                             }
-                            dd($g_dynamic_routes);
+                            // dd($g_dynamic_routes);
                             ?>
 
 
