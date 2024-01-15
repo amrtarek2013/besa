@@ -118,40 +118,77 @@
 </div>
 
 <div class="section-stats">
-<div class="stats-card">
-  <h2 class="stats-card-title">Total Stats</h2>
-  <div class="stats-container">
-    <div class="stat-item">
-        <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 38%;">38%</div> 
-        </div>
-      <div class="stat-info">
-        <div class="stat-number">
-            <p>0</p>
-            <p>6</p>
+    <div class="stats-card">
+    <h2 class="stats-card-title">Total Stats</h2>
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="circle-progressbar-container">
+                <svg class="circle-progressbar" width="120" height="120">
+                <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+                <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
+                </svg>
+            </div>
+        <div class="stat-info">
+            <div class="stat-number">
+                <p>0</p>
+                <p>6</p>
 
+            </div>
+            <div class="stat-label">
+                <p>Joined successfully</p>
+                <p>6 students joined successfully</p>
+            </div>
         </div>
-        <div class="stat-label">
-            <p>Joined successfully</p>
-            <p>6 students joined successfully</p>
         </div>
-      </div>
+
+        <div class="stat-item">
+        <svg class="stat-circle" width="120" height="120">
+            <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+            <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+        </svg>
+        <div class="stat-info">
+            <div class="stat-number">19</div>
+            <div class="stat-label">Applied</div>
+        </div>
+        </div>
     </div>
-
-    <div class="stat-item">
-      <svg class="stat-circle" width="120" height="120">
-        <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-        <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-      </svg>
-      <div class="stat-info">
-        <div class="stat-number">19</div>
-        <div class="stat-label">Applied</div>
-      </div>
     </div>
-  </div>
 </div>
-</div>
+<script>
+    // Function to update progress circle value
+function updateProgress(circle, value) {
+  const radius = circle.r.baseVal.value;
+  const circumference = radius * 2 * Math.PI;
+  
+  circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  circle.style.strokeDashoffset = circumference;
 
+  const offset = circumference - value / 100 * circumference;
+  circle.style.strokeDashoffset = offset;
+}
+
+// Update the progress circles on page load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.circle-progressbar-value').forEach((circle) => {
+    const value = circle.getAttribute('data-value');
+    updateProgress(circle, value);
+  });
+});
+
+// Example of updating a progress circle's value dynamically
+// Call this function with the new value you want to set
+function changeProgressValue(statNumber, newValue) {
+  const circle = document.querySelector(`.stat-number:nth-child(${statNumber}) + .circle-progressbar-container .circle-progressbar-value`);
+  if (circle) {
+    updateProgress(circle, newValue);
+    circle.setAttribute('data-value', newValue); // Update the data-value attribute
+  }
+}
+
+// Example usage: change the first stat item's progress to 50%
+changeProgressValue(1, 50);
+
+</script>
 
 
 <section class="register-banner">
