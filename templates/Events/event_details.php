@@ -191,10 +191,12 @@ if (!empty($event['left_text']) && $event['id'] == 7 && !empty($event['fair_even
 
                             <?php
                             }
+                            dd($g_dynamic_routes);
                             ?>
 
+
                         </div>
-                        <a class="btn btn-register MainBtn" href="<?= Router::url('/education-fair/ief-form?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
+                        <a class="btn btn-register MainBtn" href="<?= Router::url('/'.$g_dynamic_routes['enquiries.visitorsapplication'].'?location=' . strtolower($fairEvent['title'])) ?>">Register Now</a>
                     <?php
                     }
                     ?>

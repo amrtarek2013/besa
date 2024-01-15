@@ -65,7 +65,6 @@ return static function (RouteBuilder $routes) {
          */
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
 
-
         $builder->connect('/services', 'Services::index');
         $builder->connect('/service-details/*', 'Services::details');
         $builder->connect('/events', 'Events::index');
@@ -81,6 +80,7 @@ return static function (RouteBuilder $routes) {
 
         $builder->connect('/contact-us', 'Enquiries::contactUs');
         $builder->connect('/visitors-application', 'Enquiries::visitorsApplication');
+        $builder->connect('/education-fair/ief-form', 'Enquiries::visitorsApplication');
         $builder->connect('/educational-institution', 'Enquiries::educationalInstitution');
         $builder->connect('/british-trophy-subscription', 'Enquiries::britishTrophySubscription');
         $builder->connect('/book-appointment', 'Enquiries::bookAppointment');
