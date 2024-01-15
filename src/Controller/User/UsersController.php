@@ -160,7 +160,7 @@ class UsersController extends AppController
                 } else {
 
                     $this->Flash->error(__($return['message']));
-                    $this->redirect('/user/register');
+                    $this->redirect('/login');
                 }
             }
         }
@@ -717,7 +717,7 @@ class UsersController extends AppController
         $user = $this->is_user();
         if (!$this->is_user()) {
             $this->Flash->error('You must login first', "fail alert alert-error");
-            $this->redirect('/user/register');
+            $this->redirect('/login');
         }
         // $this->get_dynamic_layout("dashboard");
         if (!empty($this->data)) {

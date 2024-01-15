@@ -10,18 +10,22 @@
     position: absolute;
   }
 </style>
+<?php
 
+use Cake\Routing\Router;
+?>
 <div class="overlay-img">
   <div class="logo">
-    <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200">
-
+  <a href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
   </div>
 </div>
-<?php $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
+<?php
+
+ $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
 <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
 <div class="sign-up">
   <div class="form-step">
-        <a href="#" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
+        <a href="<?=Router::url('/')?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
         <h4 class="title-step">Welcome to BESA</h4>
         <h5 class="title-small">Finish signing up</h5>
         <div class="grid-container">
@@ -36,6 +40,7 @@
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
               ]) 
             ?>
+            
             <?= $this->Form->control('country_id', [
                   'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
                   'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
@@ -49,11 +54,54 @@
                 ]) 
             ?>
             <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-            <?= $this->Form->control('current_status', [
+            
+            <!--
+              <?= $this->Form->control('current_status', [
                 'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
               ]) 
             ?>
+           <?= $this->Form->control('nationality_id', [
+              'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
+              'type' => 'select', 'empty' => 'Select Nationality*',
+              'options' => $countriesList,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+            <?= $this->Form->control('city', [
+              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?> -->
+
+
+            <?= $this->Form->control('current_status', [
+              'type' => 'text', 'placeholder' => 'Current School/University/Occupation', 'label' => 'Current School/University/Occupation *', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+
+            <!-- <?= $this->Form->control('current_study_level', [
+              'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
+              'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+
+
+
+            <?= $this->Form->control('subject_area_id', [
+              'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
+              'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
+            ]) ?>
+
+
+            <?= $this->Form->control('destination_id', [
+              'placeholder' => 'Country you study at', 'type' => 'select', 'empty' => 'Select Country you study at',
+              'options' => $countriesList, 'label' => 'Country you study at*', 'required' => true,
+              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+            ]) ?>
+            -->
+
             <?= $this->Form->control('password', [
                 'type' => 'password',
                 'placeholder' => 'Password',
@@ -78,7 +126,7 @@
               <div class="checkboxes">
                 <div class="terms-conditions">
                   <input type="checkbox" name="terms" id="terms" required="required">
-                  <label for="">I agree to <a href="#">terms & conditions</a> </label>
+                  <label for="">I agree to <a href="#"> &nbsp;terms & conditions</a> </label>
                 </div>
                 <div>
                   <input type="checkbox" name="is_subscribed" id="is_subscribed">
@@ -253,7 +301,9 @@
 
 
 
-<section class="main-banner register-banner Create-account-banner">
+<?php 
+/* ?>
+  <section class="main-banner register-banner Create-account-banner">
 
   <div class="container">
     <div class="row">  
@@ -359,7 +409,7 @@
 
             <?= $this->Form->control('subject_area_id', [
               'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
-              'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
+              'options' => $subjectAreas, 'label' => 'Major/subject of your study', 
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
             ]) ?>
 
@@ -451,6 +501,7 @@
     </div>
   </div>
 </section>
+<?php */ ?>
 <script>
   $('#current-study-level').on('change', function() {
 
@@ -495,9 +546,9 @@
         'passwd': {
           required: true,
         },
-        'nationality_id': {
-          required: true
-        },
+        // 'nationality_id': {
+        //   required: true
+        // },
         'country_id': {
           required: true,
         },
@@ -510,18 +561,18 @@
         'current_status': {
           required: true,
         },
-        'current_study_level': {
-          required: true,
-        },
-        'destination_id': {
-          required: true,
-        },
-        'subject_area_id': {
-          required: true,
-        },
-        'city': {
-          required: true,
-        },
+        // 'current_study_level': {
+        //   required: true,
+        // },
+        // 'destination_id': {
+        //   required: true,
+        // },
+        // 'subject_area_id': {
+        //   required: true,
+        // },
+        // 'city': {
+        //   required: true,
+        // },
       },
       messages: {
 
