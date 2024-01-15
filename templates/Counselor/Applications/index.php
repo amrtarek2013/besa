@@ -117,19 +117,30 @@
     </div>
 </div>
 
+<div class="section-stats">
 <div class="stats-card">
   <h2 class="stats-card-title">Total Stats</h2>
   <div class="stats-container">
     <div class="stat-item">
-      <svg class="stat-circle" width="120" height="120">
-        <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-        <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-      </svg>
+        <div class="progress">
+            <span class="title timer" data-from="0" data-to="85" data-speed="1800">85</span>
+            <div class="overlay"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
       <div class="stat-info">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Joined successfully</div>
+        <div class="stat-number">
+            <p>0</p>
+            <p>6</p>
+
+        </div>
+        <div class="stat-label">
+            <p>Joined successfully</p>
+            <p>6 students joined successfully</p>
+        </div>
       </div>
     </div>
+
     <div class="stat-item">
       <svg class="stat-circle" width="120" height="120">
         <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
@@ -142,6 +153,8 @@
     </div>
   </div>
 </div>
+</div>
+
 
 
 <section class="register-banner">

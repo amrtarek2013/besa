@@ -13127,77 +13127,176 @@ form .btn {
     text-align: left;
 }
 
-.hero-counselor{
+.hero-counselor {
     background: var(--Gradient01, linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%));
     background-size: cover;
     background-repeat: no-repeat;
     padding: 86px 0;
     position: relative;
-  
+
 }
 
 .stats-card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 300px;
     margin: 20px;
-  }
-  
-  .stats-card-title {
+}
+
+.stats-card-title {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 20px;
-  }
-  
-  .stats-container {
+}
+
+.stats-container {
     display: flex;
-    justify-content: space-between;
-  }
-  
-  .stat-item {
+    justify-content: start;
+    flex-flow: column;
+    align-items: start;
+}
+
+.stat-item {
     text-align: center;
-  }
-  
-  .stat-circle {
+    display: flex;
+    align-items: center;
+
+}
+
+.stat-circle {
     display: block;
-    margin: 0 auto 10px;
-  }
-  
-  .stat-circle-background {
+    margin: 0 auto;
+}
+
+.stat-circle-background {
     stroke: #e6e6e6;
-  }
-  
-  .stat-circle-progress {
+}
+
+.stat-circle-progress {
     transition: stroke-dashoffset 0.35s;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-  }
-  
-  .stat-info {
+}
+
+.stat-info {
     display: flex;
-    flex-direction: column;
     align-items: center;
-  }
-  
-  .stat-number {
+}
+
+.stat-number {
     font-size: 2em;
     color: #333;
-  }
-  
-  .stat-label {
+}
+
+.stat-label {
     color: #666;
     font-size: 0.85em;
-  }
-  
-  /* Example specific color for the first item */
-  .stat-item:first-child .stat-circle-progress {
-    stroke: #4a90e2;
-  }
-  
-  /* Example specific color for the second item */
-  .stat-item:last-child .stat-circle-progress {
+}
+
+/* Example specific color for the first item */
+.stat-item:first-child .stat-circle-progress {
+    stroke: #356CF9;
+}
+
+/* Example specific color for the second item */
+.stat-item:last-child .stat-circle-progress {
     stroke: #f5a623;
-  }
-  
+}
+
+
+
+.progress {
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #07070c;
+    text-align: center;
+    line-height: 200px;
+    margin: 20px
+}
+
+.progress::after {
+    content: "%";
+}
+
+.progress .title {
+    position: relative;
+    z-index: 100;
+}
+
+.progress .overlay {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #07070c
+}
+
+.progress .left,
+.progress .right {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 10px solid #222235;
+    border-radius: 100px 0px 0px 100px;
+    border-right: 0;
+    transform-origin: right;
+}
+
+.progress .left {
+    animation: load1 1s linear forwards;
+}
+
+.progress:nth-of-type(2) .right,
+.progress:nth-of-type(3) .right {
+    animation: load2 .5s linear forwards 1s;
+}
+
+.progress:last-of-type .right,
+.progress:first-of-type .right {
+    animation: load3 .8s linear forwards 1s;
+}
+
+@keyframes load1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes load2 {
+    0% {
+        z-index: 100;
+        transform: rotate(180deg);
+    }
+
+    100% {
+        z-index: 100;
+        transform: rotate(270deg);
+    }
+}
+
+@keyframes load3 {
+    0% {
+        z-index: 100;
+        transform: rotate(180deg);
+    }
+
+    100% {
+        z-index: 100;
+        transform: rotate(315deg);
+    }
+}
