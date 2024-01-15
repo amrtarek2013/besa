@@ -111,11 +111,39 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                
+
             </div>
         </div>
     </div>
 </div>
+
+<div class="stats-card">
+  <h2 class="stats-card-title">Total Stats</h2>
+  <div class="stats-container">
+    <div class="stat-item">
+      <svg class="stat-circle" width="120" height="120">
+        <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+        <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+      </svg>
+      <div class="stat-info">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Joined successfully</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <svg class="stat-circle" width="120" height="120">
+        <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+        <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+      </svg>
+      <div class="stat-info">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Applied</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <section class="register-banner">
 
     <div class="container" style="width:100%">
