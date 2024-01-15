@@ -446,4 +446,8 @@ class PagesController extends AppController
     {
         $this->set('bodyClass', 'pageWhereToStudy');
     }
+    public function subjectDiscovery()
+    {
+        $this->set('bodyClass', 'pageWhereToStudy');
+    }
 }
