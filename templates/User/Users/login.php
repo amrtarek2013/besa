@@ -1,11 +1,15 @@
+<?php
+
+use Cake\Routing\Router;
+?>
 <div class="background-login-page">
   <div class="logo">
-      <a href=""><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
+      <a href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
     </div>
   <div class="">
     <?= $this->Form->create(null, array('id' => 'FormLogin')); ?>
       <div class="container-formBox login-tab">
-      <a href="#" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
+      <a href="<?=Router::url('/')?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
 
         <h4 class="title">Login to BESA</h4>
         <div class="grid-container" style="display: block;">
@@ -42,7 +46,7 @@
 </div>
 
 
-
+<?php if (false): ?>
 <section class="main-banner register-banner">
 
   <div class="container">
@@ -100,3 +104,5 @@
     </div>
   </div>
 </section>
+
+<?php endif; ?>

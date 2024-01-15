@@ -82,12 +82,15 @@
 </script>
 
 <body cz-shortcut-listen="true" class="<?= $bodyClass ?>">
-<div class="overlay"></div>
+    <div class="overlay"></div>
 
     <?= $this->element('UserPopUp'); ?>
     <?php //= $header 
-    ?>
-    <?php echo $this->element('navbar', ['cache' => ['key' => 'navbar', 'config' => '_view_long_']]); ?>
+
+    if (!in_array($this->request->getParam('action'), ['login', 'register']) && $this->request->getParam('controller') != 'users') : ?>
+
+        <?php echo $this->element('navbar', ['cache' => ['key' => 'navbar', 'config' => '_view_long_']]); ?>
+    <?php endif; ?>
     <!-- Start Content -->
     <?php if (in_array($prefix, ['User', 'Counselor'])) {
 
@@ -139,12 +142,11 @@
         <?= $this->fetch('content') ?>
 
     <?php }
-    ?>
 
-    <?php // $footer 
-    ?>
-    <?= $this->element('footer', ['cache' => ['key' => 'footer', 'config' => '_view_long_']]); ?>
+    if (!in_array($this->request->getParam('action'), ['login', 'register']) && $this->request->getParam('controller') != 'users') : ?>
 
+        <?= $this->element('footer', ['cache' => ['key' => 'footer', 'config' => '_view_long_']]); ?>
+    <?php endif; ?>
 </body>
 
 </html>
