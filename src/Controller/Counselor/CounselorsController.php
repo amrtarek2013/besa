@@ -390,9 +390,6 @@ class CounselorsController extends AppController
         }
         $this->set('bodyClass', '');
 
-
-
-
         $counselorData = $this->Auth->user();
 
         $return                          = [];

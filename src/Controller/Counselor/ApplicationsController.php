@@ -64,7 +64,22 @@ class ApplicationsController extends AppController
 
         $this->loadModel('Counselors');
         $counselor = $this->Counselors->get($counselor['id']);
-        // debug($counselor);
+        
+        
+        
+        $this->loadModel('Users');
+        $noOfPassedApps = $this->Users->find()->innerJoinWith('Applications')->where(['Users.counselor_id' => $counselor['id'], 'Applications.status' => 4])->count(); // Passed Applications
+        $noOfFailedApps = $this->Users->find()->innerJoinWith('Applications')->where(['Users.counselor_id' => $counselor['id'], 'Applications.status' => 3])->count(); // Failed Applications
+
+        // $noOfPassedApps = $this->Applications->find()->where(['counselor_id' => $counselor['id'], 'status' => 4])->count(); // Passed Applications
+        // $noOfFailedApps = $this->Applications->find()->where(['counselor_id' => $counselor['id'], 'status' => 3])->count(); // Passed Applications
+        
+
+        $counselor['noOfPassedApps'] = $noOfPassedApps;
+        $counselor['noOfFailedApps'] = $noOfFailedApps;
+
+
+        // dd($counselor);
         $this->set('counselor', $counselor);
         $this->loadModel('Users');
         $conditions = $this->_filter_params();

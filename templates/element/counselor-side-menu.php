@@ -63,7 +63,7 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <!-- <div class="image"> -->
-            <div class="left-box">
+            <!-- <div class="left-box">
                 <div class="circle-img circle-img-center">
                     <img src="<?= $counselor['image_path'] ?>" alt="" style="width: 128px;height: 128px;">
                 </div>
@@ -74,7 +74,7 @@
                 ?>
                 <span class="online-status"><?= $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</span>
 
-            </div>
+            </div> -->
             <!-- </div> -->
             <!-- <div class="info">
                 <a href="#" class="d-block"><?= __($g_configs['general']['txt.site_name'] . ' System v 1.0 ') ?></a>
