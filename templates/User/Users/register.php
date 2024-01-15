@@ -10,22 +10,22 @@
     position: absolute;
   }
 </style>
-
-<div class="overlay-img">
-  <div class="logo">
-    <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200">
-
-  </div>
-</div>
 <?php
 
 use Cake\Routing\Router;
+?>
+<div class="overlay-img">
+  <div class="logo">
+  <a href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
+  </div>
+</div>
+<?php
 
  $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
 <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
 <div class="sign-up">
   <div class="form-step">
-        <a href="#" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
+        <a href="<?=Router::url('/')?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
         <h4 class="title-step">Welcome to BESA</h4>
         <h5 class="title-small">Finish signing up</h5>
         <div class="grid-container">
