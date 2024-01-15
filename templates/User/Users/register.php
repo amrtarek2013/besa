@@ -14,23 +14,19 @@
 
 use Cake\Routing\Router;
 ?>
-<div class="overlay-img">
-  <div class="logo">
-    <a href="<?= Router::url('/') ?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
-  </div>
-</div>
+<div class="background-login-page background-register-page">
 <?php
 
 $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
 <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
-<div class="sign-up">
+<div class="sign-ups">
   <?= $this->Html->css([
     '/css/new-css/timeline.css'
   ]) ?>
   <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
-  <section class="steps-en">
-    <div class="container">
-      <div class="col-md-12">
+  <div class="steps-en">
+    <div class="">
+      <div class="">
         <div class="steps-background">
 
           <div class="step-container">
@@ -145,7 +141,6 @@ $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
                     </div>
                   </div>
                 </div>
-                <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step"> Agree and continue</button>
               </div>
             </div>
             <div id="step2" class="step">
@@ -423,7 +418,7 @@ $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
             <!-- Buttons to navigate between steps -->
             <div id="buttons">
               <button id="prevBtn" class="back-link"><img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt="">Back</button>
-              <button id="nextBtn">Next </button>
+              <button id="nextBtn">Agree and continue </button>
             </div>
           </div>
           <div class="timeline">
@@ -442,15 +437,20 @@ $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
           </div>
         </div>
       </div>
-  </section>
+    </div>
   <?= $this->Form->end() ?>
 
+
+
+
+  
   <?= $this->Html->script([
     '/js/new-js/timeline.js'
   ]) ?>
   <?= $this->Html->script([
     '/js/new-js/script-steps-en.js?v=' . time()
   ]) ?>
+  
   <script type="text/javascript">
     $(document).ready(function() {
       $("#service_id").change(function() {
@@ -495,6 +495,10 @@ $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
 
 </div>
 <?= $this->Form->end() ?>
+
+</div>
+
+
 
 <script>
   $('#current-study-level').on('change', function() {
