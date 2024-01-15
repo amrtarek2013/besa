@@ -13150,6 +13150,7 @@ form .btn {
     text-align: center;
     display: flex;
     align-items: center;
+    grid-gap: 20px;
 
 }
 
@@ -13171,6 +13172,7 @@ form .btn {
 .stat-info {
     display: flex;
     align-items: center;
+    grid-gap: 20px;
 }
 
 .stat-number {
@@ -13190,7 +13192,7 @@ form .btn {
     flex-flow: column;
     align-items: start;
     grid-gap: 8px;
-
+text-align: start;
 }
 
 

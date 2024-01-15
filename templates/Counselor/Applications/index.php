@@ -124,8 +124,8 @@
             <div class="stat-item item-blue">
                 <div class="circle-progressbar-container">
                     <svg class="circle-progressbar" width="120" height="120">
-                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
+                        <circle class="circle-progressbar-background" stroke-width="10" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="10" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
                     </svg>
                     <p class="percentage">38%</p>
                 </div>
@@ -145,8 +145,8 @@
             <div class="stat-item item-yellow">
                 <div class="circle-progressbar-container">
                     <svg class="circle-progressbar" width="120" height="120">
-                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
+                        <circle class="circle-progressbar-background" stroke-width="10" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="10" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
                     </svg>
                     <p class="percentage">62%</p>
                 </div>
@@ -169,8 +169,8 @@
             <div class="stat-item item-red">
                 <div class="circle-progressbar-container">
                     <svg class="circle-progressbar" width="120" height="120">
-                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
+                        <circle class="circle-progressbar-background" stroke-width="10" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="10" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
                     </svg>
                     <p class="percentage">38%</p>
                 </div>
@@ -190,8 +190,8 @@
             <div class="stat-item item-green">
                 <div class="circle-progressbar-container">
                     <svg class="circle-progressbar" width="120" height="120">
-                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
+                        <circle class="circle-progressbar-background" stroke-width="10" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="10" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
                     </svg>
                     <p class="percentage">62%</p>
                 </div>
