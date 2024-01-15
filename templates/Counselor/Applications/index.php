@@ -146,6 +146,8 @@
                     <span class="legend-item application-pass"><div class="color-square"></div>Application Pass</span>
                     <span class="legend-item university-offer"><div class="color-square"></div>University's offer</span>
                     <span class="legend-item joined-university"><div class="color-square"></div> Joined the University</span>
+                    <span class="legend-item apply-fail"><div class="color-square"></div> Apply Failed</span>
+
                     </div>
                 </header>
                 <div class="stats-content">
@@ -157,6 +159,8 @@
                                 <div class="progress-bar application-pass" style="width: 10%;"></div> 
                                 <div class="progress-bar university-offer" style="width: 20%;"></div> 
                                 <div class="progress-bar joined-university" style="width: 30%;"></div> 
+                                <div class="progress-bar apply-fail" style="width: 5%;"></div> 
+
                             </div>
                         </div>
                     <?php endforeach; ?>

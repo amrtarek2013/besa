@@ -13115,9 +13115,12 @@ form .btn {
     position: relative;
 
 }
-.section-stats .btn{
-    max-width: 264px;margin-top: 80px;
+
+.section-stats .btn {
+    max-width: 264px;
+    margin-top: 80px;
 }
+
 .section-stats .d-flex {
     grid-gap: 60px;
 }
@@ -13135,10 +13138,10 @@ form .btn {
 }
 
 .stats-card-title {
-    color:  #212633;
+    color: #212633;
     font-size: 16px;
     font-weight: 700;
-    line-height: 24px; 
+    line-height: 24px;
     margin-bottom: 30px;
 }
 
@@ -13196,10 +13199,10 @@ form .btn {
     flex-flow: column;
     align-items: start;
     grid-gap: 8px;
-text-align: start;
+    text-align: start;
 }
-.stat-label p{
-}
+
+.stat-label p {}
 
 
 
@@ -13279,99 +13282,106 @@ text-align: start;
     font-family: 'Arial', sans-serif;
     background: #fff;
     padding: 20px;
-  }
-  
-  .stats-header {
+}
+
+.stats-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
-  
-  .stats-header h1 {
-    color:  #212633;
+}
+
+.stats-header h1 {
+    color: #212633;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px; 
-  }
-  
-  .filter select {
+    line-height: 24px;
+}
+
+.filter select {
     padding: 5px 10px;
     border-radius: 8px;
-    background-color: #F3F6FF;  
-    color:  #212633;
+    background-color: #F3F6FF;
+    color: #212633;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
     width: 120px;
-height: 32px;
+    height: 32px;
 
 }
-  
-  .legend {
+
+.legend {
     display: flex;
-    align-items: center;grid-gap: 16px;
-  }
-  
-  .legend-item {
+    align-items: center;
+    grid-gap: 16px;
+}
+
+.legend-item {
     display: flex;
     align-items: center;
     grid-gap: 8px;
     padding: 4px 8px;
     border-radius: 5px;
-    color:  #212633;
+    color: #212633;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px; 
+    line-height: 22px;
     border-radius: 8px;
-    background:  #F3F6FF;
-  }
-  .legend-item  .color-square{
+    background: #F3F6FF;
+}
+
+.legend-item .color-square {
     border-radius: 4px;
     background: #E5EAFC;
     width: 16px;
     height: 16px;
-  }
-  .legend-item.apply .color-square{
+}
+
+.legend-item.apply .color-square {
     background: #E5EAFC;
-  }
-  
-  .legend-item.application-pass .color-square{
+}
+
+.legend-item.application-pass .color-square {
     background: #93AAFD;
-  }
-  
-  .legend-item.university-offer .color-square{
+}
+
+.legend-item.university-offer .color-square {
     background: #2D5BFF;
-  }
-  
-  .legend-item.joined-university .color-square{
+}
+
+.legend-item.joined-university .color-square {
     background: #0E00B0;
-  }
-  
-  .stats-content {
+}
+
+.legend-item.apply-fail .color-square {
+    background: #F93535;
+}
+
+.stats-content {
     border-top: 2px solid #eee;
-  }
-  
-  .stats-row {
+}
+
+.stats-row {
     display: flex;
     align-items: center;
     padding: 10px 0;
     min-height: 100px;
-  }
-  
-  .student-name {
+}
+
+.student-name {
     width: 100px;
-    color:  #212633;
+    color: #212633;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px; 
-  }
-  
-  .progress-bars {
+    line-height: 22px;
+}
+
+.progress-bars {
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -13380,26 +13390,30 @@ height: 32px;
     border-radius: 5px;
     overflow: hidden;
     grid-gap: 9px;
-  }
-  
-  .progress-bar {
+}
+
+.progress-bar {
     height: 100%;
     border-radius: 5px;
-  }
-  
-  .progress-bar.apply {
+}
+
+.progress-bar.apply {
     background-color: #4a90e2;
-  }
-  
-  .progress-bar.application-pass {
+}
+
+.progress-bar.application-pass {
     background-color: #93AAFD;
-  }
-  
-  .progress-bar.university-offer {
+}
+
+.progress-bar.university-offer {
     background-color: #2D5BFF;
-  }
-  
-  .progress-bar.joined-university {
+}
+
+.progress-bar.joined-university {
     background-color: #0E00B0;
+}
+
+
+.progress-bar.apply-fail {
+    background-color:#F93535;
   }
-  

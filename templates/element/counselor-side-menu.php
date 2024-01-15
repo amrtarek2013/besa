@@ -72,6 +72,7 @@
                 use Cake\Routing\Router;
 
                 ?>
+                <h4>ahmed tarek</h4>
                 <span class="online-status"><?= $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</span>
 
             </div>
