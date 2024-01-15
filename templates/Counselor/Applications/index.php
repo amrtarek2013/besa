@@ -122,11 +122,8 @@
   <h2 class="stats-card-title">Total Stats</h2>
   <div class="stats-container">
     <div class="stat-item">
-        <div class="progress">
-            <span class="title timer" data-from="0" data-to="85" data-speed="1800">85</span>
-            <div class="overlay"></div>
-            <div class="left"></div>
-            <div class="right"></div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 38%;">38%</div> 
         </div>
       <div class="stat-info">
         <div class="stat-number">
