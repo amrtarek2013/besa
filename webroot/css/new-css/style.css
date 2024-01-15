@@ -14,7 +14,7 @@
     --bs-yellow: #ffcc02;
     --bs-light-red: #FF5151;
     --bs-gold: #E3B505;
-    --text-color: #0660aa;
+    --text-color: #0067B1;
 }
 
 .clear-blue {
@@ -13473,9 +13473,182 @@ form .btn {
     width: max-content;
     margin: auto;
 }
-.container-checkboxes .checkboxes div {position: relative;}
-.container-checkboxes .checkboxes div  div.error-message{
+
+.container-checkboxes .checkboxes div {
+    position: relative;
+}
+
+.container-checkboxes .checkboxes div div.error-message {
     position: absolute;
     bottom: -20px;
     left: -5px;
+}
+
+
+.bottom-hero-section-subject-discovery .title-bottom-hero h4 {
+    color: var(--text-color);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.bottom-hero-section-subject-discovery .title-bottom-hero h4 span {
+    color: #FABA1B;
+}
+
+.bottom-hero-section-subject-discovery img {
+    margin: 80px 0;
+    border-radius: 16px;
+
+}
+
+.bottom-hero-section-subject-discovery .title-bottom-hero p.description {
+    color: #546E7A;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    text-align: start;
+}
+
+.discovery-assessment {
+    padding: 100px 0;
+}
+
+.discovery-assessment h2 {
+    color: var(--text-color);
+    text-align: start;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 135%; 
+}
+
+.discovery-assessment .benefit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.discovery-assessment .title-with-icon{
+    position: relative;
+    width: max-content;
+    margin: auto;
+    margin-bottom: 100px ;
+    
+    
+}
+.discovery-assessment  .title-with-icon .sun-image{
+    position: absolute;
+    z-index: -1;
+    left: -30px;
+    top: -30px;
+}
+.discovery-assessment .benefit h3 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 135%;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+.discovery-assessment .benefit ul{
+    padding-left: 30px;
+}
+.discovery-assessment .benefit ul li {
+    margin: 0;
+    color: #546E7A;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    list-style: disc;
+    display: list-item;
+}
+
+.container-discovery-assessment {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+.container-discovery-assessment .content {
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 1.855px 3.711px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+}
+
+.container-discovery-assessment .items-ben{
+    flex-basis: 70%;
+}
+
+.container-discovery-assessment .image-right{
+    flex-basis: 30%;
+}
+.study-abroad-new {
+    padding: 100px 0 50px;
+}
+.study-abroad-new .grid-2col{
+    grid-gap: 50px ;
+}
+.study-abroad-new .item-study{
+    border-radius: 32px;
+    background: #F8F8F8;
+    padding: 40px;
+}
+.study-abroad-new .item-study p{
+    color:  #263238;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 135%; 
+}
+
+.study-abroad-new  .row-study{
+    display: flex;
+    flex-flow: column;
+    grid-gap: 50px;
+
+}
+
+.title-new .title{
+    text-align: center;
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 135%; 
+margin-bottom: 45px;
+}
+
+.title-new .title span{
+    color: #FABA1B ;
+    display: inline;
+
+}
+
+.btn-new{
+    border-radius: 12px;
+    background: linear-gradient(295deg, #D71921 10.91%, #FABA1B 122.26%);
+    padding: 16px 40px;
+    margin: 100px auto 50px;
+    max-width: 350px;
+    padding: 16px 40px;
+    color: #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+grid-gap: 10px;
+}
+.hero-subject-discovery {
+    padding: 220px 0;
+    margin-bottom: 0;
+}
+.hero-subject-discovery .title-hero{
+    font-size: 88px;
+    font-weight: 600;
+    text-align: start;
+    left: 65px;
+    top: -135px;
+
 }
