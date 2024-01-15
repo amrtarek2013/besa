@@ -119,40 +119,94 @@
 
 <div class="section-stats">
     <div class="stats-card">
-    <h2 class="stats-card-title">Total Stats</h2>
-    <div class="stats-container">
-        <div class="stat-item">
-            <div class="circle-progressbar-container">
-                <svg class="circle-progressbar" width="120" height="120">
-                    <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-                    <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
-                </svg>
-                <p class="percentage">38%</p>
-            </div>
-        <div class="stat-info">
-            <div class="stat-number">
-                <p>0</p>
-                <p>6</p>
+        <h2 class="stats-card-title">Total Stats</h2>
+        <div class="stats-container">
+            <div class="stat-item item-blue">
+                <div class="circle-progressbar-container">
+                    <svg class="circle-progressbar" width="120" height="120">
+                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
+                    </svg>
+                    <p class="percentage">38%</p>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">
+                        <p>0</p>
+                        <p>6</p>
 
+                    </div>
+                    <div class="stat-label">
+                        <p>Joined successfully</p>
+                        <p>6 students joined successfully</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat-label">
-                <p>Joined successfully</p>
-                <p>6 students joined successfully</p>
-            </div>
-        </div>
-        </div>
 
-        <div class="stat-item">
-        <svg class="stat-circle" width="120" height="120">
-            <circle class="stat-circle-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-            <circle class="stat-circle-progress" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
-        </svg>
-        <div class="stat-info">
-            <div class="stat-number">19</div>
-            <div class="stat-label">Applied</div>
-        </div>
+            <div class="stat-item item-yellow">
+                <div class="circle-progressbar-container">
+                    <svg class="circle-progressbar" width="120" height="120">
+                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
+                    </svg>
+                    <p class="percentage">62%</p>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">
+                        <p>19</p>
+
+                    </div>
+                    <div class="stat-label">
+                        <p>Appled</p>
+                        <p>19 students waiting offers from universities</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="stats-card">
+        <h2 class="stats-card-title">Total Stats</h2>
+        <div class="stats-container">
+            <div class="stat-item item-red">
+                <div class="circle-progressbar-container">
+                    <svg class="circle-progressbar" width="120" height="120">
+                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="38"/>
+                    </svg>
+                    <p class="percentage">38%</p>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">
+                        <p>0</p>
+                        <p>6</p>
+
+                    </div>
+                    <div class="stat-label">
+                        <p>Failed applications</p>
+                        <p>6 students joined successfully</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-item item-green">
+                <div class="circle-progressbar-container">
+                    <svg class="circle-progressbar" width="120" height="120">
+                        <circle class="circle-progressbar-background" stroke-width="6" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="circle-progressbar-value" stroke-width="6" fill="transparent" r="52" cx="60" cy="60" data-value="62"/>
+                    </svg>
+                    <p class="percentage">62%</p>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number">
+                        <p>19</p>
+
+                    </div>
+                    <div class="stat-label">
+                        <p>Total Gain</p>
+                        <p>6  points gained so far</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>
