@@ -106,15 +106,13 @@
                         <div class="col-md-12">
                             <div class="profile-card">
                                 <div class="profile-picture">
-                                    <img src="path-to-avatar-image.jpg" alt="User Avatar">
+                                    <img src="<?= $counselor['image_path'] ?>" alt="User Avatar">
                                 </div>
                                 <div class="profile-info">
-                                    <h3 class="user-name">Ahmed Mohamed</h3>
-                                    <div class="user-points">40 Points</div>
+                                    <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
+                                    <div class="user-points"><?= $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
