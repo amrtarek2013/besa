@@ -13207,17 +13207,37 @@ form .btn {
   
 
 
+  .circle-progressbar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
   
-.progress-bar-container {
-  background-color: #e6e6e6;
-  border-radius: 5px;
-  width: 100%;
-  height: 20px;
-}
-
-.progress-bar {
-  background-color: #4a90e2; /* Example color */
-  height: 100%;
-  border-radius: 5px;
-  transition: width 0.5s ease;
-}
+  .circle-progressbar {
+    transform: rotate(-90deg); /* To start the progress from the top */
+  }
+  
+  .circle-progressbar-background,
+  .circle-progressbar-value {
+    transition: stroke-dashoffset 0.6s ease;
+    stroke-linecap: round; /* To give a rounded edge to the stroke */
+  }
+  
+  .circle-progressbar-background {
+    stroke: #e6e6e6; /* Light grey color for the "empty" part of the progress */
+  }
+  
+  .circle-progressbar-value {
+    stroke: #4a90e2; /* Blue color for the "filled" part of the progress */
+  }
+  
+  /* Example style for a filled progress state */
+  .stat-item:nth-child(1) .circle-progressbar-value {
+    stroke: #4a90e2; /* Different color for each stat item if needed */
+  }
+  
+  .stat-item:nth-child(2) .circle-progressbar-value {
+    stroke: #f5a623; /* Different color for each stat item if needed */
+  }
+  
