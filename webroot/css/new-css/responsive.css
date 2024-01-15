@@ -638,13 +638,15 @@
         padding: 0;
     }
 
-    .contact-us-home .form{
-        padding: 24px ; 
+    .contact-us-home .form {
+        padding: 24px;
 
     }
-    .contact-us .submit{
+
+    .contact-us .submit {
         width: 100%;
     }
+
     .bottom-dots-img,
     .top-dots-img {
 
@@ -2178,9 +2180,11 @@
         margin: auto;
 
     }
-    .home-events .container-events .box-blog{
+
+    .home-events .container-events .box-blog {
         height: max-content;
     }
+
     .home-events .container-events .box-blog:nth-child(2) {
         margin-top: 0;
     }
@@ -3120,10 +3124,12 @@
     .owl-blogs .carousel-wrap .carousel>li {
         width: 220px;
     }
-    .toggle-search{
+
+    .toggle-search {
         display: block;
     }
-   .blogs-en .owl-blogs .main-pos {
+
+    .blogs-en .owl-blogs .main-pos {
         width: 220px !important;
         height: 290px !important;
         margin-left: 4.5em !important;
@@ -3152,9 +3158,11 @@
         height: 320px;
         padding: 14px;
     }
-    .testimonials  .owl-blogs {
+
+    .testimonials .owl-blogs {
         margin: 160px 0;
     }
+
     .testimonials .title {
         font-size: 20px;
     }
@@ -3177,20 +3185,50 @@
     .testimonials .personal-data p {
         font-size: 14px;
     }
-    .testimonials .personal-data p:last-child{
+
+    .testimonials .personal-data p:last-child {
         font-size: 12px;
 
     }
-    .owl-topUni .item .title-box h4{
+
+    .owl-topUni .item .title-box h4 {
         font-size: 16px;
 
     }
-    .owl-topUni .item .title-box p span {font-size: 14px;
+
+    .owl-topUni .item .title-box p span {
+        font-size: 14px;
 
     }
-    .contact-us .title{
+
+    .contact-us .title {
         font-size: 20px;
 
     }
-        
+    .background-login-page{
+        padding: 40px 20px;
+    }
+    .background-login-page .logo{
+        padding: 0;
+    }
+    .background-login-page .logo img {
+        width: 106px !important;
+    }
+    .steps-en #prevBtn, .back-link{
+        font-size: 14px;
+    }
+    .login-tab h4{
+        font-size: 20px;
+        margin: 24px 0;
+    }.login-box-links a{
+        font-size: 14px;
+
+    }
+    .login-tab input[type="submit"], .login-tab button[type="submit"]{
+        height: 48px;
+        font-size: 14px;
+
+    }.login-tab{
+        padding: 24px;
+    }
 }
