@@ -8677,9 +8677,7 @@ input[type="search"] {
 
 }
 
-#FormLogin .form-area i.toggle-password {
-    top: calc(50% + 6px);
-}
+
 
 .login-en .form-area i.toggle-password {
     top: calc(50% + 15px) !important;
@@ -13042,7 +13040,7 @@ form .btn {
 
 .background-login-page .logo {
     width: max-content;
-    padding: 40px 150px;
+    padding: 0  18px;
 
 }
 
@@ -13054,7 +13052,7 @@ form .btn {
     border-top: none;
 }
 
-
+.login-tab .form-area input,
 .login-tab .form-area textarea,
 .login-tab .form-area select,
 .login-tab .form-area input[type="text"],
