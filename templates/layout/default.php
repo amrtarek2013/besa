@@ -100,7 +100,25 @@
         // debug((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor')  && $this->request->getParam('action') != 'dashboard');
         if ((isset($_SESSION['Auth']['User']) && strtolower($prefix) == 'user' && $this->request->getParam('action') != 'dashboard') || (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor'  && $this->request->getParam('action') != 'dashboard' && $this->request->getParam('action') != 'points')) { ?>
 
+            <div class="hero-counselor">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="profile-card">
+                            <div class="profile-picture">
+                                <img src="path-to-avatar-image.jpg" alt="User Avatar">
+                            </div>
+                            <div class="profile-info">
+                                <h3 class="user-name">Ahmed Mohamed</h3>
+                                <div class="user-points">40 Points</div>
+                            </div>
+                        </div>
 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row user-dashboard">
                     <?php
@@ -111,6 +129,7 @@
                         $counselor = $Counselors->find()->select(['total_points', 'total_points_reward'])->where(['id' => $_SESSION['Auth']['Counselor']['id']])->first();
 
                     ?>
+
                         <div class="col-md-3">
 
                             <?php echo $this->element('counselor-side-menu', array('sideMenus' => $sideMenus, 'urlPrefixText' => $urlPrefixText, "pageHead" => $pageHead, 'counselor' => $counselor)); ?>
