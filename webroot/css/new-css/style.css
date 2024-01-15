@@ -13115,9 +13115,10 @@ form .btn {
     position: relative;
 
 }
-
-.section-stats {
-    display: flex;
+.section-stats .btn{
+    max-width: 264px;margin-top: 80px;
+}
+.section-stats .d-flex {
     grid-gap: 60px;
 }
 
@@ -13134,9 +13135,11 @@ form .btn {
 }
 
 .stats-card-title {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    color:  #212633;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px; 
+    margin-bottom: 30px;
 }
 
 .stats-container {
@@ -13144,13 +13147,14 @@ form .btn {
     justify-content: start;
     flex-flow: column;
     align-items: start;
+    grid-gap: 30px;
 }
 
 .stat-item {
     text-align: center;
     display: flex;
     align-items: center;
-    grid-gap: 20px;
+    grid-gap: 10px;
 
 }
 
@@ -13172,7 +13176,7 @@ form .btn {
 .stat-info {
     display: flex;
     align-items: center;
-    grid-gap: 20px;
+    grid-gap: 10px;
 }
 
 .stat-number {
@@ -13194,7 +13198,8 @@ form .btn {
     grid-gap: 8px;
 text-align: start;
 }
-
+.stat-label p{
+}
 
 
 
@@ -13228,15 +13233,6 @@ text-align: start;
     /* Blue color for the "filled" part of the progress */
 }
 
-/* Example style for a filled progress state */
-.stat-item:nth-child(1) .circle-progressbar-value {
-    stroke: #356CF9;
-    /* Different color for each stat item if needed */
-}
-
-.stat-item:nth-child(2) .circle-progressbar-value {
-    stroke: #F9AB35;
-}
 
 .circle-progressbar-container .percentage {
     position: absolute;
@@ -13276,3 +13272,134 @@ text-align: start;
     color: #34C759;
 
 }
+
+/**/
+
+.stats-section {
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .stats-header h1 {
+    color:  #212633;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+  }
+  
+  .filter select {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: #F3F6FF;  
+    color:  #212633;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    width: 120px;
+height: 32px;
+
+}
+  
+  .legend {
+    display: flex;
+    align-items: center;grid-gap: 16px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color:  #212633;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; 
+    border-radius: 8px;
+    background:  #F3F6FF;
+  }
+  .legend-item  .color-square{
+    border-radius: 4px;
+    background: #E5EAFC;
+    width: 16px;
+    height: 16px;
+  }
+  .legend-item.apply .color-square{
+    background: #E5EAFC;
+  }
+  
+  .legend-item.application-pass .color-square{
+    background: #93AAFD;
+  }
+  
+  .legend-item.university-offer .color-square{
+    background: #2D5BFF;
+  }
+  
+  .legend-item.joined-university .color-square{
+    background: #0E00B0;
+  }
+  
+  .stats-content {
+    border-top: 2px solid #eee;
+  }
+  
+  .stats-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    min-height: 100px;
+  }
+  
+  .student-name {
+    width: 100px;
+    color:  #212633;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; 
+  }
+  
+  .progress-bars {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    height: 10px;
+    background-color: #F3F6FF;
+    border-radius: 5px;
+    overflow: hidden;
+    grid-gap: 9px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .progress-bar.apply {
+    background-color: #4a90e2;
+  }
+  
+  .progress-bar.application-pass {
+    background-color: #93AAFD;
+  }
+  
+  .progress-bar.university-offer {
+    background-color: #2D5BFF;
+  }
+  
+  .progress-bar.joined-university {
+    background-color: #0E00B0;
+  }
+  
