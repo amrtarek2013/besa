@@ -16,51 +16,62 @@ use Cake\Routing\Router;
 ?>
 <div class="overlay-img">
   <div class="logo">
-  <a href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
+    <a href="<?= Router::url('/') ?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
   </div>
 </div>
 <?php
 
- $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
+$bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
 <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?>
 <div class="sign-up">
-  <div class="form-step">
-        <a href="<?=Router::url('/')?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
-        <h4 class="title-step">Welcome to BESA</h4>
-        <h5 class="title-small">Finish signing up</h5>
-        <div class="grid-container">
-            <?= $this->Form->control('first_name', [
-                'placeholder' => 'Name',
-                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
-              ]) 
-            ?>
+  <?= $this->Html->css([
+    '/css/new-css/timeline.css'
+  ]) ?>
+  <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
+  <section class="steps-en">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="steps-background">
 
-            <?= $this->Form->control('last_name', [
-                'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
-                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-              ]) 
-            ?>
-            
-            <?= $this->Form->control('country_id', [
-                  'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
-                  'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
-                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) 
-            ?>
-            <?= $this->Form->control('email', [
-                  'type' => 'email',
-                  'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-                  'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                ]) 
-            ?>
-            <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-            
-            <!--
+          <div class="step-container">
+            <div id="step1" class="step active">
+              <div class="form-step">
+                <a href="<?= Router::url('/') ?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
+                <h4 class="title-step">Welcome to BESA</h4>
+                <h5 class="title-small">Finish signing up</h5>
+                <div class="grid-container">
+                  <?= $this->Form->control('first_name', [
+                    'placeholder' => 'Name',
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                  ])
+                  ?>
+
+                  <?= $this->Form->control('last_name', [
+                    'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ])
+                  ?>
+
+                  <?= $this->Form->control('country_id', [
+                    'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
+                    'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ])
+                  ?>
+                  <?= $this->Form->control('email', [
+                    'type' => 'email',
+                    'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ])
+                  ?>
+                  <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+
+                  <!--
               <?= $this->Form->control('current_status', [
                 'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
                 'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-              ]) 
-            ?>
+              ])
+              ?>
            <?= $this->Form->control('nationality_id', [
               'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
               'type' => 'select', 'empty' => 'Select Nationality*',
@@ -74,17 +85,17 @@ use Cake\Routing\Router;
             ]) ?> -->
 
 
-            <?= $this->Form->control('current_status', [
-              'type' => 'text', 'placeholder' => 'Current School/University/Occupation', 'label' => 'Current School/University/Occupation *', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
+                  <?= $this->Form->control('current_status', [
+                    'type' => 'text', 'placeholder' => 'Current School/University/Occupation', 'label' => 'Current School/University/Occupation *', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                  ]) ?>
 
 
-            <!-- <?= $this->Form->control('current_study_level', [
-              'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
-              'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
+                  <!-- <?= $this->Form->control('current_study_level', [
+                          'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
+                          'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
+                          'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                        ]) ?>
 
 
 
@@ -102,328 +113,388 @@ use Cake\Routing\Router;
             ]) ?>
             -->
 
-            <?= $this->Form->control('password', [
-                'type' => 'password',
-                'placeholder' => 'Password',
-                'label' => 'Password*',
-                'required' => true,
-                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
-                ]) 
-            ?>
-            <?= $this->Form->control('passwd', [
-                'type' => 'password',
-                'placeholder' => 'Confirm Password',
-                'label' => 'Confirm Password*',
-                'required' => true,
-                'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
-              ]) 
+                  <?= $this->Form->control('password', [
+                    'type' => 'password',
+                    'placeholder' => 'Password',
+                    'label' => 'Password*',
+                    'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+                  ])
+                  ?>
+                  <?= $this->Form->control('passwd', [
+                    'type' => 'password',
+                    'placeholder' => 'Confirm Password',
+                    'label' => 'Confirm Password*',
+                    'required' => true,
+                    'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+                  ])
 
-            ?>
-            
-            
-        </div>
-        <div class="container-checkboxes">
-              <div class="checkboxes">
-                <div class="terms-conditions">
-                  <input type="checkbox" name="terms" id="terms" required="required">
-                  <label for="">I agree to <a href="#"> &nbsp;terms & conditions</a> </label>
+                  ?>
+
+
                 </div>
-                <div>
-                  <input type="checkbox" name="is_subscribed" id="is_subscribed">
-                  <label for="">Tick box to stay updated through BESA’s newsletter</label>
+                <div class="container-checkboxes">
+                  <div class="checkboxes">
+                    <div class="terms-conditions">
+                      <input type="checkbox" name="terms" id="terms" required="required">
+                      <label for="">I agree to <a href="#"> &nbsp;terms & conditions</a> </label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="is_subscribed" id="is_subscribed">
+                      <label for="">Tick box to stay updated through BESA’s newsletter</label>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step"> Agree and continue</button>
+              </div>
+            </div>
+            <div id="step2" class="step">
+              <!-- Step 1 content here -->
+              <h2 class="title">What study level do you <br> wish to apply for ?</h2>
+
+              <div class="form-area">
+                <?php  /*if (!empty($servicesSearchList)){ ?>
+                            <select name="service_id" id="service_id">
+                                <option value="">Select an option</option>
+                            <?php foreach ($servicesSearchList as $i => $service){?>
+                                <option value="<?=$service['id']?>" data-degree="<?= $service['search_degree_options'] ?>"><?= $service['title'] ?></option>
+                            <?php } ?>
+                            </select>                                
+                        <?php }*/ ?>
+                <!-- Hidden Dropdown for Selecting Study Levels -->
+                <?php if (!empty($studyLevels)) { ?>
+                  <select hidden name="study_level_id" id="study_level_id">
+                    <option value="">Select an option</option>
+                    <?php foreach ($studyLevels as $studyLevel) { ?>
+                      <option value="<?= $studyLevel['id'] ?>" data-degree="1"><?= $studyLevel['title'] ?></option>
+                    <?php } ?>
+                  </select>
+                <?php } ?>
+
+                <!-- Grid Format for Displaying Study Levels -->
+                <?php if (!empty($studyLevels)) { ?>
+                  <div class="subjects-container">
+                    <p class="title-small">Select your preferred study level.</p>
+                    <div class="grid-subjects">
+                      <?php foreach ($studyLevels as $studyLevel) { ?>
+                        <div class="subject" onclick="selectStudyLevel(<?= $studyLevel['id'] ?>, this)" data-selected="false" id="subject-<?= $studyLevel['id'] ?>">
+                          <?= $studyLevel['title'] ?>
+                        </div>
+                      <?php } ?>
+                    </div>
+                  </div>
+                <?php } ?>
+
+                <script>
+                  function selectStudyLevel(id, element) {
+                    // Clear previous selections in the grid
+                    var subjects = document.getElementsByClassName('subject');
+                    for (var i = 0; i < subjects.length; i++) {
+                      subjects[i].setAttribute('data-selected', 'false');
+                    }
+
+                    // Highlight the selected element
+                    element.setAttribute('data-selected', 'true');
+
+                    // Update the hidden select element with the selected study level id
+                    document.getElementById('study_level_id').value = id;
+                  }
+                </script>
+
+
+                <script>
+                  // JavaScript function to handle selection of study levels
+                  function selectStudyLevel(id, element) {
+                    // Clear previous selections
+                    var subjects = document.getElementsByClassName('subject');
+                    for (var i = 0; i < subjects.length; i++) {
+                      subjects[i].setAttribute('data-selected', 'false');
+                    }
+
+                    // Set the clicked element as selected
+                    element.setAttribute('data-selected', 'true');
+
+                    // Update a hidden input field to store the selected study level id
+                    document.getElementById('study_level_id').value = id;
+                  }
+                </script>
+
+                <!-- Hidden input to store the selected study level id -->
+                <input type="hidden" name="study_level_id" id="study_level_id" value="">
+              </div>
+            </div>
+
+            <!-- <input type="hidden" name="degree" id="degree" value="1"> -->
+
+            <div id="step3" class="step">
+              <div class="common-services services-2 services-4">
+                <h2 class="title">What do you want to study?</h2>
+                <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
+                <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
+                <div class="search search-step">
+                  <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject" />
+                </div>
+                <div class="subjects-container">
+                  <h4>Popular Subject</h4>
+                  <div class="grid-subjects">
+                    <div class="subject">Business</div>
+                    <?php if (!empty($subjectAreas)) { ?>
+                      <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
+                        <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
+                          <?= $subjectArea ?>
+                        </div>
+                      <?php } ?>
+                    <?php } ?>
+                  </div>
+
+                </div>
+                <!-- <div class="grid-contaienr SubjectAreas">
+                                <?php //if (!empty($subjectAreas)) { 
+                                ?>
+                                    <? php // foreach ($subjectAreas as $key => $subjectArea) { 
+                                    ?>
+                                        <div class="box course-box studyLevel-<php $key ?>" title='< $subjectArea ?>' data-course='< $key ?>'>
+                                            <h4><? php // $subjectArea 
+                                                ?></h4>
+                                        </div>
+                                    <? php // } 
+                                    ?>
+                                <?php //} 
+                                ?>
+                            </div> -->
+                <!-- <input type="hidden" name="course_id" id="course_id" value=''> -->
+                <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
+              </div>
+
+            </div>
+
+
+            <div id="step4" class="step">
+              <!-- Step 3 content here -->
+              <div class="common-services services-2 services-4">
+                <h2 class="title">Which countries do you want <br> to study in?</h2>
+                <div class="selectors-container">
+                  <div class="form-area">
+                    <label for="">Option 1</label>
+                    <select name="" id="">
+                      <?php foreach ($countriesList as $country_key => $country_value) { ?>
+                        <option value="<?= $country_value ?>"><?= $country_value ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-area">
+                    <label for="">Option 2</label>
+                    <select name="" id="">
+                      <option value="Option">Option 1</option>
+                    </select>
+                  </div>
+                  <div class="form-area">
+                    <label for="">Option 3</label>
+                    <select name="" id="">
+                      <option value="Option">Option 1</option>
+
+                    </select>
+                  </div>
+                  <div class="form-area">
+                    <label for="">Option 4</label>
+                    <select name="" id="">
+                      <option value="Option">Option 1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid-contaienr contaienr-checkbox">
+                  <?php foreach ($countriesList as $country_key => $country_value) { ?>
+                    <div class="checkbox-green">
+                      <input type="checkbox" name="country_id[]" value="<?= $country_key ?>" id="country-<?= $country_key ?>">
+                      <label for="country-<?= $country_key ?>"><?= $country_value ?></label>
+                    </div>
+                  <?php } ?>
                 </div>
               </div>
+              <div class="common-services services-6 services-7 hide">
+                <div class="form-area">
+                  <h2 class="title">Curriculum</h2>
+                  <select name="curriculum" id="curriculum">
+                    <option value="">Select Curriculum</option>
+                    <option value="1">Curriculum 1</option>
+                    <option value="2">Curriculum 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="step5" class="step">
+              <!-- Step 4 content here -->
+              <h2 class="title">Budget?</h2>
+              <div class="selectors-container">
+                <div class="form-area">
+                  <label for="">Budget </label>
+                  <select name="" id="">
+                    <option value="Option">5000 - 10,000 $</option>
+                  </select>
+                </div>
+              </div>
+              <div class="range-wrapper">
+                <div class="output-range">
+                  <span id="slider-value">$1000 </span>
+                  <span id="max-val">$100,000 </span>
+
+                </div>
+                <div id="slider_range_blue"></div>
+                <div class="minAndMax">
+                  <span class="min-name">Min </span>
+                  <span class="max-name">Max </span>
+                </div>
+                <input type="hidden" name="min_budget" id="min-budget" value="1000">
+                <input type="hidden" name="max_budget" id="max-budget" value="100000">
+                <script>
+                  var slider = document.getElementById('slider_range_blue');
+                  var sliderValueElement = document.getElementById('slider-value');
+                  var maxValElement = document.getElementById('max-val');
+                  var minBudgetElement = document.getElementById('min-budget');
+                  var maxBudgetElement = document.getElementById('max-budget');
+
+                  noUiSlider.create(slider, {
+                    start: [500, 85000],
+                    connect: true,
+                    range: {
+                      min: 0,
+                      max: 100000
+                    }
+                  });
+
+                  slider.noUiSlider.on('update', function(values, handle) {
+                    sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
+                    minBudgetElement.value = Math.round(values[0]);
+                    maxBudgetElement.value = Math.round(values[1]);
+                    maxValElement.innerHTML = "£" + Math.round(values[1]);
+                  });
+                </script>
+              </div>
+              <div class="common-services services-6 services-7 hide">
+                <label for="age">What is the student age?</label>
+                <span id="age-value">12 Year</span>
+
+                <input type="range" id="age" value="12" min="12" max="100" name="age">
+                <script>
+                  var slider = document.getElementById("age");
+                  var output = document.getElementById("age-value");
+                  output.innerHTML = slider.value;
+                  slider.oninput = function() {
+                    output.innerHTML = this.value + ' Year';
+                  }
+                </script>
+
+                <br><br><br>
+                <label for="stay">How long will the student stay?</label>
+                <span id="stay-value">1 Year</span>
+                <input type="range" id="stay" value="1" min="1" max="10" name="stay">
+                <script>
+                  var sliderStay = document.getElementById("stay");
+                  var outputStay = document.getElementById("stay-value");
+                  outputStay.innerHTML = sliderStay.value;
+                  sliderStay.oninput = function() {
+                    outputStay.innerHTML = this.value + ' Year';
+                  }
+                </script>
+              </div>
+
+            </div>
+
+            <div id="step6" class="step">
+              <h2 class="title">Which year do you want <br>to study abroad ?</h2>
+              <p class="title-small">Select your preferred year.</p>
+              <div class="grid-2col">
+                <div class="form-area ">
+                  <select name="" id="" class="border-blue">
+                    <option value="Option">2022</option>
+                  </select>
+                </div>
+                <div class="form-area">
+                  <select name="" id="" class="border-blue">
+                    <option value="Option">November</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+
+            <!-- Buttons to navigate between steps -->
+            <div id="buttons">
+              <button id="prevBtn" class="back-link"><img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt="">Back</button>
+              <button id="nextBtn">Next </button>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item active">
+            </div>
+            <div class="timeline-item">
+            </div>
+            <div class="timeline-item">
+            </div>
+            <div class="timeline-item">
+            </div>
+            <div class="timeline-item">
+            </div>
+            <div class="timeline-item">
+            </div>
+          </div>
         </div>
-        <button type="button" onclick="nextStep()" class="btn btn-primary btn-agree-step"> Agree and continue</button>
-  </div>
+      </div>
+  </section>
+  <?= $this->Form->end() ?>
+
+  <?= $this->Html->script([
+    '/js/new-js/timeline.js'
+  ]) ?>
+  <?= $this->Html->script([
+    '/js/new-js/script-steps-en.js?v=' . time()
+  ]) ?>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#service_id").change(function() {
+        var selected_service = $(this).val();
+        $('.common-services').hide();
+        $('.services-' + selected_service).show();
+
+        var degree = $(this).data('degree');
+        $('#degree').val(degree);
+      });
+      $('.course-box').on('click', function() {
+        var selected_course = $(this).data("course");
+        $('.course-box').removeClass('active');
+        $(this).addClass('active');
+        $("#subject_area_id").val(selected_course);
+      });
+      $('.level-box').on('click', function() {
+        var selected_level = $(this).data("level");
+        $('.level-box').removeClass('active');
+        $(this).addClass('active');
+        // $("#study_level_idstudy_level_id").val(selected_level);
+      });
+      // $('#study_level_id').on('change', function() {
+      //     var selected_level = $(this).val();
+
+      //     $(".course-box").hide();
+      //     $(".studyLevel-" + selected_level).show();
+      // });
+
+      $("#subject_area").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".SubjectAreas h4").each(function() {
+          if ($(this).text().toLowerCase().search(value) > -1) {
+            $(this).parent('div.course-box').show();
+          } else {
+            $(this).parent('div.course-box').hide();
+          }
+        });
+      });
+    });
+  </script>
+
 </div>
 <?= $this->Form->end() ?>
-
-
-<section class="main-banner register-banner study1-banner">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="/img/hero-bg-study-01.png" alt="" style="z-index: 2;" width="">
-                    <img src="/img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Study</h1>
-                    <h2 class="title text-left">Study</h2>
-                </div>
-            </div>
-
-            <!-- <form action=""> -->
-
-            <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results']); ?>
-            <div class="col-md-12">
-                <div class="container-formBox">
-                    <h4 class="title text-align title-study">What to Study</h4>
-                    <div class="radio-container">
-
-                        <?php if (!empty($servicesSearchList)) : ?>
-                            <?php foreach ($servicesSearchList as $i => $service) :
-                            ?>
-
-                                <div class="radio-label">
-                                    <input type="radio" class="radio-input searchDegreeOption" <?= $i == 0 ? 'checked="checked"' : '' ?> data-degree="<?= $service['search_degree_options'] ?>" name="service_id" id="service-<?= $service['id'] ?>" value="<?= $service['id'] ?>">
-                                    <label for="service-<?= $service['id']  ?>" class="radio-label-text"><?= $service['title'] ?></label>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        <input type="hidden" name="degree" id="degree" value="1">
-                        <!-- <div class="radio-label">
-                            <input type="radio" class="radio-input" name="degree" id="postgraduate" value="postgraduate">
-                            <label for="postgraduate" class="radio-label-text">Postgraduate Degree</label>
-                        </div>
-                        <div class="radio-label">
-                            <input type="radio" class="radio-input" name="degree" id="boarding" value="boarding">
-                            <label for="boarding" class="radio-label-text">Boarding School</label>
-                        </div>
-                        <div class="radio-label">
-                            <input type="radio" class="radio-input" name="degree" id="summer" value="summer">
-                            <label for="summer" class="radio-label-text">Summer School</label>
-                        </div> -->
-                    </div>
-                    <div class="grid-towCol searchDegreeOption-1">
-                        <div class="form-area">
-                            <!-- <label for="Major">What course/major do you want to study?</label>
-                                <select name="Major" id="Major" placeholder="Major">
-                                    <option value="1">Major 1</option>
-                                    <option value="2">Major 2</option>
-                                </select> -->
-                            <!-- <?php echo $this->Form->control('major_id', ['label' => 'What course/major do you want to study?', 'type' => 'select', 'empty' => 'Select Course/Major', 'options' => $courseMajors, 'class' => 'INPUT required']); ?> -->
-                            <?php echo $this->Form->control('course_id', ['label' => 'What course/major do you want to study?', 'type' => 'select', 'empty' => 'Select Course/Major', 'options' => $studyCourses, 'class' => 'INPUT required']); ?>
-                        </div>
-                        <div class="form-area">
-                            <!-- <label for="where">Where do you want to study?</label>
-                                <select name="where" id="where" placeholder="Where">
-                                    <option value="1">Where 1</option>
-                                    <option value="2">Where 2</option>
-                                </select> -->
-                            <?php echo $this->Form->control('country_id', ['label' => 'Where do you want to study?', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countriesList, 'class' => 'INPUT required']); ?>
-                        </div>
-                    </div>
-                    <div class="grid-towCol searchDegreeOption-2" style="display:none;">
-                        <div class="form-area">
-                            <!-- <label for="level">What is the student study level?</label>
-                            <select name="level" id="level" placeholder="Level">
-                                <option value="1">Level 1</option>
-                                <option value="2">Level 2</option>
-                            </select> -->
-                            <?php echo $this->Form->control('study_level_id', ['label' => 'What is the student study level?', 'type' => 'select', 'empty' => 'Select Level', 'options' => $studyLevels, 'class' => 'INPUT required']); ?>
-                        </div>
-                        <div class="form-area">
-                            <label for="curriculum">Curriculum</label>
-                            <select name="curriculum" id="curriculum" placeholder="Curriculum">
-                                <option value="">Select Curriculum</option>
-                                <option value="1">Curriculum 1</option>
-                                <option value="2">Curriculum 2</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="range-container">
-
-
-                        <div class="range-wrapper">
-                            <label for="budget">What is your budget?</label>
-                            <div class="output-range">
-                                <span id="slider-value">$1000 </span>
-                                <span id="max-val">$100,000 </span>
-
-                            </div>
-                            <div id="slider_range"></div>
-                            <span style="font-size: 10px;">Average $50,000 per year </span>
-
-                            <input type="hidden" name="min_budget" id="min-budget" value="1000">
-                            <input type="hidden" name="max_budget" id="max-budget" value="100000">
-                            <script>
-                                var slider = document.getElementById('slider_range');
-                                var sliderValueElement = document.getElementById('slider-value');
-                                var minBudgetElement = document.getElementById('min-budget');
-                                var maxBudgetElement = document.getElementById('max-budget');
-                                var maxValElement = document.getElementById('max-val');
-
-                                noUiSlider.create(slider, {
-                                    start: [40000, 60000],
-                                    connect: true,
-                                    range: {
-                                        min: 1000,
-                                        max: 100000
-                                    }
-                                });
-
-                                slider.noUiSlider.on('update', function(values, handle) {
-                                    sliderValueElement.innerHTML = "$" + Math.round(values[0]);
-                                    minBudgetElement.value = Math.round(values[0]);
-                                    maxBudgetElement.value = Math.round(values[1]);
-                                    maxValElement.innerHTML = "$" + Math.round(values[1]);
-                                });
-                            </script>
-                            <!-- 
-                                  <div class="output-range">
-                                      <span id="budget-value">$1000 </span>
-                                      <span id="">$100,000 </span>
-
-                                  </div>
-                                <input type="range" id="budget" min="1000" max="100000">
-                                <span style="font-size: 10px;">Average $50,000 per year </span>
-                                -->
-                        </div>
-
-                        <div class="range-wrapper searchDegreeOption-2" style="display:none;">
-                            <label for="age">What is the student age?</label>
-                            <span id="age-value">12 Year</span>
-
-                            <input type="range" id="age" value="12" min="12" max="100">
-                            <script>
-                                var slider = document.getElementById("age");
-                                var output = document.getElementById("age-value");
-                                output.innerHTML = slider.value; // Display the default slider value
-
-                                // Update the current slider value (each time you drag the slider handle)
-                                slider.oninput = function() {
-                                    output.innerHTML = this.value + ' Year';
-                                }
-                            </script>
-                        </div>
-                        <div class="range-wrapper searchDegreeOption-2" style="display:none;">
-                            <label for="stay">How long will the student stay?</label>
-                            <span id="stay-value">1 Year</span>
-
-                            <input type="range" id="stay" value="1" min="1" max="10">
-
-                            <script>
-                                var sliderStay = document.getElementById("stay");
-                                var outputStay = document.getElementById("stay-value");
-                                outputStay.innerHTML = sliderStay.value; // Display the default slider value
-
-                                // Update the current slider value (each time you drag the slider handle)
-                                sliderStay.oninput = function() {
-                                    outputStay.innerHTML = this.value + ' Year';
-                                }
-                            </script>
-                        </div>
-                        <div class="radio-wrapper">
-                            <label for="visa">Need help in visa issuing?</label>
-                            <div class="display-flex">
-                                <div class="radio-label">
-                                    <input type="radio" class="radio-input" name="visa" id="visa-yes" value="visa" checked="checked">
-                                    <label for="visa-yes" class="radio-label-text">Yes</label>
-
-                                </div>
-                                <div class="radio-label">
-                                    <input type="radio" class="radio-input" name="visa" id="visa-no" value="visa">
-                                    <label for="visa-no" class="radio-label-text">No</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="radio-wrapper">
-                            <label for="accommodation">Need help in accommodation?</label>
-                            <div class="display-flex">
-                                <div class="radio-label">
-                                    <input type="radio" class="radio-input" name="accommodation" id="accommodation-yes" value="accommodation" checked="checked">
-                                    <label for="accommodation-yes" class="radio-label-text">Yes</label>
-
-                                </div>
-                                <div class="radio-label">
-                                    <input type="radio" class="radio-input" name="accommodation" id="accommodation-no" value="accommodation">
-                                    <label for="accommodation-no" class="radio-label-text">No</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="checkbox-course searchDegreeOption" style="display:none;">
-                        <label for="academic-course" class="have-style-label">Academic Course:</label>
-                        <div id="checkbox-group-1">
-                            <div class="form-area">
-                                <input type="checkbox" id="junior" name="junior">
-                                <label for="junior">Junior</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="intensive-english-1" name="intensive-english-1">
-                                <label for="intensive-english-1">Intensive English 1</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="intensive-english-2" name="intensive-english-2">
-                                <label for="intensive-english-2">Intensive English 2</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="short-courses" name="short-courses">
-                                <label for="short-courses">Short Courses</label>
-                            </div>
-
-
-                        </div>
-
-                        <div id="checkbox-group-2">
-                            <div class="form-area">
-                                <input type="checkbox" id="a-level" name="a-level">
-                                <label for="a-level">A Level</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="ib" name="ib">
-                                <label for="ib">IB</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="ufc" name="ufc">
-                                <label for="ufc">UFC</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="custom-color" name="custom-color">
-                                <label for="custom-color">#696F79</label>
-                            </div>
-                            <div class="form-area">
-                                <input type="checkbox" id="igcse" name="igcse">
-                                <label for="igcse">IGCSE</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <button type="submit" class="btn btn-green"><?= __('Find') ?></button>
-                        <!-- <a href="#" class="btn btn-green">Find</a> -->
-                        <a href="<?= Cake\Routing\Router::url('/'.$g_dynamic_routes['enquiries.contactus']) ?>" class="btn btn-blue">
-                            <span class="big">Need Help?</span>
-                            <span class="small">Schedule a FREE session with our Counsellors </span>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
-            <?= $this->Form->end() ?>
-            <!-- </form> -->
-
-        </div>
-    </div>
-</section>
-<script>
-    $(document).ready(function() {
-
-
-        $('.searchDegreeOption').on('click', function() {
-
-            degree = $(this).data('degree');
-            if (degree == 1) {
-                $('.searchDegreeOption-' + degree).show();
-                $('.searchDegreeOption-2').hide();
-            } else {
-
-                $('.searchDegreeOption-' + degree).show();
-                $('.searchDegreeOption-1').hide();
-            }
-            $('#degree').val(degree);
-        });
-    });
-</script>
-
 
 <script>
   $('#current-study-level').on('change', function() {

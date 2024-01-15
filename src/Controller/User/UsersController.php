@@ -419,7 +419,7 @@ class UsersController extends AppController
                 $this->redirect('/user');
             }
         }
-        // Configure::write('debug', false);
+        Configure::write('debug', false);
 
         $userEntity = $this->Users->newEmptyEntity();
         $validation                      = ['validate' => 'register'];
