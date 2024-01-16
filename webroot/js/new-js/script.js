@@ -21,6 +21,19 @@ $(".grid-subjects .subject").on("click", function () {
   $(this).addClass("active").siblings().removeClass("active");
 });
 
+$('.btn-filter').click(function(){
+  $('#sideFilter').toggleClass("show");
+  $('#pageOverlay').toggleClass("visible");
+});
+
+$('#pageOverlay').click(function(){
+  $('#sideFilter').toggleClass("show");
+  $('#pageOverlay').toggleClass("visible");
+});
+$('.side-filter').click(function(){
+  $('#sideFilter').toggleClass("show");
+  $('#pageOverlay').toggleClass("visible");
+});
 
   // Add click event listener to each question
   $(".faq-question").click(function () {

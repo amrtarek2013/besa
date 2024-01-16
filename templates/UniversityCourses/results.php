@@ -4,19 +4,132 @@
     }
 </style>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="results-section">
+                <h4 class="title-results">Search results for: <span>Universities</span></h4>
+                <div class="header-results">
+                    <div class="tabs">
+                        <div class="tab active">5240 Resuls</div>
+                        <div class="tab">3280 Courses</div>
+                        <div class="tab">1241 Universities</div>
+                    </div>
+                    <div class="filter">
+                        <button class="btn btn-primary btn-filter">Filter <img src="<?= WEBSITE_URL ?>img/new-desgin/filter.svg" alt="" > </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sideFilter" class="side-filter">
+    <div class="header-side-filter">
+        <h4 class="title-filter">Filters</h4>
+        <div class="close">
+            <i class="fas fa-lg fa-times"></i>
+        </div>
+    </div>
+
+    <div class="body-content">
+        
+    </div>
+    
+
+</div>
+
+<div id="pageOverlay" class="overlay"></div>
+
+<div class="universities-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
+
+                            <h4>Universities </h4>
+                        </div>
+                        <a href="#" class="link-see-more">
+                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
+                        </a>
+                    </div>
+                    <div class="grid-universities">
+                        <?php for ($i = 0; $i < 6; $i++): ?>
+                            <div class="university">
+                                <div class="header-box">
+                                    <div class="logo">
+                                        <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="University of Essex Logo">
+                                        <h5>University of Essex</h5>
+                                    </div>
+                                    <div class="icon-favorite">
+                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="university-info">
+                                    <p>United Kingdom</p>
+                                </div>
+                                <a href="#" class=" btn apply-now-btn">Apply now</a>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="universities-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-universities">
+                    <div class="header-box">
+                        <div class="title-left">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/courses-icon.svg" alt="Canadian Flag Icon">
+
+                            <h4>Courses</h4>
+                        </div>
+                        <a href="#" class="link-see-more">
+                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
+                        </a>
+                    </div>
+                    <div class="grid-universities">
+                        <?php for ($i = 0; $i < 6; $i++): ?>
+                            <div class="university">
+                                <div class="header-box">
+                                    <div class="logo">
+                                        <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="University of Essex Logo">
+                                        <h5>MBA Master of Business Administration</h5>
+                                    </div>
+                                    <div class="icon-favorite">
+                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="university-info">
+                                    <p>University of Roehampton, UK<span class="price">£18,000</span></p>
+                                </div>
+                                <a href="#" class=" btn apply-now-btn">Apply now</a>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="main-banner register-banner study1-banner">
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/hero-bg-study-01.png" alt="" style="z-index: 2;" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
+                
             </div>
             <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Results</h1>
+                <div class="relative-about ">
                     <h2 class="title text-left">
                         Results
                         <br/>
