@@ -13701,7 +13701,7 @@ form .btn {
     left: 70px;
     text-align: start;
     top: -90px;
-    line-height: 135%; 
+    line-height: 135%;
 }
 
 .hero-partnership-with-besa .img-hero {
@@ -13709,32 +13709,180 @@ form .btn {
     top: 0;
 }
 
-.icons-partnership .title{
+.icons-partnership .title {
     margin-bottom: 95px;
 }
 
-.global-engagement  .bottom-title-black{
-    color:  #263238;
-text-align: center;
-font-size: 32px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; 
-margin-top: 110px;
-margin-bottom: 23px;
+.global-engagement .bottom-title-black {
+    color: #263238;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 110px;
+    margin-bottom: 23px;
 }
 
-.partnership-form .grid-2col{
+.partnership-form .grid-2col {
     grid-gap: 32px;
 
 }
 
-.partnership-form  .container-formBox{
+.partnership-form .container-formBox {
     margin-bottom: 160px;
 }
 
-.hero-partnership-with-besa .title-hero span{
+.hero-counselor-points {
+    padding: 220px 0;
+    margin-bottom: 0;
+}
+
+.hero-partnership-with-besa .title-hero span {
     font-size: 88px;
 }
 
 
+.hero-counselor-points .title-hero {
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 135%;
+    text-align: start;
+    top: -130px;
+    left: 10px;
+}
+
+.hero-counselor-points .img-hero {
+    left: 200px;
+    top: 0px;
+}
+
+.milestones {
+    padding: 100px 0;
+}
+
+.milestones .header-milestones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    grid-gap: 60px;
+    margin-bottom: 25px;
+
+}
+
+.milestones .item-header p {
+    color: #9291A5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+.milestones .item-header h4 {
+    color: #1E1B39;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.milestones .item-header p span {
+    display: block;
+    color: #546E7A;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.milestones .item-header p span:last-child {
+    font-size: 20px;
+}
+
+.container-milestones {
+    display: flex;
+    align-items: center;
+    grid-gap: 50px 125px;
+}
+
+.points-conversion .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.points-conversion .left-content {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.points-conversion .left-content .small-circle {
+    width: 19.846px;
+    height: 19.846px;
+    border-radius: 50%;
+    background: #F93535;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.points-conversion .left-content .num-points {
+    color: #615E83;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.points-conversion .clac-points {
+    color: #9291A5;
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+.container-milestones .canva {
+    flex-basis: 40%;
+}
+
+.container-milestones .points-conversion {
+    flex-basis: 60%;
+    display: flex;
+    flex-flow: column;
+    grid-gap: 40px;
+}
+
+.milestones .header-milestones .item-header:first-child {
+    width: 25%;
+}
+
+.points-conversion .item:nth-child(2) .left-content .small-circle {
+    background: #F9AB35;
+}
+
+
+.points-conversion .item:nth-child(3) .left-content .small-circle {
+    background: #356CF9;
+}
+
+.points-conversion .item:nth-child(4) .left-content .small-circle {
+    background: #34C759;
+}
+.icons-counselor-points .title{
+    margin-bottom: 0;
+}
+.icons-counselor-points .description{
+    color:  #78909C;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; 
+    margin-bottom: 85px;
+}

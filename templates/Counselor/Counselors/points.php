@@ -1,21 +1,129 @@
-<section class="main-banner register-banner Create-account-banner" style="padding-bottom:0">
-
+<div class="hero-section hero-counselor-points">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/Resume-2 1.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-counselor-points.png" alt="hero Counselor Points " loading="lazy">
             </div>
-            <div class="col-md-5">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Points</h1>
-                    <h2 class="title text-left">Counselor<br /> Points</h2>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Counselor <span> Points</span> </h1>
+        </div>
+    </div>
+</div>
+<div class="global-engagement icons-counselor-points">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title">Milestone</h2>
+                <p class="description">Earn 1 Point for each student who joins a university <br>  through BESA</p>
+                <div class="group-cards">
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg" alt="Icon Global connection" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>25 Students</h4>
+                        <p>Applied</p>
+                    </div>
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_2.svg" alt="Icon Language" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>5 Students</h4>
+                        <p>Joined Successfully</p>
+                    </div>
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_3.svg" alt="Icon Dreams" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>5 Points</h4>
+                        <p>Points Acquired</p>
+                    </div>
+                </div>
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/counter22.png" alt="" loading="lazy" style="margin:50px auto;display: block;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="milestones">
+                <div class="header-milestones">
+                    <div class="item-header">
+                        <p>Milestones</p>
+                        <h4>Each Tier</h4>
+                    </div>
+                    <div class="item-header">
+                        <p>
+                            <span>Up to 5 Points</span> 
+                            <span>point = $100</span>
+                        </p>
+                    </div>
+                    <div class="item-header">
+                        <p>
+                            <span>6 to 10 Points</span> 
+                            <span> oint = $150</span>
+                        </p>
+                    </div>
+                    <div class="item-header">
+                        <p>
+                            <span>After 10 Points </span> 
+                            <span>point = $150</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container-milestones">
+                    <div class="canva">
+                        <img src="<?= WEBSITE_URL ?>img/new-desgin/pin-sections.png" alt=" " loading="lazy">
+
+                    </div>
+                    <div class="points-conversion">
+                        <div class="item">
+                            <div class="left-content">
+                                <div class="small-circle"></div>
+                                <h5 class="num-points">5 Points</h5>
+                            </div>
+                            <p class="clac-points">1P = 100</p>
+                        </div>
+                        <div class="item">
+                            <div class="left-content">
+                                <div class="small-circle"></div>
+                                <h5 class="num-points">5 Points</h5>
+                            </div>
+                            <p class="clac-points">1P = 100</p>
+                        </div>
+                        <div class="item">
+                            <div class="left-content">
+                                <div class="small-circle"></div>
+                                <h5 class="num-points">5 Points</h5>
+                            </div>
+                            <p class="clac-points">1P = 100</p>
+                        </div>
+                        <div class="item">
+                            <div class="left-content">
+                                <div class="small-circle"></div>
+                                <h5 class="num-points">5 Points</h5>
+                            </div>
+                            <p class="clac-points">1P = 100</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<section class="main-banner register-banner Create-account-banner" style="padding-bottom:0">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12" style="padding: 0;">
