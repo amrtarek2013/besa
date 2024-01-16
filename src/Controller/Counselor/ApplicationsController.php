@@ -44,10 +44,12 @@ class ApplicationsController extends AppController
     {
 
         $counselor = $this->Auth->user();
-        debug($counselor);
+        // debug($counselor);
+        
+        $this->loadModel('Counselors');
         try {
 
-            // $counselor = $this->Counselors->get($counselor['id']);
+            $counselor = $this->Counselors->get($counselor['id']);
 
             if (!$counselor || !isset($counselor)) {
                 $this->Flash->error(__('Counselor not Found!!!'));
@@ -62,8 +64,7 @@ class ApplicationsController extends AppController
             $this->redirect('/counselor/login');
         }
 
-        $this->loadModel('Counselors');
-        $counselor = $this->Counselors->get($counselor['id']);
+        // $counselor = $this->Counselors->get($counselor['id']);
         
         
         
