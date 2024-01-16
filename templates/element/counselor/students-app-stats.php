@@ -43,34 +43,34 @@
 
                                         if ($userApp['applications'][0]['status'] == $statusLabel['Joined Successfully']) {
                                     ?>
-                                            <div class="progress-bar apply" style="width: 10%;"></div>
+                                            <div class="progress-bar apply" style="width: 20%;"></div>
                                             <div class="progress-bar application-pass" style="width: 20%;"></div>
-                                            <div class="progress-bar university-offer" style="width: 30%;"></div>
+                                            <div class="progress-bar university-offer" style="width: 20%;"></div>
                                             <div class="progress-bar joined-university" style="width: 40%;"></div>
                                         <?php
                                         } else if ($userApp['applications'][0]['status'] == $statusLabel['Rejected']) {
                                         ?>
-                                            <div class="progress-bar apply" style="width: 10%;"></div>
+                                            <div class="progress-bar apply" style="width: 20%;"></div>
                                             <div class="progress-bar apply-fail" style="width: 20%;"></div>
                                         <?php
                                         } else if ($userApp['applications'][0]['status'] == $statusLabel['University Offer']) {
 
                                         ?>
-                                            <div class="progress-bar apply" style="width: 10%;"></div>
+                                            <div class="progress-bar apply" style="width: 20%;"></div>
                                             <div class="progress-bar application-pass" style="width: 20%;"></div>
-                                            <div class="progress-bar university-offer" style="width: 30%;"></div>
+                                            <div class="progress-bar university-offer" style="width: 20%;"></div>
                                             <div class="progress-bar joined-university" style="width: 40%;"></div>
                                         <?php
                                         } else if ($userApp['applications'][0]['status'] == $statusLabel['Application Pass']) {
 
                                         ?>
-                                            <div class="progress-bar apply" style="width: 10%;"></div>
+                                            <div class="progress-bar apply" style="width: 20%;"></div>
                                             <div class="progress-bar application-pass" style="width: 20%;"></div>
                                         <?php
                                         } else {
 
                                         ?>
-                                            <div class="progress-bar apply" style="width: 10%;"></div>
+                                            <div class="progress-bar apply" style="width: 20%;"></div>
                                         <?php
                                         }
                                     } else {
