@@ -3204,35 +3204,47 @@
         font-size: 20px;
 
     }
-    .background-login-page{
+
+    .background-login-page {
         padding: 40px 20px;
     }
-    .background-login-page .logo{
+
+    .background-login-page .logo {
         padding: 0;
     }
+
     .background-login-page .logo img {
         width: 106px !important;
     }
-    .steps-en #prevBtn, .back-link{
+
+    .steps-en #prevBtn,
+    .back-link {
         font-size: 14px;
     }
-    .login-tab h4{
+
+    .login-tab h4 {
         font-size: 20px;
         margin: 24px 0;
-    }.login-box-links a{
+    }
+
+    .login-box-links a {
         font-size: 14px;
 
     }
-    .login-tab input[type="submit"], .login-tab button[type="submit"]{
+
+    .login-tab input[type="submit"],
+    .login-tab button[type="submit"] {
         height: 48px;
         font-size: 14px;
 
-    }.login-tab{
+    }
+
+    .login-tab {
         padding: 24px;
     }
 
 
-    .background-forgot-password-page .description{
+    .background-forgot-password-page .description {
         font-size: 14px;
 
     }
@@ -3241,53 +3253,65 @@
         width: 80%;
         margin-bottom: 32px;
     }
+
     .study-abroad-new .item-study p,
     .title-new .title,
     .discovery-assessment .benefit h3,
-    .discovery-assessment h2{
+    .discovery-assessment h2 {
         font-size: 20px;
 
     }
+
     .hero-subject-discovery .img-hero {
         left: 20px;
         top: 50px;
         width: 220px;
     }
+
     .bottom-hero-section-subject-discovery img {
         margin: 32px 0;
     }
-    .bottom-hero-section-subject-discovery .title-bottom-hero p.description{
+
+    .bottom-hero-section-subject-discovery .title-bottom-hero p.description {
         font-size: 16px;
     }
+
     .discovery-assessment .title-with-icon .sun-image {
-    
+
         left: -20px;
         top: -20px;
         width: 80px;
     }
+
     .title-new .title br,
-    .discovery-assessment h2 br{
+    .discovery-assessment h2 br {
         display: none;
     }
-    .container-discovery-assessment{
+
+    .container-discovery-assessment {
         flex-flow: column-reverse;
     }
-    .discovery-assessment .benefit{
+
+    .discovery-assessment .benefit {
         flex-flow: column;
     }
+
     .container-discovery-assessment .image-right,
-    .container-discovery-assessment .items-ben{
+    .container-discovery-assessment .items-ben {
         flex-basis: 100%;
 
     }
-    .study-abroad-new .grid-2col .image-study{
+
+    .study-abroad-new .grid-2col .image-study {
         grid-area: 1;
 
     }
-    .study-abroad-new .item-study{
+
+    .study-abroad-new .item-study {
         padding: 24px;
     }
-    .btn-new{
+
+    .btn-new {
         margin: 50px auto;
     }
 }
