@@ -140,7 +140,7 @@
 
                         </div>
                     <?php } ?>
-                    <div class="col-md-9">
+                    <div class="col-md-9 pl30" style="">
 
 
                         <?= $this->Flash->render() ?>
@@ -149,14 +149,16 @@
 
                     </div>
 
-                    <?php if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
+                    
+
+                </div>
+                
+            </div>
+            <?php if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
                         if ($this->request->getParam('action') == 'index' && $this->request->getParam('controller') == 'Applications') : ?>
                             <?php echo $this->element('counselor/students-app-stats', array('counselor' => $counselor)); ?>
                         <?php endif; ?>
                     <?php } ?>
-
-                </div>
-            </div>
 
         <?php } else { ?>
 

@@ -1,4 +1,3 @@
-<div class="col-md-12">
 <div class="section-stats">
     <div class="d-flex">
         <div class="stats-card">
@@ -124,7 +123,6 @@
             </div>
         </div>
     </div>
-</div>
 <?php endif; ?>
 
 <script>

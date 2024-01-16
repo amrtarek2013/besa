@@ -3314,4 +3314,91 @@
     .btn-new {
         margin: 50px auto;
     }
+
+    .section-stats .d-flex {
+        flex-flow: column;
+    }
+
+    .pl30 {
+        padding-left: 10px;
+    }
+
+    .stats-header {
+        align-items: start;
+        margin-bottom: 90px;
+        flex-flow: column;
+        grid-gap: 28px;
+    }
+
+    .legend {
+        display: grid;
+        grid-gap: 12px;
+        grid-template-columns: max-content max-content;
+    }
+
+    .stats-section {
+
+        padding: 0;
+    }
+
+    .legend-item {
+        width: max-content;
+    }
+
+    .legend-item.university-offer {
+        grid-column: 1;
+        grid-row: 1;
+
+    }
+
+    .legend-item.joined-university {
+        grid-column: 2;
+        grid-row: 1;
+
+
+    }
+
+    .legend-item.application-pass {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .stats-content {
+        border: 0;
+    }
+
+    .stats-row {
+        flex-flow: column;
+        min-height: max-content;
+        align-items: start;
+        grid-gap: 8px;
+
+    }
+
+    .progress-bars {
+        width: 100%;
+    }
+
+    .student-name {
+        width: max-content;
+    }
+
+    .profile-card .profile-picture {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hero-counselor {
+        height: 120px;
+        margin-bottom: 220px;
+
+    }
+
+    .hero-counselor .profile-card {
+        margin: 10px auto;
+    }
+
+    .user-dashboard .sidebar {
+        border-top: none;
+    }
 }

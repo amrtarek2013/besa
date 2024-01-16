@@ -72,7 +72,9 @@ li.cke_panel_listItem {
 
     display: block !important;
 }
-
+.pl30{
+    padding-left: 30px;
+}
 a,
 a:focus,
 a:hover,
@@ -8085,6 +8087,7 @@ input[type="search"] {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
+    margin: 0;
 }
 
 .user-dashboard .container-formBox {
@@ -8175,6 +8178,7 @@ input[type="search"] {
     font-weight: 700;
     line-height: normal;
     padding: 16px 40px;
+    display: block;
 }
 
 .user-dashboard .nav-sidebar li a {
@@ -13278,7 +13282,6 @@ form .btn {
 /**/
 
 .stats-section {
-    font-family: 'Arial', sans-serif;
     background: #fff;
     padding: 20px;
 }
@@ -13437,7 +13440,7 @@ form .btn {
     height: 260px;
     margin: 0 auto;
     position: relative;
-    background-color: #4a90e2;
+    background-color: #EEE;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
