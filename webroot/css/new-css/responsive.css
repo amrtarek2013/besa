@@ -3401,4 +3401,26 @@
     .user-dashboard .sidebar {
         border-top: none;
     }
+
+    .hero-book-appointment .img-hero {
+        left: 0px;
+        top: 0px;
+        width: 220px;
+    }
+    .hero-book-appointment .title-hero span {
+        display: block;
+        font-size: 20px;
+    }
+    .hero-book-appointment .col-md-6>.title-hero {
+        text-align: start;
+        font-size: 32px;
+        line-height: 100%;
+        width: 180px;
+        margin-left: 30px;
+    }
+
+    .book-appointment .container-formBox {
+           margin-top: 0;
+
+    }
 }
