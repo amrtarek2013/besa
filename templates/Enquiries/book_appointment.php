@@ -1,22 +1,46 @@
+<div class="hero-section hero-book-appointment">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-book-appointment.png" alt="hero Book an appointment" loading="lazy">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Book <span>an appointment</span></h1>
+        </div>
+    </div>
+</div>
+
+<section class="bottom-hero-section  bottom-book-appointment">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="">
+                <div class="title-bottom-hero">
+                    <h4>   
+                        </span>If you're looking for <span  class=""> guidance on studying abroad </span> and prefer <br>
+                        to avoid in-person meetings or face challenges such as commuting, we have the perfect solution for you
+                    </h4>
+                    <p class="description">
+                        Get in touch with us to arrange a remote counseling session with Besa's <br> 
+                        experienced education counselors. <br><br>
+                        They will offer comprehensive assistance to help you achieve your dream of <br>
+                        studying abroad. This includes evaluating your study options, selecting the <br>
+                        perfect destination, university, and course, as well as aiding with application <br>  
+                        submissions, visa guidance, accommodation services, and more – all of which <br> 
+                        can be conveniently accessed online. <br><br>
+                        Don't let obstacles hold you back; make the most of our remote counseling <br> services today.   
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
 <section class="main-banner Create-account-banner  visitors-application book-appointment">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Book </h1>
-                    <h2 class="title text-left">Book an <br />appointment</h2>
-                </div>
-            </div>
-
-
-
-
             <div class="col-md-12">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
@@ -27,7 +51,6 @@
                 </p>
 
                 <div class="container-formBox">
-                    <p class="light-para">For the purpose of applying regulation, your details are required.</p>
                     <div class="grid-container">
 
                         <?= $this->Form->control('name', [

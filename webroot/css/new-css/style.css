@@ -72,9 +72,11 @@ li.cke_panel_listItem {
 
     display: block !important;
 }
-.pl30{
+
+.pl30 {
     padding-left: 30px;
 }
+
 a,
 a:focus,
 a:hover,
@@ -8954,9 +8956,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .book-appointment .container-formBox button[type="submit"] {
 
-    background: var(--bs-gold) !important;
-    width: 320px;
-    margin: 44px auto 0;
+    margin: 48px auto 0;
 }
 
 .book-appointment .checkboxes div label {
@@ -13665,4 +13665,23 @@ form .btn {
     left: 65px;
     top: -135px;
 
+}
+
+.hero-book-appointment {
+    padding: 240px 0;
+    margin-bottom: 0;
+}
+
+.hero-book-appointment .title-hero {
+    line-height: 65px;
+
+}
+
+.hero-book-appointment .title-hero span {
+    font-size: 50px;
+}
+
+.hero-book-appointment .img-hero {
+    left: 190px;
+    top: -25px;
 }
