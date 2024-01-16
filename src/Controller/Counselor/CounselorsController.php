@@ -814,12 +814,12 @@ class CounselorsController extends AppController
 
             if (!$counselor) {
                 $this->Flash->error(__('Counselor not Found!!!'));
-                $this->redirect('/counselor/logout');
+                return $this->redirect('/counselor/logout');
             }
         } catch (Exception $ex) {
 
             $this->Flash->error(__('Counselor not Found!!!'));
-            $this->redirect('/counselor/logout');
+            return $this->redirect('/counselor/logout');
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {

@@ -44,27 +44,26 @@ class ApplicationsController extends AppController
     {
 
         $counselor = $this->Auth->user();
-        // debug($counselor);
-        
-        $this->loadModel('Counselors');
+        debug($counselor);
         try {
 
-            $counselor = $this->Counselors->get($counselor['id']);
+            // $counselor = $this->Counselors->get($counselor['id']);
 
             if (!$counselor || !isset($counselor)) {
                 $this->Flash->error(__('Counselor not Found!!!'));
-                $this->redirect('/counselor/login');
+                return $this->redirect('/counselor/login');
             } else if ($counselor['role_id'] != 3) {
                 $this->Flash->error(__('Sorry, you don\'t has permission to access this page!!!'));
-                $this->redirect('/counselor/login');
+                return $this->redirect('/counselor/login');
             }
         } catch (Exception $ex) {
 
             $this->Flash->error(__('User not Found!!!'));
-            $this->redirect('/counselor/login');
+            return $this->redirect('/counselor/login');
         }
 
-        // $counselor = $this->Counselors->get($counselor['id']);
+        $this->loadModel('Counselors');
+        $counselor = $this->Counselors->get($counselor['id']);
         
         
         
