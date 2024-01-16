@@ -1,54 +1,60 @@
-<section class="main-banner register-banner  partiner-banner">
+<div class="hero-section hero-partnership-with-besa">
     <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-partnership-with-besa.png" alt="hero Partnership With BESA" loading="lazy">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Partnership With BESA </h1>
+        </div>
+    </div>
+</div>
+<!-- <div class="global-engagement icons-partnership">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/new-images/partiner-background.png" alt="" style="z-index: 2;" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">PARTNER</h1>
-                    <h2 class="title text-left">PARTNERSHIP <br> WITH BESA</h2>
-                </div>
-            </div>
-
-            <?= $partnership_with_besa ?>
-            <!-- <div class="col-md-12" style="padding: 0">
-                <div class="title-banner-blue">
-                    <h3>BESA: CONNECTING PEOPLE WORLDWIDE</h3>
-                </div>
-            </div>
-            <div class="col-md-12" style="padding: 0;">
-                <div class="container-iconsPartners">
-                    <div class="boxPart">
-                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon01.png" alt="">
-                        <h4 class="titlePart">GROWTH</h4>
-                        <p class="descrip">BESA is your trusted partner, <br> together we will fulfill student’s <br> ambitions internationally</p>
+            <div class="col-md-12">
+                <h2 class="title">BESA Connecting people Worldwide</h2>
+                <div class="group-cards">
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?php// WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg" alt="Icon Global connection" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>Growth</h4>
+                        <p>BESA is your trusted partner together we will fulfill student’s ambitions internationally</p>
                     </div>
-                    <div class="boxPart">
-                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon02.png" alt="">
-                        <h4 class="titlePart">ACCESS</h4>
-                        <p class="descrip">Partnering with BESA means access to a wide range of resources and opportunities in the industry</p>
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?php// WEBSITE_URL ?>img/new-desgin/school_tour/icon_2.svg" alt="Icon Language" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>Access</h4>
+                        <p>Partnering with BESA means access to a wide range of resources and opportunities in the industry</p>
                     </div>
-                    <div class="boxPart">
-                        <img src="<?= WEBSITE_URL ?>img/new-images/part-icon03.png" alt="">
-                        <h4 class="titlePart">EVENTS</h4>
-                        <p class="descrip">BESA’s events are not to be missed! An opportunity for our partners to grow their presence and join us in exciting ventures</p>
+                    <div class="card-eng">
+                        <div class="circle-gradient">
+                            <div class="container-circle">
+                                <img src="<?php// WEBSITE_URL ?>img/new-desgin/school_tour/icon_3.svg" alt="Icon Dreams" loading="lazy">
+                            </div>
+                        </div>
+                        <h4>Events</h4>
+                        <p>BESA’s events are not to be missed! An opportunity for our partners to grow their presence and join us in exciting ventures</p>
                     </div>
                 </div>
-            </div>
-           -->
-            <div class="col-md-12" style="padding: 0;">
-                <div class="line-stained">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <h4 class="bottom-title-black">Submit this form with your business details and one of our<br>representatives will be in contact with you.</h4>
             </div>
         </div>
     </div>
+</div> -->
+
+<?= $partnership_with_besa ?>
+
+
+<section class="main-banner register-banner  partnership-form">
+   
 
     <div class="container">
         <div class="row">
@@ -58,10 +64,8 @@
                 <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'type' => 'file', 'id' => 'contactusForm']) ?>
                 <input type="hidden" id="type" name="type" value="partnership-with-besa">
                 <div class="container-formBox">
-                    <div class="gray-box">
-                        <p>Submit this form with your business details and one of our representatives will be in contact with you.</p>
-                    </div>
-                    <div class="grid-container">
+               
+                    <div class="grid-2col">
 
                         <?php
 
@@ -108,15 +112,7 @@
 
                         <?= $this->element('security_code') ?>
                     </div>
-
-
-                    <div class="container-submit">
-                        <ul class="custome-list">
-                            <li>For the purpose of applying regulation, your details are required.</li>
-                        </ul>
-                        <!-- <a href="#" class="btn greenish-teal" style="width: 240px;">SUBMIT</a> -->
-                        <input type="submit" value="Submit" class="btn greenish-teal" style="width: 240px;">
-                    </div>
+                    <input type="submit" value="Submit" class="btn greenish-teal" style="margin: 48px auto 0;">
                 </div>
 
                 <?= $this->Form->end() ?>

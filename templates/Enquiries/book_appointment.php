@@ -1,33 +1,28 @@
+<div class="hero-section hero-book-appointment">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-book-appointment.png" alt="hero Book an appointment" loading="lazy">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Book <span>an appointment</span></h1>
+        </div>
+    </div>
+</div>
+
+<?= $bookAppointmentSnippet ?>
+
 <section class="main-banner Create-account-banner  visitors-application book-appointment">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/book_appointment.png" alt="" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">Book </h1>
-                    <h2 class="title text-left">Book an <br />appointment</h2>
-                </div>
-            </div>
-
-
-
-
             <div class="col-md-12">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="book-appointment">
-                <p class="light-para">
-                    <?= $bookAppointmentSnippet ?>
-
-                </p>
+               
 
                 <div class="container-formBox">
-                    <p class="light-para">For the purpose of applying regulation, your details are required.</p>
                     <div class="grid-container">
 
                         <?= $this->Form->control('name', [

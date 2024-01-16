@@ -113,12 +113,6 @@
 
 
 
-<section class="register-banner">
 
-    <div class="container" style="width:100%">
-        <div class="row">
-            <?= $this->element('counselor/points', ['counselor' => $counselor]) ?>
+<?= $this->element('counselor/points', ['counselor' => $counselor]) ?>
 
-        </div>
-    </div>
-</section>
