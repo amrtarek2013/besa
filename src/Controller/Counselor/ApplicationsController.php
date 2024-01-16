@@ -49,7 +49,7 @@ class ApplicationsController extends AppController
 
             // $counselor = $this->Counselors->get($counselor['id']);
 
-            if (!$counselor) {
+            if (!$counselor || !isset($counselor)) {
                 $this->Flash->error(__('Counselor not Found!!!'));
                 $this->redirect('/counselor/login');
             } else if ($counselor['role_id'] != 3) {
