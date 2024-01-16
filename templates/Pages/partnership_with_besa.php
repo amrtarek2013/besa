@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="title-hero">Partnership With BESA </h1>
+            <h1 class="title-hero">Partnership <span>With BESA</span> </h1>
         </div>
     </div>
 </div>
@@ -112,7 +112,7 @@
 
                         <?= $this->element('security_code') ?>
                     </div>
-                    <input type="submit" value="Submit" class="btn greenish-teal" style="margin: 48px auto 0;">
+                    <input type="submit" value="Submit" class="btn greenish-teal" style="">
                 </div>
 
                 <?= $this->Form->end() ?>
