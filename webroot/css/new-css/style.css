@@ -13685,3 +13685,50 @@ form .btn {
     left: 190px;
     top: -25px;
 }
+
+.bottom-book-appointment .title-bottom-hero h4 {
+    margin-bottom: 48px;
+}
+
+.hero-partnership-with-besa {
+    padding: 240px 0;
+    margin-bottom: 0;
+}
+
+.hero-partnership-with-besa .title-hero {
+    font-size: 88px;
+    font-weight: 600;
+    left: 70px;
+    text-align: start;
+    top: -90px;
+    line-height: 135%; 
+}
+
+.hero-partnership-with-besa .img-hero {
+    left: 130px;
+    top: 0;
+}
+
+.icons-partnership .title{
+    margin-bottom: 95px;
+}
+
+.global-engagement  .bottom-title-black{
+    color:  #263238;
+text-align: center;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; 
+margin-top: 110px;
+margin-bottom: 23px;
+}
+
+.partnership-form .grid-2col{
+    grid-gap: 32px;
+
+}
+
+.partnership-form  .container-formBox{
+    margin-bottom: 160px;
+}
