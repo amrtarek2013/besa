@@ -335,6 +335,8 @@ class UniversityCoursesController extends AppController
 
     public function details($id = null)
     {
+        
+        // $this->set('bodyClass', 'pageAbout pageServices');
         $course = $this->UniversityCourses->find()
             ->contain([
                 'Courses' => ['fields' => ['course_name']],

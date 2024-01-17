@@ -37,6 +37,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/pages/subject-discovery', ['controller' => 'Pages', 'action' => 'subjectDiscovery']);
         $builder->connect('/pages/earth', ['controller' => 'Pages', 'action' => 'earth']);
         $builder->connect('/pages/points', ['controller' => 'Pages', 'action' => 'points']);
+        $builder->connect('/course-details/*', 'UniversityCourses::details');
         $builder->connect('/courses', 'UniversityCourses::results');
 
         // $builder->connect('/logout', ['controller' => 'Users', 'action' => 'logout', 'user' => true, 'prefix' => 'User']);
