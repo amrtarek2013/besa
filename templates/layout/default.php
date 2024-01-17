@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="profile-info">
                                         <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
-                                        <div class="user-points"><?= $_SESSION['Auth']['User']['active'] == 1 ? 'Approved' : '--' ?> Points</div>
+                                        <div class="user-points"><?= $_SESSION['Auth']['User']['active'] == 1 ? 'Approved' : '--' ?></div>
                                         
                                     </div>
                                 <?php } ?>
