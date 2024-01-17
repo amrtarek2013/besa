@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="profile-info">
                                     <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
-                                    <div class="user-points"><?= $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
+                                    <div class="user-points"><?= !empty($counselor['total_points']) && $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
                                 </div>
                             </div>
                         </div>
@@ -149,16 +149,16 @@
 
                     </div>
 
-                    
+
 
                 </div>
-                
+
             </div>
             <?php if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
-                        if ($this->request->getParam('action') == 'index' && $this->request->getParam('controller') == 'Applications') : ?>
-                            <?php echo $this->element('counselor/students-app-stats', array('counselor' => $counselor)); ?>
-                        <?php endif; ?>
-                    <?php } ?>
+                if ($this->request->getParam('action') == 'index' && $this->request->getParam('controller') == 'Applications') : ?>
+                    <?php echo $this->element('counselor/students-app-stats', array('counselor' => $counselor)); ?>
+                <?php endif; ?>
+            <?php } ?>
 
         <?php } else { ?>
 
