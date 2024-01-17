@@ -117,5 +117,25 @@
                 $(".slide-prev").trigger("click");
             }
         });
+
+        function updateTimelineWidth() {
+        var $timelineListWrap = $(".timeline-list-wrap");
+        var $timelineItems = $(".timeline-item");
+        var numberOfItems = $timelineItems.length;
+
+        // Calculate the total width based on the number of items and the container's width
+        var totalWidth = $timelineListWrap.parent().width() * numberOfItems;
+        $timelineListWrap.width(totalWidth);
+
+        // Update the position of the timeline
+        var currentIndex = $(".timeline-item.slide-active").index() || 0;
+        var newTranslateValue = -($timelineListWrap.parent().width() * currentIndex);
+        $timelineListWrap.css("transform", "translate3d(" + newTranslateValue + "px, 0px, 0px)");
+    }
+
+    // Call this function on window resize and initial load
+    $(window).resize(updateTimelineWidth).trigger('resize');
+
+
     });
 </script>

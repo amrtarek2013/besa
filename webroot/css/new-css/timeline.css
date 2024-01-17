@@ -87,7 +87,7 @@
 }
 
 .timeline-horizontal .timeline-dots {
-  background: url("../img/timeline-bg.png") center  repeat-x;
+  background: url("../img/timeline-bg.png") center repeat-x;
 }
 
 .timeline-vertical .timeline-dots {
@@ -188,7 +188,7 @@
 }
 
 .timeline-horizontal .timeline-dots .slide-active button {
-  background: url(../img/date-icon-active.png) top  no-repeat;
+  background: url(../img/date-icon-active.png) top no-repeat;
   padding-top: 95px;
 
 }
@@ -196,4 +196,37 @@
 .timeline-dots-wrap.top {
   top: unset;
   bottom: -85px;
+}
+
+
+
+.timeline,
+.timeline-list,
+.timeline-item {
+  width: 100%;
+  /* Instead of fixed 1200px */
+  max-width: 1200px;
+  /* Optional: if you want to limit the max width */
+}
+
+.timeline-item {
+  height: auto;
+  /* Adjust based on content */
+  box-sizing: border-box;
+  padding: 10px;
+  /* Add some padding for smaller screens */
+}
+
+@media (max-width: 768px) {
+  .timeline-horizontal .timeline-dots-wrap {
+    height: 50px;
+    /* Adjust height for smaller screens */
+  }
+
+  .timeline-horizontal .timeline-dots button {
+    padding-top: 50px;
+    /* Adjust padding for smaller screens */
+  }
+
+  /* Further adjustments can be added here */
 }
