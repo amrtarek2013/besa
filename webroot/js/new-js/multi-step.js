@@ -1,6 +1,6 @@
 // script.js
 let currentStep = 0;
-const steps = document.querySelectorAll('.form-step');
+const steps = document.querySelectorAll('.step');
 
 function showStep(step) {
   steps.forEach((section, index) => {

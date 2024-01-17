@@ -21,13 +21,11 @@ function showStep(stepIndex) {
   // Show the current step
   steps[stepIndex].classList.add("active");
 
-  if (prevBtn) {
-    // Update the buttons
-    if (stepIndex === 0) {
-      prevBtn.style.display = "none"; // Hide previous button on first step
-    } else {
-      prevBtn.style.display = "inline-block";
-    }
+  // Update the buttons
+  if (stepIndex === 0) {
+    prevBtn.style.display = "none"; // Hide previous button on first step
+  } else {
+    prevBtn.style.display = "inline-block";
   }
 
   if (stepIndex === steps.length - 1) {
@@ -59,10 +57,7 @@ function prevStep() {
 
 // Event listeners for button clicks
 nextBtn.addEventListener("click", nextStep);
-
-if (prevBtn) {
-  prevBtn.addEventListener("click", prevStep);
-}
+prevBtn.addEventListener("click", prevStep);
 
 // Show the initial step
 showStep(currentStep);
@@ -80,16 +75,13 @@ function updateStep(stepIndex) {
   steps[stepIndex].classList.add("active");
   timelineItems[stepIndex].classList.add("active");
 
-
-  if (prevBtn) {
-    // Update the buttons
-    if (stepIndex === 0) {
-      prevBtn.style.display = "none"; // Hide previous button on first step
-    } else {
-      prevBtn.style.display = "inline-block";
-    }
-
+  // Update the buttons
+  if (stepIndex === 0) {
+    prevBtn.style.display = "none"; // Hide previous button on first step
+  } else {
+    prevBtn.style.display = "inline-block";
   }
+
   if (stepIndex === steps.length - 1) {
     nextBtn.innerHTML = "Explore"; // Change next button text on last step
   } else {
@@ -170,10 +162,8 @@ function prevStep() {
 
 // Event listeners for button clicks
 nextBtn.addEventListener("click", nextStep);
-
-if (prevBtn) {
 prevBtn.addEventListener("click", prevStep);
-}
+
 // Event listeners for timeline item clicks
 for (let i = 0; i < timelineItems.length; i++) {
   timelineItems[i].addEventListener("click", () => {

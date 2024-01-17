@@ -21,8 +21,8 @@ use Cake\Routing\Router;
   <?php
 
   $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
-  <?= $this->Form->create($user, array('id' => 'search-courses-steps', 'class' => 'register')); ?>
-  <!-- <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?> -->
+  <!-- <?= $this->Form->create($user, array('id' => 'FormRegister', 'class' => 'register')); ?> -->
+  <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
 
   <div class="sign-ups">
 
@@ -150,7 +150,7 @@ use Cake\Routing\Router;
                 <h2 class="title">What study level do you <br> wish to apply for ?</h2>
 
                 <div class="form-area">
-
+                  
                   <!-- Hidden Dropdown for Selecting Study Levels -->
                   <?php if (!empty($studyLevels)) { ?>
                     <select hidden name="study_level_id" id="study_level_id">
@@ -409,20 +409,6 @@ use Cake\Routing\Router;
 
               </div>
 
-              <div class="timeline">
-                <div class="timeline-item active">
-                </div>
-                <div class="timeline-item">
-                </div>
-                <div class="timeline-item">
-                </div>
-                <div class="timeline-item">
-                </div>
-                <div class="timeline-item">
-                </div>
-                <div class="timeline-item">
-                </div>
-              </div>
 
               <!-- Buttons to navigate between steps -->
               <div id="buttons">
@@ -430,7 +416,20 @@ use Cake\Routing\Router;
                 <button id="nextBtn">Agree and continue </button>
               </div>
             </div>
-
+            <div class="timeline">
+              <div class="timeline-item active">
+              </div>
+              <div class="timeline-item">
+              </div>
+              <div class="timeline-item">
+              </div>
+              <div class="timeline-item">
+              </div>
+              <div class="timeline-item">
+              </div>
+              <div class="timeline-item">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -448,13 +447,12 @@ use Cake\Routing\Router;
 
 
 
-<script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
 
 <?= $this->Html->script([
   '/js/new-js/timeline.js'
 ]) ?>
 <?= $this->Html->script([
-  '/js/new-js/register-script-steps-en.js?v=' . time()
+  '/js/new-js/script-steps-en.js?v=' . time()
 ]) ?>
 
 <script type="text/javascript">
@@ -509,6 +507,7 @@ use Cake\Routing\Router;
       $('#subject-area').show();
   });
 </script>
+<script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
 <!-- <script src="<?= Router::url('/js/new-js/multi-step.js?v=' . time()) ?>" async></script> -->
 
 <script type="text/javascript">
@@ -518,73 +517,73 @@ use Cake\Routing\Router;
       reLoadCaptchaV3();
     }, 2 * 60 * 1000);
 
-    // $('#search-courses-steps').validate({
-    //   rules: {
+    $('#FormRegister').validate({
+      rules: {
 
-    //     'first_name': {
-    //       required: true,
-    //     },
-    //     'last_name': {
-    //       required: true,
-    //     },
-    //     'mobile': {
-    //       required: true,
-    //       minlength: 7,
-    //       maxlength: 13
-    //     },
-    //     'email': {
-    //       required: true,
-    //       email: true
-    //     },
-    //     'password': {
-    //       required: true,
-    //     },
-    //     'passwd': {
-    //       required: true,
-    //     },
-    //     // 'nationality_id': {
-    //     //   required: true
-    //     // },
-    //     'country_id': {
-    //       required: true,
-    //     },
-    //     'mobile': {
-    //       required: true,
-    //     },
-    //     'mobile_code': {
-    //       required: true,
-    //     },
-    //     'current_status': {
-    //       required: true,
-    //     },
-    //     // 'current_study_level': {
-    //     //   required: true,
-    //     // },
-    //     // 'destination_id': {
-    //     //   required: true,
-    //     // },
-    //     // 'subject_area_id': {
-    //     //   required: true,
-    //     // },
-    //     // 'city': {
-    //     //   required: true,
-    //     // },
-    //   },
-    //   messages: {
+        'first_name': {
+          required: true,
+        },
+        'last_name': {
+          required: true,
+        },
+        'mobile': {
+          required: true,
+          minlength: 7,
+          maxlength: 13
+        },
+        'email': {
+          required: true,
+          email: true
+        },
+        'password': {
+          required: true,
+        },
+        'passwd': {
+          required: true,
+        },
+        // 'nationality_id': {
+        //   required: true
+        // },
+        'country_id': {
+          required: true,
+        },
+        'mobile': {
+          required: true,
+        },
+        'mobile_code': {
+          required: true,
+        },
+        'current_status': {
+          required: true,
+        },
+        // 'current_study_level': {
+        //   required: true,
+        // },
+        // 'destination_id': {
+        //   required: true,
+        // },
+        // 'subject_area_id': {
+        //   required: true,
+        // },
+        // 'city': {
+        //   required: true,
+        // },
+      },
+      messages: {
 
-    //   },
-    //   errorClass: "error-message",
-    //   errorElement: "div",
-    //   errorPlacement: function(error, element) {
-    //     error.insertAfter(element, false);
-    //   },
-    //   submitHandler: function(form) {
-    //     form.submit();
-    //     registerSubmitForm(form)
-    //   }
-    // });
+      },
+      errorClass: "error-message",
+      errorElement: "div",
+      errorPlacement: function(error, element) {
+        error.insertAfter(element, false);
+      },
+      submitHandler: function(form) {
+        form.submit();
+        // enquiriesSubmitForm(form)
+      }
+    });
 
-    // registerSubmitForm = function(form, register) {
+    // enquiriesSubmitForm = function(form, register) {
 
     //   if (!request_busy) {
 
