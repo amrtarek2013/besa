@@ -12,4 +12,15 @@
 <?php 
 if(isset($_GET['dk']))
     dd($wishLists);
-echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'gridContainerCols'=>2]);
+    if(empty($wishLists)) { { ?>
+        <div class="empty-state">
+              <img src="<?=WEBSITE_URL?>img/new-desgin/empty.png" alt="">
+              <p>there’s no items in wishlist now</p>
+          </div>
+          
+        <?php } } else {
+          echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'gridContainerCols' => 2]);
+      }
+
+
+?>
