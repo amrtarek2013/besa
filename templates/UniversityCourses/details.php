@@ -11,7 +11,7 @@
             <!-- <div class="col-md-6">
                 <div class="background-banner-color">
                     <img src="<?= $course['image_path'] ?>" alt="" style="z-index: 2;">
-                    <img src="<?=WEBSITE_URL?>img/dots-153.png" width="" alt="" class="relative-dots-about">
+                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
                 </div>
             </div> -->
             <div class="col-md-6">
@@ -34,7 +34,7 @@
                     <div class="courses">
                         <div class="left">
                             <p>Course Qualification</p>
-                            <p class="green"><?= $course['service']['title'] ?></p>
+                            <p class="green"><?= !empty($course['service']['title']) ? $course['service']['title'] : '---' ?></p>
                         </div>
                         <div class="right">
                             <p>Total course fee</p>
