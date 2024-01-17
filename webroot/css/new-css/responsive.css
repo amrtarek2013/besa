@@ -1245,14 +1245,9 @@
         display: none;
     }
 
-    .timeline-horizontal .timeline-dots-wrap {
-        display: none;
-    }
 
-    .sectionTimeline .timeline,
-    .sectionTimeline .nav-timeline {
-        display: none;
-    }
+
+  
 
     .aboutus-timeline-mobile {
         display: block;
@@ -1297,18 +1292,13 @@
         padding-bottom: 0;
     }
 
-    .sectionTimeline .container-item-data .text {
-        padding-top: 0;
-    }
+  
 
     .steps-en .steps-background {
         padding: 60px 15px 20px;
     }
 
-    .steps-en .timeline-item span {
-        font-size: 15px;
-        line-height: 40px;
-    }
+
 
     .steps-en .title {
         font-size: 22px;
@@ -1717,11 +1707,7 @@
     }
 
 
-    .sectionTimeline .container-item-data {
-        -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-
-    }
+   
 
     .nav-timeline {
         bottom: 15px;
@@ -1738,65 +1724,19 @@
         width: 100%;
     }
 
-    .timeline-container {
-        width: 100%;
-    }
+   
 
 
 
-    .timeline-dots-wrap {
-        display: flex;
-        justify-content: center;
-    }
+  
 
-    .timeline-dots-wrap li {
-        flex: 1;
-        text-align: center;
-    }
 
-    .timeline-dots-wrap.bottom,
-    .timeline-dots-wrap.top {
-        position: static;
-        transform: none !important;
-        -webkit-transform: none !important;
-        -moz-transform: none !important;
-        -ms-transform: none !important;
-        -o-transform: none !important;
-        width: auto !important;
-    }
+ 
 
-    .custome-timeline .timeline-dots-wrap {
-        position: static;
-        overflow: visible;
-        left: 0;
-    }
+   
 
-    .custome-timeline .timeline-dots button {
-        font-size: 20px;
-    }
 
-    .timeline-dots li.slide-active button {
-        font-size: 20px;
-    }
-
-    .timeline-horizontal .timeline-dots-wrap {
-        height: auto;
-    }
-
-    .timeline-horizontal .timeline-dots button {
-        padding-bottom: 20px;
-    }
-
-    .timeline,
-    .timeline-list {
-        width: unset !important;
-    }
-
-    .timeline-item {
-        width: 390px !important;
-        height: unset !important;
-
-    }
+   
 
     .services-rendered .box-icon {
         height: max-content;
@@ -3465,5 +3405,20 @@
 
     input[type="file"] {
         padding: 13px 24px;
+    }
+
+    .sectionTimeline .container-item-data{
+        grid-template-columns: 1fr;
+    }
+    .container-item-data .text h4.title{
+        font-size: 24px;
+
+    }
+    .container-item-data .text p.descrip{
+        font-size: 14px;
+
+    }
+    .sectionTimeline .container-item-data img{
+        width: 100%;
     }
 }

@@ -18,16 +18,10 @@
 
     <div class="container" style="width:100%">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="title text-left title-dash">Profile</h2>
-            </div>
-        </div>
-        <div class="row">
             <?= $this->Form->create($user, array('type' => 'file', 'id' => 'FormProfile')); ?>
             <div class="col-md-12">
-                <div class="container-formBox">
-                    <h4 class="title">Basic Information</h4>
-                    <div class="grid-container">
+                <div class="container-profileUser">
+                    <div class="grid-2col">
 
 
                         <?= $this->Form->control('first_name', [
@@ -179,7 +173,7 @@
 
                                 ],
                             ]),
-                            'templates' => ['inputContainer' => '<div class=" {{rquired}}" style="margin-top: -19px !important;">{{content}}</div>']
+                            'templates' => ['inputContainer' => '<div class=" {{rquired}}" style="margin-top: -6px !important;">{{content}}</div>']
                         ]);
                         ?>
 
@@ -188,19 +182,7 @@
             </div>
 
             <div class="col-md-12">
-                <div class="container-submit">
-                    <!-- <div class="checkboxes">
-                        <div>
-                            <input type="checkbox" name="agree" id="agree">
-                            <label for="agree">I agree to <a href="#">terms & conditions</a> </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="news_subscribe" id="news_subscribe">
-                            <label for="news_subscribe">I’d like being informed about latest news and tips</label>
-                        </div>
-                    </div> -->
-                    <button type="submit" class="btn clear-blue">Update</button>
-                </div>
+                <div class="container-btn-form"><button type="submit" class="btn clear-blue btn-primary">Update</button></div>
             </div>
             <?= $this->Form->end() ?>
         </div>
