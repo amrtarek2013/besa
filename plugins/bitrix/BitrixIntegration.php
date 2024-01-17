@@ -187,10 +187,12 @@ class BitrixIntegration{
 			$data_arr['UF_CRM_1610102425'] = $study_levels[$data['study_level']];
 		}
 
-		$data_arr['STATUS_ID'] = 'NEW';
+		// $data_arr['STATUS_ID'] = 'NEW';
+		$data_arr['STATUS_ID'] = 'UC_0Y9F46'; //Feb Fair 24
 		$data_arr['OPENED'] = 'Y';
 
-		$data_arr['SOURCE_ID'] = 'UC_K5MWDQ';
+		// $data_arr['SOURCE_ID'] = 'UC_K5MWDQ'; // September Fair 2023 Online Registration 
+		$data_arr['SOURCE_ID'] = 'UC_D16CR2'; // New : Feb Fair 2024 Online Registration
 		if(!empty($data['school_name'])){
 			$data_arr['UF_CRM_1695270017192'] = $data['school_name'];
 		}
