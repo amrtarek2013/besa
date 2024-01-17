@@ -379,7 +379,7 @@ input:not([type="radio"],
     background-color: #F8F8F8;
     width: 100%;
     height: 56px;
-    padding: 24px 16px;
+    padding:  16px;
     border: transparent;
     color: #90A4AE;
 }
@@ -11232,12 +11232,15 @@ div.error-message {
 .hero-country .image-container {
     border-radius: 24px;
     overflow: hidden;
+    height: 584px;
+
 }
 
 .hero-country .image-container img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 
@@ -12181,10 +12184,7 @@ div.error-message {
     margin: 0;
 }
 
-form .btn {
-    width: 455px;
-    height: 84px;
-}
+
 
 .besa-careers-section {
     text-align: center;
@@ -14079,4 +14079,105 @@ form .btn {
     background: transparent;
 }
 
+.hero-course-details .text-container {
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    bottom: 30px;
+    top: unset;
+    right: unset;
+    transform: translatex(40px);
+    -webkit-transform: translatex(40px);
+    -moz-transform: translatex(40px);
+    -ms-transform: translatex(40px);
+    -o-transform: translatex(40px);
+}
 
+.hero-course-details h4 {
+    color: #FFF;
+    text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+
+.infromation-about-course .title-box {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    margin-bottom: 32px;
+}
+
+.infromation-about-course .title-box h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--text-color);
+}
+
+.infromation-about-course p {
+    color: #546E7A;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.infromation-about-course p .link {
+    font-weight: 600;
+    text-decoration-line: underline;
+    color: var(--text-color);
+}
+
+.container-about-course {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+    justify-content: space-between;
+    margin: 85px 0;
+}
+
+.container-about-course .title-course {
+    color: #263238;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.container-about-course .description {
+    color: #546E7A;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-left: 45px;
+}
+
+.controle-container{
+    display: flex;
+    align-items: center;
+    grid-gap: 40px;
+}
+
+.controle-container .btn{
+    max-width: 320px;
+    font-size: 20px;
+
+}
+
+.user-dashboard table td{
+    border-color: #eee;
+}
+
+.container-btn-form .btn{
+    font-size: 16px;
+    margin: 32px 0;
+
+}

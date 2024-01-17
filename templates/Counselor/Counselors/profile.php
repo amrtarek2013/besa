@@ -8,17 +8,12 @@
 <section class="main-banner register-banner">
 
     <div class="container" style="width:100%">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="title text-left title-dash">Profile</h2>
-            </div>
-        </div>
+       
         <div class="row">
             <?= $this->Form->create($counselor, array('type' => 'file', 'id' => 'FormProfile')); ?>
             <div class="col-md-12">
-                <div class="container-formBox">
-                    <h4 class="title">Basic Information</h4>
-                    <div class="grid-container">
+                <div class="container-profileUser container-profileCounselor">
+                    <div class="grid-2col">
                         <?= $this->Form->control('first_name', [
                             'placeholder' => 'Full Name', 'class' => 'form-area', 'label' => 'Full Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
@@ -125,8 +120,8 @@
             </div>
 
             <div class="col-md-12">
-                <div class="container-submit">
-                    <button type="submit" class="btn clear-blue">Update</button>
+                <div class="container-btn-form">
+                    <button type="submit" class="btn clear-blue btn-primary">Update</button>
                 </div>
             </div>
             <?= $this->Form->end() ?>
