@@ -105,13 +105,25 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="profile-card">
-                                <div class="profile-picture">
-                                    <img src="<?= $counselor['image_path'] ?>" alt="User Avatar">
-                                </div>
-                                <div class="profile-info">
-                                    <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
-                                    <div class="user-points"><?= !empty($counselor['total_points']) && $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
-                                </div>
+                                <?php
+                                if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
+                                ?>
+                                    <div class="profile-picture">
+                                        <img src="<?= $counselor['image_path'] ?>" alt="User Avatar">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
+                                        <div class="user-points"><?= !empty($counselor['total_points']) && $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
+                                    </div>
+                                <?php } else {
+                                ?>
+                                    <div class="profile-picture">
+                                        <img src="<?= $user['image_path'] ?>" alt="User Avatar">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
