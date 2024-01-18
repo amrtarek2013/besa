@@ -82,7 +82,43 @@
 
                 <div class="container-milestones">
                     <div class="canva">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/pin-sections.png" alt=" " loading="lazy">
+                        <div>
+                            <canvas id="canvaPoints"></canvas>
+                        </div>
+
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script>
+                            const ctx = document.getElementById('canvaPoints');
+                            const data = {
+                            labels: [
+                                'Yellow',
+                                'Green',
+                                'Blue',
+                                'Red',
+                            ],
+                            datasets: [{
+                                label: 'Points',
+                                data: [10, 20, 15,5],
+                                backgroundColor: [
+                                '#F9AB35',
+                                '#34C759',
+                                '#356CF9',
+                                '#F93535',
+                                
+                                
+                                ],
+                                hoverOffset: 100
+                            }]
+                            };
+                            new Chart(ctx, {
+                                type: 'doughnut',
+                                data: data,
+                                options: {
+                                    borderRadius: 10,
+                                }
+                            });
+                        </script>
 
                     </div>
                     <div class="points-conversion">

@@ -379,7 +379,7 @@ input:not([type="radio"],
     background-color: #F8F8F8;
     width: 100%;
     height: 56px;
-    padding:  16px;
+    padding: 16px;
     border: transparent;
     color: #90A4AE;
 }
@@ -5297,13 +5297,16 @@ input.search {
 .choose-place-2 .btn-aqua {
     margin: 0 auto;
 }
+
 .choose-place {
     background: transparent;
 }
+
 .choose-place .title-choose-place {
     color: var(--text-color);
 
 }
+
 /*End choose place*/
 
 /*Start testimonials 2*/
@@ -10641,7 +10644,7 @@ div.error-message {
     line-height: 70%;
     top: -50px;
     text-align: center;
-
+    max-width: 700px;
 }
 
 .hero-partner .title-hero span {
@@ -14152,23 +14155,23 @@ div.error-message {
     margin-left: 45px;
 }
 
-.controle-container{
+.controle-container {
     display: flex;
     align-items: center;
     grid-gap: 40px;
 }
 
-.controle-container .btn{
+.controle-container .btn {
     max-width: 320px;
     font-size: 20px;
 
 }
 
-.user-dashboard table td{
+.user-dashboard table td {
     border-color: #eee;
 }
 
-.container-btn-form .btn{
+.container-btn-form .btn {
     font-size: 16px;
     margin: 32px 0;
 
