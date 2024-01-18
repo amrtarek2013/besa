@@ -7,7 +7,7 @@
 
 <?= $home_assessment_section ?>
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination', 'page' => 'home'], ['cache' => ['key' => 'choose_place_earth_home', 'config' => '_view_long_']]) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination', 'pageType' => 'home'], ['cache' => ['key' => 'choose_place_earth_home', 'config' => '_view_long_']]) ?>
 
 <!--Start Events Section-->
 <?php if (!empty($homeBlogs)) : ?>

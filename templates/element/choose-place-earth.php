@@ -232,7 +232,7 @@
     }
 </script>
 <!-- Start choose place-->
-<section class="<?= (isset($page) && $page == 'home') ? 'choose-place' : '' ?> choose-place-2">
+<section class="<?= (isset($pageType) && $pageType == 'home') ? 'choose-place' : '' ?> choose-place-2">
     <div class="container">
         <!--
         <div class="row">
