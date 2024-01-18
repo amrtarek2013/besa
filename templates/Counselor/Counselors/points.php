@@ -45,7 +45,47 @@
                         <p>Points Acquired</p>
                     </div>
                 </div>
-                <img src="<?= WEBSITE_URL ?>img/new-desgin/counter22.png" alt="" loading="lazy" style="margin:50px auto;display: block;">
+                <div class="progress-money">
+                    <div class="barOverflow">
+                        <div class="bar"></div>
+                    </div>
+                    <h5 class="price-prog">
+                        <span>80</span>$
+                    </h5>
+                </div>
+                <a href="#" class="btn btn-primary btn-rewards">Contact us to get your rewards </a>
+                <script>
+                    document.querySelectorAll(".progress-money").forEach(function(el) {
+    var bar = el.querySelector(".bar");
+    var val = el.querySelector("span");
+    var perc = parseInt(val.textContent, 10);
+
+    var currentProgress = { p: 0 };
+    var duration = 3000;
+    var start = null;
+
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = timestamp - start;
+        var p = Math.min(progress / duration, 1) * perc;
+
+        if (bar) {
+            bar.style.transform = "rotate(" + (45 + (p * 1.8)) + "deg)";
+        }
+        if (val) {
+            val.textContent = Math.floor(p);
+        }
+
+        if (progress < duration) {
+            window.requestAnimationFrame(step);
+        }
+    }
+
+    window.requestAnimationFrame(step);
+});
+
+                </script>
+
             </div>
         </div>
     </div>

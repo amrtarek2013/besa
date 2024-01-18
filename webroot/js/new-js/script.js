@@ -21,6 +21,8 @@ $(".grid-subjects .subject").on("click", function () {
   $(this).addClass("active").siblings().removeClass("active");
 });
 
+
+
 $('.btn-filter').click(function(){
   $('#sideFilter').toggleClass("show");
   $('#pageOverlay').toggleClass("visible");

@@ -14176,3 +14176,64 @@ div.error-message {
     margin: 32px 0;
 
 }
+
+
+
+.progress-money {
+    position: relative;
+    width: max-content;
+    margin: 60px auto;
+    text-align: center;
+    border-radius: 20px;
+    background: var(--Neutral-Colors-White, #FFF);
+    box-shadow: 0px 2px 6px 0px rgba(13, 10, 44, 0.08);
+    padding: 30px 40px 60px;
+
+}
+
+.progress-money .barOverflow {
+    /* Wraps the rotating .bar */
+    position: relative;
+    overflow: hidden;
+    /* Comment this line to understand the trick */
+    width: 400px;
+    height: 200px;
+    /* Half circle (overflow) */
+    margin-bottom: -14px;
+    /* bring the numbers up */
+}
+
+.progress-money .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 30px solid #eee;
+    border-bottom-color: #075FA9;
+    border-right-color: #075FA9;
+}
+
+.price-prog{
+    color: #1E1B39;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 84px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 25%);
+
+}
+
+.btn-rewards{
+    font-size: 24px;
+    max-width: 460px;
+    height: 68px;
+}
