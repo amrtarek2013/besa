@@ -132,7 +132,7 @@
 
                 });
 
-                
+
                 marker.addEventListener('click', openPhoto);
 
                 // animate marker
@@ -232,7 +232,7 @@
     }
 </script>
 <!-- Start choose place-->
-<section class="choose-place choose-place-2">
+<section class="<?= (isset($page) && $page == 'home') ? 'choose-place' : '' ?> choose-place-2">
     <div class="container">
         <!--
         <div class="row">
@@ -272,9 +272,9 @@
         </div>
             -->
         <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title-choose-place">Choose Where To Study</h2>
-                </div>
+            <div class="col-md-12">
+                <h2 class="title-choose-place">Choose Where To Study</h2>
+            </div>
             <div class="col-md-12">
                 <div class="background-earth">
                     <div id="wrapper">

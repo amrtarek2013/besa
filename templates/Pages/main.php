@@ -7,7 +7,7 @@
 
 <?= $home_assessment_section ?>
 
-<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination'], ['cache' => ['key' => 'choose_place_earth', 'config' => '_view_long_']]) ?>
+<?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination', 'page' => 'home'], ['cache' => ['key' => 'choose_place_earth_home', 'config' => '_view_long_']]) ?>
 
 <!--Start Events Section-->
 <?php if (!empty($homeBlogs)) : ?>
@@ -24,7 +24,7 @@
                             <?php foreach ($home_main_events as $event) : ?>
                                 <div class="box-blog display-flex">
                                     <div class="card-img-top">
-                                        <img src="/img/new-desgin/events.png" alt="event"  loading="lazy">
+                                        <img src="/img/new-desgin/events.png" alt="event" loading="lazy">
                                     </div>
                                     <div class="content-blog">
                                         <h4 class="title-blog">
@@ -33,13 +33,13 @@
                                         <p class="description-blog"><?= $event['sub_title'] ?></p>
                                         <div class="timline-eve">
                                             <div class="item">
-                                                <img src="/img/new-desgin/timer.svg" alt=""> 
-                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer"> 
-                                                <p> 21  Oct 2023</p>              
+                                                <img src="/img/new-desgin/timer.svg" alt="">
+                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer">
+                                                <p> 21 Oct 2023</p>
                                             </div>
                                             <div class="item">
-                                                <img src="/img/new-desgin/timer.svg" alt="">  
-                                                <p>09 Dec 2023</p> 
+                                                <img src="/img/new-desgin/timer.svg" alt="">
+                                                <p>09 Dec 2023</p>
                                             </div>
                                         </div>
                                         <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-    
+
 
 <?php endif; ?>
 <!--End Events Section-->
@@ -66,56 +66,56 @@
                     <h4 class="title">Blogs</h4>
                     <div class="owl-blogs">
                         <div id="wrap">
-                        <section class="carousel-wrap">
-                            <ul class="carousel carousel-blogs">
-                                <?php 
-                                $counter = 1;
-                                foreach ($homeBlogs as $blog) {
-                                    // Assign a class based on the counter
-                                    $positionClass = '';
-                                    switch ($counter) {
-                                        case 1:
-                                            $positionClass = 'left-pos';
-                                            break;
-                                        case 2:
-                                            $positionClass = 'main-pos';
-                                            break;
-                                        case 3:
-                                            $positionClass = 'right-pos';
-                                            break;
-                                        default:
-                                            $positionClass = 'back-pos';
-                                            break;
-                                    }
-                                ?>
-                                    <li class="items <?= $positionClass ?>" id="<?= $counter ?>">
-                                        <div class="card">
-                                            <h4 class="title">
-                                            <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
-                                            </h4>
-                                            <p class="description">
-                                                <?= substr($blog['short_text'], 0, 200).'...' ?>
-                                            </p>
+                            <section class="carousel-wrap">
+                                <ul class="carousel carousel-blogs">
+                                    <?php
+                                    $counter = 1;
+                                    foreach ($homeBlogs as $blog) {
+                                        // Assign a class based on the counter
+                                        $positionClass = '';
+                                        switch ($counter) {
+                                            case 1:
+                                                $positionClass = 'left-pos';
+                                                break;
+                                            case 2:
+                                                $positionClass = 'main-pos';
+                                                break;
+                                            case 3:
+                                                $positionClass = 'right-pos';
+                                                break;
+                                            default:
+                                                $positionClass = 'back-pos';
+                                                break;
+                                        }
+                                    ?>
+                                        <li class="items <?= $positionClass ?>" id="<?= $counter ?>">
+                                            <div class="card">
+                                                <h4 class="title">
+                                                    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['blogs.details'] . '/' . $blog['permalink']) ?>" class="read-anchor"><?= $blog['title'] ?></a>
+                                                </h4>
+                                                <p class="description">
+                                                    <?= substr($blog['short_text'], 0, 200) . '...' ?>
+                                                </p>
 
-                                        </div>
-                                    </li>
-                                <?php 
-                                    $counter++;
-                                    // Reset counter to loop through classes again
-                                    if ($counter > 4) {
-                                        $counter = 1;
+                                            </div>
+                                        </li>
+                                    <?php
+                                        $counter++;
+                                        // Reset counter to loop through classes again
+                                        if ($counter > 4) {
+                                            $counter = 1;
+                                        }
                                     }
-                                }
-                                ?>
-                            </ul>
-                            <span class="slider">
-                                <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
-                                <a href="javascript:void(0);" value="Next" id="next"><img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg"></a>
-                            </span>
-                        </section>
+                                    ?>
+                                </ul>
+                                <span class="slider">
+                                    <a href="javascript:void(0);" value="Prev" id="prev"><img src="<?= WEBSITE_URL ?>img/new-desgin/prev-arrow.svg"></a>
+                                    <a href="javascript:void(0);" value="Next" id="next"><img src="<?= WEBSITE_URL ?>img/new-desgin/next-arrow.svg"></a>
+                                </span>
+                            </section>
 
                         </div>
-                          
+
 
                     </div>
                     <div class="display-flex">
@@ -151,7 +151,7 @@
                         <div class="title-box">
                             <h4>University of Manchester</h4>
                             <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-unk.png"  alt="flag United Kingdom">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-unk.png" alt="flag United Kingdom">
                                 <span>United Kingdom</span>
                             </p>
                         </div>
@@ -161,7 +161,7 @@
                         <div class="title-box">
                             <h4>University of Mardid</h4>
                             <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-spain.png"  alt="flag spain ">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-spain.png" alt="flag spain ">
                                 <span>Spain </span>
                             </p>
                         </div>
@@ -171,7 +171,7 @@
                         <div class="title-box">
                             <h4>University of Washingnton</h4>
                             <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-usk.png"  alt="flag United States ">
+                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-usk.png" alt="flag United States ">
                                 <span>United States</span>
                             </p>
                         </div>
@@ -195,7 +195,7 @@
                 <div class="form">
 
                     <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
-                        
+
                     <input type="hidden" id="type" name="type" value="home">
 
                     <?php
@@ -246,7 +246,7 @@
 
         </div>
     </div>
- 
+
 </section>
 
 
