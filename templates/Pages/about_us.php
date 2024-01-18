@@ -117,5 +117,12 @@
                 $(".slide-prev").trigger("click");
             }
         });
+
+        $(window).resize(function() {
+            var $cols = $(".timeline-horizontal .timeline-dots li");
+            var numberOfCols = $cols.length;
+            $cols.css("width", 100 / numberOfCols + "%");
+        }).resize(); // Trigger resize to set initial width
+
     });
 </script>

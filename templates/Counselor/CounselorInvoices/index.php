@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="container-formBox">
+                <div class="container-formBoxs">
                     <h4 class="title"><?= __('Counselor Invoices List') ?></h4>
                     <div class="">
 

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="container-formBox">
+                <div class="container-formBoxs">
 
                     <h4 class="title">Import Students</h4>
 
@@ -30,7 +30,7 @@
                     <!-- </div> -->
 
                     <div class="form-group">
-                        <button type="submit" class="btn clear-blue">Import</button>
+                        <button type="submit" class="btn btn-primary ">Import</button>
                     </div>
                     <!-- </div> -->
 

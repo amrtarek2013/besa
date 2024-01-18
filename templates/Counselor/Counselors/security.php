@@ -16,9 +16,9 @@
         <div class="row">
             <?= $this->Form->create($counselor, array('type' => 'file', 'id' => 'FormProfile')); ?>
             <div class="col-md-12">
-                <div class="container-formBox">
+                <div class="container-formBoxs container-profileUser">
                     <h4 class="title">Update Your Password</h4>
-                    <div class="grid-container">
+                    <div class="grid-2col">
 
 
                         <?= $this->Form->control('password', [
@@ -35,8 +35,8 @@
             </div>
 
             <div class="col-md-12">
-                <div class="container-submit">
-                    <button type="submit" class="btn clear-blue">Update</button>
+                <div class="container-btn-form">
+                    <button type="submit" class="btn clear-blue btn-primary">Update</button>
                 </div>
             </div>
             <?= $this->Form->end() ?>

@@ -45,7 +45,47 @@
                         <p>Points Acquired</p>
                     </div>
                 </div>
-                <img src="<?= WEBSITE_URL ?>img/new-desgin/counter22.png" alt="" loading="lazy" style="margin:50px auto;display: block;">
+                <div class="progress-money">
+                    <div class="barOverflow">
+                        <div class="bar"></div>
+                    </div>
+                    <h5 class="price-prog">
+                        <span>80</span>$
+                    </h5>
+                </div>
+                <a href="#" class="btn btn-primary btn-rewards">Contact us to get your rewards </a>
+                <script>
+                    document.querySelectorAll(".progress-money").forEach(function(el) {
+    var bar = el.querySelector(".bar");
+    var val = el.querySelector("span");
+    var perc = parseInt(val.textContent, 10);
+
+    var currentProgress = { p: 0 };
+    var duration = 3000;
+    var start = null;
+
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = timestamp - start;
+        var p = Math.min(progress / duration, 1) * perc;
+
+        if (bar) {
+            bar.style.transform = "rotate(" + (45 + (p * 1.8)) + "deg)";
+        }
+        if (val) {
+            val.textContent = Math.floor(p);
+        }
+
+        if (progress < duration) {
+            window.requestAnimationFrame(step);
+        }
+    }
+
+    window.requestAnimationFrame(step);
+});
+
+                </script>
+
             </div>
         </div>
     </div>
@@ -82,7 +122,43 @@
 
                 <div class="container-milestones">
                     <div class="canva">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/pin-sections.png" alt=" " loading="lazy">
+                        <div>
+                            <canvas id="canvaPoints"></canvas>
+                        </div>
+
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script>
+                            const ctx = document.getElementById('canvaPoints');
+                            const data = {
+                            labels: [
+                                'Yellow',
+                                'Green',
+                                'Blue',
+                                'Red',
+                            ],
+                            datasets: [{
+                                label: 'Points',
+                                data: [10, 20, 15,5],
+                                backgroundColor: [
+                                '#F9AB35',
+                                '#34C759',
+                                '#356CF9',
+                                '#F93535',
+                                
+                                
+                                ],
+                                hoverOffset: 100
+                            }]
+                            };
+                            new Chart(ctx, {
+                                type: 'doughnut',
+                                data: data,
+                                options: {
+                                    borderRadius: 10,
+                                }
+                            });
+                        </script>
 
                     </div>
                     <div class="points-conversion">
