@@ -884,6 +884,7 @@
     }
 
     .countries-inner .containerCountry .box-country a {
+        place-items: start;
 
         justify-content: center !important;
         padding: 0 !important;
@@ -1247,7 +1248,7 @@
 
 
 
-  
+
 
     .aboutus-timeline-mobile {
         display: block;
@@ -1292,7 +1293,7 @@
         padding-bottom: 0;
     }
 
-  
+
 
     .steps-en .steps-background {
         padding: 60px 15px 20px;
@@ -1707,7 +1708,7 @@
     }
 
 
-   
+
 
     .nav-timeline {
         bottom: 15px;
@@ -1724,19 +1725,19 @@
         width: 100%;
     }
 
-   
 
 
 
-  
 
 
- 
-
-   
 
 
-   
+
+
+
+
+
+
 
     .services-rendered .box-icon {
         height: max-content;
@@ -2248,6 +2249,8 @@
     .gridServices .box-icon:nth-child(7),
     .gridServices .box-icon:nth-child(10) {
         width: 100%;
+        grid-column: unset;
+
     }
 
     .list-placement .FoundationProgramFAQs {
@@ -3407,18 +3410,82 @@
         padding: 13px 24px;
     }
 
-    .sectionTimeline .container-item-data{
+    .sectionTimeline .container-item-data {
         grid-template-columns: 1fr;
     }
-    .container-item-data .text h4.title{
+
+    .container-item-data .text h4.title {
         font-size: 24px;
 
     }
-    .container-item-data .text p.descrip{
+
+    .container-item-data .text p.descrip {
         font-size: 14px;
 
     }
-    .sectionTimeline .container-item-data img{
+
+    .sectionTimeline .container-item-data img {
         width: 100%;
+    }
+
+    .hero-services {
+        margin-bottom: 0;
+    }
+
+    .hero-services .col-md-6>.title-hero {
+        font-size: 32px;
+
+    }
+
+    .hero-services .img-hero {
+        left: 0;
+        width: 230px;
+    }
+
+    .services-rendered .box-icon .descrip {
+        padding: 0;
+    }
+
+    .hero-destinations .img-hero {
+        width: 220px;
+
+    }
+
+    .hero-partner .col-md-6>.title-hero {
+        line-height: 100%;
+        text-align: start;
+    }
+
+    .hero-destinations .col-md-6>.title-hero {
+        margin-left: 10px;
+
+    }
+
+    .hero-partner .title-hero span {
+        font-size: 24px;
+    }
+
+    .hero-partner .img-hero {
+        left: 0;
+        top: 15px;
+        width: 220px;
+    }
+
+    .frames .item-frame {
+
+        flex-flow: column-reverse;
+        margin-bottom: 80px;
+
+    }
+
+    .frames .item-frame:nth-child(even) {
+        flex-flow: column;
+
+
+    }
+
+    .frames .item-frame .text h4 {
+        font-size: 24px;
+
     }
 }
