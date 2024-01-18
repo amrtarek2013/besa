@@ -5245,24 +5245,9 @@ input.search {
 /* End why besa 2*/
 
 /*Start choose place*/
-.choose-place {
-    background: var(--bs-white);
-    padding: 30px 0;
-}
 
 
-.choose-place .title-choose-place {
-    text-align: center;
-    font-family: 'Poppins';
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 135%;
 
-    color: var(--bs-blue);
-    width: max-content;
-    padding-top: 80px;
-}
 
 .choose-place .title-choose-place span {
     color: #66D8FF;
@@ -5275,6 +5260,50 @@ input.search {
     height: 56px;
 }
 
+.choose-place-2 {
+    background-image: url('../img/new-desgin/backgroud-choose.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    min-height: 615px;
+    margin-bottom: 400px;
+}
+
+.choose-place-2 .title-choose-place {
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 135%;
+    width: unset;
+    padding: 0;
+
+}
+
+.choose-place-2 .background-earth {
+    width: 680px;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.choose-place-2 .btn-aqua {
+    margin: 0 auto;
+}
+.choose-place {
+    background: transparent;
+}
+.choose-place .title-choose-place {
+    color: var(--text-color);
+
+}
 /*End choose place*/
 
 /*Start testimonials 2*/
@@ -10000,43 +10029,6 @@ div.error-message {
 
 /* End Home Assessment*/
 
-.choose-place-2 {
-    background-image: url('../img/new-desgin/backgroud-choose.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 100px 0;
-    position: relative;
-    min-height: 615px;
-    margin-bottom: 400px;
-}
-
-.choose-place-2 .title-choose-place {
-    color: #fff;
-    text-align: center;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 135%;
-    width: unset;
-    padding: 0;
-
-}
-
-.choose-place-2 .background-earth {
-    width: 680px;
-    margin: auto;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-}
-
-.choose-place-2 .btn-aqua {
-    margin: 0 auto;
-}
 
 .home-events .top-text {
     text-align: center;
