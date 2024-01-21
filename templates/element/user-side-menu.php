@@ -80,7 +80,7 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, true); ?>
+            <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, false); ?>
         </nav>
         <!-- /.sidebar-menu -->
 

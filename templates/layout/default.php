@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="profile-info">
                                         <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
-                                        <div class="user-points"><?= !empty($counselor['total_points']) && $counselor['total_points'] > 0 ? $counselor['total_points'] : '0' ?> Points</div>
+                                        <div class="user-points"><?= !empty($_SESSION['Auth']['Counselor']['total_points']) && $_SESSION['Auth']['Counselor']['total_points'] > 0 ? $_SESSION['Auth']['Counselor']['total_points'] : '0' ?> Points</div>
                                     </div>
                                 <?php } else {
                                 ?>

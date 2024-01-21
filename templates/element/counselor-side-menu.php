@@ -84,7 +84,7 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, true); ?>
+            <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, false); ?>
             <div class="info">
                 <a href="<?= Router::url('/counselor') ?>" class="Track-App"><?= __('Track & view your application') ?></a>
             </div>
