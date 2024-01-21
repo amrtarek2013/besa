@@ -51,7 +51,7 @@ use Cake\Routing\Router;
 </section>
 
 <?= $country['top_text'] ?>
-
+<!-- 
 <div class="tuition-section">
     <div class="container">
         <div class="row">
@@ -68,7 +68,7 @@ use Cake\Routing\Router;
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <?php if (!empty($countryPartners)) : ?>
