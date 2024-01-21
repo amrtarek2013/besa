@@ -282,7 +282,7 @@
                             <div id="myearth" class="earth-js"></div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-aqua MainBtn">Explore Studying Abroad</a>
+                    <a href="<?= Cake\Routing\Router::url('/'.$g_dynamic_routes['countries.index']) ?>" class="btn btn-aqua MainBtn">Explore Studying Abroad</a>
 
                 </div>
             </div>

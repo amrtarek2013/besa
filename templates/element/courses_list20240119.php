@@ -1,55 +1,3 @@
-<div class="universities-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-universities">
-                    <div class="header-box">
-                        <div class="title-left">
-                            <img src="<?= WEBSITE_URL ?>img/new-desgin/courses-icon.svg" alt="Canadian Flag Icon">
-
-                            <h4>Courses</h4>
-                        </div>
-                        <a href="#" class="link-see-more">
-                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
-                        </a>
-                    </div>
-                    <div class="grid-universities">
-                        <?php
-
-                        use Cake\Routing\Router;
-
-
-                        if (!empty($courses)) : ?>
-                            <?php foreach ($courses as $course) :
-
-                                if (isset($_GET['dk']))
-                                    debug($course);
-                            ?>
-                                <div class="university">
-                                    <div class="header-box">
-                                        <div class="logo">
-                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="University of Essex Logo">
-                                            <h5><a href="<?=Router::url('/course-details/'.$course['id'].'/'.str_replace([' ', '--'], '-', trim(str_replace(['  ', '?', ',', '--'], ' ', trim($course['course_name'])))))?>"><?= trim(str_replace('?', '', $course['course_name'])) ?></a></h5>
-                                        </div>
-                                        <div class="icon-favorite addingwish" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($wishLists[$course['id']]) ? 'delete' : 'add' ?>">
-                                            <i id="wish-<?= $course['id'] ?>" class="<?= isset($wishLists[$course['id']]) ? 'fa-solid' : 'fa-regular' ?> fa-heart fa-lg"></i>
-                                        </div>
-                                    </div>
-                                    <div class="university-info">
-                                        <p><?= $course['university']['university_name'] ?>, <?= $course['country']['code'] ?><span class="price"><?= ($course['country']['use_country_currency'] && !empty($course['country']['currency'])) ? $course['country']['currency'] : '$' ?><?= number_format($course['fees'], 2) ?></span></p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="btn apply-now-btn addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>"><?= isset($appCourses[$course['id']]) ? 'Remove' : 'Apply Now' ?></a>
-                                </div>
-                            <?php endforeach; ?>
-
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php /*
 <section class="result">
     <div class=" row-result">
         <div class="<?= $gridContainerCols == 3 ? 'container' : '' ?>">
@@ -144,7 +92,7 @@
         </div>
     </div>
 </section>
-*/ ?>
+
 <div class="remodal courseDetailsModal" data-remodal-id="courseDetails">
     <button data-remodal-action="close" class="remodal-close"></button>
     <!-- <h1 id="msgTitle"></h1> -->
@@ -233,35 +181,34 @@
             let el = this;
             busy = true;
             let courseid = $(el).data('courseid');
-            console.log(courseid);
-            console.log($(el).data('action'));
             $.ajax({
                 url: "/wish-lists/add/" + courseid + "/" + $(el).data('action'),
                 method: "get",
                 data: {},
                 success: function(result) {
-
-                    console.log(result);
+                    // $$(el).html(data);
+                    // console.log(result);
 
                     result = JSON.parse(result);
-
+                    // console.log(esult);
                     if (result.status != 'deleted') {
                         $(el).data('action', 'delete');
 
                         $(el).attr('data-action', 'delete');
                         $(el).prop('data-action', 'delete');
-                        $('i#wish-' + courseid).removeClass('fa-regular').addClass('fa-solid');
+                        $('img#wish-' + courseid).attr('src', '/img/icon/wish-list-marked.svg');
                     } else {
                         $(el).data('action', 'add');
 
                         $(el).attr('data-action', 'add');
                         $(el).prop('data-action', 'add');
-                        $('i#wish-' + courseid).removeClass('fa-solid').addClass('fa-regular');
+                        $('img#wish-' + courseid).attr('src', '/img/icon/wish-list.svg');
 
                         if (current_controller == 'wishlists')
                             $('#box-result-' + courseid).hide(3000);
 
                     }
+                    // alert(result.message);
 
                     $('.modalMsg #msgText').html(result.message);
                     var inst = $('[data-remodal-id=modalMsg]').remodal();
