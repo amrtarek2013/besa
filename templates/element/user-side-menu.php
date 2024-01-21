@@ -15,14 +15,16 @@
         white-space: nowrap;
     }
 
-    /* .nav-link .nav-icon {
 
-        float: left !important;
-    } */
+    .nav-link .nav-icon {
+
+        /* float: left !important; */
+        margin-left: 10px;
+    }
 
     .nav-link p {
         float: left !important;
-        margin-left: 10px;
+        /* margin-left: 10px; */
     }
 
     .sidebar {
@@ -52,8 +54,6 @@
         clear: both;
         padding-bottom: 15px;
     }
-
-    
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4 counselor-sidebar">
     <a href="<?= USER_LINK ?>" class="brand-link">

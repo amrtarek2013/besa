@@ -15,14 +15,15 @@
         white-space: nowrap;
     }
 
-    /* .nav-link .nav-icon {
+    .nav-link .nav-icon {
 
-        float: left !important;
-    } */
+        /* float: left !important; */
+        margin-left: 10px;
+    }
 
     .nav-link p {
         float: left !important;
-        margin-left: 10px;
+        /* margin-left: 10px; */
     }
 
     .sidebar {
