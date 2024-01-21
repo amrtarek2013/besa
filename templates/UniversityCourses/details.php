@@ -70,7 +70,7 @@
                 <div class="controle-container">
                     <a href="#" class="btn MainBtn ">Start your application <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-right-white.svg" alt="arrow  Icon"> </a>
                     <div class="icon-favorite">
-                        <i class="fa-regular fa-heart fa-2x"></i>
+                        <i class="fa-regular fa-heart fa-2x "></i>
                     </div>
                 </div>
             </div>

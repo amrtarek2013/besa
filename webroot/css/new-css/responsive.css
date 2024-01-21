@@ -1520,6 +1520,14 @@
 
     .free-meating .text h2 {
         margin-top: 20px;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .free-meating .grid-meating .btn {
+        height: 48px;
+
+        width: 180px;
     }
 
     .services-rendered .line-ellipse-en::after {
@@ -2818,9 +2826,11 @@
     .hidden-mobile {
         display: none !important
     }
+
     .remodal-form .checkbox {
         margin-bottom: 20px;
     }
+
     .hero-blogs .img-hero {
         left: 30px;
         top: 15px;
@@ -3613,7 +3623,30 @@
         margin-bottom: 80px;
 
     }
-    .remodal-form{
+
+    .remodal-form {
         padding: 24px;
+    }
+
+    .hero-contact .img-hero {
+        left: 0;
+        top: 0px;
+        width: 220px;
+    }
+
+    .hero-contact .title-hero span {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .hero-contact .col-md-6>.title-hero {
+        font-size: 32px;
+        line-height: 100%;
+        top: 15px;
+        left: 120px;
+    }
+
+    .social-media img {
+        width: 55px;
     }
 }

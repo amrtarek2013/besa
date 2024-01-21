@@ -28,10 +28,7 @@ $('.btn-filter').click(function(){
   $('#pageOverlay').toggleClass("visible");
 });
 
-$('#pageOverlay').click(function(){
-  $('#sideFilter').toggleClass("show");
-  $('#pageOverlay').toggleClass("visible");
-});
+
 $('.side-filter').click(function(){
   $('#sideFilter').toggleClass("show");
   $('#pageOverlay').toggleClass("visible");
