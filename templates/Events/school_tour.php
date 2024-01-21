@@ -36,7 +36,7 @@
 
 
 <?= $event['center_text'] ?>
-<?php if (false) : ?>
+<?php /* ?>
     <div class="global-engagement">
         <div class="container">
             <div class="row">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-<?php endif; ?>
+<?php */ ?>
 <?php 
 
 /*
@@ -142,7 +142,7 @@
     </div>
 </section>
 <?php */?>
-<?php $requestSchoolTourAppointmentSnippet ?>
+<?php //$requestSchoolTourAppointmentSnippet ?>
 
 <?php if (!empty($schools)) : ?>
     <div class="school-tour-slider">
