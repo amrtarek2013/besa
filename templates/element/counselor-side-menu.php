@@ -97,7 +97,7 @@
             <li class="nav-item ">
                 <a href="<?= Router::url('/counselor') ?>" class="nav-link nav-link2 ">
                     <i class="nav-icon fas fa-arrow-right fa-lg"></i>
-                    <p><?= __('Track & view your application') ?></p>
+                    <p>Track & view your students'<br/> application</p>
                 </a>
             </li>
             <li class="nav-item ">
