@@ -206,7 +206,7 @@
         <div class="row">
 
             <div class="col-md-12">
-                <?php $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
+                <?= $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="request-school-tour">
                 <p class="light-para">
@@ -260,8 +260,8 @@
                     <button type="submit" class="btn greenish-teal">Submit</button>
 
                 </div>
-                <?= $this->Form->end() ?>
 
+                <?= $this->Form->end() ?>
             </div>
 
         </div>
