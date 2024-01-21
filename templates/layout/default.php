@@ -109,7 +109,7 @@
                                 if (isset($_SESSION['Auth']['Counselor']) && strtolower($prefix) == 'counselor') {
                                 ?>
                                     <div class="profile-picture">
-                                        <img src="<?= $counselor['image_path'] ?>" alt="User Avatar">
+                                        <img src="<?= $_SESSION['Auth']['Counselor']['image_path'] ?>" alt="User Avatar">
                                     </div>
                                     <div class="profile-info">
                                         <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
@@ -118,7 +118,7 @@
                                 <?php } else {
                                 ?>
                                     <div class="profile-picture">
-                                        <img src="<?= $user['image_path'] ?>" alt="User Avatar">
+                                        <img src="<?= $_SESSION['Auth']['User']['image_path'] ?>" alt="User Avatar">
                                     </div>
                                     <div class="profile-info">
                                         <h3 class="user-name"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h3>
