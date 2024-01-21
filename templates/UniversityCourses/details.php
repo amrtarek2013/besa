@@ -65,9 +65,11 @@
                     </div>
                 </div>
                 <div class="controle-container">
+
                     <a href="#" class="btn MainBtn addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>">Start your application <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-right-white.svg" alt="arrow  Icon"> </a>
                     <div class="icon-favorite addingwish" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($wishLists[$course['id']]) ? 'delete' : 'add' ?>">
                         <i id="wish-<?= $course['id'] ?>" class="<?= isset($wishLists[$course['id']]) ? 'fa-solid' : 'fa-regular' ?> fa-heart fa-2x"></i>
+
                     </div>
                 </div>
             </div>

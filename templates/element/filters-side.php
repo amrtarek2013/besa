@@ -58,7 +58,7 @@
         margin-bottom: 15px;
         border: none;
         height: 4px;
-        background: #8692A6;
+        background: #eceff1;
     }
 
     .noUi-connect {
@@ -99,7 +99,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Countries</h4>
+                    <label class="">Countries</label>
                     <div class="grid-subjects">
                         <?php if (!empty($countriesList)) { ?>
                             <?php foreach ($countriesList as $key => $country) { ?>
@@ -109,6 +109,7 @@
                             <?php } ?>
                         <?php } ?>
                     </div>
+                    <hr>
 
                     <input type="hidden" name="country_id" id="country_id" value='<?= (isset($filterParams) && isset($filterParams['country_id']) ? $filterParams['country_id'] : '') ?>'>
                 </div>
@@ -126,11 +127,16 @@
                 ]);
                 // }
                 ?>
+                    <hr>
 
                 <div class="range-wrapper">
-                    <div>
-                        <div class="col-md-6">USD <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
-                        <div class="col-md-6">USD <input type="number" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>"></div>
+                    <label class="">Fees range</label>
+                    
+                    <div class="d-flex container-range">
+                        <div class="form-area d-flex">
+                        USD <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
+                        <div class="form-area d-flex">
+                            USD<input type="number" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>"></div>
                     </div>
 
 
@@ -173,7 +179,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Study Level</h4>
+                    <label class="">Study Level</label>
                     <div class="grid-subjects">
                         <?php if (!empty($studyLevels)) { ?>
                             <?php foreach ($studyLevels as $key => $studyLevel) { ?>
@@ -198,7 +204,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Intake Year</h4>
+                    <label class="">Intake Year</label>
                     <div class="grid-subjects">
                         <?php for ($i = date('Y') - 1; $i < date('Y') + 3; $i++) { ?>
                             <div class="subject intakeYear intakeYear-<?= $i ?> <?= (isset($filterParams) && isset($filterParams['intake'])  && $filterParams['intake'] == $i ? 'active' : '') ?>" title='<?= $i ?>' data-intake='<?= $i ?>'>
@@ -212,7 +218,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Rank</h4>
+                    <label class="">Rank</label>
                     <div class="grid-subjects">
                         <?php
                         $j = 1;
@@ -230,7 +236,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Course Duration</h4>
+                    <label class="">Course Duration</label>
                     <div class="grid-subjects">
                         <?php
                         $j = 0;
@@ -253,8 +259,8 @@
             </div>
             <div class="container-submit">
 
-                <button class="btn btn-default" id="FilterClear">Reset</button>
-                <button type="submit" class="btn greenish-teal">FILTER</button>
+                <button class="btn  btn-secondary btn-reset" id="FilterClear">Reset</button>
+                <button type="submit" class="btn greenish-teal btn-black">Show 54238 results</button>
             </div>
 
             <?= $this->Form->end() ?>

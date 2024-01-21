@@ -32,7 +32,7 @@ $('#pageOverlay').click(function(){
   $('#sideFilter').toggleClass("show");
   $('#pageOverlay').toggleClass("visible");
 });
-$('.side-filter').click(function(){
+$('.side-filter .close').click(function(){
   $('#sideFilter').toggleClass("show");
   $('#pageOverlay').toggleClass("visible");
 });
