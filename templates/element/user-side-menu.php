@@ -82,9 +82,12 @@
         <nav class="mt-2">
             <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, false); ?>
 
-            <div class="info">
-                <a href="<?= Router::url('/counselor/logout') ?>"><i class="nav-icon fas fa-user"></i><?= __('Log Out') ?></a>
-            </div>
+            <li class="nav-item ">
+                <a href="<?= Router::url('/user/logout') ?>" class="nav-link nav-link2 ">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>Log Out</p>
+                </a>
+            </li>
         </nav>
         <!-- /.sidebar-menu -->
 
