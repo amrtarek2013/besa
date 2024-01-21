@@ -15,10 +15,10 @@
         white-space: nowrap;
     }
 
-    .nav-link .nav-icon {
+    /* .nav-link .nav-icon {
 
         float: left !important;
-    }
+    } */
 
     .nav-link p {
         float: left !important;
