@@ -2815,11 +2815,12 @@
         font-size: 16px;
     }
 
-    .hidden-mobile,
-    .subscription-form .checkbox-container {
-        display: none;
+    .hidden-mobile {
+        display: none !important
     }
-
+    .remodal-form .checkbox {
+        margin-bottom: 20px;
+    }
     .hero-blogs .img-hero {
         left: 30px;
         top: 15px;
@@ -3579,9 +3580,8 @@
     }
 
     .besa-careers-section .job-cards .job-card .btn {
-        bottom: 10px;
+        bottom: 0;
         right: 10px;
-
         width: 180px;
         font-size: 14px;
     }
@@ -3612,5 +3612,8 @@
         grid-gap: 80px;
         margin-bottom: 80px;
 
+    }
+    .remodal-form{
+        padding: 24px;
     }
 }

@@ -14241,3 +14241,14 @@ div.error-message {
 .container-profileUser .form-area input[type="tel"] {
     padding-left: 90px;
 }
+
+.checkbox p {
+    width: calc(100% - 24px);
+    text-align: start;
+    margin-left: 5px;
+}
+
+.subscription-form input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+}
