@@ -14217,7 +14217,7 @@ div.error-message {
     border-right-color: #075FA9;
 }
 
-.price-prog{
+.price-prog {
     color: #1E1B39;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -14232,8 +14232,12 @@ div.error-message {
 
 }
 
-.btn-rewards{
+.btn-rewards {
     font-size: 24px;
     max-width: 460px;
     height: 68px;
+}
+
+.container-profileUser .form-area input[type="tel"] {
+    padding-left: 90px;
 }
