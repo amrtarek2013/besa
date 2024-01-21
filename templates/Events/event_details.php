@@ -307,12 +307,14 @@ if($permalink=='the-british-trophy'){ ?>
         <div class="checkbox-container">
             <div class="checkbox terms">
                 <label for="terms-conditions">
-                <input type="checkbox" id="terms-conditions" required> I agree to terms & conditions
+                    <input type="checkbox" id="terms-conditions" required> 
+                    <p>I agree to terms & conditions</p>
                 </label>
             </div>
             <div class="checkbox news">
                 <label for="latest-news">
-                <input type="checkbox" id="latest-news"> I'd like being informed about latest news and tips
+                    <input type="checkbox" id="latest-news"> 
+                    <p>I'd like being informed about latest news and tips</p>
                 </label>
             </div>
         </div>
