@@ -36,7 +36,7 @@ class University extends Entity
     protected function _getLogoPath()
     {
 
-        $no_logo_path = DS . 'img' . DS . '200x120.png';
+        $no_logo_path = DS . 'img' . DS . 'new-desgin' . DS . 'logo-university.png';
         if (!empty($this->logo)) {
             $logo_path = 'uploads' . DS . 'universities' . DS . 'logo' . DS . $this->logo;
             if (file_exists(WWW_ROOT . $logo_path))

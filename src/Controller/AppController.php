@@ -364,7 +364,7 @@ class AppController extends Controller
                         ],
                         'loginAction' => [
                             'controller' => 'Users',
-                            'action' => 'register',
+                            'action' => 'login',
                         ],
                         'loginRedirect' => [
                             'controller' => 'Users',
@@ -372,7 +372,7 @@ class AppController extends Controller
                         ],
                         'logoutRedirect' => [
                             'controller' => 'Users',
-                            'action' => 'register',
+                            'action' => 'login',
                         ],
                         'storage' => [
                             'className' => 'Session',

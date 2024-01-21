@@ -36,7 +36,7 @@ class CountryImage extends Entity
     protected function _getImagePath()
     {
 
-        $no_image_path = DS . 'img' . DS . '999 (1).png';
+        $no_image_path = DS . 'img' . DS . 'background-header.png';
         if (!empty($this->image)) {
             $image_path = 'uploads' . DS . 'country_images' . DS . str_replace(DS, "", $this->image);
             if (file_exists(WWW_ROOT . $image_path))

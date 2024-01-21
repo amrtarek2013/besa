@@ -146,6 +146,7 @@ class WishListsController extends AppController
 
     private function __common()
     {
+        
         $uploadSettings = $this->WishLists->getUploadSettings();
         $this->set(compact('uploadSettings'));
     }
