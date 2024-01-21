@@ -50,7 +50,4 @@
         </div>
     
     <?php endif; ?>
-
-
-
 <?= $book_free_meeting ?>

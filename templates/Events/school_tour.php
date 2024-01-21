@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="title-hero">School   <span>Tours</span> </h1>
+            <h1 class="title-hero">School <span>Tours</span> </h1>
         </div>
     </div>
 </div>
@@ -19,16 +19,16 @@
                     <div class="title-bottom-hero">
                         <h4>Bringing a Glimpse of University Life Abroad to Your School</h4>
                         <p class="description">
-                            At BESA, we're committed to connecting students with exciting opportunities for studying abroad. 
-                            Our School Tours bring this experience directly to your school, introducing you to the world of 
+                            At BESA, we're committed to connecting students with exciting opportunities for studying abroad.
+                            Our School Tours bring this experience directly to your school, introducing you to the world of
                             international education.
                         </p>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     <?php endif; ?>
-    <?=  $event['text'] ?>
+    <?= $event['text'] ?>
 </section>
 
 
@@ -46,8 +46,8 @@
                         <div class="card-eng">
                             <div class="circle-gradient">
                                 <div class="container-circle">
-                                   
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg"  alt="Icon Global connection " loading="lazy">
+
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_1.svg" alt="Icon Global connection " loading="lazy">
                                 </div>
                             </div>
                             <h4>Global Recognition with a Local Touch</h4>
@@ -55,7 +55,7 @@
                         <div class="card-eng">
                             <div class="circle-gradient">
                                 <div class="container-circle">
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_2.svg"  alt="Icon Language " loading="lazy">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_2.svg" alt="Icon Language " loading="lazy">
                                 </div>
                             </div>
                             <h4>Language Proficiency and Cultural Empowerment</h4>
@@ -63,7 +63,7 @@
                         <div class="card-eng">
                             <div class="circle-gradient">
                                 <div class="container-circle">
-                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_3.svg"  alt="Icon Dreams " loading="lazy">
+                                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/icon_3.svg" alt="Icon Dreams " loading="lazy">
                                 </div>
                             </div>
                             <h4>Subject Depth for Diverse Dreams</h4>
@@ -86,13 +86,16 @@
         </div>
     </div>
 <?php endif; ?>
+<?php 
 
+/*
+?>
 <section class="journey-discovery-besa-tours">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex">
-                    <img src="<?= WEBSITE_URL ?>img/new-desgin/school_tour/5264880.png" alt="journey discovery besa tours" loading="lazy">
+                    <img src="/img/new-desgin/school_tour/5264880.png" alt="journey discovery besa tours" loading="lazy">
                     <h4 class="title">Embark on a <span>Journey of Discovery: </span> <br> BESA School Tours Unveil the World of Study Abroad</h4>
                     <p class="description">At BESA, we believe that studying abroad is an unparalleled opportunity forpersonal and intellectual growth.We understand the importance of immersingoneself in different cultures</p>
                 </div>
@@ -101,10 +104,11 @@
     </div>
 </section>
 
+
 <section class="remote-school-tour-counseling">
     <div class="container">
         <div class="row">
-            
+
             <div class="col-md-12">
                 <h2 class="school-tour-header">Request a School Tour</h2>
                 <div class="d-flex">
@@ -113,22 +117,22 @@
                     </div>
                     <div class="school-tour-content">
                         <p>
-                            Access study abroad counseling conveniently from any location and at your own pace. 
-                            If you're seeking guidance on studying abroad but prefer to avoid in-person 
+                            Access study abroad counseling conveniently from any location and at your own pace.
+                            If you're seeking guidance on studying abroad but prefer to avoid in-person
                             meetings or face challenges like traffic
 
                         </p>
                         <p>
                             we have the perfect solution for you. Reach out to us to schedule a remote counseling
-                             session with IDP's knowledgeable education counselors. They will provide comprehensive 
-                             support to help you reach your dream destination. From analyzing your study options
+                            session with IDP's knowledgeable education counselors. They will provide comprehensive
+                            support to help you reach your dream destination. From analyzing your study options
                         </p>
                         <p>
-                            and selecting the ideal destination, university, and course, 
-                            to assisting with application submissions, visa guidance, accommodation 
+                            and selecting the ideal destination, university, and course,
+                            to assisting with application submissions, visa guidance, accommodation
                         </p>
                         <p>
-                            services, and more – all of this can be conveniently accessed online. 
+                            services, and more – all of this can be conveniently accessed online.
                             Don't let barriers hold you back; take advantage of our remote counseling services today
                         </p>
                     </div>
@@ -137,6 +141,8 @@
         </div>
     </div>
 </section>
+<?php */?>
+<?php $requestSchoolTourAppointmentSnippet ?>
 
 <?php if (!empty($schools)) : ?>
     <div class="school-tour-slider">
@@ -149,13 +155,13 @@
                                 <?php if (!empty($school['school_images'])) : ?>
                                     <div class="item">
                                         <h2 class="title_28"><?= $school['name'] ?></h2>
-                                            <?php 
-                                            // Get the first image from the array
-                                            $simage = reset($school['school_images']); 
-                                            ?>
-                                            <div class="image-box">
-                                                <img src="<?= $simage['image_path'] ?>" alt="<?= $simage['title'] ?>">
-                                            </div>
+                                        <?php
+                                        // Get the first image from the array
+                                        $simage = reset($school['school_images']);
+                                        ?>
+                                        <div class="image-box">
+                                            <img src="<?= $simage['image_path'] ?>" alt="<?= $simage['title'] ?>">
+                                        </div>
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -181,9 +187,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="large-image">
-                        <img id="largeImage" src="<?php // $highlighted['image_path'] ?>" alt="Large Image">
+                        <img id="largeImage" src="<?php // $highlighted['image_path'] 
+                                                    ?>" alt="Large Image">
                         <div class="caption">
-                            <p>Our School Tour at <?php // $highlighted['name'] ?></p>
+                            <p>Our School Tour at <?php // $highlighted['name'] 
+                                                    ?></p>
                         </div>
                     </div>
                 </div>
@@ -196,13 +204,14 @@
 <section class="main-banner Create-account-banner  visitors-application book-appointment">
     <div class="container-fluid">
         <div class="row">
-        
+
             <div class="col-md-12">
-                <?php  $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
+                <?php $this->Form->create(null, array('url' => 'contact-us', 'type' => 'file', 'id' => 'FormBookAppointment', 'class' => 'register')); ?>
 
                 <input type="hidden" id="type" name="type" value="request-school-tour">
                 <p class="light-para">
-                    <?php //$requestSchoolTourAppointmentSnippet ?>
+                    <?php //$requestSchoolTourAppointmentSnippet 
+                    ?>
 
                 </p>
 
@@ -278,7 +287,7 @@
                     required: true,
                     email: true
                 },
-                
+
                 'address': {
                     required: true,
                     minlength: 10,
