@@ -3489,52 +3489,128 @@
         font-size: 24px;
 
     }
+
     .content-blog-single-page {
         max-width: 85%;
-    
+
         top: -45px;
     }
-    .content-blog-single-page .name-blog{
+
+    .content-blog-single-page .name-blog {
         font-size: 20px;
         margin-bottom: 32px;
 
     }
-    .content-blog-single-page .title-blog{
+
+    .content-blog-single-page .title-blog {
         font-size: 20px;
     }
-    .content-blog-single-page .descrption{
+
+    .content-blog-single-page .descrption {
         margin-bottom: 32px;
         font-size: 16px;
     }
-    .global-list .global-list-title{
+
+    .global-list .global-list-title {
         font-size: 16px;
 
     }
-    .global-list p{
+
+    .global-list p {
         font-size: 14px;
 
     }
+
     .content-blog-single-page ul li {
         margin-bottom: 32px;
     }
-    .contact-us .grid-container .form-area:last-child, .form-blog .grid-container .form-area:last-child {
-        grid-column: unset;}
-        .form-blog .container-formBox {
-            padding: 24px;
-        }
-        .form-blog .container-formBox h4{
+
+    .contact-us .grid-container .form-area:last-child,
+    .form-blog .grid-container .form-area:last-child {
+        grid-column: unset;
+    }
+
+    .form-blog .container-formBox {
+        padding: 24px;
+    }
+
+    .form-blog .container-formBox h4 {
         font-size: 20px;
 
-        }.form-blog .container-formBox p{
+    }
+
+    .form-blog .container-formBox p {
         font-size: 16px;
 
-        }
-        .form-blog .container-formBox .grid-container{
-            grid-template-columns: 1fr;
-        }
-        .container-formBox input[type="submit"], .container-formBox button[type="submit"]{
-            height: 48px;
-    width: 100%;
-    margin-bottom: 0 !important;
-        }
+    }
+
+    .form-blog .container-formBox .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-formBox input[type="submit"],
+    .container-formBox button[type="submit"] {
+        height: 48px;
+        width: 100%;
+        margin-bottom: 0 !important;
+    }
+
+    .besa-careers-section .job-cards {
+        flex-flow: column;
+    }
+
+    .besa-careers-section .job-cards .job-card {
+        width: 100%;
+        height: 300px;
+
+    }
+
+    .opportunity-content h2,
+    .besa-careers-section .job-cards .job-card p,
+    .besa-careers-section .job-cards .job-card h3,
+    .besa-careers-section h2 {
+        font-size: 20px;
+
+    }
+
+    .besa-careers-section p {
+        font-size: 16px;
+
+    }
+
+    .besa-careers-section .job-cards .job-card .btn {
+        bottom: 10px;
+        right: 10px;
+
+        width: 180px;
+        font-size: 14px;
+    }
+
+    .career-opportunity-section {
+        grid-template-columns: 1fr;
+        grid-gap: 24px;
+    }
+
+    .benefits-section h2,
+    .opportunity-content h2 {
+        margin-bottom: 40px;
+
+    }
+
+    h2 br {
+        display: none;
+    }
+
+    .opportunity-content .btn {
+        width: 180px;
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .benefits-section .benefits-container {
+        grid-template-columns: 1fr;
+        grid-gap: 80px;
+        margin-bottom: 80px;
+
+    }
 }
