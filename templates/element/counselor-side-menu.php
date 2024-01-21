@@ -86,9 +86,15 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, false); ?>
-            <div class="info">
+            <!-- <div class="info">
                 <a href="<?= Router::url('/counselor') ?>" class="Track-App"><?= __('Track & view your application') ?></a>
-            </div>
+            </div> -->
+            <li class="nav-item ">
+                <a href="<?= Router::url('/counselor') ?>" class="nav-link nav-link2 ">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p><?= __('Track & view your application') ?></p>
+                </a>
+            </li>
             <li class="nav-item ">
                 <a href="<?= Router::url('/counselor/logout') ?>" class="nav-link nav-link2 ">
                     <i class="nav-icon fas fa-user"></i>
