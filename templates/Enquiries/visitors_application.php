@@ -15,12 +15,12 @@
 <section class="visitors-application">
     <div class="container ">
         <div class="row">
-         
+
 
             <div class="col-md-12 ">
                 <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormVisitorApp', 'class' => 'register')); ?>
                 <input type="hidden" id="type" name="type" value="visitors-application">
-                
+
                 <!-- <p class="light-para">For the purpose of applying regulation, your details are required.</p> -->
 
                 <div class="container-formBox">
@@ -28,40 +28,40 @@
                     <div class="grid-container">
 
                         <?= $this->Form->control('name', [
-                            'placeholder' => 'First Name',
+                            'placeholder' => 'Your first name',
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'First Name*', 'required' => true
                         ]) ?>
 
                         <?= $this->Form->control('surname', [
-                            'placeholder' => 'Last Name*', 'label' => 'Last Name*', 'required' => true,
+                            'placeholder' => 'your last name*', 'label' => 'Last Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->element('mobile_with_code') ?>
 
                         <?= $this->Form->control('email', [
-                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                            'placeholder' => 'Your email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->Form->control('school_name', [
-                            'type' => 'text', 'placeholder' => 'School / University name', 'label' => 'School / University name*', 'required' => true,
+                            'type' => 'text', 'placeholder' => 'Your school / university', 'label' => 'School / University name / Occupation *', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->Form->control('study_level', [
-                            'placeholder' => 'Level of study', 'type' => 'select', 'empty' => 'Select Level of study*',
+                            'placeholder' => 'Select your level', 'type' => 'select', 'empty' => 'Select your level*',
                             'options' => $mainStudyLevels, 'label' => 'Level of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->Form->control('destination_id', [
-                            'placeholder' => 'Study destination interested in*', 'type' => 'select', 'empty' => 'Select Study destination interested in*',
+                            'placeholder' => 'Select your destination*', 'type' => 'select', 'empty' => 'Select your destination*',
                             'options' => $destinationsList, 'label' => 'Study destination interested in*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
                         <?= $this->Form->control('fair_venue', [
-                            'placeholder' => 'Fair Venue*', 'type' => 'select', 'empty' => 'Select Fair Venue*',
+                            'placeholder' => 'Select your Fair Venue*', 'type' => 'select', 'empty' => 'Select your Fair Venue*',
                             'options' => $fairVenues, 'label' => 'Fair Venue*', 'required' => true, 'value' => (isset($selected_fair_venue) ? $selected_fair_venue : ''),
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
@@ -94,7 +94,8 @@
 
             <div class="col-md-12">
                 <!-- <p class="light-para" style="line-height: 28px;">
-                    <?php // $visitorsApplicationToText ?>
+                    <?php // $visitorsApplicationToText 
+                    ?>
 
                 </p> -->
             </div>
@@ -103,25 +104,25 @@
 </section>
 
 <section class="university-representatives-banner">
-  <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="title">Meet top university representatives</h2>
-            <p class="description">
-                from more than 10 countries, and know more <br>
-                about requirements, tuition fees, visa requirements and more
-            </p>
-            <div class=" logos-part">
-                <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title">Meet top university representatives</h2>
+                <p class="description">
+                    from more than 10 countries, and know more <br>
+                    about requirements, tuition fees, visa requirements and more
+                </p>
+                <div class=" logos-part">
+                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
+                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
+                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
+                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
+                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
 
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </section>
 <section class="fair-attendance-benefits">
     <div class="container">
@@ -161,7 +162,7 @@
             </div>
         </div>
     </div>
- 
+
 </section>
 
 
@@ -172,7 +173,7 @@
                 <h2 class="title">Why study abroad?</h2>
 
                 <div class="d-flex content-benefits">
-                    
+
                     <div class="text">
                         <ul class="benefits-list">
                             <li class="benefit-item">
@@ -208,7 +209,7 @@
             </div>
         </div>
     </div>
- 
+
 </section>
 
 <section class="fair-locations-schedule">
