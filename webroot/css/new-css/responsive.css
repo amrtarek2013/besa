@@ -2976,6 +2976,7 @@
     .form-area input[type="file"],
     .form-area input[type="tel"] {
         height: 56px;
+        padding: 16px;
     }
 
     .footer .gridContainer-footer {
@@ -3530,5 +3531,10 @@
         }
         .form-blog .container-formBox .grid-container{
             grid-template-columns: 1fr;
+        }
+        .container-formBox input[type="submit"], .container-formBox button[type="submit"]{
+            height: 48px;
+    width: 100%;
+    margin-bottom: 0 !important;
         }
 }
