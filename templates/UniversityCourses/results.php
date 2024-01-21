@@ -58,7 +58,7 @@
                                 <div class="university-info">
                                     <p>United Kingdom</p>
                                 </div>
-                                <a href="#" class=" btn apply-now-btn">Apply now</a>
+                                <a href="#" class=" btn apply-now-btn">Check Courses</a>
                             </div>
                         <?php endfor; ?>
                     </div>
