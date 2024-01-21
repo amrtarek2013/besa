@@ -118,7 +118,6 @@ class UniversityCoursesController extends AppController
         $this->set('courses', $courses->toArray());
 
         $this->set('coursesDetails', $coursesDetails);
-        $this->set('wishLists', $this->getWishLists());
         $this->set('appCourses', $this->getAppCourses());
         $this->set('wishLists', $this->getWishLists());
     }
@@ -203,10 +202,18 @@ class UniversityCoursesController extends AppController
         // }
 
 
+
+        $this->loadModel('Universities');
+        $universitiesList = $this->Universities->find()->select(['id', 'university_name', 'country_id'])
+            ->where(['active' => 1])->order(['university_name' => 'asc']);
+
+        $allUniversities = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.university_name');
+        $this->set('allUniversities', $allUniversities);
+
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 'Courses' => ['fields' => ['course_name']],
-                'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
+                'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
                 'Universities' => ['fields' => ['university_name', 'rank']],
                 'Services' => ['fields' => ['title']],
                 'StudyLevels' => ['fields' => ['title']],
@@ -333,19 +340,20 @@ class UniversityCoursesController extends AppController
         return $conditions;
     }
 
-    public function details($id = null)
+    public function details($id = null, $permalink = null)
     {
-        
+
         // $this->set('bodyClass', 'pageAbout pageServices');
         $course = $this->UniversityCourses->find()
             ->contain([
-                'Courses' => ['fields' => ['course_name']],
+                // 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
-                'Universities' => ['fields' => ['university_name', 'rank']],
+                'Universities' => ['fields' => ['university_name', 'rank', 'permalink','short_description']],
                 'Services' => ['fields' => ['title']],
-                'SubjectAreas' => ['fields' => ['title']]
+                'SubjectAreas' => ['fields' => ['title']],
+                'StudyLevels' => ['fields' => ['title']]
             ])
-            // ->where(['UniversityCourses.active' => 1])
+            ->where(['UniversityCourses.id' => $id])
             ->order(['UniversityCourses.display_order' => 'asc'])->first();
 
         // debug($course);
@@ -357,6 +365,10 @@ class UniversityCoursesController extends AppController
 
         // print_r($course);
         $this->set('course', $course);
-        $this->set('permalink', $id);
+        $this->set('permalink', $permalink);
+
+        
+        $this->set('appCourses', $this->getAppCourses());
+        $this->set('wishLists', $this->getWishLists());
     }
 }

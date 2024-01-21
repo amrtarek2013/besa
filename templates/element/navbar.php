@@ -17,7 +17,7 @@ use Cake\Routing\Router;
         <div class="row">
             <div class="col-md-12">
                 <div class="gridContainer-navbar">
-                <div class="navbar-mobile">
+                    <div class="navbar-mobile">
                         <div class="toggle">
                             <i class="fa-solid fa-bars fa-2x"></i>
                         </div>
@@ -25,7 +25,7 @@ use Cake\Routing\Router;
                             <div class="colse">
                                 <i class="fa-solid fa-xmark fa-2x"></i>
                             </div>
-                            <div class="buttons apply-now-btn-header">              
+                            <div class="buttons apply-now-btn-header">
                                 <?php if (isset($_SESSION['Auth']['User'])) { ?>
 
                                     <a href="/user/logout" class="btn SecondaryBtn logout">Logout
@@ -49,11 +49,11 @@ use Cake\Routing\Router;
 
 
                                     <a href="/user/register" class="btn MainBtn">Sign Up </a>
-                                    
+
                                 <?php } ?>
 
 
-                                </div>
+                            </div>
                             <ul class="">
                                 <li <?= strtolower($current_controller) == 'pages' && strtolower($current_action) == 'main' ? 'class="active"' : '' ?>>
                                     <a href="/">Home</a>
@@ -178,10 +178,6 @@ use Cake\Routing\Router;
                                         <a href="/user">Dashboard</a>
                                     </li>
                                 <?php } ?>
-
-
-                            
-
                             </ul>
                         </div>
 
@@ -214,7 +210,7 @@ use Cake\Routing\Router;
                             </div>
                         </li>
                         <li <?= strtolower($current_controller) == 'events' ? 'class="active"' : '' ?>>
-                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events  <i class="fa-solid fa-chevron-down"></i></a>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">Events <i class="fa-solid fa-chevron-down"></i></a>
 
                             <div class="menu-dropdown">
                                 <ul>
@@ -235,7 +231,7 @@ use Cake\Routing\Router;
                                 </ul>
                             </div>
                         </li>
-                        <li >
+                        <li>
                             <a href="<?= Router::url('/' . $g_dynamic_routes['pages.aboutus']) ?>">About BESA <i class="fa-solid fa-chevron-down"></i> </a>
                             <div class="menu-dropdown">
                                 <ul>
@@ -263,9 +259,9 @@ use Cake\Routing\Router;
                             <a href="<?= Router::url('/' . $g_dynamic_routes['pages.partnerinstitutions']) ?>">Partners</a>
 
                         </li>
-                        
 
-                        
+
+
                     </ul>
 
                     <div class="buttons apply-now-btn-header">
@@ -306,13 +302,13 @@ use Cake\Routing\Router;
                             <a href="/user/login" class="btn btn-secondary login">Log in</a>
                             <a href="/user/register" class="btn MainBtn">Sign Up</a>
                             <div class="toggle-search">
-                                        <img src="<?= WEBSITE_URL ?>img/search-icon.svg" alt="">
-                                    </div>
+                                <img src="<?= WEBSITE_URL ?>img/search-icon.svg" alt="">
+                            </div>
                         <?php } ?>
 
 
                     </div>
-                    
+
 
 
 

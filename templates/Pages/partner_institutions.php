@@ -48,6 +48,7 @@ use Cake\Routing\Router;
     <?= $partner_institutions_bottom_section ?>
 </section>
 
+<?php /*
 <section class="tabes tabes2">
     <div class="container">
         <div class="row">
@@ -63,3 +64,5 @@ use Cake\Routing\Router;
         </div>
     </div>
 </section>
+*/
+?>

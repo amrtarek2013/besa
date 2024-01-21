@@ -106,48 +106,48 @@ class UniversityCoursesTable extends Table
         $this->addBehavior('Timestamp');
 
 
-        // $this->addBehavior(
-        //     'ImageFile',
-        //     [
-        //         'ImageUpload' => [
-        //             'image' => [
-        //                 'resize' => ['width' => 414, 'height' => 414],
-        //                 'datePath' => ['path' => ''],
-        //                 // 'datePath' => false,
-        //                 'width' => 414, 'height' => 414,
-        //                 'path' => 'uploads/university_courses',
-        //                 'file_name' => '{$rand}_{$file_name}',
+        $this->addBehavior(
+            'ImageFile',
+            [
+                'ImageUpload' => [
+                    // 'image' => [
+                    //     'resize' => ['width' => 414, 'height' => 414],
+                    //     'datePath' => ['path' => ''],
+                    //     // 'datePath' => false,
+                    //     'width' => 414, 'height' => 414,
+                    //     'path' => 'uploads/university_courses',
+                    //     'file_name' => '{$rand}_{$file_name}',
 
-        //                 'thumbs' => [
-        //                     ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
-        //                 ],
-        //             ],
-        //             // 'mobile_image' => [
-        //             //     'resize' => ['width' => 360, 'height' => 0],
-        //             //     'datePath' => ['path' => ''],
-        //             //     // 'datePath' => false,
-        //             //     // 'path' => WWW_ROOT . 'img/university_courses',
-        //             //     'path' => 'uploads/university_courses',
-        //             //     'file_name' => '{$rand}_{$file_name}',
-        //             //     'thumbs' => [['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']],
-        //             // ],
+                    //     'thumbs' => [
+                    //         ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                    //     ],
+                    // ],
+                    // 'mobile_image' => [
+                    //     'resize' => ['width' => 360, 'height' => 0],
+                    //     'datePath' => ['path' => ''],
+                    //     // 'datePath' => false,
+                    //     // 'path' => WWW_ROOT . 'img/university_courses',
+                    //     'path' => 'uploads/university_courses',
+                    //     'file_name' => '{$rand}_{$file_name}',
+                    //     'thumbs' => [['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']],
+                    // ],
 
-        //             'banner_image' => [
-        //                 'resize' => ['width' => 1440, 'height' => 439],
-        //                 'datePath' => ['path' => ''],
-        //                 // 'datePath' => false,
-        //                 'width' => 1440, 'height' => 439,
-        //                 'path' => 'uploads/university_courses',
-        //                 'file_name' => '{$rand}_{$file_name}',
+                    'banner_image' => [
+                        'resize' => ['width' => 1706, 'height' => 874],
+                        'datePath' => ['path' => ''],
+                        // 'datePath' => false,
+                        'width' => 1706, 'height' => 874,
+                        'path' => 'uploads/university_courses',
+                        'file_name' => '{$rand}_{$file_name}',
 
-        //                 'thumbs' => [
-        //                     ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
-        //                 ],
-        //             ],
+                        'thumbs' => [
+                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                        ],
+                    ],
 
-        //         ]
-        //     ]
-        // );
+                ]
+            ]
+        );
 
 
         $this->belongsTo('Courses')->setForeignKey('course_id');
