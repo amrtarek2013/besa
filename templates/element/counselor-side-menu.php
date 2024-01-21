@@ -89,6 +89,9 @@
             <div class="info">
                 <a href="<?= Router::url('/counselor') ?>" class="Track-App"><?= __('Track & view your application') ?></a>
             </div>
+            <div class="info">
+                <a href="<?= Router::url('/counselor/logout') ?>"><?= __('Log Out') ?></a>
+            </div>
         </nav>
         <!-- /.sidebar-menu -->
 
