@@ -12,9 +12,9 @@
                 <h4 class="title-results">Search results for: <span>Universities</span></h4>
                 <div class="header-results">
                     <div class="tabs">
-                        <div class="tab active"><?= $this->Paginator->counter(__('{{count}}')) ?> Resuls</div>
-                        <div class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Courses</div>
-                        <div class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Universities</div>
+                        <a href="#" class="tab active"><?= $this->Paginator->counter(__('{{count}}')) ?> Resuls</a>
+                        <a href="#" class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Courses</a>
+                        <a href="#" class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Universities</a>
                     </div>
                     <div class="filter">
                         <button class="btn btn-primary btn-filter">Filter <img src="<?= WEBSITE_URL ?>img/new-desgin/filter.svg" alt=""> </button>

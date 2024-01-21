@@ -3649,6 +3649,7 @@
     .social-media img {
         width: 55px;
     }
+
     .header-results {
         align-items: start;
         flex-flow: column;
@@ -3657,30 +3658,58 @@
         margin-bottom: 24px;
 
     }
-    .header-results .tabs{
+
+    .header-results .tabs {
         grid-gap: 16px;
 
 
-    }.header-results .tabs .tab{
+    }
+
+    .header-results .tabs .tab {
         width: max-content;
         font-size: 14px;
 
     }
-    .header-results .filter{
+
+    .header-results .filter {
         margin-inline-start: auto;
 
     }
-    .side-filter{
+
+    .side-filter {
         width: 100%;
     }
-    .subjects-container .grid-subjects .subject{
+
+    .subjects-container .grid-subjects .subject {
         font-size: 16px;
     }
-    .select2-container{
+
+    .select2-container {
         width: 100%;
-    }.side-filter .btn-secondary {
-        
+    }
+
+    .side-filter .btn-secondary {
+
         width: 100%;
         max-width: 100%;
+    }
+
+    .container-about-course {
+        align-items: start;
+        margin: 40px 0;
+        flex-flow: column;
+        grid-gap: 48px;
+    }
+
+    .controle-container {
+        grid-gap: 20px;
+    }
+
+    .controle-container .btn {
+        max-width: max-content;
+    }
+
+    .hero-course-details h4 {
+        font-size: 20px;
     }
 }

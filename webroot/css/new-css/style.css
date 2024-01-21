@@ -14281,32 +14281,50 @@ div.error-message {
     top: 10px;
     right: 12px;
 }
-.side-filter  label{
-    color:  #263238;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; 
-margin-bottom: 20px;    display: block;
+
+.side-filter label {
+    color: #263238;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 20px;
+    display: block;
 
 }
 
-.container-range{
-    grid-gap: 24px ;
+.container-range {
+    grid-gap: 24px;
     margin-bottom: 24px;
 }
 
-.noUi-horizontal .noUi-handle{
+.noUi-horizontal .noUi-handle {
     background-color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    right: -20px !important;
+
+    top: -14px;
 }
 
-.side-filter .subjects-container .grid-subjects{
+.side-filter .subjects-container .grid-subjects {
     padding: 0 0 24px;
     grid-gap: 24px;
+    display: flex;
 
+    place-items: stretch;
+    flex-flow: wrap;
 }
 
-.side-filter  .form-area input{
+.side-filter .subjects-container .grid-subjects .subject {
+    padding: 10px 16px;
+    font-size: 16px;
+}
+.side-filter hr{
+    border-color: #ECEFF1 !important;
+    margin-bottom: 32px;
+}
+.side-filter .form-area input {
     border-radius: 16px;
     background: #ECEFF1;
     display: flex;
@@ -14317,18 +14335,66 @@ margin-bottom: 20px;    display: block;
     align-self: stretch;
 
 }
-.side-filter #slider_range_blue
-{
-    margin-bottom: 24px;
+
+.side-filter #slider_range_blue {
+    margin-bottom: 48px;
 
 }
-.side-filter .container-submit{
+
+.side-filter .container-submit {
     padding: 0;
 
 }
-.side-filter .btn-secondary{
+
+.side-filter .btn-secondary {
     color: var(--text-color);
     background: transparent;
     height: 48px;
 
+}
+
+.infromation-about-course {
+    margin-bottom: 100px;
+}
+
+.side-filter .form-area.d-flex {
+    align-items: center;
+    grid-gap: 5px;    font-size: 16px;
+
+}
+.side-filter .form-area input{
+    border-radius: 8px;
+}
+.side-filter .btn-black {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    border-radius: 50px;
+    background: #263238 !important;
+    color: #fff;
+    height: 48px;
+}
+
+.side-filter .subjects-container .grid-subjects .subject {
+    font-size: 16px;
+
+}
+
+.side-filter .btn-reset {
+    font-size: 16px;
+    color: var(--text-color);
+    border: none;
+}
+
+.side-filter ul li {
+    display: block !important;
+    font-size: 16px;
+}
+
+.side-filter .form-area input {
+    font-size: 16px;
+}
+.output-range{
+    display: none;
 }
