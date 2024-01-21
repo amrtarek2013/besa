@@ -39,11 +39,11 @@ class SchoolImagesTable extends Table
 
                     'image' => [
                         // 'resize' => ['width' => 313, 'height' => 266],
-                        'resize' => ['width' => 330, 'height' => 180],
+                        'resize' => ['width' => 1013, 'height' => 548],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         // 'width' => 313, 'height' => 266,
-                        'width' => 330, 'height' => 180,
+                        'width' => 1013, 'height' => 548,
                         'path' => 'uploads/school_images',
                         'file_name' => '{$rand}_{$file_name}',
 
