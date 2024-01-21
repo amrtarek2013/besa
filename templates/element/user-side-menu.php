@@ -54,6 +54,11 @@
         clear: both;
         padding-bottom: 15px;
     }
+
+    .user-dashboard .sidebar .nav-link .nav-icon {
+
+        color: #78909C;
+    }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4 counselor-sidebar">
     <a href="<?= USER_LINK ?>" class="brand-link">
@@ -84,7 +89,7 @@
 
             <li class="nav-item ">
                 <a href="<?= Router::url('/user/logout') ?>" class="nav-link nav-link2 ">
-                    <i class="nav-icon fas fa-user"></i>
+                    <i class="nav-icon fas fa-arrow-right fa-lg"></i>
                     <p>Log Out</p>
                 </a>
             </li>
