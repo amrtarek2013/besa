@@ -3488,4 +3488,47 @@
         font-size: 24px;
 
     }
+    .content-blog-single-page {
+        max-width: 85%;
+    
+        top: -45px;
+    }
+    .content-blog-single-page .name-blog{
+        font-size: 20px;
+        margin-bottom: 32px;
+
+    }
+    .content-blog-single-page .title-blog{
+        font-size: 20px;
+    }
+    .content-blog-single-page .descrption{
+        margin-bottom: 32px;
+        font-size: 16px;
+    }
+    .global-list .global-list-title{
+        font-size: 16px;
+
+    }
+    .global-list p{
+        font-size: 14px;
+
+    }
+    .content-blog-single-page ul li {
+        margin-bottom: 32px;
+    }
+    .contact-us .grid-container .form-area:last-child, .form-blog .grid-container .form-area:last-child {
+        grid-column: unset;}
+        .form-blog .container-formBox {
+            padding: 24px;
+        }
+        .form-blog .container-formBox h4{
+        font-size: 20px;
+
+        }.form-blog .container-formBox p{
+        font-size: 16px;
+
+        }
+        .form-blog .container-formBox .grid-container{
+            grid-template-columns: 1fr;
+        }
 }
