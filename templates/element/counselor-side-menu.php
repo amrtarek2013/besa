@@ -56,7 +56,7 @@
 
     .sidebar .nav-link .nav-icon {
 
-        color: #78909C;
+        color: #78909C !important;
     }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4 -sidebar">
@@ -96,14 +96,15 @@
             </div> -->
             <li class="nav-item ">
                 <a href="<?= Router::url('/counselor') ?>" class="nav-link nav-link2 ">
-                    <i class="nav-icon fas fa-user"></i>
+                    <i class="nav-icon fas fa-arrow-right fa-lg"></i>
                     <p><?= __('Track & view your application') ?></p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a href="<?= Router::url('/counselor/logout') ?>" class="nav-link nav-link2 ">
-                    <i class="nav-icon fas fa-arrow-right fa-lg"></i>
-                    <p>Log Out</p>
+                    <!-- <i class="nav-icon fas fa-arrow-right fa-lg"></i> -->
+                    <img src="<?=WEBSITE_URL?>img/new-desgin/Group.png" style="margin-left: 10px;"/>
+                    <p>Log Out </p>
                 </a>
             </li>
         </nav>

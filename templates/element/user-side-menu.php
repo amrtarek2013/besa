@@ -57,7 +57,7 @@
 
     .user-dashboard .sidebar .nav-link .nav-icon {
 
-        color: #78909C;
+        color: #78909C !important;
     }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4 counselor-sidebar">
@@ -87,12 +87,12 @@
         <nav class="mt-2">
             <?= $this->AdminSideMenu->render($sideMenus, $current_prefix, false); ?>
 
-            <li class="nav-item ">
+            <!-- <li class="nav-item ">
                 <a href="<?= Router::url('/user/logout') ?>" class="nav-link nav-link2 ">
                     <i class="nav-icon fas fa-arrow-right fa-lg"></i>
                     <p>Log Out</p>
                 </a>
-            </li>
+            </li> -->
         </nav>
         <!-- /.sidebar-menu -->
 
