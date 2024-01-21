@@ -97,7 +97,7 @@ use Cake\Routing\Router;
                                         <div class="logo">
                                             <?php //= WEBSITE_URL . 'img/new-desgin/logo-university.png'
                                             ?>
-                                            <img src="<?= $countryPartner['logo_path']?>" alt="<?= $countryPartner['university_name'] ?> Logo">
+                                            <img src="<?= $countryPartner['logo_path'] ?>" alt="<?= $countryPartner['university_name'] ?> Logo">
                                             <h5><a class="link" href="<?= Router::url('/' . $g_dynamic_routes['universities.details'] . '/') . $countryPartner['permalink'] ?>"><?= $countryPartner['university_name'] ?></a></h5>
 
                                         </div>
@@ -170,7 +170,11 @@ use Cake\Routing\Router;
                                 </div>
                             </div>
                         <?php endforeach; ?>
-                        <a class="btn MainBtn explore-now" href="#" style="width: max-content;margin: 30px auto ;">Explore Studying in canda <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
+                        <?php /*if (!isset($_SESSION['Auth.User'])) : ?>
+                            <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
+                        <?php endif;*/ ?>
+                        
+                        <a class="btn MainBtn explore-now" href="<?=Router::url('/' . $g_dynamic_routes['universitycourses.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>" style="width: max-content;margin: 30px auto ;">Explore Studying in <?= strtoupper($country['country_name']) ?> <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
                     <?php endif; ?>
                     <a class="detalis" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">CONTACT ADVISOR FOR MORE DETAILS</a>
                 </div>
@@ -206,7 +210,8 @@ use Cake\Routing\Router;
     </div>
 </section> -->
 
-<?php // $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) ?>
+<?php // $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) 
+?>
 <!-- 
 <section class="tabes tabes2">
     <div class="container">
