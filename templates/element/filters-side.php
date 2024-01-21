@@ -58,7 +58,7 @@
         margin-bottom: 15px;
         border: none;
         height: 4px;
-        background: #8692A6;
+        background: #eceff1;
     }
 
     .noUi-connect {
@@ -99,7 +99,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Countries</h4>
+                    <label class="">Countries</label>
                     <div class="grid-subjects">
                         <?php if (!empty($countriesList)) { ?>
                             <?php foreach ($countriesList as $key => $country) { ?>
@@ -128,9 +128,15 @@
                 ?>
 
                 <div class="range-wrapper">
-                    <div>
-                        <div class="col-md-6">USD <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
-                        <div class="col-md-6">USD <input type="number" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>"></div>
+                    
+                    <div class="d-flex container-range">
+                        <div class="form-area">
+                            <label for="">USD</label>
+                             
+                            <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
+                        <div class="form-area">
+                            <label for="">USD</label>
+                            <input type="number" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>"></div>
                     </div>
 
 
@@ -173,7 +179,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Study Level</h4>
+                    <label class="">Study Level</label>
                     <div class="grid-subjects">
                         <?php if (!empty($studyLevels)) { ?>
                             <?php foreach ($studyLevels as $key => $studyLevel) { ?>
@@ -212,7 +218,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Rank</h4>
+                    <label class="">Rank</label>
                     <div class="grid-subjects">
                         <?php
                         $j = 1;
@@ -230,7 +236,7 @@
 
                 <div class="subjects-container">
 
-                    <h4 class="">Course Duration</h4>
+                    <label class="">Course Duration</label>
                     <div class="grid-subjects">
                         <?php
                         $j = 0;
@@ -253,7 +259,7 @@
             </div>
             <div class="container-submit">
 
-                <button class="btn btn-default" id="FilterClear">Reset</button>
+                <button class="btn  btn-secondary" id="FilterClear">Reset</button>
                 <button type="submit" class="btn greenish-teal">FILTER</button>
             </div>
 

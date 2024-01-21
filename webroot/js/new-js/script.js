@@ -28,8 +28,11 @@ $('.btn-filter').click(function(){
   $('#pageOverlay').toggleClass("visible");
 });
 
-
-$('.side-filter').click(function(){
+$('#pageOverlay').click(function(){
+  $('#sideFilter').toggleClass("show");
+  $('#pageOverlay').toggleClass("visible");
+});
+$('.side-filter .close').click(function(){
   $('#sideFilter').toggleClass("show");
   $('#pageOverlay').toggleClass("visible");
 });
