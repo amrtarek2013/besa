@@ -37,10 +37,10 @@
 
                             echo $this->AdminForm->control('country_name', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('country_code', ['type' => 'text', 'class' => 'INPUT required']);
-                            
+
                             echo $this->AdminForm->control('use_country_currency', ['type' => 'checkbox', 'class' => 'INPUT']);
                             echo $this->AdminForm->control('currency', ['type' => 'text', 'class' => 'INPUT']);
-                            echo $this->AdminForm->control('symbol', ['label'=>'Currency Symbol','type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('symbol', ['label' => 'Currency Symbol', 'type' => 'text', 'class' => 'INPUT']);
                             echo $this->AdminForm->control('green_section', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('text_header', ['type' => 'text', 'class' => 'INPUT required']);
 
@@ -91,6 +91,8 @@
 
                             echo $this->AdminForm->control('why_text', ['type' => 'textarea', 'class' => 'editor AddFrontCss']);
 
+                            // $topText = $country['top_text'];
+                            
                             echo $this->AdminForm->control('top_text', ['type' => 'textarea', 'Label' => 'Content', 'class' => 'editor AddFrontCss']);
                             echo $this->AdminForm->control('active', ['type' => 'checkbox']);
                             echo $this->AdminForm->control('is_destination', ['type' => 'checkbox']);
