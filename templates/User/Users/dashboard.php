@@ -26,7 +26,7 @@
 
                     </div>
                     <div class="right-box">
-                        <div class="container-formBox blue-border ">
+                        <div class="container-formBoxs blue-border ">
 
                             <ul class="listOfPage">
 

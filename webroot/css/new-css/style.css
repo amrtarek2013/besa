@@ -8190,7 +8190,7 @@ input[type="search"] {
 }
 
 .user-dashboard .nav-sidebar {}
-
+.listOfPage li,
 .user-dashboard .nav-sidebar li {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -8223,6 +8223,11 @@ input[type="search"] {
     font-size: 16px;
     font-weight: 600;
     line-height: normal;
+    display: flex;
+    grid-gap: 5px;
+    align-items: center;
+    flex-flow: row-reverse;
+
 }
 
 
@@ -8235,6 +8240,7 @@ input[type="search"] {
 .user-dashboard .sidebar .nav-link .nav-icon {
     /* color: #696F79; */
     color: var(--bs-black);
+    margin: 0;
 
 }
 
@@ -14421,4 +14427,31 @@ div.error-message {
     font-weight: 400;
     line-height: 130%;
     background-color: #ECEFF1 !important;
+}
+.hero-slider-countries .text-container h4{
+    color: #FFF;
+font-size: 64px;
+font-weight: 500;
+line-height: 130%; 
+}
+.hero-slider-countries .text-container h5{
+    color: #FFF;
+font-size: 84px;
+font-weight: 700;
+line-height: 130%;
+}
+
+.hero-slider-countries .text-container{
+    transform: translatey(-20%);
+    right: 65px;
+    text-align: center;
+    -webkit-transform: translatey(-20%);
+    -moz-transform: translatey(-20%);
+    -ms-transform: translatey(-20%);
+    -o-transform: translatey(-20%);
+}
+
+.hero-slider-countries .main-slider .owl-nav button.owl-next, .hero-slider-countries .main-slider .owl-nav button.owl-prev {
+    position: absolute;
+    bottom: 115px;
 }

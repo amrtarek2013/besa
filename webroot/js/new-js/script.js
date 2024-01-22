@@ -278,8 +278,8 @@ $('.side-filter .close').click(function(){
     dots: false,
     nav: true,
     navText: [
-      "<img src='./img/icon/arrow_left.png'>",
-      "<img src='./img/icon/arrow_right.png'>",
+      "<img src='../img/new-desgin/prev-arrow-white.svg'>",
+      "<img src='../img/new-desgin/next-arrow-white.svg'>",
     ],
     autoplay: true,
     autoPlaySpeed: 2000,
