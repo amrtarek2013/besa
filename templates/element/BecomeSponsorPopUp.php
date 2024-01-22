@@ -10,18 +10,18 @@
     
     <input type="hidden" id="type" name="type" value="become-sponsor">
     <?= $this->Form->control('school_name', [
-        'placeholder' => 'Institution Name', 'label' => 'Institution Name*', 'required' => true,
+        'placeholder' => 'Your institution name', 'label' => 'Institution Name*', 'required' => true,
         'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
     ]) ?>
     <?= $this->Form->control('school_counselor_name', [
-        'placeholder' => 'Contact Person Name*', 'label' => 'Contact Person Name*', 'required' => true,
+        'placeholder' => 'Your contact person name*', 'label' => 'Contact Person Name*', 'required' => true,
         'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
     ]) ?>
 
 
-    <?= $this->element('mobile_with_code') ?>
+    <?= $this->element('mobile_with_code', ['phone_label'=>'Phone number']) ?>
     <?= $this->Form->control('email', [
-        'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+        'placeholder' => 'Your email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
         'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
     ]) ?>
 
