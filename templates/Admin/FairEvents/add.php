@@ -25,12 +25,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Fair Events') ?></h1>
+                    <h1><?= __($mainEventTitle . ' Events') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active"><?= __('Fair Events') ?></li>
+                        <li class="breadcrumb-item active"><?= __($mainEventTitle . ' Events') ?></li>
                     </ol>
                 </div>
             </div>
@@ -44,7 +44,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' Fair Event') ?></h3>
+                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' '.$mainEventTitle . ' Event') ?></h3>
                         </div>
 
                         <?php
@@ -59,9 +59,16 @@
                             echo $this->AdminForm->control('title', ['type' => 'text']);
                             echo $this->AdminForm->control('locations', ['label' => 'Where', 'type' => 'text']);
                             echo $this->AdminForm->control('dates', ['label' => 'When', 'type' => 'textarea', 'class' => 'editor']);
+                            echo $this->AdminForm->control('day_date', ['label' => 'Date', 'type' => 'text']);
 
-                            echo $this->AdminForm->control('universities', array('label'=>'Attending Universities','options' => $universitiesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Universities'));
-                            echo $this->AdminForm->control('countries', array('label'=>'Attending Countries','options' => $countriesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Countries'));
+                            if ($event_id != 6) {
+
+                                $uniLabel = $event_id == 6 ? 'Attending' : 'Sponsored By';
+                                echo $this->AdminForm->control('universities', array('label' => 'Attending Universities', 'options' => $universitiesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Universities'));
+                            } else {
+                                echo $this->AdminForm->control('schools', array('label' => 'Schools', 'options' => $schoolsList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Schools'));
+                            }
+                            echo $this->AdminForm->control('countries', array('label' => 'Attending Countries', 'options' => $countriesList, 'multiple' => 'multiple', 'class' => 'INPUT select-multiple', 'label' => 'Countries'));
 
 
                             // echo $this->AdminForm->control('center_text', ['type' => 'textarea', 'class' => 'editor']);

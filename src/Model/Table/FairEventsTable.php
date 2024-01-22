@@ -102,11 +102,14 @@ class FairEventsTable extends Table
 
     public function beforeMarshal(EventInterface $event, ArrayObject $entity, ArrayObject $options)
     {
-        if (is_array($entity['countries'])) {
+        if (isset($entity['countries']) && is_array($entity['countries'])) {
             $entity['countries'] = "," . implode(',', $entity['countries']) . ",";
         }
-        if (is_array($entity['universities'])) {
+        if (isset($entity['universities']) && is_array($entity['universities'])) {
             $entity['universities'] = "," . implode(',', $entity['universities']) . ",";
+        }
+        if (isset($entity['schools']) && is_array($entity['schools'])) {
+            $entity['schools'] = "," . implode(',', $entity['schools']) . ",";
         }
     }
 }

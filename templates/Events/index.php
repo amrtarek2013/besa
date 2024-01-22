@@ -16,7 +16,7 @@
 <section class="bottom-hero-section bottom-events ">
     <div class="container">
         <div class="row">
-            <div class="col-md-12" style="">
+            <div class="col-md-12">
                 <div class="title-bottom-hero">
                     <p>
                         <?= $events_page_text ?>

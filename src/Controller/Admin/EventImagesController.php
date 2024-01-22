@@ -130,7 +130,7 @@ class EventImagesController extends AppController
         $events = $this->Events->find('list', [
             'keyField' => 'id',
             'valueField' => 'title',
-        ])->where(["active" => 1])->order(['title' => 'ASC'])->toArray();
+        ])->order(['title' => 'ASC'])->toArray();
         $this->set(compact('uploadSettings', 'events'));
     }
 

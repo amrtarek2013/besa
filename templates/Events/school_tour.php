@@ -12,7 +12,7 @@
 </div>
 
 <section class="bottom-hero-section  bottom-school-tour">
-    <?php if (false) : ?>
+    <?php /* ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="">
@@ -27,13 +27,18 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+    <?php */ ?>
     <?= $event['text'] ?>
 </section>
 
 
 
+<?php
+if (!empty($event['fair_events'])) {
 
+    echo $this->element('events/event_details', ['event' => $event]);
+}
+?>
 
 <?= $event['center_text'] ?>
 <?php /* ?>
@@ -86,7 +91,7 @@
         </div>
     </div>
 <?php */ ?>
-<?php 
+<?php
 
 /*
 ?>
@@ -141,8 +146,9 @@
         </div>
     </div>
 </section>
-<?php */?>
-<?php //$requestSchoolTourAppointmentSnippet ?>
+<?php */ ?>
+<?php //$requestSchoolTourAppointmentSnippet 
+?>
 
 <?php if (!empty($schools)) : ?>
     <div class="school-tour-slider">
@@ -181,7 +187,7 @@
 
 
 
-<?php if (!empty($highlighted)) : ?>
+<?php /*if (!empty($highlighted)) : ?>
     <!-- <div class="banner-ourSchool">
         <div class="container">
             <div class="row">
@@ -199,9 +205,9 @@
         </div>
     </div> -->
 
-<?php endif; ?>
+<?php endif;*/ ?>
 
-<section class="main-banner Create-account-banner  visitors-application book-appointment">
+<section class="main-banner Create-account-banner visitors-application book-appointment">
     <div class="container-fluid">
         <div class="row">
 

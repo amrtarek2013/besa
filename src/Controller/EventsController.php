@@ -42,8 +42,8 @@ class EventsController extends AppController
 
 
             foreach ($event['fair_events'] as $i => $fair_event) {
-                
-                if (!$fair_event['active']){
+
+                if (!$fair_event['active']) {
                     unset($event['$fair_events'][$i]);
                     continue;
                 }
@@ -65,6 +65,14 @@ class EventsController extends AppController
                     $eventUniversities = $this->Universities->find()->select(['active', 'id', 'logo'])->where(["active" => 1, "id IN" => array_values($universities)])->order(['display_order' => 'ASC'])->all()->toArray();
                     $event['fair_events'][$i]['universities'] = $eventUniversities;
                 }
+                if (!empty($fair_event['schools'])) {
+
+                    $this->loadModel('Schools');
+
+                    $schools = explode(',', $fair_event['schools']);
+                    $eventSchools = $this->Schools->find()->select(['active', 'id', 'logo'])->where(["active" => 1, "id IN" => array_values($schools)])->order(['display_order' => 'ASC'])->all()->toArray();
+                    $event['fair_events'][$i]['schools'] = $eventSchools;
+                }
             }
         }
 
@@ -74,7 +82,9 @@ class EventsController extends AppController
     }
     public function schoolTour($id = 'school-tours')
     {
-        $event = $this->Events->findByPermalink($id)->first();
+        // $event = $this->Events->findByPermalink($id)->first();
+        $event = $this->Events->find()->contain(['EventImages', 'FairEvents'])->where(['permalink' => $id])->first();
+
 
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -82,7 +92,6 @@ class EventsController extends AppController
 
             throw new NotFoundException(__('Not found'));
 
-        $this->set('event', $event);
         $this->set('permalink', $id);
 
 
@@ -99,6 +108,48 @@ class EventsController extends AppController
 
         $highlighted = $this->Schools->find()->where(["Schools.highlighted" => 1, "Schools.active" => 1])->first();
 
+        $eventCountires = [];
+        $eventUniversities = [];
+
+        if (!empty($event['fair_events'])) {
+
+
+            foreach ($event['fair_events'] as $i => $fair_event) {
+
+                if (!$fair_event['active']) {
+                    unset($event['$fair_events'][$i]);
+                    continue;
+                }
+
+                if (!empty($fair_event['countries'])) {
+
+                    $this->loadModel('Countries');
+                    $countries = explode(',', $fair_event['countries']);
+                    // dd($countries);
+                    $eventCountires = $this->Countries->find()->select(['active', 'id', 'flag'])->where(["active" => 1, "id IN" => array_values($countries)])->order(['display_order' => 'ASC'])->all()->toArray();
+                    $event['fair_events'][$i]['countries'] = $eventCountires;
+                }
+
+                // if (!empty($fair_event['universities'])) {
+
+                //     $this->loadModel('Universities');
+
+                //     $universities = explode(',', $fair_event['universities']);
+                //     $eventUniversities = $this->Universities->find()->select(['active', 'id', 'logo'])->where(["active" => 1, "id IN" => array_values($universities)])->order(['display_order' => 'ASC'])->all()->toArray();
+                //     $event['fair_events'][$i]['universities'] = $eventUniversities;
+                // }
+                if (!empty($fair_event['schools'])) {
+
+                    $this->loadModel('Schools');
+
+                    $schools = explode(',', $fair_event['schools']);
+                    $eventSchools = $this->Schools->find()->select(['active', 'id', 'logo'])->where(["active" => 1, "id IN" => array_values($schools)])->order(['display_order' => 'ASC'])->all()->toArray();
+                    $event['fair_events'][$i]['schools'] = $eventSchools;
+                }
+            }
+        }
+        // dd($event);
+        $this->set('event', $event);
         // $schoolImages = Hash::combine($schoolImages, '{n}.id', '{n}', '{n}.name');
         // dd($schoolImages);
         $this->set('schools', $schoolImages);
