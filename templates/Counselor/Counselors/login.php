@@ -1,6 +1,6 @@
 <div class="background-login-page">
     <div class="logo">
-      <a href="#"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
+      <a  href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
     </div>
     <div class="">
       <?= $this->Form->create(null, array('id' => 'FormLogin')); ?>
@@ -31,7 +31,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn clear-blue">Sign In</button>
+            <button type="submit" class="btn clear-blue">Login </button>
           </div>
         </div>
       <?= $this->Form->end() ?>
