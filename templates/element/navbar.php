@@ -28,17 +28,30 @@ use Cake\Routing\Router;
                             <div class="buttons apply-now-btn-header">
                                 <?php if (isset($_SESSION['Auth']['User'])) { ?>
 
-                                    <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                        <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                                    </a>
-
+                                    <!-- <a href="/user/logout" class="btn SecondaryBtn logout">Logout
+                                        <img src="<?php// WEBSITE_URL ?>img/icon/login.png" alt="">
+                                    </a> -->
+                                    <div class="details-user">
+                                        <div class="header-details">
+                                            <img src="" alt="">
+                                            <h4 class="name-user"></h4>
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </div>
+                                    </div>
                                     <a href="/user" class="btn MainBtn">Profile</a>
                                 <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
+                                <div class="details-user">
+                                    <div class="header-details">
+                                        <img src="" alt="">
+                                        <h4 class="name-user"></h4>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                </div>
 
 
-                                    <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
-                                        <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                                    </a>
+                                    <!-- <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
+                                        <img src="<?php // WEBSITE_URL ?>img/icon/login.png" alt="">
+                                    </a> -->
 
                                     <a href="/counselor/profile" class="btn MainBtn">Profile</a>
                                 <?php } else { ?>
@@ -283,21 +296,59 @@ use Cake\Routing\Router;
                         </div>
 
                         <?php if (isset($_SESSION['Auth']['User'])) { ?>
+                            <div class="details-user">
+                                    <div class="header-details">
+                                        <img src="<?= $_SESSION['Auth']['User']['image_path'] ?>" alt="User Avatar">
+                                        <h4 class="name-user"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="drop-down-user">
+                                        <ul>
+                                            <li>
+                                                <a href="/user/profile">My profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="/user/logout" >Log out <i class="fa-solid fa-right-from-bracket"></i> </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-
-                            <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
+                            <!-- <a href="/user/logout" class="btn SecondaryBtn logout">Logout
+                                <img src="<?php WEBSITE_URL ?>img/icon/login.png" alt="">
                             </a>
+                             <a href="/user" class="btn MainBtn">Profile</a>
+                         -->
+                            
 
-                            <a href="/user" class="btn MainBtn">Profile</a>
+                           
                         <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
 
+                            <div class="details-user">
+                                    <div class="header-details">
+                                    <img src="<?= $_SESSION['Auth']['Counselor']['image_path'] ?>" alt="User Avatar">
 
-                            <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                            </a>
+                                        <h4 class="name-user"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="drop-down-user">
+                                        <ul>
+                                            <li>
+                                                <a href="/counselor/profile">My profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="/counselor/logout" >Log out <i class="fa-solid fa-right-from-bracket"></i> </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                            <a href="/counselor/profile" class="btn MainBtn">Profile</a>
+                            <!-- <a href="/counselor/logout" class="btn SecondaryBtn logout">Logout
+                                <img src="<?php// WEBSITE_URL ?>img/icon/login.png" alt="">
+                            </a> 
+                        <a href="/counselor/profile" class="btn MainBtn">Profile</a> -->
+
+                            
                         <?php } else { ?>
                             <a href="/user/login" class="btn btn-secondary login">Log in</a>
                             <a href="/user/register" class="btn MainBtn">Sign Up</a>

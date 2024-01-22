@@ -63,7 +63,7 @@
                             ?>
 
                             <div class="col-md-12">
-                                <div class="container-formBox">
+                                <div class="container-formBoxs">
                                     <h4 class="title">Student Application Files</h4>
 
                                     <?= $this->Form->create($application, array('id' => 'FormApp', 'class' => 'apply', 'type' => 'file')); ?>

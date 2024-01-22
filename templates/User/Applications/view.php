@@ -1,17 +1,13 @@
 <section class="register-banner">
 
     <div class="container" style="width:100%">
+     
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title text-left title-dash">Application Details</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-formBox">
-                    <h4 class="title">Applications Details</h4>
+                <div class="container-formBox " style="    background: transparent;     box-shadow: none;    border: none;">
+                    <h4 class="title" style="      color: var(--text-color);">Applications Details</h4>
                     <div class="container-table">
-                        <h5 class="title-table">Student Details</h5>
+                        <h5 class="title-table" >Student Details</h5>
                         <table cellspacing="0" cellpadding="0" class="table listing-table" id="Table">
                             <tbody>
                                 <tr class="table-header">
