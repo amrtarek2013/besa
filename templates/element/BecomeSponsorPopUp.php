@@ -1,4 +1,58 @@
-<div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
+<!-- Remodal HTML structure for sponsor form -->
+<div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="become-sponsor">
+    <button data-remodal-action="close" class="remodal-close">
+        <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
+
+    </button>
+    <h2>Become a sponsor</h2>
+
+    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'SponsorForm', 'class' => 'subscription-form')); ?>
+    
+    <input type="hidden" id="type" name="type" value="become-sponsor">
+    <?= $this->Form->control('school_name', [
+        'placeholder' => 'Institution Name', 'label' => 'Institution Name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
+    <?= $this->Form->control('school_counselor_name', [
+        'placeholder' => 'Contact Person Name*', 'label' => 'Contact Person Name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
+
+
+    <?= $this->element('mobile_with_code') ?>
+    <?= $this->Form->control('email', [
+        'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+    ]) ?>
+
+    <?= $this->element('security_code', ['show_label' => true]) ?>
+    <!-- <form class="subscription-form"> -->
+    <!-- <div class="form-area">
+        <label for="institution-name">Institution Name</label>
+        <input type="text" id="institution-name" placeholder="Enter Institution Name" required>
+    </div>
+    <div class="form-area">
+        <label for="contact-person-name">Contact Person Name</label>
+        <input type="text" id="contact-person-name" placeholder="Enter Contact Person Name" required>
+    </div>
+    <div class="form-area">
+        <label for="phone-number">Phone number</label>
+        <input type="tel" id="phone-number" placeholder="Your phone number" required>
+    </div>
+    <div class="form-area">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+    </div> -->
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+    <!-- </form> -->
+
+    <?= $this->Form->end() ?>
+</div>
+
+<?php
+/*
+?>
+ <div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
 
     <section class="register-banner Create-account-banner">
 
@@ -49,12 +103,14 @@
         </div>
     </section>
     <br>
-    <!-- <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-    <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
+    
 </div>
+<?php */
+?>
 
 
-<?php //echo $this->Html->script('new-js/jquery.validate'); ?>
+<?php //echo $this->Html->script('new-js/jquery.validate'); 
+?>
 <!-- <script src="/js/new-js/jquery.validate.js" async></script> -->
 
 <script type="text/javascript">
@@ -97,6 +153,7 @@
             }
         });
 
+        <?php /*?>
         sponsorSubmitForm = function(form, register) {
 
             if (!request_busy) {
@@ -160,6 +217,8 @@
                 // $('body').LoadingOverlay("hide");
             }
         }
+        
+        <?php */ ?>
 
     });
 </script>

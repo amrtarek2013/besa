@@ -216,8 +216,7 @@ if (!empty($event['fair_events'])) {
 
                 <input type="hidden" id="type" name="type" value="request-school-tour">
                 <p class="light-para">
-                    <?php //$requestSchoolTourAppointmentSnippet 
-                    ?>
+                    <?php //=$requestSchoolTourAppointmentSnippet?>
 
                 </p>
 

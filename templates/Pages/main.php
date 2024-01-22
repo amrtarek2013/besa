@@ -56,7 +56,7 @@
                                             </div>
 
                                         <?php endif; ?>
-                                        <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
+                                        <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
                                     </div>
                                 </div>
 

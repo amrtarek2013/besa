@@ -120,7 +120,7 @@ class PagesController extends AppController
         $this->set('homeBlogs', $blogs);
 
         $this->loadModel('Events');
-        $home_main_events = $this->Events->find()->contain(['FairEvents' => ['fields' => ['event_id','day_date']]])->select(['id','title', 'sub_title', 'image'])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
+        $home_main_events = $this->Events->find()->contain(['FairEvents' => ['fields' => ['event_id','day_date']]])->select(['id','title', 'sub_title', 'image', 'permalink'])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
 
         // dd($home_main_events);
         $this->set('homeBlogs', $blogs);

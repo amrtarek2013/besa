@@ -80,9 +80,6 @@ if ($permalink == 'education-fairs') {
 
         echo $this->element('events/event_details', ['event' => $event]);
     ?>
-
-
-
     <?php
     }
     if (!empty($event['event_images'])) {
@@ -197,7 +194,8 @@ if ($permalink == 'the-british-trophy') {
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-
+<?php
+    /*
 
     <!-- Remodal HTML structure for sponsor form -->
     <div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="british-trophy-sponsor">
@@ -229,6 +227,7 @@ if ($permalink == 'the-british-trophy') {
 
 
 <?php
+*/
 
 } ?>
 
