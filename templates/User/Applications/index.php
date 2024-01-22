@@ -12,14 +12,10 @@
 <section class="register-banner">
 
     <div class="container" style="width:100%">
+       
         <div class="row">
             <div class="col-md-12">
-                <h2 class="title text-left title-dash">Applications</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-formBox">
+                <div class="container-formBoxs">
                     <h4 class="title">Applications</h4>
                     <div class="">
                         <?php

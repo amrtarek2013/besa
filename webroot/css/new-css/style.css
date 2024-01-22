@@ -14483,7 +14483,7 @@ div.error-message {
 
 .details-user {
     position: relative;
-    margin-inline-start: auto;
+    width: 100%;
 
 }
 
