@@ -296,11 +296,18 @@ use Cake\Routing\Router;
                         </div>
 
                         <?php if (isset($_SESSION['Auth']['User'])) { ?>
+                            <div class="details-user">
+                                    <div class="header-details">
+                                        <img src="" alt="">
+                                        <h4 class="name-user"></h4>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                </div>
 
-
-                            <a href="/user/logout" class="btn SecondaryBtn logout">Logout
-                                <img src="<?= WEBSITE_URL ?>img/icon/login.png" alt="">
-                            </a>
+                            <!-- <a href="/user/logout" class="btn SecondaryBtn logout">Logout
+                                <img src="<?php WEBSITE_URL ?>img/icon/login.png" alt="">
+                            </a> -->
+                            
 
                             <a href="/user" class="btn MainBtn">Profile</a>
                         <?php } else if (isset($_SESSION['Auth']['Counselor'])) { ?>
