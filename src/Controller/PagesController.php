@@ -84,6 +84,7 @@ class PagesController extends AppController
         $this->loadModel('Events');
         $events = $this->Events->find()->where(['active' => 1, 'show_on_home' => 1])->cache('home_events')->order(['display_order ' => 'asc'])->limit(3);
         $this->set('events', $events);
+        // dd($events->toArray());
 
 
         $this->loadModel('Testimonials');
@@ -119,11 +120,12 @@ class PagesController extends AppController
         $this->set('homeBlogs', $blogs);
 
         $this->loadModel('Events');
-        $home_main_events = $this->Events->find()->select(['title', 'sub_title', 'image'])->where(['active' => 1])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
+        $home_main_events = $this->Events->find()->contain(['FairEvents' => ['fields' => ['event_id','day_date']]])->select(['id','title', 'sub_title', 'image'])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
 
+        // dd($home_main_events);
         $this->set('homeBlogs', $blogs);
 
-        $this->set(compact('home_main_events','home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey', 'home_assessment_section'));
+        $this->set(compact('home_main_events', 'home_why_besa2', 'homeEvents', 'home_our_partners', 'home_services_destination', 'home_aboutus', 'home_study_journey', 'home_assessment_section'));
     }
     private function _get_total_uploaded_files($os = '')
     {

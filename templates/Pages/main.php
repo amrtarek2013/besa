@@ -10,7 +10,7 @@
 <?= $this->element("choose-place-earth", ['colWidth' => '9', 'redirectUrl' => 'destination', 'pageType' => 'home'], ['cache' => ['key' => 'choose_place_earth_home', 'config' => '_view_long_']]) ?>
 
 <!--Start Events Section-->
-<?php if (!empty($homeBlogs)) : ?>
+<?php if (!empty($home_main_events)) : ?>
     <div class="home-blogs home-events">
         <div class="top-text">
             <h4 class="title">Events</h4>
@@ -31,17 +31,31 @@
                                             <a href="<?= Cake\Routing\Router::url('/event-details/' . $event['permalink']) ?>" class="read-anchor"><?= $event['title'] ?></a>
                                         </h4>
                                         <p class="description-blog"><?= $event['sub_title'] ?></p>
-                                        <div class="timline-eve">
-                                            <div class="item">
-                                                <img src="/img/new-desgin/timer.svg" alt="">
-                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer">
-                                                <p> 21 Oct 2023</p>
+
+                                        <?php if (!empty($event['fair_events'])) : ?>
+                                            <div class="timline-eve">
+
+                                                <?php
+                                                $counter = sizeof($event['fair_events']);
+                                                foreach ($event['fair_events'] as $count => $fair_event) : ?>
+                                                    <?php if (!empty($fair_event['day_date'])) : ?>
+                                                        <div class="item">
+                                                            <img src="/img/new-desgin/timer.svg" alt="">
+                                                            <?php if ($count < ($counter - 1)) : ?>
+                                                                <img src=" /img/new-desgin/line-timline.svg" alt="" class="line-timer">
+
+                                                            <?php endif; ?>
+                                                            <p> <?= $fair_event['day_date'] ?></p>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <!-- <div class="item">
+                                                    <img src="/img/new-desgin/timer.svg" alt="">
+                                                    <p>09 Dec 2023</p>
+                                                </div> -->
                                             </div>
-                                            <div class="item">
-                                                <img src="/img/new-desgin/timer.svg" alt="">
-                                                <p>09 Dec 2023</p>
-                                            </div>
-                                        </div>
+
+                                        <?php endif; ?>
                                         <a href="#" class="btn btn-transpernt">View more <img src="/img/new-desgin/arrow right.svg" alt=""></a>
                                     </div>
                                 </div>
