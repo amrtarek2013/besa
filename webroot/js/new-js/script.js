@@ -37,6 +37,10 @@ $('.side-filter .close').click(function(){
   $('#pageOverlay').toggleClass("visible");
 });
 
+$('.details-user .header-details').click(function(){
+  $('.drop-down-user').toggleClass("show");
+});
+
   // Add click event listener to each question
   $(".faq-question").click(function () {
     // This toggles the faq-answer slide up/down
