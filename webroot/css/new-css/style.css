@@ -13075,7 +13075,7 @@ div.error-message {
 .login-tab .container-submit {
     display: flex;
     flex-flow: column;
-    padding: 0;
+    padding: 0 !important;
     grid-gap: 32px;
     align-items: start;
     margin-top: 16px;
