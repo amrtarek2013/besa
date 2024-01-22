@@ -14454,3 +14454,8 @@ line-height: 130%;
     position: absolute;
     bottom: 115px;
 }
+
+.school-tour-slider .image-box img{
+    border-radius: 20px;
+
+}

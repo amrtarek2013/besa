@@ -1,3 +1,7 @@
+<?php
+
+use Cake\Routing\Router;
+?>
 <div class="background-login-page">
     <div class="logo">
       <a  href="<?=Router::url('/')?>"><img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/logo-footer.png" alt="main_logo" width="200"></a>
