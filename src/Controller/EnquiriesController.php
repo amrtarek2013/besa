@@ -219,10 +219,10 @@ class EnquiriesController extends AppController
         // ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
 
-        // $this->loadModel('Countries');
-        // $countriesCodesList = $this->Countries->find()->select([
-        //     'code', 'phone_code'
-        // ])->where(['active' => 1])->order(['phone_code' => 'asc']);
+        $this->loadModel('Universities');
+        $topUniversitiesList = $this->Universities->find()->select([
+            'id', 'university_name', 'logo','permalink'
+        ])->where(['active' => 1, 'show_on_top_universities'])->all()->toArray();
 
         // $countriesCodesList = Hash::combine(
         //     $countriesCodesList->toArray(),
@@ -231,7 +231,7 @@ class EnquiriesController extends AppController
         // );
 
 
-        // $this->set('countriesCodesList', $countriesCodesList);
+        $this->set('topUniversitiesList', $topUniversitiesList);
 
 
         $this->loadModel('Countries');

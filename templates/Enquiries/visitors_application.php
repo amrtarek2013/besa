@@ -95,6 +95,9 @@
             <div class="col-md-12">
                 <!-- <p class="light-para" style="line-height: 28px;">
                     <?php // $visitorsApplicationToText 
+
+                    use Cake\Routing\Router;
+
                     ?>
 
                 </p> -->
@@ -103,27 +106,30 @@
     </div>
 </section>
 
-<section class="university-representatives-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="title">Meet top university representatives</h2>
-                <p class="description">
-                    from more than 10 countries, and know more <br>
-                    about requirements, tuition fees, visa requirements and more
-                </p>
-                <div class=" logos-part">
-                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
-                    <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt="">
 
+<?php if (!empty($topUniversitiesList)) : ?>
+    <section class="university-representatives-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title">Meet top university representatives</h2>
+                    <p class="description">
+                        from more than 10 countries, and know more <br>
+                        about requirements, tuition fees, visa requirements and more
+                    </p>
+                    <div class=" logos-part">
+
+                        <?php foreach ($topUniversitiesList as $university) : ?>
+                            <a href="<?= Router::url('/' . $g_dynamic_routes['universities.details'] . '/') . $university['permalink'] ?>"><img src="<?= $university['logo_path'] ?>" alt="<?= $university['university_name'] ?>"></a>
+                             <!-- <img src="https://dummyimage.com/235x64/d9d9d9/000000.png" alt=""> -->
+                           
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <section class="fair-attendance-benefits">
     <div class="container">
         <div class="row">
