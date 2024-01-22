@@ -2,7 +2,7 @@
 
 use Cake\Routing\Router;
 ?>
-<section class="hero-country">
+<section class="hero-country hero-slider-countries">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -18,8 +18,8 @@ use Cake\Routing\Router;
                     <?php endif; ?>
                     <div class="text-container">
                         <a class="" href="<?= Router::url('/register') ?>">
-                            <p>Apply to Study </p>
-                            <p>in <?= $country['country_name'] ?></p>
+                            <h4>Apply to Study </h4>
+                            <h5>in <?= $country['country_name'] ?></h5>
                             <!-- <h3><?= isset($country['green_section']) ? $country['green_section'] : '' ?></h3> -->
                         </a>
                     </div>

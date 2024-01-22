@@ -8,6 +8,12 @@
         grid-template-columns: 1fr 1fr;
         grid-gap: 50px;
     }
+    .user-dashboard .sidebar{
+        border: none;
+    }
+.user-dashboard .nav-sidebar {
+    margin: 0;
+}
 </style>
 <?php
 if (isset($_GET['dk']))

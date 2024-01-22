@@ -8190,7 +8190,7 @@ input[type="search"] {
 }
 
 .user-dashboard .nav-sidebar {}
-
+.listOfPage li,
 .user-dashboard .nav-sidebar li {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -8223,6 +8223,11 @@ input[type="search"] {
     font-size: 16px;
     font-weight: 600;
     line-height: normal;
+    display: flex;
+    grid-gap: 5px;
+    align-items: center;
+    flex-flow: row-reverse;
+
 }
 
 
@@ -8235,6 +8240,7 @@ input[type="search"] {
 .user-dashboard .sidebar .nav-link .nav-icon {
     /* color: #696F79; */
     color: var(--bs-black);
+    margin: 0;
 
 }
 
@@ -14294,7 +14300,7 @@ div.error-message {
 }
 
 .container-range {
-    grid-gap: 24px;
+    grid-gap: 5px;
     margin-bottom: 24px;
 }
 
@@ -14302,13 +14308,12 @@ div.error-message {
     background-color: var(--text-color);
     width: 32px;
     height: 32px;
-    right: -20px !important;
-
+    right: -30px !important;
     top: -14px;
 }
 
 .side-filter .subjects-container .grid-subjects {
-    padding: 0 0 24px;
+    padding: 0 0 32px;
     grid-gap: 24px;
     display: flex;
 
@@ -14397,4 +14402,56 @@ div.error-message {
 }
 .output-range{
     display: none;
+}
+.side-filter .noUi-handle-upper{
+    left: 15px !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=false]{
+    display: block;
+    padding: 12px 16px;
+    color:  #263238;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    background: #FFF;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option[aria-selected=true]{
+    display: block;
+    padding: 12px 16px;
+    color:  #263238 !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    background-color: #ECEFF1 !important;
+}
+.hero-slider-countries .text-container h4{
+    color: #FFF;
+font-size: 64px;
+font-weight: 500;
+line-height: 130%; 
+}
+.hero-slider-countries .text-container h5{
+    color: #FFF;
+font-size: 84px;
+font-weight: 700;
+line-height: 130%;
+}
+
+.hero-slider-countries .text-container{
+    transform: translatey(-20%);
+    right: 65px;
+    text-align: center;
+    -webkit-transform: translatey(-20%);
+    -moz-transform: translatey(-20%);
+    -ms-transform: translatey(-20%);
+    -o-transform: translatey(-20%);
+}
+
+.hero-slider-countries .main-slider .owl-nav button.owl-next, .hero-slider-countries .main-slider .owl-nav button.owl-prev {
+    position: absolute;
+    bottom: 115px;
 }
