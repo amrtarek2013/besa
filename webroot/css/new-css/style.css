@@ -14532,9 +14532,11 @@ div.error-message {
     top: 45px;
     display: none;
 }
-.drop-down-user.show{
+
+.drop-down-user.show {
     display: block;
 }
+
 .drop-down-user ul li {
     display: block;
 }
@@ -14555,4 +14557,15 @@ div.error-message {
 .drop-down-user ul li a:hover {
     background-color: #ECEFF1;
 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background: transparent !important;
+}
+.container-formBox .iti--allow-dropdown .iti__flag-container, .container-formBox .iti--separate-dial-code .iti__flag-container {
+    transform: translatey(calc(-50% - 3px));
+    -webkit-transform: translatey(calc(-50% - 3px));
+    -moz-transform: translatey(calc(-50% - 3px));
+    -ms-transform: translatey(calc(-50% - 3px));
+    -o-transform: translatey(calc(-50% - 3px));
 }
