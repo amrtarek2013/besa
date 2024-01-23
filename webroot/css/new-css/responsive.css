@@ -3722,5 +3722,8 @@
     }
     .school-tour-slider .owl-next{
         right: -15px;
+    }.school-tour-slider{
+        padding: 0;
     }
+    
 }
