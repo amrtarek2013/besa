@@ -93,7 +93,8 @@
 
     <div class="body-content">
         <div class="">
-            <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
+            <?= $this->Form->create(null, ['type' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
+            <input type="hidden" value="<?=$stype?>" name="stype" id="stype"/>
             <div class="">
 
 
@@ -260,7 +261,7 @@
             <div class="container-submit">
 
                 <button class="btn  btn-secondary btn-reset" id="FilterClear">Reset</button>
-                <button type="submit" class="btn greenish-teal btn-black">Show 54238 results</button>
+                <button type="submit" class="btn greenish-teal btn-black">Show results</button>
             </div>
 
             <?= $this->Form->end() ?>

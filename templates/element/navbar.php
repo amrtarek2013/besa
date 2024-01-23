@@ -295,11 +295,13 @@ use Cake\Routing\Router;
                             </div>
                         </div>
 
-                        <?php if (isset($_SESSION['Auth']['User'])) { ?>
+                        <?php
+                        // dd($_SESSION['Auth']);
+                        if (isset($_SESSION['Auth']['User'])) { ?>
                             <div class="details-user">
                                     <div class="header-details">
                                         <img src="<?= $_SESSION['Auth']['User']['image_path'] ?>" alt="User Avatar">
-                                        <h4 class="name-user"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                                        <h4 class="name-user"><?= strtoupper($_SESSION['Auth']['User']['first_name'] . ' ' . $_SESSION['Auth']['User']['last_name']) ?></h4>
                                         <i class="fa-solid fa-angle-down"></i>
                                     </div>
                                     <div class="drop-down-user">
@@ -328,7 +330,7 @@ use Cake\Routing\Router;
                                     <div class="header-details">
                                     <img src="<?= $_SESSION['Auth']['Counselor']['image_path'] ?>" alt="User Avatar">
 
-                                        <h4 class="name-user"><?= strtoupper($auth->user('first_name') . ' ' . $auth->user('last_name')) ?></h4>
+                                        <h4 class="name-user"><?= strtoupper($_SESSION['Auth']['Counselor']['first_name'] . ' ' . $_SESSION['Auth']['Counselor']['last_name']) ?></h4>
                                         <i class="fa-solid fa-angle-down"></i>
                                     </div>
                                     <div class="drop-down-user">

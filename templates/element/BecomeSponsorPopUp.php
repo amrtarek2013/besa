@@ -16,7 +16,7 @@
             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
         ]) ?>
 
-        <?= $this->element('mobile_with_code') ?>
+        <?= $this->element('mobile_with_code', ['phone_label'=> 'Phone number']) ?>
 
         <?= $this->Form->control('email', [
             'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,

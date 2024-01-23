@@ -1162,11 +1162,38 @@ class AppController extends Controller
             $wishConds['user_token'] = $token;
         }
 
+        $wishConds[] = '(university_id = NULL or university_id = 0)';
         $wishLists = $this->WishLists->find('list', [
             'keyField' => 'course_id', 'valueField' => 'course_id'
         ])->where($wishConds)->order(['course_id' => 'asc'])->toArray();
         return $wishLists;
     }
+
+    public function getUniWishLists($wishConds = [])
+    {
+
+        $wishLists = [];
+
+        $this->loadModel('WishLists');
+
+        if (isset($_SESSION['Auth']['User'])) {
+            $user = $_SESSION['Auth']['User'];
+
+            $wishConds['user_id'] = $user['id'];
+        } else {
+
+            $token = $this->userToken();
+            $wishConds['user_token'] = $token;
+        }
+
+        $wishConds[] = '(course_id = NULL or course_id = 0)';
+
+        $wishLists = $this->WishLists->find('list', [
+            'keyField' => 'university_id', 'valueField' => 'university_id'
+        ])->where($wishConds)->order(['university_id' => 'asc'])->toArray();
+        return $wishLists;
+    }
+
 
 
     public function getAppCourses($conds = [])

@@ -181,6 +181,10 @@ class UniversityCoursesController extends AppController
 
         $conditions = $this->__prepConditions();
 
+
+        $parameters = $this->request->getAttribute('params');
+        $this->set('parameters', $parameters);
+
         // $conditions['UniversityCourses.active'] = 1;
         // debug($_SERVER['REQUEST_URI']);
         // $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http') . '://' .  $_SERVER['HTTP_HOST'];
@@ -210,18 +214,49 @@ class UniversityCoursesController extends AppController
         $allUniversities = Hash::combine($universitiesList->toArray(), '{n}.id', '{n}.university_name');
         $this->set('allUniversities', $allUniversities);
 
+        $limit = 6;
+        $distinct = 'id';
+        if (isset($parameters['?']['stype']) && $parameters['?']['stype'] != 'a') {
+            $limit = 18;
+            $this->set('stype', $parameters['?']['stype']);
+            if ($parameters['?']['stype'] == 'u') {
+                $distinct = 'university_id';
+                unset($conditions['university_id']);
+            }
+        } else
+            $this->set('stype', 'a');
+
         $courses = $this->paginate($this->UniversityCourses, [
             'contain' => [
                 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
-                'Universities' => ['fields' => ['university_name', 'rank']],
+                'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
                 'Services' => ['fields' => ['title']],
                 'StudyLevels' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']]
             ],
-            'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => 20
+            'distinct' => $distinct,
+            'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => $limit
         ]);
 
+        $uniCount = $this->UniversityCourses->find()->contain([
+            'Courses' => ['fields' => ['course_name']],
+            'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
+            'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
+            'Services' => ['fields' => ['title']],
+            'StudyLevels' => ['fields' => ['title']],
+            'SubjectAreas' => ['fields' => ['title']]
+        ])->distinct(['UniversityCourses.university_id'])->where($conditions)->count();
+
+        // dd($uniCount);
+        // dd($courses->toArray());
+        $this->set('totalCount', $uniCount + $courses->count());
+        $this->set('coursesCount', $courses->count());
+        $this->set('uniCount', $uniCount);
+        $universitiesResults = Hash::combine($courses->toArray(), '{n}.university.permalink', '{n}.university');
+
+        // dd($universitiesResults);
+        $this->set('universitiesResults', $universitiesResults);
         $coursesDetails = Hash::combine($courses->toArray(), '{n}.id', '{n}');
         $this->set('courses', $courses->toArray());
 
@@ -230,6 +265,7 @@ class UniversityCoursesController extends AppController
         // debug($courses);
         $this->set('coursesDetails', $coursesDetails);
         $this->set('wishLists', $this->getWishLists());
+        $this->set('uniWishLists', $this->getUniWishLists());
         $this->set('appCourses', $this->getAppCourses());
 
 
@@ -289,6 +325,25 @@ class UniversityCoursesController extends AppController
         else
             unset($url_params['id']);
 
+        if (isset($url_params['university_id']) && !empty($url_params['university_id']))
+            $conditions['UniversityCourses.university_id'] = $url_params['university_id'];
+        else
+            unset($url_params['university_id']);
+
+        if (isset($url_params['intake']) && !empty($url_params['intake']))
+            $conditions['UniversityCourses.intake'] = $url_params['intake'];
+        else
+            unset($url_params['intake']);
+
+        if (isset($url_params['duration']) && !empty($url_params['duration']))
+            $conditions['UniversityCourses.duration'] = $url_params['duration'];
+        else
+            unset($url_params['duration']);
+
+        if (isset($url_params['rank']) && !empty($url_params['rank']))
+            $conditions['Universites.rank'] = $url_params['rank'];
+        else
+            unset($url_params['rank']);
 
 
         if (isset($url_params['duration']) && !empty($url_params['duration']))
@@ -348,7 +403,7 @@ class UniversityCoursesController extends AppController
             ->contain([
                 // 'Courses' => ['fields' => ['course_name']],
                 'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency']],
-                'Universities' => ['fields' => ['university_name', 'rank', 'permalink','short_description']],
+                'Universities' => ['fields' => ['university_name', 'rank', 'permalink', 'short_description']],
                 'Services' => ['fields' => ['title']],
                 'SubjectAreas' => ['fields' => ['title']],
                 'StudyLevels' => ['fields' => ['title']]
@@ -367,7 +422,7 @@ class UniversityCoursesController extends AppController
         $this->set('course', $course);
         $this->set('permalink', $permalink);
 
-        
+
         $this->set('appCourses', $this->getAppCourses());
         $this->set('wishLists', $this->getWishLists());
     }

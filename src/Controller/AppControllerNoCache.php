@@ -1048,12 +1048,12 @@ class AppController extends Controller
             $wishConds['user_token'] = $token;
         }
 
+        $wishConds[] = 'university_id = NULL';
         $wishLists = $this->WishLists->find('list', [
             'keyField' => 'course_id', 'valueField' => 'course_id'
         ])->where($wishConds)->order(['course_id' => 'asc'])->toArray();
         return $wishLists;
     }
-
 
     public function getAppCourses($conds = [])
     {

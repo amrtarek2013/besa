@@ -18,9 +18,6 @@
                     </h2>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>

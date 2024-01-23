@@ -102,4 +102,60 @@ class WishListsController extends AppController
             $this->redirect($this->referer(array('action' => 'index'), true));
         }
     }
+
+
+
+    public function addUni($uni_id, $isNew = 'add')
+    {
+
+        $this->loadModel('UniversityCourses');
+
+        $message = __('The university not found. Please, try again.');
+        $status = 'error';
+        $this->loadModel('Universities');
+        $university = $this->Universities->find()->where(['id' => $uni_id])->first();
+
+        $wishList = $this->WishLists->newEmptyEntity();
+        if ($university) {
+            if ($isNew == 'add') {
+                $wishList = $this->WishLists->patchEntity($wishList, $this->request->getData());
+                $wishList->university_id = $uni_id;
+                if (isset($_SESSION['Auth']['User'])) {
+                    $user = $_SESSION['Auth']['User'];
+                    $wishList->user_id = $user['id'];
+                } else
+                    $wishList->user_token = $this->userToken();
+
+                if ($this->WishLists->save($wishList)) {
+                    $message = __('The university added to WishList Successfully.');
+                    $status = 'success';
+                } else {
+                    $message = __('The WishList could not be saved. Please, try again.');
+                }
+            } else {
+                $conditions = [
+                    // 'course_id' => $course_id,
+                    'university_id' => $uni_id
+                ];
+                if (isset($_SESSION['Auth']['User'])) {
+                    $user = $_SESSION['Auth']['User'];
+                    $conditions['user_id'] = $user['id'];
+                } else
+                    $conditions['user_token'] = $this->userToken();
+                $wishList = $this->WishLists->find()->where($conditions)->first();
+                if ($wishList) {
+                    $this->WishLists->delete($wishList);
+                }
+                $status = 'deleted';
+
+                $message = __('The university removed from the WishList Successfully.');
+            }
+        }
+
+        if ($this->request->is('ajax')) {
+            die(json_encode(['status' => $status, 'message' => $message]));
+        } else {
+            $this->redirect($this->referer(array('action' => 'index'), true));
+        }
+    }
 }

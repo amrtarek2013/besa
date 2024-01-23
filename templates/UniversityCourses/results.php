@@ -4,17 +4,16 @@
     }
 </style>
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="results-section">
-                <h4 class="title-results">Search results for: <span>Universities</span></h4>
+                <h4 class="title-results">Search results <?= isset($stype) && $stype == 'c' ? ' for <span>Courses</span>' : ($stype == 'u' ? 'for <span>Universities</span>' : '') ?></h4>
                 <div class="header-results">
                     <div class="tabs">
-                        <a href="#" class="tab active"><?= $this->Paginator->counter(__('{{count}}')) ?> Resuls</a>
-                        <a href="#" class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Courses</a>
-                        <a href="#" class="tab"><?= $this->Paginator->counter(__('{{count}}')) ?> Universities</a>
+                        <a href="#" class="tab search-type <?= isset($stype) && $stype == 'a' ? 'active' : '' ?>" data-stype="a"><?= $totalCount ?> Resuls</a>
+                        <a href="#" class="tab search-type <?= isset($stype) && $stype == 'c' ? 'active' : '' ?>" data-stype="c"><?= $coursesCount ?> Courses</a>
+                        <a href="#" class="tab search-type <?= isset($stype) && $stype == 'u' ? 'active' : '' ?>" data-stype="u"><?= $uniCount ?> Universities</a>
                     </div>
                     <div class="filter">
                         <button class="btn btn-primary btn-filter">Filter <img src="<?= WEBSITE_URL ?>img/new-desgin/filter.svg" alt=""> </button>
@@ -24,53 +23,30 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).on('click', '.search-type', function(e) {
 
-<?php echo $this->element('filters-side', ['filterParams' => $filterParams]); ?>
+        e.preventDefault();
+
+        $('#stype').val($(this).data('stype'))
+        $('#search-courses-steps').submit();
+    });
+</script>
+<?php
+echo $this->element('filters-side', ['filterParams' => $filterParams]); ?>
 <div id="pageOverlay" class="overlay"></div>
 
-<div class="universities-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-universities">
-                    <div class="header-box">
-                        <div class="title-left">
-                            <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
 
-                            <h4>Universities </h4>
-                        </div>
-                        <a href="#" class="link-see-more">
-                            See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
-                        </a>
-                    </div>
-                    <div class="grid-universities">
-                        <?php for ($i = 0; $i < 6; $i++) : ?>
-                            <div class="university">
-                                <div class="header-box">
-                                    <div class="logo">
-                                        <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="University of Essex Logo">
-                                        <h5>University of Essex</h5>
-                                    </div>
-                                    <div class="icon-favorite">
-                                        <i class="fa-regular fa-heart fa-lg"></i>
-                                    </div>
-                                </div>
-                                <div class="university-info">
-                                    <p>United Kingdom</p>
-                                </div>
-                                <a href="#" class=" btn apply-now-btn">Check Courses</a>
-                            </div>
-                        <?php endfor; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+if ($stype != 'c')
+    echo $this->element('universities_list', ['universitiesResults' => $universitiesResults, 'pagging' => 1, 'gridContainerCols' => 2]); ?>
 
-<?=$this->element('courses_list', ['courses' => $courses, 'pagging' => 1, 'gridContainerCols' => 2]); ?>
+<?php
 
-<?php 
+if ($stype != 'u')
+    echo $this->element('courses_list', ['courses' => $courses, 'pagging' => 1, 'gridContainerCols' => 2]); ?>
+
+<?php
 /*
 <section class="main-banner register-banner study1-banner">
 
@@ -111,5 +87,5 @@
 
     </div>
 </div>
-*/ 
+*/
 ?>
