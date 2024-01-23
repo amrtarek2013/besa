@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="image-container">
-                    <img src="<?=$course['banner_image_path']?>" alt="Default banner">
+                    <img src="<?= $course['banner_image_path'] ?>" alt="Default banner">
                 </div>
                 <div class="text-container">
                     <a class="" href="#">
@@ -40,7 +40,7 @@
                             <img src="<?= WEBSITE_URL ?>img/new-desgin/clock-icon.svg" alt="  Icon">
                             Duration
                         </h5>
-                        <p class="description"><?= $course['duration'] ?> Years</p>
+                        <p class="description"><?= $course['duration'] . ' ' . ($course['duration_type'] == 0 ? 'Year' : 'Month') . ($course['duration'] > 1 ? 's' : '') ?> </p>
                     </div>
                     <div class="item-course">
                         <h5 class="title-course">

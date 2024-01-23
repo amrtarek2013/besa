@@ -39,6 +39,7 @@
                             // echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT required']);
 
                             echo $this->AdminForm->control('course_name', ['label' => 'University Course Name', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('duration_type', ['label' => 'Duration Type', 'type' => 'select', 'empty' => 'Select Duration Type', 'options' => [0 => 'Year', 1 => 'Month'], 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('duration', ['class' => 'INPUT required']);
                             echo $this->AdminForm->control('intake', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('fees', ['type' => 'number', 'class' => 'INPUT required']);

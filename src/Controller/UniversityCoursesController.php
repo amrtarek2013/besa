@@ -335,20 +335,27 @@ class UniversityCoursesController extends AppController
         else
             unset($url_params['intake']);
 
-        if (isset($url_params['duration']) && !empty($url_params['duration']))
-            $conditions['UniversityCourses.duration'] = $url_params['duration'];
-        else
-            unset($url_params['duration']);
-
         if (isset($url_params['rank']) && !empty($url_params['rank']))
             $conditions['Universities.rank'] = $url_params['rank'];
         else
             unset($url_params['rank']);
 
 
-        if (isset($url_params['duration']) && !empty($url_params['duration']))
-            $conditions['UniversityCourses.duration'] = intval($url_params['duration']);
-        else
+        if (isset($url_params['duration']) && !empty($url_params['duration'])) {
+            if (intval($url_params['duration']) == 1) {
+
+                $conditions['UniversityCourses.duration <'] = 12;
+                $conditions['UniversityCourses.duration_type'] = 1;
+            } else {
+                $conditions['UniversityCourses.duration_type'] = 0;
+                if (intval($url_params['duration']) == 6) {
+
+                    $conditions['UniversityCourses.duration >'] = intval($url_params['duration']) - 1;
+                } else {
+                    $conditions[] = 'UniversityCourses.duration between ' . (intval($url_params['duration']) - 1) . ' AND ' . intval($url_params['duration']);
+                }
+            }
+        } else
             unset($url_params['duration']);
 
         if (isset($url_params['min_budget']) && !empty($url_params['min_budget']))
