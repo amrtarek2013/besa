@@ -14560,7 +14560,7 @@ div.error-message {
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-    background: transparent;
+    background: transparent !important;
 }
 .container-formBox .iti--allow-dropdown .iti__flag-container, .container-formBox .iti--separate-dial-code .iti__flag-container {
     transform: translatey(calc(-50% - 3px));

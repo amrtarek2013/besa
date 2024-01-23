@@ -3712,4 +3712,15 @@
     .hero-course-details h4 {
         font-size: 20px;
     }
+    .school-tour-slider h2{
+        font-size: 20px;
+        margin: 0 0 20px;
+
+    }
+    .school-tour-slider .owl-prev{
+        left: -15px;
+    }
+    .school-tour-slider .owl-next{
+        right: -15px;
+    }
 }
