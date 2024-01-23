@@ -146,7 +146,8 @@ if ($permalink == 'the-british-trophy') {
 
         echo $this->element('events/event_details', ['event' => $event]);
     }
-    ?>
+   
+    /* ?>
     <div class="remodal remodal-form british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
         <button data-remodal-action="close" class="remodal-close">
             <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
