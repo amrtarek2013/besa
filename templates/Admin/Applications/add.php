@@ -94,8 +94,16 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('.select-single').select2();
-        $('.select-multiple').select2();
+        $('.select-single').select2({
+            
+            placeholder: "Select Item",
+            allowClear: true
+        });
+        $('.select-multiple').select2({
+            
+            placeholder: "Select Items",
+            allowClear: true
+        });
     });
 </script>
 <?php

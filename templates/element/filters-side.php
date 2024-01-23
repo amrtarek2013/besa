@@ -94,7 +94,7 @@
     <div class="body-content">
         <div class="">
             <?= $this->Form->create(null, ['type' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?>
-            <input type="hidden" value="<?=$stype?>" name="stype" id="stype"/>
+            <input type="hidden" value="<?= $stype ?>" name="stype" id="stype" />
             <div class="">
 
 
@@ -128,14 +128,14 @@
                 ]);
                 // }
                 ?>
-                    <hr>
+                <hr>
 
                 <div class="range-wrapper">
                     <label class="">Fees range</label>
-                    
+
                     <div class="d-flex container-range">
                         <div class="form-area d-flex">
-                        USD <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
+                            USD <input type="number" name="min_budget" id="min-budget" value="<?= (isset($filterParams) && isset($filterParams['min_budget']) ? $filterParams['min_budget'] : '1000') ?>"></div>
                         <div class="form-area d-flex">
                             USD<input type="number" name="max_budget" id="max-budget" value="<?= (isset($filterParams) && isset($filterParams['max_budget']) ? $filterParams['max_budget'] : '100,000') ?>"></div>
                     </div>
@@ -380,8 +380,16 @@ echo $this->Html->css('select2');
 ?>
 <script>
     $(document).ready(function() {
-        $('.select-single').select2();
-        $('.select-multiple').select2();
+        $('.select-single').select2({
+            placeholder: "Select Item",
+            allowClear: true,
+            width: '100%',
+        });
+        $('.select-multiple').select2({
+
+            placeholder: "Select Items",
+            allowClear: true
+        });
     });
 </script>
 <script>
@@ -407,29 +415,52 @@ echo $this->Html->css('select2');
         // });
         $(".country").click(function() {
             let selected_val = $(this).data('country');
+            // $('#country_id').val(selected_val);
 
-            console.log(selected_val);
-            $('#country_id').val(selected_val);
+            if ($('#country_id').val() == selected_val) {
+
+                $('#country_id').val('');
+                $(this).removeClass('active')
+            } else
+                $('#country_id').val(selected_val);
         });
         $(".studyLevel").click(function() {
             let selected_val = $(this).data('studylevel');
 
-            $('#study_level_id').val(selected_val);
+            if ($('#study_level_id').val() == selected_val) {
+
+                $('#study_level_id').val('');
+                $(this).removeClass('active')
+            } else
+                $('#study_level_id').val(selected_val);
         });
         $(".intakeYear").click(function() {
             let selected_val = $(this).data('intake');
 
-            $('#intake').val(selected_val);
+            if ($('#intake').val() == selected_val) {
+
+                $('#intake').val('');
+                $(this).removeClass('active')
+            } else
+                $('#intake').val(selected_val);
         });
         $(".rank").click(function() {
             let selected_val = $(this).data('rank');
+            if ($('#rank').val() == selected_val) {
 
-            $('#rank').val(selected_val);
+                $('#rank').val('');
+                $(this).removeClass('active')
+            } else
+                $('#rank').val(selected_val);
         });
         $(".duration").click(function() {
             let selected_val = $(this).data('duration');
+            if ($('#duration').val() == selected_val) {
 
-            $('#duration').val(selected_val);
+                $('#duration').val('');
+                $(this).removeClass('active')
+            } else
+                $('#duration').val(selected_val);
         });
     });
 </script>

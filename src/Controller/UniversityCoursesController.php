@@ -341,7 +341,7 @@ class UniversityCoursesController extends AppController
             unset($url_params['duration']);
 
         if (isset($url_params['rank']) && !empty($url_params['rank']))
-            $conditions['Universites.rank'] = $url_params['rank'];
+            $conditions['Universities.rank'] = $url_params['rank'];
         else
             unset($url_params['rank']);
 

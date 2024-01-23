@@ -44,7 +44,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' '.$mainEventTitle . ' Event') ?></h3>
+                            <h3 class="card-title"><?= __(ucfirst($this->getRequest()->getParam('action')) . ' ' . $mainEventTitle . ' Event') ?></h3>
                         </div>
 
                         <?php
@@ -159,8 +159,14 @@ echo $this->Html->script(array('select2'));
 ?>
 <script>
     $(document).ready(function() {
-        $('.select-single').select2({});
-        $('.select-multiple').select2({});
+        $('.select-single').select2({
+            placeholder: "Select Item",
+            allowClear: true
+        });
+        $('.select-multiple').select2({
+            placeholder: "Select Items",
+            allowClear: true
+        });
     });
 </script>
 <script type="text/javascript">
