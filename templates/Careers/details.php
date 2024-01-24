@@ -72,7 +72,7 @@ if (false) {
 <div class="text-counseling">
  <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <p class="description">We are seeking a dynamic and motivated individual to join our team as a Counseling and Sales Specialist. </p>
             <p class="description">
             The successful candidate will play a crucial role in providing counseling services to students while effectively promoting our educational offerings. This position requires strong interpersonal skills, excellent communication abilities, persuasive sales techniques, and a genuine passion for helping students succeed.
