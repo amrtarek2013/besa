@@ -3732,4 +3732,8 @@
     .top-universities{
         padding: 50px 0;
     }
+    .testimonials .owl-blogs .right-pos {
+       
+        margin-left: 0em !important;
+    }
 }
