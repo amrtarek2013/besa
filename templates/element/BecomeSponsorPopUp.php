@@ -54,7 +54,7 @@
                 <div class="checkbox terms">
                     <label for="terms-conditions">
                         <input type="checkbox" id="terms-conditions" required>
-                        <p>I agree to <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label></p>
+                        <p><label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label></p>
                     </label>
                 </div>
                 <div class="checkbox news">
