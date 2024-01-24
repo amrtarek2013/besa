@@ -1,4 +1,4 @@
-<a href="#british-trophy-event-subscription">Click Hereeeeeeeeee</a>
+<!-- <a href="#british-trophy-event-subscription">Click Hereeeeeeeeee</a> -->
 <div class="remodal remodal-form british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
     <button data-remodal-action="close" class="remodal-close">
         <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">

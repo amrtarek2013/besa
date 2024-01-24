@@ -121,6 +121,9 @@ if ($permalink == 'the-british-trophy') {
         </div>
     </section>
 
+    <?= $event['center_text'] ?>
+    <?php
+    /*
     <section class="football-education-section">
         <div class="content">
 
@@ -140,13 +143,14 @@ if ($permalink == 'the-british-trophy') {
 
         </div>
     </section>
+    */ ?>
 
-    <?php
+<?php
     if ($event['id'] == 4 && !empty($event['fair_events'])) {
 
         echo $this->element('events/event_details', ['event' => $event]);
     }
-   
+
     /* ?>
     <div class="remodal remodal-form british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
         <button data-remodal-action="close" class="remodal-close">
@@ -229,7 +233,6 @@ if ($permalink == 'the-british-trophy') {
 
 <?php
 */
-
 } ?>
 
 <?= $event['text'] ?>
