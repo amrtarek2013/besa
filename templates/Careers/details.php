@@ -220,6 +220,8 @@ if (false && isset($show_pdf)) {
     <div class="container-text-page">
     <?= $career['text'] ?>
     <?= $career['requirments'] ?>
+    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn btn-primary btn-apply">Apply now</a>
+
     </div>
 <?php } ?>
 
