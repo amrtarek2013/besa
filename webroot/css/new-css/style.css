@@ -14614,6 +14614,7 @@ div.error-message {
     color: #FFF;
     font-size: 32px;
     font-weight: 700;
+    max-width: 100%;
 line-height: 150%;
     position: unset;
     text-align: start;}
