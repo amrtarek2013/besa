@@ -9,7 +9,7 @@
 
                             <h4>Courses</h4>
                         </div>
-                        <a href="#" class="link-see-more search-type" data-stype="c">
+                        <a href="<?= isset($seeAllLink) ? $seeAllLink : '#' ?>" class="link-see-more search-type" data-stype="c">
                             See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
                         </a>
                     </div>

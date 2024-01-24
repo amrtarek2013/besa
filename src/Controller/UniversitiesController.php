@@ -26,9 +26,9 @@ class UniversitiesController extends AppController
         }
 
         $this->loadModel('Countries');
-        $countryDeatils = $this->Countries->find()->select(['country_name'])->where(['id'=>$country])->first();
-        
-        $this->set('countryDeatils',$countryDeatils);
+        $countryDeatils = $this->Countries->find()->select(['country_name'])->where(['id' => $country])->first();
+
+        $this->set('countryDeatils', $countryDeatils);
         $universities = $this->paginate($this->Universities, [
             'conditions' => $conditions,
             'distinct' => ['university_name'],
@@ -43,7 +43,16 @@ class UniversitiesController extends AppController
     public function details($id = null)
     {
         $university = $this->Universities->findByPermalink($id)->first();
+        $this->Universities->find()
+            ->contain(['Countries' => ['fields' => ['country_name']]])
+            ->where(['Universities.permalink' => $id])->first();
 
+
+        $this->loadModel('UniversityCourses');
+        $uniCourses = $this->UniversityCourses->find()->contain([
+            'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
+            'Universities' => ['fields' => ['university_name']]
+        ])->where(['UniversityCourses.active' => 1, 'UniversityCourses.university_id' => $university['id']])->limit(3)->all()->toArray();
         // debug($university);
         $this->set('bodyClass', 'pageAbout pageServices');
 
@@ -53,6 +62,8 @@ class UniversitiesController extends AppController
 
         // print_r($university);
         $this->set('university', $university);
+        $this->set('uniCourses', $uniCourses);
+        $this->set('wishLists', $this->getWishLists());
         $this->set('permalink', $id);
     }
 }

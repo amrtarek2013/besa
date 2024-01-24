@@ -5,8 +5,9 @@
                 <div class="image-container">
                     <img src="<?= $university['banner_image_path'] ?>" alt="hero Universities">
                     <div class="text-container">
-                        <a class="" href="<?php // Router::url('/user/register') ?>">
-                            <h3> <span class="bold-name"> name </span> <?= $university['university_name']  ?></h3>
+                        <a class="" href="<?php // Router::url('/user/register') 
+                                            ?>">
+                            <h3> <span class="bold-name"> </span> <?= $university['university_name']  ?></h3>
                         </a>
                     </div>
                 </div>
@@ -24,20 +25,21 @@
                         <div class="title-left">
                             <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
 
-                            <h4>Acadia University <span> Canada</span></h4>
-                            
+                            <h4><?= $university['university_name']  ?> <span> <?= $university['country']['country_name']  ?></span></h4>
+
                         </div>
                         <div class="right-rank">
                             Rank
-                            <span>281</span>
+                            <span><?= $university['rank']  ?></span>
                         </div>
-                        
+
                     </div>
                     <div class="content-container">
                         <div class="content">
                             <p>
-                            Acadia University is known for its small class sizes, strong academic reputation, and vibrant campus life. 
-                            It offers programs in a variety of disciplines, including arts, sciences, business, education, and nursing
+                                <?= $university['short_description']  ?>
+                                <!-- Acadia University is known for its small class sizes, strong academic reputation, and vibrant campus life. 
+                            It offers programs in a variety of disciplines, including arts, sciences, business, education, and nursing -->
                             </p>
                         </div>
                     </div>
@@ -47,7 +49,14 @@
     </div>
 </div>
 
-<div class="universities-section">
+<?php
+echo $this->element('courses_list', [
+    'courses' => $uniCourses,
+    // 'seeAllLink' => Cake\Routing\Router::url('/' . $g_dynamic_routes['universities.index'] . '/') . $country['id'] . "/" . $country['permalink'],
+    'pagging' => 1
+]); ?>
+
+<!-- <div class="universities-section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -63,7 +72,7 @@
                         </a>
                     </div>
                     <div class="grid-universities">
-                        <?php for ($i = 0; $i < 3; $i++): ?>
+                        <?php for ($i = 0; $i < 3; $i++) : ?>
                             <div class="university">
                                 <div class="header-box">
                                     <div class="logo">
@@ -85,7 +94,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="universities-section trending-subject">
     <div class="container">
@@ -129,9 +138,9 @@
                             <div class="country-tag">Australia</div>
                             <div class="country-tag">Malaysia</div>
                         </div>
-                        
 
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -150,7 +159,7 @@
 
                             <h4>Facilities</h4>
                         </div>
-                        
+
                     </div>
                     <div class="tabs-container">
                         <div class="tab-buttons">
@@ -194,19 +203,19 @@
 
                             <h4>City Life</h4>
                         </div>
-                        
+
                     </div>
                     <div class="content-container">
                         <div class="content">
                             <p>
-                                Students can work on and off-campus while studying, 
-                                with on-campus jobs conveniently available within the university or college. 
-                                Off-campus work permits allow them to work up to 20 hours per week during regular 
+                                Students can work on and off-campus while studying,
+                                with on-campus jobs conveniently available within the university or college.
+                                Off-campus work permits allow them to work up to 20 hours per week during regular
                                 academic sessions and full-time during breaks. Co-op and internship programs offer practical
-                                 work experience, enhancing employability. After graduation, students may be 
-                                 eligible for a Post-Graduation Work Permit (PGWP), 
-                                 allowing them to work in Canada and gain valuable Canadian work 
-                                 experience for up to three years.
+                                work experience, enhancing employability. After graduation, students may be
+                                eligible for a Post-Graduation Work Permit (PGWP),
+                                allowing them to work in Canada and gain valuable Canadian work
+                                experience for up to three years.
                             </p>
                         </div>
                     </div>
@@ -224,12 +233,12 @@
             <div class="col-md-12">
                 <h2 class="title-gallary">Gallary</h2>
                 <div class=" owl-school-tour owl-carousel owl-theme" id="owl_gallary">
-                    <?php for ($i = 0; $i < 3; $i++): ?>
+                    <?php for ($i = 0; $i < 3; $i++) : ?>
 
-                    <div class="item">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/gallary1.png" alt="First Image In Gallary">
+                        <div class="item">
+                            <img src="<?= WEBSITE_URL ?>img/new-desgin/gallary1.png" alt="First Image In Gallary">
 
-                    </div>
+                        </div>
 
                     <?php endfor ?>
 
