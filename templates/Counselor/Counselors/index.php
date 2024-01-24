@@ -66,28 +66,18 @@ use Cake\Routing\Router;
                     <p class="white-para">For the purpose of applying regulation, your details are required.</p>
                     <div class="grid-container">
                         <?= $this->Form->control('name', [
-                            'placeholder' => 'Full Name', 'label' => 'Full Name*', 'required' => true,
+                            'placeholder' => 'Your Full Name', 'label' => 'Full Name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->Form->control('email', [
-                            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                            'placeholder' => 'Your work-email', 'class' => 'form-control', 'label' => 'Work Email*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
                         ]) ?>
 
-                        <!-- <div class="form-area ">
-                            <?= $this->Form->label('mobile', 'Mobile*') ?>
-                            <?= $this->Form->control('mobile', [
-                                'type' => 'tel', 'placeholder' => 'Mobile', 'label' => false, 'class' => 'form-control', 'required' => true
-                            ]) ?>
-                            <?= $this->Form->control('mobile_code', [
-                                'placeholder' => 'Code', 'class' => 'country_code', 'label' => false, 'required' => true,
-                                'type' => 'select', 'options' => $countriesCodesList,
-                            ]) ?>
-                        </div> -->
-                        <?= $this->element('mobile_with_code') ?>
+                        <?= $this->element('mobile_with_code', ['phone_label'=>'Phone number']) ?>
                         <?= $this->Form->control('school_name', [
-                            'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
+                            'placeholder' => 'You school name', 'label' => 'School name*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
                         <?= $this->element('security_code') ?>
