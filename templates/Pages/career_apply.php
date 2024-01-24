@@ -1,54 +1,49 @@
+<div class=" hero-section hero-counselor hero-apply">
+<div class="container-fluid">
+        <div class="col-md-6">
+            <div class="img-hero">
+                <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-apply.png" alt="hero Apply Career">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="title-hero">Apply <span>With BESA</span></h1>
+        </div>
+    </div>
+</div>
+
+
+
 <section class="main-banner register-banner  partiner-banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="background-banner-color">
-                    <img src="<?= WEBSITE_URL ?>img/new-images/partiner-background.png" alt="" style="z-index: 2;" width="">
-                    <img src="<?= WEBSITE_URL ?>img/dots-153.png" width="" alt="" class="relative-dots-about">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="relative-box-about ">
-                    <h1 class="relative-text">CAREER</h1>
-                    <h2 class="title text-left">APPLY <br> WITH BESA</h2>
-                </div>
-            </div>
+          
 
             <?= $partnership_with_besa ?>
 
-            <div class="col-md-12" style="padding: 0;">
-                <div class="line-stained">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container ">
         <div class="row">
 
             <div class="col-md-12">
 
                 <?= $this->Form->create(null, ['url' => '/enquiries/contactUs', 'type' => 'file', 'id' => 'contactusForm']) ?>
                 <input type="hidden" id="type" name="type" value="career-apply">
-                <div class="container-formBox">
+                <div class="container-formBox apply-form">
                     <div class="gray-box">
                         <p>Submit this form with your details and one of our representatives will be in contact with you.</p>
 
                     </div>
-                    <div class="col-md-12" style="padding: 0 20px">
 
-                        <?= $this->Form->control('career_id', [
-                            'placeholder' => 'Career', 'type' => 'select', 'empty' => 'Select Career',
-                            'options' => $careersList, 'label' => 'Career*', 'required' => true, 'value' => $id,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-                    </div>
+                        
                     <div class="grid-container">
 
-
+                    <?= $this->Form->control('career_id', [
+                        'placeholder' => 'Career', 'type' => 'select', 'empty' => 'Select Career',
+                        'options' => $careersList, 'label' => 'Career*', 'required' => true, 'value' => $id,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                    ]) ?>
 
                         <?php
 
@@ -102,11 +97,9 @@
 
 
                     <div class="container-submit">
-                        <ul class="custome-list">
-                            <li>For the purpose of applying regulation, your details are required.</li>
-                        </ul>
+                     
                         <!-- <a href="#" class="btn greenish-teal" style="width: 240px;">SUBMIT</a> -->
-                        <input type="submit" value="Submit" class="btn greenish-teal" style="width: 240px;">
+                        <input type="submit" value="Submit" class="btn greenish-teal btn-primary" style="max-width: 455px;">
                     </div>
                 </div>
 

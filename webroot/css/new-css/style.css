@@ -5568,21 +5568,16 @@ input.search {
 }
 
 .gray-box {
-    background: #EAF1F3;
-    border-radius: 30px;
-    width: 100%;
-    padding: 20px 25px;
-    margin-bottom: 60px;
+ 
+    margin-bottom: 20px;
 }
 
 .gray-box p {
-    font-family: 'Poppins';
+    color:  #FFF;
+    font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: justify;
-    color: var(--bs-blue);
+    line-height: 130%; 
 }
 
 .app-support-banner .container-submit {
@@ -5723,9 +5718,6 @@ input.search {
     padding: 4px 0;
 }
 
-.partiner-banner .gray-box p {
-    text-align: center;
-}
 
 .title-banner-black {
     display: -webkit-box;
@@ -14576,4 +14568,21 @@ div.error-message {
 
 .remodal  .iti{
     position: unset;
+}
+.hero-apply{
+    margin-bottom: 80px;
+}
+.hero-apply .title-hero {
+
+    max-width: 550px;
+    top: 0;
+    left: -130px;
+    font-size: 64px;
+    text-align: start;
+    margin: 0;
+}
+
+.apply-form .grid-container{
+    grid-template-columns: 1fr 1fr !important;
+    grid-gap: 32px;
 }
