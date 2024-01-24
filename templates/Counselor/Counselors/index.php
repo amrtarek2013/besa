@@ -37,7 +37,7 @@ use Cake\Routing\Router;
                     <div class="content content-text">
                         <?= $school_counselors_portal ?>
                     </div>
-                <!-- <div class="container-formBox blue-border ">
+                    <!-- <div class="container-formBox blue-border ">
                     <form action="/counselor/login" class="login" method="post">
 
                         <?= $this->Form->create($counselor, array('url' => '/counselor/login', 'id' => 'FormLogin', 'class' => 'login ')); ?>
@@ -58,38 +58,40 @@ use Cake\Routing\Router;
                             </form>
                         </div>
                         <br /><br /> -->
-                <div class="container-formBox  sideform ">
-                    <!-- <form action="/counselor/register" class="login" method="post"> -->
+                    <div class="container-formBox  sideform ">
+                        <!-- <form action="/counselor/register" class="login" method="post"> -->
 
-                    <?= $this->Form->create($counselor, array('url' => '/counselor/register', 'id' => 'FormRegister', 'class' => 'login')); ?>
-                    <h5 class="title-form">Together, let's create a brighter future for your students!</h5>
-                    <p class="white-para">For the purpose of applying regulation, your details are required.</p>
-                    <div class="grid-container">
-                        <?= $this->Form->control('name', [
-                            'placeholder' => 'Your Full Name', 'label' => 'Full Name*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                        ]) ?>
+                        <?= $this->Form->create($counselor, array('url' => '/counselor/register', 'id' => 'FormRegister', 'class' => 'login')); ?>
+                        <h5 class="title-form">Together, let's create a brighter future for your students!</h5>
+                        <p class="white-para">For the purpose of applying regulation, your details are required.</p>
+                        <div class="grid-container">
+                            <?= $this->Form->control('name', [
+                                'placeholder' => 'Your Full Name', 'label' => 'Full Name*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+                            ]) ?>
 
-                        <?= $this->Form->control('email', [
-                            'placeholder' => 'Your work-email', 'class' => 'form-control', 'label' => 'Work Email*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                        ]) ?>
+                            <?= $this->Form->control('email', [
+                                'placeholder' => 'Your work-email', 'class' => 'form-control', 'label' => 'Work Email*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+                            ]) ?>
 
-                        <?= $this->element('mobile_with_code', ['phone_label'=>'Phone number']) ?>
-                        <?= $this->Form->control('school_name', [
-                            'placeholder' => 'You school name', 'label' => 'School name*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                        ]) ?>
-                        <?= $this->element('security_code') ?>
+                            <?= $this->element('mobile_with_code', ['phone_label' => 'Phone number']) ?>
+                            <?= $this->Form->control('school_name', [
+                                'placeholder' => 'You school name', 'label' => 'School name*', 'required' => true,
+                                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                            ]) ?>
+                            <?= $this->element('security_code') ?>
 
-                        <div class="form-area">
-                            <!-- <a href="<?php// Router::url('/counselor/login') ?>" class="forgot-link">Login</a> -->
-                            <br />
-                            <button type="submit" class="btn clear-blue">SUBMIT</button>
+                            <div class="form-area">
+                                <!-- <a href="<? php // Router::url('/counselor/login') 
+                                                ?>" class="forgot-link">Login</a> -->
+                                <br />
+                                <button type="submit" class="btn clear-blue">SUBMIT</button>
+                            </div>
                         </div>
+                        <!-- </form> -->
                     </div>
-                    <!-- </form> -->
-                </div>
+                    <?= $this->Form->end() ?>
                 </div>
             </div>
         </div>
@@ -100,15 +102,15 @@ use Cake\Routing\Router;
 
     <div class="container">
         <div class="row">
-           
+
 
             <div class="col-md-6 mr">
-   
-                
+
+
 
 
             </div>
-          
+
         </div>
     </div>
 </section>
