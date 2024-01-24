@@ -88,8 +88,9 @@ use Cake\Routing\Router;
                       'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                     ]) ?>
 
-
-                    <!-- <?= $this->Form->control('current_study_level', [
+                    <?php
+                    /*
+                     <?= $this->Form->control('current_study_level', [
                             'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
                             'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
                             'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
@@ -99,7 +100,7 @@ use Cake\Routing\Router;
 
             <?= $this->Form->control('subject_area_id', [
               'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
-              'options' => $subjectAreas, 'label' => 'Major/subject of your study', /*'required' => true,*/
+              'options' => $subjectAreas, 'label' => 'Major/subject of your study', 
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
             ]) ?>
 
@@ -109,7 +110,9 @@ use Cake\Routing\Router;
               'options' => $countriesList, 'label' => 'Country you study at*', 'required' => true,
               'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
             ]) ?>
-            -->
+            <?php
+            */
+                    ?>
 
                     <?= $this->Form->control('password', [
                       'type' => 'password',
@@ -145,7 +148,44 @@ use Cake\Routing\Router;
                   </div>
                 </div>
               </div>
+
               <div id="step2" class="step">
+                <div class="common-services services-2 services-4">
+                  <h2 class="title">What do you want to study?</h2>
+                  <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
+                  <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
+                  <div class="search search-step">
+                    <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject" />
+                  </div>
+                  <?= $this->Form->control('subject_area_id', [
+                    'placeholder' => 'Search for Subject', 'type' => 'select', 'empty' => 'Search for Subject',
+                    'options' => $subjectAreas, 'label' => false, 'id' => 'subject_area', 'class' => 'select-single subject_area',
+                    'templates' => ['inputContainer' => '<div class="search search-step {{rquired}}" id="subject-area">{{content}}</div>']
+                  ]) ?>
+                  <div class="subjects-container">
+                    <h4>Popular Subject</h4>
+                    <div class="grid-subjects">
+                      <div class="subject">Business</div>
+                      <?php if (!empty($subjectAreas)) {
+                        // print_r($subjectAreas)
+                        /*
+                      ?>
+                        <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
+                          <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
+                            <?= $subjectArea ?>
+                          </div>
+                        <?php } ?>
+                        <?php */ } ?>
+                    </div>
+
+                  </div>
+
+                  <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
+                </div>
+
+              </div>
+
+              <div id="step3" class="step">
                 <!-- Step 1 content here -->
                 <h2 class="title">What study level do you <br> wish to apply for ?</h2>
 
@@ -216,47 +256,7 @@ use Cake\Routing\Router;
 
               <!-- <input type="hidden" name="degree" id="degree" value="1"> -->
 
-              <div id="step3" class="step">
-                <div class="common-services services-2 services-4">
-                  <h2 class="title">What do you want to study?</h2>
-                  <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
-                  <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
-                  <div class="search search-step">
-                    <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject" />
-                  </div>
-                  <div class="subjects-container">
-                    <h4>Popular Subject</h4>
-                    <div class="grid-subjects">
-                      <div class="subject">Business</div>
-                      <?php if (!empty($subjectAreas)) { ?>
-                        <?php foreach ($subjectAreas as $key => $subjectArea) { ?>
-                          <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
-                            <?= $subjectArea ?>
-                          </div>
-                        <?php } ?>
-                      <?php } ?>
-                    </div>
 
-                  </div>
-                  <!-- <div class="grid-contaienr SubjectAreas">
-                                <?php //if (!empty($subjectAreas)) { 
-                                ?>
-                                    <? php // foreach ($subjectAreas as $key => $subjectArea) { 
-                                    ?>
-                                        <div class="box course-box studyLevel-<php $key ?>" title='< $subjectArea ?>' data-course='< $key ?>'>
-                                            <h4><? php // $subjectArea 
-                                                ?></h4>
-                                        </div>
-                                    <? php // } 
-                                    ?>
-                                <?php //} 
-                                ?>
-                            </div> -->
-                  <!-- <input type="hidden" name="course_id" id="course_id" value=''> -->
-                  <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
-                </div>
-
-              </div>
 
 
               <div id="step4" class="step">
@@ -447,6 +447,25 @@ use Cake\Routing\Router;
 
 
 
+<?php
+
+echo $this->Html->script('select2');
+echo $this->Html->css('select2');
+?>
+<script>
+  $(document).ready(function() {
+    $('.select-single').select2({
+      placeholder: "Select Item",
+      allowClear: true,
+      width: '100%',
+    });
+    $('.select-multiple').select2({
+
+      placeholder: "Select Items",
+      allowClear: true
+    });
+  });
+</script>
 
 <script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
 

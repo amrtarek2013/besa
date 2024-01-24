@@ -14260,7 +14260,7 @@ div.error-message {
     height: 24px;
 }
 
-.side-filter .select2-container--default .select2-selection--single {
+.side-filter .select2-container--default .select2-selection--single, .sign-ups .select2-container .select2-selection--single {
     border-radius: 16px;
     background: #ECEFF1;
     display: flex;
@@ -14271,10 +14271,12 @@ div.error-message {
     align-self: stretch;
     padding-left: 8px;
     margin-bottom: 32px;
+    border: none;
 
 }
 
-.side-filter .select2-container--default .select2-selection--single .select2-selection__rendered {
+.side-filter .select2-container--default .select2-selection--single .select2-selection__rendered, 
+.sign-ups .select2-container .select2-selection--single .select2-selection__rendered{
     color: #78909C;
     font-size: 14px;
     font-style: normal;
@@ -14282,7 +14284,8 @@ div.error-message {
     line-height: normal;
 }
 
-.side-filter .select2-container--default .select2-selection--single .select2-selection__arrow {
+.side-filter .select2-container--default .select2-selection--single .select2-selection__arrow,
+.sign-ups .select2-container .select2-selection--single  .select2-selection__arrow{
 
     top: 10px;
     right: 12px;

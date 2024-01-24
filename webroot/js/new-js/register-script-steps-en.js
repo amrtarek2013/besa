@@ -11,12 +11,24 @@ document.getElementById('search-courses-steps').addEventListener("submit", funct
 });
 
 
+// Get the timeline items
+const timelineItems = document.getElementsByClassName("timeline-item");
+
 // Function to show the current step
 function showStep(stepIndex) {
+
+
     // Hide all steps
     for (let i = 0; i < steps.length; i++) {
         steps[i].classList.remove("active");
     }
+
+    for (let i = 0; i < timelineItems.length; i++) {
+        timelineItems[i].classList.remove("active");
+    }
+
+    // Show the current step
+    timelineItems[stepIndex].classList.add("active");
 
     // Show the current step
     steps[stepIndex].classList.add("active");
@@ -38,16 +50,16 @@ function showStep(stepIndex) {
 }
 
 // Function to go to the next step
-function nextStep() {
-    if (currentStep < steps.length - 1) {
-        currentStep++;
-        showStep(currentStep);
-    } else {
-        // Perform form submission or validation here
-        // Submit the form data
-        // ...
-    }
-}
+// function nextStep() {
+//     if (currentStep < steps.length - 1) {
+//         currentStep++;
+//         showStep(currentStep);
+//     } else {
+//         // Perform form submission or validation here
+//         // Submit the form data
+//         // ...
+//     }
+// }
 
 // Function to go to the previous step
 function prevStep() {
@@ -66,8 +78,6 @@ if (prevBtn) {
 
 // Show the initial step
 showStep(currentStep);
-// Get the timeline items
-const timelineItems = document.getElementsByClassName("timeline-item");
 
 // Function to update the active step and timeline
 function updateStep(stepIndex) {
@@ -75,8 +85,9 @@ function updateStep(stepIndex) {
     for (let i = 0; i < steps.length; i++) {
         steps[i].classList.remove("active");
     }
+    // console.log(timelineItems);
     for (let i = 0; i < timelineItems.length; i++) {
-        timelineItems[stepIndex].classList.remove("active");
+        timelineItems[i].classList.remove("active");
     }
 
     // Show the current step
@@ -109,6 +120,13 @@ function updateStep(stepIndex) {
 // Function to go to the next step
 function nextStep() {
 
+    //  else {
+    //     // Perform form submission or validation here
+    //     // Submit the form data
+    //     // ...
+    // }
+    // alert('T1 - '+currentStep);
+    // alert('T1');
     if (currentStep == 0) {
         // if (document.getElementById('study_level_id').value == '' || document.getElementById('study_level_id').value == undefined) {
         //   alert("Please select an option.");
@@ -187,7 +205,7 @@ function nextStep() {
             },
             submitHandler: function (form) {
                 // form.submit();
-                
+
                 registerSubmitForm(form);
             }
         });
@@ -219,7 +237,7 @@ function nextStep() {
         // }
     }
 
-    if (currentStep < steps.length - 1) {
+    if (currentStep < steps.length - 1 && currentStep != 0) {
         currentStep++;
         updateStep(currentStep);
     } else {
@@ -253,8 +271,9 @@ function registerSubmitForm(form, register) {
 
 
                 $('.error-message').remove();
-                $(form)[0].reset();
-
+                // $(form)[0].reset();
+                currentStep++;
+                updateStep(currentStep);
                 // reLoadCaptchaV3();
 
             } else {

@@ -1162,7 +1162,7 @@ class AppController extends Controller
             $wishConds['user_token'] = $token;
         }
 
-        $wishConds[] = '(university_id = NULL or university_id = 0)';
+        $wishConds[] = '(university_id is NULL or university_id = 0)';
         $wishLists = $this->WishLists->find('list', [
             'keyField' => 'course_id', 'valueField' => 'course_id'
         ])->where($wishConds)->order(['course_id' => 'asc'])->toArray();
@@ -1186,7 +1186,7 @@ class AppController extends Controller
             $wishConds['user_token'] = $token;
         }
 
-        $wishConds[] = '(course_id = NULL or course_id = 0)';
+        $wishConds[] = '(course_id is NULL or course_id = 0)';
 
         $wishLists = $this->WishLists->find('list', [
             'keyField' => 'university_id', 'valueField' => 'university_id'
