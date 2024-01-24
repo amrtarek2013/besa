@@ -1,12 +1,12 @@
 <style>
-    p,
+    /* p,
     h3,
     h4,
     h5,
     span {
         text-align: justify;
         line-height: 32px;
-    }
+    } */
 </style>
 <script type="text/javascript" src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 <script type="text/javascript" src="https://mozilla.github.io/pdf.js/build/pdf.worker.js"></script>
@@ -207,4 +207,45 @@ if (false) { ?>
 
 ?>
 
+<div class="text-counseling">
+<p class="description">We are seeking a dynamic and motivated individual to join our team as a Counseling and Sales Specialist. </p>
+<p class="description">
+The successful candidate will play a crucial role in providing counseling services to students while effectively promoting our educational offerings. This position requires strong interpersonal skills, excellent communication abilities, persuasive sales techniques, and a genuine passion for helping students succeed.
 
+</p>
+</div>
+
+<div class="text-counseling">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Responsibilities include</h4>
+                <div class="content">
+                    <p>- Provide counseling services to students, guiding them in making informed decisions regarding their educational journey abroad.</p>
+                    <p>- Assist students in selecting appropriate courses, destinations, and programs based on their interests and career objectives</p>
+                    <p>- Assist education seekers with their university applications.</p>
+                    <p>- Advise with the required documents for their programs of choice.</p>
+                    <p>- Assist students with their visa applications and prepare them for embassy interviews.</p>
+                    <p>- Communicate with university representatives to ensure faster enrollment for our students.</p>
+                    <p>- Respond to all types of customer inquiries either through face-to-face communication, over the phone, E-mails, and/or Skype.</p>
+                    <p>- Help in organizing and participate in all BESA events and activities.</p>
+                    <p>- Follow up on a regular basis with BESA's client database.</p>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="content">
+                    <h4>Qualifications and skills:</h4>
+                    <p>- 0-2 years of experience, previous experience is a plus.</p>
+                    <p>- Excellent English is a must!- Willing to learn and develop</p>
+                    <p>- Knowledge of MS Office and business writing</p>
+                    <p>- Punctual, initiative talker, and a good time manager</p>
+                    <p>- Presentation skills </p>
+                    <p>- ability to present our services to big audiences</p>
+                    <p>- Professionalism in appearance and attitude</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
