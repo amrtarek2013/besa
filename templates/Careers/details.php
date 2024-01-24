@@ -1,12 +1,12 @@
 <style>
-    p,
+    /* p,
     h3,
     h4,
     h5,
     span {
         text-align: justify;
         line-height: 32px;
-    }
+    } */
 </style>
 <script type="text/javascript" src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 <script type="text/javascript" src="https://mozilla.github.io/pdf.js/build/pdf.worker.js"></script>
@@ -47,27 +47,77 @@
             });
     })
 </script>
-<canvas id='the-canvas'></canvas>
+
+<div class=" hero-section hero-counselor hero-counseling">
+    <div class="container">
+        <div class="col-md-7">
+            <div class="text-hero">
+                <h1 class="title-hero"><?= $career['title'] ?></h1>
+                <p><?= $career['country'] ?> - <?= $career['state'] ?></p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="buttons">
+
+                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn btn-secondary btn-apply">Apply now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <canvas id='the-canvas'></canvas> -->
 <?php
 
 if (false) {
 ?>
-    <section class="main-banner  inner-serv unitedKingdom-banner">
-        <div class="container-fluid">
-            <div class="row">
+<div class="text-counseling">
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="description">We are seeking a dynamic and motivated individual to join our team as a Counseling and Sales Specialist. </p>
+            <p class="description">
+            The successful candidate will play a crucial role in providing counseling services to students while effectively promoting our educational offerings. This position requires strong interpersonal skills, excellent communication abilities, persuasive sales techniques, and a genuine passion for helping students succeed.
 
-                <div class="col-md-12">
-
-                    <img src="<?= $career['image_path'] ?>" alt="" style="width: 100%;">
-                </div>
-                <!-- <div class="col-md-12" style="padding:30px">
-                <h1 class="title" style="font-size: 35px;">Location<?= $career['title'] ?></h1>
-            </div> -->
-            </div>
+            </p>
         </div>
+    </div>
+ </div>
+</div>
 
-    </section>
+<div class="text-counseling">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Responsibilities include</h4>
+                <div class="content">
+                    <p>- Provide counseling services to students, guiding them in making informed decisions regarding their educational journey abroad.</p>
+                    <p>- Assist students in selecting appropriate courses, destinations, and programs based on their interests and career objectives</p>
+                    <p>- Assist education seekers with their university applications.</p>
+                    <p>- Advise with the required documents for their programs of choice.</p>
+                    <p>- Assist students with their visa applications and prepare them for embassy interviews.</p>
+                    <p>- Communicate with university representatives to ensure faster enrollment for our students.</p>
+                    <p>- Respond to all types of customer inquiries either through face-to-face communication, over the phone, E-mails, and/or Skype.</p>
+                    <p>- Help in organizing and participate in all BESA events and activities.</p>
+                    <p>- Follow up on a regular basis with BESA's client database.</p>
 
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="content">
+                    <h4>Qualifications and skills:</h4>
+                    <p>- 0-2 years of experience, previous experience is a plus.</p>
+                    <p>- Excellent English is a must!- Willing to learn and develop</p>
+                    <p>- Knowledge of MS Office and business writing</p>
+                    <p>- Punctual, initiative talker, and a good time manager</p>
+                    <p>- Presentation skills </p>
+                    <p>- ability to present our services to big audiences</p>
+                    <p>- Professionalism in appearance and attitude</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+  
     <div class="title-header-blue" style="padding-bottom:0px;">
         <div class="container">
             <div class="row">
@@ -167,21 +217,13 @@ if (false && isset($show_pdf)) {
         })();
     </script>
 <?php } else { ?>
+    <div class="container-text-page">
     <?= $career['text'] ?>
     <?= $career['requirments'] ?>
+    <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn btn-primary btn-apply">Apply now</a>
+
+    </div>
 <?php } ?>
 
 
-<section class=" tabes british-tabes">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
 
-                <div class="gridTabes">
-                    <a class="btn clear-blue foundation" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>">Apply Now</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>

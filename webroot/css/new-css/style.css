@@ -7678,7 +7678,7 @@ input[type="search"] {
     color: #90A4AE;
     font-size: 20px;
     font-weight: 400;
-    line-height: 130%;
+    line-height: 130%;padding-right: 40px;
 }
 
 .form-area textarea {
@@ -9836,17 +9836,25 @@ img.mobile-image {
 
 /* Apply styles to the title */
 .new-professional-development-1 .title {
-    font-size: 24px !important;
-    margin-bottom: 20px !important;
+    color: #000 !important;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 150%; 
+    margin-bottom: 40px !important;
+    text-align: start !important;
+   
 
 }
 
 
 
 .new-professional-development-1 p {
+    color: #000;
     font-size: 16px;
-    /* Adjust the font size as needed */
-    line-height: 2 !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150% !important;
+    margin-bottom: 16px;
 }
 
 
@@ -14594,4 +14602,61 @@ div.error-message {
 .apply-form .grid-container{
     grid-template-columns: 1fr 1fr !important;
     grid-gap: 32px;
+}
+
+.hero-counseling{
+    height: 160px;
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.hero-counseling .title-hero{
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 700;
+    max-width: 100%;
+line-height: 150%;
+    position: unset;
+    text-align: start;}
+
+.hero-counseling .text-hero p{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%; 
+}
+
+
+.hero-counseling  .btn-secondary {
+    border-color: #fff;
+    color: #fff;
+    max-width: 450px;
+    height: 84px;
+
+}
+.text-counseling h4{
+    color: #000;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; 
+margin-bottom: 40px;
+}
+.text-counseling p{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    margin-bottom: 20px;
+}
+
+.container-text-page{
+    padding: 90px 0;
+
+}
+
+.container-text-page .btn-primary{
+    height: 84px;
+
 }
