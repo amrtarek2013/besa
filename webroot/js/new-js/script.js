@@ -12,34 +12,31 @@ $(document).ready(function () {
     $(".overlay").toggleClass("visible");
   });
 
-  $(".toggle-search").on("click", function() {
+  $(".toggle-search").on("click", function () {
     $(".li-search").toggleClass("show");
-});
+  });
 
+  $(".grid-subjects .subject").on("click", function () {
+    $(this).addClass("active").siblings().removeClass("active");
+  });
 
-$(".grid-subjects .subject").on("click", function () {
-  $(this).addClass("active").siblings().removeClass("active");
-});
+  $(".btn-filter").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
 
+  $("#pageOverlay").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
+  $(".side-filter .close").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
 
-
-$('.btn-filter').click(function(){
-  $('#sideFilter').toggleClass("show");
-  $('#pageOverlay').toggleClass("visible");
-});
-
-$('#pageOverlay').click(function(){
-  $('#sideFilter').toggleClass("show");
-  $('#pageOverlay').toggleClass("visible");
-});
-$('.side-filter .close').click(function(){
-  $('#sideFilter').toggleClass("show");
-  $('#pageOverlay').toggleClass("visible");
-});
-
-$('.details-user .header-details').click(function(){
-  $('.drop-down-user').toggleClass("show");
-});
+  $(".details-user .header-details").click(function () {
+    $(".drop-down-user").toggleClass("show");
+  });
 
   // Add click event listener to each question
   $(".faq-question").click(function () {
