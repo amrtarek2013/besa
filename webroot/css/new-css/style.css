@@ -8947,7 +8947,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-area input[type="tel"] {
-    padding-left: 95px;
+    padding-left: 95px !important;
 }
 
 .iti__country,
@@ -10698,9 +10698,7 @@ div.error-message {
     margin-bottom: 50px;
 }
 
-.hero-services .title-hero {
-    font-size: 128px !important;
-}
+
 
 .hero-services .title-hero {
     color: #FFF;
@@ -10711,7 +10709,9 @@ div.error-message {
     margin-left: 25px;
     top: -125px;
 }
-
+.hero-services .title-hero {
+    font-size: 128px ;
+}
 .hero-services .img-hero {
     left: 140px;
     top: 75px;
@@ -14671,5 +14671,28 @@ div.error-message {
 .container-text-page .btn-primary {
     height: 84px;
     margin-top: 80px;
+
+}
+
+.form-area-tel{
+    position: relative;
+    text-align: start;
+
+}
+
+.form-area-tel .input.text{
+        position: absolute;
+        top: 50%;
+        transform: translatey(-50%);
+        -webkit-transform: translatey(-50%);
+        -moz-transform: translatey(-50%);
+        -ms-transform: translatey(-50%);
+        -o-transform: translatey(-50%);
+        z-index: 99;
+}
+
+.form-area-tel .input.text .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{
+    position: unset;
+    transform: none;
 
 }

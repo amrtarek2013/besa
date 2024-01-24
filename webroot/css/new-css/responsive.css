@@ -1530,7 +1530,7 @@
     .free-meating .grid-meating .btn {
         height: 48px;
 
-        width: 180px;
+        max-width: 220px;
     }
 
     .services-rendered .line-ellipse-en::after {
@@ -2129,6 +2129,7 @@
         position: unset;
         width: 95%;
         margin: auto;
+        align-items: center;
 
     }
 
@@ -3056,7 +3057,7 @@
     }
 
     .footer {
-        background: url('../img/new-desgin/Footer-mobile.png');
+        background-image: url('../img/new-desgin/Footer-mobile.png');
         padding: 48px 0;
 
 
@@ -3738,5 +3739,14 @@
     }
     .testimonials .owl-blogs .slider #next{
         right: 0;
+    }
+    .form-area textarea {
+        height: 169px;
+    }
+    .choose-place-2 .title-choose-place{
+        font-size: 20px;
+    }
+    .free-meating{
+        padding: 50px 0;
     }
 }
