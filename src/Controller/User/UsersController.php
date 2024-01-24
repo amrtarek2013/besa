@@ -234,7 +234,7 @@ class UsersController extends AppController
 
                     $this->sendEmail($to, false, 'user.notify_user_reset_password', $replace);
                     $this->Flash->success('Your new password reset link has been sent to your email');
-                    $this->redirect('/user/forgot-password-success');
+                    $this->redirect('/user/forgot-password');
                 } else {
 
                     $this->Flash->error('Could not reset your password..');
