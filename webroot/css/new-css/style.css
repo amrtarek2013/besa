@@ -8947,7 +8947,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-area input[type="tel"] {
-    padding-left: 95px;
+    padding-left: 95px !important;
 }
 
 .iti__country,
@@ -14676,6 +14676,8 @@ div.error-message {
 
 .form-area-tel{
     position: relative;
+    text-align: start;
+
 }
 
 .form-area-tel .input.text{
@@ -14686,9 +14688,11 @@ div.error-message {
         -moz-transform: translatey(-50%);
         -ms-transform: translatey(-50%);
         -o-transform: translatey(-50%);
+        z-index: 99;
 }
 
 .form-area-tel .input.text .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{
     position: unset;
-    
+    transform: none;
+
 }
