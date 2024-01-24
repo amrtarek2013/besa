@@ -7,24 +7,29 @@
                         <div class="title-left">
                             <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
 
-                            <h4>Universities </h4>
+                            <h4><?= isset($sectionTitle) ? $sectionTitle : 'Universities' ?> </h4>
                         </div>
                         <a href="#" class="link-see-more search-type" data-stype="u">
                             See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
                         </a>
                     </div>
                     <div class="grid-universities">
-                        <?php 
+                        <?php
+
                         use Cake\Routing\Router;
-                        $countriesList = $countriesList->toArray();
+
+                        $countriesList = !is_array($countriesList) ? $countriesList->toArray() : $countriesList;
                         // print_r($uniWishLists);
-                        foreach ($universitiesResults as $univ) : 
+                        // dd($universitiesResults);
+                        foreach ($universitiesResults as $univ) :
                         ?>
                             <div class="university">
                                 <div class="header-box">
                                     <div class="logo">
-                                        <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="<?= $univ['university_name'] ?> Logo">
-                                        <h5><?= $univ['university_name'] ?></h5>
+                                        <!-- <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="<?= $univ['university_name'] ?> Logo">
+                                        <h5><?= $univ['university_name'] ?></h5> -->
+                                        <img src="<?= $univ['logo_path'] ?>" alt="<?= $univ['university_name'] ?> Logo">
+                                        <h5><a class="link" href="<?= Router::url('/' . $g_dynamic_routes['universities.details'] . '/') . $univ['permalink'] ?>"><?= $univ['university_name'] ?></a></h5>
                                     </div>
                                     <div class="icon-favorite addingUniwish" data-univid="<?= $univ['id'] ?>" data-action="<?= isset($uniWishLists[$univ['id']]) ? 'delete' : 'add' ?>">
                                         <i id="wishuni-<?= $univ['id'] ?>" class="<?= isset($uniWishLists[$univ['id']]) ? 'fa-solid' : 'fa-regular' ?> fa-heart fa-lg"></i>
@@ -49,7 +54,7 @@
     var current_action = '<?= strtolower($this->request->getParam('action')) ?>';
     var busy = false;
     var isLoggedIn = '<?= isset($_SESSION['Auth']['User']) ? 1 : 0 ?>';
-    
+
     $(document).on('click', '.addingUniwish', function(e) {
 
         if (isLoggedIn == 0) {
@@ -66,7 +71,7 @@
             let el = this;
             busy = true;
             let universityid = $(el).data('univid');
-            
+
             $.ajax({
                 url: "/wish-lists/add-uni/" + universityid + "/" + $(el).data('action'),
                 method: "get",

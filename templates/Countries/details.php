@@ -70,6 +70,7 @@ use Cake\Routing\Router;
     </div>
 </div> -->
 
+<?php echo $this->element('universities_list', ['universitiesResults' => $countryPartners, 'countriesList' => [$country['id']=>$country['country_name']], 'sectionTitle' => 'Universities in ' . $country['country_name']]); ?>
 
 <?php if (!empty($countryPartners)) : ?>
 
@@ -173,8 +174,8 @@ use Cake\Routing\Router;
                         <?php /*if (!isset($_SESSION['Auth.User'])) : ?>
                             <a class="btn clear-blue foundation" href="/user/register">REGISTER NOW TO APPLY</a>
                         <?php endif;*/ ?>
-                        
-                        <a class="btn MainBtn explore-now" href="<?=Router::url('/' . $g_dynamic_routes['universitycourses.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>" style="width: max-content;margin: 30px auto ;">Explore Studying in <?= strtoupper($country['country_name']) ?> <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
+
+                        <a class="btn MainBtn explore-now" href="<?= Router::url('/' . $g_dynamic_routes['universitycourses.index'] . '/') . $country['id'] . "/" . $country['permalink'] ?>" style="width: max-content;margin: 30px auto ;">Explore Studying in <?= strtoupper($country['country_name']) ?> <img alt="" src="/webroot/filebrowser/upload/images/arrow%20right.svg" style="width: 24px; height: 24px;    margin-left: 5px;"></a>
                     <?php endif; ?>
                     <a class="detalis" href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['enquiries.contactus']) ?>">CONTACT ADVISOR FOR MORE DETAILS</a>
                 </div>

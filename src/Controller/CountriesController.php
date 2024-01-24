@@ -309,6 +309,7 @@ class CountriesController extends AppController
         $this->set('permalink', $id);
 
 
+        $this->set('uniWishLists', $this->getUniWishLists());
 
         // $this->loadModel('Services');
         // $this->set('serviceTypes', $this->Services->types);
@@ -339,7 +340,7 @@ class CountriesController extends AppController
 
         $this->loadModel('Universities');
         $countryPartners = $this->Universities->find()
-            ->select(['id', 'university_name', 'logo', 'permalink'])
+            ->select(['id', 'university_name', 'logo', 'permalink','country_id'])
             ->where(['country_id' => $country['id']])
             ->order(['rand()'])->limit(6)->all()->toArray();
         $this->set('countryPartners', $countryPartners);

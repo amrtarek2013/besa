@@ -55,11 +55,11 @@
                                             <?php }
                                             }
                                             ?>
-                                            <!-- <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
+                                            <?php /* <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
                                             <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
                                             <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
                                             <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt="">
-                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt=""> -->
+                                            <img src="<?= WEBSITE_URL ?>img/new-desgin/dummy_image/120x35.png" alt=""> */ ?>
                                         </div>
                                     </div>
 
