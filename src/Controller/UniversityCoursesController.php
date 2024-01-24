@@ -239,6 +239,16 @@ class UniversityCoursesController extends AppController
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => $limit
         ]);
 
+        
+        $coursesCount = $this->UniversityCourses->find()->contain([
+            'Courses' => ['fields' => ['course_name']],
+            'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
+            'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
+            'Services' => ['fields' => ['title']],
+            'StudyLevels' => ['fields' => ['title']],
+            'SubjectAreas' => ['fields' => ['title']]
+        ])->distinct(['UniversityCourses.id'])->where($conditions)->count();
+
         $uniCount = $this->UniversityCourses->find()->contain([
             'Courses' => ['fields' => ['course_name']],
             'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
@@ -250,8 +260,8 @@ class UniversityCoursesController extends AppController
 
         // dd($uniCount);
         // dd($courses->toArray());
-        $this->set('totalCount', $uniCount + $courses->count());
-        $this->set('coursesCount', $courses->count());
+        $this->set('totalCount', $uniCount + $coursesCount);//$courses->count());
+        $this->set('coursesCount', $coursesCount);//$courses->count());
         $this->set('uniCount', $uniCount);
         $universitiesResults = Hash::combine($courses->toArray(), '{n}.university.permalink', '{n}.university');
 
