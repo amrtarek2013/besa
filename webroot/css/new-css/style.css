@@ -14571,17 +14571,26 @@ div.error-message {
 }
 .hero-apply{
     margin-bottom: 80px;
+    height: 180px;
+
+}
+.hero-apply  .img-hero{
+    top: -15px;
+
 }
 .hero-apply .title-hero {
 
     max-width: 550px;
-    top: 0;
+    top: -35px;
     left: -130px;
     font-size: 64px;
     text-align: start;
     margin: 0;
+    line-height: 135%; 
 }
-
+.hero-apply .title-hero  span{
+    font-weight: 500;
+}
 .apply-form .grid-container{
     grid-template-columns: 1fr 1fr !important;
     grid-gap: 32px;
