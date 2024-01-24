@@ -197,7 +197,7 @@ class UniversityCoursesController extends AppController
         // ])->where($conditions)->order(['UniversityCourses.display_order' => 'asc'])->limit(10)->all()->->toArray();
 
         // $conditions = $this->_filter_params();
-        $conditions['UniversityCourses.active'] = 1;
+        // $conditions['UniversityCourses.active'] = 1;
         // if (isset($country)) {
 
         //     // $c_id = explode('-', $country);
@@ -239,31 +239,39 @@ class UniversityCoursesController extends AppController
             'conditions' => $conditions, 'order' => ['course_name' => 'ASC'], 'limit' => $limit
         ]);
 
-        
+
         $coursesCount = $this->UniversityCourses->find()->contain([
             'Courses' => ['fields' => ['course_name']],
             'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
             'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
-            'Services' => ['fields' => ['title']],
-            'StudyLevels' => ['fields' => ['title']],
-            'SubjectAreas' => ['fields' => ['title']]
+            // 'Services' => ['fields' => ['title']],
+            // 'StudyLevels' => ['fields' => ['title']],
+            // 'SubjectAreas' => ['fields' => ['title']]
         ])->distinct(['UniversityCourses.id'])->where($conditions)->count();
 
+        $universitiesResults = $this->UniversityCourses->find()->contain([
+
+            'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
+            'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
+
+        ])->distinct(['UniversityCourses.university_id'])->where($conditions)->limit($limit);
+
+        // dd($universitiesResults);
         $uniCount = $this->UniversityCourses->find()->contain([
             'Courses' => ['fields' => ['course_name']],
             'Countries' => ['fields' => ['country_name', 'use_country_currency', 'currency', 'code']],
             'Universities' => ['fields' => ['id', 'university_name', 'rank', 'permalink', 'country_id']],
-            'Services' => ['fields' => ['title']],
-            'StudyLevels' => ['fields' => ['title']],
-            'SubjectAreas' => ['fields' => ['title']]
+            // 'Services' => ['fields' => ['title']],
+            // 'StudyLevels' => ['fields' => ['title']],
+            // 'SubjectAreas' => ['fields' => ['title']]
         ])->distinct(['UniversityCourses.university_id'])->where($conditions)->count();
 
         // dd($uniCount);
         // dd($courses->toArray());
-        $this->set('totalCount', $uniCount + $coursesCount);//$courses->count());
-        $this->set('coursesCount', $coursesCount);//$courses->count());
+        $this->set('totalCount', $uniCount + $coursesCount); //$courses->count());
+        $this->set('coursesCount', $coursesCount); //$courses->count());
         $this->set('uniCount', $uniCount);
-        $universitiesResults = Hash::combine($courses->toArray(), '{n}.university.permalink', '{n}.university');
+        // $universitiesResults = Hash::combine($courses->toArray(), '{n}.university.permalink', '{n}.university');
 
         // dd($universitiesResults);
         $this->set('universitiesResults', $universitiesResults);

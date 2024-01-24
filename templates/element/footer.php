@@ -118,6 +118,7 @@ use Cake\Routing\Router;
         enquirySubmitForm = function(form, register) {
 
             console.log('enquirySubmitForm');
+            alert('aaaaaaaaaaa');
             if (!request_busy) {
 
                 $('body').LoadingOverlay("show");

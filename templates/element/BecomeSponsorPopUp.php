@@ -1,11 +1,11 @@
-<!-- <a href="#british-trophy-event-subscription">Click Hereeeeeeeeee</a> -->
 <div class="remodal remodal-form british-trophy-subscription-modal" data-remodal-id="british-trophy-event-subscription">
     <button data-remodal-action="close" class="remodal-close">
         <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
 
     </button>
     <h2>The British Trophy Event Subscription</h2>
-    <!-- <form class="subscription-form"> -->
+
+
     <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormBritishTrophySubscription', 'class' => 'subscription-form')); ?>
     <input type="hidden" id="type" name="type" value="british-trophy-subscription">
     <?= $this->Form->control('first_name', [
@@ -67,10 +67,8 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-
+    <button type="submit" class="btn btn-primary subscription-btn">Submit</button>
     <?= $this->Form->end() ?>
-
 </div>
 
 <?php
@@ -201,15 +199,9 @@
     <?= $this->Form->end() ?>
 </div>
 
-<?php //echo $this->Html->script('new-js/jquery.validate'); 
-?>
-<!-- <script src="/js/new-js/jquery.validate.js" async></script> -->
-
-
-
 <script type="text/javascript">
-    var request_busy = false;
     $(function() {
+
         $('#FormBritishTrophySubscription').validate({
             rules: {
 
@@ -246,6 +238,7 @@
             submitHandler: function(form) {
                 // form.submit();
 
+                alert('aaaaaaaaaa');
                 enquirySubmitForm(form, true);
             }
         });
@@ -286,73 +279,6 @@
                 enquirySubmitForm(form, true);
             }
         });
-
-        <?php /*?>
-        sponsorSubmitForm = function(form, register) {
-
-            if (!request_busy) {
-
-                // $('body').LoadingOverlay("show");
-
-                request_busy = true;
-                // $('#registerbox .modal').append("<div class='remodal-loading'></div>");
-                $.ajax({
-                    type: "POST",
-                    url: $(form).prop('action'),
-                    data: $(form).serialize(),
-                    dataType: 'json',
-                }).done(function(data) {
-                    request_busy = false;
-                    $('.remodal-loading').remove();
-                    console.log(data.status);
-                    if (data.status) {
-
-
-                        // notification('success', data.message, data.title);
-
-
-                        $('.error-message').remove();
-                        $(form)[0].reset();
-
-                        // reLoadCaptchaV3();
-
-                    } else {
-
-                        // $('body').LoadingOverlay("hide");
-
-                        // notification('error', data.message, data.title);
-
-                        var rmodal_id = 'modal';
-
-                        // reLoadCaptchaV3();
-                        $('.error-message').remove();
-                        if (data['validationErrors']) {
-                            for (i in data.validationErrors) {
-                                if (typeof(data.validationErrors[i]) === 'object') {
-                                    var errors_array = data.validationErrors[i];
-                                    for (j in errors_array) {
-                                        $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
-                                    }
-                                } else {
-                                    $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
-                                }
-                            }
-                        }
-
-                    }
-                    var binst = $('[data-remodal-id=become-sponsor]').remodal();
-                    binst.close();
-
-                    $('.modalMsg #msgText').html(data.message);
-                    var inst = $('[data-remodal-id=modalMsg]').remodal();
-                    inst.open();
-                });
-
-                // $('body').LoadingOverlay("hide");
-            }
-        }
-        
-        <?php */ ?>
 
     });
 </script>

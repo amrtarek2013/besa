@@ -242,7 +242,7 @@
                         <?php
                         $j = 0;
                         for ($i = 1; $i <= 6; $i = $i + 1) { ?>
-                            <div class="subject duration duration-<?= $i ?> <?= (isset($filterParams) && isset($filterParams['duration'])  && $filterParams['duration'] == $j ? 'active' : '') ?>" title='<?= $i ?>' data-duration='<?= $i ?>'>
+                            <div class="subject duration duration-<?= $i ?> <?= (isset($filterParams) && isset($filterParams['duration'])  && $filterParams['duration'] == $i ? 'active' : '') ?>" title='<?= $i ?>' data-duration='<?= $i ?>'>
                                 <?= $i == 1 ? 'Less than 1 year' : ($i == 6 ? 'More than 5 years' : $j . '-' . $i . ' years') ?>
                             </div>
                         <?php
