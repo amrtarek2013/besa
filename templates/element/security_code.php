@@ -1,3 +1,6 @@
+<?php
+
+/*
 <div class="form-area security_code" style="display:none;">
     <div class="input captcha" style="position: relative;">
         <?php
@@ -29,9 +32,8 @@
         <?php endif; ?>
     </div>
 </div>
-<script>
-    
-</script>
+*/ ?>
+
 
 <script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
 <script>
