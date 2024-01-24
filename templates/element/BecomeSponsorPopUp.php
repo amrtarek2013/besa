@@ -7,6 +7,7 @@
     <h2>The British Trophy Event Subscription</h2>
     <!-- <form class="subscription-form"> -->
     <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormBritishTrophySubscription', 'class' => 'subscription-form')); ?>
+    <input type="hidden" id="type" name="type" value="british-trophy-subscription">
     <?= $this->Form->control('first_name', [
         'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
         'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
