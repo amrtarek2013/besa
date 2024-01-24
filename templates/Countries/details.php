@@ -72,7 +72,7 @@ use Cake\Routing\Router;
 </div>
 */ ?>
 
-<?php echo $this->element('universities_list', ['universitiesResults' => $countryPartners, 'countriesList' => [$country['id'] => $country['country_name']], 'sectionTitle' => 'Universities in ' . $country['country_name']]); ?>
+<?php echo $this->element('universities_list', ['universitiesResults' => $countryPartners, 'countriesList' => [$country['id'] => $country['country_name']], 'seeAllLink' => Router::url('/' . $g_dynamic_routes['universities.index'] . '/') . $country['id'] . "/" . $country['permalink'],'sectionTitle' => 'Universities in ' . $country['country_name']]); ?>
 
 <?php
 /*
