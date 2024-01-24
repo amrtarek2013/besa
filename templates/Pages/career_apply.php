@@ -1,5 +1,5 @@
 <div class=" hero-section hero-counselor hero-apply">
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="col-md-6">
             <div class="img-hero">
                 <img src="<?= WEBSITE_URL ?>img/new-desgin/hero-apply.png" alt="hero Apply Career">

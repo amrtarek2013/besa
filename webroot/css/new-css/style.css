@@ -7678,7 +7678,7 @@ input[type="search"] {
     color: #90A4AE;
     font-size: 20px;
     font-weight: 400;
-    line-height: 130%;
+    line-height: 130%;padding-right: 40px;
 }
 
 .form-area textarea {
@@ -14594,4 +14594,33 @@ div.error-message {
 .apply-form .grid-container{
     grid-template-columns: 1fr 1fr !important;
     grid-gap: 32px;
+}
+
+.hero-counseling{
+    height: 160px;
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.hero-counseling .title-hero{
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 700;
+line-height: 150%;
+    position: unset;
+    text-align: start;}
+
+.hero-counseling .text-hero p{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%; 
+}
+
+
+.hero-counseling  .btn-secondary {
+    border-color: #fff;
+    color: #fff;
+    margin-top: 20px;
+    max-width: 450px;
 }

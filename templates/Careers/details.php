@@ -47,6 +47,22 @@
             });
     })
 </script>
+
+<div class=" hero-section hero-counselor hero-counseling">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="text-hero">
+                <h1 class="title-hero">Student Advisor</h1>
+                <p>Egypt, Alexandria</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="buttons">
+                <a href="#" class="btn btn-secondary btn-apply">Apply now</a>
+            </div>
+        </div>
+    </div>
+</div>
 <canvas id='the-canvas'></canvas>
 <?php
 
@@ -67,7 +83,6 @@ if (false) {
         </div>
 
     </section>
-
     <div class="title-header-blue" style="padding-bottom:0px;">
         <div class="container">
             <div class="row">
@@ -172,7 +187,9 @@ if (false && isset($show_pdf)) {
 <?php } ?>
 
 
-<section class=" tabes british-tabes">
+<?php
+if (false) { ?>
+    <section class=" tabes british-tabes">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -185,3 +202,9 @@ if (false && isset($show_pdf)) {
         </div>
     </div>
 </section>
+<?php
+}
+
+?>
+
+
