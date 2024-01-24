@@ -168,6 +168,45 @@
 <?php } ?>
 
 
+
+<!-- Remodal HTML structure for sponsor form -->
+<div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="become-sponsor">
+    <button data-remodal-action="close" class="remodal-close">
+        <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
+
+    </button>
+    <h2>Become a sponsor</h2>
+
+    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'SponsorForm', 'class' => 'subscription-form')); ?>
+
+    <input type="hidden" id="type" name="type" value="become-sponsor">
+    <?= $this->Form->control('school_name', [
+        'placeholder' => 'Your institution name', 'label' => 'Institution Name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
+    <?= $this->Form->control('school_counselor_name', [
+        'placeholder' => 'Your contact person name*', 'label' => 'Contact Person Name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
+
+
+    <?= $this->element('mobile_with_code', ['phone_label' => 'Phone number']) ?>
+    <?= $this->Form->control('email', [
+        'placeholder' => 'Your email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
+    ]) ?>
+
+    <?= $this->element('security_code', ['show_label' => true]) ?>
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+    <?= $this->Form->end() ?>
+</div>
+
+<?php //echo $this->Html->script('new-js/jquery.validate'); 
+?>
+<!-- <script src="/js/new-js/jquery.validate.js" async></script> -->
+
+
+
 <script type="text/javascript">
     var request_busy = false;
     $(function() {
@@ -210,129 +249,7 @@
                 enquirySubmitForm(form, true);
             }
         });
-    });
-</script>
 
-
-
-<!-- Remodal HTML structure for sponsor form -->
-<div class="remodal remodal-form  british-trophy-sponsor-modal" data-remodal-id="become-sponsor">
-    <button data-remodal-action="close" class="remodal-close">
-        <img src="<?= WEBSITE_URL ?>img/new-desgin/remodal-close.svg" alt="close remodal">
-
-    </button>
-    <h2>Become a sponsor</h2>
-
-    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'SponsorForm', 'class' => 'subscription-form')); ?>
-
-    <input type="hidden" id="type" name="type" value="become-sponsor">
-    <?= $this->Form->control('school_name', [
-        'placeholder' => 'Your institution name', 'label' => 'Institution Name*', 'required' => true,
-        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-    ]) ?>
-    <?= $this->Form->control('school_counselor_name', [
-        'placeholder' => 'Your contact person name*', 'label' => 'Contact Person Name*', 'required' => true,
-        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-    ]) ?>
-
-
-    <?= $this->element('mobile_with_code', ['phone_label' => 'Phone number']) ?>
-    <?= $this->Form->control('email', [
-        'placeholder' => 'Your email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-        'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-    ]) ?>
-
-    <?= $this->element('security_code', ['show_label' => true]) ?>
-    <!-- <form class="subscription-form"> -->
-    <!-- <div class="form-area">
-        <label for="institution-name">Institution Name</label>
-        <input type="text" id="institution-name" placeholder="Enter Institution Name" required>
-    </div>
-    <div class="form-area">
-        <label for="contact-person-name">Contact Person Name</label>
-        <input type="text" id="contact-person-name" placeholder="Enter Contact Person Name" required>
-    </div>
-    <div class="form-area">
-        <label for="phone-number">Phone number</label>
-        <input type="tel" id="phone-number" placeholder="Your phone number" required>
-    </div>
-    <div class="form-area">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-    </div> -->
-    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-    <!-- </form> -->
-
-    <?= $this->Form->end() ?>
-</div>
-
-<?php
-/*
-?>
- <div class="remodal removebg" data-remodal-id="become-sponsor" style="max-width: 1060px !important;">
-
-    <section class="register-banner Create-account-banner">
-
-        <div class="">
-            <div class="row">
-
-                <div class="col-md-12">
-
-
-                    <button data-remodal-action="close" class="remodal-close"></button>
-                    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'SponsorForm', 'class' => 'register')); ?>
-
-                    <input type="hidden" id="type" name="type" value="become-sponsor">
-                    <div class="container-formBox">
-
-                        <h4 class="title">Become a Sponsor</h4>
-
-                        <div class="grid-container">
-
-                            <?= $this->Form->control('school_name', [
-                                'placeholder' => 'Institution Name', 'label' => 'Institution Name*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                            ]) ?>
-                            <?= $this->Form->control('school_counselor_name', [
-                                'placeholder' => 'Contact Person Name*', 'label' => 'Contact Person Name*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                            ]) ?>
-
-
-                            <?= $this->element('mobile_with_code') ?>
-                            <?= $this->Form->control('email', [
-                                'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-                                'templates' => ['inputContainer' => '<div class="form-area">{{content}}</div>']
-                            ]) ?>
-
-                            <?= $this->element('security_code', ['show_label' => true]) ?>
-                        </div>
-
-                        <div class="container-submit container-submit-one-col">
-
-                            <button type="submit" class="btn greenish-teal">SUBMIT</button>
-                        </div>
-                    </div>
-                    <?= $this->Form->end() ?>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    
-</div>
-<?php */
-?>
-
-
-<?php //echo $this->Html->script('new-js/jquery.validate'); 
-?>
-<!-- <script src="/js/new-js/jquery.validate.js" async></script> -->
-
-<script type="text/javascript">
-    var request_busy = false;
-    $(function() {
         // setInterval(function() {
         //     reLoadCaptchaV3();
         // }, 2 * 60 * 1000);
