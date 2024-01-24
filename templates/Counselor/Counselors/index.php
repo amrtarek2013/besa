@@ -59,7 +59,6 @@ use Cake\Routing\Router;
                         </div>
                         <br /><br /> -->
                     <div class="container-formBox  sideform ">
-                        <!-- <form action="/counselor/register" class="login" method="post"> -->
 
                         <?= $this->Form->create($counselor, array('url' => '/counselor/register', 'id' => 'FormRegister', 'class' => 'login')); ?>
                         <h5 class="title-form">Together, let's create a brighter future for your students!</h5>
@@ -83,8 +82,7 @@ use Cake\Routing\Router;
                             <?= $this->element('security_code') ?>
 
                             <div class="form-area">
-                                <!-- <a href="<? php // Router::url('/counselor/login') 
-                                                ?>" class="forgot-link">Login</a> -->
+                                <a href="<?= Router::url('/counselor/login')?>" class="forgot-link">Login</a>
                                 <br />
                                 <button type="submit" class="btn clear-blue">SUBMIT</button>
                             </div>
