@@ -13,7 +13,7 @@ class University extends Entity
 {
     // use LazyLoadEntityTrait;
 
-    protected $_virtual = ['logo_path', 'thumb_path', 'flag_path','banner_image_path'/*, 'mobile_image_path'*/];
+    protected $_virtual = ['logo_path', 'logo_thumb_path', 'thumb_path', 'flag_path','banner_image_path'/*, 'mobile_image_path'*/];
 
     protected $_accessible = [
         '*' => true,
@@ -45,6 +45,23 @@ class University extends Entity
                 return $no_logo_path;
         }
         return $no_logo_path;
+    }
+
+    
+    protected function _getLogoThumbPath()
+    {
+
+        $no_image_path = DS . 'img' . DS . '230x190.png';
+
+        if (!empty($this->logo)) {
+            $image_path = 'uploads' . DS . 'universities' . DS . 'thumb_' . str_replace(DS, "", $this->logo);
+
+            if (file_exists(WWW_ROOT . $image_path))
+                return DS . $image_path;
+            else
+                return null;
+        }
+        return null;
     }
 
     protected function _getImagePath()

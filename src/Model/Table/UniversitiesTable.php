@@ -75,7 +75,7 @@ class UniversitiesTable extends Table
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '60', 'height' => '60']
+                            ['thumb_prefix' => 'thumb_', 'width' => '33', 'height' => '32']
                         ],
                     ],
                     'image' => [
