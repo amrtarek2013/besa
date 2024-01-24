@@ -5,30 +5,31 @@
 
     </button>
     <h2>The British Trophy Event Subscription</h2>
-    <form class="subscription-form">
-        <?= $this->Form->control('first_name', [
-            'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
-            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-        ]) ?>
+    <!-- <form class="subscription-form"> -->
+    <?= $this->Form->create(null, array('url' => 'contact-us', 'id' => 'FormBritishTrophySubscription', 'class' => 'subscription-form')); ?>
+    <?= $this->Form->control('first_name', [
+        'placeholder' => 'School name', 'label' => 'School name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
 
-        <?= $this->Form->control('last_name', [
-            'placeholder' => 'Contact person name*', 'label' => 'Contact person name*', 'required' => true,
-            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-        ]) ?>
+    <?= $this->Form->control('last_name', [
+        'placeholder' => 'Contact person name*', 'label' => 'Contact person name*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
 
-        <?= $this->element('mobile_with_code', ['phone_label'=> 'Phone number']) ?>
+    <?= $this->element('mobile_with_code', ['phone_label' => 'Phone number']) ?>
 
-        <?= $this->Form->control('email', [
-            'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-        ]) ?>
+    <?= $this->Form->control('email', [
+        'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+    ]) ?>
 
-        <?= $this->Form->control('certificate', [
-            'type' => 'file',
-            'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
-            'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
-        ]); ?>
-        <!-- <div class="form-area">
+    <?= $this->Form->control('certificate', [
+        'type' => 'file',
+        'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
+        'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
+    ]); ?>
+    <!-- <div class="form-area">
             <label for="school-name">School name</label>
             <input type="text" id="school-name" placeholder="Enter school name" required>
         </div>
@@ -48,25 +49,27 @@
             <label for="file-upload">Upload attending students details</label>
             <input type="file" id="file-upload" required>
         </div> -->
-        <div class="form-area ">
-            <label for="" style="color:transparent;" class="hidden-mobile">`</label>
-            <div class="checkbox-container">
-                <div class="checkbox terms">
-                    <label for="terms-conditions">
-                        <input type="checkbox" id="terms-conditions" required>
-                        <p><label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label></p>
-                    </label>
-                </div>
-                <div class="checkbox news">
-                    <label for="latest-news">
-                        <input type="checkbox" id="latest-news">
-                        <p>I'd like being informed about latest news and tips</p>
-                    </label>
-                </div>
+    <div class="form-area ">
+        <label for="" style="color:transparent;" class="hidden-mobile">`</label>
+        <div class="checkbox-container">
+            <div class="checkbox terms">
+                <label for="terms-conditions">
+                    <input type="checkbox" id="terms-conditions" required>
+                    <p><label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label></p>
+                </label>
+            </div>
+            <div class="checkbox news">
+                <label for="latest-news">
+                    <input type="checkbox" id="latest-news">
+                    <p>I'd like being informed about latest news and tips</p>
+                </label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <?= $this->Form->end() ?>
+
 </div>
 
 <?php
