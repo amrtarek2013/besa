@@ -419,15 +419,12 @@ $('.details-user .header-details').click(function(){
     nav: false,
     stagePadding: 60,
     autoplay: true,
-    autoPlaySpeed: 2100,
-    autoPlayTimeout: 2100,
-    autoplayHoverPause: true,
     responsive: {
       0: {
         items: 1,
       },
       600: {
-        items: 2,
+        items: 1,
       },
       1000: {
         items: 3,

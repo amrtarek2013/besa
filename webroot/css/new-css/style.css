@@ -5568,16 +5568,16 @@ input.search {
 }
 
 .gray-box {
- 
+
     margin-bottom: 20px;
 }
 
 .gray-box p {
-    color:  #FFF;
+    color: #FFF;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: 130%; 
+    line-height: 130%;
 }
 
 .app-support-banner .container-submit {
@@ -7678,7 +7678,8 @@ input[type="search"] {
     color: #90A4AE;
     font-size: 20px;
     font-weight: 400;
-    line-height: 130%;padding-right: 40px;
+    line-height: 130%;
+    padding-right: 40px;
 }
 
 .form-area textarea {
@@ -9839,10 +9840,10 @@ img.mobile-image {
     color: #000 !important;
     font-size: 20px;
     font-weight: 700;
-    line-height: 150%; 
+    line-height: 150%;
     margin-bottom: 40px !important;
     text-align: start !important;
-   
+
 
 }
 
@@ -14260,7 +14261,8 @@ div.error-message {
     height: 24px;
 }
 
-.side-filter .select2-container--default .select2-selection--single, .sign-ups .select2-container .select2-selection--single {
+.side-filter .select2-container--default .select2-selection--single,
+.sign-ups .select2-container .select2-selection--single {
     border-radius: 16px;
     background: #ECEFF1;
     display: flex;
@@ -14275,8 +14277,8 @@ div.error-message {
 
 }
 
-.side-filter .select2-container--default .select2-selection--single .select2-selection__rendered, 
-.sign-ups .select2-container .select2-selection--single .select2-selection__rendered{
+.side-filter .select2-container--default .select2-selection--single .select2-selection__rendered,
+.sign-ups .select2-container .select2-selection--single .select2-selection__rendered {
     color: #78909C;
     font-size: 14px;
     font-style: normal;
@@ -14285,7 +14287,7 @@ div.error-message {
 }
 
 .side-filter .select2-container--default .select2-selection--single .select2-selection__arrow,
-.sign-ups .select2-container .select2-selection--single  .select2-selection__arrow{
+.sign-ups .select2-container .select2-selection--single .select2-selection__arrow {
 
     top: 10px;
     right: 12px;
@@ -14565,7 +14567,9 @@ div.error-message {
 .iti--separate-dial-code .iti__selected-flag {
     background: transparent !important;
 }
-.container-formBox .iti--allow-dropdown .iti__flag-container, .container-formBox .iti--separate-dial-code .iti__flag-container {
+
+.container-formBox .iti--allow-dropdown .iti__flag-container,
+.container-formBox .iti--separate-dial-code .iti__flag-container {
     transform: translatey(calc(-50% - 3px));
     -webkit-transform: translatey(calc(-50% - 3px));
     -moz-transform: translatey(calc(-50% - 3px));
@@ -14574,18 +14578,21 @@ div.error-message {
 }
 
 
-.remodal  .iti{
+.remodal .iti {
     position: unset;
 }
-.hero-apply{
+
+.hero-apply {
     margin-bottom: 80px;
     height: 180px;
 
 }
-.hero-apply  .img-hero{
+
+.hero-apply .img-hero {
     top: -15px;
 
 }
+
 .hero-apply .title-hero {
 
     max-width: 550px;
@@ -14594,69 +14601,75 @@ div.error-message {
     font-size: 64px;
     text-align: start;
     margin: 0;
-    line-height: 135%; 
+    line-height: 135%;
 }
-.hero-apply .title-hero  span{
+
+.hero-apply .title-hero span {
     font-weight: 500;
 }
-.apply-form .grid-container{
+
+.apply-form .grid-container {
     grid-template-columns: 1fr 1fr !important;
     grid-gap: 32px;
 }
 
-.hero-counseling{
+.hero-counseling {
     height: 160px;
     padding: 40px 0;
     margin-bottom: 0;
 }
 
-.hero-counseling .title-hero{
+.hero-counseling .title-hero {
     color: #FFF;
     font-size: 32px;
     font-weight: 700;
     max-width: 100%;
-line-height: 150%;
+    line-height: 150%;
     position: unset;
-    text-align: start;}
+    text-align: start;
+}
 
-.hero-counseling .text-hero p{
+.hero-counseling .text-hero p {
     color: #FFF;
     font-size: 20px;
     font-weight: 500;
-    line-height: 150%; 
+    line-height: 150%;
 }
 
 
-.hero-counseling  .btn-secondary {
+.hero-counseling .btn-secondary {
     border-color: #fff;
     color: #fff;
     max-width: 450px;
     height: 84px;
 
 }
-.text-counseling h4{
+
+.text-counseling h4 {
     color: #000;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: 150%; 
-margin-bottom: 40px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    margin-bottom: 40px;
 }
-.text-counseling p{
+
+.text-counseling p {
     color: #000;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; 
+    line-height: 150%;
     margin-bottom: 20px;
 }
 
-.container-text-page{
+.container-text-page {
     padding: 90px 0;
 
 }
 
-.container-text-page .btn-primary{
+.container-text-page .btn-primary {
     height: 84px;
+    margin-top: 80px;
 
 }
