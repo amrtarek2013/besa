@@ -50,6 +50,7 @@ return static function (RouteBuilder $routes) {
         $dynamicRoutes = $DynamicRoutes->find()->where(['is_active' => 1,])->cache('dynamic_routes_route')->all();
 
         $builder->connect('/university-details/*', 'Universities::details');
+        
         foreach ($dynamicRoutes as $routePage) {
             if ($routePage['has_params'])
                 $routePage['slug'] = $routePage['slug'] . '/*';
@@ -61,6 +62,8 @@ return static function (RouteBuilder $routes) {
                 $redirectTo[$routePage['prefix']] = true;
             }
             $builder->connect('/' . $routePage['slug'], $redirectTo);
+            // echo $routePage['slug'].'=====>';
+            // debug($redirectTo);
         }
         /*
          * ...and connect the rest of 'Pages' controller's URLs.

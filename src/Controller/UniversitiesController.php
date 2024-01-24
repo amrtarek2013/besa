@@ -28,7 +28,7 @@ class UniversitiesController extends AppController
         $this->loadModel('Countries');
         $countryDeatils = $this->Countries->find()->select(['country_name'])->where(['id'=>$country])->first();
         
-        $this->set('country_name',$countryDeatils['country_name']);
+        $this->set('countryDeatils',$countryDeatils);
         $universities = $this->paginate($this->Universities, [
             'conditions' => $conditions,
             'distinct' => ['university_name'],

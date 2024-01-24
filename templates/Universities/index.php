@@ -5,8 +5,9 @@
                 <div class="image-container">
                     <img src="<?= WEBSITE_URL ?>img/new-desgin/ottawa-parliament-hill-building.png" alt="hero Universities">
                     <div class="text-container">
-                        <a class="" href="<?php // Router::url('/user/register')?>">
-                            <h3> <span>Universities </span> in <?=$country_name?></h3>
+                        <a class="" href="<?php // Router::url('/user/register') 
+                                            ?>">
+                            <h3> <span>Universities </span> in <?= $countryDeatils['country_name'] ?></h3>
                         </a>
                     </div>
                 </div>
@@ -24,7 +25,7 @@
                         <div class="title-left">
                             <img src="<?= WEBSITE_URL ?>img/new-desgin/university-icon.svg" alt="Canadian Flag Icon">
 
-                            <h4>Universities in <?=$country_name?></h4>
+                            <h4>Universities in <?= $countryDeatils['country_name'] ?></h4>
                         </div>
                         <!-- <a href="#" class="link-see-more">
                             See All <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow right.svg" alt="Arrow Icon">
@@ -37,7 +38,7 @@
                                     <div class="logo">
                                         <img src="<?= $university['logo_path'] ?>" alt="This Is University Img 1" loading="lazy">
 
-                                        <h5><?= $university['university_name'] ?></h5>
+                                        <h5><a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?>/<?= $university['id'] ?>/<?= $university['permalink'] ?>/2"><?= $university['university_name'] ?></a></h5>
                                     </div>
                                     <div class="icon-favorite">
                                         <i class="fa-regular fa-heart fa-lg"></i>
@@ -51,7 +52,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <?php if (sizeof($universities) == 20) : ?>
+                    <?php //if (sizeof($universities) == 20) : ?>
                         <div class="paginator">
                             <ul class="pagination">
                                 <?= $this->Paginator->first(' << ') ?>
@@ -62,7 +63,7 @@
                             </ul>
                             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
                         </div>
-                    <?php endif; ?>
+                    <?php //endif; ?>
                 </div>
             </div>
         </div>
