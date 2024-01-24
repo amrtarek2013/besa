@@ -58,7 +58,8 @@
         </div>
         <div class="col-md-5">
             <div class="buttons">
-                <a href="#" class="btn btn-secondary btn-apply">Apply now</a>
+
+                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['pages.careerapply'] . '/' .  $career['id'] . '/' . $career['title']) ?>" class="btn btn-secondary btn-apply">Apply now</a>
             </div>
         </div>
     </div>
