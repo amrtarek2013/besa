@@ -51,7 +51,8 @@ use Cake\Routing\Router;
 </section>
 
 <?= $country['top_text'] ?>
-<!-- 
+<?php
+/*
 <div class="tuition-section">
     <div class="container">
         <div class="row">
@@ -68,11 +69,14 @@ use Cake\Routing\Router;
             </div>
         </div>
     </div>
-</div> -->
+</div>
+*/ ?>
 
-<?php echo $this->element('universities_list', ['universitiesResults' => $countryPartners, 'countriesList' => [$country['id']=>$country['country_name']], 'sectionTitle' => 'Universities in ' . $country['country_name']]); ?>
+<?php echo $this->element('universities_list', ['universitiesResults' => $countryPartners, 'countriesList' => [$country['id'] => $country['country_name']], 'sectionTitle' => 'Universities in ' . $country['country_name']]); ?>
 
-<?php if (!empty($countryPartners)) : ?>
+<?php
+/*
+if (!empty($countryPartners)) : ?>
 
     <div class="universities-section">
         <div class="container">
@@ -120,7 +124,7 @@ use Cake\Routing\Router;
     </div>
 
 
-<?php endif; ?>
+<?php endif; */ ?>
 
 <?php if (!empty($countryBenefits->toArray())) { ?>
     <section class="tabes benefits ">
@@ -184,7 +188,9 @@ use Cake\Routing\Router;
     </section>
 <?php } ?>
 
-<!-- <section class="our-partner">
+<?php
+/* 
+<section class="our-partner">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -211,9 +217,8 @@ use Cake\Routing\Router;
     </div>
 </section> -->
 
-<?php // $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) 
+<?php  $this->element('testimonials', ['testimonials' => $testimonials, 'testiTitle' => "Hear about the experiences of some of our international students studying in " . strtoupper($country['country_code'])]) 
 ?>
-<!-- 
 <section class="tabes tabes2">
     <div class="container">
         <div class="row">
@@ -231,4 +236,4 @@ use Cake\Routing\Router;
             </div>
         </div>
     </div>
-</section> -->
+</section> */ ?>
