@@ -3129,7 +3129,7 @@
     .testimonials .owl-blogs .main-pos {
         width: 220px !important;
         height: 320px !important;
-        margin-left: 4.5em !important;
+        margin-left: 5.5em !important;
     }
 
     .testimonials {
@@ -3734,6 +3734,9 @@
     }
     .testimonials .owl-blogs .right-pos {
        
-        margin-left: 0em !important;
+        margin-left: 4em !important;
+    }
+    .testimonials .owl-blogs .slider #next{
+        right: 0;
     }
 }
