@@ -73,13 +73,13 @@ use Cake\Routing\Router;
                                 </li>
 
                                 <li class="<?= strtolower($current_controller) == 'pages' ? 'parent-menu active' : 'parent-menu' ?>">
-                                    <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Study <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
+                                    <a href="<?= Router::url('/' .  $g_dynamic_routes['countries.index']) ?>">Study <i class="parent-icon right fas fa-angle-up" style="float:right"></i></a>
                                     <div class="mobile-menu-dropdown">
                                         <ul>
 
-                                            <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'wheretostudy') ? 'class="active"' : '' ?>>
+                                            <!-- <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'wheretostudy') ? 'class="active"' : '' ?>>
                                                 <a href="<?= Router::url('/' . $g_dynamic_routes['pages.wheretostudy']) ?>">Where To Study </a>
-                                            </li>
+                                            </li> -->
                                             <li <?= (strtolower($current_controller) == 'services' && strtolower($current_action) != 'b2bservices') ? 'class="active"' : '' ?>>
                                                 <a href="<?= Router::url('/' . $g_dynamic_routes['services.index']) ?>">Services </a>
                                             </li>
