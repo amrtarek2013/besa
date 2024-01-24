@@ -22,18 +22,20 @@ $modileCodeId = 'mobile_code' . rand();
 </style>
 <div class="form-area ">
     <?= $this->Form->label($phone_name, $phone_label . '*') ?>
-    <?= $this->Form->control($phone_name, [
-        'type' => 'tel', 'placeholder' => $phone_label, 'label' => false, 'class' => 'form-control', 'required' => true,
-        'value' => (isset($mobileValue) ? $mobileValue : '')
-    ]) ?>
-    <?= $this->Form->control($phone_code, [
-        'class' => 'country_code mobile_code', 'label' => false,
-        'type' => 'text',
-        'id' => $modileCodeId,
-        // 'pattern' => "[0-9]{5}[-][0-9]{7}[-][0-9]{1}",
-        'value' => (isset($mobileCodeValue) ? '+' . $mobileCodeValue : ''),
-        "style"=>"height: 0px;"
-    ]) ?>
+    <div class="form-area-tel">
+        <?= $this->Form->control($phone_name, [
+            'type' => 'tel', 'placeholder' => $phone_label, 'label' => false, 'class' => 'form-control', 'required' => true,
+            'value' => (isset($mobileValue) ? $mobileValue : '')
+        ]) ?>
+        <?= $this->Form->control($phone_code, [
+            'class' => 'country_code mobile_code', 'label' => false,
+            'type' => 'text',
+            'id' => $modileCodeId,
+            // 'pattern' => "[0-9]{5}[-][0-9]{7}[-][0-9]{1}",
+            'value' => (isset($mobileCodeValue) ? '+' . $mobileCodeValue : ''),
+            "style"=>"height: 0px;"
+        ]) ?>
+    </div>
 
 </div>
 
