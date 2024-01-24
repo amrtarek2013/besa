@@ -14630,8 +14630,9 @@ line-height: 150%;
 .hero-counseling  .btn-secondary {
     border-color: #fff;
     color: #fff;
-    margin-top: 20px;
     max-width: 450px;
+    height: 84px;
+
 }
 .text-counseling h4{
     color: #000;
