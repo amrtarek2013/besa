@@ -28,7 +28,7 @@
             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
         ]); ?>
-        <div class="form-area">
+        <!-- <div class="form-area">
             <label for="school-name">School name</label>
             <input type="text" id="school-name" placeholder="Enter school name" required>
         </div>
@@ -47,14 +47,14 @@
         <div class="form-area">
             <label for="file-upload">Upload attending students details</label>
             <input type="file" id="file-upload" required>
-        </div>
+        </div> -->
         <div class="form-area ">
             <label for="" style="color:transparent;" class="hidden-mobile">`</label>
             <div class="checkbox-container">
                 <div class="checkbox terms">
                     <label for="terms-conditions">
                         <input type="checkbox" id="terms-conditions" required>
-                        <p>I agree to terms & conditions</p>
+                        <p>I agree to <label for="">I agree to <a href="<?= Cake\Routing\Router::url('/content/terms-conditions') ?>">terms & conditions</a> </label></p>
                     </label>
                 </div>
                 <div class="checkbox news">
@@ -69,7 +69,9 @@
     </form>
 </div>
 
+<?php
 
+/*
 
 <section class="main-banner Create-account-banner visitors-application educational-institution  british-Trophy">
     <div class="container-fluid">
@@ -120,7 +122,7 @@
                             'class' => 'required', 'required' => true, 'label' => 'Upload attending students details*',
                             'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}</div>']
                         ]); ?>
-                        <?php /* $this->element('security_code', ['show_label' => true]) */ ?>
+                        <?php $this->element('security_code', ['show_label' => true])  ?>
 
                         <?= $this->element('security_code', ['show_label' => true]) ?>
 
@@ -149,6 +151,7 @@
         </div>
     </div>
 </section>
+<? */ ?>
 <?php if ($this->request->is('mobile')) { ?>
     <script>
         $(document).ready(function() {
