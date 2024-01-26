@@ -57,7 +57,7 @@
 
 
                         $actions = [
-                            // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'], array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
+                            'view'=>$this->Html->link(__('Subjects'), ['controller'=>'UniversitySubjects','action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-sm','icon'=>'fas fa-list')),
                             // 'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
                             // 'delete' => $this->Html->link(
@@ -74,6 +74,7 @@
                         if (isset($permissionList[strtolower($current_controller) . '.edit'])) {
                             $actions['edit'] = $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt'));
                         }
+                        
                         if (isset($permissionList[strtolower($current_controller) . '.delete'])) {
                             $actions['delete'] = $this->Html->link(
 

@@ -27,6 +27,11 @@ function showStep(stepIndex) {
         timelineItems[i].classList.remove("active");
     }
 
+    if (stepIndex == 0)
+        $('.timeline').hide();
+    else
+        $('.timeline').show();
+
     // Show the current step
     timelineItems[stepIndex].classList.add("active");
 
@@ -90,6 +95,11 @@ function updateStep(stepIndex) {
         timelineItems[i].classList.remove("active");
     }
 
+    if (stepIndex == 0)
+        $('.timeline').hide();
+    else
+        $('.timeline').show();
+
     // Show the current step
     steps[stepIndex].classList.add("active");
     timelineItems[stepIndex].classList.add("active");
@@ -127,7 +137,10 @@ function nextStep() {
     // }
     // alert('T1 - '+currentStep);
     // alert('T1');
+    $('.timeline').show();
     if (currentStep == 0) {
+
+        $('.timeline').hide();
         // if (document.getElementById('study_level_id').value == '' || document.getElementById('study_level_id').value == undefined) {
         //   alert("Please select an option.");
         //   return false;
@@ -272,6 +285,7 @@ function registerSubmitForm(form, register) {
 
                 $('.error-message').remove();
                 // $(form)[0].reset();
+
                 currentStep++;
                 updateStep(currentStep);
                 // reLoadCaptchaV3();

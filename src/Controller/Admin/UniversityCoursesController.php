@@ -24,7 +24,13 @@ class UniversityCoursesController extends AppController
         // if(isset($this->request->getAttribute('limit'))){
 
         // }
-        $universityCourses = $this->paginate($this->UniversityCourses, ['conditions' => $conditions, 'contain' => ['Courses', 'Universities', 'StudyLevels', 'SubjectAreas', 'Countries'], 'limit' => 50, 'order' => ['course_name' => 'ASC']]);
+        $universityCourses = $this->paginate($this->UniversityCourses, [
+            'conditions' => $conditions,
+            'contain' => [
+                'Courses', 'Universities', 'StudyLevels', 'SubjectAreas', 'Countries'
+            ],
+            'limit' => 50, 'order' => ['course_name' => 'ASC']
+        ]);
         $parameters = $this->request->getAttribute('params');
         $this->set(compact('universityCourses', 'parameters'));
 
@@ -201,7 +207,7 @@ class UniversityCoursesController extends AppController
             'intake' => 'Intake',
 
             'description' => 'Description',
-            'active'=>'Active'
+            'active' => 'Active'
 
         );
 
@@ -357,7 +363,7 @@ class UniversityCoursesController extends AppController
                 //load all countries
 
                 $this->loadModel("Countries");
-                
+
                 $countries = $this->Countries->find()->select(['title' => 'trim(lower(country_name))', 'id'])->toArray();
                 $countries = Hash::combine($countries, '{n}.title', '{n}.id');
 
@@ -380,7 +386,7 @@ class UniversityCoursesController extends AppController
 
                 $universityCourseList = [];
                 $counter = 0;
-                
+
                 foreach ($universitiesArray as $universityCourseLine) {
 
                     $universityCourse = $this->UniversityCourses->newEmptyEntity();

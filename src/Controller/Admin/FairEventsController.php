@@ -98,6 +98,8 @@ class FairEventsController extends AppController
 
 
         $this->__mainEvent($fairEvent['event_id']);
+        
+        $this->Session->write('event_id', $fairEvent['event_id']);
         if ($this->request->is(['patch', 'post', 'put'])) {
 
 

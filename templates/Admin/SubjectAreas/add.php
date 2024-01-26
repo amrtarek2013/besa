@@ -38,6 +38,8 @@
                             echo $this->AdminForm->control('title', ['type' => 'text', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('code', ['type' => 'text', 'class' => 'INPUT']);
                             
+                            echo $this->AdminForm->control('rank', ['type' => 'number', 'class' => 'INPUT required']);
+                            echo $this->AdminForm->control('apply_rank', ['type' => 'number', 'class' => 'INPUT required']);
                             echo $this->AdminForm->control('description', ['type' => 'text']);
 
                             // echo $this->AdminForm->control('country_id', ['label' => 'Country', 'type' => 'select', 'empty' => 'Select Country', 'options' => $countries, 'class' => 'INPUT required']);

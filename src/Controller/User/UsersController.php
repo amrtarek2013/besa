@@ -545,15 +545,20 @@ class UsersController extends AppController
         $this->loadModel('StudyLevels');
         $studyLevels = $this->StudyLevels->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['display_order' => 'asc'])->toArray();
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('studyLevels', $studyLevels);
 
         $this->loadModel('SubjectAreas');
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['title' => 'asc'])->toArray();
+        ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();
         $this->set('subjectAreas', $subjectAreas);
+
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['rank' => 'desc'])->limit(6)->toArray();
+        $this->set('popularSubjectAreas', $subjectAreas);
 
         // $this->redirect('/');
     }
