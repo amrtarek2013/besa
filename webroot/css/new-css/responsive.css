@@ -2459,9 +2459,9 @@
     }
 
     .hero-Universities .text-container {
-        max-width: 49%;
-        left: 70%;
-        bottom: 40px;
+        max-width: 44%;
+        left: 105px;
+        bottom: 30px;
     }
 
     .acadia-university .content p {
@@ -2483,13 +2483,18 @@
     }
 
     .country-list {
-        display: grid;
+        display: flex;
         align-items: center;
         grid-gap: 20px;
         width: 100%;
         max-width: 100%;
         margin: 20px 0;
-        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .country-tag{
+        width: max-content;
     }
 
     .facilities .tab-buttons {
@@ -3166,7 +3171,8 @@
     }
 
     .background-login-page {
-        padding: 40px 20px;
+        padding: 40px 20px;    height: 100vh;
+
     }
 
     .background-login-page .logo {
