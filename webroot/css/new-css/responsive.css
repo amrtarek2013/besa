@@ -3826,9 +3826,52 @@
     .container-checkboxes .checkboxes div label {
         font-size: 14px;
     }
+
     .steps-en #nextBtn {
-       
+
         width: 100%;
         font-size: 14px;
     }
+
+    .container-checkboxes .checkboxes div label a {
+        display: contents;
+
+    }
+
+    .book-appointment .input select,
+    .book-appointment .input textarea,
+    .book-appointment .input input:not([type="radio"], [type="checkbox"], [type="range"]),
+    .book-appointment .form-area textarea,
+    .book-appointment .form-area select,
+    .book-appointment .form-area input {
+        font-size: 14px;
+
+    }
+
+    .hero-slider-countries .text-container h4 {
+        font-size: 23px;
+    }
+
+    .hero-slider-countries .text-container h5 {
+        font-size: 30px;
+
+    }
+
+    .hero-slider-countries .text-container {
+        max-width: 100%;
+        right: unset;
+        top: unset;
+        bottom: 10px;
+        left: 20px;
+        text-align: center;
+        transform: translatey(0);
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -ms-transform: translatey(0);
+        -o-transform: translatey(0);
+}
+
+.hero-slider-countries .main-slider .owl-nav button.owl-next, .hero-slider-countries .main-slider .owl-nav button.owl-prev{
+    display: none;
+}
 }
