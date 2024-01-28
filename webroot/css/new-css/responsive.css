@@ -3413,7 +3413,7 @@
     }
 
     .partnership-form .container-formBox input[type="submit"] {
-        margin: 48px auto 0;
+        margin: 32px auto 0;
     }
 
     .partnership-form .container-formBox {
@@ -3566,6 +3566,8 @@
         height: 48px;
         width: 100%;
         margin-bottom: 0 !important;
+        font-size: 14px;
+        padding: 0;
     }
 
     .besa-careers-section .job-cards {
@@ -3747,4 +3749,24 @@
     .free-meating{
         padding: 50px 0;
     }
+    .hero-apply .img-hero {
+        left: -10px;
+        top: 10px;
+        width: 220px;
+    }
+    .hero-apply .col-md-6>.title-hero {
+        left: 140px;
+        width: 168px;
+    }
+    .hero-apply {
+        margin-bottom: 80px;
+    }
+    .apply-form .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+    .partner-banner{
+        margin-bottom: 80px;
+    } 
+
+    
 }

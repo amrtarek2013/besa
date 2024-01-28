@@ -14678,3 +14678,21 @@ div.error-message {
     -ms-transform: none;
     -o-transform: none;
 }
+
+.step-back-slider .owl-step-back .image-box{
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    overflow: hidden;
+}
+
+.step-back-slider .owl-step-back .image-box img{
+    border-radius: 20px;
+
+}
+
+.Create-account-banner .form-area:last-child {
+    grid-column: 1/3;
+}
