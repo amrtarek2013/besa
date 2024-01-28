@@ -582,7 +582,7 @@
 
     .visitors-application .container-formBox {
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 80px;
         margin-top: -150px;
     }
 
@@ -3576,7 +3576,7 @@
 
     .besa-careers-section .job-cards .job-card {
         width: 100%;
-        height: 300px;
+        height: 350px;
 
     }
 
@@ -3768,5 +3768,16 @@
         margin-bottom: 80px;
     } 
 
-    
+    .one-line-area {
+        grid-column: unset;
+    }
+    .book-appointment .container-formBox button[type="submit"]{
+
+    }.professional-development .d-flex>div {
+        width: 100%;
+    }
+
+    .professional-development .d-flex:nth-child(odd) {
+        flex-flow: column-reverse;
+    }
 }
