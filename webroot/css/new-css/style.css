@@ -14693,6 +14693,6 @@ div.error-message {
 
 }
 
-.Create-account-banner .form-area:last-child {
+.grid-container .form-area:last-child {
     grid-column: 1/3;
 }
