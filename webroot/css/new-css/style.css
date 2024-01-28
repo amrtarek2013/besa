@@ -14693,6 +14693,6 @@ div.error-message {
 
 }
 
-.grid-container .form-area:last-child {
+.one-line-area {
     grid-column: 1/3;
 }
