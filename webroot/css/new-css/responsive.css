@@ -1298,6 +1298,7 @@
 
     .steps-en .steps-background {
         padding: 60px 15px 20px;
+        width: 100%;
     }
 
 
@@ -3779,5 +3780,19 @@
 
     .professional-development .d-flex:nth-child(odd) {
         flex-flow: column-reverse;
+    }.form-step .grid-container {
+        grid-template-columns: 1fr;
+    }.checkboxes div label {
+        text-wrap: wrap;
     }
+
+    .container-checkboxes .checkboxes input[type="checkbox"]{
+        flex-basis: 7%;
+
+    }
+
+   .container-checkboxes .checkboxes div label{
+    flex-basis: 93%;
+
+   }
 }
