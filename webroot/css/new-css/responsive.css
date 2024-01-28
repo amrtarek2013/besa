@@ -3717,82 +3717,118 @@
     .hero-course-details h4 {
         font-size: 20px;
     }
-    .school-tour-slider h2{
+
+    .school-tour-slider h2 {
         font-size: 20px;
         margin: 0 0 20px;
 
     }
-    .school-tour-slider .owl-prev{
+
+    .school-tour-slider .owl-prev {
         left: -15px;
     }
-    .school-tour-slider .owl-next{
+
+    .school-tour-slider .owl-next {
         right: -15px;
-    }.school-tour-slider{
+    }
+
+    .school-tour-slider {
         padding: 0;
     }
+
     .contact-us-home,
-    .top-universities{
+    .top-universities {
         padding: 50px 0;
     }
+
     .testimonials .owl-blogs .right-pos {
-       
+
         margin-left: 4em !important;
     }
-    .testimonials .owl-blogs .slider #next{
+
+    .testimonials .owl-blogs .slider #next {
         right: 0;
     }
+
     .form-area textarea {
         height: 169px;
     }
-    .choose-place-2 .title-choose-place{
+
+    .choose-place-2 .title-choose-place {
         font-size: 20px;
     }
-    .free-meating{
+
+    .free-meating {
         padding: 50px 0;
     }
+
     .hero-apply .img-hero {
         left: -10px;
         top: 10px;
         width: 220px;
     }
+
     .hero-apply .col-md-6>.title-hero {
         left: 140px;
         width: 168px;
     }
+
     .hero-apply {
         margin-bottom: 80px;
     }
+
     .apply-form .grid-container {
         grid-template-columns: 1fr !important;
     }
-    .partner-banner{
+
+    .partner-banner {
         margin-bottom: 80px;
-    } 
+    }
 
     .one-line-area {
         grid-column: unset;
     }
-    .book-appointment .container-formBox button[type="submit"]{
 
-    }.professional-development .d-flex>div {
+    .book-appointment .container-formBox button[type="submit"] {}
+
+    .professional-development .d-flex>div {
         width: 100%;
     }
 
     .professional-development .d-flex:nth-child(odd) {
         flex-flow: column-reverse;
-    }.form-step .grid-container {
+    }
+
+    .form-step .grid-container {
         grid-template-columns: 1fr;
-    }.checkboxes div label {
+    }
+
+    .checkboxes div label {
         text-wrap: wrap;
     }
 
-    .container-checkboxes .checkboxes input[type="checkbox"]{
+    .container-checkboxes .checkboxes input[type="checkbox"] {
         flex-basis: 7%;
 
     }
 
-   .container-checkboxes .checkboxes div label{
-    flex-basis: 93%;
+    .container-checkboxes .checkboxes div label {
+        flex-basis: 93%;
 
-   }
+    }
+
+    .container-checkboxes .checkboxes {
+
+        margin: 32px 0;
+    }
+
+    .container-checkboxes .checkboxes div label a,
+    .container-checkboxes .checkboxes div label {
+        font-size: 14px;
+    }
+    .steps-en #nextBtn {
+       
+        width: 100%;
+        font-size: 14px;
+    }
 }
