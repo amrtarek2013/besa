@@ -3,7 +3,6 @@ const steps = document.getElementsByClassName("step");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-let currentStep = 0; // Current step index
 var request_busy = false;
 
 document.getElementById('search-courses-steps').addEventListener("submit", function (event) {
@@ -100,6 +99,9 @@ function updateStep(stepIndex) {
     else
         $('.timeline').show();
 
+    alert(stepIndex);
+    $('#laststep').val(stepIndex);
+    currentStep = stepIndex;
     // Show the current step
     steps[stepIndex].classList.add("active");
     timelineItems[stepIndex].classList.add("active");
@@ -145,7 +147,7 @@ function nextStep() {
         //   alert("Please select an option.");
         //   return false;
         // }
-        // document.getElementById('subject_area_id').value='';
+        // document.getElementById('subject-area-id').value='';
         // document.getElementById('study_level_id').value='';
 
         // var elements = document.querySelectorAll('.level-box');
@@ -156,57 +158,88 @@ function nextStep() {
         // for (var i = 0; i < elements.length; i++) {
         //   elements[i].classList.remove('active');
         // }
+        $('#laststep').val(0);
+        if ($('#id').val() == undefined || $('#id').val() == '') {
+            $('#search-courses-steps').validate({
+                rules: {
+
+                    'first_name': {
+                        required: true,
+                    },
+                    'last_name': {
+                        required: true,
+                    },
+                    'mobile': {
+                        required: true,
+                        minlength: 7,
+                        maxlength: 13
+                    },
+                    'email': {
+                        required: true,
+                        email: true
+                    },
+                    'password': {
+                        required: true,
+                    },
+                    'passwd': {
+                        required: true,
+                    },
+                    // 'nationality_id': {
+                    //   required: true
+                    // },
+                    'country_id': {
+                        required: true,
+                    },
+                    'mobile': {
+                        required: true,
+                    },
+                    'mobile_code': {
+                        required: true,
+                    },
+                    'current_status': {
+                        required: true,
+                    },
+                    // 'current_study_level': {
+                    //   required: true,
+                    // },
+                    // 'destination_id': {
+                    //   required: true,
+                    // },
+                    // 'subject_area_id': {
+                    //   required: true,
+                    // },
+                    // 'city': {
+                    //   required: true,
+                    // },
+                },
+                messages: {
+
+                },
+                errorClass: "error-message",
+                errorElement: "div",
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element, false);
+                },
+                submitHandler: function (form) {
+                    // form.submit();
+
+                    registerSubmitForm(form);
+                }
+            });
+        } else {
+
+            registerSubmitForm($('#search-courses-steps'));
+        }
+
+    } else if (currentStep == 1) {
+        $('#laststep').val(1);
+        alert('ssssssssss');
         $('#search-courses-steps').validate({
             rules: {
 
-                'first_name': {
+                'subject_area_id': {
                     required: true,
                 },
-                'last_name': {
-                    required: true,
-                },
-                'mobile': {
-                    required: true,
-                    minlength: 7,
-                    maxlength: 13
-                },
-                'email': {
-                    required: true,
-                    email: true
-                },
-                'password': {
-                    required: true,
-                },
-                'passwd': {
-                    required: true,
-                },
-                // 'nationality_id': {
-                //   required: true
-                // },
-                'country_id': {
-                    required: true,
-                },
-                'mobile': {
-                    required: true,
-                },
-                'mobile_code': {
-                    required: true,
-                },
-                'current_status': {
-                    required: true,
-                },
-                // 'current_study_level': {
-                //   required: true,
-                // },
-                // 'destination_id': {
-                //   required: true,
-                // },
-                // 'subject_area_id': {
-                //   required: true,
-                // },
-                // 'city': {
-                //   required: true,
-                // },
             },
             messages: {
 
@@ -217,16 +250,12 @@ function nextStep() {
                 error.insertAfter(element, false);
             },
             submitHandler: function (form) {
-                // form.submit();
-
-                registerSubmitForm(form);
+                registerSubmitForm($('#search-courses-steps'));
             }
         });
-
-    } else if (currentStep == 1) {
-        // if (document.getElementById('subject_area_id').value == '' && document.getElementById('study_level_id').value == '') {
-        //   alert("Please select an option.");
-        //   return false;
+        // if (document.getElementById('subject-area-id').value == '' && document.getElementById('study_level_id').value == '') {
+        //     alert("Please select an option.");
+        //     return false;
         // }
 
         // var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
@@ -236,6 +265,26 @@ function nextStep() {
         // document.getElementById('curriculum').value = '';
 
     } else if (currentStep == 2) {
+        $('#laststep').val(2);
+        $('#search-courses-steps').validate({
+            rules: {
+
+                'study_level_id': {
+                    required: true,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function (error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function (form) {
+                registerSubmitForm($('#search-courses-steps'));
+            }
+        });
         // var checkboxes = document.querySelectorAll('input[name="country_id[]"]');
         // var atLeastOneChecked = false;
         // for (var i = 0; i < checkboxes.length; i++) {
@@ -248,6 +297,48 @@ function nextStep() {
         //   alert("Please select an option.");
         //   return false;
         // }
+    } else if (currentStep == 3) {
+        $('#laststep').val(3);
+        $('#search-courses-steps').validate({
+            rules: {
+
+                'country_id': {
+                    required: true,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function (error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function (form) {
+                registerSubmitForm($('#search-courses-steps'));
+            }
+        });
+    } else if (currentStep == 4) {
+        $('#laststep').val(4);
+        $('#search-courses-steps').validate({
+            rules: {
+
+                'budget': {
+                    required: true,
+                },
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function (error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function (form) {
+                registerSubmitForm($('#search-courses-steps'));
+            }
+        });
     }
 
     if (currentStep < steps.length - 1 && currentStep != 0) {
@@ -286,6 +377,11 @@ function registerSubmitForm(form, register) {
                 $('.error-message').remove();
                 // $(form)[0].reset();
 
+
+                $('#id').val(data.user.id);
+
+                alert(data.laststep);
+                console.log(data.user);
                 currentStep++;
                 updateStep(currentStep);
                 // reLoadCaptchaV3();

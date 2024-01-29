@@ -419,99 +419,8 @@ class UsersController extends AppController
                 $this->redirect('/user');
             }
         }
-        Configure::write('debug', false);
+        Configure::write('debug', true);
 
-        $userEntity = $this->Users->newEmptyEntity();
-        $validation                      = ['validate' => 'register'];
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $this->data = $this->request->getData();
-            $existed_user = $this->Users->find()->where(["email" => $this->data['email']])->first();
-
-            if ($existed_user) {
-                if ($this->request->is('ajax')) {
-                    die(json_encode(array('status' => 'failed', 'message' => __('This user already exist!!'))));
-                } else {
-
-                    $this->Flash->error(__('This user already exist!!'));
-                }
-            } else {
-
-                $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
-
-                $userEntity->bd = $this->data['year'] . '-' . $this->data['month'] . '-' . $this->data['day'];
-                if ($this->Session->check('search_url'))
-                    $userEntity->last_url = $this->Session->read('search_url');
-                if ($this->Users->save($userEntity)) {
-                    $id = $userEntity->id;
-
-                    $user = $this->Users->get($id);
-
-                    $this->sendToBitrix($user, 'register-student');
-
-                    $to = $user['email'];
-
-                    $from    = $this->g_configs['general']['txt.send_mail_from'];
-                    $replace = array(
-                        '{%first_name%}' => $user['first_name'],
-                        '{%last_name%}'  => $user['last_name'],
-                        // '{%username%}'  => $user['username'],
-                        '{%email%}'  => $user['email'],
-                        '{%mobile%}'  => $user['mobile'],
-                    );
-
-                    // $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
-                    $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View</a>';
-                    $replace['{%view_link%}'] = $url;
-                    $this->sendEmail($to, $from, 'admin.notify_user_registration', $replace);
-
-                    $return['url']    = "/user";
-                    $return['status']  = 1;
-                    $return['message'] = $msg;
-                    $return['type']    = 'register';
-                    $return['title'] = 'Thank You';
-                    $return['url_text'] = 'Continue';
-
-                    $this->sendConfirmationEmail($user);
-                    // $this->Auth->setUser($user->toArray());
-                    // die(json_encode($return));
-                } else {
-
-                    // dd($userEntity->getErrors());
-
-
-                    $return['url']    = "/user";
-                    $return['status']  = 0;
-                    $return['validationErrors']  = $userEntity->getErrors();
-                    $return['message'] = 'Invalid credentials, try again';
-
-                    // $return['message'] = $this->getSnippet('user_register_error');
-                    $return['type']    = 'register';
-                    $return['title'] = 'Info';
-
-                    // die(json_encode($return));
-                }
-
-                // dd($return);
-
-                if ($this->request->is('ajax')) {
-                    echo json_encode($return);
-                    exit();
-                } else {
-                    if ($return['status']) {
-                        $this->Flash->success(__($return['message']));
-                        $this->redirect('/user');
-                    } else {
-
-                        $this->Flash->error(__($return['message']));
-                    }
-                }
-            }
-        }
-
-
-        $this->set('user', $userEntity);
         // dd($userEntity);
         $this->loadModel('Countries');
         $countriesList = $this->Countries->find('list', [
@@ -549,17 +458,154 @@ class UsersController extends AppController
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('studyLevels', $studyLevels);
 
-        $this->loadModel('SubjectAreas');
-        $subjectAreas = $this->SubjectAreas->find('list', [
-            'keyField' => 'id', 'valueField' => 'title'
-        ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();
-        $this->set('subjectAreas', $subjectAreas);
+        // $this->loadModel('SubjectAreas');
+        // $subjectAreas = $this->SubjectAreas->find('list', [
+        //     'keyField' => 'id', 'valueField' => 'title'
+        // ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();
+        // $this->set('subjectAreas', $subjectAreas);
 
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
         ])->where(['active' => 1])->order(['rank' => 'desc'])->limit(6)->toArray();
         $this->set('popularSubjectAreas', $subjectAreas);
 
+        $userEntity = $this->Users->newEmptyEntity();
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $validation  = ['validate' => 'step' . $this->data['laststep']];
+            $this->data = $this->request->getData();
+            // dd($this->data['laststep']);
+            // dd($this->data);
+            $updateUser = false;
+            $userCoditions = ["email" => $this->data['email']];
+            if (isset($this->data['id']) && !empty($this->data['id'])) {
+                $updateUser = true;
+                $userCoditions['id'] = $this->data['id'];
+
+                $userCoditions = ["id" => $this->data['id']];
+            }
+
+            $existed_user = $this->Users->find()->where($userCoditions)->first();
+
+            // dd($existed_user);
+            if ($existed_user && !$updateUser) {
+                if ($this->request->is('ajax')) {
+                    die(json_encode(array('status' => 'failed', 'message' => __('This user already exist!!'))));
+                } else {
+
+                    $this->Flash->error(__('This user already exist!!'));
+                }
+            } else {
+
+                if ($updateUser) {
+                    $userEntity = $this->Users->patchEntity($existed_user, $this->data, $validation);
+                } else
+                    $userEntity = $this->Users->patchEntity($userEntity, $this->data, $validation);
+
+
+                if (!$updateUser)
+                    $userEntity->bd = $this->data['year'] . '-' . $this->data['month'] . '-' . $this->data['day'];
+                if ($this->Session->check('search_url'))
+                    $userEntity->last_url = $this->Session->read('search_url');
+
+                if (isset($this->data['subject_area_ids']) && !empty($this->data['subject_area_ids'])) {
+                    $userEntity['subject_area_ids'] = ',' . implode(',', $this->data['subject_area_ids']) . ',';
+                }
+                if ($this->Users->save($userEntity)) {
+                    $id = $userEntity->id;
+
+                    $user = $this->Users->get($id);
+
+                    if (!$updateUser) {
+                        $this->sendToBitrix($user, 'register-student');
+
+                        $to = $user['email'];
+
+                        $from    = $this->g_configs['general']['txt.send_mail_from'];
+                        $replace = array(
+                            '{%first_name%}' => $user['first_name'],
+                            '{%last_name%}'  => $user['last_name'],
+                            // '{%username%}'  => $user['username'],
+                            '{%email%}'  => $user['email'],
+                            '{%mobile%}'  => $user['mobile'],
+                        );
+
+                        // $this->sendEmail($to, $from, 'user.notify_user_registration', $replace);
+                        $url = '<a href="' . Router::url('/admin/users/edit/' . $user['id'], true) . '" >View</a>';
+                        $replace['{%view_link%}'] = $url;
+                        $this->sendEmail($to, $from, 'admin.notify_user_registration', $replace);
+
+                        $return['message'] = $msg;
+
+                        $this->sendConfirmationEmail($user);
+                    } else {
+
+                        $return['message'] = 'success';
+                    }
+
+                    $return['laststep'] = $this->data['laststep'] + 1;
+                    $this->set('laststep', $this->data['laststep'] + 1);
+
+                    $this->Session->write('laststep', $this->data['laststep'] + 1);
+
+                    $this->Session->write('userData', $user);
+                    $return['url']    = "/user";
+                    $return['status']  = 1;
+                    $return['user'] = $userEntity;
+                    $return['type']    = 'register';
+                    $return['title'] = 'Thank You';
+                    $return['url_text'] = 'Continue';
+
+                    // $this->Auth->setUser($user->toArray());
+                    // die(json_encode($return));
+                } else {
+
+                    dd($userEntity->getErrors());
+                    $return['url']    = "/user";
+                    $return['status']  = 0;
+                    $return['validationErrors']  = $userEntity->getErrors();
+                    $return['message'] = 'Invalid credentials, try again';
+
+                    // $return['message'] = $this->getSnippet('user_register_error');
+                    $return['type']    = 'register';
+                    $return['title'] = 'Info';
+                    // die(json_encode($return));
+                }
+
+                // dd($return);
+
+                if ($this->request->is('ajax')) {
+                    echo json_encode($return);
+                    exit();
+                } else {
+                    if ($return['status']) {
+                        $this->Flash->success(__($return['message']));
+                        $this->redirect('/user');
+                    } else {
+
+                        $this->Flash->error(__($return['message']));
+                    }
+                }
+            }
+        } else {
+            if (!$this->Session->check('laststep'))
+                $this->Session->write('laststep', 0);
+            if ($this->Session->check('userData')) {
+                $userEntity = $this->Session->read('userData');
+                $this->set('user', $userEntity);
+            }
+        }
+
+        // dd($userEntity['subject_area_ids']);
+        if (!empty($userEntity['subject_area_ids']) && !is_array($userEntity['subject_area_ids']))
+            $userEntity['subject_area_ids'] = explode(',', trim($userEntity['subject_area_ids'], ','));
+        // else
+        //     $userEntity['subject_area_ids'] = implode(',', $userEntity['subject_area_ids']);
+        $this->set('laststep', $this->Session->read('laststep'));
+
+        $this->set('user', $userEntity);
+        // dd($userEntity);
         // $this->redirect('/');
     }
 

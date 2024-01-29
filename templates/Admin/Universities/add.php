@@ -109,6 +109,26 @@
                             <?php
 
                             // echo $this->AdminForm->control('is_full_height', ['type' => 'checkbox']);
+                            echo $this->AdminForm->control('show_facilities_section', ['type' => 'checkbox']);
+                            echo $this->AdminForm->control('facilities_title', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('facilities_tab1_title', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('facilities_tab1_content', ['type' => 'textarea', 'class' => '']);
+
+                            
+                            echo $this->AdminForm->control('facilities_tab2_title', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('facilities_tab2_content', ['type' => 'textarea', 'class' => '']);
+
+                            
+                            echo $this->AdminForm->control('facilities_tab3_title', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('facilities_tab3_content', ['type' => 'textarea', 'class' => '']);
+
+                            echo $this->AdminForm->control('show_city_life_section', ['type' => 'checkbox']);
+                            echo $this->AdminForm->control('city_life_title', ['type' => 'text', 'class' => 'INPUT']);
+                            echo $this->AdminForm->control('city_life_section_content', ['type' => 'textarea', 'class' => '']);
+
+
+                            echo $this->AdminForm->control('show_gallary_section', ['type' => 'checkbox']);
+                            echo $this->AdminForm->control('gallary_section_title', ['type' => 'text', 'class' => 'INPUT']);
                             // //commentimageupload echo $this->AdminForm->enableAjaxUploads($id, 'university_' . $id, $mainAdminToken);
                             echo $this->AdminForm->enableEditors('.editor');
                             ?>
