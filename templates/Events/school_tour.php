@@ -241,7 +241,7 @@ if (!empty($event['fair_events'])) {
                         ]) ?>
                         <?= $this->Form->control('address', [
                             'type' => 'text', 'placeholder' => 'School Address', 'label' => 'School Address*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                            'templates' => ['inputContainer' => '<div class="one-line-area form-area {{rquired}}">{{content}}</div>']
                         ]) ?>
 
                         <?= $this->element('security_code', ['show_label' => true]) ?>

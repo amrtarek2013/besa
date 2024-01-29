@@ -582,7 +582,7 @@
 
     .visitors-application .container-formBox {
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 80px;
         margin-top: -150px;
     }
 
@@ -1282,9 +1282,7 @@
         color: var(--bs-white) !important;
     }
 
-    .iti.iti--allow-dropdown.iti--separate-dial-code.iti--show-flags {
-        bottom: 47px;
-    }
+
 
     .iti__country-list {
         min-width: 280px;
@@ -1300,6 +1298,7 @@
 
     .steps-en .steps-background {
         padding: 60px 15px 20px;
+        width: 100%;
     }
 
 
@@ -2460,9 +2459,9 @@
     }
 
     .hero-Universities .text-container {
-        max-width: 49%;
-        left: 70%;
-        bottom: 40px;
+        max-width: 44%;
+        left: 105px;
+        bottom: 30px;
     }
 
     .acadia-university .content p {
@@ -2484,13 +2483,18 @@
     }
 
     .country-list {
-        display: grid;
+        display: flex;
         align-items: center;
         grid-gap: 20px;
         width: 100%;
         max-width: 100%;
         margin: 20px 0;
-        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .country-tag{
+        width: max-content;
     }
 
     .facilities .tab-buttons {
@@ -3167,7 +3171,8 @@
     }
 
     .background-login-page {
-        padding: 40px 20px;
+        padding: 40px 20px;    height: 100vh;
+
     }
 
     .background-login-page .logo {
@@ -3415,7 +3420,7 @@
     }
 
     .partnership-form .container-formBox input[type="submit"] {
-        margin: 48px auto 0;
+        margin: 32px auto 0;
     }
 
     .partnership-form .container-formBox {
@@ -3568,6 +3573,8 @@
         height: 48px;
         width: 100%;
         margin-bottom: 0 !important;
+        font-size: 14px;
+        padding: 0;
     }
 
     .besa-careers-section .job-cards {
@@ -3576,7 +3583,7 @@
 
     .besa-careers-section .job-cards .job-card {
         width: 100%;
-        height: 300px;
+        height: 350px;
 
     }
 
@@ -3716,37 +3723,161 @@
     .hero-course-details h4 {
         font-size: 20px;
     }
-    .school-tour-slider h2{
+
+    .school-tour-slider h2 {
         font-size: 20px;
         margin: 0 0 20px;
 
     }
-    .school-tour-slider .owl-prev{
+
+    .school-tour-slider .owl-prev {
         left: -15px;
     }
-    .school-tour-slider .owl-next{
+
+    .school-tour-slider .owl-next {
         right: -15px;
-    }.school-tour-slider{
+    }
+
+    .school-tour-slider {
         padding: 0;
     }
+
     .contact-us-home,
-    .top-universities{
+    .top-universities {
         padding: 50px 0;
     }
+
     .testimonials .owl-blogs .right-pos {
-       
+
         margin-left: 4em !important;
     }
-    .testimonials .owl-blogs .slider #next{
+
+    .testimonials .owl-blogs .slider #next {
         right: 0;
     }
+
     .form-area textarea {
         height: 169px;
     }
-    .choose-place-2 .title-choose-place{
+
+    .choose-place-2 .title-choose-place {
         font-size: 20px;
     }
-    .free-meating{
+
+    .free-meating {
         padding: 50px 0;
     }
+
+    .hero-apply .img-hero {
+        left: -10px;
+        top: 10px;
+        width: 220px;
+    }
+
+    .hero-apply .col-md-6>.title-hero {
+        left: 140px;
+        width: 168px;
+    }
+
+    .hero-apply {
+        margin-bottom: 80px;
+    }
+
+    .apply-form .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .partner-banner {
+        margin-bottom: 80px;
+    }
+
+    .one-line-area {
+        grid-column: unset;
+    }
+
+    .book-appointment .container-formBox button[type="submit"] {}
+
+    .professional-development .d-flex>div {
+        width: 100%;
+    }
+
+    .professional-development .d-flex:nth-child(odd) {
+        flex-flow: column-reverse;
+    }
+
+    .form-step .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .checkboxes div label {
+        text-wrap: wrap;
+    }
+
+    .container-checkboxes .checkboxes input[type="checkbox"] {
+        flex-basis: 7%;
+
+    }
+
+    .container-checkboxes .checkboxes div label {
+        flex-basis: 93%;
+
+    }
+
+    .container-checkboxes .checkboxes {
+
+        margin: 32px 0;
+    }
+
+    .container-checkboxes .checkboxes div label a,
+    .container-checkboxes .checkboxes div label {
+        font-size: 14px;
+    }
+
+    .steps-en #nextBtn {
+
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .container-checkboxes .checkboxes div label a {
+        display: contents;
+
+    }
+
+    .book-appointment .input select,
+    .book-appointment .input textarea,
+    .book-appointment .input input:not([type="radio"], [type="checkbox"], [type="range"]),
+    .book-appointment .form-area textarea,
+    .book-appointment .form-area select,
+    .book-appointment .form-area input {
+        font-size: 14px;
+
+    }
+
+    .hero-slider-countries .text-container h4 {
+        font-size: 23px;
+    }
+
+    .hero-slider-countries .text-container h5 {
+        font-size: 30px;
+
+    }
+
+    .hero-slider-countries .text-container {
+        max-width: 100%;
+        right: unset;
+        top: unset;
+        bottom: 10px;
+        left: 20px;
+        text-align: center;
+        transform: translatey(0);
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -ms-transform: translatey(0);
+        -o-transform: translatey(0);
+}
+
+.hero-slider-countries .main-slider .owl-nav button.owl-next, .hero-slider-countries .main-slider .owl-nav button.owl-prev{
+    display: none;
+}
 }

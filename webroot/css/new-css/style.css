@@ -8784,10 +8784,6 @@ a.forgot-link {
     text-align: center;
 }
 
-.form-area input[type="tel"] {
-    padding-left: 80px;
-
-}
 
 
 .educational-institution .relative-box-about {
@@ -8941,13 +8937,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-.iti {
-    left: 5px;
-    bottom: 47px;
-}
 
 .form-area input[type="tel"] {
-    padding-left: 95px !important;
+    padding-left: 100px !important;
 }
 
 .iti__country,
@@ -8988,7 +8980,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .book-appointment .container-formBox button[type="submit"] {
 
-    margin: 48px auto 0;
+    margin: 32px auto 0;
 }
 
 .book-appointment .checkboxes div label {
@@ -14477,14 +14469,7 @@ div.error-message {
 
 }
 
-.container-profileUser .iti--allow-dropdown .iti__flag-container,
-.iti--separate-dial-code .iti__flag-container {
-    right: auto;
-    left: 0;
-    bottom: unset;
-    top: 50%;
-    transform: translatey(calc(50% + 8px));
-}
+
 
 .details-user {
     position: relative;
@@ -14568,14 +14553,7 @@ div.error-message {
     background: transparent !important;
 }
 
-.container-formBox .iti--allow-dropdown .iti__flag-container,
-.container-formBox .iti--separate-dial-code .iti__flag-container {
-    transform: translatey(calc(-50% - 3px));
-    -webkit-transform: translatey(calc(-50% - 3px));
-    -moz-transform: translatey(calc(-50% - 3px));
-    -ms-transform: translatey(calc(-50% - 3px));
-    -o-transform: translatey(calc(-50% - 3px));
-}
+
 
 
 .remodal .iti {
@@ -14683,6 +14661,7 @@ div.error-message {
 .form-area-tel .input.text{
         position: absolute;
         top: 50%;
+        left: 12px;
         transform: translatey(-50%);
         -webkit-transform: translatey(-50%);
         -moz-transform: translatey(-50%);
@@ -14694,5 +14673,26 @@ div.error-message {
 .form-area-tel .input.text .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{
     position: unset;
     transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+}
 
+.step-back-slider .owl-step-back .image-box{
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    overflow: hidden;
+}
+
+.step-back-slider .owl-step-back .image-box img{
+    border-radius: 20px;
+
+}
+
+.one-line-area {
+    grid-column: 1/3;
 }
