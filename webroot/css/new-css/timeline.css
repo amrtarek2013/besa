@@ -16,13 +16,13 @@
 }
 
 .timeline {
-  width: 1200px;
+  max-width: 1180px;
 
 }
 
 .timeline-list {
   position: relative;
-  width: 1200px;
+  max-width: 1180px;
 
   overflow: hidden;
   margin: 0;
