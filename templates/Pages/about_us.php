@@ -86,7 +86,7 @@
 ]) ?>
 
 <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
         "use strict";
         // Triger  timeline slider
         $(".custome-timeline").Timeline({
@@ -122,7 +122,7 @@
         //     var $cols = $(".timeline-horizontal .timeline-dots li");
         //     var numberOfCols = $cols.length;
         //     $cols.css("width", 100 / numberOfCols + "%");
-        // }).resize(); // Trigger resize to set initial width
+        // }). resize(); // Trigger resize to set initial width
 
     });
 </script>

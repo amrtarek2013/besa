@@ -203,10 +203,8 @@
 .timeline,
 .timeline-list,
 .timeline-item {
-  width: 100%;
-  /* Instead of fixed 1200px */
-  max-width: 1200px;
-  /* Optional: if you want to limit the max width */
+  width: 1180px;
+  max-width: 1180px;
 }
 
 .timeline-item {
