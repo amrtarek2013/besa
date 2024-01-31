@@ -42,9 +42,12 @@ class UniversitiesController extends AppController
     }
     public function details($id = null)
     {
-        $university = $this->Universities->findByPermalink($id)->first();
-        $this->Universities->find()
-            ->contain(['Countries' => ['fields' => ['country_name']]])
+        $university = //$this->Universities->findByPermalink($id)->first();
+            $this->Universities->find()
+            ->contain([
+                'Countries' => ['fields' => ['country_name']],
+                'UniversityImages' => ['fields' => ['image', 'university_id']]
+            ])
             ->where(['Universities.permalink' => $id])->first();
 
 
@@ -60,6 +63,12 @@ class UniversitiesController extends AppController
 
             throw new NotFoundException(__('Not found'));
 
+
+        $this->loadModel('SubjectAreas');
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1, 'university_id' => $university['id']])->order(['rank' => 'desc'])->limit(10)->toArray();
+        $this->set('popularSubjectAreas', $subjectAreas);
         // print_r($university);
         $this->set('university', $university);
         $this->set('uniCourses', $uniCourses);

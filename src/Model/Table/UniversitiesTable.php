@@ -133,6 +133,7 @@ class UniversitiesTable extends Table
 
         $this->belongsTo('Countries')->setForeignKey('country_id');
         $this->hasMany('UniversityCourses')->setForeignKey('university_id');
+        $this->hasMany('UniversityImages')->setForeignKey('university_id');
     }
 
 

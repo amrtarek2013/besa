@@ -119,7 +119,7 @@ class UsersTable extends Table
 
 
 
-  public function validationRegister(Validator $validator): Validator
+  public function validationstep0(Validator $validator): Validator
   {
 
     $validator->notEmptyString('first_name', 'This field is required.');
@@ -164,6 +164,66 @@ class UsersTable extends Table
     $validator->minLength('password', 6, 'Passowrd length must be greater than 6 letters.')
       ->equalToField('password', 'passwd', 'Password must be same as the confirm password field')
       ->notEmptyString('password', 'This field is required.');
+
+    return $validator;
+  }
+  public function validationStep1(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('subject_area_ids', 'This field is required.');
+    
+    $validator->add('g-recaptcha-response', [
+      'checkCaptchaV3' => [
+        'rule' => 'checkCaptchaV3',
+        'provider' => 'table',
+        'message' => 'Page session expired, please reload the page!!',
+      ]
+    ]);
+
+    return $validator;
+  }
+  public function validationStep2(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('study_level_id', 'This field is required.');
+    
+    $validator->add('g-recaptcha-response', [
+      'checkCaptchaV3' => [
+        'rule' => 'checkCaptchaV3',
+        'provider' => 'table',
+        'message' => 'Page session expired, please reload the page!!',
+      ]
+    ]);
+
+    return $validator;
+  }
+  public function validationStep3(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('country_id', 'This field is required.');
+    
+    $validator->add('g-recaptcha-response', [
+      'checkCaptchaV3' => [
+        'rule' => 'checkCaptchaV3',
+        'provider' => 'table',
+        'message' => 'Page session expired, please reload the page!!',
+      ]
+    ]);
+
+    return $validator;
+  }
+  public function validationStep4(Validator $validator): Validator
+  {
+
+    $validator->notEmptyString('budget', 'This field is required.');
+    
+    $validator->add('g-recaptcha-response', [
+      'checkCaptchaV3' => [
+        'rule' => 'checkCaptchaV3',
+        'provider' => 'table',
+        'message' => 'Page session expired, please reload the page!!',
+      ]
+    ]);
 
     return $validator;
   }

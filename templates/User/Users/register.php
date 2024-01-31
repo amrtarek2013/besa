@@ -22,8 +22,11 @@ use Cake\Routing\Router;
 
   $bd = $user['bd'] ? explode('-', $user['bd']) : []; ?>
   <?= $this->Form->create($user, array('id' => 'search-courses-steps', 'class' => 'register')); ?>
-  <!-- <?= $this->Form->create(null, ['method' => 'get', 'action' => 'results', 'id' => 'search-courses-steps']); ?> -->
-
+  <?php
+  // if(isset($_SESSION['laststep']))
+  // var_dump($_SESSION);
+  // die;
+  ?>
   <div class="sign-ups">
 
     <div class="steps-en">
@@ -32,106 +35,85 @@ use Cake\Routing\Router;
           <div class="steps-background">
 
             <div class="step-container">
-              <div id="step1" class="step active">
+              <div id="step1" class="step <?= $laststep == 0 ? 'active' : '' ?>">
                 <div class="form-step">
                   <a href="<?= Router::url('/') ?>" class="back-link"> <img src="<?= WEBSITE_URL ?>img/new-desgin/arrow-back.svg" alt=""> Back to home</a>
                   <h4 class="title-step">Welcome to BESA</h4>
                   <h5 class="title-small">Finish signing up</h5>
+                  <?php
+
+                  // var_dump($_SESSION);
+                  // die;
+                  echo $this->Form->control('id', [
+                    'type' => 'hidden', 'value' => (isset($_SESSION['laststep']) && isset($_SESSION['userData']) ? $_SESSION['userData']['id'] : '')
+                  ]);
+                  ?>
+                  <?= $this->Form->control('laststep', [
+                    'type' => 'hidden', 'value' => $laststep
+                  ])
+                  ?>
                   <div class="grid-container">
-                    <?= $this->Form->control('first_name', [
-                      'placeholder' => 'Name',
-                      'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
-                    ])
-                    ?>
-
-                    <?= $this->Form->control('last_name', [
-                      'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                    ])
-                    ?>
-
-                    <?= $this->Form->control('country_id', [
-                      'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
-                      'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                    ])
-                    ?>
-                    <?= $this->Form->control('email', [
-                      'type' => 'email',
-                      'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                    ])
-                    ?>
-                    <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
-
-                    <!--
-              <?= $this->Form->control('current_status', [
-                'type' => 'text', 'placeholder' => 'Current/Previous-(School/University)', 'label' => 'Current/Previous-(School/University) *', 'required' => true,
-                'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-              ])
-              ?>
-           <?= $this->Form->control('nationality_id', [
-              'placeholder' => 'Nationality*', 'label' => 'Nationality*', 'required' => true,
-              'type' => 'select', 'empty' => 'Select Nationality*',
-              'options' => $countriesList,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
-
-            <?= $this->Form->control('city', [
-              'type' => 'text', 'placeholder' => 'City', 'label' => 'City*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?> -->
-
-
-                    <?= $this->Form->control('current_status', [
-                      'type' => 'text', 'placeholder' => 'Current School/University/Occupation', 'label' => 'Current School/University/Occupation *', 'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                    ]) ?>
-
                     <?php
-                    /*
-                     <?= $this->Form->control('current_study_level', [
-                            'placeholder' => 'Current/last Level of study*', 'type' => 'select', 'empty' => 'Select Current/last Level of study*',
-                            'options' => $mainStudyLevels, 'label' => 'Current/last Level of study*', 'required' => true,
-                            'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-                          ]) ?>
-
-
-
-            <?= $this->Form->control('subject_area_id', [
-              'placeholder' => 'Major/subject of your study', 'type' => 'select', 'empty' => 'Select Major/subject of your study',
-              'options' => $subjectAreas, 'label' => 'Major/subject of your study', 
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}" id="subject-area">{{content}}</div>']
-            ]) ?>
-
-
-            <?= $this->Form->control('destination_id', [
-              'placeholder' => 'Country you study at', 'type' => 'select', 'empty' => 'Select Country you study at',
-              'options' => $countriesList, 'label' => 'Country you study at*', 'required' => true,
-              'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
-            ]) ?>
-            <?php
-            */
-                    ?>
-
-                    <?= $this->Form->control('password', [
-                      'type' => 'password',
-                      'placeholder' => 'Password',
-                      'label' => 'Password*',
-                      'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
-                    ])
-                    ?>
-                    <?= $this->Form->control('passwd', [
-                      'type' => 'password',
-                      'placeholder' => 'Confirm Password',
-                      'label' => 'Confirm Password*',
-                      'required' => true,
-                      'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
-                    ])
+                    if ($laststep == 0) {
 
                     ?>
+                      <?= $this->Form->control('first_name', [
+                        'placeholder' => 'Name',
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>'], 'label' => 'Name*', 'required' => true
+                      ])
+                      ?>
 
+                      <?= $this->Form->control('last_name', [
+                        'placeholder' => 'Last name*', 'label' => 'Last name*', 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                      ])
+                      ?>
+
+                      <?= $this->Form->control('country_id', [
+                        'placeholder' => 'Country of Residence', 'type' => 'select', 'empty' => 'Select Country of Residence',
+                        'options' => $countriesList, 'label' => 'Country of Residence*', 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                      ])
+                      ?>
+                      <?= $this->Form->control('email', [
+                        'type' => 'email',
+                        'placeholder' => 'Email', 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                      ])
+                      ?>
+                      <?= $this->element('mobile_with_code', ['phone_name' => 'mobile', 'phone_label' => 'Mobile', 'phone_code' => 'mobile_code']) ?>
+                      <?= $this->Form->control('current_status', [
+                        'type' => 'text', 'placeholder' => 'Current School/University/Occupation', 'label' => 'Current School/University/Occupation *', 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                      ]) ?>
+
+                      <?= $this->Form->control('password', [
+                        'type' => 'password',
+                        'placeholder' => 'Password',
+                        'label' => 'Password*',
+                        'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'password\')"></i></div>']
+                      ])
+                      ?>
+                      <?= $this->Form->control('passwd', [
+                        'type' => 'password',
+                        'placeholder' => 'Confirm Password',
+                        'label' => 'Confirm Password*',
+                        'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{required}}">{{content}}<i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility(\'passwd\')"></i></div>']
+                      ])
+
+                      ?>
+                    <?php
+                    } else {
+                      echo $this->Form->control('email', [
+                        'type' => 'email',
+                        'placeholder' => 'Email','value'=>$user['email'],'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                        'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
+                      ]);
+                    }
+
+                    ?>
 
                   </div>
                   <div class="container-checkboxes">
@@ -149,17 +131,18 @@ use Cake\Routing\Router;
                 </div>
               </div>
 
-              <div id="step2" class="step">
+              <div id="step2" class="step <?= $laststep == 1 ? 'active' : '' ?>">
                 <div class="common-services services-2 services-4">
                   <h2 class="title">What do you want to study?</h2>
                   <p class="title-small">Select the subject that you are interested in. <br> you can pick up to 5.</p>
-                  <!-- <input name="subject_area_id" id="subject_area_id" placeholder="Search for Subject Area" /> -->
-                  <div class="search search-step">
+                  <!-- <input name="subject_area_ids" id="subject_area_ids" placeholder="Search for Subject Area" /> -->
+                  <!-- <div class="search search-step">
                     <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject" />
-                  </div>
-                  <?= $this->Form->control('subject_area_id', [
+                  </div> -->
+                
+                  <?= $this->Form->control('subject_area_ids', [
                     'placeholder' => 'Search for Subject', 'type' => 'select', 'empty' => 'Search for Subject',
-                    'options' => $subjectAreas, 'label' => false, 'id' => 'subject_area', 'class' => 'select-single subject_area',
+                    'options' => $subjectAreas, 'label' => false, 'id' => 'subject_area', 'multiple' => 'multiple','class' => 'select-multiple subject_area',
                     'templates' => ['inputContainer' => '<div class="search search-step {{rquired}}" id="subject-area">{{content}}</div>']
                   ]) ?>
                   <div class="subjects-container">
@@ -168,25 +151,25 @@ use Cake\Routing\Router;
                       <!-- <div class="subject">Business</div> -->
                       <?php if (!empty($popularSubjectAreas)) {
                         // print_r($subjectAreas)
-                        
+
                       ?>
                         <?php foreach ($popularSubjectAreas as $key => $subjectArea) { ?>
                           <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
                             <?= $subjectArea ?>
                           </div>
                         <?php } ?>
-                        <?php 
+                      <?php
                       } ?>
                     </div>
 
                   </div>
 
-                  <input type="hidden" name="subject_area_id" id="subject_area_id" value=''>
+                  <!-- <input type="hidden" name="subject_area_ids" id="subject_area_id" value=''> -->
                 </div>
 
               </div>
 
-              <div id="step3" class="step">
+              <div id="step3" class="step <?=$laststep == 2?'active':''?>">
                 <!-- Step 1 content here -->
                 <h2 class="title">What study level do you <br> wish to apply for ?</h2>
 
@@ -210,7 +193,7 @@ use Cake\Routing\Router;
                       <p class="title-small">Select your preferred study level.</p>
                       <div class="grid-subjects">
                         <?php foreach ($studyLevels as $studyLevelId => $studyLevelTitle) { ?>
-                          <div class="subject" onclick="selectStudyLevel(<?= $studyLevelId ?>, this)" data-selected="false" id="subject-<?= $studyLevel['id'] ?>">
+                          <div class="subject" onclick="selectStudyLevel(<?= $studyLevelId ?>, this)" data-selected="false" id="subject-<?= $studyLevelId ?>">
                             <?= $studyLevelTitle ?>
                           </div>
                         <?php } ?>
@@ -240,7 +223,7 @@ use Cake\Routing\Router;
               </div>
 
               <!-- <input type="hidden" name="degree" id="degree" value="1"> -->
-              <div id="step4" class="step">
+              <div id="step4" class="step <?=$laststep == 3?'active':''?>">
                 <!-- Step 3 content here -->
                 <div class="common-services services-2 services-4">
                   <h2 class="title">Which countries do you want <br> to study in?</h2>
@@ -319,7 +302,7 @@ use Cake\Routing\Router;
               </div>
 
 
-              <div id="step5" class="step">
+              <div id="step5" class="step <?=$laststep == 4?'active':''?>">
                 <!-- Step 4 content here -->
                 <h2 class="title">Budget?</h2>
                 <div class="selectors-container">
@@ -443,6 +426,8 @@ echo $this->Html->css('select2');
       allowClear: true
     });
   });
+  
+let currentStep = <?= $laststep ?>; // Current step index
 </script>
 
 <script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
@@ -453,6 +438,24 @@ echo $this->Html->css('select2');
 <?= $this->Html->script([
   '/js/new-js/register-script-steps-en.js?v=' . time()
 ]) ?>
+
+<?php
+
+if (isset($laststep)) {
+?>
+  <script>
+    $(document).ready(function() {
+
+      showStep(<?= $laststep ?>);
+
+      $('#laststep').val(<?= $laststep ?>);
+      // alert(<?= $laststep ?>);
+    });
+  </script>
+<?php
+
+}
+?>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -468,7 +471,7 @@ echo $this->Html->css('select2');
       var selected_course = $(this).data("course");
       $('.course-box').removeClass('active');
       $(this).addClass('active');
-      $("#subject_area_id").val(selected_course);
+      $("#subject_area_ids").val(selected_course);
     });
     $('.level-box').on('click', function() {
       var selected_level = $(this).data("level");
@@ -560,7 +563,7 @@ echo $this->Html->css('select2');
     //     // 'destination_id': {
     //     //   required: true,
     //     // },
-    //     // 'subject_area_id': {
+    //     // 'subject_area_ids': {
     //     //   required: true,
     //     // },
     //     // 'city': {

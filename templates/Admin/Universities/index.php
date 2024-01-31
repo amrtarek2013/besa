@@ -58,6 +58,10 @@
 
                         $actions = [
                             'view'=>$this->Html->link(__('Subjects'), ['controller'=>'UniversitySubjects','action' => 'index', '%id%'], array('class' => 'btn btn-primary btn-sm','icon'=>'fas fa-list')),
+                            array(
+                                'condition' => '$row["id"]!=4',
+                                'value' => $this->Html->link(__('Slider', true), array('controller' => 'university-images', 'action' => 'index', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fas fa-arrow-right')),
+                            )
                             // 'edit' => $this->Html->link(__('Edit'), array('action' => 'edit', '%id%'), array('class' => 'btn btn-info btn-sm', 'icon' => 'fas fa-pencil-alt')),
 
                             // 'delete' => $this->Html->link(
