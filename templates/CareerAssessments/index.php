@@ -16,7 +16,7 @@ h1 {
 
 }
 label{
-    margin: 0 20px;
+    margin: 0 15px;
 
 }
 
@@ -42,7 +42,7 @@ p {
 
 /* Styling the radio buttons and the labels */
 input[type="radio"] {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 /* Enhancing the look of the button */
