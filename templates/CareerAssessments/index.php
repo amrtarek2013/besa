@@ -44,7 +44,6 @@ foreach ($questions as $clause => $items) {
                 $item["choices"],
                 [
                     "empty" => "Select an option",
-                    "required" => true
                 ]
             ) ?>
         <?php endforeach; ?>
