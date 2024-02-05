@@ -42,7 +42,10 @@ foreach ($questions as $clause => $items) {
             <?= $this->Form->select(
                 $item["phrase"],
                 $item["choices"],
-                ["empty" => "Select an option"]
+                [
+                    "empty" => "Select an option",
+                    "required" => true
+                ]
             ) ?>
         <?php endforeach; ?>
     </fieldset>
