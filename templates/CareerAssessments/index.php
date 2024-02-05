@@ -3,7 +3,6 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    margin: 20px;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -54,6 +53,8 @@ button, input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
+    margin: 0 auto 50px;
+    display: block;
 }
 
 button:hover, input[type="submit"]:hover {
