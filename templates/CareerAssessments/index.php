@@ -10,6 +10,14 @@ body {
 
 h1 {
     color: #333;
+    text-align: center;
+    font-size: 48px;
+    margin: 30px 0;
+
+}
+label{
+    margin: 0 20px;
+
 }
 
 fieldset {
@@ -18,6 +26,8 @@ fieldset {
     margin-bottom: 20px;
     border-radius: 5px;
     background: white;
+    width: 60%;
+    margin: 0  auto 40px;
 }
 
 legend {
@@ -58,12 +68,16 @@ br {
 
 /* Additional styles for responsiveness and accessibility */
 @media (max-width: 600px) {
+    h1{
+        font-size:28px
+    }
     body {
         margin: 10px;
     }
 
     fieldset {
         padding: 10px;
+        width: 90%;
     }
 }
 
