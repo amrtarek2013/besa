@@ -39,14 +39,12 @@ foreach ($questions as $clause => $items) {
         <legend><?= $clause ?></legend>
         <?php foreach ($items as $item) : ?>
             <p><?= $item["phrase"] ?></p>
-            <?= $this->Form->select(
+            <?= $this->Form->radio(
                 $item["phrase"],
                 $item["choices"],
-                [
-                    "empty" => "Select an option",
-                    "required" => true
-                ]
+                ["required" => true]
             ) ?>
+            <br /><br />
         <?php endforeach; ?>
     </fieldset>
 <?php endforeach; ?>
