@@ -26,7 +26,7 @@ fieldset {
     margin-bottom: 20px;
     border-radius: 5px;
     background: white;
-    width: 60%;
+    width: 65%;
     margin: 0  auto 40px;
 }
 
@@ -78,6 +78,9 @@ br {
     fieldset {
         padding: 10px;
         width: 90%;
+    }
+    label{
+        display:block;
     }
 }
 
