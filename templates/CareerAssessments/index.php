@@ -1,8 +1,6 @@
 <style>
     /* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -12,10 +10,12 @@ h1 {
     text-align: center;
     font-size: 48px;
     margin: 30px 0;
+    font-weight: bold;
 
 }
 label{
     margin: 0 15px;
+    font-size: 16px;
 
 }
 
@@ -30,13 +30,15 @@ fieldset {
 }
 
 legend {
-    font-size: 1.2em;
+    font-size: 28px;
     font-weight: bold;
     color: #333;
 }
 
 p {
-    margin: 10px 0;
+    margin: 20px 0 15px;
+    font-size: 18px;
+
 }
 
 /* Styling the radio buttons and the labels */
