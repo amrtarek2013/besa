@@ -458,7 +458,7 @@ class UsersController extends AppController
         $this->set('mainStudyLevels', $this->StudyLevels->mainStudyLevels);
         $this->set('studyLevels', $studyLevels);
 
-        // $this->loadModel('SubjectAreas');
+        $this->loadModel('SubjectAreas');
         // $subjectAreas = $this->SubjectAreas->find('list', [
         //     'keyField' => 'id', 'valueField' => 'title'
         // ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();

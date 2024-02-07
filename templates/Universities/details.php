@@ -32,7 +32,6 @@
                             Rank
                             <span><?= $university['rank']  ?></span>
                         </div>
-
                     </div>
                     <div class="content-container">
                         <div class="content">
