@@ -2493,7 +2493,7 @@
         justify-content: flex-start;
     }
 
-    .country-tag{
+    .country-tag {
         width: max-content;
     }
 
@@ -3171,7 +3171,8 @@
     }
 
     .background-login-page {
-        padding: 40px 20px;    height: 100vh;
+        padding: 40px 20px;
+        height: 100vh;
 
     }
 
@@ -3875,9 +3876,17 @@
         -moz-transform: translatey(0);
         -ms-transform: translatey(0);
         -o-transform: translatey(0);
-}
+    }
 
-.hero-slider-countries .main-slider .owl-nav button.owl-next, .hero-slider-countries .main-slider .owl-nav button.owl-prev{
-    display: none;
-}
+    .hero-slider-countries .main-slider .owl-nav button.owl-next,
+    .hero-slider-countries .main-slider .owl-nav button.owl-prev {
+        display: none;
+    }
+
+    .timeline,
+    .timeline-list,
+    .timeline-item {
+        width: 300.5px;
+        margin: auto;
+    }
 }
