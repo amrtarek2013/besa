@@ -49,7 +49,7 @@ class CareerAssessmentsController extends AppController
             // Check if the line starts with a number followed by a period (e.g., "1.")
             if (preg_match('/^\d+\./', $trimmedLine)) {
                 // Wrap the line in <h1> tags
-                $processedLines[] = "<h6>$trimmedLine</h6>";
+                $processedLines[] = "<p>$trimmedLine</p>";
             }
         }
 

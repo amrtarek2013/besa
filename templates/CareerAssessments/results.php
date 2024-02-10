@@ -31,14 +31,14 @@
     }
 
     legend {
-        font-size: 28px;
+        font-size: 17px;
         font-weight: bold;
         color: #333;
     }
 
     p {
         margin: 20px 0 15px;
-        font-size: 18px;
+        font-size: 16px;
 
     }
 
