@@ -15,7 +15,51 @@ class CareerAssessmentsController extends AppController
         $query = "SELECT clause, phrase, choices FROM career_assessments_question_clauses AS A, career_assessments_question_phrases AS B, career_assessments_question_choices AS C WHERE A.id = B.clause_id AND C.id = B.choices_id;";
         $data = $connection->execute($query)->fetchAll("assoc");
         $this->set(compact("data"));
+
+        $text = 'Based on your interests and preferences, here are some career recommendations for you:
+
+            1. Data Analyst or Statistician: You enjoy analyzing data using statistics, so a career in data analysis or statistics could be a good fit for you.
+            
+            2. Substance Abuse Counselor: You have an interest in counseling people with drug or alcohol addiction, so a career in substance abuse counseling could be rewarding for you.
+            
+            3. Film Producer or Director: You are interested in directing the making of a movie and entertaining an audience, so a career in film production or directing could be a great match for you.
+            
+            4. Financial Analyst or Investment Manager: Given your interest in finance, critical thinking, and decision-making, a career in financial analysis or investment management could be a good fit for you.
+            
+            5. Environmental Engineer or Conservationist: With your interest in investigating causes of climate change and nature and agriculture, a career in environmental engineering or conservation could be fulfilling for you.
+            
+            These are just a few options based on your interests and preferences. It\'s important to further research these careers and consider your skills and strengths to make an informed decision.';
     }
+    public function processedText($text)
+    {
+        // Split the text into lines
+        $lines = explode("\n", $text);
+
+        // Initialize an array to hold the processed lines
+        $processedLines = [];
+
+        // Iterate through each line
+        foreach ($lines as $line) {
+            // Trim whitespace
+            $trimmedLine = trim($line);
+
+            // Skip empty lines
+            if (empty($trimmedLine)) continue;
+
+            // Check if the line starts with a number followed by a period (e.g., "1.")
+            if (preg_match('/^\d+\./', $trimmedLine)) {
+                // Wrap the line in <h1> tags
+                $processedLines[] = "<h6>$trimmedLine</h6>";
+            }
+        }
+
+        // Combine the processed lines back into a single string
+        $processedText =   implode("\n", $processedLines);
+
+        // Print the processed text
+        return $processedText;
+    }
+
 
     public function results()
     {
@@ -48,9 +92,8 @@ class CareerAssessmentsController extends AppController
         ]);
 
         $response = json_decode($chat)->choices[0]->message->content;
-         
-        debug($response);
-        die;
+
+        $response = $this->processedText($response);
         $this->request->getSession()->write("results", $response);
 
         return $this->redirect([
