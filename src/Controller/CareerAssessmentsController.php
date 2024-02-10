@@ -48,6 +48,9 @@ class CareerAssessmentsController extends AppController
         ]);
 
         $response = json_decode($chat)->choices[0]->message->content;
+         
+        debug($response);
+        die;
         $this->request->getSession()->write("results", $response);
 
         return $this->redirect([
