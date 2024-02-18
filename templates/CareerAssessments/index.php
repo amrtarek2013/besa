@@ -182,42 +182,29 @@ width:100%
 
 .search-confirmation {
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
+  
 }
 
-.magnifier {
-    display: inline-block;
-    padding: 20px;
-    background-image: url('magnifier-checkmark.png'); /* Replace with the path to your image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 64px; /* Adjust as necessary */
-    width: 64px; /* Adjust as necessary */
-}
 
-.checkmark {
-    /* Style your checkmark */
-}
 
 .confirmation-text {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 16px;
-    color: #333;
+    color: #263238;
 }
 
 .buttons .btn-confirmation {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    background-color: #F7F7F7;
     padding: 10px 20px;
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: 8px;
+    margin: 5px auto;
     cursor: pointer;
+    color: #263238;
     outline: none;
+    font-size:28px;
+    font-weight: 600;
+
 }
 
 .buttons .btn-confirmation:hover {
@@ -225,8 +212,8 @@ width:100%
 }
 
 .explore {
-    background-color: #007bff;
-    color: white;
+    background-color:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    color: #fff;
     margin-top: 15px;
 }
 
