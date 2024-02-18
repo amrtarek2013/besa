@@ -1,12 +1,8 @@
 <style>
-    /* Base styles */
-body {
-    background-color: #f4f4f4;
-    color: #333;
-}
+
 
 h1 {
-    color: #333;
+    color: #263238;
     text-align: center;
     font-size: 48px;
     margin: 30px 0;
@@ -32,7 +28,7 @@ fieldset {
 legend {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
+    color: #263238;
 }
 
 p {
@@ -115,17 +111,21 @@ h2 {
 }
 
 .option {
-  font-size: 16px;
-    height:56px;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  text-align: left;
-  border: 1px solid #CFD8DC  
-  color: #263238;
-  cursor: pointer;
-  position: relative; 
+    font-size: 16px;
+    height: 56px;
+    display: flex;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #CFD8DC;
+    cursor: pointer;
+    position: relative;
+    color: #263238;
+    background: transparent;
+    padding-left: 45px;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 0 20px 0;
+
 }
 
 .option-number {
@@ -137,7 +137,7 @@ h2 {
   height: 24px;
   line-height: 20px;
   text-align: center;
-  background-color: #fff;
+  background: transparent;
   border-radius: 6px;
   color: #263238;
   border: 1px solid #000000
@@ -153,11 +153,14 @@ h2 {
   border: none;
   color: #007bff;
   cursor: pointer;
-  font-size:14px
+  font-size:14px;
+  margin:0
 }
 
 .skip:hover {
   text-decoration: underline;
+  background: none;
+
 }
 
 </style>
