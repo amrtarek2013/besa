@@ -171,81 +171,10 @@ width:100%
   background: none;
 
 }
-/** CSS Search-verification */
-.container-verification {
-    width: 80%;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.search-verification {
-    margin-bottom: 30px;
-}
-
-.magnifying-glass {
-    font-size: 50px;
-    color: #4CAF50;
-}
-
-.assessment-text {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
-}
-
-.options .option-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 18px;
-    color: #555;
-    background-color: #e7e7e7;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.options .option-button:hover {
-    background-color: #ddd;
-}
-
-.explore-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 20px;
-    color: white;
-    background-color: #2196F3;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.explore-button:hover {
-    background-color: #0b7dda;
-}
 
 </style>
 
-<div class="container-verification">
-    <div class="search-verification">
-        <span class="magnifying-glass">&#128269;</span>
-        <p class="assessment-text">Based on our assessment<br>You are nominated to study</p>
-    </div>
-    <div class="options">
-        <button type="button" class="option-button">Medicine</button>
-        <button type="button" class="option-button">Sciences</button>
-    </div>
-    <button type="button" class="explore-button">Explore</button>
-</div>
+
 <?php
 
 $questions = [];
@@ -330,32 +259,17 @@ foreach ($questions as $clause => $items) {
 
 
 <script>
-function createOptions(numberOfOptions) {
-  const optionsContainer = document.querySelector('.options');
-  optionsContainer.innerHTML = ''; // Clear existing options if any
-  
-  for (let i = 1; i <= numberOfOptions; i++) {
-    let optionButton = document.createElement('button');
-    optionButton.classList.add('option');
-    optionButton.setAttribute('data-option', i);
-    optionButton.innerHTML = `<span class="option-number">${i}</span> Begin your discovery journey`;
-    
-    optionButton.addEventListener('click', function() {
-      alert('Option selected: ' + this.getAttribute('data-option'));
-      // Here you would handle the selection logic
-    });
-    
-    optionsContainer.appendChild(optionButton);
-  }
-}
-
-createOptions(5); // Call this function with the number of options you want
+ document.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', function() {
+    alert('Option selected: ' + this.getAttribute('data-option'));
+    // Here you would handle the selection logic
+  });
+});
 
 document.querySelector('.skip').addEventListener('click', function() {
   alert('Question skipped');
   // Here you would handle the skip logic
 });
-
 
 
 
