@@ -282,12 +282,11 @@ foreach ($questions as $clause => $items) {
     <p class="question-number">Question 1 of 24</p>
     <h2>What will you get from the Subject Discovery Assessment?</h2>
     <div class="options">
-      <button class="option" data-option="1">Begin your discovery journey</button>
-      <button class="option" data-option="2">Begin your discovery journey</button>
-      <button class="option" data-option="3">Begin your discovery journey</button>
-      <button class="option" data-option="4"> Begin your discovery journey</button>
-      <button class="option" data-option="5">Begin your discovery journey</button>
-      <button class="option" data-option="6">Begin your discovery journey</button>
+      <button class="option" data-option="1"> <span class="option-number ">1</span> Begin your discovery journey</button>
+      <button class="option" data-option="2"><span class="option-number ">2</span> Begin your discovery journey</button>
+      <button class="option" data-option="3"><span class="option-number ">3</span> Begin your discovery journey</button>
+      <button class="option" data-option="4"> <span class="option-number ">4</span> Begin your discovery journey</button>
+      <button class="option" data-option="5"><span class="option-number ">5</span> Begin your discovery journey</button>
 
     </div>
     <button class="skip">Skip Question</button>
