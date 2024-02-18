@@ -216,7 +216,9 @@ foreach ($questions as $clause => $items) {
       <button class="option" data-option="2"><span class="option-number">2</span>Begin your discovery journey</button>
       <button class="option" data-option="3"><span class="option-number">3</span>Begin your discovery journey</button>
       <button class="option" data-option="4"><span class="option-number">4</span>Begin your discovery journey</button>
-      <button class="option" data-option="5"><span class="option-number">5</span>Begin your discovery journey</button>
+      <button class="option" data-option="5">Begin your discovery journey</button>
+      <button class="option" data-option="6">Begin your discovery journey</button>
+
     </div>
     <button class="skip">Skip Question</button>
   </div>
