@@ -172,7 +172,81 @@ width:100%
 
 }
 
+/** container-confirmation */
+.container-confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.search-confirmation {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+.magnifier {
+    display: inline-block;
+    padding: 20px;
+    background-image: url('magnifier-checkmark.png'); /* Replace with the path to your image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 64px; /* Adjust as necessary */
+    width: 64px; /* Adjust as necessary */
+}
+
+.checkmark {
+    /* Style your checkmark */
+}
+
+.confirmation-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.buttons .btn-confirmation {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.buttons .btn-confirmation:hover {
+    background-color: #e7e7e7;
+}
+
+.explore {
+    background-color: #007bff;
+    color: white;
+    margin-top: 15px;
+}
+
+.explore:hover {
+    background-color: #0056b3;
+}
 </style>
+<div class="container-confirmation">
+    <div class="search-confirmation">
+        <div class="magnifier">
+        <img src="<?= WEBSITE_URL ?>img/new-desgin/search-confirmation.png" alt="search confirmation" loading="lazy">
+        </div>
+        <p class="confirmation-text">Based on our assessment<br>You are nominated to study</p>
+        <div class="buttons">
+            <button  id="medicine" class=" button btn-confirmation">Medicine</button>
+            <button  id="sciences"  class="button btn-confirmation">Sciences</button>
+        </div>
+        <button class="button explore" id="explore">Explore</button>
+    </div>
+</div>
 
 
 <?php
