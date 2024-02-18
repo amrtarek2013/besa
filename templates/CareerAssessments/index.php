@@ -143,6 +143,8 @@ width:100%
   border: 1px solid #000000;
   display: flex;
   align-items: center;
+  justify-content: center;
+
   font-weight: 600;
   font-size: 14px;
 
