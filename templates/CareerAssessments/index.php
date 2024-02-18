@@ -1,7 +1,5 @@
 <style>
-/* Place this in a CSS file, for example, `webroot/css/style.css` */
-
-/* Base styles */
+    /* Base styles */
 body {
     background-color: #f4f4f4;
     color: #333;
@@ -13,6 +11,12 @@ h1 {
     font-size: 48px;
     margin: 30px 0;
     font-weight: bold;
+
+}
+label{
+    margin: 0 15px;
+    font-size: 16px;
+
 }
 
 fieldset {
@@ -22,7 +26,7 @@ fieldset {
     border-radius: 5px;
     background: white;
     width: 65%;
-    margin: 20px auto;
+    margin: 0  auto 40px;
 }
 
 legend {
@@ -32,14 +36,17 @@ legend {
 }
 
 p {
-    margin: 20px 0;
+    margin: 20px 0 15px;
     font-size: 18px;
+
 }
 
+/* Styling the radio buttons and the labels */
 input[type="radio"] {
     margin-right: 5px;
 }
 
+/* Enhancing the look of the button */
 button, input[type="submit"] {
     background-color: #5cb85c; /* Green */
     color: white;
@@ -56,6 +63,7 @@ button:hover, input[type="submit"]:hover {
     background-color: #449d44; /* Darker green */
 }
 
+/* Adding some space between form elements */
 br {
     clear: both;
     margin-bottom: 10px;
@@ -63,15 +71,19 @@ br {
 
 /* Additional styles for responsiveness and accessibility */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 28px;
+    h1{
+        font-size:28px
     }
     body {
         margin: 10px;
     }
+
     fieldset {
         padding: 10px;
         width: 90%;
+    }
+    label{
+        display:block;
     }
 }
 
@@ -113,42 +125,24 @@ foreach ($questions as $clause => $items) {
 
 ?>
 
-$this->Form->create(null, ["url" => ["controller" => "CareerAssessments", "action" => "submit"]]);
-?>
-
 <h1>Career Assessment</h1>
 
-<?php
-// Assuming $questions is defined in your controller and passed to the view
-$i = 0;
-foreach ($questions as $clause => $items) {
-    if ($i == 1 || $i == 3 || $i == 7) {
-        $itemsToRemove = sizeof($items) * ($i != 7 ? 0.98 : 0.66);
-        for ($j = 0; $j < $itemsToRemove; $j++) {
-            $randomIndex = array_rand($items);
-            unset($items[$randomIndex]);
-        }
-    }
-    $i++;
-?>
+<?= $this->Form->create(null, ["url" => ["controller" => "CareerAssessments", "action" => "submit"]]) ?>
 
-<fieldset>
-    <legend><?= h($clause) ?></legend>
-    <?php foreach ($items as $item): ?>
-    <p><?= h($item['phrase']) ?></p>
-    <?php
-        echo $this->Form->radio(
-            str_replace(' ', '_', $item['phrase']),
-            $item['choices'],
-            ['required' => true, 'escape' => false]
-        );
-    ?>
-    <br><br>
-    <?php endforeach; ?>
-</fieldset>
+<?php foreach ($questions as $clause => $items) : ?>
+    <fieldset>
+        <legend><?= $clause ?></legend>
+        <?php foreach ($items as $item) : ?>
+            <p><?= $item["phrase"] ?></p>
+            <?= $this->Form->radio(
+                $item["phrase"],
+                $item["choices"],
+                ["required" => true]
+            ) ?>
+            <br /><br />
+        <?php endforeach; ?>
+    </fieldset>
+<?php endforeach; ?>
 
-<?php
-}
-echo $this->Form->button(__('Submit'));
-echo $this->Form->end();
-?>
+<?= $this->Form->button("Submit") ?>
+<?= $this->Form->end() ?>
