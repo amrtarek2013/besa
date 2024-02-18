@@ -84,7 +84,8 @@ br {
 }
 
 :focus {
-    outline: 2px dashed #5cb85c;
+    outline: 2px dashed var(--text-color);
+
     outline-offset: 4px;
 }
 
@@ -159,7 +160,7 @@ width:100%
   display: block;
   background: none;
   border: none;
-  color: #007bff;
+  color: var(--text-color);
   cursor: pointer;
   font-size:14px;
   margin:0
