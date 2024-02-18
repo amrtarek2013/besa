@@ -19,7 +19,7 @@ fieldset {
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     background: white;
     width: 65%;
     margin: 0  auto 40px;
@@ -205,13 +205,13 @@ width:100%
     font-size:28px;
     font-weight: 600;
     height:64px;
-    max-width: 320px;
-    width:100%
+    max-width: 340px;
+    width:100%;
+    border-radius: 12px;
+
 }
 
-.buttons .btn-confirmation:hover {
-    background-color: #e7e7e7;
-}
+
 
 .explore {
     background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
@@ -220,8 +220,10 @@ width:100%
     height:56px;
     font-size:16px;
     font-weight: 600;
-    max-width: 320px;
-    width:100%
+    max-width: 340px;
+    width:100%;
+    border-radius: 12px;
+
 }
 
 
