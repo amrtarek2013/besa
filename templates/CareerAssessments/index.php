@@ -90,7 +90,7 @@ br {
 
 
 .assessment {
-  margin: 0;
+  margin: 100px 0 0;
 }
 
 .question-number {
@@ -125,7 +125,7 @@ h2 {
     align-items: center;
     max-width: 500px;
     margin: 0 0 20px 0;
-
+width:100%
 }
 
 .option-number {
@@ -140,7 +140,13 @@ h2 {
   background: transparent;
   border-radius: 6px;
   color: #263238;
-  border: 1px solid #000000
+  border: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+
+
 }
 
 .option:hover {
