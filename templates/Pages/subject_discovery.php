@@ -24,6 +24,8 @@
                         Whether you're a high school student seeking to chart your 
                         academic path or dreaming of studying abroad, this assessment is your compass    
                     </p>
+                    <a href="#" class="btn btn-new">Begin your discovery journey <img src="<?=WEBSITE_URL?>img/new-desgin/arrow-right-white.svg"  alt="" >  </a>
+
                 </div>
             </div>
 

@@ -13635,7 +13635,7 @@ div.error-message {
 
 .btn-new {
     border-radius: 12px;
-    background: linear-gradient(295deg, #D71921 10.91%, #FABA1B 122.26%);
+    background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
     padding: 16px 40px;
     margin: 100px auto 50px;
     max-width: 350px;
@@ -13646,6 +13646,8 @@ div.error-message {
     font-weight: 600;
     line-height: normal;
     grid-gap: 10px;
+    height: 56px;
+
 }
 
 .hero-subject-discovery {
