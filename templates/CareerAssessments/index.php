@@ -94,19 +94,20 @@ br {
 
 
 .assessment {
-  font-family: 'Arial', sans-serif;
-  max-width: 600px;
-  margin: auto;
+  margin: 0;
 }
 
 .question-number {
-  font-size: 0.9em;
-  color: #666;
+  font-size: 20px;
+  color: #546E7A;
+  font-weight: 400;
 }
 
 h2 {
-  color: #333;
-  font-size: 1.2em;
+  color: #263238;
+  font-size: 20px;
+  font-weight: 600;
+
 }
 
 .options {
@@ -114,16 +115,17 @@ h2 {
 }
 
 .option {
+  font-size: 16px;
+    height:56px;
   display: block;
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: left;
-  background: #f7f7f7;
-  border: 1px solid #ddd;
-  color: #333;
+  border: 1px solid #CFD8DC  
+  color: #263238;
   cursor: pointer;
-  position: relative; /* For absolute positioning of option-number */
+  position: relative; 
 }
 
 .option-number {
@@ -131,13 +133,14 @@ h2 {
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   line-height: 20px;
   text-align: center;
-  background-color: #ddd;
-  border-radius: 50%;
-  color: #333;
+  background-color: #fff;
+  border-radius: 6px;
+  color: #263238;
+  border: 1px solid #000000
 }
 
 .option:hover {
@@ -150,6 +153,7 @@ h2 {
   border: none;
   color: #007bff;
   cursor: pointer;
+  font-size:14px
 }
 
 .skip:hover {
@@ -189,7 +193,10 @@ foreach ($questions as $clause => $items) {
 
 ?>
 
-<div class="assessment">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="assessment">
   <div class="question">
     <p class="question-number">Question 1 of 24</p>
     <h2>What will you get from the Subject Discovery Assessment?</h2>
@@ -202,6 +209,9 @@ foreach ($questions as $clause => $items) {
     </div>
     <button class="skip">Skip Question</button>
   </div>
+</div>
+        </div>
+    </div>
 </div>
 
 
