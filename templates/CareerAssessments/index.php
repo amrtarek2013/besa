@@ -190,8 +190,10 @@ width:100%
 .confirmation-text {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 20px;
     color: #263238;
+    font-weight: 400;
+    line-height:30px;
 }
 
 .buttons .btn-confirmation {
@@ -216,7 +218,7 @@ width:100%
 .explore {
     background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
     color: #fff;
-    margin-top: 15px;
+    margin-top: 50px;
     height:56px;
     font-size:16px;
     font-weight: 600;
