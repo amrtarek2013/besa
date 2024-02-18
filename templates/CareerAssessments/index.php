@@ -256,27 +256,32 @@ foreach ($questions as $clause => $items) {
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const optionsContainer = document.getElementById('dynamicOptions');
-  const numberOfOptions = 5; // Set this to the number of options you want
-
+function createOptions(numberOfOptions) {
+  const optionsContainer = document.querySelector('.options');
+  optionsContainer.innerHTML = ''; // Clear existing options if any
+  
   for (let i = 1; i <= numberOfOptions; i++) {
-    let button = document.createElement('button');
-    button.className = 'option';
-    button.innerHTML = `<span class="option-number">${i}</span>Begin your discovery journey`;
-    button.setAttribute('data-option', i);
-    button.addEventListener('click', function() {
+    let optionButton = document.createElement('button');
+    optionButton.classList.add('option');
+    optionButton.setAttribute('data-option', i);
+    optionButton.innerHTML = `<span class="option-number">${i}</span> Begin your discovery journey`;
+    
+    optionButton.addEventListener('click', function() {
       alert('Option selected: ' + this.getAttribute('data-option'));
-      // Handle the selection logic here
+      // Here you would handle the selection logic
     });
-    optionsContainer.appendChild(button);
+    
+    optionsContainer.appendChild(optionButton);
   }
-});
+}
+
+createOptions(5); // Call this function with the number of options you want
 
 document.querySelector('.skip').addEventListener('click', function() {
   alert('Question skipped');
-  // Handle the skip logic here
+  // Here you would handle the skip logic
 });
+
 
 
 
