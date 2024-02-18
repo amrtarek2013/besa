@@ -254,17 +254,28 @@ foreach ($questions as $clause => $items) {
 
 
 <script>
- document.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', function() {
-    alert('Option selected: ' + this.getAttribute('data-option'));
-    // Here you would handle the selection logic
-  });
+document.addEventListener('DOMContentLoaded', function() {
+  const optionsContainer = document.getElementById('dynamicOptions');
+  const numberOfOptions = 5; // Set this to the number of options you want
+
+  for (let i = 1; i <= numberOfOptions; i++) {
+    let button = document.createElement('button');
+    button.className = 'option';
+    button.innerHTML = `<span class="option-number">${i}</span>Begin your discovery journey`;
+    button.setAttribute('data-option', i);
+    button.addEventListener('click', function() {
+      alert('Option selected: ' + this.getAttribute('data-option'));
+      // Handle the selection logic here
+    });
+    optionsContainer.appendChild(button);
+  }
 });
 
 document.querySelector('.skip').addEventListener('click', function() {
   alert('Question skipped');
-  // Here you would handle the skip logic
+  // Handle the skip logic here
 });
+
 
 
 </script>
