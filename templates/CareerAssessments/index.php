@@ -174,10 +174,7 @@ width:100%
 
 /** container-confirmation */
 .container-confirmation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  
 }
 
 .search-confirmation {
