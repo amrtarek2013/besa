@@ -204,7 +204,9 @@ width:100%
     outline: none;
     font-size:28px;
     font-weight: 600;
-
+    height:64px;
+    max-width: 320px;
+    width:100%
 }
 
 .buttons .btn-confirmation:hover {
@@ -212,14 +214,17 @@ width:100%
 }
 
 .explore {
-    background-color:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    background:  linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
     color: #fff;
     margin-top: 15px;
+    height:56px;
+    font-size:16px;
+    font-weight: 600;
+    max-width: 320px;
+    width:100%
 }
 
-.explore:hover {
-    background-color: #0056b3;
-}
+
 </style>
 <div class="container-confirmation">
     <div class="search-confirmation">
