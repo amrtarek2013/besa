@@ -123,6 +123,21 @@ h2 {
   border: 1px solid #ddd;
   color: #333;
   cursor: pointer;
+  position: relative; /* For absolute positioning of option-number */
+}
+
+.option-number {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #ddd;
+  border-radius: 50%;
+  color: #333;
 }
 
 .option:hover {
@@ -174,6 +189,22 @@ foreach ($questions as $clause => $items) {
 
 ?>
 
+<div class="assessment">
+  <div class="question">
+    <p class="question-number">Question 1 of 24</p>
+    <h2>What will you get from the Subject Discovery Assessment?</h2>
+    <div class="options">
+      <button class="option" data-option="1"><span class="option-number">1</span>Begin your discovery journey</button>
+      <button class="option" data-option="2"><span class="option-number">2</span>Begin your discovery journey</button>
+      <button class="option" data-option="3"><span class="option-number">3</span>Begin your discovery journey</button>
+      <button class="option" data-option="4"><span class="option-number">4</span>Begin your discovery journey</button>
+      <button class="option" data-option="5"><span class="option-number">5</span>Begin your discovery journey</button>
+    </div>
+    <button class="skip">Skip Question</button>
+  </div>
+</div>
+
+
 <h1>Career Assessment</h1>
 
 <?= $this->Form->create(null, ["url" => ["controller" => "CareerAssessments", "action" => "submit"]]) ?>
@@ -198,33 +229,21 @@ foreach ($questions as $clause => $items) {
 
 
 
-<div class="assessment">
-  <div class="question">
-    <p class="question-number">Question 1 of 24</p>
-    <h2>What will you get from the Subject Discovery Assessment?</h2>
-    <div class="options">
-      <button class="option">Begin your discovery journey</button>
-      <button class="option">Begin your discovery journey</button>
-      <button class="option">Begin your discovery journey</button>
-      <button class="option">Begin your discovery journey</button>
-      <button class="option">Begin your discovery journey</button>
-    </div>
-    <button class="skip">Skip Question</button>
-  </div>
-</div>
+
 
 
 <script>
-    document.querySelectorAll('.option').forEach(option => {
+ document.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', function() {
-    alert('Option selected: Begin your discovery journey');
-    // Here you would handle the selection logic, e.g., save the response and go to the next question
+    alert('Option selected: ' + this.getAttribute('data-option'));
+    // Here you would handle the selection logic
   });
 });
 
 document.querySelector('.skip').addEventListener('click', function() {
   alert('Question skipped');
-  // Here you would handle the skip logic, e.g., go to the next question
+  // Here you would handle the skip logic
 });
+
 
 </script>
