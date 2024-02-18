@@ -92,6 +92,55 @@ br {
     outline-offset: 4px;
 }
 
+
+.assessment {
+  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: auto;
+}
+
+.question-number {
+  font-size: 0.9em;
+  color: #666;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.2em;
+}
+
+.options {
+  margin: 20px 0;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  color: #333;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #e7e7e7;
+}
+
+.skip {
+  display: block;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.skip:hover {
+  text-decoration: underline;
+}
+
 </style>
 <?php
 
@@ -146,3 +195,36 @@ foreach ($questions as $clause => $items) {
 
 <?= $this->Form->button("Submit") ?>
 <?= $this->Form->end() ?>
+
+
+
+<div class="assessment">
+  <div class="question">
+    <p class="question-number">Question 1 of 24</p>
+    <h2>What will you get from the Subject Discovery Assessment?</h2>
+    <div class="options">
+      <button class="option">Begin your discovery journey</button>
+      <button class="option">Begin your discovery journey</button>
+      <button class="option">Begin your discovery journey</button>
+      <button class="option">Begin your discovery journey</button>
+      <button class="option">Begin your discovery journey</button>
+    </div>
+    <button class="skip">Skip Question</button>
+  </div>
+</div>
+
+
+<script>
+    document.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', function() {
+    alert('Option selected: Begin your discovery journey');
+    // Here you would handle the selection logic, e.g., save the response and go to the next question
+  });
+});
+
+document.querySelector('.skip').addEventListener('click', function() {
+  alert('Question skipped');
+  // Here you would handle the skip logic, e.g., go to the next question
+});
+
+</script>
