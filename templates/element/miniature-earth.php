@@ -161,10 +161,10 @@
                     280 * i
                 );
 
-                if (airports[i]['code'] == 'UK' || airports[i]['code'] == 'US')
-                    loader.load("/miniature-earth/demo/world-trip/thailand.glb", function(gltf) {
-                        gltf.scene.scale.multiplyScalar(0.3);
-                        marker.object3d.add(gltf.scene);
+                if (airports[i]['code'] == 'UK')
+                    loader.load("/miniature-earth/demo/world-trip/uk.glb", function(glb) {
+                        glb.scene.scale.multiplyScalar(0.3);
+                        marker.object3d.add(glb.scene);
                     });
                 // if (airports[i]['code'] == 'US')
                 //     loader.load("/miniature-earth/3d_scan_quixel_megascans.glb", function(gltf) {
