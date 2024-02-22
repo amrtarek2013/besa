@@ -161,7 +161,7 @@
                     280 * i
                 );
 
-                if (airports[i]['code'] == 'UK')
+                if (true)
                     loader.load("/miniature-earth/demo/world-trip/uk.glb", function(glb) {
                         glb.scene.scale.multiplyScalar(0.3);
                         glb.scene.position.set(0, 0.5, 0);
