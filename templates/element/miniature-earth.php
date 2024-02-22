@@ -164,7 +164,7 @@
                 if (airports[i]['code'] == 'UK')
                     loader.load("/miniature-earth/demo/world-trip/uk.glb", function(glb) {
                         glb.scene.scale.multiplyScalar(0.3);
-                        glb.scene.position.set(0, -0.5, 0);
+                        glb.scene.position.set(0, 0.5, 0);
                         marker.object3d.add(glb.scene);
                     });
                 // if (airports[i]['code'] == 'US')
