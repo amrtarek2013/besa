@@ -107,7 +107,7 @@
 
 
                 let mesh1 = ["Flag", "Needle"];
-                if (airports[i]['code'] == 'UK' || airports[i]['code'] == 'US')
+                if (true)
                     mesh1 = "";
 
                 // add photo pins
