@@ -46,14 +46,14 @@
 </script>
 
 <script type="module">
-    // import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-    import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+    window.GLTFLoader = new GLTFLoader();
 
-    // window.GLTFLoader = new GLTFLoader();
-    const loader = new DRACOLoader();
-    loader.setDecoderPath("/miniature-earth/flags/compressed/");
-    loader.preload();
-    window.DRACOLoader = loader; 
+    // import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+    // const loader = new DRACOLoader();
+    // loader.setDecoderPath("/miniature-earth/flags/compressed/decoder/");
+    // loader.preload();
+    // window.DRACOLoader = loader; 
 </script>
 
 <script>
@@ -68,7 +68,7 @@
     var selected_countries = [];
     var redirectUrl = "<?= $redirectUrl ?>";
     window.addEventListener("load", function () {
-        const loader = window.DRACOLoader;
+        const loader = window.GLTFLoader;
 
         // parse plane mesh from string in airports-and-plane-mesh.js
         // Earth.addMesh(airplaneMesh);
@@ -159,7 +159,7 @@
                     280 * i
                 );
 
-                loader.load(`/miniature-earth/flags/compressed/${airports[i]["code"]}.glb`, function (glb) {
+                loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function (glb) {
                     glb.scene.scale.multiplyScalar(0.3);
                     glb.scene.position.set(0, 0.5, 0);
                     marker.object3d.add(glb.scene);
