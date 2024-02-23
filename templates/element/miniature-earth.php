@@ -38,18 +38,19 @@
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">
     {
-		"imports": {
-			"three": "https://unpkg.com/three@0.155.0/build/three.module.js",
-			"three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
-		}
-	}
+        "imports": {
+            "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+        }
+    }
 </script>
 
 <script type="module">
-    import {
-        GLTFLoader
-    } from "three/addons/loaders/GLTFLoader.js";
-    window.GLTFLoader = new GLTFLoader();
+    // import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+    import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+    // window.GLTFLoader = new GLTFLoader();
+    window.DRACOLoader = new DRACOLoader();
 </script>
 
 <script>
@@ -63,8 +64,8 @@
 
     var selected_countries = [];
     var redirectUrl = "<?= $redirectUrl ?>";
-    window.addEventListener("load", function() {
-        const loader = window.GLTFLoader;
+    window.addEventListener("load", function () {
+        const loader = window.DRACOLoader;
 
         // parse plane mesh from string in airports-and-plane-mesh.js
         // Earth.addMesh(airplaneMesh);
@@ -90,7 +91,7 @@
 
         // var fading_images = [];
 
-        myearth.addEventListener("ready", function() {
+        myearth.addEventListener("ready", function () {
             // window.addEventListener('scroll', syncScroll);
 
             photo_overlay = this.addOverlay({
@@ -142,7 +143,7 @@
 
                 // animate marker
                 setTimeout(
-                    function() {
+                    function () {
                         this.visible = true;
                         this.animate("scale", 0.9, {
                             duration: 140
@@ -155,7 +156,7 @@
                     280 * i
                 );
 
-                loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function(glb) {
+                loader.load(`/miniature-earth/flags/compressed/${airports[i]["code"]}.glb`, function (glb) {
                     glb.scene.scale.multiplyScalar(0.3);
                     glb.scene.position.set(0, 0.5, 0);
                     marker.object3d.add(glb.scene);
@@ -166,7 +167,7 @@
         });
 
         // Close photo overlay when navigating away
-        myearth.addEventListener("change", function() {
+        myearth.addEventListener("change", function () {
             if (!current_marker || auto_rotate) return;
             if (Earth.getAngle(myearth.location, current_marker.location) > 45) closePhoto();
         });
@@ -187,7 +188,7 @@
             myearth.goTo(this.location, {
                 relativeDuration: 20,
                 approachAngle: 12,
-                end: function() {
+                end: function () {
                     auto_rotate = false;
                 }
             })
@@ -202,7 +203,7 @@
         photo_overlay.location = this.location;
         photo_overlay.visible = true;
 
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById("photo").className = "photo-appear";
         }, 120);
 
@@ -218,7 +219,7 @@
         document.getElementById("photo").className = "";
 
         setTimeout(
-            function() {
+            function () {
                 document.getElementById("photo").style.backgroundImage = "none";
                 photo_overlay.visible = false;
                 // this.opacity = 0.7;
