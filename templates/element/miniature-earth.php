@@ -50,7 +50,10 @@
     import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
     // window.GLTFLoader = new GLTFLoader();
-    window.DRACOLoader = new DRACOLoader();
+    loader = new DRACOLoader();
+    loader.setDecoderPath("/miniature-earth/flags/compressed/draco_decoder.wasm");
+    loader.preload();
+    window.DRACOLoader = loader; 
 </script>
 
 <script>
