@@ -104,16 +104,10 @@
 
             // add airport pins from airports array in airports-and-plane-mesh.js
             for (var i = 0; i < airports.length; i++) {
-
-
-                let mesh1 = ["Flag", "Needle"];
-                if (true)
-                    mesh1 = "";
-
                 // add photo pins
                 const marker = this.addMarker({
                     // mesh: "Marker",
-                    mesh: mesh1,
+                    mesh: "",
                     // mesh : "Pyramid",
                     color: "#00A8FF",
                     location: {
@@ -161,17 +155,11 @@
                     280 * i
                 );
 
-                if (true)
-                    loader.load("/miniature-earth/demo/world-trip/uk.glb", function(glb) {
-                        glb.scene.scale.multiplyScalar(0.3);
-                        glb.scene.position.set(0, 0.5, 0);
-                        marker.object3d.add(glb.scene);
-                    });
-                // if (airports[i]['code'] == 'US')
-                //     loader.load("/miniature-earth/3d_scan_quixel_megascans.glb", function(gltf) {
-                //         gltf.scene.scale.multiplyScalar(2.5);
-                //         marker.object3d.add(gltf.scene);
-                //     });
+                loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function(glb) {
+                    glb.scene.scale.multiplyScalar(0.3);
+                    glb.scene.position.set(0, 0.5, 0);
+                    marker.object3d.add(glb.scene);
+                });
             }
 
             // syncScroll();
