@@ -51,7 +51,7 @@
 
     // window.GLTFLoader = new GLTFLoader();
     const loader = new DRACOLoader();
-    loader.setDecoderPath("/miniature-earth/flags/compressed/draco_decoder.wasm");
+    loader.setDecoderPath("/miniature-earth/flags/compressed/");
     loader.preload();
     window.DRACOLoader = loader; 
 </script>
