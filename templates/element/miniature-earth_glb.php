@@ -46,9 +46,7 @@
 </script>
 
 <script type="module">
-    import {
-        GLTFLoader
-    } from "three/addons/loaders/GLTFLoader.js";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     window.GLTFLoader = new GLTFLoader();
 
     // import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
@@ -69,7 +67,7 @@
 
     var selected_countries = [];
     var redirectUrl = "<?= $redirectUrl ?>";
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
         const loader = window.GLTFLoader;
 
         // parse plane mesh from string in airports-and-plane-mesh.js
@@ -96,35 +94,40 @@
 
         // var fading_images = [];
 
-        myearth.addEventListener("ready", function() {
+        myearth.addEventListener("ready", function () {
             // window.addEventListener('scroll', syncScroll);
 
             photo_overlay = this.addOverlay({
                 content: `<div id="photo"><div id="close-photo" onclick="closePhoto(); event.stopPropagation();"></div>
                 <a id="earth-link" href="#" targt="_blank">Open</a></div>`,
-                visible: true,
+                visible: false,
                 containerScale: 1,
                 depthScale: 0.5
             });
 
-           
+
             // add airport pins from airports array in airports-and-plane-mesh.js
             for (var i = 0; i < airports.length; i++) {
                 // add photo pins
-
-
-                console.log(airports[i]["flag"]);
-                console.log(airports[i]);
-                const image =  this.addImage({
+                const marker = this.addMarker({
+                    // mesh: "Marker",
+                    mesh: "",
+                    // mesh : "Pyramid",
+                    color: "#00A8FF",
                     location: {
                         lat: airports[i]["latitude"],
                         lng: airports[i]["longitude"]
                     },
-                    image: "/img/flags/icons/" + airports[i]["flag"],
-                    // imageAlphaOnly: true,
-                    // color: 'red',
-                    scale: 0.4,
-                    hotspot : true,
+
+                    scale: 0.01,
+                    offset: 1.6,
+                    visible: false,
+                    transparent: true,
+                    hotspot: true,
+                    hotspotRadius: 0.75,
+                    hotspotHeight: 1.3,
+
+                    image: "/img/flags/" + airports[i]["flag"],
 
                     airportCode: airports[i]["code"],
                     airportName: airports[i]["country_name"],
@@ -137,74 +140,37 @@
 
                     // custom property
                     photo_info: "/img/flags/" + airports[i]["flag"]
-
                 });
 
-                // const marker = this.addMarker({
-                //     // mesh: "/img/flags/" + airports[i]["flag"],
-                //     mesh: "",
-                //     // mesh : "Pyramid",
-                //     color: "#00A8FF",
-                //     location: {
-                //         lat: airports[i]["latitude"],
-                //         lng: airports[i]["longitude"]
-                //     },
-
-                //     scale: 0.001,
-                //     offset: 1.6,
-                //     visible: true,
-                //     transparent: true,
-                //     hotspot: true,
-                //     hotspotRadius: 0.75,
-                //     hotspotHeight: 1.3,
-
-                //     image: "/img/flags/" + airports[i]["flag"],
-
-                //     airportCode: airports[i]["code"],
-                //     airportName: airports[i]["country_name"],
-                //     airportFlag: "<img width='40' src='/img/flags/" + airports[i]["flag"] + "' />",
-
-                //     // custom property
-                //     title: airports[i]["country_name"],
-                //     link: redirectUrl == "destination" ?
-                //         "/country-details/" + airports[i]["permalink"] : "/universities/" + airports[i]["id"] + "/" + airports[i]["permalink"],
-
-                //     // custom property
-                //     photo_info: "/img/flags/" + airports[i]["flag"]
-                // });
-
-                // marker.addEventListener("click", openPhoto);
-
-                image.addEventListener("click", openPhoto);
+                marker.addEventListener("click", openPhoto);
 
                 // animate marker
                 setTimeout(
-                    function() {
+                    function () {
                         this.visible = true;
-                        this.animate("scale", 0.5, {
+                        this.animate("scale", 0.9, {
                             duration: 140
                         });
                         this.animate("offset", 0, {
                             duration: 1100,
                             easing: "bounce"
                         });
-                    }.bind(image),
+                    }.bind(marker),
                     280 * i
                 );
-                console.log(airports[i]["code"]);
 
-                // loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function (glb) {
-                //     glb.scene.scale.multiplyScalar(0.1);
-                //     glb.scene.position.set(0, 0.5, 0);
-                //     marker.object3d.add(glb.scene);
-                // });
+                loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function (glb) {
+                    glb.scene.scale.multiplyScalar(0.3);
+                    glb.scene.position.set(0, 0.5, 0);
+                    marker.object3d.add(glb.scene);
+                });
             }
 
             // syncScroll();
         });
 
         // Close photo overlay when navigating away
-        myearth.addEventListener("change", function() {
+        myearth.addEventListener("change", function () {
             if (!current_marker || auto_rotate) return;
             if (Earth.getAngle(myearth.location, current_marker.location) > 45) closePhoto();
         });
@@ -213,9 +179,6 @@
     var current_marker, auto_rotate;
 
     function openPhoto() {
-         
-        console.log(this);
-
         // close current photo
         if (current_marker) {
             closePhoto();
@@ -228,7 +191,7 @@
             myearth.goTo(this.location, {
                 relativeDuration: 20,
                 approachAngle: 12,
-                end: function() {
+                end: function () {
                     auto_rotate = false;
                 }
             })
@@ -243,7 +206,7 @@
         photo_overlay.location = this.location;
         photo_overlay.visible = true;
 
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById("photo").className = "photo-appear";
         }, 120);
 
@@ -259,7 +222,7 @@
         document.getElementById("photo").className = "";
 
         setTimeout(
-            function() {
+            function () {
                 document.getElementById("photo").style.backgroundImage = "none";
                 photo_overlay.visible = false;
                 // this.opacity = 0.7;
