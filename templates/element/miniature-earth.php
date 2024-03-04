@@ -193,7 +193,7 @@
                 );
                 console.log(airports[i]["code"]);
 
-                // loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function (glb) {
+                // loader.load(`/miniature-earth/flags/compressed/${airports[i]["code"]}.glb`, function (glb) {
                 //     glb.scene.scale.multiplyScalar(0.1);
                 //     glb.scene.position.set(0, 0.5, 0);
                 //     marker.object3d.add(glb.scene);
