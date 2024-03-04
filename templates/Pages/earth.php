@@ -1,1 +1,1 @@
-<?= $this->element("miniature-earth", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>
+<?= $this->element("miniature-earth_glb", ['colWidth' => '9', 'redirectUrl' => 'destination']) ?>

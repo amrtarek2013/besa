@@ -47,7 +47,10 @@
 
 <script type="module">
     import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-    window.GLTFLoader = new GLTFLoader();
+    import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+    const loader = new GLTFLoader();
+    loader.setMeshoptDecoder(MeshoptDecoder);
+    window.GLTFLoader = loader;
 
     // import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
     // const loader = new DRACOLoader();
@@ -159,7 +162,7 @@
                     280 * i
                 );
 
-                loader.load(`/miniature-earth/flags/${airports[i]["code"]}.glb`, function (glb) {
+                loader.load(`/miniature-earth/flags/compressed/${airports[i]["code"]}.glb`, function (glb) {
                     glb.scene.scale.multiplyScalar(0.3);
                     glb.scene.position.set(0, 0.5, 0);
                     marker.object3d.add(glb.scene);
