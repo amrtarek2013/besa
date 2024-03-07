@@ -60,6 +60,7 @@ $(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggle
 var plusIconPath = "img/new-desgin/plus-icon.svg";
 var minusIconPath = "img/new-desgin/minus-icon.svg";
 
+
 // Use event delegation to handle dynamic or multiple .faq-question elements
 // This way, only a single event listener is needed for all current and future .faq-questions
 $(document).on("click", ".faq-question", function() {
