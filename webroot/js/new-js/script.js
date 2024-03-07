@@ -1,101 +1,91 @@
 $(document).ready(function () {
   "use strict";
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
 
-  // Event delegation for toggle buttons
-  document.addEventListener('click', function (event) {
-    // Match the event target with the selector
-    var matchSelector = function (target, selector) {
-      return target.matches(selector) || target.closest(selector);
-    };
+  
+ // Cache the jQuery selectors for performance
+ var $sidenav = $('.sidenav');
+ var $overlay = $('.overlay');
+ 
+ // Open side navigation on toggle click
+ $(".navbar-mobile").on("click", ".toggle", function () {
+     $sidenav.toggleClass("open");
+     $overlay.toggleClass("visible");
+ });
+ 
+ // Close side navigation on close click
+ // Assuming the typo 'colse' is meant to be 'close'
+ $sidenav.on("click", ".close", function () {
+     $sidenav.toggleClass("open");
+     $overlay.toggleClass("visible");
+ });
 
-    // Open/close sidenav in mobile
-    if (matchSelector(event.target, '.navbar-mobile .toggle')) {
-      document.querySelector('.sidenav').classList.toggle('open');
-      document.querySelector('.overlay').classList.toggle('visible');
-      return;
-    }
+  $(".toggle-search").on("click", function () {
+    $(".li-search").toggleClass("show");
+  });
 
-    // Close sidenav in mobile
-    if (matchSelector(event.target, '.sidenav .close')) {
-      document.querySelector('.sidenav').classList.toggle('open');
-      document.querySelector('.overlay').classList.toggle('visible');
-      return;
-    }
 
-    // Toggle search
-    if (matchSelector(event.target, '.toggle-search')) {
-      document.querySelector('.li-search').classList.toggle('show');
-      return;
-    }
+  $(".grid-subjects .subject").on("click", function () {
+    $(this).addClass("active").siblings().removeClass("active");
+  });
 
-    // Toggle subjects in grid
-    if (matchSelector(event.target, '.grid-subjects .subject')) {
-      event.target.classList.add('active');
-      // Remove 'active' from siblings
-      Array.from(event.target.parentElement.children).forEach(function (sibling) {
-        if (sibling !== event.target) {
-          sibling.classList.remove('active');
-        }
-      });
-      return;
-    }
+  $(".btn-filter").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
 
-    // Toggle filter sidebar
-    if (matchSelector(event.target, '.btn-filter')) {
-      document.querySelector('#sideFilter').classList.toggle('show');
-      document.querySelector('#pageOverlay').classList.toggle('visible');
-      return;
-    }
+  $("#pageOverlay").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
+  $(".side-filter .close").click(function () {
+    $("#sideFilter").toggleClass("show");
+    $("#pageOverlay").toggleClass("visible");
+  });
 
-    // Overlay and close filter interactions
-    if (matchSelector(event.target, '#pageOverlay, .side-filter .close')) {
-      document.querySelector('#sideFilter').classList.toggle('show');
-      document.querySelector('#pageOverlay').classList.toggle('visible');
-      return;
-    }
+  $(".details-user .header-details").click(function () {
+    $(".drop-down-user").toggleClass("show");
+  });
 
-    // User dropdown
-    if (matchSelector(event.target, '.details-user .header-details')) {
-      document.querySelector('.drop-down-user').classList.toggle('show');
-      return;
-    }
+  // Add click event listener to each question
+  $(".faq-question").click(function () {
+    // This toggles the faq-answer slide up/down
+    $(this).next(".faq-answer").slideToggle("slow");
 
-    // FAQ questions
-    if (matchSelector(event.target, '.faq-question')) {
-      var answer = event.target.nextElementSibling;
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-
-      // Image swap with CSS classes
-      var icon = event.target.querySelector('.faq-icon');
-      icon.classList.toggle('plus');
-      icon.classList.toggle('minus');
-      return;
-    }
-
-    // Tabs
-    if (matchSelector(event.target, '.tab-button')) {
-      var tabTarget = document.querySelector(event.target.dataset.tabTarget);
-
-      document.querySelectorAll('.tab-button').forEach(function (btn) {
-        btn.classList.remove('active');
-      });
-      document.querySelectorAll('.tab-content').forEach(function (content) {
-        content.classList.remove('active');
-      });
-
-      event.target.classList.add('active');
-      if (tabTarget) {
-        tabTarget.classList.add('active');
-      }
+    // This changes the image from plus to minus and vice versa
+    var imgSrc = $(this).find(".faq-icon").attr("src");
+    if (imgSrc.includes("plus-icon")) {
+      $(this)
+        .find(".faq-icon")
+        .attr(
+          "src",
+          imgSrc.replace(
+            "img/new-desgin/plus-icon.svg",
+            "img/new-desgin/minus-icon.svg"
+          )
+        );
+    } else {
+      $(this)
+        .find(".faq-icon")
+        .attr(
+          "src",
+          imgSrc.replace(
+            "img/new-desgin/minus-icon.svg",
+            "img/new-desgin/plus-icon.svg"
+          )
+        );
     }
   });
 
-  // Preload images if needed
-  // Make sure to have all your plus-icon/minus-icon pairs preloaded to avoid flickering
-});
+  $(".tab-button").click(function () {
+    var $this = $(this);
+    var $target = $($this.data("tab-target"));
 
+    $(".tab-button").removeClass("active");
+    $(".tab-content").removeClass("active");
+
+    $this.addClass("active");
+    $target.addClass("active");
+  });
   function reveal() {
     var reveals = document.querySelectorAll(".have-animations");
 
