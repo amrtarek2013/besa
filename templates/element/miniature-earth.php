@@ -288,7 +288,7 @@
                 <div class="background-earth">
                     <div id="wrapper">
                         <div id="earth-col">
-                            <!-- <div id="myearth" class="earth-js"></div> -->
+                            <div id="myearth" class="earth-js"></div>
                         </div>
                     </div>
                 </div>
