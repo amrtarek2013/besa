@@ -101,7 +101,7 @@ use Cake\Routing\Router;
 </div>
 
 
-<script>
+<!-- <script>
     (function(w, d, u) {
         var s = d.createElement('script');
         s.async = true;
@@ -109,7 +109,7 @@ use Cake\Routing\Router;
         var h = d.getElementsByTagName('script')[0];
         h.parentNode.insertBefore(s, h);
     })(window, document, 'https://cdn.bitrix24.com/b16120715/crm/site_button/loader_3_d2o61u.js');
-</script>
+</script> -->
 
 
 <script type="text/javascript">
