@@ -57,8 +57,8 @@ $(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggle
   });
 
  // Pre-cache the image paths to avoid repetitive string operations
-var plusIconPath = "img/new-design/plus-icon.svg";
-var minusIconPath = "img/new-design/minus-icon.svg";
+var plusIconPath = "img/new-desgin/plus-icon.svg";
+var minusIconPath = "img/new-desgin/minus-icon.svg";
 
 // Use event delegation to handle dynamic or multiple .faq-question elements
 // This way, only a single event listener is needed for all current and future .faq-questions
