@@ -2,15 +2,16 @@ $(document).ready(function () {
   "use strict";
 
   
- // Cache selectors
- var $sidenav = $(".sidenav");
- var $overlay = $(".overlay");
-
- // Delegate event handling for the side navigation toggle
- $(document).on("click", ".navbar-mobile .toggle, .sidenav .close", function() {
-   $sidenav.toggleClass("open");
-   $overlay.toggleClass("visible");
- });
+  // open sidenave in mobile
+  $(".navbar-mobile .toggle").on("click", function () {
+    $(".sidenav").toggleClass("open");
+    $(".overlay").toggleClass("visible");
+  });
+  // colse sidenave in mobile
+  $(".sidenav .colse").on("click", function () {
+    $(".sidenav").toggleClass("open");
+    $(".overlay").toggleClass("visible");
+  });
 
   $(".toggle-search").on("click", function () {
     $(".li-search").toggleClass("show");
