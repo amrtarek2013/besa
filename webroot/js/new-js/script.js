@@ -57,8 +57,8 @@ $(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggle
   });
 
  // Pre-cache the image paths to avoid repetitive string operations
-var plusIconPath = "img/new-desgin/plus-icon.svg";
-var minusIconPath = "img/new-desgin/minus-icon.svg";
+var plusIconPath = "/img/new-desgin/plus-icon.svg";
+var minusIconPath = "/img/new-desgin/minus-icon.svg";
 
 
 // Use event delegation to handle dynamic or multiple .faq-question elements
