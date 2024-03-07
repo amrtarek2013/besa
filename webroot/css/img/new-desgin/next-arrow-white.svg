@@ -1,5 +1,1 @@
-<svg width="57" height="56" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Arrow / Caret_Circle_Right">
-<path id="Vector" d="M26.2983 21L33.2983 28L26.2983 35M49.6316 28C49.6316 16.402 40.2296 7 28.6316 7C17.0336 7 7.63159 16.402 7.63159 28C7.63159 39.598 17.0336 49 28.6316 49C40.2296 49 49.6316 39.598 49.6316 28Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</svg>
+<svg width="57" height="56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m26.298 21 7 7-7 7m23.334-7c0-11.598-9.402-21-21-21s-21 9.402-21 21 9.402 21 21 21 21-9.402 21-21Z" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
