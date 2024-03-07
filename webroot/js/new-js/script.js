@@ -356,96 +356,92 @@ $(document).ready(function () {
   );
 
   
-  /*
-  // Handle image clicks
-  $(".image-box img").click(function () {
-    var imageUrl = $(this).attr("src");
-    $("#largeImage").attr("src", imageUrl);
-  });
+
+  // // jQuery animated number counter from zero to value
+  // var counterAbout = $(".about-us");
+  // var counterBanner = $(".main-banner");
+  // var winHeight = $(window).height();
+  // if (counterAbout.length) {
+  //   var firEvent = false,
+  //     objectPosTop = $(".about-us").offset().top;
+  //   //when element shows at bottom
+  //   var elementViewInBottom = objectPosTop - winHeight;
+  //   $(window).on("scroll", function () {
+  //     var currentPosition = $(document).scrollTop();
+  //     //when element position starting in viewport
+  //     if (currentPosition > elementViewInBottom && firEvent === false) {
+  //       firEvent = true;
+  //       animationCounter();
+  //     }
+  //   });
+  // } else if (counterBanner.length) {
+  //   var firEvent = false,
+  //     objectPosTop = $(".main-banner").offset().top;
+  //   //when element shows at bottom
+  //   var elementViewInBottom = objectPosTop - winHeight;
+  //   $(window).on("scroll", function () {
+  //     var currentPosition = $(document).scrollTop();
+  //     //when element position starting in viewport
+  //     if (currentPosition > elementViewInBottom && firEvent === false) {
+  //       firEvent = true;
+  //       animationCounter();
+  //     }
+  //   });
+  // }
+
+  // //counter function will animate by using external js also add seprator "."
+  // function animationCounter() {
+  //   $(".number-count").each(function () {
+  //     $(this)
+  //       .prop("Counter", 0)
+  //       .animate(
+  //         {
+  //           Counter: $(this).text(),
+  //         },
+  //         {
+  //           duration: 3000,
+  //           easing: "swing",
+  //           step: function (now) {
+  //             $(this).text(Math.ceil(now));
+  //           },
+  //         }
+  //       );
+  //   });
+  // }
 
  
-  // Handle custom navigation buttons
-  $(".custom-next").click(function () {
-    owl.trigger("next.owl.carousel");
-  });
+// Cache the jQuery objects and use requestAnimationFrame for smooth animation
+var $document = $(document);
+var $window = $(window);
+var $htmlBody = $('html, body'); // Cache the selectors
+var animatedScroll = false;
 
-  $(".custom-prev").click(function () {
-    owl.trigger("prev.owl.carousel");
-  });*/
+$(".arrow-bottomGoSection a").on("click", function (event) {
+  event.preventDefault();
+  if (animatedScroll) return; // Prevent multiple animations when already animating
+  animatedScroll = true;
 
-  // jQuery animated number counter from zero to value
-  var counterAbout = $(".about-us");
-  var counterBanner = $(".main-banner");
-  var winHeight = $(window).height();
-  if (counterAbout.length) {
-    var firEvent = false,
-      objectPosTop = $(".about-us").offset().top;
-    //when element shows at bottom
-    var elementViewInBottom = objectPosTop - winHeight;
-    $(window).on("scroll", function () {
-      var currentPosition = $(document).scrollTop();
-      //when element position starting in viewport
-      if (currentPosition > elementViewInBottom && firEvent === false) {
-        firEvent = true;
-        animationCounter();
-      }
-    });
-  } else if (counterBanner.length) {
-    var firEvent = false,
-      objectPosTop = $(".main-banner").offset().top;
-    //when element shows at bottom
-    var elementViewInBottom = objectPosTop - winHeight;
-    $(window).on("scroll", function () {
-      var currentPosition = $(document).scrollTop();
-      //when element position starting in viewport
-      if (currentPosition > elementViewInBottom && firEvent === false) {
-        firEvent = true;
-        animationCounter();
-      }
-    });
-  }
+  var hash = this.hash;
+  var targetOffset = $(hash).offset().top;
 
-  //counter function will animate by using external js also add seprator "."
-  function animationCounter() {
-    $(".number-count").each(function () {
-      $(this)
-        .prop("Counter", 0)
-        .animate(
-          {
-            Counter: $(this).text(),
-          },
-          {
-            duration: 3000,
-            easing: "swing",
-            step: function (now) {
-              $(this).text(Math.ceil(now));
-            },
-          }
-        );
-    });
-  }
-
-  // Triger  Slider accordion
-  // $(function () {
-  //   accordion.init({
-  //     id: "accordion",
-  //   });
-  // });
-
-  // Jumping to sections of the same page
-  $(".arrow-bottomGoSection a").on("click", function (event) {
-    event.preventDefault();
-    var hash = this.hash;
-    $("html, body").animate(
-      {
-        scrollTop: $(hash).offset().top,
+  // Using requestAnimationFrame to manage smooth animations
+  $htmlBody.stop().animate(
+    { scrollTop: targetOffset },
+    {
+      duration: 1000,
+      step: function (now) {
+        // Use requestAnimationFrame if available for smoother animations
+        requestAnimationFrame(function () {
+          $window.scrollTop(now);
+        });
       },
-      1000,
-      function () {
+      complete: function () {
         window.location.hash = hash;
+        animatedScroll = false; // Reset the flag
       }
-    );
-  });
+    }
+  );
+});
 
   // button scroll to top
   $("#scrollToTop").on("click", function () {
