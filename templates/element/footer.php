@@ -10,11 +10,7 @@ use Cake\Routing\Router;
             <div class="col-md-12">
                 <div class="gridContainer-footer">
                     <div class="logo">
-                        <picture>
-                            <source srcset="<?= WEBSITE_URL ?>img/new-design/logo-footer.webp" type="image/webp">
-                            <source srcset="<?= WEBSITE_URL ?>img/new-design/logo-footer.jpg" type="image/jpeg"> <!-- Fallback for browsers that do not support WebP -->
-                            <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-design/logo-footer.png" alt="main logo" width="200" height="auto">
-                        </picture>
+                    <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-design/logo-footer.png" alt="main logo" width="200" height="auto">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
                                 <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/la_facebook.svg" width="" alt="facebook">
