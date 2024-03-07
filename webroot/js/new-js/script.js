@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
   
     // Fix the potential typo here (assuming "colse" was meant to be "close")
-    $sidenav.on("click", ".close", function () {
+    $(".navbar-mobile").on("click", ".close", function () {
       $sidenav.removeClass("open");
       $overlay.removeClass("visible");
     });
