@@ -2,21 +2,14 @@ $(document).ready(function () {
   "use strict";
 
   
- // Cache the jQuery selectors for performance
- var $sidenav = $('.sidenav');
- var $overlay = $('.overlay');
- 
- // Open side navigation on toggle click
- $(".navbar-mobile").on("click", ".toggle", function () {
-     $sidenav.toggleClass("open");
-     $overlay.toggleClass("visible");
- });
- 
- // Close side navigation on close click
- // Assuming the typo 'colse' is meant to be 'close'
- $sidenav.on("click", ".close", function () {
-     $sidenav.toggleClass("open");
-     $overlay.toggleClass("visible");
+ // Cache selectors
+ var $sidenav = $(".sidenav");
+ var $overlay = $(".overlay");
+
+ // Delegate event handling for the side navigation toggle
+ $(document).on("click", ".navbar-mobile .toggle, .sidenav .close", function() {
+   $sidenav.toggleClass("open");
+   $overlay.toggleClass("visible");
  });
 
   $(".toggle-search").on("click", function () {
