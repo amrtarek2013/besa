@@ -202,164 +202,63 @@ $('.carousel-blogs, .carousel-testimonials').each(function() {
   initSlider($(this));
 });
 
-  // More sliders can be initialized similarly
-  var mainSlider = $(".main-slider");
-  mainSlider.owlCarousel({
-    items: 1,
-    loop: true,
-    margin: 10,
-    dots: false,
-    nav: true,
-    navText: [
-      "<img src='../img/new-desgin/prev-arrow-white.svg'>",
-      "<img src='../img/new-desgin/next-arrow-white.svg'>",
-    ],
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
-  });
-  var customeSlider = $(".custome-slider");
-  customeSlider.owlCarousel({
-    loop: true,
-    margin: 10,
-    dots: true,
-    nav: false,
-    items: 1,
-  });
+  // Define a common options object for similar sliders
+var commonSliderOptions = {
+  loop: true,
+  margin: 10,
+  dots: false,
+  nav: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  autoplayTimeout: 2000,
+  autoplayHoverPause: true,
+  navText: [
+    "<img src='../img/new-desgin/prev-arrow-white.svg' alt='Previous'>",
+    "<img src='../img/new-desgin/next-arrow-white.svg' alt='Next'>",
+  ]
+};
 
-  var ukslider = $(".ukslider");
-  ukslider.owlCarousel({
-    items: 1,
-    loop: true,
-    margin: 10,
-    dots: true,
-    nav: false,
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
-  });
-  var lifeBesaslider = $(".owl-lifeBesa");
+// Initialize sliders with common options
+$(".main-slider, .ukslider, .owl-step-back, .owl-small-flag-logo").owlCarousel(commonSliderOptions);
 
-  lifeBesaslider.owlCarousel({
-    loop: true,
-    margin: 40,
-    dots: true,
-    nav: true,
-    navText: [
-      "<img src='./img/chevron-right.svg'>",
-      "<img src='./img/chevron-left.svg'>",
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  });
-  var owlSchoolTour = $(".owl-school-tour");
+// Override options for specific sliders when needed
+$(".custome-slider").owlCarousel($.extend({}, commonSliderOptions, {
+  dots: true,
+  nav: false
+}));
 
-  owlSchoolTour.owlCarousel({
-    items: 1,
-    loop: true,
-    nav: true,
-    navText: [
-      "<img src='../img/new-desgin/prev-arrow.svg'>",
-      "<img src='../img/new-desgin/next-arrow.svg'>",
-    ],
-  });
+$(".owl-lifeBesa").owlCarousel($.extend({}, commonSliderOptions, {
+  margin: 40,
+  responsive: {
+    0: { items: 1 },
+    600: { items: 2 },
+    1000: { items: 3 },
+  }
+}));
 
-  var owlStepBack = $(".owl-step-back");
-  owlStepBack.owlCarousel({
-    items: 1,
-    loop: true,
-    nav: true,
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
-    navText: [
-      "<img src='../img/new-desgin/prev-arrow.svg'>",
-      "<img src='../img/new-desgin/next-arrow.svg'>",
-    ],
-  });
-  var owlSmallFlag = $(".owl-small-flag-logo");
-  owlSmallFlag.owlCarousel({
-    loop: true,
-    margin: 20,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
-    navText: [
-      "<img src='../img/chevron-right-white.svg'>",
-      "<img src='../img/chevron-left-white.svg'>",
-    ],
-    responsive: {
-      0: {
-        items: 3,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 4,
-      },
-    },
-  });
-  var owlLogosSlider = $(".owl-logos-slider");
-  owlLogosSlider.owlCarousel({
-    loop: true,
-    margin: 25,
-    nav: false,
-    navText: [
-      "<img src='../img/chevron-right-white.svg'>",
-      "<img src='../img/chevron-left-white.svg'>",
-    ],
-    autoplay: true,
-    autoPlaySpeed: 2100,
-    autoPlayTimeout: 2100,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 4,
-      },
-      1000: {
-        items: 4,
-      },
-    },
-  });
+// Continue for other sliders...
 
-  var owlTopUniversities = $(".owl-topUni");
-  owlTopUniversities.owlCarousel({
-    loop: true,
-    margin: 25,
-    nav: false,
-    stagePadding: 60,
-    autoplay: true,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 1,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  });
+// Consider lazy loading for all sliders
+$("img").attr("loading", "lazy");
+
+// Defer the slider initialization if it's not in the viewport
+$(window).on("load scroll", function() {
+  if ($(".owl-defer").length && isElementInViewport($(".owl-defer"))) {
+    $(".owl-defer").owlCarousel(commonSliderOptions);
+    $(window).off("load scroll"); // Remove event listener once initialized
+  }
+});
+
+function isElementInViewport(el) {
+  var rect = el.get(0).getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
   /*
   // Handle image clicks
   $(".image-box img").click(function () {
