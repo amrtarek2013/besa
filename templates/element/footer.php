@@ -13,16 +13,16 @@ use Cake\Routing\Router;
                     <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-design/logo-footer.png" alt="main logo" width="200" height="auto">
                         <div class="icons">
                             <a href="<?= $g_configs['social_links']['txt.facebook_link'] ?>" class="facebook" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/la_facebook.svg" width="" alt="facebook">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/la_facebook.svg" width="24" height="24" alt="facebook">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.instagram_link'] ?>" class="instagram">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/bi_instagram.svg" width="" alt="instagram" target="_blank">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/bi_instagram.svg" width="24" height="24" alt="instagram" target="_blank">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.youtube_link'] ?>" class="youtube" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_youtube-outlined.svg" width="" alt="youtube">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_youtube-outlined.svg" width="24" height="24" alt="youtube">
                             </a>
                             <a href="<?= $g_configs['social_links']['txt.linkedin_link'] ?>" class="linkedin" target="_blank">
-                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_linkedin-outlined.svg" width="" alt="linkedin">
+                                <img loading="lazy" src="<?= WEBSITE_URL ?>img/new-desgin/ant-design_linkedin-outlined.svg" width="24" height="24" alt="linkedin">
                             </a>
                            <!-- <a href="<?php /* $g_configs['social_links']['txt.tiktok_link'] */?>" class="tiktok" target="_blank">
                                 <img loading="lazy" src="<?php /* WEBSITE_URL */?>img/new-desgin/tiktok.svg" width="" alt="tiktok">
@@ -96,7 +96,7 @@ use Cake\Routing\Router;
 </section>
 <div class="go-up">
     <span class="up " id="scrollToTop" style="display: none;">
-        <img loading="lazy" src="<?= WEBSITE_URL ?>img/red-arrow-top.svg" width="" alt="">
+        <img loading="lazy" src="<?= WEBSITE_URL ?>img/red-arrow-top.svg" alt="">
     </span>
 </div>
 
