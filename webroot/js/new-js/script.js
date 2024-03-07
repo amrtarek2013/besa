@@ -39,245 +39,169 @@ $(document).ready(function () {
   });
 
   // Cache the jQuery selectors
-var $sideFilter = $("#sideFilter");
-var $pageOverlay = $("#pageOverlay");
+  var $sideFilter = $("#sideFilter");
+  var $pageOverlay = $("#pageOverlay");
 
-// A function to toggle the classes
-function toggleFilterAndOverlay() {
-  $sideFilter.toggleClass("show");
-  $pageOverlay.toggleClass("visible");
-}
+  // A function to toggle the classes
+  function toggleFilterAndOverlay() {
+    $sideFilter.toggleClass("show");
+    $pageOverlay.toggleClass("visible");
+  }
 
-// Delegate events if there are multiple elements, otherwise, just attach events
-$(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggleFilterAndOverlay);
-
+  // Delegate events if there are multiple elements, otherwise, just attach events
+  $(document).on(
+    "click",
+    ".btn-filter, #pageOverlay, .side-filter .close",
+    toggleFilterAndOverlay
+  );
 
   $(".details-user .header-details").click(function () {
     $(".drop-down-user").toggleClass("show");
   });
 
- // Pre-cache the image paths to avoid repetitive string operations
-var plusIconPath = "/img/new-desgin/plus-icon.svg";
-var minusIconPath = "/img/new-desgin/minus-icon.svg";
+  // Pre-cache the image paths to avoid repetitive string operations
+  var plusIconPath = "/img/new-desgin/plus-icon.svg";
+  var minusIconPath = "/img/new-desgin/minus-icon.svg";
 
-
-// Use event delegation to handle dynamic or multiple .faq-question elements
-// This way, only a single event listener is needed for all current and future .faq-questions
-$(document).on("click", ".faq-question", function() {
+  // Use event delegation to handle dynamic or multiple .faq-question elements
+  // This way, only a single event listener is needed for all current and future .faq-questions
+  $(document).on("click", ".faq-question", function () {
     // Toggle the next .faq-answer element
     $(this).next(".faq-answer").slideToggle("slow");
 
     // Cache the jQuery selector for the .faq-icon for reuse
     var $faqIcon = $(this).find(".faq-icon");
-    
+
     // Use the cached image paths and perform a boolean check instead of string includes
     // This reduces the need for accessing the DOM attribute repeatedly
-    $faqIcon.attr("src", $faqIcon.attr("src") === plusIconPath ? minusIconPath : plusIconPath);
+    $faqIcon.attr(
+      "src",
+      $faqIcon.attr("src") === plusIconPath ? minusIconPath : plusIconPath
+    );
+  });
+
+  // Cache the jQuery selectors
+  var $tabButtons = $(".tab-button");
+  var $tabContents = $(".tab-content");
+
+  // Use event delegation
+  $(document).on("click", ".tab-button", function () {
+    var $this = $(this); // No need to cache this again if it's only used once
+    var $target = $($this.data("tab-target")); // Cache the target content
+
+    // Only remove 'active' class if the clicked tab isn't already active
+    if (!$this.hasClass("active")) {
+      $tabButtons.removeClass("active");
+      $tabContents.removeClass("active");
+
+      $this.addClass("active");
+      $target.addClass("active");
+    }
+  });
+
+  // function reveal() {
+  //   var reveals = document.querySelectorAll(".have-animations");
+
+  //   for (var i = 0; i < reveals.length; i++) {
+  //     var windowHeight = window.innerHeight;
+  //     var elementTop = reveals[i].getBoundingClientRect().top;
+  //     var elementVisible = 150;
+
+  //     if (elementTop < windowHeight - elementVisible) {
+  //       reveals[i].classList.add("animated");
+  //     } else {
+  //       reveals[i].classList.remove("animated");
+  //     }
+  //   }
+  // }
+  // window.addEventListener("scroll", reveal);
+
+ // Debounce function to limit the rate at which a function can fire.
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Function to initialize each slider
+function initSlider($slider) {
+  var itemCount = $slider.children('li').length;
+  var autoSwap = setInterval(next, 22000);
+  var startItem = 1;
+
+  function setPosition() {
+    var position = (startItem % itemCount) || itemCount;
+    return position;
+  }
+
+  function next() {
+    swap($slider, 'clockwise');
+  }
+
+  function prev() {
+    swap($slider, 'counter-clockwise');
+  }
+
+  function resetAutoSwap() {
+    clearInterval(autoSwap);
+    autoSwap = setInterval(next, 22000);
+  }
+
+  function swap($slider, direction) {
+    var $items = $slider.children('li');
+    var position = setPosition();
+
+    $items.removeClass('left-pos main-pos right-pos back-pos');
+
+    if (direction === 'clockwise') {
+      $slider.children('#' + position).addClass('left-pos');
+      $slider.children('#' + ((position % itemCount) + 1)).addClass('main-pos');
+      $slider.children('#' + (((position + 1) % itemCount) + 1)).addClass('right-pos');
+      $slider.children('#' + ((position - 2 + itemCount) % itemCount || itemCount)).addClass('back-pos');
+      startItem++;
+    } else {
+      $slider.children('#' + ((position - 2 + itemCount) % itemCount || itemCount)).addClass('left-pos');
+      $slider.children('#' + position).addClass('main-pos');
+      $slider.children('#' + ((position % itemCount) + 1)).addClass('right-pos');
+      $slider.children('#' + ((position - 3 + itemCount) % itemCount || itemCount)).addClass('back-pos');
+      startItem--;
+    }
+  }
+
+  $slider.on('hover', debounce(function(event) {
+    if (event.type === 'mouseenter') {
+      clearInterval(autoSwap);
+    } else {
+      resetAutoSwap();
+    }
+  }, 300));
+
+  $slider.parent().on('click', '#next', debounce(next, 300));
+  $slider.parent().on('click', '#prev', debounce(prev, 300));
+
+  $slider.children('li').on('click', function() {
+    if ($(this).hasClass('left-pos')) {
+      prev();
+    } else {
+      next();
+    }
+  });
+}
+
+// Initialize each carousel on the page
+$('.carousel-blogs, .carousel-testimonials').each(function() {
+  initSlider($(this));
 });
 
-
-  $(".tab-button").click(function () {
-    var $this = $(this);
-    var $target = $($this.data("tab-target"));
-
-    $(".tab-button").removeClass("active");
-    $(".tab-content").removeClass("active");
-
-    $this.addClass("active");
-    $target.addClass("active");
-  });
-  function reveal() {
-    var reveals = document.querySelectorAll(".have-animations");
-
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("animated");
-      } else {
-        reveals[i].classList.remove("animated");
-      }
-    }
-  }
-  window.addEventListener("scroll", reveal);
-
-  // opstions owl slider
-
-  /*
-  sliderTestimonials.owlCarousel({
-    items: 1,
-    loop: true,
-    nav: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoPlaySpeed: 3000,
-    autoplayHoverPause: true,
-    navText: [
-      "<i class='fa-solid fa-chevron-left'></i>",
-      "<i class='fa-solid fa-chevron-right'></i>",
-    ],
-  });
-
-
-  /*
-  var owlBlogs = $(".owl-blogs");
-  owlBlogs.owlCarousel({
-      items: 3,
-      loop: true,
-      margin: 10,
-      dots: false,
-      nav: true,
-      autoWidth:true,
-
-      navText: [
-          "<img src='./img/new-desgin/prev-arrow.png'>",
-          "<img src='./img/new-desgin/next-arrow.png'>",
-      ],
-      autoplay: true,
-      autoPlaySpeed: 2000,
-      autoPlayTimeout: 2000,
-      autoplayHoverPause: true,
-      onInitialized: resizeMiddleItem,
-      onTranslated: resizeMiddleItem
-  });
-*/
-
-  // Function to initialize each slider
-  function initSlider(slider) {
-    // Local variables for this slider
-    var autoSwap = setInterval(function () {
-      swap(slider, "clockwise");
-    }, 22000);
-    var startItem = 1;
-    var position = 0;
-    var itemCount = slider.find(">li").length;
-    var leftpos = itemCount;
-    var resetCount = itemCount;
-
-    // Swap function specific to a slider
-    function swap(slider, action) {
-      var direction = action;
-      var carouselItems = slider.find(">li");
-      var itemCount = carouselItems.length;
-
-      // Moving carousel backwards
-      if (direction == "counter-clockwise") {
-        var leftitem = slider.find(".left-pos").attr("id") - 1;
-        if (leftitem == 0) {
-          leftitem = itemCount;
-        }
-
-        slider.find(".right-pos").removeClass("right-pos").addClass("back-pos");
-        slider.find(".main-pos").removeClass("main-pos").addClass("right-pos");
-        slider.find(".left-pos").removeClass("left-pos").addClass("main-pos");
-        slider
-          .find("#" + leftitem)
-          .removeClass("back-pos")
-          .addClass("left-pos");
-
-        startItem--;
-        if (startItem < 1) {
-          startItem = itemCount;
-        }
-      }
-
-      // Moving carousel forward
-      if (direction == "clockwise" || direction == "" || direction == null) {
-        function pos(positionvalue) {
-          if (positionvalue != "leftposition") {
-            //increment image list id
-            position++;
-
-            //if final result is greater than image count, reset position.
-            if (startItem + position > resetCount) {
-              position = 1 - startItem;
-            }
-          }
-
-          //setting the left positioned item
-          if (positionvalue == "leftposition") {
-            //left positioned image should always be one left than main positioned image.
-            position = startItem - 1;
-
-            //reset last image in list to left position if first image is in main position
-            if (position < 1) {
-              position = itemCount;
-            }
-          }
-
-          return position;
-        }
-
-        slider
-          .find("#" + startItem)
-          .removeClass("main-pos")
-          .addClass("left-pos");
-        slider
-          .find("#" + (startItem + pos()))
-          .removeClass("right-pos")
-          .addClass("main-pos");
-        slider
-          .find("#" + (startItem + pos()))
-          .removeClass("back-pos")
-          .addClass("right-pos");
-        slider
-          .find("#" + pos("leftposition"))
-          .removeClass("left-pos")
-          .addClass("back-pos");
-
-        startItem++;
-        position = 0;
-        if (startItem > itemCount) {
-          startItem = 1;
-        }
-      }
-    }
-
-    // Event handlers for this slider
-    slider.hover(
-      function () {
-        clearInterval(autoSwap);
-      },
-      function () {
-        autoSwap = setInterval(function () {
-          swap(slider, "clockwise");
-        }, 7000);
-      }
-    );
-
-    slider
-      .parent()
-      .find("#next")
-      .click(function () {
-        swap(slider, "clockwise");
-      });
-
-    slider
-      .parent()
-      .find("#prev")
-      .click(function () {
-        swap(slider, "counter-clockwise");
-      });
-
-    slider.find(">li").click(function () {
-      if ($(this).hasClass("left-pos")) {
-        swap(slider, "counter-clockwise");
-      } else {
-        swap(slider, "clockwise");
-      }
-    });
-  }
-
-  // Initialize each carousel on the page
-  $(".carousel-blogs").each(function () {
-    initSlider($(this));
-  });
-
-  $(".carousel-testimonials").each(function () {
-    initSlider($(this));
-  });
   // More sliders can be initialized similarly
   var mainSlider = $(".main-slider");
   mainSlider.owlCarousel({
