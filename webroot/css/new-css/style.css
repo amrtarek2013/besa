@@ -943,7 +943,7 @@ textarea {
 
 
 
-.navbar .colse {
+.navbar .close {
     text-align: right;
 }
 
@@ -4255,12 +4255,12 @@ input[type="checkbox"] {
     -o-transform: translateX(-315px);
 }
 
-.navbar .colse,
+.navbar .close,
 .navbar .toggle {
     cursor: pointer;
 }
 
-.navbar .colse {
+.navbar .close {
     text-align: right;
 }
 

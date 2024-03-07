@@ -2,42 +2,55 @@ $(document).ready(function () {
   "use strict";
 
   // Cache jQuery selectors
-  var $sidenav = $('.sidenav');
-  var $overlay = $('.overlay');
-  
+  var $sidenav = $(".sidenav");
+  var $overlay = $(".overlay");
+  var $toggleSearch = $(".toggle-search");
+  var $liSearch = $(".li-search");
+
   // Event delegation for toggling the sidenav
-  $('.navbar-mobile').on('click', '.toggle', function() {
-    $sidenav.toggleClass('open');
-    $overlay.toggleClass('visible');
+  $(".navbar-mobile").on("click", ".toggle", function () {
+    $sidenav.toggleClass("open");
+    $overlay.toggleClass("visible");
   });
 
   // Event delegation for closing the sidenav
-  $sidenav.on('click', '.close', function() {
-    $sidenav.removeClass('open');
-    $overlay.removeClass('visible');
+  $sidenav.on("click", ".close", function () {
+    $sidenav.removeClass("open");
+    $overlay.removeClass("visible");
   });
 
-  $(".toggle-search").on("click", function () {
-    $(".li-search").toggleClass("show");
+  $toggleSearch.on("click", function () {
+    $liSearch.toggleClass("show");
   });
 
-  $(".grid-subjects .subject").on("click", function () {
-    $(this).addClass("active").siblings().removeClass("active");
+  // Cache the jQuery selector if .grid-subjects does not change
+  var $gridSubjects = $(".grid-subjects");
+
+  // Delegate the click event to the parent .grid-subjects
+  $gridSubjects.on("click", ".subject", function () {
+    // Use native classList for performance
+    this.classList.add("active");
+
+    // Get the previously active element and remove the 'active' class
+    var $active = $gridSubjects.find(".subject.active").not(this);
+    $active.each(function () {
+      this.classList.remove("active");
+    });
   });
 
-  $(".btn-filter").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
+  // Cache the jQuery selectors
+var $sideFilter = $("#sideFilter");
+var $pageOverlay = $("#pageOverlay");
 
-  $("#pageOverlay").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
-  $(".side-filter .close").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
+// A function to toggle the classes
+function toggleFilterAndOverlay() {
+  $sideFilter.toggleClass("show");
+  $pageOverlay.toggleClass("visible");
+}
+
+// Delegate events if there are multiple elements, otherwise, just attach events
+$(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggleFilterAndOverlay);
+
 
   $(".details-user .header-details").click(function () {
     $(".drop-down-user").toggleClass("show");
