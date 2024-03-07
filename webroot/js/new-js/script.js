@@ -99,119 +99,133 @@ $(document).ready(function () {
     }
   });
 
-  // function reveal() {
-  //   var reveals = document.querySelectorAll(".have-animations");
-
-  //   for (var i = 0; i < reveals.length; i++) {
-  //     var windowHeight = window.innerHeight;
-  //     var elementTop = reveals[i].getBoundingClientRect().top;
-  //     var elementVisible = 150;
-
-  //     if (elementTop < windowHeight - elementVisible) {
-  //       reveals[i].classList.add("animated");
-  //     } else {
-  //       reveals[i].classList.remove("animated");
-  //     }
-  //   }
-  // }
-  // window.addEventListener("scroll", reveal);
-
-  // Debounce function to limit the rate at which a function can fire.
-  function debounce(func, wait, immediate) {
-    var timeout;
-    return function () {
-      var context = this,
-        args = arguments;
-      var later = function () {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
-  // Function to initialize each slider
-  function initSlider($slider) {
-    var itemCount = $slider.children("li").length;
-    var autoSwap = setInterval(next, 22000);
+   // Function to initialize each slider
+   function initSlider(slider) {
+    // Local variables for this slider
+    var autoSwap = setInterval(function () {
+      swap(slider, "clockwise");
+    }, 22000);
     var startItem = 1;
+    var position = 0;
+    var itemCount = slider.find(">li").length;
+    var leftpos = itemCount;
+    var resetCount = itemCount;
 
-    function setPosition() {
-      var position = startItem % itemCount || itemCount;
-      return position;
-    }
+    // Swap function specific to a slider
+    function swap(slider, action) {
+      var direction = action;
+      var carouselItems = slider.find(">li");
+      var itemCount = carouselItems.length;
 
-    function next() {
-      swap($slider, "clockwise");
-    }
+      // Moving carousel backwards
+      if (direction == "counter-clockwise") {
+        var leftitem = slider.find(".left-pos").attr("id") - 1;
+        if (leftitem == 0) {
+          leftitem = itemCount;
+        }
 
-    function prev() {
-      swap($slider, "counter-clockwise");
-    }
-
-    function resetAutoSwap() {
-      clearInterval(autoSwap);
-      autoSwap = setInterval(next, 22000);
-    }
-
-    function swap($slider, direction) {
-      var $items = $slider.children("li");
-      var position = setPosition();
-
-      $items.removeClass("left-pos main-pos right-pos back-pos");
-
-      if (direction === "clockwise") {
-        $slider.children("#" + position).addClass("left-pos");
-        $slider
-          .children("#" + ((position % itemCount) + 1))
-          .addClass("main-pos");
-        $slider
-          .children("#" + (((position + 1) % itemCount) + 1))
-          .addClass("right-pos");
-        $slider
-          .children("#" + ((position - 2 + itemCount) % itemCount || itemCount))
-          .addClass("back-pos");
-        startItem++;
-      } else {
-        $slider
-          .children("#" + ((position - 2 + itemCount) % itemCount || itemCount))
+        slider.find(".right-pos").removeClass("right-pos").addClass("back-pos");
+        slider.find(".main-pos").removeClass("main-pos").addClass("right-pos");
+        slider.find(".left-pos").removeClass("left-pos").addClass("main-pos");
+        slider
+          .find("#" + leftitem)
+          .removeClass("back-pos")
           .addClass("left-pos");
-        $slider.children("#" + position).addClass("main-pos");
-        $slider
-          .children("#" + ((position % itemCount) + 1))
-          .addClass("right-pos");
-        $slider
-          .children("#" + ((position - 3 + itemCount) % itemCount || itemCount))
-          .addClass("back-pos");
+
         startItem--;
+        if (startItem < 1) {
+          startItem = itemCount;
+        }
+      }
+
+      // Moving carousel forward
+      if (direction == "clockwise" || direction == "" || direction == null) {
+        function pos(positionvalue) {
+          if (positionvalue != "leftposition") {
+            //increment image list id
+            position++;
+
+            //if final result is greater than image count, reset position.
+            if (startItem + position > resetCount) {
+              position = 1 - startItem;
+            }
+          }
+
+          //setting the left positioned item
+          if (positionvalue == "leftposition") {
+            //left positioned image should always be one left than main positioned image.
+            position = startItem - 1;
+
+            //reset last image in list to left position if first image is in main position
+            if (position < 1) {
+              position = itemCount;
+            }
+          }
+
+          return position;
+        }
+
+        slider
+          .find("#" + startItem)
+          .removeClass("main-pos")
+          .addClass("left-pos");
+        slider
+          .find("#" + (startItem + pos()))
+          .removeClass("right-pos")
+          .addClass("main-pos");
+        slider
+          .find("#" + (startItem + pos()))
+          .removeClass("back-pos")
+          .addClass("right-pos");
+        slider
+          .find("#" + pos("leftposition"))
+          .removeClass("left-pos")
+          .addClass("back-pos");
+
+        startItem++;
+        position = 0;
+        if (startItem > itemCount) {
+          startItem = 1;
+        }
       }
     }
 
-    $slider.on(
-      "hover",
-      debounce(function (event) {
-        if (event.type === "mouseenter") {
-          clearInterval(autoSwap);
-        } else {
-          resetAutoSwap();
-        }
-      }, 300)
+    // Event handlers for this slider
+    slider.hover(
+      function () {
+        clearInterval(autoSwap);
+      },
+      function () {
+        autoSwap = setInterval(function () {
+          swap(slider, "clockwise");
+        }, 7000);
+      }
     );
 
-    $slider.parent().on("click", "#next", debounce(next, 300));
-    $slider.parent().on("click", "#prev", debounce(prev, 300));
+    slider
+      .parent()
+      .find("#next")
+      .click(function () {
+        swap(slider, "clockwise");
+      });
 
-    $slider.children("li").on("click", function () {
+    slider
+      .parent()
+      .find("#prev")
+      .click(function () {
+        swap(slider, "counter-clockwise");
+      });
+
+    slider.find(">li").click(function () {
       if ($(this).hasClass("left-pos")) {
-        prev();
+        swap(slider, "counter-clockwise");
       } else {
-        next();
+        swap(slider, "clockwise");
       }
     });
   }
+
+
 
   // Initialize each carousel on the page
   $(".carousel-blogs, .carousel-testimonials").each(function () {
