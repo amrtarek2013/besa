@@ -116,149 +116,246 @@ $(document).ready(function () {
   // }
   // window.addEventListener("scroll", reveal);
 
- // Debounce function to limit the rate at which a function can fire.
-function debounce(func, wait, immediate) {
-  var timeout;
-  return function() {
-    var context = this, args = arguments;
-    var later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
+  // Debounce function to limit the rate at which a function can fire.
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+      var context = this,
+        args = arguments;
+      var later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
     };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
-
-// Function to initialize each slider
-function initSlider($slider) {
-  var itemCount = $slider.children('li').length;
-  var autoSwap = setInterval(next, 22000);
-  var startItem = 1;
-
-  function setPosition() {
-    var position = (startItem % itemCount) || itemCount;
-    return position;
   }
 
-  function next() {
-    swap($slider, 'clockwise');
-  }
+  // Function to initialize each slider
+  function initSlider($slider) {
+    var itemCount = $slider.children("li").length;
+    var autoSwap = setInterval(next, 22000);
+    var startItem = 1;
 
-  function prev() {
-    swap($slider, 'counter-clockwise');
-  }
-
-  function resetAutoSwap() {
-    clearInterval(autoSwap);
-    autoSwap = setInterval(next, 22000);
-  }
-
-  function swap($slider, direction) {
-    var $items = $slider.children('li');
-    var position = setPosition();
-
-    $items.removeClass('left-pos main-pos right-pos back-pos');
-
-    if (direction === 'clockwise') {
-      $slider.children('#' + position).addClass('left-pos');
-      $slider.children('#' + ((position % itemCount) + 1)).addClass('main-pos');
-      $slider.children('#' + (((position + 1) % itemCount) + 1)).addClass('right-pos');
-      $slider.children('#' + ((position - 2 + itemCount) % itemCount || itemCount)).addClass('back-pos');
-      startItem++;
-    } else {
-      $slider.children('#' + ((position - 2 + itemCount) % itemCount || itemCount)).addClass('left-pos');
-      $slider.children('#' + position).addClass('main-pos');
-      $slider.children('#' + ((position % itemCount) + 1)).addClass('right-pos');
-      $slider.children('#' + ((position - 3 + itemCount) % itemCount || itemCount)).addClass('back-pos');
-      startItem--;
+    function setPosition() {
+      var position = startItem % itemCount || itemCount;
+      return position;
     }
-  }
 
-  $slider.on('hover', debounce(function(event) {
-    if (event.type === 'mouseenter') {
+    function next() {
+      swap($slider, "clockwise");
+    }
+
+    function prev() {
+      swap($slider, "counter-clockwise");
+    }
+
+    function resetAutoSwap() {
       clearInterval(autoSwap);
-    } else {
-      resetAutoSwap();
+      autoSwap = setInterval(next, 22000);
     }
-  }, 300));
 
-  $slider.parent().on('click', '#next', debounce(next, 300));
-  $slider.parent().on('click', '#prev', debounce(prev, 300));
+    function swap($slider, direction) {
+      var $items = $slider.children("li");
+      var position = setPosition();
 
-  $slider.children('li').on('click', function() {
-    if ($(this).hasClass('left-pos')) {
-      prev();
-    } else {
-      next();
+      $items.removeClass("left-pos main-pos right-pos back-pos");
+
+      if (direction === "clockwise") {
+        $slider.children("#" + position).addClass("left-pos");
+        $slider
+          .children("#" + ((position % itemCount) + 1))
+          .addClass("main-pos");
+        $slider
+          .children("#" + (((position + 1) % itemCount) + 1))
+          .addClass("right-pos");
+        $slider
+          .children("#" + ((position - 2 + itemCount) % itemCount || itemCount))
+          .addClass("back-pos");
+        startItem++;
+      } else {
+        $slider
+          .children("#" + ((position - 2 + itemCount) % itemCount || itemCount))
+          .addClass("left-pos");
+        $slider.children("#" + position).addClass("main-pos");
+        $slider
+          .children("#" + ((position % itemCount) + 1))
+          .addClass("right-pos");
+        $slider
+          .children("#" + ((position - 3 + itemCount) % itemCount || itemCount))
+          .addClass("back-pos");
+        startItem--;
+      }
     }
+
+    $slider.on(
+      "hover",
+      debounce(function (event) {
+        if (event.type === "mouseenter") {
+          clearInterval(autoSwap);
+        } else {
+          resetAutoSwap();
+        }
+      }, 300)
+    );
+
+    $slider.parent().on("click", "#next", debounce(next, 300));
+    $slider.parent().on("click", "#prev", debounce(prev, 300));
+
+    $slider.children("li").on("click", function () {
+      if ($(this).hasClass("left-pos")) {
+        prev();
+      } else {
+        next();
+      }
+    });
+  }
+
+  // Initialize each carousel on the page
+  $(".carousel-blogs, .carousel-testimonials").each(function () {
+    initSlider($(this));
   });
-}
 
-// Initialize each carousel on the page
-$('.carousel-blogs, .carousel-testimonials').each(function() {
-  initSlider($(this));
-});
+  // Base configuration for all carousels
+  var baseCarouselConfig = {
+    loop: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    lazyLoad: true,
+    nav: true,
+    items: 1,
 
-  // Define a common options object for similar sliders
-var commonSliderOptions = {
-  loop: true,
-  margin: 10,
-  dots: false,
-  nav: true,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  autoplayTimeout: 2000,
-  autoplayHoverPause: true,
-  navText: [
-    "<img src='../img/new-desgin/prev-arrow-white.svg' alt='Previous'>",
-    "<img src='../img/new-desgin/next-arrow-white.svg' alt='Next'>",
-  ]
-};
+    navText: [
+      "<div class='nav-btn prev-slide'></div>",
+      "<div class='nav-btn next-slide'></div>",
+    ],
+  };
 
-// Initialize sliders with common options
-$(".main-slider, .ukslider, .owl-step-back, .owl-small-flag-logo").owlCarousel(commonSliderOptions);
-
-// Override options for specific sliders when needed
-$(".custome-slider").owlCarousel($.extend({}, commonSliderOptions, {
-  dots: true,
-  nav: false
-}));
-
-$(".owl-lifeBesa").owlCarousel($.extend({}, commonSliderOptions, {
-  margin: 40,
-  responsive: {
-    0: { items: 1 },
-    600: { items: 2 },
-    1000: { items: 3 },
-  }
-}));
-
-// Continue for other sliders...
-
-// Consider lazy loading for all sliders
-$("img").attr("loading", "lazy");
-
-// Defer the slider initialization if it's not in the viewport
-$(window).on("load scroll", function() {
-  if ($(".owl-defer").length && isElementInViewport($(".owl-defer"))) {
-    $(".owl-defer").owlCarousel(commonSliderOptions);
-    $(window).off("load scroll"); // Remove event listener once initialized
-  }
-});
-
-function isElementInViewport(el) {
-  var rect = el.get(0).getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  // Initialize specific carousels with custom options
+  $(".main-slider").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      margin: 10,
+      dots: false,
+      navText: [
+        "<img src='../img/new-desgin/prev-arrow-white.svg'>",
+        "<img src='../img/new-desgin/next-arrow-white.svg'>",
+      ],
+    })
   );
-}
 
+  $(".custome-slider").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      nav: false,
+      dots: true,
+    })
+  );
+
+  $(".ukslider").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: true,
+      nav: false,
+    })
+  );
+
+  $(".owl-lifeBesa").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: false,
+      nav: true,
+      margin: 40,
+      navText: [
+        "<img src='./img/chevron-right.svg'>",
+        "<img src='./img/chevron-left.svg'>",
+      ],
+      responsive: {
+        0: { items: 1 },
+        600: { items: 2 },
+        1000: { items: 3 },
+      },
+    })
+  );
+
+  $(".owl-school-tour").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: false,
+      nav: true,
+      navText: [
+        "<img src='../img/new-desgin/prev-arrow.svg'>",
+        "<img src='../img/new-desgin/next-arrow.svg'>",
+      ],
+    })
+  );
+
+  $(".owl-step-back").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: false ,
+      nav: true,
+      navText: [
+        "<img src='../img/new-desgin/prev-arrow.svg'>",
+        "<img src='../img/new-desgin/next-arrow.svg'>",
+      ],
+    })
+  );
+
+  $(".owl-small-flag-logo").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: false,
+      nav: true,
+      margin: 20,
+      navText: [
+        "<img src='../img/chevron-right-white.svg'>",
+        "<img src='../img/chevron-left-white.svg'>",
+      ],
+      responsive: {
+        0: { items: 1 },
+        600: { items: 3 },
+        1000: { items: 4 },
+      },
+    })
+  );
+
+  $(".owl-logos-slider").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: false,
+      margin: 25,
+      nav: true,
+      navText: [
+        "<img src='../img/chevron-right-white.svg'>",
+        "<img src='../img/chevron-left-white.svg'>",
+      ],
+      responsive: {
+        0: { items: 1 },
+        600: { items: 3 },
+        1000: { items: 4 },
+      },
+    })
+  );
+
+  $(".owl-topUni").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: true,
+      nav: false,
+      margin: 25,
+      stagePadding: 60,
+      responsive: {
+        0: { items: 1 },
+        600: { items: 2},
+        1000: { items: 3 },
+      },
+    })
+  );
+
+  $(".ukslider").owlCarousel(
+    $.extend({}, baseCarouselConfig, {
+      dots: true,
+      nav: false,
+    })
+  );
+
+  
   /*
   // Handle image clicks
   $(".image-box img").click(function () {
