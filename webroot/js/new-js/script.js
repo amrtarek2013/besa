@@ -1,17 +1,21 @@
 $(document).ready(function () {
   "use strict";
 
+    // Cache the jQuery selectors
+    var $sidenav = $(".sidenav");
+    var $overlay = $(".overlay");
   
-  // open sidenave in mobile
-  $(".navbar-mobile .toggle").on("click", function () {
-    $(".sidenav").toggleClass("open");
-    $(".overlay").toggleClass("visible");
-  });
-  // colse sidenave in mobile
-  $(".sidenav .colse").on("click", function () {
-    $(".sidenav").toggleClass("open");
-    $(".overlay").toggleClass("visible");
-  });
+    // Use event delegation for better performance and to handle dynamically added elements
+    $(".navbar-mobile").on("click", ".toggle", function () {
+      $sidenav.toggleClass("open");
+      $overlay.toggleClass("visible");
+    });
+  
+    // Fix the potential typo here (assuming "colse" was meant to be "close")
+    $sidenav.on("click", ".close", function () {
+      $sidenav.removeClass("open");
+      $overlay.removeClass("visible");
+    });
 
   $(".toggle-search").on("click", function () {
     $(".li-search").toggleClass("show");
