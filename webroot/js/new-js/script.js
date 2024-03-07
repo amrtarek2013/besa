@@ -1,291 +1,145 @@
 $(document).ready(function () {
   "use strict";
 
-  // open sidenave in mobile
-  $(".navbar-mobile .toggle").on("click", function () {
-    $(".sidenav").toggleClass("open");
-    $(".overlay").toggleClass("visible");
-  });
-  // colse sidenave in mobile
-  $(".sidenav .colse").on("click", function () {
-    $(".sidenav").toggleClass("open");
-    $(".overlay").toggleClass("visible");
-  });
+  // Cache selectors
+  var $document = $(document),
+      $window = $(window),
+      $body = $('body'),
+      $sidenav = $('.sidenav'),
+      $overlay = $('.overlay'),
+      $liSearch = $('.li-search'),
+      $sideFilter = $('#sideFilter'),
+      $pageOverlay = $('#pageOverlay'),
+      $dropDownUser = $('.drop-down-user'),
+      $tabButton = $('.tab-button'),
+      $tabContent = $('.tab-content'),
+      $scrollToTop = $('#scrollToTop'),
+      $faqQuestion = $('.faq-question'),
+      $faqIcon = $('.faq-icon');
 
-  $(".toggle-search").on("click", function () {
-    $(".li-search").toggleClass("show");
-  });
-
-  $(".grid-subjects .subject").on("click", function () {
-    $(this).addClass("active").siblings().removeClass("active");
-  });
-
-  $(".btn-filter").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
-
-  $("#pageOverlay").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
-  $(".side-filter .close").click(function () {
-    $("#sideFilter").toggleClass("show");
-    $("#pageOverlay").toggleClass("visible");
-  });
-
-  $(".details-user .header-details").click(function () {
-    $(".drop-down-user").toggleClass("show");
-  });
-
-  // Add click event listener to each question
-  $(".faq-question").click(function () {
-    // This toggles the faq-answer slide up/down
-    $(this).next(".faq-answer").slideToggle("slow");
-
-    // This changes the image from plus to minus and vice versa
-    var imgSrc = $(this).find(".faq-icon").attr("src");
-    if (imgSrc.includes("plus-icon")) {
-      $(this)
-        .find(".faq-icon")
-        .attr(
-          "src",
-          imgSrc.replace(
-            "img/new-desgin/plus-icon.svg",
-            "img/new-desgin/minus-icon.svg"
-          )
-        );
-    } else {
-      $(this)
-        .find(".faq-icon")
-        .attr(
-          "src",
-          imgSrc.replace(
-            "img/new-desgin/minus-icon.svg",
-            "img/new-desgin/plus-icon.svg"
-          )
-        );
-    }
-  });
-
-  $(".tab-button").click(function () {
-    var $this = $(this);
-    var $target = $($this.data("tab-target"));
-
-    $(".tab-button").removeClass("active");
-    $(".tab-content").removeClass("active");
-
-    $this.addClass("active");
-    $target.addClass("active");
-  });
-  function reveal() {
-    var reveals = document.querySelectorAll(".have-animations");
-
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("animated");
+  // Throttle function to limit how often a function can fire
+  function throttle(func, limit) {
+    var lastFunc,
+        lastRan;
+    return function () {
+      var context = this,
+          args = arguments;
+      if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
       } else {
-        reveals[i].classList.remove("animated");
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(function () {
+          if ((Date.now() - lastRan) >= limit) {
+            func.apply(context, args);
+            lastRan = Date.now();
+          }
+        }, limit - (Date.now() - lastRan));
       }
     }
   }
-  window.addEventListener("scroll", reveal);
 
-  // opstions owl slider
+  // Delegated events
+  $body.on('click', function (e) {
+    var $target = $(e.target);
+    
+    // Toggle side navigation for mobile
+    if ($target.closest('.navbar-mobile .toggle').length || $target.closest('.sidenav .close').length) {
+      $sidenav.toggleClass('open');
+      $overlay.toggleClass('visible');
+    }
 
-  /*
-  sliderTestimonials.owlCarousel({
-    items: 1,
-    loop: true,
-    nav: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoPlaySpeed: 3000,
-    autoplayHoverPause: true,
-    navText: [
-      "<i class='fa-solid fa-chevron-left'></i>",
-      "<i class='fa-solid fa-chevron-right'></i>",
-    ],
-  });
+    // Toggle search visibility
+    else if ($target.is('.toggle-search')) {
+      $liSearch.toggleClass('show');
+    }
 
+    // Toggle subject active class
+    else if ($target.is('.grid-subjects .subject')) {
+      $target.addClass('active').siblings().removeClass('active');
+    }
 
-  /*
-  var owlBlogs = $(".owl-blogs");
-  owlBlogs.owlCarousel({
-      items: 3,
-      loop: true,
-      margin: 10,
-      dots: false,
-      nav: true,
-      autoWidth:true,
+    // Toggle filter and overlay visibility
+    else if ($target.is('.btn-filter') || $target.is('#pageOverlay') || $target.closest('.side-filter .close').length) {
+      $sideFilter.toggleClass('show');
+      $pageOverlay.toggleClass('visible');
+    }
 
-      navText: [
-          "<img src='./img/new-desgin/prev-arrow.png'>",
-          "<img src='./img/new-desgin/next-arrow.png'>",
-      ],
-      autoplay: true,
-      autoPlaySpeed: 2000,
-      autoPlayTimeout: 2000,
-      autoplayHoverPause: true,
-      onInitialized: resizeMiddleItem,
-      onTranslated: resizeMiddleItem
-  });
-*/
+    // User dropdown toggle
+    else if ($target.closest('.details-user .header-details').length) {
+      $dropDownUser.toggleClass('show');
+    }
 
-  // Function to initialize each slider
-  function initSlider(slider) {
-    // Local variables for this slider
-    var autoSwap = setInterval(function () {
-      swap(slider, "clockwise");
-    }, 22000);
-    var startItem = 1;
-    var position = 0;
-    var itemCount = slider.find(">li").length;
-    var leftpos = itemCount;
-    var resetCount = itemCount;
+    // FAQ toggle
+    else if ($target.closest('.faq-question').length) {
+      $target.next('.faq-answer').slideToggle('slow');
+      var imgSrc = $target.find($faqIcon).attr('src');
+      $target.find($faqIcon).attr('src', imgSrc.includes('plus-icon') 
+        ? imgSrc.replace('plus-icon.svg', 'minus-icon.svg')
+        : imgSrc.replace('minus-icon.svg', 'plus-icon.svg')
+      );
+    }
 
-    // Swap function specific to a slider
-    function swap(slider, action) {
-      var direction = action;
-      var carouselItems = slider.find(">li");
-      var itemCount = carouselItems.length;
+    // Tab activation
+    else if ($target.is('.tab-button')) {
+      var $this = $target,
+          $targetContent = $($this.data('tab-target'));
 
-      // Moving carousel backwards
-      if (direction == "counter-clockwise") {
-        var leftitem = slider.find(".left-pos").attr("id") - 1;
-        if (leftitem == 0) {
-          leftitem = itemCount;
-        }
+      $tabButton.removeClass('active');
+      $tabContent.removeClass('active');
 
-        slider.find(".right-pos").removeClass("right-pos").addClass("back-pos");
-        slider.find(".main-pos").removeClass("main-pos").addClass("right-pos");
-        slider.find(".left-pos").removeClass("left-pos").addClass("main-pos");
-        slider
-          .find("#" + leftitem)
-          .removeClass("back-pos")
-          .addClass("left-pos");
+      $this.addClass('active');
+      $targetContent.addClass('active');
+    }
 
-        startItem--;
-        if (startItem < 1) {
-          startItem = itemCount;
-        }
-      }
+    // Scroll to top functionality
+    else if ($target.is('#scrollToTop')) {
+      $('html, body').animate({ scrollTop: 0 }, 'smooth');
+    }
 
-      // Moving carousel forward
-      if (direction == "clockwise" || direction == "" || direction == null) {
-        function pos(positionvalue) {
-          if (positionvalue != "leftposition") {
-            //increment image list id
-            position++;
-
-            //if final result is greater than image count, reset position.
-            if (startItem + position > resetCount) {
-              position = 1 - startItem;
-            }
-          }
-
-          //setting the left positioned item
-          if (positionvalue == "leftposition") {
-            //left positioned image should always be one left than main positioned image.
-            position = startItem - 1;
-
-            //reset last image in list to left position if first image is in main position
-            if (position < 1) {
-              position = itemCount;
-            }
-          }
-
-          return position;
-        }
-
-        slider
-          .find("#" + startItem)
-          .removeClass("main-pos")
-          .addClass("left-pos");
-        slider
-          .find("#" + (startItem + pos()))
-          .removeClass("right-pos")
-          .addClass("main-pos");
-        slider
-          .find("#" + (startItem + pos()))
-          .removeClass("back-pos")
-          .addClass("right-pos");
-        slider
-          .find("#" + pos("leftposition"))
-          .removeClass("left-pos")
-          .addClass("back-pos");
-
-        startItem++;
-        position = 0;
-        if (startItem > itemCount) {
-          startItem = 1;
-        }
+    // Increment and decrement functionality
+    else if ($target.is('.increment, .decrement')) {
+      const isDecrement = $target.is('.decrement');
+      const $input = $target.closest('.input-group').find('input');
+      if ($input.is('input')) {
+        $input[0][isDecrement ? 'stepDown' : 'stepUp']();
       }
     }
 
-    // Event handlers for this slider
-    slider.hover(
-      function () {
-        clearInterval(autoSwap);
-      },
-      function () {
-        autoSwap = setInterval(function () {
-          swap(slider, "clockwise");
-        }, 7000);
-      }
-    );
+    // Prevent form non-submit buttons from doing anything
+    else if ($target.is('form button:not([type="submit"])')) {
+      e.preventDefault();
+    }
+  });
 
-    slider
-      .parent()
-      .find("#next")
-      .click(function () {
-        swap(slider, "clockwise");
-      });
+  // Reveal on scroll
+  function revealOnScroll() {
+    $('.have-animations').each(function () {
+      var $this = $(this),
+          windowHeight = $window.height(),
+          elementTop = $this.offset().top,
+          elementVisible = 150;
 
-    slider
-      .parent()
-      .find("#prev")
-      .click(function () {
-        swap(slider, "counter-clockwise");
-      });
-
-    slider.find(">li").click(function () {
-      if ($(this).hasClass("left-pos")) {
-        swap(slider, "counter-clockwise");
+      if (elementTop < windowHeight - elementVisible) {
+        $this.addClass('animated');
       } else {
-        swap(slider, "clockwise");
+        $this.removeClass('animated');
       }
     });
   }
 
-  // Initialize each carousel on the page
-  $(".carousel-blogs").each(function () {
-    initSlider($(this));
-  });
+  // Scroll event with throttling
+  $window.scroll(throttle(revealOnScroll, 100));
 
-  $(".carousel-testimonials").each(function () {
-    initSlider($(this));
-  });
-  // More sliders can be initialized similarly
-  var mainSlider = $(".main-slider");
-  mainSlider.owlCarousel({
+   // Slider initializations
+   $('.main-slider').owlCarousel({
     items: 1,
     loop: true,
     margin: 10,
-    dots: false,
     nav: true,
-    navText: [
-      "<img src='../img/new-desgin/prev-arrow-white.svg'>",
-      "<img src='../img/new-desgin/next-arrow-white.svg'>",
-    ],
     autoplay: true,
-    autoPlaySpeed: 2000,
-    autoPlayTimeout: 2000,
-    autoplayHoverPause: true,
+    autoplayTimeout: 2000,
+    navText: ["<img src='../img/new-desgin/prev-arrow-white.svg'>", "<img src='../img/new-desgin/next-arrow-white.svg'>"]
   });
   var customeSlider = $(".custome-slider");
   customeSlider.owlCarousel({
@@ -428,244 +282,44 @@ $(document).ready(function () {
       },
     },
   });
-  /*
-  // Handle image clicks
-  $(".image-box img").click(function () {
-    var imageUrl = $(this).attr("src");
-    $("#largeImage").attr("src", imageUrl);
-  });
 
- 
-  // Handle custom navigation buttons
-  $(".custom-next").click(function () {
-    owl.trigger("next.owl.carousel");
-  });
-
-  $(".custom-prev").click(function () {
-    owl.trigger("prev.owl.carousel");
-  });*/
-
-  // jQuery animated number counter from zero to value
-  var counterAbout = $(".about-us");
-  var counterBanner = $(".main-banner");
-  var winHeight = $(window).height();
-  if (counterAbout.length) {
-    var firEvent = false,
-      objectPosTop = $(".about-us").offset().top;
-    //when element shows at bottom
-    var elementViewInBottom = objectPosTop - winHeight;
-    $(window).on("scroll", function () {
-      var currentPosition = $(document).scrollTop();
-      //when element position starting in viewport
-      if (currentPosition > elementViewInBottom && firEvent === false) {
-        firEvent = true;
-        animationCounter();
-      }
-    });
-  } else if (counterBanner.length) {
-    var firEvent = false,
-      objectPosTop = $(".main-banner").offset().top;
-    //when element shows at bottom
-    var elementViewInBottom = objectPosTop - winHeight;
-    $(window).on("scroll", function () {
-      var currentPosition = $(document).scrollTop();
-      //when element position starting in viewport
-      if (currentPosition > elementViewInBottom && firEvent === false) {
-        firEvent = true;
-        animationCounter();
-      }
-    });
+  // Function to initialize a generic slider
+  function initOwlCarousel(selector, options) {
+    $(selector).owlCarousel(options);
   }
 
-  //counter function will animate by using external js also add seprator "."
-  function animationCounter() {
-    $(".number-count").each(function () {
-      $(this)
-        .prop("Counter", 0)
-        .animate(
-          {
-            Counter: $(this).text(),
-          },
-          {
-            duration: 3000,
-            easing: "swing",
-            step: function (now) {
-              $(this).text(Math.ceil(now));
-            },
-          }
-        );
+  // Call this function to initialize all your sliders
+  function initAllSliders() {
+    initOwlCarousel('.custome-slider', {
+      loop: true,
+      margin: 10,
+      nav: false,
+      dots: true,
+      items: 1
     });
+
+    initOwlCarousel('.ukslider', {
+      items: 1,
+      loop: true,
+      margin: 10,
+      dots: true,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 2000
+    });
+
+    initOwlCarousel('.owl-school-tour', {
+      items: 1,
+      loop: true,
+      nav: true,
+      navText: ["<img src='../img/new-desgin/prev-arrow.svg'>", "<img src='../img/new-desgin/next-arrow.svg'>"]
+    });
+
+    // Continue initializing other sliders with the 'initOwlCarousel' function
+    // ...
   }
 
-  // Triger  Slider accordion
-  // $(function () {
-  //   accordion.init({
-  //     id: "accordion",
-  //   });
-  // });
+  // Initialize all sliders
+  initAllSliders();
 
-  // Jumping to sections of the same page
-  $(".arrow-bottomGoSection a").on("click", function (event) {
-    event.preventDefault();
-    var hash = this.hash;
-    $("html, body").animate(
-      {
-        scrollTop: $(hash).offset().top,
-      },
-      1000,
-      function () {
-        window.location.hash = hash;
-      }
-    );
-  });
-
-  // button scroll to top
-  $("#scrollToTop").on("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-  $(window)
-    .scroll(function () {
-      // scrollToTop is not a function - changed to scrollTop
-      if ($(this).scrollTop() > 3000) {
-        $("#scrollToTop").fadeIn();
-      } else {
-        $("#scrollToTop").fadeOut();
-      }
-    })
-    .trigger("scroll");
-
-  //   // Triger  timeline slider
-  //   $(".custome-timeline").Timeline({
-  //     itemClass: "timeline-item",
-  //     dotsPosition: "top",
-  //     autoplaySpeed: 20,
-  //   });
-  //   var $cols = $(".timeline-horizontal .timeline-dots li");
-  //   var numberOfCols = $cols.length;
-  //   $cols.css("width", 100 / numberOfCols + "%");
-
-  //   // On next click, if the slide-next element exists, trigger the click event on it
-  //   $(".nav-timeline .next").click(function (e) {
-  //     e.preventDefault();
-  //     if ($(".slide-next").length) {
-  //       $(".slide-next").trigger("click");
-  //     }
-  //   });
-
-  //   // Attach a click event listener to elements with the class "nav-timeline" and "prev"
-  //   $(".nav-timeline .prev").click(function (e) {
-  //     // Prevent the default behavior of the click event (i.e. following a link, submitting a form, etc.)
-  //     e.preventDefault();
-
-  //     // Check if there is an element on the page with the class "slide-prev"
-  //     if ($(".slide-prev").length) {
-  //       // If such an element exists, trigger a click event on it
-  //       $(".slide-prev").trigger("click");
-  //     }
-  //   });
 });
-
-function togglePasswordVisibility(inputId) {
-  const passwordInput = document.getElementById(inputId);
-  const eyeIcon = passwordInput.parentNode.querySelector(".toggle-password");
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    eyeIcon.classList.remove("fa-eye");
-    eyeIcon.classList.add("fa-eye-slash");
-  } else {
-    passwordInput.type = "password";
-    eyeIcon.classList.remove("fa-eye-slash");
-    eyeIcon.classList.add("fa-eye");
-  }
-}
-
-var buttons = document.querySelectorAll('form button:not([type="submit"])');
-for (i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function (e) {
-    e.preventDefault();
-  });
-}
-$("form").on("click", 'button:not([type="submit"])', function (e) {
-  e.preventDefault();
-});
-
-$(".increment, .decrement").on("click", function (e) {
-  const isNegative = $(e.target).closest(".decrement").is(".decrement");
-  const input = $(e.target).closest(".input-group").find("input");
-  if (input.is("input")) {
-    input[0][isNegative ? "stepDown" : "stepUp"]();
-  }
-});
-// Get the search input element
-// const searchInput = document.querySelector(".search");
-
-// // Get the search list element
-// const searchList = document.querySelector(".search-list");
-
-// // Add event listeners to the search input for clicks, focus, and blur events
-// searchInput.addEventListener("click", toggleSearchList);
-// searchInput.addEventListener("focus", toggleSearchList);
-// searchInput.addEventListener("blur", toggleSearchList);
-
-// // Add a click event listener to the document object
-// document.addEventListener("click", function (event) {
-//   // Check if the click event did not originate from the search input or search list
-//   if (
-//     !searchInput.contains(event.target) &&
-//     !searchList.contains(event.target)
-//   ) {
-//     // Hide the search list by removing the 'show' class
-//     searchList.classList.remove("show");
-//   }
-// });
-
-// // Function to toggle the 'show' class on the search list
-// function toggleSearchList() {
-//   searchList.classList.add("show");
-// }
-
-// const rangeContainer = document.querySelector(".range-container");
-// rangeContainer.addEventListener("input", (ev) => {
-//   const rangeInput = ev.target;
-//   const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
-//   const sliderWidth = rangeInput.clientWidth;
-//   const sliderPosition = rangeInput.value;
-//   const sliderMaxValue = rangeInput.max;
-//   const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
-//   rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
-//     (sliderPositionPercentage * sliderWidth) / 100
-//   }px, #B4BEC8 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
-//   rangeInput.id === "age"
-//     ? (valueSpan.textContent = sliderPosition + " year")
-//     : (valueSpan.textContent = "$" + sliderPosition);
-// });
-// rangeContainer
-//   .querySelectorAll('input[type="range"]')
-//   .forEach((rangeInput) => (rangeInput.value = 0));
-
-// // Set event listener on rangeContainer element
-// rangeContainer.addEventListener("input", (ev) => {
-//   // Declare variables
-//   const rangeInput = ev.target;
-//   const valueSpan = rangeContainer.querySelector(`#${rangeInput.id}-value`);
-//   const sliderWidth = rangeInput.clientWidth;
-//   const sliderPosition = rangeInput.value;
-//   const sliderMaxValue = rangeInput.max;
-//   const sliderPositionPercentage = (sliderPosition / sliderMaxValue) * 100;
-//   // Set rangeInput style
-//   rangeInput.style.backgroundImage = `linear-gradient(to right, #33CA94 ${
-//     (sliderPositionPercentage * sliderWidth) / 100
-//   }px, #f5f5f5 ${(sliderPositionPercentage * sliderWidth) / 100}px)`;
-//   // Set textContent depending on rangeInput.id
-//   rangeInput.id === "age"
-//     ? (valueSpan.textContent = sliderPosition + " year")
-//     : (valueSpan.textContent = "$" + sliderPosition);
-// });
-// // Set all rangeInput values to 0
-// rangeContainer
-//   .querySelectorAll('input[type="range"]')
-//   .forEach((rangeInput) => (rangeInput.value = 0));
