@@ -56,35 +56,24 @@ $(document).on("click", ".btn-filter, #pageOverlay, .side-filter .close", toggle
     $(".drop-down-user").toggleClass("show");
   });
 
-  // Add click event listener to each question
-  $(".faq-question").click(function () {
-    // This toggles the faq-answer slide up/down
+ // Pre-cache the image paths to avoid repetitive string operations
+var plusIconPath = "img/new-design/plus-icon.svg";
+var minusIconPath = "img/new-design/minus-icon.svg";
+
+// Use event delegation to handle dynamic or multiple .faq-question elements
+// This way, only a single event listener is needed for all current and future .faq-questions
+$(document).on("click", ".faq-question", function() {
+    // Toggle the next .faq-answer element
     $(this).next(".faq-answer").slideToggle("slow");
 
-    // This changes the image from plus to minus and vice versa
-    var imgSrc = $(this).find(".faq-icon").attr("src");
-    if (imgSrc.includes("plus-icon")) {
-      $(this)
-        .find(".faq-icon")
-        .attr(
-          "src",
-          imgSrc.replace(
-            "img/new-desgin/plus-icon.svg",
-            "img/new-desgin/minus-icon.svg"
-          )
-        );
-    } else {
-      $(this)
-        .find(".faq-icon")
-        .attr(
-          "src",
-          imgSrc.replace(
-            "img/new-desgin/minus-icon.svg",
-            "img/new-desgin/plus-icon.svg"
-          )
-        );
-    }
-  });
+    // Cache the jQuery selector for the .faq-icon for reuse
+    var $faqIcon = $(this).find(".faq-icon");
+    
+    // Use the cached image paths and perform a boolean check instead of string includes
+    // This reduces the need for accessing the DOM attribute repeatedly
+    $faqIcon.attr("src", $faqIcon.attr("src") === plusIconPath ? minusIconPath : plusIconPath);
+});
+
 
   $(".tab-button").click(function () {
     var $this = $(this);
