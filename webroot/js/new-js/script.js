@@ -1,26 +1,25 @@
 $(document).ready(function () {
   "use strict";
 
-    // Cache the jQuery selectors
-    var $sidenav = $(".sidenav");
-    var $overlay = $(".overlay");
+  // Cache jQuery selectors
+  var $sidenav = $('.sidenav');
+  var $overlay = $('.overlay');
   
-    // Use event delegation for better performance and to handle dynamically added elements
-    $(".navbar-mobile").on("click", ".toggle", function () {
-      $sidenav.toggleClass("open");
-      $overlay.toggleClass("visible");
-    });
-  
-    // Fix the potential typo here (assuming "colse" was meant to be "close")
-    $(".navbar-mobile").on("click", ".close", function () {
-      $sidenav.removeClass("open");
-      $overlay.removeClass("visible");
-    });
+  // Event delegation for toggling the sidenav
+  $('.navbar-mobile').on('click', '.toggle', function() {
+    $sidenav.toggleClass('open');
+    $overlay.toggleClass('visible');
+  });
+
+  // Event delegation for closing the sidenav
+  $sidenav.on('click', '.close', function() {
+    $sidenav.removeClass('open');
+    $overlay.removeClass('visible');
+  });
 
   $(".toggle-search").on("click", function () {
     $(".li-search").toggleClass("show");
   });
-
 
   $(".grid-subjects .subject").on("click", function () {
     $(this).addClass("active").siblings().removeClass("active");

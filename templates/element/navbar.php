@@ -22,7 +22,7 @@ use Cake\Routing\Router;
                             <i class="fa-solid fa-bars fa-2x"></i>
                         </div>
                         <div class="sidenav">
-                            <div class="colse">
+                            <div class="close">
                                 <i class="fa-solid fa-xmark fa-2x"></i>
                             </div>
                             <div class="buttons apply-now-btn-header">
