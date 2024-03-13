@@ -111,7 +111,9 @@ use Cake\Routing\Router;
 
                                     <div class="mobile-menu-dropdown">
                                         <ul>
-                                     
+                                            <li>
+                                                <a href="<?= Router::url('/' . $g_dynamic_routes['events.index']) ?>">All Events</a>
+                                            </li>
                                             <?php
                                             foreach ($eventsMenuList as $key => $eventValue) {
                                             ?>
