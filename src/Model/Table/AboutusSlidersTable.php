@@ -40,7 +40,7 @@ class AboutusSlidersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 536, 'height' => 357],
+                        'resize' => ['width' => 600, 'height' => 600],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/aboutus_sliders',

@@ -117,9 +117,9 @@ use Cake\Routing\Router;
                                             <?php
                                             foreach ($eventsMenuList as $key => $eventValue) {
                                             ?>
-                                                <li>
-                                                    <a href="<?= Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
-                                                </li>
+                                                <!-- <li>
+                                                    <a href="<?php // Router::url('/' . $g_dynamic_routes['events.eventdetails']) ?>/<?= $eventValue['permalink'] ?>"><?= $eventValue['title'] ?></a>
+                                                </li> -->
                                             <?php } ?>
                                             <li>
                                                 <a href="<?= Router::url('/school-tour') ?>"><?= __('School Tour') ?></a>
