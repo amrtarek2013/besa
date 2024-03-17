@@ -53,16 +53,16 @@ class CareerAssessmentsController extends AppController
         $data = json_encode($this->request->getData());
 
         $careers = [
-            "GoLang Software Engineer",
-            "Crazy Doctor",
-            "Chemistry Teacher",
-            "Artistic Graphic Designer",
-            "Evil Accountant",
-            "Stupid Lawyer",
-            "Lonely Electrician",
-            "Fat Chef",
-            "Virgin Mechanic",
-            "Horney Nurse"
+            "Software Engineer",
+            "Doctor",
+            "Teacher",
+            "Graphic Designer",
+            "Accountant",
+            "Lawyer",
+            "Electrician",
+            "Chef",
+            "Mechanic",
+            "Nurse"
         ];
 
         $data .= "\n\nBased on these data, recommend top three careers for me out of this list: " . implode(',', $careers);
