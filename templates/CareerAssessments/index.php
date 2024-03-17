@@ -309,7 +309,7 @@ foreach ($questions as $clause => $items) {
             <?= $this->Form->radio(
                 $item["phrase"],
                 $item["choices"],
-                ["required" => true]
+                ["required" => false]
             ) ?>
             <br /><br />
         <?php endforeach; ?>
