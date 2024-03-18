@@ -139,9 +139,9 @@ class CareerAssessmentsController extends AppController
         $query = "SELECT phrase, answer FROM career_assessments_answers  , career_assessments_question_phrases    WHERE career_assessments_answers.question_id = career_assessments_question_phrases.id and career_assessments_answers.career_assessments_survey_id ={$survey->id};";
         $data = $connection->execute($query)->fetchAll("assoc");
         $data = Hash::combine($data, '{n}.phrase',   '{n}.answer');
-        return $data = json_encode($data);
+        // return $data = json_encode($data);
 
-        die;
+        // die;
 
         // $data = json_encode($this->request->getData());
 
