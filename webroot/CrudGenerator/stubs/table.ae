@@ -1,0 +1,44 @@
+<?php
+declare(strict_types=1);
+
+namespace {{ namespace }}\Model\Table;
+
+use Cake\ORM\Query;
+use Cake\ORM\RulesChecker;
+use Cake\ORM\Table;
+use Cake\Validation\Validator;
+
+class {{ controllerName }}Table extends Table
+{
+
+
+    public $filters = [];
+
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config): void
+    {
+        parent::initialize($config);
+
+        $this->setTable('{{ table }}');
+        $this->setPrimaryKey('id');
+        $this->addBehavior('Timestamp');
+        
+        {{ ImageFileBehavior }}
+
+
+    }
+
+
+
+    public function validationDefault(Validator $validator): Validator
+    {
+
+        return $validator;
+    }
+
+}

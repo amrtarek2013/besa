@@ -1,0 +1,99 @@
+<?php
+declare(strict_types=1);
+
+namespace {{ namespace }}\Controller{{ prefix }};
+
+{{ appController }}
+
+/**
+ * {{ controllerName }} Controller
+ *
+ */
+
+class {{ controllerName }}Controller extends AppController
+{
+
+    public function index()
+    {
+
+        $conditions = $this->_filter_params();
+
+        ${{ pluralName }} = $this->paginate($this->{{ controllerName }},['conditions'=>$conditions]);
+        $parameters = $this->request->getAttribute('params');
+        $this->set(compact('{{ pluralName }}','parameters'));
+    }
+
+    public function add()
+    {
+        ${{ singularName }} = $this->{{ controllerName }}->newEmptyEntity();
+        if ($this->request->is('post')) {
+            ${{ singularName }} = $this->{{ controllerName }}->patchEntity(${{ singularName }}, $this->request->getData());
+            if ($this->{{ controllerName }}->save(${{ singularName }})) {
+                $this->Flash->success(__('The {{ singularHumanName }} has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The {{ singularHumanName }} could not be saved. Please, try again.'));
+        }
+         
+        $this->set(compact('{{ singularName }}'));
+
+
+    }
+
+    public function edit($id = null)
+    {
+        ${{ singularName }} = $this->{{ controllerName }}->get($id);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            ${{ singularName }} = $this->{{ controllerName }}->patchEntity(${{ singularName }}, $this->request->getData());
+            if ($this->{{ controllerName }}->save(${{ singularName }})) {
+                $this->Flash->success(__('The {{ singularHumanName }} has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The {{ singularHumanName }} could not be saved. Please, try again.'));
+        }
+        $this->set(compact('{{ singularName }}'));
+        $this->render('add');
+
+    }
+
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete','get']);
+        ${{ singularName }} = $this->{{ controllerName }}->get($id);
+        if ($this->{{ controllerName }}->delete(${{ singularName }})) {
+            $this->Flash->success(__('The {{ singularHumanName }} has been deleted.'));
+        } else {
+            $this->Flash->error(__('The {{ singularHumanName }} could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    public function deleteMulti()
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $ids = $this->request->getData('ids');
+        
+        if(is_array($ids) ){
+          $this->{{ controllerName }}->deleteAll(['id IN' => $ids]);
+         $this->Flash->success(__('The {{ controllerName }} has been deleted.'));
+        } else {
+            $this->Flash->error(__('The {{ controllerName }} could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+        
+    }
+
+    public function view($id = null)
+    {
+        ${{ singularName }} = $this->{{ controllerName }}->get($id);
+
+        $this->set('{{ singularName }}', ${{ singularName }});
+    }
+
+
+}
