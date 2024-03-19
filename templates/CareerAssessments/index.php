@@ -274,9 +274,7 @@ foreach ($questions as $clause => $items) {
 
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+
         <div class="assessment">
   <div class="question">
     <p class="question-number">Question 1 of 24</p>
@@ -292,9 +290,7 @@ foreach ($questions as $clause => $items) {
     <button class="skip">Skip Question</button>
   </div>
 </div>
-        </div>
-    </div>
-</div>
+
 
 
 <h1>Career Assessment</h1>

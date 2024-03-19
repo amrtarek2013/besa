@@ -4799,8 +4799,8 @@ input[type="search"] {
   padding: 10px 0;
 }
 .sectionTimeline .container-item-data {
-    align-items: center;
-    grid-template-columns: 60% 40%;
+  align-items: center;
+  grid-template-columns: 60% 40%;
   grid-gap: 5px;
 }
 input[type="search"] {
