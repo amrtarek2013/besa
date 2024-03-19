@@ -1,13 +1,13 @@
 <style>
  /* Base styles */
 h1 {
-    color: #263238;
     text-align: center;
-    font-size: 48px;
-    margin-bottom: 50px;
+ 
     font-weight: bold;
-    margin-top: -150px;
-}
+    margin-top: -120px;
+    margin-bottom: 80px;
+    font-size: 32px;
+    color: var(--text-color);}
 
 label {
     margin: 0 15px;

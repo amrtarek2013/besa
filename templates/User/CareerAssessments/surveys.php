@@ -9,7 +9,9 @@
     }
     .container-formBoxs .title{
         margin-top: -120px;
-    margin-bottom: 60px;
+        margin-bottom: 80px;
+        font-size: 32px;
+
     }
     @media (max-width: 768px) {
         .container-formBoxs .title {
