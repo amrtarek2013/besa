@@ -5889,10 +5889,10 @@ input[type="search"] {
   font-size: 18px;
   line-height: 24px;
 }
-.counselor-sidebar .nav-sidebar,
+/* .counselor-sidebar .nav-sidebar,
 .logo-slider-large {
   margin-top: 40px;
-}
+} */
 .counselor-sidebar .nav-sidebar .info {
   margin-top: 30px;
   color: var(--bs-light-blue);
@@ -5962,6 +5962,7 @@ input[type="search"] {
   grid-gap: 5px;
   align-items: center;
   flex-flow: row-reverse;
+  padding-left: 0;
 }
 .user-dashboard .container-formBox h4 {
   font-size: 22px;

@@ -93,7 +93,6 @@ br {
     color: #546E7A;
     font-weight: 400;
     margin-bottom: 20px;
-    margin-left: 30px;
 }
 
 #question-head {
