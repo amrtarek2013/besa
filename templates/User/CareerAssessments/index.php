@@ -30,11 +30,7 @@
         color: #263238;
     }
 
-    p {
-        margin: 20px 0 15px;
-        font-size: 18px;
-
-    }
+    
 
     /* Styling the radio buttons and the labels */
     input[type="radio"] {
