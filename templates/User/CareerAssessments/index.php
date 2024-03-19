@@ -1,231 +1,223 @@
 <style>
+ /* Base styles */
+h1 {
+    color: #263238;
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    margin-top: -150px;
+}
+
+label {
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: white;
+    width: 65%;
+    margin: 0 auto 40px;
+}
+
+legend {
+    font-size: 28px;
+    font-weight: bold;
+    color: #263238;
+}
+
+/* Input and button styles */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button,
+input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 auto 50px;
+    display: block;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #449d44;
+}
+
+/* Spacing and responsive adjustments */
+br {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
     h1 {
- color: #263238;
- text-align: center;
- font-size: 48px;
- margin-bottom: 50px;
- font-weight: bold;
- margin-top: -150px;
+        font-size: 28px;
+    }
 
- }
+    body {
+        margin: 10px;
+    }
 
- label {
- margin: 0 15px;
- font-size: 16px;
+    fieldset {
+        padding: 10px;
+        width: 90%;
+    }
 
- }
+    label {
+        display: block;
+    }
+}
 
- fieldset {
- border: 1px solid #ddd;
- padding: 20px;
- margin-bottom: 20px;
- border-radius: 8px;
- background: white;
- width: 65%;
- margin: 0 auto 40px;
- }
+:focus {
+    outline: 2px dashed var(--text-color);
+    outline-offset: 4px;
+}
 
- legend {
- font-size: 28px;
- font-weight: bold;
- color: #263238;
- }
+/* Assessment and question styles */
+.assessment {
+    margin: 0 0 0 60px;
+}
 
- /* Styling the radio buttons and the labels */
- input[type="radio"] {
- margin-right: 5px;
- }
+.question-number {
+    font-size: 18px;
+    color: #546E7A;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
 
- /* Enhancing the look of the button */
- button,
- input[type="submit"] {
- background-color: #5cb85c;
- /* Green */
- color: white;
- padding: 10px 20px;
- border: none;
- border-radius: 5px;
- cursor: pointer;
- font-size: 1em;
- margin: 0 auto 50px;
- display: block;
- }
+#question-head {
+    margin-left: 30px;
+    margin-top: 30px;
+}
 
- button:hover,
- input[type="submit"]:hover {
- background-color: #449d44;
- /* Darker green */
- }
+h2 {
+    color: #263238;
+    font-size: 20px;
+    font-weight: 600;
+}
 
- /* Adding some space between form elements */
- br {
- clear: both;
- margin-bottom: 10px;
- }
+#question-clause {
+    font-size: 28px;
+}
 
- /* Additional styles for responsiveness and accessibility */
- @media (max-width: 600px) {
- h1 {
- font-size: 28px
- }
+.options {
+    margin: 20px 0 0 30px;
+}
 
- body {
- margin: 10px;
- }
+.option {
+    font-size: 16px;
+    height: 56px;
+    display: flex;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #CFD8DC;
+    cursor: pointer;
+    position: relative;
+    color: #263238;
+    background: transparent;
+    padding-left: 45px;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
 
- fieldset {
- padding: 10px;
- width: 90%;
- }
+.option-number {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    background: transparent;
+    border-radius: 6px;
+    color: #263238;
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
 
- label {
- display: block;
- }
- }
+.option:hover {
+    background: #e7e7e7;
+}
 
- :focus {
- outline: 2px dashed var(--text-color);
+/* Skip button styles */
+.skip {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 30px;
+}
 
- outline-offset: 4px;
- }
+.skip:hover {
+    text-decoration: underline;
+    background: none;
+}
 
- .assessment {
- margin: 0 0 0 60px;}
- .question-number {
- font-size: 18px;
- color: #546E7A;
- font-weight: 400;
- margin-bottom: 20px;
- margin-left: 30px;
+/* Confirmation and exploration buttons */
+.container-confirmation {}
 
- }
- #question-head{
- margin-left: 30px;
- margin-top: 30px;
+.search-confirmation {
+    text-align: center;
+}
 
- }
- h2 {
- color: #263238;
- font-size: 20px;
- font-weight: 600;
+.confirmation-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #263238;
+    font-weight: 400;
+    line-height: 30px;
+}
 
- }
- #question-clause{
- font-size: 28px;
+.buttons .btn-confirmation {
+    background-color: #F7F7F7;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 5px auto;
+    cursor: pointer;
+    color: #263238;
+    outline: none;
+    font-size: 28px;
+    font-weight: 600;
+    height: 64px;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+}
 
- }
- .options {
- margin: 20px 0 0 30px;
- }
+.explore {
+    background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    color: #fff;
+    margin-top: 50px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+}
 
- .option {
- font-size: 16px;
- height: 56px;
- display: flex;
- padding: 10px;
- text-align: left;
- border: 1px solid #CFD8DC;
- cursor: pointer;
- position: relative;
- color: #263238;
- background: transparent;
- padding-left: 45px;
- align-items: center;
- max-width: 500px;
- margin: 0 0 20px 0;
- width: 100%
- }
-
- .option-number {
- position: absolute;
- left: 10px;
- top: 50%;
- transform: translateY(-50%);
- width: 24px;
- height: 24px;
- line-height: 20px;
- text-align: center;
- background: transparent;
- border-radius: 6px;
- color: #263238;
- border: 1px solid #000000;
- display: flex;
- align-items: center;
- justify-content: center;
-
- font-weight: 600;
- font-size: 14px;
-
- }
-
- .option:hover {
- background: #e7e7e7;
- }
-
- .skip {
- display: block;
- background: none;
- border: none;
- color: var(--text-color);
- cursor: pointer;
- font-size: 14px;
- margin: 0;
- margin-left: 30px;
-
- }
-
- .skip:hover {
- text-decoration: underline;
- background: none;
-
- }
-
- /** container-confirmation */
- .container-confirmation {}
-
- .search-confirmation {
- text-align: center;
-
- }
-
- .confirmation-text {
- margin-top: 20px;
- margin-bottom: 20px;
- font-size: 20px;
- color: #263238;
- font-weight: 400;
- line-height: 30px;
- }
-
- .buttons .btn-confirmation {
- background-color: #F7F7F7;
- padding: 10px 20px;
- border-radius: 8px;
- margin: 5px auto;
- cursor: pointer;
- color: #263238;
- outline: none;
- font-size: 28px;
- font-weight: 600;
- height: 64px;
- max-width: 340px;
- width: 100%;
- border-radius: 12px;
-
- }
-
- .explore {
- background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
- color: #fff;
- margin-top: 50px;
- height: 56px;
- font-size: 16px;
- font-weight: 600;
- max-width: 340px;
- width: 100%;
- border-radius: 12px;
-
- }
 </style>
 
 
