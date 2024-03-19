@@ -7,6 +7,10 @@
         padding: 10px;
         border: 1px solid #33ca9424;
     }
+    .container-formBoxs .title{
+        margin-top: -80px;
+
+    }
 </style>
 
 <section class="register-banner">
