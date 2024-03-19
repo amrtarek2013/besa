@@ -5,8 +5,10 @@
         color: #333;
         text-align: center;
         font-size: 48px;
-        margin: 30px 0;
+    
         font-weight: bold;
+        margin-top: -140px;
+    margin-bottom: 80px;
 
     }
 

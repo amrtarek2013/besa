@@ -8,8 +8,8 @@
         border: 1px solid #33ca9424;
     }
     .container-formBoxs .title{
-        margin-top: -80px;
-
+        margin-top: -120px;
+    margin-bottom: 60px;
     }
 </style>
 
