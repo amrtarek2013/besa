@@ -291,7 +291,7 @@ foreach ($careerAssessmentsQuestions as &$item) {
 ?>
 <script>
     var all_questions = <?php echo json_encode($careerAssessmentsQuestions); ?>;
-    var currentQuestionIndex = <?php echo $careerAssessmentsSurvey->current_answer ?>;
+    var currentQuestionIndex = <?php echo (int) $careerAssessmentsSurvey->current_answer ?>;
 
     function updateCounter(index) {
 
