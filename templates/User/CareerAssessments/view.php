@@ -86,7 +86,7 @@
 
 
     .box-fieldset p {
-        font-size: 16px;
+        font-size: 14px;
         color: #555;
         line-height: 1.6;
         padding: 8px 0;
