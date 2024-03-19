@@ -295,7 +295,7 @@ foreach ($careerAssessmentsQuestions as &$item) {
 ?>
 <script>
     var all_questions = <?php echo json_encode($careerAssessmentsQuestions); ?>;
-    var currentQuestionIndex = 0;
+    var currentQuestionIndex = <?php echo $careerAssessmentsSurvey->current_answer ?>;
 
     function updateCounter(index) {
 
@@ -309,7 +309,7 @@ foreach ($careerAssessmentsQuestions as &$item) {
         $('#question-clause').html(`${question.clause}`);
         $('#question-head').html(`${question.phrase}?`);
 
-        
+
         $('#choices-content').empty();
 
         $('#choices-content').slideUp();
@@ -374,7 +374,7 @@ foreach ($careerAssessmentsQuestions as &$item) {
                     showQuestion(currentQuestionIndex);
                 } else {
 
-                    // window.location.href = `<?= Cake\Routing\Router::url('/') ?>user/career-assessments/index/${survey_id}`;
+                     window.location.href = `<?= Cake\Routing\Router::url('/') ?>user/career-assessments/view/${survey_id}`;
                     // Here you could also handle the completion, like sending the answers to a server or showing a summary of the answers.
                 }
 

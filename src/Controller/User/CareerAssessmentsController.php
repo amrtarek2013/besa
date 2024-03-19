@@ -84,6 +84,18 @@ class CareerAssessmentsController extends AppController
         $this->set('careerAssessmentsSurvey', $careerAssessmentsSurvey);
     }
 
+    public function view($survey_id = 0)
+    {
+        // $connection = ConnectionManager::get("default");
+        // $query = "SELECT clause, phrase, choices FROM career_assessments_question_clauses AS A, career_assessments_question_phrases AS B, career_assessments_question_choices AS C WHERE A.id = B.clause_id AND C.id = B.choices_id;";
+        // $data = $connection->execute($query)->fetchAll("assoc");
+        $user = $this->Auth->user();
+        $this->loadModel('CareerAssessmentsSurvey');
+        $careerAssessmentsSurvey = $this->CareerAssessmentsSurvey->find()->where(['user_id' => $user['id'], 'id' => $survey_id, 'is_completed' => 1])->first();
+
+        $this->set('careerAssessmentsSurvey', $careerAssessmentsSurvey);
+    }
+
     public function answer($survey_id = 0, $q_id = 0, $answer, $answer_txt, $q_index, $total_questions = 2000)
     {
         debug($total_questions);
