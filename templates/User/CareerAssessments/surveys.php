@@ -11,6 +11,30 @@
         margin-top: -120px;
     margin-bottom: 60px;
     }
+    @media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        margin-top: 0;
+
+    }
+    .assessment {
+    margin: 0;
+}
+#question-head {
+    margin-left: 0;
+}
+.options {
+    margin: 20px 0 0 0;
+}
+    fieldset {
+        padding: 10px;
+        width: 90%;
+    }
+
+    label {
+        display: block;
+    }
+}
 </style>
 
 <section class="register-banner">

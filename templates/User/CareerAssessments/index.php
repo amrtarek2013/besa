@@ -59,24 +59,7 @@ br {
     margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 28px;
-    }
 
-    body {
-        margin: 10px;
-    }
-
-    fieldset {
-        padding: 10px;
-        width: 90%;
-    }
-
-    label {
-        display: block;
-    }
-}
 
 :focus {
     outline: 2px dashed var(--text-color);
@@ -216,7 +199,30 @@ h2 {
     width: 100%;
     border-radius: 12px;
 }
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        margin-top: 0;
 
+    }
+    .assessment {
+    margin: 0;
+}
+#question-head {
+    margin-left: 0;
+}
+.options {
+    margin: 20px 0 0 0;
+}
+    fieldset {
+        padding: 10px;
+        width: 90%;
+    }
+
+    label {
+        display: block;
+    }
+}
 </style>
 
 
