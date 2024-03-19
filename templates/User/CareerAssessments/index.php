@@ -225,9 +225,7 @@
     }
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+
             <h1>Career Assessment</h1>
 
             <div class="assessment">
@@ -243,9 +241,6 @@
                     <button class="skip" id="next">Skip Question</button>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
 
 
