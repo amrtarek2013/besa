@@ -90,26 +90,32 @@
         outline-offset: 4px;
     }
 
-
     .assessment {
-        margin: 100px 0 0;
-    }
-
+        margin: 0 0 0 60px;}
     .question-number {
-        font-size: 20px;
+        font-size: 18px;
         color: #546E7A;
         font-weight: 400;
-    }
+        margin-bottom: 20px;
 
+    }
+#question-head{
+    margin-left: 60px;
+    margin-top: 60px;
+
+}
     h2 {
         color: #263238;
         font-size: 20px;
         font-weight: 600;
 
     }
+#question-clause{
+    font-size: 28px;
 
+}
     .options {
-        margin: 20px 0;
+        margin: 20px  0 0 60px;
     }
 
     .option {
