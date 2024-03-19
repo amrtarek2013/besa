@@ -1,33 +1,66 @@
 <style>
-    .row-result .container {
-        width: 96% !important;
+    .btn {
+        color: blueviolet;
     }
 
-    .grid-container-3col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 50px;
+    td {
+        padding: 10px;
+        border: 1px solid #33ca9424;
     }
-    .user-dashboard .sidebar{
-        border: none;
-    }
-.user-dashboard .nav-sidebar {
-    margin: 0;
-}
 </style>
-<?php
-if (isset($_GET['dk']))
-    dd($wishLists);
-if (empty($wishLists)) { { ?>
-        <div class="empty-state">
-            <img src="<?= WEBSITE_URL ?>img/new-desgin/empty.png" alt="">
-            <p>there’s no items in wishlist now</p>
+
+<section class="register-banner">
+
+    <div class="container" style="width:100%">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-formBoxs">
+                    <h4 class="title">Surveys</h4>
+                    <div class="">
+                        <div class="card-body">
+                            <div class="responsive-container">
+                                <table id="Table" class="table table-striped projects" cellpadding="0" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="table-header">
+                                            <td class=""><a href="#">Survey Date</a></td>
+                                            <td class=""><a href="#">Status</a></td>
+                                            <td class="" style="text-align:center">Actions</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($careerAssessmentsSurvey as $item) {
+                                            debug($item);
+
+
+                                        ?>
+                                            <tr>
+                                                <td>
+
+                                                    <?php echo (!empty($item->created->format('d-m-Y H:m')) ? $item->created->format('d-m-Y H:m') : '') ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($item->is_completed) { ?>
+                                                        <span class="btn-status Under-Review">Completed</span>
+                                                    <?php } else { ?>
+                                                        <span class="btn-status Under-Review">Ongoing</span>
+
+                                                    <?php  } ?>
+                                                </td>
+                                                <td class="">
+                                                    <div class="project-actions"><a href="<?= Cake\Routing\Router::url(['action' => 'view', $item->id]) ?>" class="btn btn-primary btn-sm" icon="fas fa-binoculars">View</a></div>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-<?php }
-} else {
-    echo $this->element('courses_list', ['courses' => $courses, 'wishLists' => $wishLists, 'gridContainerCols' => 2]);
-}
-
-
-?>
+    </div>
+</section>
