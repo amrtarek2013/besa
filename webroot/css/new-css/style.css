@@ -4114,9 +4114,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     align-items: center;
     padding: 0;
     position: relative;
-    z-index: 88 !important;
-    left: 50%;
-    transform: translatex(-50%);
+    
 }
 
 input.search {
@@ -12621,6 +12619,12 @@ div.error-message {
     .inner-serv .relative-box-about h2,
     .li-search {
         position: absolute;
+    }
+
+    .li-search {
+        z-index: 88 !important;
+    left: 50%;
+    transform: translatex(-50%);
     }
     .british-banner .relative-box-about h2,
     .events-banner .relative-box-about h2,

@@ -57,7 +57,7 @@ use Cake\Routing\Router;
                                 <?php } else { ?>
                                     <a href="/user/login" class="btn btn-secondary login">Log in</a>
                                     <!-- Trigger Button -->
-                                    <a href="#loginModal" class="btn btn-secondary login">Log in</a>
+                                    <!-- <a href="#loginModal" class="btn btn-secondary login">Log in</a> -->
 
 
 
