@@ -11256,6 +11256,7 @@ div.error-message {
     grid-gap: 24px;
     overflow-x: auto; /* Enable horizontal scrolling */
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .header-results .tabs .tab {
@@ -11270,6 +11271,7 @@ div.error-message {
     font-weight: 600;
     line-height: 150%;
     cursor: pointer;
+    white-space: nowrap;
 }
 .header-results .tabs::-webkit-scrollbar {
     height: 4px; /* Height of the scrollbar */
@@ -14098,7 +14100,6 @@ div.error-message {
         align-items: start;
         flex-flow: column;
         grid-gap: 24px;
-        overflow: hidden;
         margin-bottom: 24px;
     }
     .header-results .tabs {
@@ -14107,6 +14108,8 @@ div.error-message {
     .header-results .tabs .tab {
         width: max-content;
         font-size: 14px;
+        margin-bottom: 10px;
+
     }
     .header-results .filter {
         margin-inline-start: auto;
