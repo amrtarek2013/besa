@@ -7,6 +7,40 @@
         padding: 10px;
         border: 1px solid #33ca9424;
     }
+    .container-formBoxs .title{
+        margin-top: -120px;
+        margin-bottom: 80px;
+        font-size: 32px;
+
+    }
+    @media (max-width: 768px) {
+        .container-formBoxs .title {
+
+    margin-top: 0;
+}
+    h1 {
+        font-size: 28px;
+        margin-top: 0;
+
+    }
+    .assessment {
+    margin: 0;
+}
+#question-head {
+    margin-left: 0;
+}
+.options {
+    margin: 20px 0 0 0;
+}
+    fieldset {
+        padding: 10px;
+        width: 90%;
+    }
+
+    label {
+        display: block;
+    }
+}
 </style>
 
 <section class="register-banner">

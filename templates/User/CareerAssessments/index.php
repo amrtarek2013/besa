@@ -1,233 +1,231 @@
 <style>
-    h1 {
-        color: #263238;
-        text-align: center;
-        font-size: 48px;
-        margin: 30px 0;
-        font-weight: bold;
+ /* Base styles */
+h1 {
+    text-align: center;
+ 
+    font-weight: bold;
+    margin-top: -120px;
+    margin-bottom: 80px;
+    font-size: 32px;
+    color: var(--text-color);}
 
+label {
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: white;
+    width: 65%;
+    margin: 0 auto 40px;
+}
+
+legend {
+    font-size: 28px;
+    font-weight: bold;
+    color: #263238;
+}
+
+/* Input and button styles */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button,
+input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 auto 50px;
+    display: block;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #449d44;
+}
+
+/* Spacing and responsive adjustments */
+br {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+
+
+:focus {
+    outline: 2px dashed var(--text-color);
+    outline-offset: 4px;
+}
+
+/* Assessment and question styles */
+.assessment {
+    margin: 0 0 0 60px;
+}
+
+.question-number {
+    font-size: 18px;
+    color: #546E7A;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#question-head {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+h2 {
+    color: #263238;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#question-clause {
+    font-size: 28px;
+}
+
+.options {
+    margin: 20px 0 0 30px;
+}
+
+.option {
+    font-size: 16px;
+    height: 56px;
+    display: flex;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #CFD8DC;
+    cursor: pointer;
+    position: relative;
+    color: #263238;
+    background: transparent;
+    padding-left: 45px;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+.option-number {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    background: transparent;
+    border-radius: 6px;
+    color: #263238;
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.option:hover {
+    background: #e7e7e7;
+}
+
+/* Skip button styles */
+.skip {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 30px;
+}
+
+.skip:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+/* Confirmation and exploration buttons */
+.container-confirmation {}
+
+.search-confirmation {
+    text-align: center;
+}
+
+.confirmation-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #263238;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.buttons .btn-confirmation {
+    background-color: #F7F7F7;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 5px auto;
+    cursor: pointer;
+    color: #263238;
+    outline: none;
+    font-size: 28px;
+    font-weight: 600;
+    height: 64px;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.explore {
+    background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
+    color: #fff;
+    margin-top: 50px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        margin-top: 0;
+
+    }
+    .assessment {
+    margin: 0;
+}
+#question-head {
+    margin-left: 0;
+}
+.options {
+    margin: 20px 0 0 0;
+}
+    fieldset {
+        padding: 10px;
+        width: 90%;
     }
 
     label {
-        margin: 0 15px;
-        font-size: 16px;
-
-    }
-
-    fieldset {
-        border: 1px solid #ddd;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        background: white;
-        width: 65%;
-        margin: 0 auto 40px;
-    }
-
-    legend {
-        font-size: 28px;
-        font-weight: bold;
-        color: #263238;
-    }
-
-    
-
-    /* Styling the radio buttons and the labels */
-    input[type="radio"] {
-        margin-right: 5px;
-    }
-
-    /* Enhancing the look of the button */
-    button,
-    input[type="submit"] {
-        background-color: #5cb85c;
-        /* Green */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1em;
-        margin: 0 auto 50px;
         display: block;
     }
-
-    button:hover,
-    input[type="submit"]:hover {
-        background-color: #449d44;
-        /* Darker green */
-    }
-
-    /* Adding some space between form elements */
-    br {
-        clear: both;
-        margin-bottom: 10px;
-    }
-
-    /* Additional styles for responsiveness and accessibility */
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 28px
-        }
-
-        body {
-            margin: 10px;
-        }
-
-        fieldset {
-            padding: 10px;
-            width: 90%;
-        }
-
-        label {
-            display: block;
-        }
-    }
-
-    :focus {
-        outline: 2px dashed var(--text-color);
-
-        outline-offset: 4px;
-    }
-
-
-    .assessment {
-        margin: 100px 0 0;
-    }
-
-    .question-number {
-        font-size: 20px;
-        color: #546E7A;
-        font-weight: 400;
-    }
-
-    h2 {
-        color: #263238;
-        font-size: 20px;
-        font-weight: 600;
-
-    }
-
-    .options {
-        margin: 20px 0;
-    }
-
-    .option {
-        font-size: 16px;
-        height: 56px;
-        display: flex;
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #CFD8DC;
-        cursor: pointer;
-        position: relative;
-        color: #263238;
-        background: transparent;
-        padding-left: 45px;
-        align-items: center;
-        max-width: 500px;
-        margin: 0 0 20px 0;
-        width: 100%
-    }
-
-    .option-number {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 24px;
-        height: 24px;
-        line-height: 20px;
-        text-align: center;
-        background: transparent;
-        border-radius: 6px;
-        color: #263238;
-        border: 1px solid #000000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-weight: 600;
-        font-size: 14px;
-
-
-    }
-
-    .option:hover {
-        background: #e7e7e7;
-    }
-
-    .skip {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-color);
-        cursor: pointer;
-        font-size: 14px;
-        margin: 0
-    }
-
-    .skip:hover {
-        text-decoration: underline;
-        background: none;
-
-    }
-
-    /** container-confirmation */
-    .container-confirmation {}
-
-    .search-confirmation {
-        text-align: center;
-
-    }
-
-
-
-    .confirmation-text {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-size: 20px;
-        color: #263238;
-        font-weight: 400;
-        line-height: 30px;
-    }
-
-    .buttons .btn-confirmation {
-        background-color: #F7F7F7;
-        padding: 10px 20px;
-        border-radius: 8px;
-        margin: 5px auto;
-        cursor: pointer;
-        color: #263238;
-        outline: none;
-        font-size: 28px;
-        font-weight: 600;
-        height: 64px;
-        max-width: 340px;
-        width: 100%;
-        border-radius: 12px;
-
-    }
-
-
-
-    .explore {
-        background: linear-gradient(107deg, #0B4C97 6.38%, #68B8E8 147.19%);
-        color: #fff;
-        margin-top: 50px;
-        height: 56px;
-        font-size: 16px;
-        font-weight: 600;
-        max-width: 340px;
-        width: 100%;
-        border-radius: 12px;
-
-    }
+}
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+
             <h1>Career Assessment</h1>
 
             <div class="assessment">
@@ -243,9 +241,6 @@
                     <button class="skip" id="next">Skip Question</button>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
 
 

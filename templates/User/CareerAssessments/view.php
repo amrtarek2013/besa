@@ -2,11 +2,13 @@
    
 
     h1 {
-        color: #333;
         text-align: center;
-        font-size: 48px;
-        margin: 30px 0;
+    
         font-weight: bold;
+        margin-top: -120px;
+        margin-bottom: 80px;
+        font-size: 32px;
+        color: var(--text-color);
 
     }
 
@@ -46,12 +48,60 @@
         outline: 2px dashed #5cb85c;
         outline-offset: 4px;
     }
+    @media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        margin-top: 0;
+
+    }
+    .assessment {
+    margin: 0;
+}
+#question-head {
+    margin-left: 0;
+}
+.options {
+    margin: 20px 0 0 0;
+}
+    fieldset {
+        padding: 10px;
+        width: 90%;
+    }
+
+    label {
+        display: block;
+    }
+}
+.box-fieldset{
+ 
+   
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        background: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    .box-fieldset p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        padding: 8px 0;
+    }
+
+    .box-fieldset  p:before {
+        content: "• ";
+        color: var(--text-color);
+    }
 </style>
 
 <h1>Career Assessment</h1>
 
 
-<fieldset>
+<fieldset class="box-fieldset">
     <legend> Based on your interests and preferences, here are some career recommendations for you:</legend>
     <?php if (empty($careerAssessmentsSurvey->chatgpt_response))
         echo "Survey not completed";
