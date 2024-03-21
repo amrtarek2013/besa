@@ -53,9 +53,9 @@
 <section class="result">
     <div class=" row-result">
         <div class="<?= $gridContainerCols == 3 ? 'container' : '' ?>">
-            <div class="row">
+            <div class="">
                  
-                <div class="col-md-12">
+                <div class="">
                     <?php if (isset($pagging)) : ?>
                         <br /><br /> 
                         <div class="paginator">
