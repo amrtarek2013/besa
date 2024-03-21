@@ -22,36 +22,42 @@
                         // print_r($uniWishLists);
                         // dd($universitiesResults);
                         foreach ($universitiesResults as $univ) :
+                            $uni_details = $univ->university;
+
+
+
                         ?>
+
+                            <?php
+                            debug($univ);
+                            debug($uni_details);
+
+                            $queryParams = $this->request->getQueryParams();
+                            $queryParams['stype'] = 'c'; // Change 'newValue' to your desired value
+                            $queryParams['university_id'] = $univ['university_id']; // Change 'newValue' to your desired value
+                            $queryString = http_build_query($queryParams);
+                            // Concatenate the base URL with the new query string
+                            $newUrl = Cake\Routing\Router::url('/results') . '?' . $queryString;
+
+
+                            ?>
                             <div class="university">
                                 <div class="header-box">
                                     <div class="logo">
                                         <!-- <img src="<?= WEBSITE_URL ?>img/new-desgin/logo-university.png" alt="<?= $univ['university_name'] ?> Logo">
                                         <h5><?= $univ['university_name'] ?></h5> -->
-                                        <img src="<?= $univ['logo_path'] ?>" alt="<?= $univ['university_name'] ?> Logo">
-                                        <h5><a class="link" href="<?= Router::url('/' . $g_dynamic_routes['universities.details'] . '/') . $univ['permalink'] ?>"><?= $univ['university_name'] ?></a></h5>
+                                        <img src="<?= $uni_details['logo_path'] ?>" alt="<?= $uni_details['university_name'] ?> Logo">
+                                        <h5><a class="link" href="<?= $newUrl ?>"><?= $uni_details['university_name'] ?></a></h5>
                                     </div>
-                                    <div class="icon-favorite addingUniwish" data-univid="<?= $univ['id'] ?>" data-action="<?= isset($uniWishLists[$univ['id']]) ? 'delete' : 'add' ?>">
-                                        <i id="wishuni-<?= $univ['id'] ?>" class="<?= isset($uniWishLists[$univ['id']]) ? 'fa-solid' : 'fa-regular' ?> fa-heart fa-lg"></i>
+                                    <div class="icon-favorite addingUniwish" data-univid="<?= $univ['id'] ?>" data-action="<?= isset($uniWishLists[$uni_details['id']]) ? 'delete' : 'add' ?>">
+                                        <i id="wishuni-<?= $uni_details['id'] ?>" class="<?= isset($uniWishLists[$uni_details['id']]) ? 'fa-solid' : 'fa-regular' ?> fa-heart fa-lg"></i>
                                     </div>
                                 </div>
                                 <div class="university-info">
-                                    <p><?= $countriesList[$univ['country_id']] ?></p>
+                                    <p><?= $countriesList[$uni_details['country_id']] ?></p>
 
                                 </div>
-                                <?php
-                                debug($countriesList);
-                                debug($univ);
 
-                                $queryParams = $this->request->getQueryParams();
-                                $queryParams['stype'] = 'c'; // Change 'newValue' to your desired value
-                                $queryParams['university_id'] = $univ['university_id']; // Change 'newValue' to your desired value
-                                $queryString = http_build_query($queryParams);
-                                // Concatenate the base URL with the new query string
-                                $newUrl = Cake\Routing\Router::url('/results') . '?' . $queryString;
-
-
-                                ?>
                                 <a href="<?= $newUrl ?>" class=" btn apply-now-btn">Check Courses</a>
                             </div>
                         <?php endforeach; ?>

@@ -55,7 +55,7 @@ class CareerAssessmentsController extends AppController
         $this->loadModel('CareerAssessmentsQuestionPhrases');
         $careerAssessmentsQuestions = [];
         for ($clauseId = 1; $clauseId <= 8; $clauseId++) {
-            $array2 = $this->CareerAssessmentsQuestionPhrases->find()->where(['clause_id' => $clauseId])->order('RAND()')->limit(5)->all();
+            $array2 = $this->CareerAssessmentsQuestionPhrases->find()->where(['clause_id' => $clauseId])->order('RAND()')->limit(15)->all();
             array_push($careerAssessmentsQuestions, ...$array2);
         }
 
