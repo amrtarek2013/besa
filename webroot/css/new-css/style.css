@@ -4114,7 +4114,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     align-items: center;
     padding: 0;
     position: relative;
-    z-index: 88;
+    z-index: 88 !important;
     left: 50%;
     transform: translatex(-50%);
 }
