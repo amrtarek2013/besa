@@ -49,85 +49,15 @@
         </div>
     </div>
 </div>
-<?php /*
+ 
 <section class="result">
     <div class=" row-result">
         <div class="<?= $gridContainerCols == 3 ? 'container' : '' ?>">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="grid-container-<?= $gridContainerCols ?>col">
-                        <?php
-
-                        use Cake\Routing\Router;
-
-
-                        if (!empty($courses)) : ?>
-                            <?php foreach ($courses as $course) :
-
-                                if (isset($_GET['dk']))
-                                    debug($course);
-                            ?>
-                                <div class="box-result" id="box-result-<?= $course['id'] ?>">
-                                    <h4 class="title-result"><?= $course['course_name'] ?></h4>
-                                    <p class="education"><?= $course['university']['university_name'] ?></p>
-                                    <p class="address">
-                                        <span class="underline">
-                                            <a href="#">
-                                                <?= $course['university']['address'] ?>
-                                            </a>
-                                        </span>
-                                        <span class="normal">THE world university rank: <?= $course['university']['rank'] ?></span>
-                                    </p>
-                                    <div class="courses">
-                                        <div class="left">
-                                            <p>Course Qualification</p>
-                                            <p class="green"><?= $course['study_level']['title'] ?></p>
-                                        </div>
-                                        <div class="right">
-                                            <p>Fees Per Year</p>
-                                            <p class="green"><?= ($course['country']['use_country_currency'] && !empty($course['country']['currency'])) ? $course['country']['currency'] : 'USD' ?> <?= number_format($course['fees'], 2) ?></p>
-                                        </div>
-
-                                    </div>
-                                    <div class="icons">
-                                        <div class="addingwish" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($wishLists[$course['id']]) ? 'delete' : 'add' ?>">
-                                            <div class="circle-icon">
-                                                <img id="wish-<?= $course['id'] ?>" src="<?= WEBSITE_URL ?>img/icon/<?= isset($wishLists[$course['id']]) ? 'wish-list-marked.svg' : 'wish-list.svg' ?>" alt="">
-                                            </div>
-                                            <span class="green">Wish List</span>
-                                        </div>
-
-                                        <div>
-
-
-                                            <a href="javascript:void(0)" class="course-details" data-courseid="<?= $course['id'] ?>">
-                                                <div class="circle-icon wish-red">
-                                                    <img src="<?= WEBSITE_URL ?>img/icon/more-details.svg" alt="">
-                                                </div>
-                                                <span class="green">More Details</span>
-                                            </a>
-                                        </div>
-
-                                        <div class="addingApp" data-courseid="<?= $course['id'] ?>" data-action="<?= isset($appCourses[$course['id']]) ? 'delete' : 'add' ?>">
-                                            <div class="circle-icon">
-                                                <!-- <img src="<?= WEBSITE_URL ?>img/icon/aplly-now-green.svg" alt=""> -->
-                                                <img id="app-<?= $course['id'] ?>" src="<?= WEBSITE_URL ?>img/icon/<?= isset($appCourses[$course['id']]) ? 'aplly-now-marked.svg' : 'aplly-now-green.svg' ?>" alt="">
-                                            </div>
-                                            <span class="green apply-text-<?= $course['id'] ?>"><?= isset($appCourses[$course['id']]) ? 'Remove' : 'Apply Now' ?></span>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-
-                        <?php endif; ?>
-                    </div>
-
-                </div>
+                 
                 <div class="col-md-12">
                     <?php if (isset($pagging)) : ?>
-                        <br /><br /><br />
+                        <br /><br /> 
                         <div class="paginator">
                             <ul class="pagination">
                                 <?= $this->Paginator->first(' << ') ?>
@@ -136,7 +66,7 @@
                                 <?= $this->Paginator->next(' > ') ?>
                                 <?= $this->Paginator->last(' >> ') ?>
                             </ul>
-                            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                            <p><?php // $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -144,7 +74,7 @@
         </div>
     </div>
 </section>
-*/ ?>
+ 
 <div class="remodal courseDetailsModal" data-remodal-id="courseDetails">
     <button data-remodal-action="close" class="remodal-close"></button>
     <!-- <h1 id="msgTitle"></h1> -->

@@ -37,8 +37,22 @@
                                 </div>
                                 <div class="university-info">
                                     <p><?= $countriesList[$univ['country_id']] ?></p>
+
                                 </div>
-                                <a href="<?= Cake\Routing\Router::url('/' . $g_dynamic_routes['universitycourses.index']) ?>/<?= $univ['id'] ?>/<?= $univ['permalink'] ?>/2" class=" btn apply-now-btn">Check Courses</a>
+                                <?php
+                                debug($countriesList);
+                                debug($univ);
+
+                                $queryParams = $this->request->getQueryParams();
+                                $queryParams['stype'] = 'c'; // Change 'newValue' to your desired value
+                                $queryParams['university_id'] = $univ['university_id']; // Change 'newValue' to your desired value
+                                $queryString = http_build_query($queryParams);
+                                // Concatenate the base URL with the new query string
+                                $newUrl = Cake\Routing\Router::url('/results') . '?' . $queryString;
+
+
+                                ?>
+                                <a href="<?= $newUrl ?>" class=" btn apply-now-btn">Check Courses</a>
                             </div>
                         <?php endforeach; ?>
                     </div>
