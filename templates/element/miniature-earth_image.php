@@ -107,7 +107,7 @@
                 depthScale: 0.5
             });
 
-           
+            
             // add airport pins from airports array in airports-and-plane-mesh.js
             for (var i = 0; i < airports.length; i++) {
                 // add photo pins
@@ -115,7 +115,14 @@
 
                 console.log(airports[i]["flag"]);
                 console.log(airports[i]);
-                const image =  this.addImage({
+                const bigsCale = ["US", "CA", "AU", "Mango"];
+                var scale = .4;
+                console.log(airports[i]["country_name"]);
+                console.log(airports[i]["code"]);
+                if (bigsCale.includes(airports[i]["code"])) {
+                    scale = 1.5;
+                }
+                const image = this.addImage({
                     location: {
                         lat: airports[i]["latitude"],
                         lng: airports[i]["longitude"]
@@ -123,8 +130,8 @@
                     image: "/img/flags/icons/" + airports[i]["flag"],
                     // imageAlphaOnly: true,
                     // color: 'red',
-                    scale: 0.4,
-                    hotspot : true,
+                    scale: scale,
+                    hotspot: true,
 
                     airportCode: airports[i]["code"],
                     airportName: airports[i]["country_name"],
@@ -181,13 +188,13 @@
                 setTimeout(
                     function() {
                         this.visible = true;
-                        this.animate("scale", 0.5, {
-                            duration: 140
-                        });
-                        this.animate("offset", 0, {
-                            duration: 1100,
-                            easing: "bounce"
-                        });
+                        // this.animate("scale", 0.5, {
+                        //     duration: 1140
+                        // });
+                        // this.animate("offset", 0, {
+                        //     duration: 1100,
+                        //     easing: "bounce"
+                        // });
                     }.bind(image),
                     280 * i
                 );
@@ -213,7 +220,7 @@
     var current_marker, auto_rotate;
 
     function openPhoto() {
-         
+
         console.log(this);
 
         // close current photo
@@ -273,24 +280,61 @@
         current_marker = false;
     }
 </script>
+ 
 
 <!-- Start choose place-->
-<section class="choose-place">
+<section class="<?= (!isset($pageType) && $pageType != 'home') ? 'choose-place' : '' ?> choose-place-2">
     <div class="container">
+        <!--
         <div class="row">
-            <div class="col-md-3">
-                <h2 class="title-choose-place">CHOOSE <span>WHERE</span> <br />TO STUDY</h2>
-                <a href="#" class="btn btn-aqua">EXPLORE STUDYING <br />
-                    ABROAD</a>
-            </div>
+            <?php if (isset($left_html)) {
+                echo $left_html;  ?>
+                <div class="col-md-4">
+                    <div class="green-box-earth">
+                        <p>BESA is proud to work with over 400 institutions worldwide</p>
+                    </div>
 
-            <div class="col-md-9">
+                    <div class="blue-box-earth">
+                        <p>Our global presence allows you to access international universities, schools and programs.</p>
+                    </div>
+                </div>
+
+
+            <?php } else {
+            ?>
+                <div class="col-md-3">
+                    <h2 class="title-choose-place">CHOOSE <span>WHERE</span> <br>TO STUDY</h2>
+                    <a href="#" class="btn btn-aqua">EXPLORE STUDYING <br> ABROAD</a>
+                </div>
+            <?php } ?>
+            <div class="col-md-<?= $colWidth ?>">
+                <div class="background-earth">
+
+                    <div id="wrapper">
+
+                        <div id="earth-col">
+
+                            <div id="myearth" class="earth-js"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title-choose-place">Choose Where To Study</h2>
+            </div>
+            <div class="col-md-12">
                 <div class="background-earth">
                     <div id="wrapper">
                         <div id="earth-col">
                             <div id="myearth" class="earth-js"></div>
                         </div>
                     </div>
+                    <a href="<?= Cake\Routing\Router::url('/'.$g_dynamic_routes['countries.index']) ?>" class="btn btn-aqua MainBtn">Explore Studying Abroad</a>
+
                 </div>
             </div>
         </div>
