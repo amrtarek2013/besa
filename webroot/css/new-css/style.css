@@ -253,7 +253,10 @@ section {
 .your_courses h2 {
     text-align: left;
 }
-
+.navbar .close{
+    padding: 20px;
+    margin-bottom: 20px;
+}
 .navbar .close,
 .text-right {
     text-align: right;
@@ -12677,7 +12680,7 @@ div.error-message {
     }
     .navbar .sidenav {
         top: 0;
-        padding: 24px 16px;
+        padding: 0  16px;
     }
     .navbar-mobile .menu-dropdown {
         display: block;
