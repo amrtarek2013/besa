@@ -11247,12 +11247,15 @@ div.error-message {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 48px;
+    width: 100%;
 }
 
 .header-results .tabs {
     display: flex;
     align-items: center;
     grid-gap: 24px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    flex-wrap: nowrap;
 }
 
 .header-results .tabs .tab {
@@ -11268,7 +11271,14 @@ div.error-message {
     line-height: 150%;
     cursor: pointer;
 }
+.header-results .tabs::-webkit-scrollbar {
+    height: 4px; /* Height of the scrollbar */
+}
 
+.header-results .tabs::-webkit-scrollbar-thumb {
+    background: #ccc; /* Color of the scrollbar thumb */
+    border-radius: 2px;
+}
 .header-results .tabs .tab.active {
     background: #263238;
     color: #fff;
