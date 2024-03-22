@@ -38,8 +38,8 @@ class SlidersTable extends Table
             [
                 'ImageUpload' => [
                     'image' => [
-                        'resize' => ['width' => 661, 'height' => 455],
-                        'width' => 661, 'height' => 455,
+                        'resize' => ['width' => 1180, 'height' => 688],
+                        'width' => 1180, 'height' => 688,
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/sliders',
