@@ -25,6 +25,8 @@ class EventsController extends AppController
     public function eventDetails($id = null)
     {
         $event = $this->Events->find()->contain(['EventImages', 'FairEvents'])->where(['permalink' => $id])->first();
+        if($id=="school-tours")
+        return $this->redirect('/school-tour');
 
         $this->set('bodyClass', 'pageAbout pageServices');
 
