@@ -171,7 +171,7 @@ class UsersTable extends Table
   {
 
     $validator->notEmptyString('subject_area_ids', 'This field is required.');
-    
+
     $validator->add('g-recaptcha-response', [
       'checkCaptchaV3' => [
         'rule' => 'checkCaptchaV3',
@@ -186,7 +186,7 @@ class UsersTable extends Table
   {
 
     $validator->notEmptyString('study_level_id', 'This field is required.');
-    
+
     $validator->add('g-recaptcha-response', [
       'checkCaptchaV3' => [
         'rule' => 'checkCaptchaV3',
@@ -201,7 +201,7 @@ class UsersTable extends Table
   {
 
     $validator->notEmptyString('country_id', 'This field is required.');
-    
+
     $validator->add('g-recaptcha-response', [
       'checkCaptchaV3' => [
         'rule' => 'checkCaptchaV3',
@@ -216,7 +216,7 @@ class UsersTable extends Table
   {
 
     $validator->notEmptyString('budget', 'This field is required.');
-    
+
     $validator->add('g-recaptcha-response', [
       'checkCaptchaV3' => [
         'rule' => 'checkCaptchaV3',
@@ -227,26 +227,32 @@ class UsersTable extends Table
 
     return $validator;
   }
-  
+  public function validationStep5(Validator $validator): Validator
+  {
 
- /*isValidPhoneFormat() - Custom method to validate US Phone Number
+
+
+    return $validator;
+  }
+
+
+  /*isValidPhoneFormat() - Custom method to validate US Phone Number
  * @params Int $phone
  */
- function isValidPhoneFormat($phone_no, array $context)
-{
+  function isValidPhoneFormat($phone_no, array $context)
+  {
     $errors = array();
-     if(empty($phone_no)) {
-         $errors [] = "Please enter Phone Number";
-     }
-     else if (!preg_match('/^[0-9]+$/', $phone_no)) {
-         $errors [] = "Please enter valid Mobile Number";
-     } 
- 
-     if (!empty($errors))
-     return implode("\n", $errors);
- 
-     return true;
- }
+    if (empty($phone_no)) {
+      $errors[] = "Please enter Phone Number";
+    } else if (!preg_match('/^[0-9]+$/', $phone_no)) {
+      $errors[] = "Please enter valid Mobile Number";
+    }
+
+    if (!empty($errors))
+      return implode("\n", $errors);
+
+    return true;
+  }
 
   public function validationProfile(Validator $validator): Validator
   {
@@ -352,8 +358,7 @@ class UsersTable extends Table
     return empty($query) ? true : false;
   }
   public function isMobileUnique(
-    $value
-    ,
+    $value,
     $context
   ) {
     $table = TableRegistry::get($this->_registryAlias);

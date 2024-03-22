@@ -392,6 +392,11 @@ class UsersController extends AppController
     public function register()
     {
 
+        if ($_GET['new']) {
+            $this->Session->write('laststep', 0);
+            $this->redirect('/user/register');
+        }
+
         if ($this->request->is('ajax')) {
             $this->viewBuilder()->disableAutoLayout();
         }
@@ -400,7 +405,7 @@ class UsersController extends AppController
         $userData = $this->Auth->user();
 
         $return                          = [];
-
+        // Configure::write('debug', true);
         $msg = $this->getSnippet('user_register_success');
         // dd($userData);
         if ($userData) {
@@ -419,7 +424,7 @@ class UsersController extends AppController
                 $this->redirect('/user');
             }
         }
-        Configure::write('debug', true);
+
 
         // dd($userEntity);
         $this->loadModel('Countries');
@@ -459,10 +464,10 @@ class UsersController extends AppController
         $this->set('studyLevels', $studyLevels);
 
         $this->loadModel('SubjectAreas');
-        // $subjectAreas = $this->SubjectAreas->find('list', [
-        //     'keyField' => 'id', 'valueField' => 'title'
-        // ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();
-        // $this->set('subjectAreas', $subjectAreas);
+        $subjectAreas = $this->SubjectAreas->find('list', [
+            'keyField' => 'id', 'valueField' => 'title'
+        ])->where(['active' => 1])->order(['rank' => 'desc'])->toArray();
+        $this->set('subjectAreas', $subjectAreas);
 
         $subjectAreas = $this->SubjectAreas->find('list', [
             'keyField' => 'id', 'valueField' => 'title'
@@ -491,7 +496,7 @@ class UsersController extends AppController
             // dd($existed_user);
             if ($existed_user && !$updateUser) {
                 if ($this->request->is('ajax')) {
-                    die(json_encode(array('status' => 'failed', 'message' => __('This user already exist!!'))));
+                    die(json_encode(array('status' => 0, 'message' => __('This user already exist!!'))));
                 } else {
 
                     $this->Flash->error(__('This user already exist!!'));
@@ -546,9 +551,7 @@ class UsersController extends AppController
 
                     $return['laststep'] = $this->data['laststep'] + 1;
                     $this->set('laststep', $this->data['laststep'] + 1);
-
                     $this->Session->write('laststep', $this->data['laststep'] + 1);
-
                     $this->Session->write('userData', $user);
                     $return['url']    = "/user";
                     $return['status']  = 1;
@@ -556,6 +559,9 @@ class UsersController extends AppController
                     $return['type']    = 'register';
                     $return['title'] = 'Thank You';
                     $return['url_text'] = 'Continue';
+                    if ($return['laststep'] >= 5)
+                        $this->Flash->success(__('The confirmation email has been sent.'));
+
 
                     // $this->Auth->setUser($user->toArray());
                     // die(json_encode($return));
@@ -564,8 +570,11 @@ class UsersController extends AppController
                     dd($userEntity->getErrors());
                     $return['url']    = "/user";
                     $return['status']  = 0;
+                    $return['laststep']  = $this->data['laststep'];
                     $return['validationErrors']  = $userEntity->getErrors();
                     $return['message'] = 'Invalid credentials, try again';
+                    if ($return['laststep'] > 0)
+                        $return['message'] = 'Something went wrong. Please check your entry.';
 
                     // $return['message'] = $this->getSnippet('user_register_error');
                     $return['type']    = 'register';

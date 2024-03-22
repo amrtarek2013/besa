@@ -5,7 +5,7 @@ const nextBtn = document.getElementById("nextBtn");
 
 var request_busy = false;
 
-document.getElementById('search-courses-steps').addEventListener("submit", function (event) {
+document.getElementById('search-courses-steps').addEventListener("submit", function(event) {
     event.preventDefault();
 });
 
@@ -85,6 +85,8 @@ showStep(currentStep);
 
 // Function to update the active step and timeline
 function updateStep(stepIndex) {
+    console.log('updateStep ' + stepIndex);
+
     // Hide all steps
     for (let i = 0; i < steps.length; i++) {
         steps[i].classList.remove("active");
@@ -99,7 +101,7 @@ function updateStep(stepIndex) {
     else
         $('.timeline').show();
 
-    alert(stepIndex);
+
     $('#laststep').val(stepIndex);
     currentStep = stepIndex;
     // Show the current step
@@ -139,6 +141,7 @@ function nextStep() {
     // }
     // alert('T1 - '+currentStep);
     // alert('T1');
+    console.log("nextStep");
     $('.timeline').show();
     if (currentStep == 0) {
 
@@ -217,10 +220,10 @@ function nextStep() {
                 },
                 errorClass: "error-message",
                 errorElement: "div",
-                errorPlacement: function (error, element) {
+                errorPlacement: function(error, element) {
                     error.insertAfter(element, false);
                 },
-                submitHandler: function (form) {
+                submitHandler: function(form) {
                     // form.submit();
 
                     registerSubmitForm(form);
@@ -233,10 +236,9 @@ function nextStep() {
 
     } else if (currentStep == 1) {
         $('#laststep').val(1);
-        alert('ssssssssss');
+        console.log('currentStep 1');
         $('#search-courses-steps').validate({
             rules: {
-
                 'subject_area_id': {
                     required: true,
                 },
@@ -246,10 +248,10 @@ function nextStep() {
             },
             errorClass: "error-message",
             errorElement: "div",
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.insertAfter(element, false);
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 registerSubmitForm($('#search-courses-steps'));
             }
         });
@@ -278,10 +280,10 @@ function nextStep() {
             },
             errorClass: "error-message",
             errorElement: "div",
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.insertAfter(element, false);
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 registerSubmitForm($('#search-courses-steps'));
             }
         });
@@ -311,10 +313,10 @@ function nextStep() {
             },
             errorClass: "error-message",
             errorElement: "div",
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.insertAfter(element, false);
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 registerSubmitForm($('#search-courses-steps'));
             }
         });
@@ -332,42 +334,63 @@ function nextStep() {
             },
             errorClass: "error-message",
             errorElement: "div",
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.insertAfter(element, false);
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
+                registerSubmitForm($('#search-courses-steps'));
+            }
+        });
+    } else if (currentStep == 5) {
+        $('#laststep').val(5);
+        $('#search-courses-steps').validate({
+            rules: {
+
+            },
+            messages: {
+
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element, false);
+            },
+            submitHandler: function(form) {
                 registerSubmitForm($('#search-courses-steps'));
             }
         });
     }
 
-    if (currentStep < steps.length - 1 && currentStep != 0) {
-        currentStep++;
-        updateStep(currentStep);
-    } else {
-        // var form = document.getElementById('search-courses-steps');
-        // form.submit();
-    }
+    // if (currentStep < steps.length - 1 && currentStep != 0) {
+    //     currentStep++;
+    //     // updateStep(currentStep);
+    // } else {
+    //     // var form = document.getElementById('search-courses-steps');
+    //     // form.submit();
+    // }
 }
 
 
 function registerSubmitForm(form, register) {
 
     if (!request_busy) {
+        console.log("submitting...");
 
         $('body').LoadingOverlay("show");
 
         request_busy = true;
         // $('#registerbox .modalMsg').append("<div class='remodal-loading'></div>");
+        console.log($(form).serialize());
         $.ajax({
             type: "POST",
             url: $(form).prop('action'),
             data: $(form).serialize(),
             dataType: 'json',
-        }).done(function (data) {
+        }).done(function(data) {
             request_busy = false;
             $('.remodal-loading').remove();
-            // console.log(data.status);
+            console.log(data.status);
+            $('body').LoadingOverlay("hide");
             if (data.status) {
 
 
@@ -380,10 +403,16 @@ function registerSubmitForm(form, register) {
 
                 $('#id').val(data.user.id);
 
-                alert(data.laststep);
+                // alert(data.laststep);
                 console.log(data.user);
                 currentStep++;
-                updateStep(currentStep);
+                console.log(currentStep);
+                if (currentStep >= 5) {
+                    window.location.href = WEB_SITE_URL;
+
+                } else {
+                    updateStep(currentStep);
+                }
                 // reLoadCaptchaV3();
 
             } else {
@@ -399,7 +428,7 @@ function registerSubmitForm(form, register) {
                 $('.error-message').remove();
                 if (data['validationErrors']) {
                     for (i in data.validationErrors) {
-                        if (typeof (data.validationErrors[i]) === 'object') {
+                        if (typeof(data.validationErrors[i]) === 'object') {
                             var errors_array = data.validationErrors[i];
                             for (j in errors_array) {
                                 $(form).find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
@@ -410,14 +439,15 @@ function registerSubmitForm(form, register) {
                     }
                 }
 
+                $('.modalMsg #msgText').html(data.message);
+                var inst = $('[data-remodal-id=modalMsg]').remodal();
+                inst.open();
             }
 
-            $('.modalMsg #msgText').html(data.message);
-            var inst = $('[data-remodal-id=modalMsg]').remodal();
-            inst.open();
+
         });
 
-        $('body').LoadingOverlay("hide");
+
     }
 }
 // Function to go to the previous step

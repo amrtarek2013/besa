@@ -6,6 +6,15 @@
     margin-top: 2px;
   }
 
+  #subject-area {
+    min-width: 150px;
+
+  }
+
+  .select2-container {
+    width: 100% !important;
+  }
+
   .input.tel div.error-message {
     position: absolute;
   }
@@ -108,7 +117,7 @@ use Cake\Routing\Router;
                     } else {
                       echo $this->Form->control('email', [
                         'type' => 'email',
-                        'placeholder' => 'Email','value'=>$user['email'],'class' => 'form-control', 'label' => 'Email*', 'required' => true,
+                        'placeholder' => 'Email', 'value' => $user['email'], 'class' => 'form-control', 'label' => 'Email*', 'required' => true,
                         'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                       ]);
                     }
@@ -139,10 +148,14 @@ use Cake\Routing\Router;
                   <!-- <div class="search search-step">
                     <input type="search" name="subject_area" id="subject_area" class="subject_area" placeholder="Search for Subject" />
                   </div> -->
-                
+                  <?php
+                  // debug($subjectAreas);
+                  // die;
+                  ?>
                   <?= $this->Form->control('subject_area_ids', [
-                    'placeholder' => 'Search for Subject', 'type' => 'select', 'empty' => 'Search for Subject',
-                    'options' => $subjectAreas, 'label' => false, 'id' => 'subject_area', 'multiple' => 'multiple','class' => 'select-multiple subject_area',
+                    'placeholder' => 'Search for Subject', 'type' => 'select',
+                    'options' => $subjectAreas, 'label' => false, 'id' => 'subject_area', 'multiple' => 'multiple', 'class' => 'select-multiple subject_area',
+
                     'templates' => ['inputContainer' => '<div class="search search-step {{rquired}}" id="subject-area">{{content}}</div>']
                   ]) ?>
                   <div class="subjects-container">
@@ -154,7 +167,7 @@ use Cake\Routing\Router;
 
                       ?>
                         <?php foreach ($popularSubjectAreas as $key => $subjectArea) { ?>
-                          <div class="subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-course='<?= $key ?>'>
+                          <div class="popularSubjectAreas  subject studyLevel-<?= $key ?>" title='<?= $subjectArea ?>' data-subject='<?= $subjectArea ?>' data-course='<?= $key ?>'>
                             <?= $subjectArea ?>
                           </div>
                         <?php } ?>
@@ -169,7 +182,7 @@ use Cake\Routing\Router;
 
               </div>
 
-              <div id="step3" class="step <?=$laststep == 2?'active':''?>">
+              <div id="step3" class="step <?= $laststep == 2 ? 'active' : '' ?>">
                 <!-- Step 1 content here -->
                 <h2 class="title">What study level do you <br> wish to apply for ?</h2>
 
@@ -178,7 +191,8 @@ use Cake\Routing\Router;
                   <!-- Hidden Dropdown for Selecting Study Levels -->
                   <?php
 
-                  if (!empty($studyLevels)) { ?>
+                  if (0 && !empty($studyLevels)) {
+                  ?>
                     <select hidden name="study_level_id" id="study_level_id">
                       <option value="">Select an option</option>
                       <?php foreach ($studyLevels as $studyLevelId => $studyLevelTitle) { ?>
@@ -214,6 +228,8 @@ use Cake\Routing\Router;
 
                       // Update the hidden select element with the selected study level id
                       document.getElementById('study_level_id').value = id;
+                      $("#study_level_id").val(id);
+                      console.log($("#study_level_id"));
                     }
                   </script>
 
@@ -223,7 +239,7 @@ use Cake\Routing\Router;
               </div>
 
               <!-- <input type="hidden" name="degree" id="degree" value="1"> -->
-              <div id="step4" class="step <?=$laststep == 3?'active':''?>">
+              <div id="step4" class="step <?= $laststep == 3 ? 'active' : '' ?>">
                 <!-- Step 3 content here -->
                 <div class="common-services services-2 services-4">
                   <h2 class="title">Which countries do you want <br> to study in?</h2>
@@ -236,21 +252,21 @@ use Cake\Routing\Router;
                     ])
                     ?>
 
-                    <?= $this->Form->control('country_id', [
+                    <?= $this->Form->control('country_id_1', [
                       'placeholder' => 'Option 2', 'type' => 'select', 'empty' => 'Select Option 1',
                       'options' => $countriesList, 'label' => 'Option 2', 'class' => 'select-single',
                       'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                     ])
                     ?>
 
-                    <?= $this->Form->control('country_id', [
+                    <?= $this->Form->control('country_id_2', [
                       'placeholder' => 'Option 3', 'type' => 'select', 'empty' => 'Select Option 3',
                       'options' => $countriesList, 'label' => 'Option 3', 'class' => 'select-single',
                       'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
                     ])
                     ?>
 
-                    <?= $this->Form->control('country_id', [
+                    <?= $this->Form->control('country_id_3', [
                       'placeholder' => 'Option 4', 'type' => 'select', 'empty' => 'Select Option 4',
                       'options' => $countriesList, 'label' => 'Option 4', 'class' => 'select-single',
                       'templates' => ['inputContainer' => '<div class="form-area {{rquired}}">{{content}}</div>']
@@ -302,52 +318,59 @@ use Cake\Routing\Router;
               </div>
 
 
-              <div id="step5" class="step <?=$laststep == 4?'active':''?>">
+              <div id="step5" class="step <?= $laststep == 4 ? 'active' : '' ?>">
                 <!-- Step 4 content here -->
                 <h2 class="title">Budget?</h2>
                 <div class="selectors-container">
                   <div class="form-area">
                     <label for="">Budget </label>
-                    <select name="" id="">
-                      <option value="Option">5000 - 10,000 $</option>
+                    <select name="budget" id="">
+                      <?php
+                      // Initial start value
+                      $start = 10000;
+                      // Step value for each range
+                      $step = 10000;
+                      // Limit for the loop (you can adjust this value according to your needs)
+                      $limit = 100000;
+                      echo "<option value='5000-10000'>$5000 - $10,000</option>";
+
+                      // Loop to generate options
+                      for ($i = $start; $i < $limit; $i += $step) {
+                        $endRange = $i + $step; // Calculate the end of the current range
+                        // Print the option
+                        echo "<option value='{$i}-{$endRange}'>$" . number_format($i) . " - $" . number_format($endRange) . "</option>";
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
                 <div class="range-wrapper">
-                  <div class="output-range">
-                    <span id="slider-value">$1000 </span>
-                    <span id="max-val">$100,000 </span>
 
-                  </div>
-                  <div id="slider_range_blue"></div>
-                  <div class="minAndMax">
-                    <span class="min-name">Min </span>
-                    <span class="max-name">Max </span>
-                  </div>
+
                   <input type="hidden" name="min_budget" id="min-budget" value="1000">
                   <input type="hidden" name="max_budget" id="max-budget" value="100000">
                   <script>
-                    var slider = document.getElementById('slider_range_blue');
-                    var sliderValueElement = document.getElementById('slider-value');
-                    var maxValElement = document.getElementById('max-val');
-                    var minBudgetElement = document.getElementById('min-budget');
-                    var maxBudgetElement = document.getElementById('max-budget');
+                    // var slider = document.getElementById('slider_range_blue');
+                    // var sliderValueElement = document.getElementById('slider-value');
+                    // var maxValElement = document.getElementById('max-val');
+                    // var minBudgetElement = document.getElementById('min-budget');
+                    // var maxBudgetElement = document.getElementById('max-budget');
 
-                    noUiSlider.create(slider, {
-                      start: [500, 85000],
-                      connect: true,
-                      range: {
-                        min: 0,
-                        max: 100000
-                      }
-                    });
+                    // noUiSlider.create(slider, {
+                    //   start: [500, 85000],
+                    //   connect: true,
+                    //   range: {
+                    //     min: 0,
+                    //     max: 100000
+                    //   }
+                    // });
 
-                    slider.noUiSlider.on('update', function(values, handle) {
-                      sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
-                      minBudgetElement.value = Math.round(values[0]);
-                      maxBudgetElement.value = Math.round(values[1]);
-                      maxValElement.innerHTML = "£" + Math.round(values[1]);
-                    });
+                    // slider.noUiSlider.on('update', function(values, handle) {
+                    //   sliderValueElement.innerHTML = "£ " + Math.round(values[0]);
+                    //   minBudgetElement.value = Math.round(values[0]);
+                    //   maxBudgetElement.value = Math.round(values[1]);
+                    //   maxValElement.innerHTML = "£" + Math.round(values[1]);
+                    // });
                   </script>
                 </div>
               </div>
@@ -357,8 +380,17 @@ use Cake\Routing\Router;
                 <p class="title-small">Select your preferred year.</p>
                 <div class="grid-2col">
                   <div class="form-area ">
-                    <select name="" id="" class="border-blue">
-                      <option value="Option">2022</option>
+                    <select name="study_abroad_year" id="study_abroad_year" class="border-blue">
+
+
+                      <?php for ($i = 0; $i < 5; $i++) {
+                        $dateY = date("Y") + $i;
+                      ?>
+
+                        <option value="<?= $dateY ?>"><?= $dateY ?></option>
+
+                      <?php } ?>
+
                     </select>
                   </div>
                   <div class="form-area">
@@ -420,14 +452,43 @@ echo $this->Html->css('select2');
       allowClear: true,
       width: '100%',
     });
-    $('.select-multiple').select2({
 
+
+
+    var subject_area = $("#subject_area");
+    subject_area.select2({
       placeholder: "Select Items",
-      allowClear: true
+      allowClear: true,
+      maximumSelectionLength: 5
     });
+
+
+
+    $(".popularSubjectAreas").click(function() {
+      // How to select a value
+      var itemToAdd = $(this).data('course') + ''; // The value of the item you want to add
+      var select2Element = $('#subject_area');
+      var currentValues = select2Element.val(); // Get current values as an array
+
+      // Check if the item to add isn't already selected
+      if (currentValues.indexOf(itemToAdd) === -1) {
+        currentValues.push(itemToAdd); // Add the item to the array
+        select2Element.val(currentValues).trigger('change'); // Set the new array as the value and trigger change event
+      }
+    });
+
+
+
+    // $('.select-multiple').select2({
+
+    //   placeholder: "Select Items",
+    //   allowClear: true,
+    //   maximumSelectionLength:5
+    // });
   });
-  
-let currentStep = <?= $laststep ?>; // Current step index
+
+  let currentStep = <?= $laststep ?>; // Current step index
+  let WEB_SITE_URL = '<?= Router::url("/", true) ?>'; // Current step index
 </script>
 
 <script src="<?= Router::url('/js/new-js/jquery.validate.js') ?>" async></script>
@@ -442,6 +503,7 @@ let currentStep = <?= $laststep ?>; // Current step index
 <?php
 
 if (isset($laststep)) {
+
 ?>
   <script>
     $(document).ready(function() {
