@@ -559,8 +559,12 @@ class UsersController extends AppController
                     $return['type']    = 'register';
                     $return['title'] = 'Thank You';
                     $return['url_text'] = 'Continue';
-                    if ($return['laststep'] >= 5)
+                    if ($return['laststep'] >= 5) {
                         $this->Flash->success(__('The confirmation email has been sent.'));
+                        $this->Session->write('laststep', 0);
+                        $this->Session->write('userData', []);
+
+                    }
 
 
                     // $this->Auth->setUser($user->toArray());
