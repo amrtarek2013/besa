@@ -22,7 +22,12 @@
                         // print_r($uniWishLists);
                         // dd($universitiesResults);
                         foreach ($universitiesResults as $univ) :
-                            $uni_details = $univ->university;
+
+                            if (empty($univ->university)) {
+                                $uni_details = $univ;
+                            } else {
+                                $uni_details = $univ->university;
+                            }
 
 
 
