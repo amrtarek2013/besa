@@ -48,9 +48,9 @@ class EventsTable extends Table
             [
                 'ImageUpload' => [
                     'icon' => [
-                        'resize' => ['width' => 87, 'height' => 83],
+                        'resize' => ['width' => 362, 'height' => 248],
                         'datePath' => ['path' => ''],
-                        'width' => 87, 'height' => 83,
+                        'width' => 362, 'height' => 248,
                         // 'datePath' => false,
 
                         'extensions' => array('jpg', 'png', 'gif', 'jpeg', 'svg'),
@@ -145,6 +145,7 @@ class EventsTable extends Table
     public function afterSave($event, $entity, $options)
     {
         Cache::delete('home_events');
+        Cache::delete('home_main_events');        
         Cache::delete('events_app_menu_list');
         clearViewCache();
     }

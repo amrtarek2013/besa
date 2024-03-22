@@ -8,7 +8,7 @@
 <?= $home_assessment_section ?>
 
 <?= $this->element("miniature-earth_image", ['colWidth' => '9', 'redirectUrl' => 'destination', 'pageType' => 'home'], ['cache' => ['key' => 'choose_place_earth_home', 'config' => '_view_long_']]) ?>
- 
+
 <!--Start Events Section-->
 <?php if (!empty($home_main_events)) : ?>
     <div class="home-blogs home-events">
@@ -21,10 +21,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="container-events display-flex">
-                            <?php foreach ($home_main_events as $event) : ?>
+                            <?php foreach ($home_main_events as $event) :
+                                debug($event);
+
+
+
+
+                            ?>
                                 <div class="box-blog display-flex">
                                     <div class="card-img-top">
-                                        <img src="/img/new-desgin/events.png" alt="event" loading="lazy">
+
+                                        <img src="<?= $event['icon_path']?>" alt="event" loading="lazy">
                                     </div>
                                     <div class="content-blog">
                                         <h4 class="title-blog">
@@ -37,7 +44,13 @@
 
                                                 <?php
                                                 $counter = sizeof($event['fair_events']);
-                                                foreach ($event['fair_events'] as $count => $fair_event) : ?>
+
+                                                foreach ($event['fair_events'] as $count => $fair_event) :
+                                                    debug($fair_event);
+
+
+
+                                                ?>
                                                     <?php if (!empty($fair_event['day_date'])) : ?>
                                                         <div class="item">
                                                             <img src="/img/new-desgin/timer.svg" alt="">
