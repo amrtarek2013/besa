@@ -39,11 +39,11 @@ class EventImagesTable extends Table
 
                     'image' => [
                         // 'resize' => ['width' => 313, 'height' => 266],
-                        'resize' => ['width' => 330, 'height' => 180],
+                        'resize' => ['width' => 1062, 'height' => 580],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         // 'width' => 313, 'height' => 266,
-                        'width' => 330, 'height' => 180,
+                        'width' => 1062, 'height' => 580,
                         'path' => 'uploads/event_images',
                         'file_name' => '{$rand}_{$file_name}',
 
