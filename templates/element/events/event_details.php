@@ -2,7 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <?php foreach ($event['fair_events'] as $fairEvent) { ?>
+                <?php foreach ($event['fair_events'] as $fairEvent) {
+                    if(!$fairEvent['active'])
+                    continue;
+                    
+                    
+                    ?>
                     <div class="content">
 
                         <h4 class="location-center">
