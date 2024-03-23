@@ -7930,6 +7930,10 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: auto;
     padding: 16px 40px;
     border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
 }
 
 .container-text-page,
@@ -9671,8 +9675,8 @@ div.error-message {
 }
 
 .football-education-section .images-container img {
-    max-width: 436px;
-    height: max-content;
+    max-width: 450px;
+    height: 280px;
     border-radius: 16px;
 }
 
