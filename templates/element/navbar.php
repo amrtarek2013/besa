@@ -416,7 +416,7 @@ use Cake\Routing\Router;
 
         let searchResult = '';
         searchResult = `<li> <img src = "img/icon/search-blue.svg" alt = "" >
-            No Courses Found! </li>`;
+            No results  Found! </li>`;
         $('.search-list-result').html(searchResult);
         if (obVal.length >= 2) {
 
@@ -425,16 +425,27 @@ use Cake\Routing\Router;
                 val1 = val.toLowerCase();
 
                 var regex = new RegExp(obVal, 'i');
-                if (val1.search(regex) != -1)
-                    searchResult += `<li> <img src = "img/icon/search-blue.svg" alt = "" >
+                if (val1.search(regex) != -1) {
+
+
+
+
+                    if (key.startsWith("u-")) {
+                        const id = key.substring("u-".length);
+                        searchResult += `<li> <img src = "img/icon/search-blue.svg" alt = "" >
+                <a target="_blank" href="/results?stype=c&country_id=&university_id=` + id + `">` + val + `</a></li>`;
+                    } else {
+                        searchResult += `<li> <img src = "img/icon/search-blue.svg" alt = "" >
                 <a target="_blank" href="/results?id=` + key + `">` + val + `</a></li>`;
+                    }
+                }
             });
             if (searchResult.length > 0) {
                 $('.search-list-result').html(searchResult);
 
             } else
                 searchResult = `<li> <img src = "img/icon/search-blue.svg" alt = "" >
-            No Courses Found! </li>`;
+            No results  Found! </li>`;
 
             $('.search-list').addClass('show');
         } else {

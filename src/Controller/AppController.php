@@ -1259,6 +1259,7 @@ class AppController extends Controller
 
     public function allCoursesList()
     {
+         
 
         $cached_courses = Cache::read('courses', '_courses_');
 
@@ -1269,6 +1270,28 @@ class AppController extends Controller
                 'list',
                 ['keyField' => 'id', 'valueField' => 'course_name']
             )->order(['course_name' => 'asc'])->toArray();
+
+            // debug(count($cached_courses));
+            // $arr=array_values($cached_courses);
+            // $arr= array_unique($arr);
+            // debug(count($arr));
+
+
+            $cached_unis = $this->UniversityCourses->find(
+                'list',
+                ['keyField' => 'university_id', 'valueField' => 'university_title']
+            )->order(['university_title' => 'asc'])->toArray();
+            $prefixedArray = [];
+
+            // Iterate through the original array and add the prefix to each key
+            foreach ($cached_unis as $key => $value) {
+                if ($value)
+                    $prefixedArray["u-" . $key] = $value;
+            }
+           
+            
+            $cached_courses = $cached_courses + $prefixedArray;
+            
 
             Cache::write('courses', $cached_courses, '_courses_');
         }
@@ -1348,12 +1371,13 @@ class AppController extends Controller
         }
         return true;
     }
-    public function bitrixSendApplicationFiles($application_id=null){
-        if(empty($application_id)){
+    public function bitrixSendApplicationFiles($application_id = null)
+    {
+        if (empty($application_id)) {
             return false;
         }
         $main_dir = str_replace('/src/Controller', '', __DIR__);
-        $applications_folder = $main_dir.'/webroot/uploads/files/applications/';
+        $applications_folder = $main_dir . '/webroot/uploads/files/applications/';
         $application_files_fields = [
             'passport',
             'high_school_certificate',
@@ -1371,10 +1395,10 @@ class AppController extends Controller
         $application = $this->Applications->get($application_id);
         $this->loadModel('Users');
         $user = $this->Users->get($application->user_id);
-        
+
         $mobile = '';
-        if(!empty($user->mobile)){
-            if(!empty($user->mobile_code)){
+        if (!empty($user->mobile)) {
+            if (!empty($user->mobile_code)) {
                 $mobile = $user->mobile_code;
             }
             $mobile .= $user->mobile;
@@ -1384,9 +1408,9 @@ class AppController extends Controller
         }
         $data['mobile'] = $mobile;
 
-        foreach($application_files_fields as $application_files_field){
-            if(!empty($application->{$application_files_field}) && file_exists($applications_folder.$application->{$application_files_field}) ){
-                $data['files'][] = $applications_folder.$application->{$application_files_field};
+        foreach ($application_files_fields as $application_files_field) {
+            if (!empty($application->{$application_files_field}) && file_exists($applications_folder . $application->{$application_files_field})) {
+                $data['files'][] = $applications_folder . $application->{$application_files_field};
             }
         }
         if (empty($data['files'])) {
