@@ -13686,7 +13686,9 @@ div.error-message {
         flex-flow: row;
     }
     .football-education-section .images-container img {
-        max-width: 175.976px;
+        max-width: 175.976px !important;
+        height: max-content !important;
+
     }
     .football-education-section .images-container img:last-child {
         margin: 25px -25px 0;
