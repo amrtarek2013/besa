@@ -871,7 +871,7 @@ textarea {
   border-radius: 16px;
   overflow: hidden;
 }
- .main-slider .item{
+ .main-slider .item .background-image-slider{
   height: 580px;
  }
 .header .main-slider .item .background-image-slider,
