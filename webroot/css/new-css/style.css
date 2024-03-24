@@ -10687,7 +10687,7 @@ div.error-message {
 }
 
 .background-login-page {
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -10698,6 +10698,7 @@ div.error-message {
   z-index: 1;
   text-align: center;
   padding: 48px;
+  overflow-y: auto;
 }
 
 .background-login-page .logo {
