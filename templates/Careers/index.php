@@ -41,22 +41,7 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <section class="career-opportunity-section">
-                <div class="opportunity-image">
-                    <img src="https://dummyimage.com/1024x1024/d9d9d9/000000.png" alt="Happy person holding a book">
-                </div>
-                <div class="opportunity-content">
-                    <h2>We have great opportunities for you <br> you can join us now</h2>
-                    <a href="#" class="btn btn-primary">Join with us</a>
-                </div>   
-            </section>
-        </div>
-        
-    </div>
-</div>
+
 <?= $besa_careers_benefits ?>
 
 
