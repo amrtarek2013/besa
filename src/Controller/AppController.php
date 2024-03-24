@@ -197,23 +197,23 @@ class AppController extends Controller
         $currLang = 'en';
         $date_picket_orientation = 'left';
         $locale_pr = "";
-        if ($this->Session->check('locale')) {
-            $locale = $this->Session->read('locale');
+        // if ($this->Session->check('locale')) {
+        //     $locale = $this->Session->read('locale');
 
-            if ($locale == 'ar_AE') {
-                $switchLang = 'en';
-                $currLang = 'ar';
-                $direction = 'rtl';
-                $date_picket_orientation = 'right';
-                $locale_pr = "_ar";
-            } else {
-                $direction = '';
-                $switchLang = 'ar';
-                $currLang = 'en';
-                $date_picket_orientation = 'left';
-                $locale_pr = "";
-            }
-        }
+        //     if ($locale == 'ar_AE') {
+        //         $switchLang = 'en';
+        //         $currLang = 'ar';
+        //         $direction = 'rtl';
+        //         $date_picket_orientation = 'right';
+        //         $locale_pr = "_ar";
+        //     } else {
+        //         $direction = '';
+        //         $switchLang = 'ar';
+        //         $currLang = 'en';
+        //         $date_picket_orientation = 'left';
+        //         $locale_pr = "";
+        //     }
+        // }
         $this->locale_pr = $locale_pr;
         $this->set('switchLang', $switchLang);
         $this->set('currLang', $currLang);

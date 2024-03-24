@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style_rtl.css" />
+        <title>App Advertisement</title>
+        <style>
+            body{
+    font-family: 'Almarai Regular';
+
+            }
+        
+            .container {
+                width: 300px;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 50px auto;
+                position: relative;
+            }
+            .banner {
+                padding: 20px;
+                text-align: center;
+            }
+            .banner p{
+                font-size: 16px;
+                line-height: 24px;
+                color: var(--main-color);
+            }
+            .banner h1{
+                line-height: 27px;
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--text-color);
+                margin-bottom: 15px;
+
+            }
+            .content {
+                padding: 20px;
+                text-align: center;
+            }
+            .app-links {
+                display: flex;
+                justify-content: space-around;
+                flex-flow: column;
+                padding: 20px;
+                align-items: center;
+
+            }
+            .app-link {
+                display: block;
+                width: 120px; /* Adjust size to fit the image */
+            }
+            .app-link img {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="banner">
+                <h1>قم بتحميل التطبيق الخاص بنا</h1>
+                <p>حمّل تطبيقنا للتمتع بالراحة والميزات الحصرية، مع تعزيز تجربتك
+                    الشخصية. أدير المهام بسهولة وابقَ متصلاً أثناء التنقل</p>
+            </div>
+            <div class="content">
+                <img src="images/icon-app.png" alt="App Screenshot"
+                    style="max-width:100%; height:auto;">
+            </div>
+            <div class="app-links">
+                <a href="appstore-link" class="app-link">
+                    <img src="images/App-Store.png"
+                        alt="Download on the App Store">
+                </a>
+                <a href="googleplay-link" class="app-link">
+                    <img src="images/Play-Store.png"
+                        alt="Get it on Google Play">
+                </a>
+            </div>
+        </div>
+    </body>
+
+</html>

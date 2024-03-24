@@ -43,6 +43,9 @@ class CareerAssessmentsController extends AppController
                 $careerAssessmentsSurvey = $this->CareerAssessmentsSurvey->newEmptyEntity();
 
                 $careerAssessmentsSurvey->user_id = $user['id'];
+                $careerAssessmentsSurvey->name = $user['first_name']." ".$user['last_name'];
+                $careerAssessmentsSurvey->mobile = $user['mobile_code'].$user['mobile'];
+                $careerAssessmentsSurvey->email = $user['email'];
 
                 $this->CareerAssessmentsSurvey->save($careerAssessmentsSurvey);
             }
