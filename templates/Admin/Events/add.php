@@ -132,7 +132,7 @@
                             <?php
 
 
-                            echo $this->AdminForm->control('right_text', ['label' => 'Time line', 'type' => 'textarea' ]);
+                            echo $this->AdminForm->control('right_text', ['label' => 'Timeline', 'type' => 'textarea' ]);
 
                             if (!empty($event) && $event->id == 7) {
                                 echo $this->AdminForm->control('left_text', ['label' => 'Upcoming Top Section', 'type' => 'textarea', 'class' => 'editor']);
