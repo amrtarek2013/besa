@@ -5095,7 +5095,7 @@ input[type="search"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 32px;
+  margin: 32px 0;
   list-style: none;
   width: 100%;
   grid-gap: 6px;
@@ -10647,7 +10647,7 @@ div.error-message {
 .selectors-container {
   display: flex;
   flex-flow: column;
-  grid-gap: 32px;
+  /* grid-gap: 32px; */
   padding: 12px 0 0;
 }
 
@@ -14395,9 +14395,14 @@ div.error-message {
   }
 
   .steps-en .subjects-container .grid-subjects {
-    grid-template-columns: 1fr;}
+    grid-template-columns: 1fr;
+  }
 }
 
 .steps-en .steps-background {
-  max-width: 700px;
+    max-width: 780px;
+}
+
+.select2-container{
+    max-width: 900px;
 }
