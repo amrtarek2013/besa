@@ -10,6 +10,7 @@
 
     if (!empty($sliders)) {
         foreach ($sliders as $key => $slider) {
+           
 
     ?>
             <div class="item">
@@ -19,7 +20,7 @@
                     if (isset($slider['image_path'])) {
                     ?>
 
-                        <img class="" src="/img/background-header.png"></img>';
+                        <img class="<?php echo $slider['title'] ?>" src="<?php echo $slider['image_path'] ?>"></img>';
 
                     <?php
                     }
