@@ -69,6 +69,8 @@ if (!empty($eventsList)) {
                                     if (!empty($arr))
                                         foreach ($arr as $key => $item) {
                                             $item = trim($item);
+                                            if (empty($item))
+                                                continue;
 
                                             if ($key === array_key_last($arr)) {
                                                 echo " <div class='item'>
