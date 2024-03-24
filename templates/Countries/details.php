@@ -11,7 +11,7 @@ use Cake\Routing\Router;
                         <!-- If there are images, display the first one -->
                         <?php //$firstImage = $countryImages->first(); 
                         ?>
-                        <?= $this->element('destination_slider', ['sliders' => $countryImages->toArray(), 'g_dynamic_routes' => $g_dynamic_routes], ['cache' => ['key' => 'destination_slider', 'config' => '_view_long_']]) ?>
+                        <?= $this->element('destination_slider', ['sliders' => $countryImages->toArray(), 'g_dynamic_routes' => $g_dynamic_routes]) ?>
                     <?php else : ?>
                         <!-- Default image if there are no country images -->
                         <!-- <img src="<?= WEBSITE_URL ?>img/banner-45.png" alt="Default banner"> -->

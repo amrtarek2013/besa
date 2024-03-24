@@ -73,7 +73,7 @@ class CountriesTable extends Table
                     // ],
 
                     'banner_image' => [
-                        'resize' => ['width' => 1440, 'height' => 439],
+                        'resize' => ['width' => 1440, 'height' => 680],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
                         'path' => 'uploads/countries',
