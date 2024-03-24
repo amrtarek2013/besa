@@ -871,7 +871,9 @@ textarea {
   border-radius: 16px;
   overflow: hidden;
 }
-
+ .main-slider .item{
+  height: 580px;
+ }
 .header .main-slider .item .background-image-slider,
 .header .main-slider .item .background-image-slider > div:first-child {
   height: 688px;
@@ -14407,3 +14409,5 @@ div.error-message {
 .select2-container{
     max-width: 900px;
 }
+
+
