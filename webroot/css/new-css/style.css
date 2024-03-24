@@ -871,9 +871,9 @@ textarea {
   border-radius: 16px;
   overflow: hidden;
 }
- .main-slider .item .background-image-slider{
+ /* .main-slider .item .background-image-slider{
   height: 580px;
- }
+ } */
 .header .main-slider .item .background-image-slider,
 .header .main-slider .item .background-image-slider > div:first-child {
   height: 688px;
