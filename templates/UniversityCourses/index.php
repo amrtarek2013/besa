@@ -25,10 +25,8 @@
 <div class="container">
     <div class="row user-dashboard">
 
-        <div class="col-md-3">
-            <?php echo $this->element('filters-side', ['filterParams' => $filterParams, 'has_university' => 1]); ?>
-        </div>
-        <div class="col-md-9">
+      
+        <div class="col-md-12">
 
             <?php echo $this->element('courses_list', ['courses' => $courses, 'pagging' => 1, 'gridContainerCols' => 2]); ?>
 
