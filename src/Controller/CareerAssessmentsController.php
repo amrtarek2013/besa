@@ -11,6 +11,7 @@ class CareerAssessmentsController extends AppController
 {
     public function index()
     {
+        die;
         $connection = ConnectionManager::get("default");
         $query = "SELECT clause, phrase, choices FROM career_assessments_question_clauses AS A, career_assessments_question_phrases AS B, career_assessments_question_choices AS C WHERE A.id = B.clause_id AND C.id = B.choices_id;";
         $data = $connection->execute($query)->fetchAll("assoc");
@@ -41,7 +42,7 @@ class CareerAssessmentsController extends AppController
 
 
     public function results()
-    {
+    {die;
         $response = $this->request->getSession()->read("results");
         $this->set(compact("response"));
     }

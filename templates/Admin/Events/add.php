@@ -130,6 +130,10 @@
                             <!-- <div class="related-text">Image Size 768px X 170px</div> -->
 
                             <?php
+
+
+                            echo $this->AdminForm->control('right_text', ['label' => 'Timeline', 'type' => 'textarea' ]);
+
                             if (!empty($event) && $event->id == 7) {
                                 echo $this->AdminForm->control('left_text', ['label' => 'Upcoming Top Section', 'type' => 'textarea', 'class' => 'editor']);
                             }

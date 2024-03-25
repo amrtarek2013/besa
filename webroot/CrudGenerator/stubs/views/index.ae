@@ -1,19 +1,44 @@
-<section class="content listSection container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="card-header">
-                <h3 class="card-title">List</h3>
+<script src="<?= ADMIN_ASSETS ?>/custom_helper/jquery-2.2.4.min.js" ></script>
+<link rel="stylesheet" href="<?= ADMIN_ASSETS ?>/custom_helper/style.css?v=2">
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1><?= __('{{ singularHumanName }} List') ?></h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
+                        <li class="breadcrumb-item active"><?= __('{{ singularHumanName }}') ?></li>
+                    </ol>
+                </div>
             </div>
-            <?php if($filters){ ?>
+        </div>
+    </section>
+
+  <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-12">
+
+           <?php if($filters){ ?>
             <div class="card">
                <?php
                $session = $this->getRequest()->getSession();
                echo $this->List->filter_form(${{ pluralName }},$filters,[],[],$parameters,$session)?> 
             </div>
             <?php } ?>
-            <a href="<?=$this->Url->build(array('action' => 'add' ,'Admin' => true))?>" class="btn btn-info btn-flat" icon="fa fa-pencil-square-o"><i class="fas fa-plus"></i>  Add New</a>
-
-            <div class="card card-primary">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><?= __('{{ singularHumanName }} List') ?></h3>
+                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
+                                <?= __('Add new') ?>
+                            </a>
+                            </div>  
+                    
             
             <?php 
             
@@ -43,5 +68,7 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
+</div>
