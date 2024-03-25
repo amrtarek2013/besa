@@ -2106,6 +2106,9 @@ p.descrp {
 .whyStudy .gridWhyStudy .image img {
   border-radius: 16px;
   border-top: 8px solid var(--text-color);
+  height: auto !important;
+  width: auto !important;
+
 }
 
 .tabes {
