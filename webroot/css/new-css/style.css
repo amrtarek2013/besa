@@ -13710,6 +13710,10 @@ div.error-message {
     flex-flow: column;
     margin-bottom: 50px;
   }
+  .study-section .d-flex:nth-child(odd){
+    flex-flow: column-reverse;
+
+  }
   .container-discovery-assessment,
   .professional-development .d-flex:first-child,
   .professional-development .d-flex:nth-child(odd),
