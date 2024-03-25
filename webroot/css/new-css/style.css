@@ -13710,7 +13710,7 @@ div.error-message {
     flex-flow: column;
     margin-bottom: 50px;
   }
-  .study-section .d-flex:nth-child(odd){
+  .study-section .d-flex:nth-child(even){
     flex-flow: column-reverse;
 
   }
