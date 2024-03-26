@@ -29,6 +29,8 @@
         e.preventDefault();
 
         $('#stype').val($(this).data('stype'))
+        $('#min-budget').val("")
+        
         $('#search-courses-steps').submit();
     });
 </script>
