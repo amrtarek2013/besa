@@ -28,8 +28,11 @@
 
         e.preventDefault();
 
-        $('#stype').val($(this).data('stype'))
-        $('#min-budget').val("")
+        $('#stype').val($(this).data('stype'));
+        <?php 
+        if(empty($_GET['min_budget']))
+        echo '$("#min-budget").val("");';
+        ?>       
         
         $('#search-courses-steps').submit();
     });
