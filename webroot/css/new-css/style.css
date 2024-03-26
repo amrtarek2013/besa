@@ -2106,6 +2106,9 @@ p.descrp {
 .whyStudy .gridWhyStudy .image img {
   border-radius: 16px;
   border-top: 8px solid var(--text-color);
+  height: auto !important;
+  width: auto !important;
+
 }
 
 .tabes {
@@ -13390,7 +13393,8 @@ div.error-message {
   #owl_gallary,
   .step-back-slider .owl-step-back,
   .whyStudy .gridWhyStudy .image img {
-    width: 70%;
+    width: 70% !important;
+
   }
   .whyStudy .gridWhyStudy ul li {
     font-size: 14px;
@@ -13709,6 +13713,10 @@ div.error-message {
   .study-section .d-flex {
     flex-flow: column;
     margin-bottom: 50px;
+  }
+  .study-section .d-flex:nth-child(even){
+    flex-flow: column-reverse;
+
   }
   .container-discovery-assessment,
   .professional-development .d-flex:first-child,
