@@ -57,21 +57,46 @@ debug($arLandingPage);
                 في التواصل معنا</p>
             <div class="contact-section" dir="ltr">
 
-                <form class="contact-form">
-                    <div class="input-group">
-                        <label for>Your name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    </div>
-                    <div class="input-group">
-                        <label for>Email address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="input-group">
-                        <label for>Your message</label>
-                        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn contact-submit">Send</button>
-                </form>
+
+
+                <?= $this->Form->create($enquiry, ['url' => '/enquiries/contactUs', 'id' => 'contactusForm']) ?>
+
+                <input type="hidden" id="type" name="type" value="landingpage-<?php echo $permalink ?>">
+
+                <?php
+
+                echo $this->Form->control('name', [
+                    'placeholder' => 'Your name', 'type' => 'text', 'label' => false,
+                    'class' => 'required', 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="input-group {{required}}">{{content}}</div>']
+                ]);
+
+
+                echo $this->Form->control('email', [
+                    'placeholder' => 'Email Address', 'type' => 'email',
+                    'class' => 'required', 'label' => false, 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="input-group {{required}}">{{content}}</div>']
+                ]);
+
+                // echo  $this->element('mobile_with_code', ['phone_label' => 'Mobile']);
+
+                echo $this->Form->control('message', [
+                    'placeholder' => 'Your Message', 'type' => 'textarea',
+                    'class' => 'required', 'label' => false, 'required' => true,
+                    'templates' => ['inputContainer' => '<div class="input-group {{required}}">{{content}}</div>']
+                ]);
+                ?>
+
+                <?= $this->element('security_code') ?>
+                <button type="submit" class="btn contact-submit">Send</button>
+
+
+                <?= $this->Form->end() ?>
+
+
+
+
+
             </div>
         </div>
     </div>

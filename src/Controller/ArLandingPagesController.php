@@ -103,7 +103,7 @@ class ArLandingPagesController extends AppController
         //     throw new NotFoundException(__('Not found'));
 
         $this->set('arLandingPage', $arLandingPage);
-        $this->set('permalink', $arLandingPage);
+        $this->set('permalink', $id);
          
         $this->viewBuilder()->disableAutoLayout();
 
