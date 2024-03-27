@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -12,7 +13,18 @@ class CareerAssessmentsSurveyTable extends Table
 {
 
 
-    public $filters = [];
+
+    public $filters = [
+        'name' => 'like',
+        'email' => 'like',
+        'phone' => 'like',
+        // 'is_completed'  ,
+        'is_completed' => ['options' => ['options' => [0 => 'Ongoing', 1 => 'Complete']]],
+
+        // 'code' => array('type' => 'like', 'options' => array('type' => 'text')),
+
+        // 'continent',
+    ];
 
     /**
      * Initialize method
@@ -27,10 +39,6 @@ class CareerAssessmentsSurveyTable extends Table
         $this->setTable('career_assessments_survey');
         $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
-        
-        
-
-
     }
 
 
@@ -40,5 +48,4 @@ class CareerAssessmentsSurveyTable extends Table
 
         return $validator;
     }
-
 }

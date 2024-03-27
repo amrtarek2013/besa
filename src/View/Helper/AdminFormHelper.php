@@ -510,8 +510,14 @@ var _ckConfigs = '';
 									'/css/new-css/ck-fix-style.css'
 
                             ];
-                        }
 
+							
+                        }
+						if($(this).hasClass('landingcss')){
+							CKEDITOR.config.contentsCss = [
+								'/css/besa_landing_pages/css/style_rtl.css', 
+
+						]; }
 
                                 _ckConfigs = '';
 

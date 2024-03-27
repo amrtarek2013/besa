@@ -57,7 +57,7 @@ class CrudsController extends AppController
 
     public $tablePrefix = '';
     public $connection = 'default';
-    public $actions = ['index', 'add'];
+    public $actions = ['index', 'add','view'];
 
 
 

@@ -22,6 +22,9 @@ echo $this->AdminForm->control('user_id',['type'=>'text']);
             echo $this->AdminForm->control('is_completed',['type'=>'text']);
             echo $this->AdminForm->control('chatgpt_response',['type'=>'text']);
             echo $this->AdminForm->control('current_answer',['type'=>'text']);
+            echo $this->AdminForm->control('name',['type'=>'text']);
+            echo $this->AdminForm->control('mobile',['type'=>'text']);
+            echo $this->AdminForm->control('email',['type'=>'text']);
             echo $this->AdminForm->control('created',['type'=>'text']);
             echo $this->AdminForm->control('modified',['type'=>'text']);
             

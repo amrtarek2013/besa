@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?= __('Career Assessments Survey List') ?></h1>
+                    <h1><?= __('Ar Landing Page List') ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= ADMIN_LINK ?>"><?= __('Home') ?></a></li>
-                        <li class="breadcrumb-item active"><?= __('Career Assessments Survey') ?></li>
+                        <li class="breadcrumb-item active"><?= __('Ar Landing Page') ?></li>
                     </ol>
                 </div>
             </div>
@@ -28,40 +28,50 @@
                         <div class="card">
                             <?php
                             $session = $this->getRequest()->getSession();
-                            echo $this->List->filter_form($careerAssessmentsSurvey, $filters, [], [], $parameters, $session) ?>
+                            echo $this->List->filter_form($arLandingPages, $filters, [], [], $parameters, $session) ?>
                         </div>
                     <?php } ?>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?= __('Career Assessments Survey List') ?></h3>
-                            
+                            <h3 class="card-title"><?= __('Ar Landing Page List') ?></h3>
+                            <a class="add-new-btn btn btn-primary <?= $currLang == 'en' ? 'float-right' : 'float-left' ?>" href="<?= Cake\Routing\Router::url(['action' => 'add']) ?>">
+                                <?= __('Add new') ?>
+                            </a>
                         </div>
 
 
                         <?php
 
                         $fields = [
-                            'basicModel' => 'careerAssessmentsSurvey',
-                            'name' => [],
-                            'mobile' => [],
-                            'email' => [],
-                            // 'user_id' => [],
-                            'is_completed' =>['format'=>'bool'],
-                            // 'chatgpt_response' => [],
-                            // 'current_answer' => [],
+                            'basicModel' => 'arLandingPages',
+                            'title' => [],
+                            'permalink' => [],
+                             'right_logo_path' => [  'format' => 'image'],
+                            // 'left_image' => [],
+                            // 'section_1' => [],
+                            // 'section_2' => [],
+                            // 'section_3' => [],
+                            // 'section_4' => [],
+                            // 'section_5' => [],
+                            // 'section_6' => [],
+                            // 'section_7' => [],
+                            // 'section_8' => [],
+                            // 'section_9' => [],
+                            // 'section_10' => [],
+                            // 'footer' => [],
                             'created' => [],
-                            // 'modified' => []
+                            'modified' => []
                         ];
 
                         $multi_select_actions = array(
-                           // 'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
+                            'delete' => array('action' => $this->Url->build(array('action' => 'delete_multi', 'Admin' => true)), 'confirm' => true)
                         );
 
 
 
                         $actions = [
-                             'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'],array('class' => 'btn btn-primary btn-sm','icon'=>'fas fa-binoculars')),
-                            // 'edit' => $this->Html->link('Edit', array('action' => 'edit', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fa fa-pencil-square-o')),
+                            // 'view'=>$this->Html->link(__('View'), ['action' => 'view', '%id%'],array('class' => 'btn btn-primary btn-flat','icon'=>'fas fa-binoculars')),
+                            'edit' => $this->Html->link('Edit', array('action' => 'edit', '%id%'), array('class' => 'btn btn-primary btn-sm', 'icon' => 'fa fa-pencil-square-o')),
                             'delete' => $this->Html->link(
                                 'Delete',
                                 ['action' => 'delete', '%id%'],
@@ -74,7 +84,8 @@
 
 
 
-                        echo $this->List->adminIndex($fields, $careerAssessmentsSurvey, $actions, true, $multi_select_actions, $parameters);
+                        echo $this->List->adminIndex($fields, $arLandingPages, $actions, true, $multi_select_actions, $parameters);
+                         
                         ?>
                         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
 

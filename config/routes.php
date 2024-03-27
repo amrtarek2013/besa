@@ -69,6 +69,7 @@ return static function (RouteBuilder $routes) {
          * ...and connect the rest of 'Pages' controller's URLs.
          */
         $builder->connect('/content/*', ['controller' => 'Pages', 'action' => 'view']);
+        $builder->connect('/landingpage/*', ['controller' => 'ArLandingPages', 'action' => 'view']);
 
         $builder->connect('/services', 'Services::index');
         $builder->connect('/service-details/*', 'Services::details');
