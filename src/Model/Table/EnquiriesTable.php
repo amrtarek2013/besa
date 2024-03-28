@@ -173,8 +173,7 @@ class EnquiriesTable extends Table
         $validator->notEmptyString('name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
-            ->notEmptyString('email', 'This field is required.')
-            ->minLength('email', 90, 'email length must be greater than 8 numbers.');
+            ->notEmptyString('email', 'This field is required.');
 
         $validator->notEmptyString('mobile', 'This field is required.')
             ->add('mobile', [
