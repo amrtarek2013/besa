@@ -340,7 +340,8 @@ if (!function_exists('getCaptcha')) {
     {
         $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . CAPTCHA_SECRET_KEY . "&response={$SecretKey}");
         $Response = json_decode($Response, true);
-        mail('eng.karimgamal90@gmail.com', 'recaptcha', $Response);
+        print_r($Response);die;
+        // mail('eng.karimgamal90@gmail.com', 'recaptcha', $Response);
         return ($Response['success'] == true && $Response['score'] > 0.5);
     }
 }

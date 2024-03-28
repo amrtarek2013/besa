@@ -14,7 +14,7 @@
     <div class="home-blogs home-events">
         <div class="top-text">
             <h4 class="title">Events</h4>
-            <p class="description">Explore a world of opportunities with our events, crafted to enrich your educational journey. </p>
+            <p class="description">Exploress a world of opportunities with our events, crafted to enrich your educational journey. </p>
         </div>
         <div class="top-events">
             <div class="container">
