@@ -163,17 +163,18 @@ class EnquiriesTable extends Table
 
     public function validationHome(Validator $validator): Validator
     {
-        $validator->add('g-recaptcha-response', [
-            'checkCaptchaV3' => [
-                'rule' => 'checkCaptchaV3',
-                'provider' => 'table',
-                'message' => 'Page session expired, please reload the page!!',
-            ]
-        ]);
+        // $validator->add('g-recaptcha-response', [
+        //     'checkCaptchaV3' => [
+        //         'rule' => 'checkCaptchaV3',
+        //         'provider' => 'table',
+        //         'message' => 'Page session expired, please reload the page!!',
+        //     ]
+        // ]);
         $validator->notEmptyString('name', 'This field is required.');
         // $validator->notEmptyString('last_name', 'This field is required.');
         $validator->email('email', false, 'Please enter a valid email address.')
-            ->notEmptyString('email', 'This field is required.');
+            ->notEmptyString('email', 'This field is required.')
+            ->minLength('email', 90, 'email length must be greater than 8 numbers.');
 
         $validator->notEmptyString('mobile', 'This field is required.')
             ->add('mobile', [
@@ -634,6 +635,7 @@ class EnquiriesTable extends Table
 
     function checkCaptchaV3($data)
     {
+        return false;
         return getCaptcha($data); //strtolower('123456');
     }
 
