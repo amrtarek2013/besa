@@ -13551,9 +13551,7 @@ div.error-message {
     align-items: center;
   }
   .home-events .top-events {
-    margin-bottom: 0;
-    padding-bottom: 0;
-height: max-content;
+    margin-bottom: 1150px;
   }
 
   .blogs-en, .choose-place-2, .discovery-assessment, .home-blogs, .milestones, .why_besa2 {
@@ -14096,7 +14094,6 @@ height: max-content;
     width: 220px !important;
     height: 320px !important;
     margin-left: 4.5em !important;
-    
   }
   .testimonials .personal-data .circle-img {
     width: 53px;
