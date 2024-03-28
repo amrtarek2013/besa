@@ -12,6 +12,7 @@ use Cake\Utility\Text;
 use Cake\Validation\Validation;
 use Cake\Validation\Validator;
 use Psr\Http\Message\UploadedFileInterface;
+use Cake\Cache\Cache;
 
 class UniversitiesTable extends Table
 {
@@ -80,10 +81,10 @@ class UniversitiesTable extends Table
                     ],
                     'image' => [
                         // 'resize' => ['width' => 414, 'height' => 414],
-                        'resize' => ['width' => 230, 'height' => 190],
+                        'resize' => ['width' => 397, 'height' => 306],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
-                        'width' => 230, 'height' => 190,
+                        'width' => 397, 'height' => 306,
                         'path' => 'uploads/universities',
                         'file_name' => '{$rand}_{$file_name}',
 
@@ -103,10 +104,10 @@ class UniversitiesTable extends Table
                     // ],
 
                     'banner_image' => [
-                        'resize' => ['width' => 1440, 'height' => 439],
+                        'resize' => ['width' => 1180, 'height' => 584],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
-                        'width' => 1440, 'height' => 439,
+                        'width' => 1180, 'height' => 584,
                         'path' => 'uploads/universities',
                         'file_name' => '{$rand}_{$file_name}',
 
@@ -116,14 +117,14 @@ class UniversitiesTable extends Table
                     ],
 
                     'flag' => [
-                        'resize' => ['width' => 1440, 'height' => 439],
+                        'resize' => ['width' => 34, 'height' => 21],
                         'datePath' => ['path' => ''],
                         // 'datePath' => false,
-                        'path' => 'img/flags',
+                        'path' => 'uploads/universities',
                         'file_name' => '{$rand}_{$file_name}',
 
                         'thumbs' => [
-                            ['thumb_prefix' => 'thumb_', 'width' => '320', 'height' => '240']
+                            ['thumb_prefix' => 'thumb_', 'width' => '34', 'height' => '21']
                         ],
                     ],
 
@@ -214,6 +215,8 @@ class UniversitiesTable extends Table
     }
     public function afterSave($event, $entity, $options)
     {
+
+        Cache::delete('top_universities');
         clearViewCache();
     }
 

@@ -113,14 +113,29 @@ class PagesController extends AppController
         $home_assessment_section = $this->getSnippet('home_assessment');
 
         $this->loadModel('Blogs');
-        $blogs = $this->Blogs->find()->select(['title','permalink', 'short_text', 'image'])->where(['active' => 1])
+        $blogs = $this->Blogs->find()->select(['title', 'permalink', 'short_text', 'image'])->where(['active' => 1])
             ->cache('home_blogs')->order(['display_order' => 'asc'])->limit(10)->all()->toArray();
 
         // dd($blogs);
         $this->set('homeBlogs', $blogs);
 
+        $this->loadModel('Universities');
+        $top_universities = $this->Universities->find()->where(['active' => 1, 'show_on_top_universities' => 1])
+            ->cache('top_universities')->order(['display_order' => 'asc'])->limit(10)->all()->toArray();
+
+        $this->loadModel('Countries');
+
+        $countriesCodesNames = $this->Countries->find('list', [
+            'keyField' => 'code', 'valueField' => 'country_name'
+        ])->where(['active' => 1])
+            ->cache('countriesCodesNames');
+         
+        $this->set('countriesCodesNames', $countriesCodesNames->toArray());
+        $this->set('top_universities', $top_universities);
+
+
         $this->loadModel('Events');
-        $home_main_events = $this->Events->find()->contain(['FairEvents' => ['fields' => ['event_id','day_date']]])->select(['id','title', 'sub_title','icon', 'image', 'permalink'])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
+        $home_main_events = $this->Events->find()->contain(['FairEvents' => ['fields' => ['event_id', 'day_date']]])->select(['id', 'title', 'sub_title', 'icon', 'image', 'permalink'])->cache('home_main_events')->order(['display_order' => 'asc'])->limit(3)->all();
 
         // dd($home_main_events);
         $this->set('homeBlogs', $blogs);

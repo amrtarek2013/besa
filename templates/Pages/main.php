@@ -31,7 +31,7 @@
                                 <div class="box-blog display-flex">
                                     <div class="card-img-top">
 
-                                        <img src="<?= $event['icon_path']?>" alt="event" loading="lazy">
+                                        <img src="<?= $event['icon_path'] ?>" alt="event" loading="lazy">
                                     </div>
                                     <div class="content-blog">
                                         <h4 class="title-blog">
@@ -166,49 +166,49 @@
 
 <?= $this->element('testimonials', ['testimonials' => $testimonials], ['cache' => ['key' => 'home_testimonials', 'config' => '_view_long_']]) ?>
 
-<scetion class="top-universities">
-    <div class=" container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="title title-top">Top Universities</h2>
-                <p class="description">We work wih best universities in the world</p>
-                <div class="owl-carousel owl-theme owl-topUni">
-                    <div class="item">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/img-unk.png" loading="lazy" alt="image United Kingdom">
-                        <div class="title-box">
-                            <h4>University of Manchester</h4>
-                            <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-unk.png" alt="flag United Kingdom">
-                                <span>United Kingdom</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/img-spain.png" loading="lazy" alt="image spain ">
-                        <div class="title-box">
-                            <h4>University of Mardid</h4>
-                            <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-spain.png" alt="flag spain ">
-                                <span>Spain </span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="<?= WEBSITE_URL ?>img/new-desgin/img-usk.png" loading="lazy" alt="image spain ">
-                        <div class="title-box">
-                            <h4>University of Washingnton</h4>
-                            <p class="flag">
-                                <img src="<?= WEBSITE_URL ?>img/new-desgin/flag-usk.png" alt="flag United States ">
-                                <span>United States</span>
-                            </p>
-                        </div>
+<?php
+
+
+if (!empty($top_universities)) {
+
+?>
+    <scetion class="top-universities">
+        <div class=" container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title title-top">Top Universities</h2>
+                    <p class="description">We work wih best universities in the world</p>
+                    <div class="owl-carousel owl-theme owl-topUni">
+
+                        <?php
+                        foreach ($top_universities as  $item) {
+
+                        ?>
+                            <div class="item">
+                                <img src="<?= $item['image_path'] ?>" loading="lazy" alt="<?= $item['university_name'] ?>">
+                                <div class="title-box">
+                                    <h4><?= $item['university_name'] ?></h4>
+                                    <p class="flag">
+                                        <img src="<?= $item['flag_path'] ?>" alt="<?= $item['country_name'] ?>">
+                                        <span><?= $countriesCodesNames[$item['country_name']] ?></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        <?php  }
+
+                        ?>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</scetion>
+    </scetion>
+<?php }
 
+?>
 
 <section class="contact-us contact-us-home">
     <div class="container">

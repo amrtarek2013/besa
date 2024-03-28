@@ -69,16 +69,16 @@
                                 ],
                             ])]);
 
-                            // echo $this->AdminForm->control('flag', ['label' => 'flag', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                            //     'data' => $university,
-                            //     'field' => 'flag',
-                            //     'info' => [
-                            //         'width' => $uploadSettings['flag']['width'],
-                            //         'height' => $uploadSettings['flag']['height'],
-                            //         'path' => $uploadSettings['flag']['path']
+                            echo $this->AdminForm->control('flag', ['label' => 'flag', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $university,
+                                'field' => 'flag',
+                                'info' => [
+                                    'width' => $uploadSettings['flag']['width'],
+                                    'height' => $uploadSettings['flag']['height'],
+                                    'path' => $uploadSettings['flag']['path']
 
-                            //     ],
-                            // ])]);
+                                ],
+                            ])]);
 
 
 
@@ -94,16 +94,16 @@
                             ])]);
 
 
-                            // echo $this->AdminForm->control('banner_image', ['label' => 'Banner Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
-                            //     'data' => $university,
-                            //     'field' => 'banner_image',
-                            //     'info' => [
-                            //         'width' => $uploadSettings['banner_image']['width'],
-                            //         'height' => $uploadSettings['banner_image']['height'],
-                            //         'path' => $uploadSettings['banner_image']['path']
+                            echo $this->AdminForm->control('banner_image', ['label' => 'Banner Image', 'type' => 'file', 'between' => $this->element('image_input_between', [
+                                'data' => $university,
+                                'field' => 'banner_image',
+                                'info' => [
+                                    'width' => $uploadSettings['banner_image']['width'],
+                                    'height' => $uploadSettings['banner_image']['height'],
+                                    'path' => $uploadSettings['banner_image']['path']
 
-                            //     ],
-                            // ])]);
+                                ],
+                            ])]);
                             ?>
 
                             <?php

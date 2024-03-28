@@ -37,11 +37,11 @@ class EnquiriesController extends AppController
          
 
 
-        $types = $this->Enquiries->find('list', [
-            'keyField' => 'type',
-            'valueField' => 'type',
-        ])->where(['type !=' => '', 'type is not null'])->distinct('type')->toArray();
-         $types =     array_merge ( $types,$this->Enquiries->enquiryTypesList);
+        // $types = $this->Enquiries->find('list', [
+        //     'keyField' => 'type',
+        //     'valueField' => 'type',
+        // ])->where(['type !=' => '', 'type is not null'])->distinct('type')->toArray();
+        //  $types =     array_merge ( $types,$this->Enquiries->enquiryTypesList);
         
 
         $this->set(compact('enquiries', 'parameters', 'types'));
