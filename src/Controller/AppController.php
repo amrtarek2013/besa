@@ -1336,7 +1336,7 @@ class AppController extends Controller
 
         if (empty($_SERVER["HTTPS"]) || !(!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $local))) {
 
-            return true;
+            // return true;
         }
         $extras = [];
         $this->loadModel('SubjectAreas');
