@@ -634,7 +634,8 @@ class EnquiriesTable extends Table
 
     function checkCaptchaV3($data)
     {
-        return getCaptcha($data); //strtolower('123456');
+        return false;
+        // return getCaptcha($data);
     }
 
     public function afterSave($event, $entity, $options)
