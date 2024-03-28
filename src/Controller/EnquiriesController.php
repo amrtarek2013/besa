@@ -123,25 +123,25 @@ class EnquiriesController extends AppController
 
                     $this->sendEmail($to, false, $email_template, $u_replace);
                     // 
-                    $return['message'] = __('The Enquiry has been saved.1');
+                    $return['message'] = __('The Enquiry has been saved.');
 
                     if ($this->request->is('ajax')) {
                         die(json_encode($return));
                     } else {
-                        $this->Flash->success(__('The Enquiry has been saved.2'));
+                        $this->Flash->success(__('The Enquiry has been saved.'));
                     }
                 } else if (!empty($oldEnq)) {
 
                     $return['message'] = 'Success';
                     $return['status']  = 1;
                     $return['title'] = 'Success';
-                    $return['message'] = __('The Enquiry has been saved.3');
+                    $return['message'] = __('The Enquiry has been saved.');
 
                     if ($this->request->is('ajax')) {
                         $return['validationErrors'] = $enquiry->getErrors();
                         die(json_encode($return));
                     } else {
-                        $this->Flash->success(__('The Enquiry has been saved.4'));
+                        $this->Flash->success(__('The Enquiry has been saved.'));
                     }
                 } else {
 
