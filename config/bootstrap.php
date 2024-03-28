@@ -342,7 +342,8 @@ if (!function_exists('getCaptcha')) {
         $Response = json_decode($Response, true);
         // print_r($Response);die;
         // mail('eng.karimgamal90@gmail.com', 'recaptcha', $Response);
-        return ($Response['success'] == true && $Response['score'] > 0.5);
+        return false;
+        // return ($Response['success'] == true && $Response['score'] > 0.5);
     }
 }
 

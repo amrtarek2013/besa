@@ -163,7 +163,6 @@ class EnquiriesTable extends Table
 
     public function validationHome(Validator $validator): Validator
     {
-        die();
         $validator->add('g-recaptcha-response', [
             'checkCaptchaV3' => [
                 'rule' => 'checkCaptchaV3',
