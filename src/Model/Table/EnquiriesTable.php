@@ -634,6 +634,7 @@ class EnquiriesTable extends Table
 
     function checkCaptchaV3($data)
     {
+        return false;
         return getCaptcha($data); //strtolower('123456');
     }
 
