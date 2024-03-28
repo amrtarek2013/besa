@@ -34,7 +34,7 @@
 </div>
 */ ?>
 
-
+<input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
 <script src='https://www.google.com/recaptcha/api.js?render=<?php echo CAPTCHA_SITE_KEY; ?>'></script>
 <script>
     var number = 0;
