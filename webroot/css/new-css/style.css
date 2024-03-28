@@ -13551,8 +13551,14 @@ div.error-message {
     align-items: center;
   }
   .home-events .top-events {
-    margin-bottom: 1550px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+height: max-content;
   }
+
+  .blogs-en, .choose-place-2, .discovery-assessment, .home-blogs, .milestones, .why_besa2 {
+    padding: 50px 0;
+}
   .acadia-university .content p,
   .besa-careers-section p,
   .bottom-hero-section .bold-descrp,
@@ -14067,7 +14073,7 @@ div.error-message {
   .blogs-en .owl-blogs .main-pos {
     width: 220px !important;
     height: 290px !important;
-    margin-left: 5.5em !important;
+    margin-left: 4.5em !important;
   }
   .owl-blogs .carousel-wrap {
     width: 100%;
@@ -14089,7 +14095,7 @@ div.error-message {
   .testimonials .owl-blogs .main-pos {
     width: 220px !important;
     height: 320px !important;
-    margin-left: 5.5em !important;
+    margin-left: 4.5em !important;
   }
   .testimonials .personal-data .circle-img {
     width: 53px;
