@@ -27,6 +27,7 @@ class EnquiriesController extends AppController
             Configure::write('debug', 0);
             Configure::write('debug', false);
             $data = $this->request->getData();
+            print_r($data);die;
             // dd($data);
             $enquiry = $this->Enquiries->patchEntity(
                 $enquiry,
