@@ -113,7 +113,7 @@ class PagesController extends AppController
         $home_assessment_section = $this->getSnippet('home_assessment');
 
         $this->loadModel('Blogs');
-        $blogs = $this->Blogs->find()->select(['title', 'short_text', 'image'])->where(['active' => 1])
+        $blogs = $this->Blogs->find()->select(['title','permalink', 'short_text', 'image'])->where(['active' => 1])
             ->cache('home_blogs')->order(['display_order' => 'asc'])->limit(10)->all()->toArray();
 
         // dd($blogs);
